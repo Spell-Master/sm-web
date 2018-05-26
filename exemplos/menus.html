@@ -65,7 +65,7 @@
                     <li class="line-block"><a href="#" title="b" class="btn-default">Link 2</a></li>
                     <li class="line-block hover-show">
                         <div class="btn-default">Drop Down</div>
-                        <ul class="list-none absolute none bg-dark hover-show-item">
+                        <ul class="list-none absolute none bg-dark hover-show-item" style="z-index: 1">
                             <li><a href="#" title="dp-a" class="btn-default">Drop Link 1</a></li>
                             <li><a href="#" title="dp-c" class="btn-default">Drop Link 2</a></li>
                             <li><a href="#" title="dp-c" class="btn-default">Drop Link 3</a></li>
@@ -85,6 +85,16 @@
         &lt;/ul&gt;
     &lt;/li&gt;
 &lt;/ul&gt;</code></pre>
+            <blockquote class="blockquote-green">
+                Em alguns casos nosso elemento absoluto, ele pode ficar oculto atrás de outro elemento.
+                <p>Nesse caso passamos a sua importancia ser maior que o elemento á frente.</p>
+                <p>Para isso usamos a propiedade <span class="bold">z-index</span></p>
+                Exemplo:
+                <pre class="language-html"><code>&lt;ul class="list-none absolute none bg-dark hover-show-item" style="z-index: 1"&gt;</code></pre>
+                <div class="italic">z-index definine o grau de importância de um elemento, quanto maior seu
+                    valor, maior será sua importancia de exibição. Essa propiedade afeta drasticamente
+                qualquer elemento cujo possua a propiedade position.</div>
+            </blockquote>
             
             <div class="margin-top-high font-medium">
                 <p class="font-large">Sem espaçar</p>
@@ -94,7 +104,7 @@
                         <li class="float-left border-left border-dark"><a href="#" title="b" class="btn-default">Link 2</a></li>
                         <li class="float-left border-left border-dark hover-show">
                             <div class="btn-default">Drop Down</div>
-                            <ul class="list-none absolute none bg-dark hover-show-item">
+                            <ul class="list-none absolute none bg-dark hover-show-item" style="z-index: 1">
                                 <li><a href="#" title="dp-a" class="btn-default">Drop Link 1</a></li>
                                 <li><a href="#" title="dp-c" class="btn-default">Drop Link 2</a></li>
                                 <li><a href="#" title="dp-c" class="btn-default">Drop Link 3</a></li>
@@ -135,7 +145,7 @@
                 </div>
                 <div class="relative">
                     <div class="floating">
-                        <ul class="hide-b list-none none absolute" id="exemplo">
+                        <ul class="hide-b list-none none absolute" id="exemplo" style="z-index: 1">
                             <li class="float-left maximize-b"><a href="#" title="a" class="btn-default maximize-b">Link 1</a></li>
                             <li class="float-left border-left border-dark maximize-b"><a href="#" title="b" class="btn-default maximize-b">Link 2</a></li>
                             <li class="float-left border-left border-dark maximize-b"><a href="#" title="c" class="btn-default maximize-b">Link 3</a></li>

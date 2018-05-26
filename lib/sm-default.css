@@ -162,7 +162,7 @@ h6 {font-size:1.5rem}
 .bg-white, .bg-white-hover:hover {background-color:#ffffff !important}
 .bg-light, .bg-light-hover:hover {background-color:#f2f2f2 !important}
 .bg-dark, .bg-dark-hover:hover {background-color:#d9d9d9 !important}
-.bg-black, .bg-black-hover:hover {background-color:#404040 !important}
+.bg-black, .bg-black-hover:hover {background-color:#333333 !important}
 .bg-light-black, .bg-light-black-hover:hover {background-color:#4d4d4d !important}
 .bg-dark-black, .bg-dark-black-hover:hover {background-color:#000000 !important}
 .bg-grey, .bg-grey-hover:hover {background-color:#808080 !important}
@@ -411,7 +411,7 @@ h6 {font-size:1.5rem}
 .border-white, .border-white-hover:hover {border-color:#ffffff !important}
 .border-light, .border-light-hover:hover {border-color:#f2f2f2 !important}
 .border-dark, .border-dark-hover:hover {border-color:#d9d9d9 !important}
-.border-black, .border-black-hover:hover {border-color:#404040 !important}
+.border-black, .border-black-hover:hover {border-color:#333333 !important}
 .border-light-black, .border-light-black-hover:hover {border-color:#4d4d4d !important}
 .border-dark-black, .border-dark-black-hover:hover {border-color:#000000 !important}
 .border-grey, .border-grey-hover:hover {border-color:#808080 !important}
@@ -685,9 +685,8 @@ h6 {font-size:1.5rem}
  * * Exibir
  * ****************************************
  */
-.block {display:block}
-.none {display:none}
-.list {display:list-item}
+.none, .hide, .hide-b, .hide-c {display:none}
+.block, .show, .show-b, .show-c {display:block}
 
 .table {display:table}
 .tr {display:table-row}
@@ -702,6 +701,11 @@ h6 {font-size:1.5rem}
 .line-block {display:inline-block}
 .line-table {display:inline-table}
 
+.show-def {display:block !important}
+.hide-def {display:block !important}
+
+.hover-show:hover > .hover-show-item {display:block !important}
+
 /**
  * ****************************************
  * * Botões
@@ -711,7 +715,6 @@ h6 {font-size:1.5rem}
     outline:0;
     border:none;
     padding:.75rem 1.5rem;
-    margin-bottom:.1rem;
     display:inline-block;
     vertical-align:middle;
     text-decoration:none;
@@ -766,8 +769,6 @@ h6 {font-size:1.5rem}
 
 .form-line > [class^="float"] > div,
 .form-line > [class^="float"] > span,
-.form-line > [class^="float"] > button,
-.form-line > [class^="float"] > select,
 .form-line > [class^="float"] > input,
 .form-line > div > button,
 .form-line > div > select {
@@ -779,6 +780,13 @@ h6 {font-size:1.5rem}
     cursor:default
 }
 
+/**
+ * ****************************************
+ * * Menu
+ * ****************************************
+ */
+.list {display:list-item}
+.list-none {list-style: none}
 
 /**
  * ****************************************
@@ -809,6 +817,8 @@ h6 {font-size:1.5rem}
     .box-fluid-74 {width:74.99999%}
     .box-fluid-83 {width:83.33333%}
     .box-fluid-91 {width:91.66666%}
+    .hide {display:block}
+    .show {display:none}
 }
 @media (min-width: 600px) {
     .col-8b {width:8.33333%}
@@ -834,6 +844,8 @@ h6 {font-size:1.5rem}
     .box-fluid-74b {width:74.99999%}
     .box-fluid-83b {width:83.33333%}
     .box-fluid-91b {width:91.66666%}
+    .hide-b {display:block}
+    .show-b {display:none}
 }
 @media (min-width: 480px) {
     .col-8c {width:8.33333%}
@@ -859,6 +871,8 @@ h6 {font-size:1.5rem}
     .box-fluid-74c {width:74.99999%}
     .box-fluid-83c {width:83.33333%}
     .box-fluid-91c {width:91.66666%}
+    .hide-c {display:block}
+    .show-c {display:none}
 }
 
 @media (max-width: 1024px) {

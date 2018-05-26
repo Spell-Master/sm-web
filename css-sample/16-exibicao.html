@@ -16,7 +16,7 @@
             <hr class="border-bottom border-light" />
 
             <div class="font-default">
-                <div class="blockquote">Métodos de manpulação de como elementos devem ser exibidos.</div>
+                <blockquote class="blockquote">Métodos de manpulação de como elementos devem ser exibidos.</blockquote>
 
                 <p class="font-large">block</p>
                 Este valor faz com que um elemento gere uma caixa de bloco.
@@ -76,13 +76,13 @@
                 <p class="font-large">tcap</p>
                 Esse valor faz com que uma caixa seja exibida como conteúdo de tabela.
 
-                <div class="blockquote-yellow">
+                <blockquote class="blockquote-yellow">
                     <span class="bold">NOTA * </span>Todas as regras para tipo tabela nada mais é que:
                     <p>Fazer com que o CSS interprete outros elementos que não sejam tabelas ou seu conteúdo como
                         se fossem tal.</p>
                     <p>Para mais informações sobre o que é uma tabela e seu comportamento no HTML.</p>
                     <p>Leia essa documentação: <a href="https://www.w3.org/TR/CSS2/tables.html" title="w3.org" target="_blank">www.w3.org/TR/CSS2/tables.html</a></p>
-                </div>
+                </blockquote>
 
                 <hr class="border-bottom border-grey" />
                 <p class="font-large">line-block</p>
@@ -133,11 +133,83 @@
 &lt;/div&gt;</code></pre>
             </div>
 
-            <div class="blockquote-red">
+            <blockquote class="blockquote-red">
                 As propiedades <span class="bold">display-*?</span> ou <span class="bold">table-*?</span> 
                 não afetam as propiedades <span class="bold">float</span>.
+            </blockquote>
+
+            <div class="margin-top-high font-default">
+                Possuímos também em nosso css regras de ocultam ou exibem elementos com condições expecíficas.
+                <p class="font-large">show-def</p>
+                Usada em casos extremos onde o elemento deve ser exibido a qualquer custo.
+                <hr class="border-bottom border-dark" />
+                <p class="font-large">hide-def</p>
+                Usada em casos extremos onde o elemento deve ser ocultado a qualquer custo.
+                <blockquote class="blockquote-red">
+                    As regras <span class="bold">show-def</span> e <span class="bold">hide-def</span>
+                    nunca devem ser utilizadas no mesmo elemento!
+                </blockquote>
+                <p class="font-large">hover-show & hover-show-item</p>
+                Usados em um elemento pai que possua o elemento filho oculto.
+                <p>Quando o elemento pai estiver com o cursor ativo o filho oculto é mostrado.</p>
+                <blockquote class="blockquote-yellow">
+                    Coloque o cursor em cima do bloco azul e veja o efeito
+                </blockquote>
+                <div class="bg-blue text-white font-medium hover-show">
+                    <div class="padding-all">
+                        Elemento Pai (<span class="bold">.hover-show</span>)
+                    </div>
+                    <div class="padding-all-min bg-red none hover-show-item">
+                        Elemento filho (<span class="bold">.hover-show-item</span>)
+                    </div>
+                </div>
+                <pre class="language-html"><code>&lt;div class="bg-blue text-white font-medium hover-show"&gt;
+    &lt;div class="padding-all"&gt;
+        Elemento Pai (&lt;span class="bold"&gt;.hover-show&lt;/span&gt;)
+    &lt;/div&gt;
+    &lt;div class="padding-all-min bg-red none hover-show-item"&gt;
+        Elemento filho (&lt;span class="bold"&gt;.hover-show-item&lt;/span&gt;)
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
             </div>
+
+            <div class="margin-top-high font-default">
+                <p class="font-large">Ocultando de acordo com a resolução</p>
+                <blockquote class="blockquote-red">
+                    Em resoluções inferiores a 480px nenhum dos exemplos será mostrado!
+                </blockquote>
+                <div class="text-white">
+                    <div class="bg-black margin-all padding-all hide"><span class="font-medium">hide</span> Esse elemento se oculta quando a resolução for inferior a 900px</div>
+                    <div class="bg-black margin-all padding-all hide-b"><span class="font-medium">hide-b</span> Esse elemento se oculta quando a resolução for inferior a 600px</div>
+                    <div class="bg-black margin-all padding-all hide-c"><span class="font-medium">hide-b</span> Esse elemento se oculta quando a resolução for inferior a 480px</div>
+                </div>
+            </div>
+            <pre class="language-html"><code>&lt;div class="text-white"&gt;
+    &lt;div class="bg-black margin-all padding-all hide"&gt;&lt;span class="font-medium"&gt;hide&lt;/span&gt; Esse elemento se oculta quando a resolução for inferior a 900px&lt;/div&gt;
+    &lt;div class="bg-black margin-all padding-all hide-b"&gt;&lt;span class="font-medium"&gt;hide-b&lt;/span&gt; Esse elemento se oculta quando a resolução for inferior a 600px&lt;/div&gt;
+    &lt;div class="bg-black margin-all padding-all hide-c"&gt;&lt;span class="font-medium"&gt;hide-b&lt;/span&gt; Esse elemento se oculta quando a resolução for inferior a 480px&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            
+            
+            <div class="margin-top-high font-default">
+                <p class="font-large">Mostrando de acordo com a resolução</p>
+                <blockquote class="blockquote-red">
+                    Em resoluções superiores a 900px nenhum dos exemplos será mostrado!
+                </blockquote>
+                <div class="text-white">
+                    <div class="bg-green margin-all padding-all show"><span class="font-medium">hide</span> Esse elemento aparece quando a resolução for inferior a 900px</div>
+                    <div class="bg-green margin-all padding-all show-b"><span class="font-medium">hide-b</span> Esse elemento aparece quando a resolução for inferior a 600px</div>
+                    <div class="bg-green margin-all padding-all show-c"><span class="font-medium">hide-b</span> Esse elemento aparece quando a resolução for inferior a 480px</div>
+                </div>
+            </div>
+            <pre class="language-html"><code>&lt;div class="text-white"&gt;
+    &lt;div class="bg-green margin-all padding-all show"&gt;&lt;span class="font-medium"&gt;show&lt;/span&gt; Esse elemento aparece quando a resolução for inferior a 900px&lt;/div&gt;
+    &lt;div class="bg-green margin-all padding-all show-b"&gt;&lt;span class="font-medium"&gt;show-b&lt;/span&gt; Esse elemento aparece quando a resolução for inferior a 600px&lt;/div&gt;
+    &lt;div class="bg-green margin-all padding-all show-c"&gt;&lt;span class="font-medium"&gt;show-b&lt;/span&gt; Esse elemento aparece quando a resolução for inferior a 480px&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            
         </div>
         <div class="box-y-50"></div>
     </body>
 </html>
+

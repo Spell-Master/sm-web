@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Menus</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <script src="../lib/prism/prism.js" type="text/javascript"></script>
+        <link href="../lib/prism/prism.css" rel="stylesheet" type="text/css"/>
+        <link href="../lib/sm-default.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <div class="container padding-lr">
+            <div class="align-center">
+                <h1>Menus</h1>
+            </div>
+            <hr class="border-bottom border-light" />
+
+            <p class="font-large">Simples</p>
+            <div class="font-medium">
+                <ul class="list-none">
+                    <li class="line-block"><a href="#" title="a" class="btn-default">Link 1</a></li>
+                    <li class="line-block"><a href="#" title="b" class="btn-default">Link 2</a></li>
+                    <li class="line-block"><a href="#" title="c" class="btn-default">Link 3</a></li>
+                    <li class="line-block"><a href="#" title="d" class="btn-default">Link 4</a></li>
+                    <li class="line-block"><a href="#" title="e" class="btn-default">Link 5</a></li>
+                </ul>
+            </div>
+            <pre class="language-html"><code>&lt;ul class="list-none"&gt;
+    &lt;li class="line-block"&gt;&lt;a href="#" title="a" class="btn-default"&gt;Link 1&lt;/a&gt;&lt;/li&gt;
+    &lt;li class="line-block"&gt;&lt;a href="#" title="b" class="btn-default"&gt;Link 2&lt;/a&gt;&lt;/li&gt;
+    &lt;li class="line-block"&gt;&lt;a href="#" title="c" class="btn-default"&gt;Link 3&lt;/a&gt;&lt;/li&gt;
+    &lt;li class="line-block"&gt;&lt;a href="#" title="d" class="btn-default"&gt;Link 4&lt;/a&gt;&lt;/li&gt;
+    &lt;li class="line-block"&gt;&lt;a href="#" title="e" class="btn-default"&gt;Link 5&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+
+            <div class="margin-top-high font-medium">
+                <p class="font-large">Maximizando</p>
+                <blockquote class="blockquote-yellow">
+                    O controle é feito pelo método maximize-*?*
+                </blockquote>
+                <ul class="list-none">
+                    <li class="line-block maximize-b"><a href="#" title="a" class="btn-default maximize-b">Link 1</a></li>
+                    <li class="line-block maximize-b"><a href="#" title="b" class="btn-default maximize-b">Link 2</a></li>
+                    <li class="line-block maximize-b"><a href="#" title="c" class="btn-default maximize-b">Link 3</a></li>
+                    <li class="line-block maximize-b"><a href="#" title="d" class="btn-default maximize-b">Link 4</a></li>
+                    <li class="line-block maximize-b"><a href="#" title="e" class="btn-default maximize-b">Link 5</a></li>
+                </ul>
+            </div>
+            <pre class="language-html"><code>&lt;ul class="list-none"&gt;
+    &lt;li class="line-block maximize-b"&gt;&lt;a href="#" title="a" class="btn-default maximize-b"&gt;Link 1&lt;/a&gt;&lt;/li&gt;
+    &lt;li class="line-block maximize-b"&gt;&lt;a href="#" title="b" class="btn-default maximize-b"&gt;Link 2&lt;/a&gt;&lt;/li&gt;
+    &lt;li class="line-block maximize-b"&gt;&lt;a href="#" title="c" class="btn-default maximize-b"&gt;Link 3&lt;/a&gt;&lt;/li&gt;
+    &lt;li class="line-block maximize-b"&gt;&lt;a href="#" title="d" class="btn-default maximize-b"&gt;Link 4&lt;/a&gt;&lt;/li&gt;
+    &lt;li class="line-block maximize-b"&gt;&lt;a href="#" title="e" class="btn-default maximize-b"&gt;Link 5&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+            
+            <div class="margin-top-high font-medium">
+                <p class="font-large">Sub Menu</p>
+                <blockquote class="blockquote-yellow">
+                    Coloque o cusor sobre o botão <span class="bold">Drop Down</span> para exibir o sub menu.
+                    <p>Em mobiles touch esse efeito é ativo pelo toque.</p>
+                </blockquote>
+                <ul class="list-none">
+                    <li class="line-block"><a href="#" title="a" class="btn-default">Link 1</a></li>
+                    <li class="line-block"><a href="#" title="b" class="btn-default">Link 2</a></li>
+                    <li class="line-block hover-show">
+                        <div class="btn-default">Drop Down</div>
+                        <ul class="list-none absolute none bg-dark hover-show-item">
+                            <li><a href="#" title="dp-a" class="btn-default">Drop Link 1</a></li>
+                            <li><a href="#" title="dp-c" class="btn-default">Drop Link 2</a></li>
+                            <li><a href="#" title="dp-c" class="btn-default">Drop Link 3</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <pre class="language-html"><code>&lt;ul class="list-none"&gt;
+    &lt;li class="line-block"&gt;&lt;a href="#" title="a" class="btn-default"&gt;Link 1&lt;/a&gt;&lt;/li&gt;
+    &lt;li class="line-block"&gt;&lt;a href="#" title="b" class="btn-default"&gt;Link 2&lt;/a&gt;&lt;/li&gt;
+    &lt;li class="line-block hover-show"&gt;
+        &lt;div class="btn-default"&gt;Drop Down&lt;/div&gt;
+        &lt;ul class="list-none absolute none bg-dark hover-show-item"&gt;
+            &lt;li&gt;&lt;a href="#" title="dp-a" class="btn-default"&gt;Drop Link 1&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#" title="dp-c" class="btn-default"&gt;Drop Link 2&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#" title="dp-c" class="btn-default"&gt;Drop Link 3&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+            
+            <div class="margin-top-high font-medium">
+                <p class="font-large">Sem espaçar</p>
+                <div class="floating">
+                    <ul class="list-none">
+                        <li class="float-left"><a href="#" title="a" class="btn-default">Link 1</a></li>
+                        <li class="float-left border-left border-dark"><a href="#" title="b" class="btn-default">Link 2</a></li>
+                        <li class="float-left border-left border-dark hover-show">
+                            <div class="btn-default">Drop Down</div>
+                            <ul class="list-none absolute none bg-dark hover-show-item">
+                                <li><a href="#" title="dp-a" class="btn-default">Drop Link 1</a></li>
+                                <li><a href="#" title="dp-c" class="btn-default">Drop Link 2</a></li>
+                                <li><a href="#" title="dp-c" class="btn-default">Drop Link 3</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <pre class="language-html"><code>&lt;div class="floating"&gt;
+    &lt;ul class="list-none"&gt;
+        &lt;li class="float-left"&gt;&lt;a href="#" title="a" class="btn-default"&gt;Link 1&lt;/a&gt;&lt;/li&gt;
+        &lt;li class="float-left border-left border-dark"&gt;&lt;a href="#" title="b" class="btn-default"&gt;Link 2&lt;/a&gt;&lt;/li&gt;
+        &lt;li class="float-left border-left border-dark hover-show"&gt;
+            &lt;div class="btn-default"&gt;Drop Down&lt;/div&gt;
+            &lt;ul class="list-none absolute none bg-dark hover-show-item"&gt;
+                &lt;li&gt;&lt;a href="#" title="dp-a" class="btn-default"&gt;Drop Link 1&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#" title="dp-c" class="btn-default"&gt;Drop Link 2&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#" title="dp-c" class="btn-default"&gt;Drop Link 3&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;</code></pre>
+            
+            <div class="margin-top-high font-medium">
+                <p class="font-large">Resposivo Ativo</p>
+                <blockquote class="blockquote-yellow">
+                    Para esse tipo de menu devemos utilizar o javascript para exibir o elemento.
+                    <p>É necessário que a resolução seja inferior a 600 pixel para visualização desse efeito.</p>
+                </blockquote>
+                <div class="font-default">
+                    Usaremos vários métodos do nosso CSS padrão para ocultar, reinscalar e posicionar elementos.
+                    <p>Aqui optei em usar as regras com a resolução de 600px.</p>
+                    <p>Assim sendo quando a resolução for inferior a 600 exibimos o item que abrirá nosso menu responsivo</p>
+                </div>
+
+                <div class="show-b box-fluid-99 align-right bg-dark-grey bold font-large text-white">
+                    <div class="btn padding-all bg-black-hover cursor-pointer" onclick="jsFnc();">&#9776;</div>
+                </div>
+                <div class="relative">
+                    <div class="floating">
+                        <ul class="hide-b list-none none absolute" id="exemplo">
+                            <li class="float-left maximize-b"><a href="#" title="a" class="btn-default maximize-b">Link 1</a></li>
+                            <li class="float-left border-left border-dark maximize-b"><a href="#" title="b" class="btn-default maximize-b">Link 2</a></li>
+                            <li class="float-left border-left border-dark maximize-b"><a href="#" title="c" class="btn-default maximize-b">Link 3</a></li>
+                            <li class="float-left border-left border-dark maximize-b"><a href="#" title="d" class="btn-default maximize-b">Link 4</a></li>
+                            <li class="float-left border-left border-dark maximize-b"><a href="#" title="e" class="btn-default maximize-b">Link 5</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="box-y-100"></div>
+            </div>
+            <script>
+                function jsFnc() {
+                    document.getElementById('exemplo').classList.toggle('show-def');
+                }
+            </script>
+            <pre class="language-html"><code>&lt;div class="show-b box-fluid-99 align-right bg-dark-grey bold font-large text-white"&gt;
+    &lt;div class="btn padding-all bg-black-hover cursor-pointer" onclick="jsFnc();"&gt;&#9776;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="relative"&gt;
+    &lt;div class="floating"&gt;
+        &lt;ul class="hide-b list-none none absolute" id="exemplo"&gt;
+            &lt;li class="float-left maximize-b"&gt;&lt;a href="#" title="a" class="btn-default maximize-b"&gt;Link 1&lt;/a&gt;&lt;/li&gt;
+            &lt;li class="float-left border-left border-dark maximize-b"&gt;&lt;a href="#" title="b" class="btn-default maximize-b"&gt;Link 2&lt;/a&gt;&lt;/li&gt;
+            &lt;li class="float-left border-left border-dark maximize-b"&gt;&lt;a href="#" title="c" class="btn-default maximize-b"&gt;Link 3&lt;/a&gt;&lt;/li&gt;
+            &lt;li class="float-left border-left border-dark maximize-b"&gt;&lt;a href="#" title="d" class="btn-default maximize-b"&gt;Link 4&lt;/a&gt;&lt;/li&gt;
+            &lt;li class="float-left border-left border-dark maximize-b"&gt;&lt;a href="#" title="e" class="btn-default maximize-b"&gt;Link 5&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            <br />
+            <pre class="language-html"><code>&lt;script&gt;
+    function jsFnc() {
+        document.getElementById('exemplo').classList.toggle('show-def');
+    }
+&lt;/script&gt;</code></pre>
+
+        </div>
+        <div class="box-y-50"></div>
+        <div class="box-y-50"></div>
+        <div class="box-y-50"></div>
+        <div class="box-y-50"></div>
+        <div class="box-y-50"></div>
+        <div class="box-y-50"></div>
+    </body>
+</html>

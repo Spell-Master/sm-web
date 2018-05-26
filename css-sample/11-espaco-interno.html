@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Padding</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <script src="../lib/prism/prism.js" type="text/javascript"></script>
+        <link href="../lib/prism/prism.css" rel="stylesheet" type="text/css"/>
+        <link href="../lib/sm-default.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <div class="container">
+            <div class="align-center padding-lr">
+                <h1>Espaçadores Internos</h1>
+            </div>
+            <hr class="border-bottom border-light" />
+            
+            <div class="blockquote-blue">
+                padding É uma propiedade CSS que coloca uma margem interna no elemento em relação as suas bordas.
+            </div>
+            <div class="blockquote-yellow">
+                A box com a cor escura recebe o método fazendo com que a box em azul de destancie internamente.
+            </div>
+            <div class="font-large text-white">
+                <div class="row-pad">
+                    <div class="col-33b">
+                        <div class="bg-dark-grey padding-all">
+                            <div class="bg-blue align-center">padding-all</div>
+                        </div>
+                    </div>
+                    <div class="col-33b">
+                        <div class="bg-dark-grey padding-top">
+                            <div class="bg-blue align-center">padding-top</div>
+                        </div>
+                    </div>
+                    <div class="col-33b">
+                        <div class="bg-dark-grey padding-bottom">
+                            <div class="bg-blue align-center">padding-bottom</div>
+                        </div>
+                    </div>
+                    <div class="col-33b">
+                        <div class="bg-dark-grey padding-left">
+                            <div class="bg-blue align-center">padding-left</div>
+                        </div>
+                    </div>
+                    <div class="col-33b">
+                        <div class="bg-dark-grey padding-right">
+                            <div class="bg-blue align-center">padding-right</div>
+                        </div>
+                    </div>
+                </div>
+                <pre class="language-html line-numbers"><code>&lt;div class="row-pad"&gt;
+&nbsp; &nbsp; &lt;div class="col-33b"&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="bg-dark-grey padding-all"&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="bg-blue align-center"&gt;padding-all&lt;/div&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;
+&nbsp; &nbsp; &lt;/div&gt;
+&nbsp; &nbsp; &lt;div class="col-33b"&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="bg-dark-grey padding-top"&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="bg-blue align-center"&gt;padding-top&lt;/div&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;
+&nbsp; &nbsp; &lt;/div&gt;
+&nbsp; &nbsp; &lt;div class="col-33b"&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="bg-dark-grey padding-bottom"&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="bg-blue align-center"&gt;padding-bottom&lt;/div&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;
+&nbsp; &nbsp; &lt;/div&gt;
+&nbsp; &nbsp; &lt;div class="col-33b"&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="bg-dark-grey padding-left"&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="bg-blue align-center"&gt;padding-left&lt;/div&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;
+&nbsp; &nbsp; &lt;/div&gt;
+&nbsp; &nbsp; &lt;div class="col-33b"&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="bg-dark-grey padding-right"&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="bg-blue align-center"&gt;padding-right&lt;/div&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;
+&nbsp; &nbsp; &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+                <div class="margin-top-high">
+                    <div class="row-pad">
+                        <div class="col-33b">
+                            <div class="bg-dark-grey padding-all-min">
+                                <div class="bg-blue align-center">padding-all-min</div>
+                            </div>
+                        </div>
+                        <div class="col-33b">
+                            <div class="bg-dark-grey padding-top-min">
+                                <div class="bg-blue align-center">padding-top-min</div>
+                            </div>
+                        </div>
+                        <div class="col-33b">
+                            <div class="bg-dark-grey padding-bottom-min">
+                                <div class="bg-blue align-center">padding-bottom-min</div>
+                            </div>
+                        </div>
+                        <div class="col-33b">
+                            <div class="bg-dark-grey padding-left-min">
+                                <div class="bg-blue align-center">padding-left-min</div>
+                            </div>
+                        </div>
+                        <div class="col-33b">
+                            <div class="bg-dark-grey padding-right-min">
+                                <div class="bg-blue align-center">padding-right-min</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <pre class="language-html line-numbers"><code>&lt;div class="row-pad"&gt;
+&nbsp; &nbsp; &lt;div class="col-33b"&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="bg-dark-grey padding-all-min"&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="bg-blue align-center"&gt;padding-all-min&lt;/div&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;
+&nbsp; &nbsp; &lt;/div&gt;
+&nbsp; &nbsp; &lt;div class="col-33b"&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="bg-dark-grey padding-top-min"&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="bg-blue align-center"&gt;padding-top-min&lt;/div&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;
+&nbsp; &nbsp; &lt;/div&gt;
+&nbsp; &nbsp; &lt;div class="col-33b"&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="bg-dark-grey padding-bottom-min"&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="bg-blue align-center"&gt;padding-bottom-min&lt;/div&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;
+&nbsp; &nbsp; &lt;/div&gt;
+&nbsp; &nbsp; &lt;div class="col-33b"&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="bg-dark-grey padding-left-min"&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="bg-blue align-center"&gt;padding-left-min&lt;/div&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;
+&nbsp; &nbsp; &lt;/div&gt;
+&nbsp; &nbsp; &lt;div class="col-33b"&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="bg-dark-grey padding-right-min"&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="bg-blue align-center"&gt;padding-right-min&lt;/div&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;
+&nbsp; &nbsp; &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+                <div class="margin-top-high">
+                    <div class="row-pad">
+                        <div class="col-33b">
+                            <div class="bg-dark-grey padding-all-high">
+                                <div class="bg-blue align-center">padding-all-high</div>
+                            </div>
+                        </div>
+                        <div class="col-33b">
+                            <div class="bg-dark-grey padding-top-high">
+                                <div class="bg-blue align-center">padding-top-high</div>
+                            </div>
+                        </div>
+                        <div class="col-33b">
+                            <div class="bg-dark-grey padding-bottom-high">
+                                <div class="bg-blue align-center">padding-bottom-high</div>
+                            </div>
+                        </div>
+                        <div class="col-33b">
+                            <div class="bg-dark-grey padding-left-high">
+                                <div class="bg-blue align-center">padding-left-high</div>
+                            </div>
+                        </div>
+                        <div class="col-33b">
+                            <div class="bg-dark-grey padding-right-high">
+                                <div class="bg-blue align-center">padding-right-high</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <pre class="language-html line-numbers"><code>&lt;div class="row-pad"&gt;
+&nbsp; &nbsp; &lt;div class="col-33b"&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="bg-dark-grey padding-all-high"&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="bg-blue align-center"&gt;padding-all-high&lt;/div&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;
+&nbsp; &nbsp; &lt;/div&gt;
+&nbsp; &nbsp; &lt;div class="col-33b"&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="bg-dark-grey padding-top-high"&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="bg-blue align-center"&gt;padding-top-high&lt;/div&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;
+&nbsp; &nbsp; &lt;/div&gt;
+&nbsp; &nbsp; &lt;div class="col-33b"&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="bg-dark-grey padding-bottom-high"&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="bg-blue align-center"&gt;padding-bottom-high&lt;/div&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;
+&nbsp; &nbsp; &lt;/div&gt;
+&nbsp; &nbsp; &lt;div class="col-33b"&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="bg-dark-grey padding-left-high"&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="bg-blue align-center"&gt;padding-left-high&lt;/div&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;
+&nbsp; &nbsp; &lt;/div&gt;
+&nbsp; &nbsp; &lt;div class="col-33b"&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="bg-dark-grey padding-right-high"&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="bg-blue align-center"&gt;padding-right-high&lt;/div&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;
+&nbsp; &nbsp; &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+
+            <div class="margin-top blockquote-green">
+                Existe as definições genéricas, que combinam as mesmas propiedades.
+            </div>
+            <div class="font-large">
+                Combinando espaçamento a esquerda e direita
+                <div class="bg-dark-grey padding-lr">
+                    <div class="bg-blue text-white align-center">padding-lr</div>
+                </div>
+                Combinando margen ao acima e abaixo
+                <div class="bg-dark-grey padding-tb">
+                    <div class="bg-blue text-white align-center">padding-tb</div>
+                </div>
+            </div>
+            <div class="blockquote-yellow">
+                As mesmas definições genéricas também possuem suas propiedades de ampliamento.
+            </div>
+            <pre class="language-html"><code>&lt;div class="padding-lr"&gt;&lt;/div&gt;
+&lt;div class="padding-lr-min"&gt;&lt;/div&gt;
+&lt;div class="padding-lr-high"&gt;&lt;/div&gt;
+&lt;div class="padding-tb"&gt;&lt;/div&gt;
+&lt;div class="padding-tb-min"&gt;&lt;/div&gt;
+&lt;div class="padding-tb-high"&gt;&lt;/div&gt;</code></pre>
+        </div>
+        <div class="box-y-50"></div>
+    </body>
+</html>
+

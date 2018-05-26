@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Alinhamentos</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <script src="../lib/prism/prism.js" type="text/javascript"></script>
+        <link href="../lib/prism/prism.css" rel="stylesheet" type="text/css"/>
+        <link href="../lib/sm-default.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <div class="container padding-lr">
+            <div class="align-center">
+                <h1>Alinhamentos de textos</h1>
+            </div>
+            <hr class="border-bottom border-light" />
+
+            <p class="font-large">Alinhamento horizontal</p>
+            <div class="padding-all font-medium">
+                <hr class="border-bottom border-dark" />
+                <div class="align-left">align-left</div>
+                <hr class="border-bottom border-dark" />
+                <div class="align-center">align-center</div>
+                <hr class="border-bottom border-dark" />
+                <div class="align-right">align-right</div>
+                <hr class="border-bottom border-dark" />
+            </div>
+            <pre class="language-html"><code>&lt;hr class="border-bottom border-dark" /&gt;
+&lt;div class="align-left"&gt;align-left&lt;/div&gt;
+&lt;hr class="border-bottom border-dark" /&gt;
+&lt;div class="align-center"&gt;align-center&lt;/div&gt;
+&lt;hr class="border-bottom border-dark" /&gt;
+&lt;div class="align-right"&gt;align-right&lt;/div&gt;
+&lt;hr class="border-bottom border-dark" /&gt;</code></pre>
+
+            <div class="blockquote-blue">
+                É possivel posicionar elementos não texto também. Desde que esse elemento possua algum tamanho de
+                referência.
+                <p>Baste que adicione o alinhamento no lugar que vai receber o(s) elemento(s) para alinhar.</p>
+                <p>Então exibimos eles como elementos em linha:</p>
+            </div>
+            <div class="bg-black box-x-auto align-center">
+                <div class="box-xy-200 bg-red margin-all line-block"></div>
+                <div class="box-xy-200 bg-red margin-all line-block"></div>
+            </div>
+            <pre class="language-html line-numbers"><code>&lt;div class="bg-black box-x-auto align-center"&gt;
+&nbsp; &nbsp; &lt;div class="box-xy-200 bg-red margin-all line-block"&gt;&lt;/div&gt;
+&nbsp; &nbsp; &lt;div class="box-xy-200 bg-red margin-all line-block"&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+            <div class="margin-top-high">
+                <p class="font-large">Alinhamento vertical</p>
+                <div class="blockquote-yellow">
+                    Nota* - Para que o alinhamento vertical funcione é necessário tratar-lo como uma tabela.
+                    <p>Quando os elementos internos que serão alinhados, não possuírem um tamanho de altura
+                        é necessário que então o elemento pai tenha uma altura referencial.
+                        Caso contrário todos os elementos internos serão exibidos como base da linha de conteúdo
+                        existente.</p>
+                </div>
+
+                <div class="font-medium text-white">
+                    <div class="bg-black box-fluid-99 box-y-250 align-center table">
+                        <div class="vertical-baseline box-fluid-24d border-all border-white">
+                            vertical-baseline
+                        </div>
+                        <div class="vertical-bottom box-fluid-24d border-all border-white">
+                            vertical-bottom
+                        </div>
+                        <div class="vertical-middle box-fluid-24d border-all border-white">
+                            vertical-middle
+                        </div>
+                        <div class="vertical-top box-fluid-24d border-all border-white">
+                            vertical-top
+                        </div>
+                    </div>
+                </div>
+                <pre class="language-html line-numbers"><code>&lt;div class="bg-black box-fluid-99 box-y-250 align-center table"&gt;
+&nbsp; &nbsp; &lt;div class="vertical-baseline box-fluid-24d border-all border-white"&gt;vertical-baseline&lt;/div&gt;
+&nbsp; &nbsp; &lt;div class="vertical-bottom box-fluid-24d border-all border-white"&gt;vertical-bottom&lt;/div&gt;
+&nbsp; &nbsp; &lt;div class="vertical-middle box-fluid-24d border-all border-white"&gt;vertical-middle&lt;/div&gt;
+&nbsp; &nbsp; &lt;div class="vertical-top box-fluid-24d border-all border-white"&gt;vertical-top&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+
+            <div class="margin-top-high">
+                <p class="font-large">Alinhamento Horizontal & Vertical</p>
+                <div class="blockquote-blue">Esse método alinha um elemento ao centro de elemento pai na horizontal e vertical.</div>
+                <div class="blockquote-yellow">
+                    É necessário que o elemento pai possua uma altura de referência.
+                </div>
+                <div class="blockquote-red">
+                    <span class="bold text-red">SÓ FUNCIONA EM NAVEGADORES DE TOTAL COMPATIBILIDADE COM HTML5! (Chorme/Mozila/Opera/Safari)</span>
+                </div>
+                <div class="bg-black box-fluid-99 box-y-400 vertical-wrap">
+                    <span class="font-medium text-white">vertical-wrap</span>
+                </div>
+            </div>
+            <pre class="language-html line-numbers"><code>&lt;div class="bg-black box-fluid-99 box-y-400 vertical-wrap"&gt;
+&nbsp; &nbsp; &lt;span class="font-medium text-white"&gt;vertical-wrap&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+            <div class="blockquote-yellow"><span class="bold">Nota *</span> Para exibição de elementos com
+                alinhamento vertical compatíveis com qualquer navegador. Consulte a sessão de 
+                <span class="bold">exibição</span>
+            </div>
+        </div>
+        <div class="box-y-100"></div>
+    </body>
+</html>

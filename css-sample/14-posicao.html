@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Posicionar</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <script src="../lib/prism/prism.js" type="text/javascript"></script>
+        <link href="../lib/prism/prism.css" rel="stylesheet" type="text/css"/>
+        <link href="../lib/sm-default.css" rel="stylesheet" type="text/css"/>
+        <style>
+            #absoluto, #fixado {cursor: pointer; z-index:1}
+        </style>
+    </head>
+    <body>
+        <div class="container padding-lr font-default">
+            <div class="align-center">
+                <h1>Posicionamento</h1>
+            </div>
+            <hr class="border-bottom border-light" />
+
+            <div class="blockquote-red">
+                <span class="bold">Atenção!</span>
+                <p>Os métodos aqui tratados não servem para estruturação de layouts.</p>
+                <p>Podem até parecer que é a solução para todos os problemas de posicionamento,
+                    mas eles apenas servem para definir propiedades de elementos expecíficos.</p>
+            </div>
+
+            <p class="font-large">Static</p>
+            Uma box normal todos elementos que não recebem as propriedades position o navegador já as
+            interpretam como static.
+            <hr class="border-bottom border-dark">
+
+            <p class="font-large">Relative</p>
+            A posição da caixa é calculada de acordo com o fluxo normal
+            (isso é chamado de posição no fluxo normal).
+            <p>Em seguida, a caixa é deslocada em relação à sua posição normal.</p>
+            <p>Quando uma caixa B é posicionada relativamente, a posição da caixa a seguir é calculada como se
+                B não fosse compensado.</p>
+            <p>O efeito de 'position: relative' nos elementos table-row-group, table-header-group,
+                table-footer-group, table-row, table-column-group, table-column, table-cell e table-caption
+                é indefinido.</p>
+            <hr class="border-bottom border-dark">
+
+            <p class="font-large">Absolute</p>
+            A posição da caixa (e possivelmente o tamanho) é especificada com as propriedades 'top',
+            'right', 'bottom' e 'left'.
+            <p>Essas propriedades especificam deslocamentos em relação ao bloco contendo a caixa.</p>
+            <p>Caixas absolutamente posicionadas são retiradas do fluxo normal.</p>
+            <p>Isso significa que eles não afetam o layout dos irmãos posteriores.</p>
+            <p>Além disso, embora as caixas absolutamente posicionadas tenham margens, elas não colapsam com nenhuma
+                outra margem.</p>
+
+            <hr class="border-bottom border-dark">
+
+            <p class="font-large">Fixed</p>
+            A posição da caixa é calculada de acordo com o modelo 'absoluto', mas além disso, a caixa é fixada
+            em relação a alguma referência.
+            <p>Assim como no modelo 'absoluto', as margens da caixa não colapsam com nenhuma outra margem.</p>
+            <p>Seu efeito em diferença ao absolute é que o elemento fixa ao local, independente da rolagem na
+                página.</p>
+
+            <div class="margin-top-high">
+                <div class="blockquote">
+                    Para melhor forma de explicação como esses métodos funcionam, usarei aqui o javascript para
+                    criar esses efeitos.
+                    <p>Pois os mesmos não poderiam já está definidos na página, caso então seria difícil, a
+                        explicação.</p>
+                </div>
+            </div>
+
+            <div class="box-fluid-99d bg-black bg-light-black-hover text-white" id="absoluto">
+                <p class="align-center font-large">Absolute</p>
+                <div class="padding-all">
+                    Clique em cima desse bloco e ele se receberá o método <span class="text-red">absolute</span>,
+                    ficando a 50px acima do todo e 10px á esquerda.
+                </div>
+            </div>
+            <div class="margin-top">
+                <div class="box-fluid-99d bg-blue bg-light-blue-hover text-white" id="fixado">
+                    <p class="align-center font-large">Fixado</p>
+                    <div class="padding-all">
+                        Clique em cima desse bloco e ele se receberá o método <span class="text-red">fixed</span>,
+                        ficando a 0px do todo e 0px á esquerda.
+                        <p>Porém sua posição acompanha a rolagem da tela.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="blockquote-yellow">
+                De qualquer forma devemos orientar as cooderndas de onde esses elementos devem ficar.
+                <p>Quando assim fazer-mos, o navegador interpreta pelas margens da janela, e não do elemento pai.</p>
+                <p>Nesse caso a entrada <span class="bold">&lt;div class=relative"&gt;</span>> 
+                    entra como método a caixa pai.</p>
+                <p>Adicionando isso ao pai os filhos passam a se orientar por suas cordenadas.</p>
+            </div>
+
+            <div class="bg-light padding-all font-medium">
+                <p>Vejamos uma forma melhor de aplicação.</p>
+                <p>Já exibindo métodos configurados para posicionamento desses elementos.</p>
+
+                <div class="blockquote-yellow">
+                    Todos as pegras pos-?.... abaixo recebem a propiedade absolute quando estiverem
+                    dentro de um elemento <span class="bold">relative</span>
+                </div>
+
+                <div class="margin-top-high">
+                    <div class="relative box-x-900 margin-auto">
+                        <img src="../lib/imagens/flores.jpg" alt="flores" style="width: 100%; opacity: 0.5" />
+                        <div class="pos-top-left padding-all">pos-top-left</div>
+                        <div class="pos-top-center padding-all">pos-top-center</div>
+                        <div class="pos-top-right padding-all">pos-top-right</div>
+                        <div class="pos-center-left padding-all">pos-center-left</div>
+                        <div class="pos-center padding-all">pos-center</div>
+                        <div class="pos-center-right padding-all">pos-center-right</div>
+                        <div class="pos-bottom-left padding-all">pos-bottom-left</div>
+                        <div class="pos-bottom-center padding-all">pos-bottom-center</div>
+                        <div class="pos-bottom-right padding-all">pos-bottom-right</div>
+                    </div>
+                </div>
+                <pre class="language-html line-numbers"><code>&lt;div class="relative box-x-900 margin-auto"&gt;
+&nbsp; &nbsp; &lt;img src="lib/imagens/flores.jpg" alt="flores" style="width: 100%; opacity: 0.5" /&gt;
+&nbsp; &nbsp; &lt;div class="pos-top-left padding-all"&gt;pos-top-left&lt;/div&gt;
+&nbsp; &nbsp; &lt;div class="pos-top-center padding-all"&gt;pos-top-center&lt;/div&gt;
+&nbsp; &nbsp; &lt;div class="pos-top-right padding-all"&gt;pos-top-right&lt;/div&gt;
+&nbsp; &nbsp; &lt;div class="pos-center-left padding-all"&gt;pos-center-left&lt;/div&gt;
+&nbsp; &nbsp; &lt;div class="pos-center padding-all"&gt;pos-center&lt;/div&gt;
+&nbsp; &nbsp; &lt;div class="pos-center-right padding-all"&gt;pos-center-right&lt;/div&gt;
+&nbsp; &nbsp; &lt;div class="pos-bottom-left padding-all"&gt;pos-bottom-left&lt;/div&gt;
+&nbsp; &nbsp; &lt;div class="pos-bottom-center padding-all"&gt;pos-bottom-center&lt;/div&gt;
+&nbsp; &nbsp; &lt;div class="pos-bottom-right padding-all"&gt;pos-bottom-right&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+            </div>
+
+            <div class="box-y-50"></div>
+        </div>
+        <script>
+            var $absolute = document.getElementById('absoluto');
+            var $fixed = document.getElementById('fixado');
+
+            $absolute.addEventListener('click', function () {
+                this.className += ' absolute';
+                this.setAttribute('style', 'top:50px;left:10px;z-index:2');
+                scrollToTop();
+            });
+
+            $fixed.addEventListener('click', function () {
+                this.className += ' fixed';
+                this.setAttribute('style', 'top:0;left:0');
+                scrollToTop();
+            });
+
+            function scrollToTop() {
+                var $scrollStep = -window.scrollY / (1000 / 50);
+                var $scrollInterval = setInterval(function () {
+                    if (window.scrollY != 0) {
+                        window.scrollBy(0, $scrollStep);
+                    } else
+                        clearInterval($scrollInterval);
+                }, 15);
+            }
+        </script>
+    </body>
+</html>

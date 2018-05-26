@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Suporte</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <script src="../lib/prism/prism.js" type="text/javascript"></script>
+        <link href="../lib/prism/prism.css" rel="stylesheet" type="text/css"/>
+        <link href="../lib/sm-default.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <div class="container padding-lr">
+            <div class="align-center">
+                <h1>Suporte variados</h1>
+            </div>
+            <hr class="border-bottom border-light" />
+
+            <p class="font-jumbo">Barra de Rolagem</p>
+            <div class="font-default">
+                Força a criar uma barra de rolagem no elemento.
+                <p>Quando o elemento interno for maior que o externo</p>
+            </div>
+            <p class="font-medium">Horizontal</p>
+            <div class="box-x-600 over-x">
+                <div class="box-x-700 box-y-200 bg-red padding-lr">
+                    <p class="font-default">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+            </div>
+            <pre class="language-html line-numbers"><code>&lt;div class="box-x-600 over-x"&gt;
+&nbsp; &nbsp; &lt;div class="box-x-700 box-y-200 bg-red padding-lr"&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;p class="font-default"&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&lt;/p&gt;
+&nbsp; &nbsp; &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+            <p class="font-medium">Vertical</p>
+            <div class="box-x-600 box-y-200 over-y">
+                <div class="box-y-400 bg-red padding-lr">
+                    <p class="font-default">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+            </div>
+            <pre class="language-html line-numbers"><code>&lt;div class="box-x-600 box-y-200 over-y"&gt;
+&nbsp; &nbsp; &lt;div class="box-y-400 bg-red padding-lr"&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;p class="font-default"&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&lt;/p&gt;
+&nbsp; &nbsp; &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+            <p class="font-medium">Horizontal & Vertical</p>
+            <div class="box-x-600 box-y-200 over-y">
+                <div class="box-x-700 box-y-400 bg-red padding-lr">
+                    <p class="font-default">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+            </div>
+            <pre class="language-html line-numbers"><code>&lt;div class="box-x-600 box-y-200 over-y"&gt;
+&nbsp; &nbsp; &lt;div class="box-y-400 bg-red padding-lr"&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;p class="font-default"&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&lt;/p&gt;
+&nbsp; &nbsp; &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+            <div class="blockquote-yellow">
+                Exitem também métodos para remover a auto rolagem, se ouver rolagem do elemento.
+            </div>
+            <div class="margin-left font-default">
+                <p class="list"><span class="bold font-medium">over-x-not</span> Remove a barra de rolagem na horizontal.</p>
+                <p class="list"><span class="bold font-medium">over-y-not</span> Remove a barra de rolagem na vertical.</p>
+                <p class="list"><span class="bold font-medium">over-not</span> Remove qualquer barra de rolagem.</p>
+            </div>
+
+            <hr class="border-bottom border-grey" />
+            <p class="font-jumbo">Quebra palavra</p>
+            <div class="font-default">
+                Usada para quebrar uma sequência de texto lado a lado.
+                <p>Quando uma palavra ou texto não possue espaço, o navegador pode fazer com que esse texto vaze
+                    ao elemento que se encontra. Para previnir esse e ser for problema essa regra é a solução.</p>
+                <p>Você pode redimencionar a tela para visualizar melhor o efeito.</p>
+            </div>
+            <div class="bg-red text-white padding-all">
+                <p class="font-default break">LoremipsumdolorsitametconsecteturadipisicingelitseddoeiusmodtemporincididuntutlaboreetdoloremagnaaliquaLoremipsumdolorsitametconsecteturadipisicingelitseddoeiusmodtemporincididuntutlaboreetdoloremagnaaliquaLoremipsumdolorsitametconsecteturadipisicingelitseddoeiusmodtemporincididuntutlaboreetdoloremagnaaliquaLoremipsumdolorsitametconsecteturadipisicingelitseddoeiusmodtemporincididuntutlaboreetdoloremagnaaliquaLoremipsumdolorsitametconsecteturadipisicingelitseddoeiusmodtemporincididuntutlaboreetdoloremagnaaliqua.</p>
+            </div>
+            <pre class="language-html"><code>&lt;div class="bg-red text-white padding-all"&gt;
+&nbsp; &lt;p class="font-default break">LoremipsumdolorsitametconsecteturadipisicingelitseddoeiusmodtemporincididuntutlaboreetdoloremagnaaliquaLoremipsumdolorsitametconsecteturadipisicingelitseddoeiusmodtemporincididuntutlaboreetdoloremagnaaliquaLoremipsumdolorsitametconsecteturadipisicingelitseddoeiusmodtemporincididuntutlaboreetdoloremagnaaliquaLoremipsumdolorsitametconsecteturadipisicingelitseddoeiusmodtemporincididuntutlaboreetdoloremagnaaliquaLoremipsumdolorsitametconsecteturadipisicingelitseddoeiusmodtemporincididuntutlaboreetdoloremagnaaliqua.&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+
+            <hr class="border-bottom border-grey" />
+            <p class="font-jumbo">Maximizando elementos</p>
+            <div class="font-default">
+                Força um elemento atingir total extensão quando de acordo com a resolução
+
+                <p><span class="bold">maximize</span> : Total extenção quando a disponibilidade não for infeiror a 900 pixels</p>
+                <p><span class="bold">maximize-b</span> : Total extenção quando a disponibilidade não for infeiror a 600 pixels</p>
+                <p><span class="bold">maximize-c</span> : Total extenção quando a disponibilidade não for infeiror a 480 pixels</p>
+                <p><span class="bold">maximize-d</span> : Total extenção independente da disponibilidade</p>
+                Exemplo:
+            </div>
+            <div class="blockquote-yellow">Redimencione a tela para visualizar o efeito</div>
+            <div class="font-medium text-white">
+                <div class="box-xy-100 bg-red line-block vertical-top break"> box-xy-100 </div>
+                <div class="box-xy-100 bg-green line-block vertical-top break maximize"> box-xy-100 maximize </div>
+                <div class="box-xy-100 bg-blue line-block vertical-top break maximize-b"> box-xy-100 maximize-b </div>
+                <div class="box-xy-100 bg-yellow line-block vertical-top break maximize-c"> box-xy-100 maximize-c </div>
+                <div class="box-xy-100 bg-black line-block vertical-top break maximize-d"> box-xy-100 maximize-d </div>
+            </div>
+
+        </div>
+        <div class="box-y-50"></div>
+    </body>
+</html>

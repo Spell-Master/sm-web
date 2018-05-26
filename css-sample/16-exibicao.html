@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Exibir</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <script src="../lib/prism/prism.js" type="text/javascript"></script>
+        <link href="../lib/prism/prism.css" rel="stylesheet" type="text/css"/>
+        <link href="../lib/sm-default.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <div class="container padding-lr">
+            <div class="align-center">
+                <h1>Exibição</h1>
+            </div>
+            <hr class="border-bottom border-light" />
+
+            <div class="font-default">
+                <div class="blockquote">Métodos de manpulação de como elementos devem ser exibidos.</div>
+
+                <p class="font-large">block</p>
+                Este valor faz com que um elemento gere uma caixa de bloco.
+                <hr class="border-bottom border-grey" />
+
+                <p class="font-large">none</p>
+                Esse valor faz com que um elemento não gere caixas na estrutura de formatação
+                (ou seja, o elemento não tem efeito no layout).
+                <p>Elementos descendentes também não geram caixas; esse comportamento não pode ser substituído
+                    definindo a propriedade 'display' nos descendentes.</p>
+                <p>Note que uma exibição de 'none' não cria uma caixa invisível; Não cria nenhuma caixa.</p>
+                <p>O CSS inclui mecanismos que permitem que um elemento gere caixas na estrutura de 
+                    formatação que afetam a formatação, mas que não são visíveis.</p>
+                <hr class="border-bottom border-grey" />
+
+                <p class="font-large">list</p>
+                Esse valor faz com que um elemento (por exemplo, LI em HTML) gere uma caixa de bloco principal
+                e uma caixa sequencial de item de lista.
+                <p>Exemplo:</p>
+                <div class="margin-left-high">
+                    <p class="list">a</p>
+                    <p class="list">b</p>
+                    <p class="list">c</p>
+                </div>
+                <pre class="language-html"><code>&lt;p class="list"&gt;a&lt;/p&gt;
+&lt;p class="list"&gt;b&lt;/p&gt;
+&lt;p class="list"&gt;c&lt;/p&gt;</code></pre>
+                <hr class="border-bottom border-grey" />
+                <p class="font-large">table</p>
+                Esse valor faz com que uma caixa seja exibida como uma tabela HTML.
+
+                <hr class="border-bottom border-grey" />
+                <p class="font-large">trow</p>
+                Esse valor faz com que uma caixa seja exibida como uma linha de tabela.
+
+                <hr class="border-bottom border-grey" />
+                <p class="font-large">thead</p>
+                Esse valor faz com que uma caixa seja exibida como um cabeçalho de tabela.
+
+                <hr class="border-bottom border-grey" />
+                <p class="font-large">tbody</p>
+                Esse valor faz com que uma caixa seja exibida como estrutura de uma tabela.
+
+                <hr class="border-bottom border-grey" />
+                <p class="font-large">tcol</p>
+                Esse valor faz com que uma caixa seja exibida como coluna de uma tabela.
+
+                <hr class="border-bottom border-grey" />
+                <p class="font-large">tgroup</p>
+                Esse valor faz com que uma caixa seja exibida como pertecente ao grupo de uma tabela.
+
+                <hr class="border-bottom border-grey" />
+                <p class="font-large">tcell</p>
+                Esse valor faz com que uma caixa seja exibida como parte de uma tabela.
+
+                <hr class="border-bottom border-grey" />
+                <p class="font-large">tcap</p>
+                Esse valor faz com que uma caixa seja exibida como conteúdo de tabela.
+
+                <div class="blockquote-yellow">
+                    <span class="bold">NOTA * </span>Todas as regras para tipo tabela nada mais é que:
+                    <p>Fazer com que o CSS interprete outros elementos que não sejam tabelas ou seu conteúdo como
+                        se fossem tal.</p>
+                    <p>Para mais informações sobre o que é uma tabela e seu comportamento no HTML.</p>
+                    <p>Leia essa documentação: <a href="https://www.w3.org/TR/CSS2/tables.html" title="w3.org" target="_blank">www.w3.org/TR/CSS2/tables.html</a></p>
+                </div>
+
+                <hr class="border-bottom border-grey" />
+                <p class="font-large">line-block</p>
+                Exibe uma caixa como bloco de linha.
+
+                <hr class="border-bottom border-grey" />
+                <p class="font-large">line-table</p>
+                Exibe uma caixa como bloco de tabela.
+
+                <hr class="border-bottom border-grey" />
+                Possuíndo essas regras junto a conhecimento e experiência combinado com outras regras é 
+                possível elaborar layouts com certa característica única.
+                <p>Confira abaixo alguns exemplos:</p>
+
+                <div class="margin-top-high">
+                    <div class="table bg-black box-fluid-99 box-y-200">
+                        <div class="tcell vertical-middle">
+                            <p class="font-default text-white">Posição central na vertical</p>
+                        </div>
+                    </div>
+                    <pre class="language-html"><code>&lt;div class="table bg-black box-fluid-99 box-y-200"&gt;
+&nbsp; &nbsp; &lt;div class="tcell vertical-middle"&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;p class="font-default text-white"&gt;Posição central na vertical&lt;/p&gt;
+&nbsp; &nbsp; &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+                    <div class="table bg-black box-fluid-99 box-y-200 margin-top">
+                        <div class="tcell vertical-middle align-center">
+                            <p class="font-default text-white">Posição central na vertical e horizontal</p>
+                        </div>
+                    </div>
+                    <pre class="language-html"><code>&lt;div class="table bg-black box-fluid-99 box-y-200"&gt;
+&nbsp; &nbsp; &lt;div class="tcell vertical-middle align-center"&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;p class="font-default text-white"&gt;Posição central na vertical&lt;/p&gt;
+&nbsp; &nbsp; &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+
+                <div class="margin-top-high">
+                    <div class="box-fluid-33b box-y-200 bg-red line-block" style="margin-left: -5px"></div>
+                    <div class="box-fluid-33b box-y-200 bg-green line-block" style="margin-left: -5px"></div>
+                    <div class="box-fluid-33b box-y-200 bg-blue line-block" style="margin-left: -5px"></div>
+                </div>
+                <pre class="language-html"><code>&lt;div class="margin-top-high"&gt;
+&nbsp; &nbsp; &lt;div class="box-fluid-33b box-y-200 bg-red line-block" style="margin-left: -5px"&gt;&lt;/div&gt;
+&nbsp; &nbsp; &lt;div class="box-fluid-33b box-y-200 bg-green line-block" style="margin-left: -5px"&gt;&lt;/div&gt;
+&nbsp; &nbsp; &lt;div class="box-fluid-33b box-y-200 bg-blue line-block" style="margin-left: -5px"&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+
+            <div class="blockquote-red">
+                As propiedades <span class="bold">display-*?</span> ou <span class="bold">table-*?</span> 
+                não afetam as propiedades <span class="bold">float</span>.
+            </div>
+        </div>
+        <div class="box-y-50"></div>
+    </body>
+</html>

@@ -1,0 +1,75 @@
+
+
+
+/******************************************************
+ * Tabela
+ * ***************************************************/
+.table {border-collapse: collapse; border-spacing: 0; width: 100%; display: table}
+.table thead {background-color: #dddddd}
+.table td, .table th {padding: .625rem; display: table-cell; text-align: left; vertical-align: top}
+.tbl-streak th:first-child, .table td:first-child {padding-left: .8rem}
+.tbl-streak tbody tr:nth-child(even) {background-color: #f1f1f1}
+
+/******************************************************
+ * Emblema
+ * ***************************************************/
+.emblem-circle, .emblem-square {
+    color: #ffffff;
+    display: inline-block;
+    text-align: center;
+    font-size: 12px;
+    line-height: 28px
+}
+.emblem-circle {
+    height: 28px;
+    width: 28px;
+    border-radius: 50%
+}
+.emblem-square {
+    padding: 2px 18px;
+    border-radius: 6px
+}
+
+/******************************************************
+ * Inputs
+ * ***************************************************/
+
+.checkbox,
+.checkbox-ex {display: inline-block; position: relative; cursor: pointer}
+.checkbox {padding-left: 40px}
+.checkbox input,
+.checkbox-ex input {display:none}
+.chekup,
+.chekup-ex {position: absolute; top: 0; left: 0; transition: .3s; background-color: #dddddd}
+.chekup {height: 34px; width: 34px}
+.checkbox input:checked ~ .chekup,
+.checkbox-ex input:checked + .chekup-ex {background-color: #4caf50}
+.checkbox-ex {padding-left: 60px; cursor: pointer; width: 60px; height: 34px}
+.chekup-ex {right: 0; bottom: 0}
+.chekup-ex:before {position: absolute; content: ""; height: 26px; width: 26px; left: 4px; bottom: 4px; background-color: #ffffff; transition: .3s}
+.checkbox-ex input:checked + .chekup-ex:before {transform: translateX(26px)}
+.chekup-ex.round {border-radius: 34px}
+.chekup-ex.round:before {border-radius: 50%}
+.checkbox-ex .chekup-ex-txt {margin-left: 10px}
+
+/******************************************************
+ * Definição responsiva
+ * ***************************************************/
+
+/******************************************************
+ * Debugs
+ * Nota: Somente para depuração
+ * ***************************************************/
+.winsize {
+    font-size: 16px;
+    color: #ffffff;
+    background-color: rgba(255,0,0,.4);
+    padding: 10px;
+    position: fixed;
+    bottom: 50px;
+    right: 10px
+}
+
+/******************************************************
+ * Fim do Arquivo
+ * ***************************************************/

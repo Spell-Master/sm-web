@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Caixas</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <script src="../lib/prism/prism.js" type="text/javascript"></script>
+        <link href="../lib/prism/prism.css" rel="stylesheet" type="text/css"/>
+        <link href="../lib/sm-default.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <div class="container padding-lr">
+            <div class="align-center">
+                <h1>Caixas</h1>
+            </div>
+            <hr class="border-bottom border-light" />
+
+            <div class="font-default italic">
+                <p>Caixas que atingem total extenção quando a disponibilidade de tela não for o suficiente
+                    para que elas caibam.</p>
+                <p>Com exessão de <span class="bold text-blue">box-x-auto</span>
+                    que sempre erda a disponiblidade de container onde ela esteja.</p>
+            </div>
+            <div class="font-medium text-white">
+                <div class="margin-bottom padding-all bg-red box-x-1000">box-x-1000</div>
+                <div class="margin-bottom padding-all bg-green box-x-900">box-x-900</div>
+                <div class="margin-bottom padding-all bg-blue box-x-800">box-x-800</div>
+                <div class="margin-bottom padding-all bg-red box-x-700">box-x-700</div>
+                <div class="margin-bottom padding-all bg-green box-x-600">box-x-600</div>
+                <div class="margin-bottom padding-all bg-blue box-x-500">box-x-500</div>
+                <div class="margin-bottom padding-all bg-red box-x-400">box-x-400</div>
+                <div class="margin-bottom padding-all bg-green box-x-300">box-x-300</div>
+                <div class="margin-bottom padding-all bg-blue box-x-250">box-x-250</div>
+                <div class="margin-bottom padding-all bg-red box-x-200">box-x-200</div>
+                <div class="margin-bottom padding-all bg-green box-x-150">box-x-150</div>
+                <div class="margin-bottom padding-all bg-blue box-x-100">box-x-100</div>
+                <div class="margin-bottom padding-all bg-red box-x-50">box-x-50</div>
+                <div class="margin-bottom padding-all bg-green box-x-25">box-x-25</div>
+                <div class="margin-bottom padding-all bg-blue box-x-auto">box-x-auto</div>
+            </div>
+            <pre class="language-html line-numbers"><code>&lt;div class="margin-bottom bg-red box-x-1000"&gt;box-x-1000&lt;/div&gt;
+&lt;div class="margin-bottom bg-green box-x-900"&gt;box-x-900&lt;/div&gt;
+&lt;div class="margin-bottom bg-blue box-x-800"&gt;box-x-800&lt;/div&gt;
+&lt;div class="margin-bottom bg-red box-x-700"&gt;box-x-700&lt;/div&gt;
+&lt;div class="margin-bottom bg-green box-x-600"&gt;box-x-600&lt;/div&gt;
+&lt;div class="margin-bottom bg-blue box-x-500"&gt;box-x-500&lt;/div&gt;
+&lt;div class="margin-bottom bg-red box-x-400"&gt;box-x-400&lt;/div&gt;
+&lt;div class="margin-bottom bg-green box-x-300"&gt;box-x-300&lt;/div&gt;
+&lt;div class="margin-bottom bg-blue box-x-250"&gt;box-x-250&lt;/div&gt;
+&lt;div class="margin-bottom bg-red box-x-200"&gt;box-x-200&lt;/div&gt;
+&lt;div class="margin-bottom bg-green box-x-150"&gt;box-x-150&lt;/div&gt;
+&lt;div class="margin-bottom bg-blue box-x-100"&gt;box-x-100&lt;/div&gt;
+&lt;div class="margin-bottom bg-red box-x-50"&gt;box-x-50&lt;/div&gt;
+&lt;div class="margin-bottom bg-green box-x-25"&gt;box-x-25&lt;/div&gt;
+&lt;div class="margin-bottom bg-blue box-x-auto"&gt;box-x-auto&lt;/div&gt;</code></pre>
+            
+            <div class="font-default italic">
+                As mesmas caixas possuem o mesmo tamanho na vertical.
+                <p>Bastando alterar a letra <span class="bold text-red">X</span> por <span class="bold text-blue">Y</span>.</p>
+                <p>&lt;div class="box-<span class="bold text-red">x</span>-300"&gt; - &lt;div class="box-<span class="bold text-blue">y</span>-300"&gt;<p>
+                <p>Vejamos um exemplo:</p>
+                <div class="table text-white">
+                    <div class="line-table vertical-top margin-all padding-all bg-black box-x-150"> box-x-150 </div>
+                    <div class="line-table vertical-top margin-all padding-all bg-black box-y-150"> box-y-150 </div>
+                </div>
+            </div>
+            <pre class="language-html line-numbers"><code>&lt;div class="table text-white"&gt;
+&nbsp; &nbsp; &lt;div class="line-table vertical-top margin-all padding-all bg-black box-x-150"&gt; box-x-150 &lt;/div&gt;
+&nbsp; &nbsp; &lt;div class="line-table vertical-top margin-all padding-all bg-black box-y-150"&gt; box-y-150 &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            <hr class="border-bottom border-light" />
+
+            <div class="font-default">
+                <p class="font-large">Caixas percentuais.</p>
+                <p class="text-red">Obs.: Diferentes das colunas essas caixas não possuem posição pré determinada,
+                    sendo necessário posicionar-las conforme as necessidades.</p>
+                <p>Atingem total extenção quando a disponibilidade de tela lateral for inferior a 900px.</p>
+            </div>
+            <div class="font-medium text-white">
+                <div class="bg-red padding-all box-fluid-8">box-fluid-8</div>
+                <div class="bg-green padding-all box-fluid-16">box-fluid-16</div>
+                <div class="bg-blue padding-all box-fluid-24">box-fluid-24</div>
+                <div class="bg-red padding-all box-fluid-33">box-fluid-33</div>
+                <div class="bg-green padding-all box-fluid-41">box-fluid-41</div>
+                <div class="bg-blue padding-all box-fluid-49">box-fluid-49</div>
+                <div class="bg-red padding-all box-fluid-58">box-fluid-58</div>
+                <div class="bg-green padding-all box-fluid-66">box-fluid-66</div>
+                <div class="bg-blue padding-all box-fluid-74">box-fluid-74</div>
+                <div class="bg-red padding-all box-fluid-83">box-fluid-83</div>
+                <div class="bg-green padding-all box-fluid-91">box-fluid-91</div>
+                <div class="bg-blue padding-all box-fluid-99">box-fluid-99</div>
+            </div>
+            <pre class="language-html line-numbers"><code>&lt;div class="bg-red box-fluid-8"&gt;box-fluid-8&lt;/div&gt;
+&lt;div class="bg-green box-fluid-16"&gt;box-fluid-16&lt;/div&gt;
+&lt;div class="bg-blue box-fluid-24"&gt;box-fluid-24&lt;/div&gt;
+&lt;div class="bg-red box-fluid-33"&gt;box-fluid-33&lt;/div&gt;
+&lt;div class="bg-green box-fluid-41"&gt;box-fluid-41&lt;/div&gt;
+&lt;div class="bg-blue box-fluid-49"&gt;box-fluid-49&lt;/div&gt;
+&lt;div class="bg-red box-fluid-58"&gt;box-fluid-58&lt;/div&gt;
+&lt;div class="bg-green box-fluid-66"&gt;box-fluid-66&lt;/div&gt;
+&lt;div class="bg-blue box-fluid-74"&gt;box-fluid-74&lt;/div&gt;
+&lt;div class="bg-red box-fluid-83"&gt;box-fluid-83&lt;/div&gt;
+&lt;div class="bg-green box-fluid-91"&gt;box-fluid-91&lt;/div&gt;
+&lt;div class="bg-blue box-fluid-99"&gt;box-fluid-99&lt;/div&gt;</code></pre>
+
+            <p class="font-medium">Atingem total extenção quando a disponibilidade de tela lateral for inferior a 600px.</p>
+            <div class="font-medium text-white">
+                <div class="bg-red padding-all box-fluid-8b">box-fluid-8b</div>
+                <div class="bg-green padding-all box-fluid-16b">box-fluid-16b</div>
+                <div class="bg-blue padding-all box-fluid-24b">box-fluid-24b</div>
+                <div class="bg-red padding-all box-fluid-33b">box-fluid-33b</div>
+                <div class="bg-green padding-all box-fluid-41b">box-fluid-41b</div>
+                <div class="bg-blue padding-all box-fluid-49b">box-fluid-49b</div>
+                <div class="bg-red padding-all box-fluid-58b">box-fluid-58b</div>
+                <div class="bg-green padding-all box-fluid-66b">box-fluid-66b</div>
+                <div class="bg-blue padding-all box-fluid-74b">box-fluid-74b</div>
+                <div class="bg-red padding-all box-fluid-83b">box-fluid-83b</div>
+                <div class="bg-green padding-all box-fluid-91b">box-fluid-91b</div>
+                <div class="bg-blue padding-all box-fluid-99b">box-fluid-99b</div>
+            </div>
+            <pre class="language-html line-numbers"><code>&lt;div class="bg-red box-fluid-8b"&gt;box-fluid-8b&lt;/div&gt;
+&lt;div class="bg-green box-fluid-16b"&gt;box-fluid-16b&lt;/div&gt;
+&lt;div class="bg-blue box-fluid-24b"&gt;box-fluid-24b&lt;/div&gt;
+&lt;div class="bg-red box-fluid-33b"&gt;box-fluid-33b&lt;/div&gt;
+&lt;div class="bg-green box-fluid-41b"&gt;box-fluid-41b&lt;/div&gt;
+&lt;div class="bg-blue box-fluid-49b"&gt;box-fluid-49b&lt;/div&gt;
+&lt;div class="bg-red box-fluid-58b"&gt;box-fluid-58b&lt;/div&gt;
+&lt;div class="bg-green box-fluid-66b"&gt;box-fluid-66b&lt;/div&gt;
+&lt;div class="bg-blue box-fluid-74b"&gt;box-fluid-74b&lt;/div&gt;
+&lt;div class="bg-red box-fluid-83b"&gt;box-fluid-83b&lt;/div&gt;
+&lt;div class="bg-green box-fluid-91b"&gt;box-fluid-91b&lt;/div&gt;
+&lt;div class="bg-blue box-fluid-99b"&gt;box-fluid-99b&lt;/div&gt;</code></pre>
+
+            <p class="font-medium">Atingem total extenção quando a disponibilidade de tela lateral for inferior a 480px.</p>
+            <div class="font-medium text-white">
+                <div class="bg-red padding-all box-fluid-8c">box-fluid-8c</div>
+                <div class="bg-green padding-all box-fluid-16c">box-fluid-16c</div>
+                <div class="bg-blue padding-all box-fluid-24c">box-fluid-24c</div>
+                <div class="bg-red padding-all box-fluid-33c">box-fluid-33c</div>
+                <div class="bg-green padding-all box-fluid-41c">box-fluid-41c</div>
+                <div class="bg-blue padding-all box-fluid-49c">box-fluid-49c</div>
+                <div class="bg-red padding-all box-fluid-58c">box-fluid-58c</div>
+                <div class="bg-green padding-all box-fluid-66c">box-fluid-66c</div>
+                <div class="bg-blue padding-all box-fluid-74c">box-fluid-74c</div>
+                <div class="bg-red padding-all box-fluid-83c">box-fluid-83c</div>
+                <div class="bg-green padding-all box-fluid-91c">box-fluid-91c</div>
+                <div class="bg-blue padding-all box-fluid-99c">box-fluid-99c</div>
+            </div>
+            <pre class="language-html line-numbers"><code>&lt;div class="bg-red box-fluid-8c"&gt;box-fluid-8c&lt;/div&gt;
+&lt;div class="bg-green box-fluid-16c"&gt;box-fluid-16c&lt;/div&gt;
+&lt;div class="bg-blue box-fluid-24c"&gt;box-fluid-24c&lt;/div&gt;
+&lt;div class="bg-red box-fluid-33c"&gt;box-fluid-33c&lt;/div&gt;
+&lt;div class="bg-green box-fluid-41c"&gt;box-fluid-41c&lt;/div&gt;
+&lt;div class="bg-blue box-fluid-49c"&gt;box-fluid-49c&lt;/div&gt;
+&lt;div class="bg-red box-fluid-58c"&gt;box-fluid-58c&lt;/div&gt;
+&lt;div class="bg-green box-fluid-66c"&gt;box-fluid-66c&lt;/div&gt;
+&lt;div class="bg-blue box-fluid-74c"&gt;box-fluid-74c&lt;/div&gt;
+&lt;div class="bg-red box-fluid-83c"&gt;box-fluid-83c&lt;/div&gt;
+&lt;div class="bg-green box-fluid-91c"&gt;box-fluid-91c&lt;/div&gt;
+&lt;div class="bg-blue box-fluid-99c"&gt;box-fluid-99c&lt;/div&gt;</code></pre>
+
+            <p class="font-medium">Não atingem total extenção em relação a disponibilidade de tela lateral.</p>
+            <div class="font-medium text-white">
+                <div class="bg-red padding-all box-fluid-8d">box-fluid-8d</div>
+                <div class="bg-green padding-all box-fluid-16d">box-fluid-16d</div>
+                <div class="bg-blue padding-all box-fluid-24d">box-fluid-24d</div>
+                <div class="bg-red padding-all box-fluid-33d">box-fluid-33d</div>
+                <div class="bg-green padding-all box-fluid-41d">box-fluid-41d</div>
+                <div class="bg-blue padding-all box-fluid-49d">box-fluid-49d</div>
+                <div class="bg-red padding-all box-fluid-58d">box-fluid-58d</div>
+                <div class="bg-green padding-all box-fluid-66d">box-fluid-66d</div>
+                <div class="bg-blue padding-all box-fluid-74d">box-fluid-74d</div>
+                <div class="bg-red padding-all box-fluid-83d">box-fluid-83d</div>
+                <div class="bg-green padding-all box-fluid-91d">box-fluid-91d</div>
+                <div class="bg-blue padding-all box-fluid-99d">box-fluid-99d</div>
+            </div>
+            <pre class="language-html line-numbers"><code>&lt;div class="bg-red box-fluid-8d"&gt;box-fluid-8d&lt;/div&gt;
+&lt;div class="bg-green box-fluid-16d"&gt;box-fluid-16d&lt;/div&gt;
+&lt;div class="bg-blue box-fluid-24d"&gt;box-fluid-24d&lt;/div&gt;
+&lt;div class="bg-red box-fluid-33d"&gt;box-fluid-33d&lt;/div&gt;
+&lt;div class="bg-green box-fluid-41d"&gt;box-fluid-41d&lt;/div&gt;
+&lt;div class="bg-blue box-fluid-49d"&gt;box-fluid-49d&lt;/div&gt;
+&lt;div class="bg-red box-fluid-58d"&gt;box-fluid-58d&lt;/div&gt;
+&lt;div class="bg-green box-fluid-66d"&gt;box-fluid-66d&lt;/div&gt;
+&lt;div class="bg-blue box-fluid-74d"&gt;box-fluid-74d&lt;/div&gt;
+&lt;div class="bg-red box-fluid-83d"&gt;box-fluid-83d&lt;/div&gt;
+&lt;div class="bg-green box-fluid-91d"&gt;box-fluid-91d&lt;/div&gt;
+&lt;div class="bg-blue box-fluid-99d"&gt;box-fluid-99d&lt;/div&gt;</code></pre>
+        </div>
+        <div class="box-y-50"></div>
+    </body>
+</html>

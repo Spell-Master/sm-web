@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Float</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <script src="../lib/prism/prism.js" type="text/javascript"></script>
+        <link href="../lib/prism/prism.css" rel="stylesheet" type="text/css"/>
+        <link href="../lib/sm-default.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <div class="container padding-lr">
+            <div class="align-center">
+                <h1>Flutuantes</h1>
+            </div>
+            <hr class="border-bottom border-light" />
+            <div class="blockquote-red">
+                Nota: Metodos float assim conhecidos métodos flutuantes não pertence ao bloco que estão dentro por
+                isso é necessários limpar suas margens de forma a que eles possam conter dentro do bloco encontrado.
+            </div>
+            <div class="padding-all bg-red">
+                <div class="box-x-250 float-left padding-all bg-green"></div>
+                <div class="box-x-250 float-left padding-all bg-blue"></div>
+            </div>
+            <br />
+            <div class="font-default padding-all-min">
+                Se você pode notar, veja como o bloco em <span class="text-green">verde</span> e o bloco em
+                <span class="text-blue">azul</span> estão escapando o bloco em <span class="text-red">vermelho</span>.
+                <p>Então para fazer esse controle temos que orientar usando um dos métodos abaixo</p>
+            </div>
+            <p class="italic margin-left font-large">floating</p>
+            <div class="padding-all bg-red">
+                <div class="floating">
+                    <div class="box-x-250 float-left padding-all bg-green"></div>
+                    <div class="box-x-250 float-left padding-all bg-blue"></div>
+                </div>
+            </div>
+            <pre class="language-html"><code>&lt;div class="padding-all bg-red"&gt;
+&nbsp; &nbsp; &lt;div class="floating"&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="box-x-250 float-left padding-all bg-green"&gt;&lt;/div&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="box-x-250 float-left padding-all bg-blue"&gt;&lt;/div&gt;
+&nbsp; &nbsp; &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            <div class="blockquote-blue">
+                Além do método floating é possível conter da mesma forma usando os método row ou row-pad.
+            </div>
+            <div class="margin-top">
+                <p class="italic margin-left font-large">float-clear</p>
+                <div class="padding-all bg-red">
+                    <div class="box-x-250 float-left padding-all bg-green"></div>
+                    <div class="box-x-250 float-left padding-all bg-blue"></div>
+                    <div class="float-clear"></div>
+                </div>
+            </div>
+            <pre class="language-html"><code>&lt;div class="padding-all bg-red"&gt;
+&nbsp; &nbsp; &lt;div class="box-x-250 float-left padding-all bg-green"&gt;&lt;/div&gt;
+&nbsp; &nbsp; &lt;div class="box-x-250 float-left padding-all bg-blue"&gt;&lt;/div&gt;
+&nbsp; &nbsp; &lt;div class="float-clear"&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+            <div class="font-medium margin-top-high">
+                Podemos posicionar qualquer elemento flutuando eles para esqueda ou direita.
+                <div class="padding-all bg-light-black">
+                    <div class="floating">
+                        <div class="box-x-250 box-y-150 bg-blue margin-top-min float-left">
+                            <span class="text-white">float-left</span>
+                        </div>
+                        <div class="box-x-250 box-y-150 bg-blue margin-top-min float-right">
+                            <span class="text-white">float-right</span>
+                        </div>
+                    </div>
+                </div>
+                <pre class="language-html line-numbers"><code>&lt;div class="padding-all bg-light-black"&gt;
+&nbsp; &nbsp; &lt;div class="floating"&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="box-x-250 box-y-150 bg-blue margin-top-min float-left"&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;span class="text-white"&gt;float-left&lt;/span&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="box-x-250 box-y-150 bg-blue margin-top-min float-right"&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;span class="text-white"&gt;float-right&lt;/span&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;
+&nbsp; &nbsp; &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                <div class="padding-all bg-light font-default">
+                    Sendo assim podemos controlar o que vai se posicionar acima ou abaixo conforme nós precisarmos.
+                    <p>O segredo está em colocar primeiro o bloco flutuante a direita depois o da esquerda,
+                        assim sendo o box interior tem o método de atingir total extenção quando a disponibilidade de
+                        tela for inferior a 900 pixels, fazendo um perfeito alinhamento.</p>
+                    <p>Um ótimo truque para elaborar responsivos.</p>
+                    <p class="italic">*Altere a resolução de tela para menos de 900px e veja o efeito*</p>
+                </div>
+                <div class="padding-all bg-light-black">
+                    <div class="floating">
+                        <div class="box-fluid-49 bg-blue float-right">
+                            <div class="margin-all text-white">
+                                <p class="font-large">float-right</p>
+                            </div>
+                        </div>
+                        <div class="box-fluid-49 bg-red float-left">
+                            <div class="margin-all text-white">
+                                <p class="font-large">float-left</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <pre class="language-html line-numbers"><code>&lt;div class="padding-all bg-light-black"&gt;
+&nbsp; &nbsp; &lt;div class="floating"&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="box-fluid-49 bg-blue float-right"&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="margin-all text-white"&gt;float-right&lt;/div&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="box-fluid-49 bg-red float-left"&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class="margin-all text-white"&gt;float-left&lt;/div&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;
+&nbsp; &nbsp; &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            <div class="blockquote-grey">
+                Se por algum motivo precisar remover um dos métodos futuantes existe um método para isso
+                <span class="text-blue">float-none</span>, para isso é só adicionar junto ao keyword, como mostrado
+                abaixo
+            </div>
+            <pre class="language-html"><code>&lt;div class="box-xy-400 float-right float-none"&gt;&lt;/div&gt;</code></pre>
+            <div class="blockquote-grey">
+                Assim sendo mesmo que ele está flutuando a direita o efeito não funciona.
+            </div>
+        </div>
+        <div class="box-y-50"></div>
+    </body>
+</html>

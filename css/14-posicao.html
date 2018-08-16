@@ -68,7 +68,7 @@
                 </blockquote>
             </div>
 
-            <div class="box-fluid-99d bg-black bg-light-black-hover text-white" id="absoluto">
+            <div class="col-single bg-black bg-light-black-hover text-white" id="absoluto">
                 <p class="align-center font-large">Absolute</p>
                 <div class="padding-all">
                     Clique em cima desse bloco e ele se receberá o método <span class="text-red">absolute</span>,
@@ -76,7 +76,7 @@
                 </div>
             </div>
             <div class="margin-top">
-                <div class="box-fluid-99d bg-blue bg-light-blue-hover text-white" id="fixado">
+                <div class="col-single bg-blue bg-light-blue-hover text-white" id="fixado">
                     <p class="align-center font-large">Fixado</p>
                     <div class="padding-all">
                         Clique em cima desse bloco e ele se receberá o método <span class="text-red">fixed</span>,
@@ -89,9 +89,11 @@
             <blockquote class="blockquote-yellow">
                 De qualquer forma devemos orientar as cooderndas de onde esses elementos devem ficar.
                 <p>Quando assim fazer-mos, o navegador interpreta pelas margens da janela, e não do elemento pai.</p>
-                <p>Nesse caso a entrada <span class="bold">&lt;div class=relative"&gt;</span>> 
+                <p>Nesse caso a entrada <span class="bold">&lt;div class=relative"&gt;</span>
                     entra como método a caixa pai.</p>
                 <p>Adicionando isso ao pai os filhos passam a se orientar por suas cordenadas.</p>
+                    <p><span class="text-red">Não funciona no caso do fixo pois sua limitação é a
+                            disponibilidade de tela e não dos elementos.</span></p>
             </blockquote>
 
             <div class="bg-light padding-all font-medium">

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>AjaxRequest</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="../../lib/prism/prism.css" rel="stylesheet" type="text/css"/>
+        <link href="../../lib/sm-default.css" rel="stylesheet" type="text/css"/>
+        <script src="../../lib/prism/prism.js" type="text/javascript"></script>
+        <script src="AjaxRequest.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <div class="container padding-lr-prop">
+            <div class="align-center font-medium">
+                <h1>AjaxRequest.js</h1>
+            </div>
+            <hr class="border-bottom border-dark" />
+
+            <div class="margin-top-high font-medium">
+                O primeiro passo para o uso do AjaxRequest.js é obter o arquivo.
+                <p>Crie um novo arquivo javascript com o nome AjaxRequest e adicione-o ao diretório
+                    do website de uso.</p>
+                <p>Pós então declare esse arquivo no <span class="bold">header</span> do index. 
+                    O diretório onde vai ficar se adicionado fica a seu critério.</p>
+                <pre class="language-html"><code>&lt;script src="AjaxRequest.js" type="text/javascript"&gt;&lt;/script&gt;</code></pre>
+                <p>Abra o aquivo AjaxRequest.js e cole o script abaixo nele, salvando depois.</p>
+                <pre class="language-javascript"><code>
+/* **************************************************
+ * @Copyright (c) 2017, Spell Master.
+ * @Version: 3.0
+ * @Requisitos: Navegador compatível com HTML 5
+ * *********************************************** */
+var AjaxRequest=function(){var o,s,a,t,l;function c(){if(o=null,window.XMLHttpRequest)(o=new XMLHttpRequest).overrideMimeType && o.overrideMimeType("text/html");else if(window.ActiveXObject)try{o=new ActiveXObject("Msxml2.XMLHTTP")}catch(A){try{o=new ActiveXObject("Microsoft.XMLHTTP")}catch(A){o=!0}}}function d(A){var e=A.indexOf("&lt;script",0);for(!function(){var A,e=s.getElementsByTagName("script");for(A=e.length-1;0&lt;=A;A--)e[A].parentNode.removeChild(e[A])}();-1!=e;){var n=document.createElement("script"),t=A.indexOf(" src",e);if(t&lt;(e=A.indexOf("&gt;",e)+1) && 0&lt;=t){e=t+4;var o=A.indexOf(".",e)+4,i=A.substring(e,o);i=i.replace("=","").replace(" ","").replace('"',"").replace('"',"").replace("'","").replace("'","").replace("&gt;",""),n.src=i}else o=A.indexOf("&lt;\/script&gt;",e),i=A.substring(e,o),n.text=i;s.appendChild(n),e=A.indexOf("&lt;script",o),n=null}}this.open=function(A,e){return c(),s=document.getElementById(A),o.onreadystatechange=function(){4===o.readyState && 200===o.status && (s.innerHTML=o.responseText,d(o.responseText))},o.open("GET",e,!0),o.send(),!1},this.get=function(A,e,n){return c(),a='&lt;img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAE70lEQVR4Xu2bjZHUMAyFdRUAFQAVwFUAVwFQAVwFQAVwFQAVABUAFcBVAFQAHXBUAPPtWDuO1n9xnKwT0MzO7u0ljvUkPcm29kT+cTlZSP+7InJHRG6JyH33TL67bp7/U0R4fXPvl+7zbNOcE4AHIvLQKYziU+SjiPD6JCJXUway97YGAIs+FZEnztot56pjvRORN608oxUAqvizgFvPAQJjfhGRC/de/YwWAGDxlwsqbpXFIwAC7hgtUwCAxN6KCO/HFnjh3PHEqLnUAgC5obxl8dDDfzs3hdlxWybLZ18YByAhS16MT9YYK3jD8zFEWQPAKxEh1lOC0srcvNcIoAAEhHpvxACAe1YKwlgAsDoTigmKv3avlukKr4BnHhcCAQiEhPW0g9vHAJBTHiJC+ZaK2wkDBG5e4hHM43ZuPqUAgP6LCPrfnVdk0S60XsllhCBzupa5OBsOJQDg8lg/JO8dH8xp9ZiOkCb8crMAhNPYNTkAeMjnCNvj8ljhmAJRkllyGYPKMUjcOQC+RvI8BEMs9iClIDwK1QkpAGJx34PlLfCAQLynwiFIijEAYFusbwsdVmPk5h6FcCUcUsR4EAoxAHBvm3Nhe9byxyC8UsCJcwq1lJAa9+uGEABY/0dgBKorEO5dmGOqTiBz7Yu5EAAUM6zwfImyaIdoxAzoT3XvBSEAfpnYp7xl0J5d39ohFML+NXsvsABAcB/MaD2yfs7xcl6AMW8wiAUghBwXrsn6Cg5VIvuSMdnVMhYA6/4DwsjB3tn/UyU8U93p5gNAHiX3+xKsnjpTNDYdahgMGpNdGPgAhHJorlTuHYtcSjz1FbTpj0MJPcToXdHY/FLLeO459wGwaK2R/S0QoazmX3PhA2BXfmuOf1USD2Y5H5NLH4A/5qq1lL658LR6+dcnAVhr/reApAC4SnnA2jOAApECYFAJ2gv/OQAoDPzNhK0AkKoFBhxgL9wKAKlMcJaqA9hKXnKvP8fmU/7PuoBCTz2cJT6V72AxZKumraRBHziU1kPa3fe+B9jVE6esoLYlIRwG23o+AHYToecd4FqjUBoPTqst0bFbqnvr+12T2qd1dh/LfXQadJJYAOyKcEtESPwfhLQFwG6KrGk3OOdwkPzBWWYo128xDIh9bcAcABUCwO4M9XQQmrNyamMkeJIdAoC9NNDSooHPHCSsVUh92llyoEOs3LVF0Zq9gLwf3dpL1fuWC7L9Nh26CIak8ot2qqUAsIsIBmGbbC1CRiPtJTd2cys+WxesJRS0a0TZP2q0HADciAtpDw6VFIuk3leJnG9y8pNt0iwBAAZFYc0KvYNARxt6pRo69x5RAgAX2/aTXkFAeTZzi9t4SgHoHQRiHrdH+VFtPGMACIHAd8cmRm3b147VUVlqLAAMDidALn5zIn8DxNJ9BLTykKmqF201AAACLkeR4fcSoTzfMZm5BTenG4ziDLLLsn1sQrUA6HiQDRbwGxSpIAGi+S+8XMcHizUAYHw+V/1URhWYCoCOg8JMxj9XwCOwDG03HLXXCjFOzyJgE37EOs9q0rLXCgANC9yRyYVaVgGDeoIX4KCI5QyUBUQszGf9GQ3jAyJgNu1RbgmAb2Gspa9cT3/KMwAJSxNmk1x9Lg4ocWu1pL5DoLa9nYMK9Qz1Ev2BVckzqq+ZywOqJ7T0jf8BWBrx3p73Fz7CAs0clL73AAAAAElFTkSuQmCC" alt="loading" class="spinner opacity" height="60px"/&gt;',(s=document.getElementById(A)).innerHTML='&lt;div class="padding-all-high align-center"&gt;'+a+"&lt;/div&gt;",o.onreadystatechange=function(){4===o.readyState && 200===o.status && setTimeout(function(){n && window.history.replaceState(null,null,n),s.innerHTML=o.responseText,d(o.responseText)},1e3)},o.open("GET",e,!0),o.send(),!1},this.pop=function(A,e,n){c();var t=document.createElement("div");return document.body.appendChild(t),a='&lt;img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAABGdBTUEAALGOfPtRkwAAACBjSFJNAAB6JQAAgIMAAPn/AACA6QAAdTAAAOpgAAA6mAAAF2+SX8VGAAAE1klEQVR42mL8//8/w0gGAAHEQid7DIBYH4gVgNgBSUwATd0DKL4ApQ9C2TQDAAHESMMU4A/EAVAPK1Bo1gYo3gjEH6jpSIAAonYAgGI0H4gTqOBpXGABEE+kVsoACCAGUABQAQsAcT0Qv/9PP7AfiB0odTtAAFHD8/l09jg6mA/ECuS6HyCAKMkCoEJsPpQeaAAqFxKh5QRJACCAyA2AAKjnBYhQ+xGID0Dz7AGoYy9gKTsMoOWGAtR8fTLLh0JSCkqAACIn2fQTkSw/APECIA6gsFxJAOIDJGaJ81C9RNkDEECkOmo+ER5vIMUBRGIFaICSEggGxJgNEEDU9DwtPI4tIIhNEe+JcQ9AABFrcQMeiy4QG9pUxAXQ1EZxdgAIIGIsS8BjwQI6xDouDAr0B0QGAk5zAAKIGEve40nyDAOMBaApkBCYgMsMgAAiZMF5HAYmDALPkxoIWGskgAAiJ983DCLPIwfCA3IKRYAAwlfaYkv6Gwah55Gz6wdSswJAAOEybAGO0l5gEAcArHYgBFD6DQABhCv2sQGHQe55GCbUTliArB4ggLAZMIGUUnQQYgVSUgFAAGEz4D2W5q3AEAoABiKazfBUABBATFh6eeg9vAnUHoaiA2ggYrgODAACCFsAMGAJgKEGHkDHD/EN3YGG7RgAAogJV8hAwcIhGPvIA6n4AHh0GiCAmNBGeARINGQoBwA4sgECiAk9RIZRAHyAzivgywYGAAGEHADow9gHh8HEzwFC45oAAYSeBUjRPBQAobkDBYAAQg4AfhI1D5VsgLcgBAggfCngwwjIAgwAAYQ8LI4+Pi44TAIB37j/B4AAwhcAjMNkBhzvxAdAADExjHAAEEBMaDM4wxHgq84PAgQQ0zAr9UntGDUABBATgcnP4QAOQCdOP6KldpDYAYAAYsJTZQgMo1SwAOof0MSpI5QNEmMACCAmtC7kcEwB6I07lIgGCCB8KcBhGAYARqoGCCD09QGgVCCP1BIUHEaeN4D6CSWlAwQQE57ur8AwywYOWLI5A0AAMWEpLJBBwnBO/iAAEEDYlsgMx2wQwIBYgIkCAAIIWztgAlqoJQyT/I+1oQcQQNhSgAA0tPiRUoTiEM/7CliyNxgABBATjkEE5FSgMMRTQQMuz4MAQADhWyaHXhYoMgzNCZILDHgGdwECCF9fIAEtW8wfgvnegYHAyDZAABGaY5swiFeGELNqhOASWoAAIsawC2irLAyGQACsJ3aRJkAAETMiFIDUlQRlhf2DvIU4H+peoiZ1AAKImAB4AM1LQyEQ5kMbbkTXWgABRMpiaQNoj5EfqWZwHCQjSaBIWQ/1vAMptRVAAJEyKHoBS0o4PwjaCAbQFPkQqcdHNAAIIHKXoKCvy1s/QKtI8ildwgMQQJRUMxOwrMPLp5PHHaCLOD9QuCSfASCAKHVIAJYFiveBOJ5GKcIfulcItmZRgVIzAQKIWg5rwLJI8T10ib09FRZA9kMDFrZekWpL9gACiJrb5mBd5wKkPgT6aNMFKAYVVBexFFgG0FrGAcqGbaMBgYPQTs0CapagAAFEq42TAUiYnwJzLkKr3gnYhrOoAQACiJY7R5FjFRmDUgr6hqiPSCnjAgPqBiuaAoAAokcADGoAEEAjfnYYIIBGfAAABBgAAKahgJWV8PUAAAAASUVORK5CYII=" alt="loading" class="spinner opacity"/&gt;',t.innerHTML='&lt;div class="loading"&gt;&lt;div class="text-prog"&gt;Carregando&lt;/div&gt;'+a+'&lt;div class="float-clear"&gt;&lt;/div&gt;&lt;/div&gt;',s=document.getElementById(A),o.onreadystatechange=function(){4===o.readyState && 200===o.status && setTimeout(function(){n && window.history.replaceState(null,null,n),d(o.responseText),s.innerHTML=o.responseText,document.body.removeChild(t)},1e3)},o.open("GET",e,!0),o.send(),!1},this.load=function(A,e,n){a=0,c();var t=document.createElement("div");return t.classList.add("progress"),document.body.appendChild(t),o.addEventListener("progress",function(A){A.lengthComputable && (a=A.loaded/A.total*100,t.style.width=a+"%")},!0),s=document.getElementById(A),o.onreadystatechange=function(){4===o.readyState && 200===o.status && setTimeout(function(){n && window.history.replaceState(null,null,n),d(o.responseText),s.innerHTML=o.responseText,document.body.removeChild(t)},1e3)},o.open("GET",e,!0),o.send(),!1},this.form=function(A,e,n){c(),t=document.getElementById(A),l="form_id="+A,t.style.position+="relative",o.open("POST",n,!0),function(){for(var A=0;A&lt;t.elements.length;A++)if(t.elements[A].disabled=!0,"checkbox"==t.elements[A].type){if(t.elements[A].checked){var e=t.elements[A].value;l+="&"+t.elements[A].name+"="+e}}else if("radio"==t.elements[A].type){if(t.elements[A].checked){var n=t.elements[A].value;l+="&"+t.elements[A].name+"="+n}}else l+="&"+t.elements[A].name+"="+t.elements[A].value}();return(a=document.createElement("div")).innerHTML='&lt;div class="loading-wrap"&gt;&lt;img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAE70lEQVR4Xu2bjZHUMAyFdRUAFQAVwFUAVwFQAVwFQAVwFQAVABUAFcBVAFQAHXBUAPPtWDuO1n9xnKwT0MzO7u0ljvUkPcm29kT+cTlZSP+7InJHRG6JyH33TL67bp7/U0R4fXPvl+7zbNOcE4AHIvLQKYziU+SjiPD6JCJXUway97YGAIs+FZEnztot56pjvRORN608oxUAqvizgFvPAQJjfhGRC/de/YwWAGDxlwsqbpXFIwAC7hgtUwCAxN6KCO/HFnjh3PHEqLnUAgC5obxl8dDDfzs3hdlxWybLZ18YByAhS16MT9YYK3jD8zFEWQPAKxEh1lOC0srcvNcIoAAEhHpvxACAe1YKwlgAsDoTigmKv3avlukKr4BnHhcCAQiEhPW0g9vHAJBTHiJC+ZaK2wkDBG5e4hHM43ZuPqUAgP6LCPrfnVdk0S60XsllhCBzupa5OBsOJQDg8lg/JO8dH8xp9ZiOkCb8crMAhNPYNTkAeMjnCNvj8ljhmAJRkllyGYPKMUjcOQC+RvI8BEMs9iClIDwK1QkpAGJx34PlLfCAQLynwiFIijEAYFusbwsdVmPk5h6FcCUcUsR4EAoxAHBvm3Nhe9byxyC8UsCJcwq1lJAa9+uGEABY/0dgBKorEO5dmGOqTiBz7Yu5EAAUM6zwfImyaIdoxAzoT3XvBSEAfpnYp7xl0J5d39ohFML+NXsvsABAcB/MaD2yfs7xcl6AMW8wiAUghBwXrsn6Cg5VIvuSMdnVMhYA6/4DwsjB3tn/UyU8U93p5gNAHiX3+xKsnjpTNDYdahgMGpNdGPgAhHJorlTuHYtcSjz1FbTpj0MJPcToXdHY/FLLeO459wGwaK2R/S0QoazmX3PhA2BXfmuOf1USD2Y5H5NLH4A/5qq1lL658LR6+dcnAVhr/reApAC4SnnA2jOAApECYFAJ2gv/OQAoDPzNhK0AkKoFBhxgL9wKAKlMcJaqA9hKXnKvP8fmU/7PuoBCTz2cJT6V72AxZKumraRBHziU1kPa3fe+B9jVE6esoLYlIRwG23o+AHYToecd4FqjUBoPTqst0bFbqnvr+12T2qd1dh/LfXQadJJYAOyKcEtESPwfhLQFwG6KrGk3OOdwkPzBWWYo128xDIh9bcAcABUCwO4M9XQQmrNyamMkeJIdAoC9NNDSooHPHCSsVUh92llyoEOs3LVF0Zq9gLwf3dpL1fuWC7L9Nh26CIak8ot2qqUAsIsIBmGbbC1CRiPtJTd2cys+WxesJRS0a0TZP2q0HADciAtpDw6VFIuk3leJnG9y8pNt0iwBAAZFYc0KvYNARxt6pRo69x5RAgAX2/aTXkFAeTZzi9t4SgHoHQRiHrdH+VFtPGMACIHAd8cmRm3b147VUVlqLAAMDidALn5zIn8DxNJ9BLTykKmqF201AAACLkeR4fcSoTzfMZm5BTenG4ziDLLLsn1sQrUA6HiQDRbwGxSpIAGi+S+8XMcHizUAYHw+V/1URhWYCoCOg8JMxj9XwCOwDG03HLXXCjFOzyJgE37EOs9q0rLXCgANC9yRyYVaVgGDeoIX4KCI5QyUBUQszGf9GQ3jAyJgNu1RbgmAb2Gspa9cT3/KMwAJSxNmk1x9Lg4ocWu1pL5DoLa9nYMK9Qz1Ev2BVckzqq+ZywOqJ7T0jf8BWBrx3p73Fz7CAs0clL73AAAAAElFTkSuQmCC" alt="loading" class="spinner opacity" height="60px"/&gt;&lt;/div&gt;',t.appendChild(a),(s=document.getElementById(e)).innerHTML=null,o.onreadystatechange=function(){if(4===o.readyState && 200===o.status){for(i=0;i&lt;t.elements.length;i++)t.elements[i].disabled=!1;setTimeout(function(){s.innerHTML=o.responseText,d(o.responseText),t.removeChild(a),t.style.position=null},1e3)}},o.setRequestHeader("Content-type","application/x-www-form-urlencoded"),o.send(l),!1}};
+
+</code></pre>
+                <blockquote class="blockquote">
+                    Esse é o arquivo minificado, consome menos banda do cliente para adquiri-lo, e processa cerca
+                    de 50% mais rápido.
+                    <p>Mas em todo caso esse é o mesmo arquivo de produção, para prgramadores em javascript:</p>
+                    <a class="href-link" href="AjaxRequest.js" target="_blank" title="Arquivo de Produção">AjaxRequest.js</a>
+                </blockquote>
+
+                Também é necessário apoio do CSS para execução das animações de progresso.
+                <p>Adicione as propiedades abaixo em um arquivo CSS já incluído no html ou crie um novo.</p>
+                <pre class="language-css"><code>
+.opacity {opacity:.7}
+.loading {background-color:#222222;padding:.937rem 2.187rem;min-width:16.25rem;position:fixed;bottom:2.5rem;left:2.5rem;box-shadow:.062rem 0 1rem rgba(0,0,0,.5);z-index:999;animation:loadingeffect 1s}
+.loading > .text-prog {float:left;line-height:2.5rem;padding-right:.625rem;font-size:1.25rem;color:#efefef}
+.loading > img {float:right;height:2.5rem}
+.loading-wrap{z-index:1;position:absolute;top:0;left:0;width:100%;height:100%;background-color:rgba(255,255,255,.5);align-items:center;display:flex;flex-direction:row;flex-wrap:wrap;justify-content:center}
+.progress {position:fixed;top:0;left:0;height:5px;width:0;background-color:#ff0000;border-bottom:1px solid #d30700;transition:all .5s;z-index:999;box-shadow:0px 3px 6px rgba(0,0,0,.6);}
+@keyframes loadingeffect{from{bottom:-5rem}to{bottom:2.5rem}}
+
+</code></pre>
+
+                <div class="margin-top">
+                    Por fim basta criar o <span class="bold">objeto</span> de acesso aos métodos do AjaxRequest.
+                    <p>Ao final do documento HTML antes do fechamento da TAG
+                        <span class="bold">&lt;/body&gt;</span> acionamos a instância do arquivo:</p>
+                </div>
+
+
+                <pre class="language-html"><code>
+        &lt;!-- Conteúdo restante do html acima --&gt;
+        &lt;script&gt;var myObj = new AjaxRequest();&lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+  
+</code></pre>
+                Assim sendo o objeto para acesso aos métodos é <span class="bold text-red">myObj</span>
+                <p>Modifique-o conforme a sua preferência.</p>
+                <pre class="language-html"><code>&lt;button onclick="myObj.open('param_1', 'param_2');"&gt;</code></pre>
+
+                <div class="margin-top-high">
+                    Também podemos nos utilizar de protótipos de funções isoladas ao invés de objetos,
+                    desde que o arquivo AjaxRequest já tenha sido devidamente incluído no HTML.
+                    Vejamos abaixo um exemplo de como proceder nesses casos.
+                </div>
+                <pre class="language-javascript line-numbers"><code>function myFunction () {
+    myFunction.prototype = new AjaxRequest();
+    return myFunction.prototype.open('param_1', 'param_2');
+
+    // Ou seja posso retornar qualquer método através do protótipo
+
+    // return myFunction.prototype.get('param_1', 'param_2', null);
+    // return myFunction.prototype.pop('param_1', 'param_2', null);
+    // return myFunction.prototype.load('param_1', 'param_2', null);
+    // return myFunction.prototype.form('param_1', 'param_2', 'param_3');
+}
+</code></pre>
+            </div>
+        </div>
+        <div class="box-y-100"></div>
+    </body>
+</html>
+
+

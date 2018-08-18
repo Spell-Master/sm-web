@@ -31,7 +31,6 @@ pre[class*="language-"] {
 
 /* Code blocks */
 pre[class*="language-"] {
-    border-left: .2rem solid #b3170c;
     padding: .625rem;
     margin: .5rem;
     max-height: 400px;
@@ -147,7 +146,7 @@ pre[data-line] {
     content: attr(data-start);
     position: absolute;
     top: .4em;
-    left: .6em;
+    left: 0;
     min-width: 1em;
     padding: 0 .5em;
     background-color: hsla(24, 20%, 50%,.4);
@@ -173,7 +172,7 @@ pre[data-line] {
 
 pre.line-numbers {
     position: relative;
-    padding-left: 3.8em;
+    padding-left: 3em;
     counter-reset: linenumber;
 }
 
@@ -187,7 +186,7 @@ pre.line-numbers > code {
     pointer-events: none;
     top: 0;
     font-size: 100%;
-    left: -3.8em;
+    left: -4em;
     width: 3em; /* works for line-numbers below 1000 lines */
     letter-spacing: -1px;
     border-right: 1px solid #999;

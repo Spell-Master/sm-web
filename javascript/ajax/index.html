@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Ajax</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="../../lib/prism/prism.css" rel="stylesheet" type="text/css"/>
+        <link href="../../lib/sm-default.css" rel="stylesheet" type="text/css"/>
+        <link href="../../lib/sm-app.css" rel="stylesheet" type="text/css"/>
+        <script src="../../lib/prism/prism.js" type="text/javascript"></script>
+        <script src="AjaxRequest.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <div class="container padding-lr-prop">
+            <div class="align-center font-medium">
+                <h1>
+                    <span class="text-blue">A</span>synchronous
+                    <span class="text-blue">J</span>avascript
+                    <span class="text-blue">A</span>nd
+                    <span class="text-blue">X</span>ml
+                </h1>
+            </div>
+            <hr class="border-bottom border-dark" />
+
+            <div class="margin-top-high font-medium">
+                Ajax é a sigla para <span class="bold">asynchronous javascript and xml</span>, isso mesmo,
+                uma comunicação dinâmica entre cliente com o servidor.
+                <p>Na prática real, nada mais é que carregar um arquivo ou uma página inteira dentro de outra
+                    sem a necessidade de carregar todo o conteúdo anterior.</p>
+                <p>Muito atraente quando precisamos enviar dados do cliente para o servidor e processa-los
+                    sem a necessidade do ditamente recarregamento de conteúdo.
+                </p>
+                <blockquote class="blockquote-yellow">
+                    <p>NOTA:</p>
+                    A tecnologia AJAX apesar de útil deve ser usada com certo cuidado.
+                    <p>Usar de forma leviana (exagerada) pode tornar uma aplicação muito mais lenta
+                        do que simplesmente se ela não estivesse usando.</p>
+                </blockquote>
+                <div class="margin-top">
+                    Existem diversas formas e utilidades para executar ajax, no básico e eficaz para que o cliente
+                    se comunique com o servidor é usando o envio de dados por meio de GET ou POST.
+                    <p>Se você já possui algum tipo de conhecimento na area back-end de desenvolvimento web
+                        Já precisou processar esses dados, pricipalmente se já trabalhou com PHP.</p>
+                    <p>Abaixo veremos a execução desses tipos de protocolos com o
+                        <span class="bold text-red">AjaxRequest.js</span>, começando pelo GET depois POST</p>
+                </div>
+            </div>
+
+
+            <p class="font-large align-left" style="margin-top: 10%">GET</p>
+            <div style="border: 5px dotted #000" class="padding-all font-medium">
+                <div id="ajx-load"></div>
+            </div>
+            <div class="margin-top font-medium">
+                <button class="btn-default" onclick="ajax.open('ajx-load', 'open.php?ajax=open');">Executar método open</button>
+                <button class="btn-default" onclick="ajax.get('ajx-load', 'open.php?ajax=get', '?ajax=get');">Executar método get</button>
+                <button class="btn-default" onclick="ajax.pop('ajx-load', 'open.php?ajax=pop', '?ajax=pop');">Executar método pop</button>
+                <button class="btn-default" onclick="ajax.load('ajx-load', 'open.php?ajax=load', '?ajax=load');">Executar método load</button>
+            </div>
+            <pre class="language-html line-numbers"><code>&lt;div id="ajx-load"&gt;&lt;/div&gt;
+
+&lt;button class="btn-default" onclick="ajax.open('ajx-load', 'open.php?envio=open');"&gt;Executar método open&lt;/button&gt;
+&lt;button class="btn-default" onclick="ajax.get('ajx-load', 'open.php?envio=get', '?envio=get');"&gt;Executar método get&lt;/button&gt;
+&lt;button class="btn-default" onclick="ajax.pop('ajx-load', 'open.php?envio=pop', '?envio=pop');"&gt;Executar método pop&lt;/button&gt;
+&lt;button class="btn-default" onclick="ajax.load('ajx-load', 'open.php?envio=load', '?envio=load');"&gt;Executar método load&lt;/button&gt;
+</code></pre>
+            <div class="margin-top font-default">
+                Acima temos quatro botões que executam os método GET do arquivo javascript que usaremos.
+                <p>Antes de total informação sobre a execução global do AjaxRequest.js vamos entender o que
+                    cada método faz e como executar-los. Todos os métodos GET não possuem diferenças na forma
+                    com que você pode enviar dados.</p>
+                <div class="margin-top padding-all bg-light">
+                    No primeiro botão vemos a execução do método <span class="bold text-blue">open</span>
+                    <p>O mais simples de todos, pois ele simplesmente vai carregar o arquivo no local onde
+                        mandamos ser carregado.</p>
+                    <p class="bold">Modo de uso:</p>
+                    <p>É obrigatório o uso de dois parâmetros. O primeiro parâmetro como no exemplo acima
+                        informa o elemento #ID(<span class="italic">ajx-load</span>) do HTML onde o novo arquivo
+                        deve ser carregado, lógico que o nome do ID fica a critétio do desenvolvedor.</p>
+                    <p>O segundo já se trata do arquivo que deve ser carregado com sua extenção no caso do
+                        meu exemplo uso o .php</p>
+                    <blockquote class="blockquote-yellow">
+                        NOTA:
+                        Todo arquivo deve ser informado junto ao diretório onde se encontra. Começando pela
+                        raiz onde se encontra o index até o diretório onde está o arquivo a ser aberto.
+                        <p>É possível carregar arquivos ou sites de outros websites alheios ao próprio
+                            website. (<span class="text-red">NÃO SENDO ACONSELHAVEL ISSO POR MEDIDAS DE
+                                SEGURANÇA PARA SEU WEBSITE</span>)</p>
+                    </blockquote>
+                    Você deve ter notado que usei o enviei os dados para o arquivo reconhecer usando
+                    <span class="bold">?envio=open</span> depois de declarado qual arquivo será aberto.
+                    Não necessariamente isso é necessario para a função, sendo apenas uma forma de enviar
+                    dados para o arquivo que será aberto.
+                    <pre class="language-php"><code>&lt;?php
+if (isset($_GET['envio'])) { // isso captura o valor eviado
+    var_dump($_GET); // Mostra o valor dos dados enviados
+    echo ($_GET['envio']); // Mostra o valor do envio no índice 'envio'
+}</code></pre>
+                    <p><span class="italic bold">Bom</span>: Rápido processamento.</p>
+                    <p><span class="italic bold">Ruim</span>: Não mostra o status do carregamento.</p>
+                </div>
+            </div>
+
+            <div class="margin-top-high padding-all bg-light font-default">
+                No segundo botão vemos a execução do método <span class="bold text-blue">get</span>
+                Sendo é o melhor método do arquivo AjaxRequest.js
+                <p>Ao ser acionado ele irá requisitar o arquivo, mostrando um carregamento no local do ajax,
+                    e esse carregamento permanece até que o servidor se comunique ou autorize a exibição de
+                    dados.</p>
+                <p>Exemplo:</p>
+                Se você requisita um arquivo .php e usa nele mesmo o comando <span class="bold">sleep(3);</span>
+                Quer dizer que o servidor só vai mostrar o conteúdo após 3 segundos, mesmo que já tenha sido
+                processado. Mantendo a animação enquanto for necessário.
+                <p>Possui o mesmo comportamento para envio de dados do método open.</p>
+                Usa-se de três parâmetros sendo os dois primeiros obrigatórios e o terceiro opcional.
+                <p>Para o pirmeiro e segundo parâmento leia sobre o método <span class="bold">open</span></p>
+                <p>O terceiro parâmetro sendo opcional (você pode informar ou não); faz com que a barra de
+                    navegação receba um text-string com o valor desse parâmento
+                    <span class="text-red">não altera a URL apenas insere o texto nela</span>
+                    apenas útil quando você tem que carregar o arquivo e processar esses dados, mesmo que
+                    o usuário venha de outra url ou recarregue a página.
+                </p>
+            </div>
+
+            <div class="margin-top-high padding-all bg-light font-default">
+                No terceiro botão vemos a execução do método <span class="bold text-blue">pop</span>
+                <p>Seu comportamento em todos aspéctios é idêntico ao método <span class="bold">get</span></p>
+                Sua única diferença é a animação do carregamento, fazendo com que um bloco apareça o mostre
+                o status do carregamento, sendo assim não alterando o local do ajax até que o carregamento seja
+                concluído.
+                <p><span class="italic bold">Bom</span>: Confiança e instabilidade durante o carregamento.</p>
+                <p><span class="italic bold">Ruim</span>: Maior consumo da máquina para processar.</p>
+            </div>
+
+            <div class="margin-top-high padding-all bg-light font-default">
+                O quarto botão vemos a execução do método <span class="bold text-blue">load</span>
+                <p>Nos termos de requisição e envio não possui diferença quanto aos outros três métodos
+                    anteriores.</p>
+                <p>Esse método exibe um barra de carregamento no topo da página que contabiliza os dados já
+                    lidos pelo navegador.</p>
+                Sendo assim ele, monitora a renderização do HTML não a resposta do sevidor.
+                <p><span class="italic bold">Bom</span>: Sua animação mostra a porcentagem do carregamento.</p>
+                <p><span class="italic bold">Ruim</span>: Sua animação de carregamento não se baseia na
+                    resposta do servidor.</p>
+            </div>
+
+            <div class="font-medium" style="margin-top: 15%">
+                Por último vemos o método POST que serve para envio de formulários
+            </div>
+            <div class="align-center font-medium margin-top">
+                <hr class="border-bottom border-dark" />
+                <p class="font-large align-left">POST</p>
+                <div style="border: 5px dotted #000" class="padding-all">
+                    <div id="ajx-form"></div>
+                </div>
+
+                <form id="formulario" onsubmit="ajax.form('formulario', 'ajx-form', 'open.php'); return false;">
+                    <div class="row-pad margin-top">
+                        <div class="col-dual">
+                            <input type="text" name="text" class="input-line" placeholder="type text" />
+                        </div>
+                        <div class="col-dual">
+                            <input type="password" name="password" class="input-line" placeholder="type password" />
+                        </div>
+                        <div class="col-single">
+                            <select name="select" class="input-default">
+                                <option value="Opção 1">Option 1</option>
+                                <option value="Opção 2">Option 2</option>
+                                <option value="Opção 3">Option 3</option>
+                            </select>
+                        </div>
+                        <div class="col-third">
+                            <label class="btn-dark text-white" for="checkbox_1">
+                                checkbox
+                            </label>
+                            <input type="checkbox" name="checkbox_1" id="checkbox_1" value="check 1">
+                            <label class="btn-dark text-white" for="checkbox_2">
+                                checkbox
+                            </label>
+                            <input type="checkbox" name="checkbox_2" id="checkbox_2" value="check 2">
+                        </div>
+                        <div class="col-third">
+                            <label class="btn-dark text-white" for="radio1">
+                                radio
+                            </label>
+                            <input type="radio" name="radio" id="radio1" value="radio 1" checked="checked" />
+
+                            <label class="btn-dark text-white" for="radio2">
+                                radio
+                            </label>
+                            <input type="radio" name="radio" id="radio2" value="radio 2" />
+
+                            <label class="btn-dark text-white" for="radio3">
+                                radio
+                            </label>
+                            <input type="radio" name="radio" id="radio3" value="radio 3" />    
+                        </div>
+
+                        <div class="col-third">
+                            <label class="btn-warning text-white" for="radio_b1">
+                                radio
+                            </label>
+                            <input type="radio" name="radio_b" id="radio_b1" value="radio B 1" />
+
+                            <label class="btn-warning text-white" for="radio_b2">
+                                radio
+                            </label>
+                            <input type="radio" name="radio_b" id="radio_b2" value="radio B 2" checked="checked" />
+                        </div>
+                    </div>
+                    <div class="margin-top-high padding-lr-high">
+                        <button class="btn-default button-block">Executar Post</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="margin-top padding-all bg-light font-default">
+                Para usar o método <span class="bold text-blue">post</span> é obrigatório o uso de três
+                parâmetros.
+                <p>O primeiro parâmetro é o #ID do form ao qual queremos enviar os dados.</p>
+                <p>O segundo parâmetro é o #ID do elemento onde os dados da resposta deve ser mostrados,
+                    pós conclusão do ajax.</p>
+                <p>O terceiro parâmetro é o arquivo que deve ser submetido, seguindo nesse quisito o mesmo
+                    para solicitação de arquivo assim como nos métodos GET.</p>
+            </div>
+            <p class="font-large">html</p>
+            <pre class="language-html line-numbers"><code>&lt;form id="formulario" onsubmit="ajax.form('formulario', 'ajx-form', 'open.php'); return false;"&gt;
+    &lt;div class="row-pad margin-top"&gt;
+        &lt;div class="col-dual"&gt;
+            &lt;input type="text" name="text" class="input-line" placeholder="type text" /&gt;
+        &lt;/div&gt;
+        &lt;div class="col-dual"&gt;
+            &lt;input type="password" name="password" class="input-line" placeholder="type password" /&gt;
+        &lt;/div&gt;
+        &lt;div class="col-single"&gt;
+            &lt;select name="select" class="input-default"&gt;
+                &lt;option value="Opção 1"&gt;Option 1&lt;/option&gt;
+                &lt;option value="Opção 2"&gt;Option 2&lt;/option&gt;
+                &lt;option value="Opção 3"&gt;Option 3&lt;/option&gt;
+            &lt;/select&gt;
+        &lt;/div&gt;
+        &lt;div class="col-third"&gt;
+            &lt;label class="btn-dark text-white" for="checkbox_1"&gt;checkbox&lt;/label&gt;
+            &lt;input type="checkbox" name="checkbox_1" id="checkbox_1" value="check 1" /&gt;
+            &lt;label class="btn-dark text-white" for="checkbox_2"&gt;checkbox&lt;/label&gt;
+            &lt;input type="checkbox" name="checkbox_2" id="checkbox_2" value="check 2" /&gt;
+        &lt;/div&gt;
+        &lt;div class="col-third"&gt;
+            &lt;label class="btn-dark text-white" for="radio1"&gt;radio&lt;/label&gt;
+            &lt;input type="radio" name="radio" id="radio1" value="radio 1" checked="checked" /&gt;
+            &lt;label class="btn-dark text-white" for="radio2"&gt;radio&lt;/label&gt;
+            &lt;input type="radio" name="radio" id="radio2" value="radio 2" /&gt;
+            &lt;label class="btn-dark text-white" for="radio3"&gt;radio&lt;/label&gt;
+            &lt;input type="radio" name="radio" id="radio3" value="radio 3" /&gt;    
+        &lt;/div&gt;
+        &lt;div class="col-third"&gt;
+            &lt;label class="btn-warning text-white" for="radio_b1"&gt;radio&lt;/label&gt;
+            &lt;input type="radio" name="radio_b" id="radio_b1" value="radio B 1" /&gt;
+            &lt;label class="btn-warning text-white" for="radio_b2"&gt;radio&lt;/label&gt;
+            &lt;input type="radio" name="radio_b" id="radio_b2" value="radio B 2" checked="checked" /&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="margin-top-high padding-lr-high"&gt;
+        &lt;button class="btn-default button-block"&gt;Executar Post&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/form&gt;</code></pre>
+            <p class="font-large">php</p>
+            <pre class="language-php line-numbers"><code>&lt;?php
+if (isset($_POST)) {
+    echo ("&lt;pre&gt;");
+    var_dump($_POST);
+    echo ("&lt;/pre&gt;");
+}</code></pre>
+
+            <blockquote class="margin-top blockquote-yellow">
+                Não necessariamente é nessesário que você adicione o comando <span class="bold">onsubmit</span>
+                no escopo do form; ou seja você pode ativar o envio de um form por função ou botão externo
+                ao formulário.
+                Mas se usado o submit direto no form deve-se optar pelo retorno falso, prevendo que o
+                navegador execute sua ação padrão para formulários.
+            </blockquote>
+
+
+
+            <div class="font-medium" style="margin-top: 10%">
+                <hr class="border-bottom border-light" />
+                Você com ceresa percebeu que o arquivo AjaxRequest.js só executam requisições assícrona então
+                nunca o cliente receberá esse alerta do navegador:
+                <div class="padding-all bg-pale-red font-default">
+                    XMLHttpRequest síncrono não deve ser usado na thread principal devido a seus efeitos
+                    prejudiciais para a experiência de usuário.
+                </div>
+                Pelo fato de tudo que faço é visando a segurança, velocidade e praticidade, para gerar um
+                ambiente agradável para o desenvolvedor e principalmente ao usuário do website.
+                <p>Acredito eu que se 1% das pessoas criassem funções/aplicações com esse pensamento a web
+                    seria um lugar muito melhor.</p>
+                Voltando ao assunto... Mesmo que os métodos assícronos executam scripts como javascript nas
+                requisições ajax, não aconselho o uso.
+                <p>Porque?</p>
+                Se você inclui um javascript no arquivo que será aberto o navegador por padrão fará o download
+                desses dados, e toda vez que o ajax é re-executado, novamente é baixado pelo navegador o
+                javascript anterior, mas não é reinscrito devido ao cache.
+                <p>Então quando se pensa na internet para aparelhos móveis, você tem que saber que está
+                    consumindo banda desnecessária do visitante.</p>
+                <span class="text-orange">Além que nem todo javascript pode ser carregado</span>
+
+            </div>
+
+            <div class="margin-top-high">
+                <a class="href-link font-large"
+                   href="install-ajaxresquest.js.html"
+                   target="_blank" title="usar o AjaxRequest">
+                    Clique aqui para saber como instalar o AjaxRequest.js
+                </a>
+            </div>
+        </div>
+        <div class="box-y-100"></div>
+        <script>var ajax = new AjaxRequest();</script>
+    </body>
+</html>
+
+

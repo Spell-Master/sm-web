@@ -1,0 +1,74 @@
+/**
+ * ****************************************
+ * @Copyright (c) 2017, Spell Master.
+ * @Version: 2.0
+ * @Requisitos: Navegador compatível com
+ * HTML 5
+ * ****************************************
+ * * CSS de Apoio a aplicações
+ * Normalmente usado por javascript
+ * ****************************************
+ */
+
+/**
+ * ****************************************
+ * Globais
+ * ****************************************
+ */
+.opacity {opacity:.7}
+
+/**
+ * ****************************************
+ * AjaxRequest
+ * ****************************************
+ */
+.loading {
+    background-color:#222222;
+    padding:.937rem 2.187rem;
+    min-width:16.25rem;
+    position:fixed;
+    bottom:2.5rem;
+    left:2.5rem;
+    box-shadow:.062rem 0 1rem rgba(0,0,0,.5);
+    z-index:999;
+    animation:loadingeffect 1s
+}
+.loading > .text-prog {
+    float:left;
+    line-height:2.5rem;
+    padding-right:.625rem;
+    font-size:1.25rem;
+    color:#efefef
+}
+.loading > img {
+    float:right;
+    height:2.5rem
+}
+.loading-wrap{
+    z-index:1;
+    position:absolute;
+    top:0;left:0;
+    width:100%;
+    height:100%;
+    background-color:rgba(255,255,255,.5);
+    align-items:center;
+    display:flex;
+    flex-direction:row;
+    flex-wrap:wrap;
+    justify-content:center
+}
+
+.progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 5px;
+    width: 0;
+    background-color: #ff0000;
+    border-bottom: 1px solid #d30700;
+    transition: all .5s;
+    z-index: 999;
+    box-shadow: 0px 3px 6px rgba(0,0,0,.6);
+}
+@keyframes loadingeffect{from{bottom:-5rem}to{bottom:2.5rem}}
+

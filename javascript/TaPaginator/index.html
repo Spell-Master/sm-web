@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TabPaginator</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="../../lib/prism/prism.css" rel="stylesheet" type="text/css"/>
+        <link href="../../lib/sm-default.css" rel="stylesheet" type="text/css"/>
+        <link href="../../lib/sm-app.css" rel="stylesheet" type="text/css"/>
+        <script src="../../lib/prism/prism.js" type="text/javascript"></script>
+        <script src="TabPaginator.js" type="text/javascript"></script>
+        <style>
+            @media (max-width: 600px) {
+                .tab-menu > li {
+                    border-bottom: 1px solid #d9d9d9;
+                    width: 100%
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container padding-lr-prop">
+            <h1 class="align-center">TabPaginator.js</h1>
+            <hr class="border-bottom border-light" />
+
+            <div class="margin-top-high">
+                <blockquote class="blockquote">
+                    Essa é uma aplicação javascript que não necessariamente precisava de um arquivo padrão para
+                    utilizar.
+                    <p>Pelo fato que na grande maioria dos casos onde cheguei a fazer-la em websites, cada site
+                        teve suas próprias características.</p>
+                    Mas enfim, a criei e faço melhorias pois é útil em certas cituações onde não há um grande
+                    apelo a excluzividade dessa aplicação.
+                </blockquote>
+            </div>
+
+            <div class="margin-top-high">
+                <div class="font-medium" id="primeiro_exemplo">
+                    <ul class="tab-menu">
+                        <li><a class="tab-link">Index A</a></li>
+                        <li><a class="tab-link">Index B</a></li>
+                        <li><a class="tab-link">Index C</a></li>
+                        <li><a class="tab-link">Index D</a></li>
+                    </ul>
+                    <div class="tab-body">
+                        Tab A
+                        <p class="text-blue">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    </div>
+                    <div class="tab-body">
+                        Tab B
+                        <p class="text-red">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    </div>
+                    <div class="tab-body">
+                        Tab C
+                        <p class="text-green">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    </div>
+                    <div class="tab-body">
+                        Tab D
+                        <p class="text-dark-yellow">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    </div>
+                </div>
+
+                <div class="font-medium margin-top-high" id="segundo_exemplo">
+                    <ul class="tab-menu">
+                        <li><a class="tab-link">Index A</a></li>
+                        <li><a class="tab-link">Index B</a></li>
+                        <li><a class="tab-link">Index C</a></li>
+                        <li><a class="tab-link">Index D</a></li>
+                    </ul>
+                    <div class="tab-body">
+                        Tab A
+                        <p class="text-blue">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    </div>
+                    <div class="tab-body">
+                        Tab B
+                        <p class="text-red">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    </div>
+                    <div class="tab-body">
+                        Tab C
+                        <p class="text-green">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    </div>
+                    <div class="tab-body">
+                        Tab D
+                        <p class="text-dark-yellow">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="font-default" style="margin-top: 10%">
+                <p class="font-large">Como Utilizar</p>
+
+                <div class="margin-top">
+                    A primeira coisa temos que criar e adicionar um arquivo javascript que contém os métodos
+                    necessários ao index do website:
+                </div>
+                <pre class="language-javascript line-numbers"><code>/**
+ * ****************************************************
+ * @Copyright (c) 2017, Spell Master.
+ * @Version: 3.0
+ * @Requisitos: Navegador compatível com HTML 5
+ * ****************************************************
+ * @class Gerencia APP TAB.
+ * ****************************************************
+ * @changes:
+ * * 2.0 Spell Master
+ * Modificado a captura do elemebto tab para data-* evt
+ * * 3.0 Spell Master
+ * - Alterado todo o comportamento, não precisando mais
+ * vincular por parâmetros qual tab deve ser aberta.
+ * Altomaticamente detecta o índice do botão e abre
+ * o conteúdo pegando esse índice.
+ * - Adicionado parâmetro opcional para poder gerenciar
+ * as funções em diferentes locais do html.
+ * - Adicionado suporte a funções por meio de ativação
+ * externa.
+ * ****************************************************
+ * * @param propriety : (opcional) elemento para
+ * determinar o conjunto de ativação.
+ * ****************************************************
+ */
+
+var TabPaginator = function (propriety) {
+
+    var node = propriety ? document.getElementById(propriety) : document;
+
+    var tabLink = node.getElementsByClassName('tab-link');
+    var tabBody = node.getElementsByClassName('tab-body');
+    var i;
+
+    this.getTab = getTab;
+
+    /**
+     * ************************************************
+     * @function Abre a tab solicitada
+     * @param index : índice do elemento class
+     * ************************************************
+     */
+    function getTab(index) {
+        return function () {
+            openTab(index);
+        };
+    }
+
+    /**
+     * ************************************************
+     * @function Abre a tab solicitada
+     * @param tab : índice da tab para abrir
+     * ************************************************
+     */
+    function openTab(tab) {
+        for (i = 0; i &lt; tabLink.length; i++) {
+            tabLink[i].classList.remove('active');
+            tabBody[i].classList.remove('active');
+        }
+        tabLink[tab].classList.add('active');
+        tabBody[tab].classList.add('active');
+    }
+
+    /**
+     * ************************************************
+     * @function Inicia os botões
+     * ************************************************
+     */
+    this.tabButtons = function () {
+        for (i = 0; i &lt; tabLink.length; i++) {
+            tabLink[i].addEventListener('click', getTab(i), false);
+        }
+    };
+
+    /**
+     * ************************************************
+     * @function Abre a primeira tab
+     * ************************************************
+     */
+    this.startTab = function () {
+        tabLink[0].classList.add('active');
+        tabBody[0].classList.add('active');
+    };
+};
+</code></pre>
+                <div class="margin-top-high">
+                    Também vamos precisar da personalização dos elementos através do CSS
+                    <pre class="language-css line-numbers"><code>.tab-menu {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    border: 1px solid #d9d9d9;
+    border-bottom: none;
+    background-color: #f1f1f1
+}
+.tab-link {
+    outline: 0;
+    border: none;
+    padding: 16px 32px;
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    word-wrap: break-word;
+    background-color: #f1f1f1
+}
+.tab-link.active {
+    background-color: #ffffff
+}
+.tab-body {
+    display: none;
+    padding: 16px;
+    border: 1px solid #d9d9d9;
+    border-top: none
+}
+.tab-body.active {
+    display: block !important
+}</code></pre>
+                </div>
+                <div class="margin-top-high">
+                    Uma vez que temos o material entramos com a estrutura do HTML.
+                    <p>Basicamente precisamos de um elemento pai cujo sua class deve ser
+                        <span class="bold text-red">tab-menu</span> para abrigar os botões da paginação.</p>
+                    Então cada botão deve possuir a class <span class="bold text-red">tab-link</span>
+                    <p>Para cada botão que for adicionado também deve ser adicionado um elemento abaixo 
+                        do <span class="bold">tab-menu</span> de class
+                        <span class="bold text-red">tab-body</span> que será o conteúdo da tab quando
+                        ativada.</p>
+                    <blockquote class="blockquote-yellow">
+                        A ordem de definição do conteúdo deve seguir a ordem com que os botões foram
+                        inseridos.
+                    </blockquote>
+                    Vejamos abaixo o html como na execução da função no topo dessa página:
+                    <pre class="language-html line-numbers"><code>&lt;ul class="tab-menu"&gt;
+    &lt;li&gt;&lt;a class="tab-link"&gt;Index A&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a class="tab-link"&gt;Index B&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a class="tab-link"&gt;Index C&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a class="tab-link"&gt;Index D&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="tab-body"&gt;
+    Tab A
+    &lt;p class="text-blue"&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="tab-body"&gt;
+    Tab B
+    &lt;p class="text-red"&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="tab-body"&gt;
+    Tab C
+    &lt;p class="text-green"&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="tab-body"&gt;
+    Tab D
+    &lt;p class="text-dark-yellow"&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+
+                <div class="margin-top-high">
+                    Adicionamos então o objeto que vai iniciar a função no final do nosso documento antes do
+                    ferchamento da TAG <span class="bold">body</span>
+                    <pre class="language-html"><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;TabPaginator By Spell Master&lt;/title&gt;
+        &lt;meta charset="UTF-8"&gt;
+        &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+        &lt;link href="sm-default.css" rel="stylesheet" type="text/css"/&gt;
+        &lt;link href="sm-app.css" rel="stylesheet" type="text/css"/&gt;
+        &lt;script src="TabPaginator.js" type="text/javascript"&gt;&lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        Todo conteúdo html aqui
+        &lt;script&gt;var tab = new TabPaginator();&lt;/script&gt; &lt;!-- Objeto --&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="font-default" style="margin-top: 10%">
+                <hr class="border-bottom border-light" />
+                <p class="font-large">Usando os métodos</p>
+                <blockquote class="blockquote-yellow">
+                    Adicionando o objeto mesmo que tudo esteja de acodo a coisa parece não funcionar porque?
+                    <p>Porque em grande parte talvez tenhamos que ativar as funções por meio externo.</p>
+                    <p>Então agora veremos como utilizar as funções</p>
+                    No exemplo aqui vou usar o objeto como mencionado acima. Porém todos eles podem ser
+                    acionamos por prototipos, através de funções alheias.
+                </blockquote>
+                Iniciação o objeto
+                <pre class="language-javascript"><code>var tab = new TabPaginator();</code></pre>
+                Isso faz com que os cada botão funcione para abrir sua devida TAB
+                <pre class="language-javascript"><code>tab.tabButtons();</code></pre>
+                Isso vai acionar a TAB que você determinar.
+                <p>É necessário um parâmetro que é o índice de qual tab você quer abrir.</p>
+                <p>Por exemplo se eu tiver 4 índices dentro do escopo quer dizer que a primeiro índice
+                    é o numero <span class="bold">0</span> (zero) e o quarto índice é o número
+                    <span class="bold">3</span> (três)</p>
+                <pre class="language-javascript"><code>tab.getTab(0);</code></pre>
+                <p>Isso faz com que no carregamento do html o primeiro índice da TAB já seja aberto</p>
+                <p class="text-red">Usado junto (nunca devem ser usados juntos) e após o método
+                    <span class="bold">getTab</span> irá tornar o método anterior não funcional.</p>
+                <pre class="language-javascript"><code>tab.startTab();</code></pre>
+            </div>
+
+            <div class="font-default" style="margin-top: 10%">
+                <hr class="border-bottom border-light" />
+                <p class="font-large">Dicas</p>
+
+                <br />
+                <p class="font-medium">Mais de um Controle</p>
+                Caso queira/precise de executar a função em diferentes locais dentro do html,
+                basta que que adicione um elemento #ID e coloque o escopo da estrutura dentro desse elemento
+                identificador.
+                <p>E indicamos esse elemento ID como parâmetro na declaração do objeto</p>
+                <pre class="language-html"><code>&lt;div id="exemplo"&gt;
+    &lt;ul class="tab-menu"&gt;
+        &lt;li&gt;&lt;a class="tab-link"&gt;TAB&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;div class="tab-body"&gt;Conteúdo da TAB&lt;/div&gt;
+&lt;/div&gt;
+&lt;script&gt;
+    var tab = new TabPaginator('exemplo'); // Passando o controle da TAB para o elemento ID#exemplo
+&lt;/script&gt; </code></pre>
+                Então para mais de um conjunto de TAB basta que crie um novo objeto (de nome diferente) e
+                informe por parâmetro qual é o elemento ID do novo conjunto
+                <blockquote class="blockquote-yellow">
+                    Nesse caso você estará alterando o comportamento da localização dos elementos de trabalho
+                    das funções.
+                    <p>Quando você não informar por aprâmetro qual elemento ID está a arquitetura as funções
+                        vão buscar em todo DOM pelos elementos de trabalho.</p>
+                    <p>Sendo necessáriamente obrigatório sempre informar por parâmetro o conjunto de trabalho.</p>
+                    <p>Caso venha somente a usar um único conjunto, não precisa de informar o elemento
+                        identificador do conjunto.</p>
+                </blockquote>
+
+                <br />
+                <p class="font-medium">Responsivo</p>
+                Por ser algo que pode variar em sua quantidade ou uso de forma aleatória, não desenvolvi
+                um esquema CSS para padronizar a cituação do responsivo.
+                <p>Sendo necessário intervenção do desenvolvedor personalizar conforme a necessidade o
+                    uso das TABs.</p>
+                No caso aqui dessa página apenas usei o media-query para maximizar os campos dos botões e
+                adicionar um borda quando a resolução máxima for até 600px.
+                <p>Mas como disse fica a seu critério a melhor forma dessa personalização</p>
+                <pre class="language-css"><code>@media (max-width: 600px) {
+    .tab-menu > li {
+        border-bottom: 1px solid #d9d9d9;
+        width: 100%
+    }
+}</code></pre>
+            </div>
+
+        </div>
+        <div class="box-y-100"></div>
+        <script>
+            var tab1 = new TabPaginator('primeiro_exemplo');
+            tab1.tabButtons();
+            tab1.startTab();
+            var tab2 = new TabPaginator('segundo_exemplo');
+            tab2.tabButtons();
+            tab2.startTab();
+        </script>
+    </body>
+</html>

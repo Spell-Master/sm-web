@@ -109,3 +109,31 @@
 .tab-body.active {
     display: block !important
 }
+/**
+ * ****************************************
+ * Accordion
+ * ****************************************
+ */
+.acc-button {
+    background-color: #eeeeee;
+    color: #444444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s
+}
+.acc-button:hover {
+    background-color: #dddddd
+}
+.acc-container {
+    padding: 0 18px;
+    background-color: #ffffff;
+    height: 0;
+    overflow: hidden;
+    border: 1px solid #eeeeee;
+    border-top: none;
+    transition: all .5s ease
+}

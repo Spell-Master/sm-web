@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Accordion</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="../../lib/prism/prism.css" rel="stylesheet" type="text/css"/>
+        <link href="../../lib/sm-default.css" rel="stylesheet" type="text/css"/>
+        <link href="../../lib/sm-app.css" rel="stylesheet" type="text/css"/>
+        <script src="../../lib/prism/prism.js" type="text/javascript"></script>
+        <script src="Accordion.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <div class="container padding-lr-prop">
+            <h1 class="align-center">Accordion.js</h1>
+            <hr class="border-bottom border-light">
+
+            <div class="margin-top-high font-default">
+                Aqui vemos uma aplicação muito intereçante ao qual pode ser usada em diversas situações.
+                <p>Consiste em ocultar elementos ou mostrar-los.</p>
+                <br />
+                <p>Confesso qua na verdade não sei o nome mais correto para isso então resolvi charmar de
+                    ancoração.</p>
+                Clicando sobre cada elemento você exibe seu conteúdo oculto ao mesmo tempo e oculta seus parêntes.
+                <p>Sem muita conversa vejamos na prática do que se trata</p>
+            </div>
+
+            <div class="font-medium" id="primeiro">
+                <button class="acc-button">Ancoração 1</button>
+                <div class="acc-container">
+                    <div class="padding-all">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </div>
+                </div>
+                <button class="acc-button">Ancoração 2</button>
+                <div class="acc-container">
+                    <div class="padding-all">
+                        Segundo
+                    </div>
+                </div>
+                <button class="acc-button">Ancoração 3</button>
+                <div class="acc-container">
+                    <div class="padding-all">
+                        Terceiro
+                    </div>
+                </div>
+            </div>
+
+            <div class="font-default" style="margin-top: 10%">
+                <p class="font-large">Como utilizar</p>
+                <div class="margin-top-high">
+                    Primeiro criamos um arquivo javascript <span class="bold">Accordion.js</span> e adicionamos
+                    ele ao header do index.
+
+                    <p class="margin-top bold">Javascript</p>
+                    <pre class="language-javascript line-numbers"><code>/**
+ * ****************************************************
+ * @Copyright (c) 2016, Spell Master.
+ * @Version: 1.0
+ * ****************************************************
+ * @class Executa sistema de ancoração de divisores.
+ * ****************************************************
+ * @param propriety : Executar funções em apenas
+ * elementos ID expecificado. 
+ * ****************************************************
+ **/
+
+var Accordion = function (propriety) {
+    var $a = propriety ? document.getElementById(propriety) : document;
+    var $aB = $a.getElementsByClassName('acc-button');
+    var $aC = $a.getElementsByClassName('acc-container');
+    var $aN = $aC.length;
+    var $i, $node, $height;
+
+    /*
+     * Localiza os elementos
+     */
+    for ($i = 0; $i &lt; $aN; $i++) {
+        $aB[$i].addEventListener('click', openItens($i));
+    }
+
+    /**
+     * ************************************************
+     * @function : Expande o item designado
+     * @param p : ìndice do elemento para expandir
+     * ************************************************
+     */
+    this.openItem = function (p) {
+        var $n;
+        if (p) {
+            var $n = parseInt(p - 1);
+        } else {
+            var $n = 0;
+        }
+        $aC[$n].style.height = 'auto';
+    };
+
+    /**
+     * ************************************************
+     * @function : Expande o contrai os itens
+     * @param tgt : ìndice do elemento atual para
+     * expandir
+     * ************************************************
+     */
+    function openItens(tgt) {
+        return function () {
+            $node = $aC[tgt].cloneNode(true);
+            $node.setAttribute('style', 'height:auto; visibility:hidden');
+            $aC[tgt].parentNode.appendChild($node);
+
+            $height = heightV($node);
+            $aC[tgt].setAttribute('style', 'height:' + $height);
+            $aC[tgt].parentNode.removeChild($node);
+            if (heightV($aC[tgt], 'height') == $height) {
+                $aC[tgt].style.height = '0';
+            } else {
+                closeItens();
+                $aC[tgt].style.height = $height;
+            }
+        };
+    }
+
+    /**
+     * ************************************************
+     * @function : Contrai os itens
+     * ************************************************
+     */
+    function closeItens() {
+        for ($i = 0; $i &lt; $aN; $i++) {
+            $aC[$i].style.height = '0';
+        }
+    }
+
+    /**
+     * ************************************************
+     * @function : Obtem a altura atual de cada
+     * elemento
+     * @param item : Elemento expandido atual 
+     * ************************************************
+     */
+    function heightV(item) {
+        if (window.getComputedStyle) {
+            return window.getComputedStyle(item, null).getPropertyValue('height');
+        } else {
+            return item.currentStyle['height'];
+        }
+    }
+};
+</code></pre>
+                    <p class="margin-top bold">header</p>
+                    <pre class="language-html margin-top-high"><code>&lt;head&gt;
+    &lt;title&gt;Título da Página&lt;/title&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;link href="sm-default.css" rel="stylesheet" type="text/css"/&gt;
+    &lt;script src="Accordion.js" type="text/javascript"&gt;&lt;/script&gt;
+&lt;/head&gt;
+</code></pre>
+                </div>
+                <div class="margin-top-high">
+                    Também vamos precisar de apoio do CSS para dar características aos elementos:
+                    <p class="margin-top bold">CSS</p>
+                    <pre class="language-css margin-top"><code>.acc-button {
+    background-color: #eeeeee;
+    color: #444444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s
+}
+.acc-button:hover {
+    background-color: #dddddd
+}
+.acc-container {
+    padding: 0 18px;
+    background-color: #ffffff;
+    height: 0;
+    overflow: hidden;
+    border: 1px solid #eeeeee;
+    border-top: none;
+    transition: all .5s ease
+}</code></pre>
+
+                    <div class="margin-top-high">
+                        Com isso Criamos nossa estrutura HTML.
+                        <p>Consite em criar o botão que controle para cada elemento. E logo abaixo o elemento
+                            que queremos que seja ativado pelo botão, vejamos como é.</p>
+                        <pre class="language-html line-numbers"><code>&lt;button class="acc-button"&gt;Ancoração 1&lt;/button&gt;
+&lt;div class="acc-container"&gt;
+    &lt;div class="padding-all"&gt;
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;button class="acc-button"&gt;Ancoração 2&lt;/button&gt;
+&lt;div class="acc-container"&gt;
+    &lt;div class="padding-all"&gt;
+        Segundo
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;button class="acc-button"&gt;Ancoração 3&lt;/button&gt;
+&lt;div class="acc-container"&gt;
+    &lt;div class="padding-all"&gt;
+        Terceiro
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                        Muito simples, criamos um botão de class <span class="bold">acc-button</span> que e o
+                        botão ativador, logo abaixo o conteúdo para ativar de class
+                        <span class="bold">acc-container</span>. Dentro desse inserimos o conteúdo ao qual
+                        queremos que seja oculto ou mostrado conforme o botão for acionado.
+                    </div>
+
+                    <div class="margin-top-high">
+                        Por fim iniciar um objeto para a função, no final do documento antes do fechamento
+                        da tag <span class="bold">body</span>
+                        <pre class="language-html"><code>&lt;!-- Restante do conteúdo html acima disso --&gt;
+        &lt;script&gt;acc = new Accordion();&lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="font-default" style="margin-top: 10%">
+                <hr class="border-bottom border-light" />
+                <p class="font-large">Complementos</p>
+                <br />
+                <p class="font-medium"> * Expandindo elemento</p>
+                É possível no carregamento ou mesmo ordenar que uma função externa possa já expandir um dos
+                itens ocultos, para isso usamos o método <span class="bold">openItem</span>
+                <p>Por objeto de iniciação:</p>
+                <pre class="language-javascript"><code>acc = new Accordion();
+acc.openItem(2); // O segundo item a ancoração será exandido</code></pre>
+                <p>Usando protótipo de uma função:</p>
+                <pre class="language-javascript"><code>function myFnc() {
+    myFnc.prototype = new Accordion();
+    myFnc.prototype.openItem(2); // O segundo item a ancoração será exandido 
+}</code></pre>
+
+                <div class="margin-top-high">
+                    <p class="font-medium"> * Usando em mais de um local conjuntos diferentes da acoração</p>
+                    Talvez seja de interesse possuir por página mais de um conjunto, pensando nisso adpatei
+                    a funções para localizarem os elementos de trabalho a partir de um elemento identificador
+                    pai.
+                    <p>Nessa página vemos isso, pois logo no topo executei a função e agora estou a executar
+                        novamente.</p>
+                    <div class="font-medium margin-top-high" id="segundo">
+                        <button class="acc-button">Ancoração 1</button>
+                        <div class="acc-container">
+                            <div class="padding-all">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                            </div>
+                        </div>
+                        <button class="acc-button">Ancoração 2</button>
+                        <div class="acc-container">
+                            <div class="padding-all">
+                                Segundo
+                            </div>
+                        </div>
+                        <button class="acc-button">Ancoração 3</button>
+                        <div class="acc-container">
+                            <div class="padding-all">
+                                Terceiro
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="margin-top-high">
+                        Para que isso aconteça todos os elementos devem está dentro de um elemento pai para
+                        abrigar-los e informar esse pai como parâmetro para a função:
+                        <p>No html</p>
+                        <pre class="language-html line-numbers"><code>&lt;div id="primeiro"&gt;
+    &lt;button class="acc-button"&gt;Ancoração A1&lt;/button&gt;
+    &lt;div class="acc-container"&gt;Conteúdo&lt;/div&gt;
+    &lt;button class="acc-button"&gt;Ancoração A2&lt;/button&gt;
+    &lt;div class="acc-container"&gt;Conteúdo&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id="segundo"&gt;
+    &lt;button class="acc-button"&gt;Ancoração B1&lt;/button&gt;
+    &lt;div class="acc-container"&gt;Conteúdo&lt;/div&gt;
+    &lt;button class="acc-button"&gt;Ancoração B2&lt;/button&gt;
+    &lt;div class="acc-container"&gt;Conteúdo&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+                    <div class="margin-top-high">
+                        <p>No javascript</p>
+                        <pre class="language-javascript line-numbers"><code>acc1 = new Accordion('primeiro');
+acc2 = new Accordion('segundo');</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="box-y-100"></div>
+        <script>
+            acc1 = new Accordion('primeiro');
+            acc2 = new Accordion('segundo');
+        </script>
+    </body>
+</html>

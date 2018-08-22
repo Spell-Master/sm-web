@@ -115,7 +115,7 @@ h6 {font-size:1.5rem}
  * ****************************************
  */
 .text-white,        .text-white-hover:hover        {color:#ffffff !important}
-.text-light,        .text-light-hover:hover        {color:#f2f2f2 !important}
+.text-light,        .text-light-hover:hover        {color:#ededed !important}
 .text-dark,         .text-dark-hover:hover         {color:#d9d9d9 !important}
 .text-black,        .text-black-hover:hover        {color:#404040 !important}
 .text-light-black,  .text-light-black-hover:hover  {color:#4d4d4d !important}
@@ -163,7 +163,7 @@ h6 {font-size:1.5rem}
  * ****************************************
  */
 .bg-white,        .bg-white-hover:hover        {background-color:#ffffff !important}
-.bg-light,        .bg-light-hover:hover        {background-color:#f2f2f2 !important}
+.bg-light,        .bg-light-hover:hover        {background-color:#ededed !important}
 .bg-dark,         .bg-dark-hover:hover         {background-color:#d9d9d9 !important}
 .bg-black,        .bg-black-hover:hover        {background-color:#333333 !important}
 .bg-light-black,  .bg-light-black-hover:hover  {background-color:#4d4d4d !important}
@@ -352,7 +352,7 @@ h6 {font-size:1.5rem}
 
 .card        {background-color:#ffffff; box-shadow:0 .125rem .375rem 0 rgba(100,100,100,.4)}
 .card-black  {background-color:#4c4c4c; box-shadow:0 .125rem .375rem 0 rgba(0,0,0,.8)}
-.card-grey   {background-color:#f2f2f2; box-shadow:0 .125rem .375rem 0 rgba(0,0,0,.4)}
+.card-grey   {background-color:#ededed; box-shadow:0 .125rem .375rem 0 rgba(0,0,0,.4)}
 .card-red    {background-color:#ff6565; box-shadow:0 .125rem .375rem 0 rgba(63,13,13,.5)}
 .card-green  {background-color:#d9f7d9; box-shadow:0 .125rem .375rem 0 rgba(13,63,13,.5)}
 .card-blue   {background-color:#d9e9f7; box-shadow:0 .125rem .375rem 0 rgba(13,40,63,.5)}
@@ -389,7 +389,7 @@ h6 {font-size:1.5rem}
 .border-right-largue  {border-right:.25rem solid transparent}
 
 .border-white,        .border-white-hover:hover        {border-color:#ffffff !important}
-.border-light,        .border-light-hover:hover        {border-color:#f2f2f2 !important}
+.border-light,        .border-light-hover:hover        {border-color:#ededed !important}
 .border-dark,         .border-dark-hover:hover         {border-color:#d9d9d9 !important}
 .border-black,        .border-black-hover:hover        {border-color:#333333 !important}
 .border-light-black,  .border-light-black-hover:hover  {border-color:#4d4d4d !important}
@@ -691,7 +691,7 @@ h6 {font-size:1.5rem}
 .btn-warning       {background-color:#ff9800}
 .btn-danger        {background-color:#f44336}
 .btn-default       {background-color:#e7e7e7}
-.btn-light         {background-color:#f2f2f2}
+.btn-light         {background-color:#ededed}
 .btn-dark          {background-color:#404040}
 .btn-success:hover {background:#46a049}
 .btn-info:hover    {background:#4f7eae}

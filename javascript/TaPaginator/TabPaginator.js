@@ -26,11 +26,11 @@
 
 var TabPaginator = function (propriety) {
 
-    var node = propriety ? document.getElementById(propriety) : document;
+    var $node = propriety ? document.getElementById(propriety) : document;
 
-    var tabLink = node.getElementsByClassName('tab-link');
-    var tabBody = node.getElementsByClassName('tab-body');
-    var i;
+    var $tl = $node.getElementsByClassName('tab-link');
+    var $tb = $node.getElementsByClassName('tab-body');
+    var $i;
 
     this.getTab = getTab;
 
@@ -53,12 +53,12 @@ var TabPaginator = function (propriety) {
      * ************************************************
      */
     function openTab(tab) {
-        for (i = 0; i < tabLink.length; i++) {
-            tabLink[i].classList.remove('active');
-            tabBody[i].classList.remove('active');
+        for ($i = 0; $i < $tl.length; $i++) {
+            $tl[$i].classList.remove('active');
+            $tb[$i].classList.remove('active');
         }
-        tabLink[tab].classList.add('active');
-        tabBody[tab].classList.add('active');
+        $tl[tab].classList.add('active');
+        $tb[tab].classList.add('active');
     }
 
     /**
@@ -67,8 +67,8 @@ var TabPaginator = function (propriety) {
      * ************************************************
      */
     this.tabButtons = function () {
-        for (i = 0; i < tabLink.length; i++) {
-            tabLink[i].addEventListener('click', getTab(i), false);
+        for ($i = 0; $i < $tl.length; $i++) {
+            $tl[$i].addEventListener('click', getTab($i), false);
         }
     };
 
@@ -78,7 +78,7 @@ var TabPaginator = function (propriety) {
      * ************************************************
      */
     this.startTab = function () {
-        tabLink[0].classList.add('active');
-        tabBody[0].classList.add('active');
+        $tl[0].classList.add('active');
+        $tb[0].classList.add('active');
     };
 };

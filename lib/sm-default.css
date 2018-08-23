@@ -741,43 +741,34 @@ h6 {font-size:1.5rem}
  * Animação
  * ****************************************
  */
-.spinner {animation:spin 1s infinite linear}
-.rotate {animation:spin 1s}
-@keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+.spinner {animation:effect-spin 1s infinite linear}
+.rotate {animation:effect-spin 1s}
+@keyframes effect-spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
 
-.spinner-off {animation:spin-off 1s infinite linear}
-.rotate-off {animation:spin-off 1s}
-@keyframes spin-off{from{transform:rotate(360deg)}to{transform:rotate(0deg)}}
+.spinner-off {animation:effect-spin-off 1s infinite linear}
+.rotate-off {animation:effect-spin-off 1s}
+@keyframes effect-spin-off{from{transform:rotate(360deg)}to{transform:rotate(0deg)}}
 
-.turn {animation:turn 1s}
-@keyframes turn{from{transform:rotate(0deg)}to{transform:rotate(180deg)}}
-
-.turn-off {animation:turn-off 1s}
-@keyframes turn-off{from{transform:rotate(180deg)}to{transform:rotate(0deg)}}
+.turn {animation:effect-turn 1s}
+.turn-off {animation:effect-turn-off 1s}
+@keyframes effect-turn{from{transform:rotate(0deg)}to{transform:rotate(180deg)}}
+@keyframes effect-turn-off{from{transform:rotate(180deg)}to{transform:rotate(0deg)}}
 
 .flip, .flip-off {transform-style: preserve-3d}
-.flip {animation: flip 1s}
-@keyframes flip {from{transform:rotate(0deg)}to{transform:rotateY(180deg)}}
-.flip-off {animation: flip-off 1s;transform-origin: 100%}
-@keyframes flip-off {
-    from{transform:rotate(0deg)}to{transform:rotateX(-180deg)}}
+.flip {animation: effect-flip 1s}
+.flip-off {animation: effect-flip-off 1s;transform-origin: 100%}
+@keyframes effect-flip {from{transform:rotate(0deg)}to{transform:rotateY(180deg)}}
+@keyframes effect-flip-off {from{transform:rotate(0deg)}to{transform:rotateX(-180deg)}}
 
-
-
-
-
-.zoom-in{animation:effect-zoom-in 1s}
+.zoom-in{animation:effect-zoom-in .6s}
+.zoom-out{animation:effect-zoom-out .6s}
 @keyframes effect-zoom-in{from{transform:scale(0)}to{transform:scale(1)}}
-
-.zoom-out{animation:effect-zoom-out 1s}
 @keyframes effect-zoom-out{from{transform:scale(1)}to{transform:scale(0)}}
 
 .fade-in{animation:effect-fade-in 1s}
-@keyframes effect-fade-in{from{opacity:0}to{opacity:1}}
-
 .fade-out{animation:effect-fade-out 1s}
+@keyframes effect-fade-in{from{opacity:0}to{opacity:1}}
 @keyframes effect-fade-out{from{opacity:1}to{opacity:0}}
-
 
 /**
  * ****************************************

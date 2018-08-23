@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Modal</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="../../lib/prism/prism.css" rel="stylesheet" type="text/css"/>
+        <link href="../../lib/sm-default.css" rel="stylesheet" type="text/css"/>
+        <link href="../../lib/sm-app.css" rel="stylesheet" type="text/css"/>
+        <script src="../../lib/prism/prism.js" type="text/javascript"></script>
+        <script src="modalShow.js" type="text/javascript"></script>
+        <style>
+            @media (max-width: 900px) {
+                .modal-box {
+                    width: 96%
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container padding-lr-prop font-default">
+            <h1 class="align-center">modalShow.js</h1>
+            <hr class="border-bottom border-light" />
+
+            <div class="margin-top-high">
+                A aplicação modal consite em um bloco sobreposto ao conteúdo da página, uma janela que simula
+                o antigo e grotesco "pop-up".
+                <p>Francamente essa aplicação é mais uma questão de CSS e quase nenhum ou nenhum apelo ao
+                    javascript, entretanto por ser uma aplicação que particulamnte gosto muito de utilizar e por
+                    se de dificuldades para muitos em fazer, resolvi criar um padrão aqui para esse fim,
+                    ou vez também que já vi na web coisas completamente "bizarras" para excutar uma algo tão banal.
+                </p>
+            </div>
+
+            <div class="margin-top-high">
+                Começamos pela estrutura do html que devemos usar:
+                <pre class="language-html line-numbers"><code>&lt;div class="modal" id="identificador"&gt;
+    &lt;div class="modal-box"&gt;
+        &lt;div class="modal-header"&gt;&lt;/div&gt;
+        &lt;div class="modal-content"&gt;
+            Conteúdo do modal aqui
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                O que precisamos é um divisor pai com a class <span class="bold">modal</span> ao qual
+                abrigará o restante do conteúdo do modal.
+                <p>No entanto é vital que esse modal possua um identidicador que usaremos mais tarde.</p>
+                <p>Dentro desse elemento pai incluímos outro divisor de class
+                    <span class="bold">modal-box</span> que será nossa "janelinha" de conteúdo</p>
+                <p>Já que temos nossa caixa dentro dela colocamos outro divisor agora de
+                    class <span class="bold">modal-header</span>. Não precisa de conteúdo dentro desse elemento;
+                    apesar que ele vai possuir outros, mas serão criados dinamicamente pelas funções.</p>
+                <p>Por fim o elemento de class <span class="bold">modal-content</span> onde colocamos o(s)
+                    conteúdo(s) para nosso modal</p>
+                <button class="btn-default" onclick="m.open(null, true);">veja o exemplo</button>
+                <div class="modal" id="primeiro">
+                    <div class="modal-box">
+                        <div class="modal-header"></div>
+                        <div class="modal-content">
+                            Conteúdo do modal aqui
+                        </div>
+                    </div>
+                </div>
+                <blockquote class="blockquote-blue">
+                    O javascript e o css vão está no final desse artigo
+                </blockquote>
+            </div>
+
+            <div class="margin-top-high">
+                Pós adicionado o arquivo <span class="bold">modalShow.js</span> e o <span class="bold">CSS</span>
+                no final do body antes do fechamento da tag body iniciamos o objeto informando o #ID do
+                modal que queremos trabalhar:
+                <pre class="language-html"><code>&lt;script&gt;var myModal = new modalShow('identificador');&lt;/script&gt;</code></pre>
+                <p>Mas por sí só isso não é o bastante, precisamos mostrar o conteúdo porque ele estará oculto.</p>
+                <p>Para isso usamos os métodos... Basicamente esse tipo de aplicação possui muitas utilidades
+                    talvez seja um dos pricipais motidos que me levou a criar esse javascript. Pois devemos em
+                    determinadas cituações controlar as ações da aplicação.</p>
+            </div>
+
+            <div class="margin-top-high">
+                <hr class="border-bottom border-light" />
+                <p class="font-large">Usando os métodos:</p>
+                <div class="margin-top bg-light padding-all">
+                    <p class="font-medium">open</p>
+                    <p>Esse método é o que comanda a abertura do modal, ele consite em repassar dois parâmetros
+                        que são opcionais (você pode informar ou não)</p>
+                    <p class="bold text-blue">
+                        open(<span class="text-green">'param_a'</span>,
+                        <span class="text-green">'param_b'</span>);
+                    </p>
+                    <p>O primeiro parâmetro é o texto que terá o título da janela, de preferência a usar
+                        uma texto com o mínimo de caracteres possíveil.</p>
+
+                    <hr class="border-bottom border-dark" />
+                    <p>O segundo parâmetro informe um valor boleano
+                        <span class="text-red">true</span> ou
+                        <span class="text-red">false</span> ou
+                        <span class="text-red">null</span>
+                    </p>
+                    <p>Se true você está dizendo para a função que deseja que o botão de fehar seja aberto
+                        no momento que a janela for aberta.</p>
+                </div>
+                <div class="margin-top bg-light padding-all">
+                    <p class="font-medium">hiddenX</p>
+                    Esse método esconde o botão de fechar na janela (caso ele tenha sido mostrado)
+                </div>
+                <div class="margin-top bg-light padding-all">
+                    <p class="font-medium">showX</p>
+                    Esse método mostra o botão de fechar na janela (caso ele esteja oculto)
+                </div>
+                <div class="margin-top bg-light padding-all">
+                    <p class="font-medium">close</p>
+                    Como o próprio nome diz, esse método remove/oculta a janela.
+                </div>
+                <div class="margin-top">
+                    Porque de usar tais ações também de forma isolada do controle central?
+                    <p>Como dito anteriomente, esse tipo de aplicação possui inumeras utilidades, então
+                        você pode controlar a janela acessando seus funções externamente, tanto com objetos ou
+                        por prototípos.</p>
+                    <button class="btn-default font-medium" onclick="mB.open('Título', false)">Vejamos essa questão:</button>
+                    <div class="modal" id="segundo">
+                        <div class="modal-box zoom-in">
+                            <div class="modal-header"></div>
+                            <div class="modal-content">
+                                <div class="padding-all font-medium">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                    <button class="btn-default" onclick="mB.showX()">Mostrar Fechar</button>
+                                    <button class="btn-info text-light" onclick="mB.hiddenX()">Ocultar Fechar</button>
+                                    <button class="btn-warning text-light" onclick="mB.close()">Fechar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <pre class="language-html line-numbers"><code>&lt;button class="btn-default font-medium" onclick="mB.open('Título', false)"&gt;Vejamos essa questão:&lt;/button&gt;
+&lt;div class="modal" id="exemplo"&gt;
+    &lt;div class="modal-box zoom-in"&gt;
+        &lt;div class="modal-header"&gt;&lt;/div&gt;
+        &lt;div class="modal-content"&gt;
+            &lt;div class="padding-all font-medium"&gt;
+                &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;
+                &lt;button class="btn-default" onclick="mB.showX()"&gt;Mostrar Fechar&lt;/button&gt;
+                &lt;button class="btn-info text-light" onclick="mB.hiddenX()"&gt;Ocultar Fechar&lt;/button&gt;
+                &lt;button class="btn-warning text-light" onclick="mB.close()"&gt;Fechar&lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="margin-top-high">
+                <hr class="border-bottom border-light" />
+                <p class="font-large">Adicionado os requisitos</p>
+                Crie um novo arquivo javascript (<span class="bold">modalShow.js</span>)
+                e adicione-o ao index no head.
+                <pre class="language-html"><code>&lt;head&gt;
+    &lt;script src="modalShow.js" type="text/javascript"&gt;&lt;/script&gt;
+&lt;/head&gt;</code></pre>
+                Copie e cole o script a para o modalShow
+                <pre class="language-javascript line-numbers"><code>/**
+ * ************************************************
+ * @Copyright (c) Spell Master.
+ * @Requisitos: Navegador compatível com HTML 5
+ * ****************************************************
+ * @class Gerencia aplicação modal
+ * ****************************************************
+ * @param modal elemento#ID do modal
+ * ****************************************************
+ */
+
+var modalShow = function (modal) {
+    var $tgt = document.getElementById(modal);
+    var $box = $tgt.getElementsByClassName('modal-box')[0];
+    var $x;
+
+    /**
+     * ************************************************
+     * @function : Abre a janela
+     * @param text : (opcional) Informar string para
+     * o título da janela
+     * @param x : (Opcional) Informar BOL true/false
+     * se verdadeiro o botão de fechar é mostrado no
+     * momento que a janela é aberta.
+     * ************************************************
+     */
+    this.open = function (text, x) {
+        $tgt.querySelector('.modal-header').innerHTML = '&lt;div class="modal-close"&gt;&lt;/div&gt;&lt;div class="modal-title"&gt;&lt;/div&gt;';
+        if (text) {
+            title(text);
+        } else {
+            title('Janela');
+        }
+        if (x) {
+            showX();
+        }
+        $tgt.classList.add('active');
+        checkH();
+    };
+
+    /**
+     * ************************************************
+     * @public Esconde o botão de fechar
+     * ************************************************
+     */
+    this.hiddenX = function () {
+        if ($x) {
+            $x.classList.remove('active');
+            $x.removeEventListener('click', close, true);
+            $x = null;
+        }
+    };
+
+    /**
+     * ************************************************
+     * @public Acesso públio as funções
+     * ************************************************
+     */
+    this.title = title;
+    this.showX = showX;
+    this.close = close;
+
+    /**
+     * ************************************************
+     * @function : Mostra o botão de fechar.
+     * ************************************************
+     */
+    function showX() {
+        if (!$x) {
+            $x = $tgt.querySelector('.modal-close');
+            $x.classList.add('active');
+            $x.addEventListener('click', close, true);
+        }
+    }
+
+    /**
+     * ************************************************
+     * @function : Escreve o título da janela.
+     * @param {string} text : Título para a janela.
+     * ************************************************
+     */
+    function title(text) {
+        $tgt.querySelector('.modal-title').innerText = text;
+    }
+
+    /**
+     * ************************************************
+     * @function : Fecha a janela.
+     * ************************************************
+     */
+    function close() {
+        $box.classList.add('zoom-out');
+        if ($x) {
+            $x.removeEventListener('click', close);
+            $x.classList.remove('active');
+            $x = null;
+        }
+        setTimeout(function () {
+            $tgt.classList.remove('active');
+            $box.classList.remove('zoom-out');
+        }, 500);
+    }
+
+    /**
+     * ************************************************
+     * @function : Checa a altura e a posição da
+     * janela.
+     * * Se não houver espaço no eixo vertical para
+     * compor margem e altura do elemento central
+     * remove a margem e manipula a altura do
+     * conteúdo.
+     * ************************************************
+     */
+    function checkH() {
+        var $wH = window.innerHeight;
+        var $bT = $box.offsetTop;
+        var $bH = $box.offsetHeight;
+        if (($bT + $bH) &gt; $wH) {
+            $box.style.margin = 'auto';
+            $box.querySelector('.modal-content').style.height = ($wH - 50) + 'px';
+        }
+    }
+};</code></pre>
+            </div>
+            <div class="margin-top-high">
+                Pós então crie um novo CSS ou use algum já existente, e adicione essas propiedades a ele:
+                <pre class="language-css line-numbers"><code>.modal {
+    display: none;
+    z-index: 9;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0,.6);
+    animation: effect-fade-in 1s
+}
+.modal-box {
+    position: relative;
+    margin: 5% auto;
+    max-width: 900px;
+    background-color: #ffffff;
+    word-wrap: break-word
+}
+.modal-header {
+    height: 65px;
+    margin: 0 15px;
+    border-bottom: 1px solid #dddddd
+}
+.modal-title {
+    padding-left: 10px;
+    font-size: 30px;
+    line-height: 65px;
+    overflow-x: hidden;
+    white-space: nowrap
+}
+.modal-title:after,
+.modal-title:before {
+    content: " "; display: table;
+    clear: both
+}
+.modal-close {
+    display: none;
+    width: 50px;
+    font-size: 40px;
+    line-height: 65px;
+    text-align: center;
+    float: right;
+    padding-right: 10px;
+    cursor: pointer
+}
+.modal-close:hover {
+    color: #c40700
+}
+.modal-close:before {
+    content: "X"
+}
+.modal-content {
+    padding: 5px;
+    overflow-y: auto
+}
+.modal.active, .modal-close.active {
+    display: block
+}</code></pre>
+            </div>
+
+            <div style="margin-top: 10%">
+                <p class="font-large">Dicas:</p>
+                <hr class="border-bottom border-dark" />
+                <p>Como disse logo no início essa aplicação é pura questão de CSS então fique atento(a)</p>
+
+                <br />
+                <p>No css no elemento <span class="bold">.modal</span> temos a importância do
+                    <span class="text-red">z-index</span> com o valor 9.</p>
+                <p>Se sua estrutura do CSS já define elementos com o valor de importância maior que isso,
+                    esses elementos ficarão sobrepostos quando o modal for acionado.</p>
+                <div class="margin-top-high">
+                    Por padrão coloquei a largura máxima do <span class="bold">.modal-box</span> com 900 pixels
+                    caso deseje alterar você pode editar essa largura ou alterar diretamente na linha html.
+                    <p>Nesse exemplo a largura máxima será de 600 pixels indepedente do CSS</p>
+                    <pre class="language-html"><code>&lt;div class="modal-box" style="max-width: 600px"&gt;</code></pre>
+                    <p>Nessa mesma questão abordemos o media-query para ajustar conforme as necessidades:</p>
+                    <pre class="language-css"><code>@media (max-width: 900px) {
+    .modal-box {
+        width: 96%
+    }
+}</code></pre>
+                </div>
+                <div class="margin-top-high">
+                    Você pode criar efeito de transcisão para abertura do modal.
+                    <p>Bastra adicionar o método class junto a caixa central</p>
+                    <pre class="language-html"><code>&lt;div class="modal-box zoom-in"&gt;</code></pre>
+                </div>
+
+                <div class="margin-top-high">
+                    Atenção ao conteúdo em dispositivos móveis.
+                    <p>É fato que não podemos adivinhar qual e altura em pixels do aparelho
+                    de quem acessa uma aplicação, mas podemos compensar...</p>
+                    <p>Pensando nessa questão, o modalShow toda vez que vai mostrar o modal, ele calcula
+                    altomaticamente o a altura do modal e sua posição em relação a ao eixo vertical da
+                    tela do usuário, e faz os ajustes necessários.</p>
+                    <p>Por isso é muito importante que o conteúdo sempre esteja dentro do elemento class
+                        <span class="bold">modal-content</span></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="box-y-100"></div>
+        <script>
+            var m = new modalShow('primeiro');
+            var mB = new modalShow('segundo');
+        </script>
+    </body>
+</html>

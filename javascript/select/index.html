@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Custom Select</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <script src="../../lib/prism/prism.js" type="text/javascript"></script>
+        <script src="SelectOption.js" type="text/javascript"></script>
+        <link href="../../lib/prism/prism.css" rel="stylesheet" type="text/css"/>
+        <link href="../../lib/sm-default.css" rel="stylesheet" type="text/css"/>
+        <link href="../../lib/sm-app.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+
+        <div class="container padding-lr font-default">
+            <h1 class="align-center">SelectOption.js</h1>
+            <hr class="border-bottom border-light" />
+
+            <div class="margin-top-high">
+                Desde sempre a personalização do de um grupo de opções foi obstáculo para se fazer utilizando
+                simplesmente o CSS.
+                <p>E é fato que cada navegador o interpreta diferente, então muitas vezes ao ser necessário
+                    a utilização, o mesmo pode fazer com que seu disign não combine com o restante da estrutura
+                    do HTML na página.</p>
+                <p>Pensando nessa situação desenvolvi esse javascript para personalizar essa quase que
+                    indispensável aplicação de desenvolvimento.</p>
+            </div>
+
+            <div class="margin-top-high">
+                <div class="row-pad">
+                    <div class="col-dual">
+                        <p class="font-medium">Select padrão do navegador</p>
+                        <select style="width: 100%" class="font-medium">
+                            <option value="option">Opção</option>
+                            <option value="option">Opção</option>
+                            <option value="option">Opção</option>
+                            <option value="option">Opção</option>
+                            <option value="option">Opção</option>
+                        </select>
+                        <pre class="language-html"><code>&lt;select style="width: 100%" class="font-medium"&gt;
+    &lt;option value="option"&gt;Opção&lt;/option&gt;
+    &lt;option value="option"&gt;Opção&lt;/option&gt;
+    &lt;option value="option"&gt;Opção&lt;/option&gt;
+    &lt;option value="option"&gt;Opção&lt;/option&gt;
+    &lt;option value="option"&gt;Opção&lt;/option&gt;
+&lt;/select&gt;</code></pre>
+                    </div>
+                    <div class="col-dual">
+                        <p class="font-medium">Select personalizado pelo javascript</p>
+                        <select class="select" id="primeiro">
+                            <option value="option">Opção</option>
+                            <option value="option">Opção</option>
+                            <option value="option">Opção</option>
+                            <option value="option">Opção</option>
+                            <option value="option">Opção</option>
+                        </select>
+                        <pre class="language-html"><code>&lt;select class="select" id="primeiro"&gt;
+    &lt;option value="option"&gt;Opção&lt;/option&gt;
+    &lt;option value="option"&gt;Opção&lt;/option&gt;
+    &lt;option value="option"&gt;Opção&lt;/option&gt;
+    &lt;option value="option"&gt;Opção&lt;/option&gt;
+    &lt;option value="option"&gt;Opção&lt;/option&gt;
+&lt;/select&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 10%">
+                <hr class="border-bottom border-dark" />
+                Para a implementação começamos criando um arquivo <span class="bold">SelectOption.js</span>
+                e adicionando ele o head no index.
+                <pre class="language-html"><code>&lt;script src="SelectOption.js" type="text/javascript"&gt;&lt;/script&gt;</code></pre>
+                <p>Então copiamos o script abaixo para o SelectOption</p>
+                <div class="margin-top">
+                    <pre class="language-javascript line-numbers"><code>/**
+ * ****************************************************
+ * * @Class Select
+ * * @author Spell-Master (Omar Pautz)
+ * * @version 2.0 (2018)
+ * ****************************************************
+ * * @Info Personaliza grupo de opções 
+ * ****************************************************
+ * @param id : Id do select a ser personalizado
+ * ****************************************************
+ */
+
+var SelectOption = function (id) {
+    var $id = id;
+    var $trg = document.getElementById($id);
+    var $new, $head, $ul, $li, $i, $opt, $next, $cT;
+    createNew();
+
+    /**
+     * ************************************************
+     * * @function Cria os elementos base para o
+     * select personalizado
+     * ************************************************
+     */
+    function createNew() {
+        $new = document.createElement('div');
+        $new.classList.add('slt');
+        $head = document.createElement('div');
+        $head.classList.add('slt-title');
+        $trg.parentNode.insertBefore($new, $trg.nextSibling);
+        $new.appendChild($head);
+        createList();
+    }
+
+    /**
+     * ************************************************
+     * * @function Cria a estrutura da lista
+     * ************************************************
+     */
+    function createList() {
+        $ul = document.createElement('ul');
+        $ul.classList.add('slt-ul');
+        $new.appendChild($ul);
+        $new.addEventListener('click', toggleList);
+        createOptions();
+    }
+
+    /**
+     * ************************************************
+     * * @function Obtem as opções do select e adiona
+     * as mesmas para os personalizados
+     * ************************************************
+     */
+    function createOptions() {
+        $opt = $trg.querySelectorAll('option');
+        for ($i = 0; $i &lt; $opt.length; $i++) {
+            $li = document.createElement('li');
+            $li.setAttribute('data-select', $opt[$i].value);
+            $li.innerText = $opt[$i].innerText;
+            $li.addEventListener('click', clickItem.bind(this));
+            $ul.appendChild($li);
+        }
+        $head.innerText = $opt[0].innerText;
+    }
+
+    /**
+     * ************************************************
+     * * @function 
+     * Mostra a lista personalizada quando clicado
+     * sobre o cabeçalho dela
+     * * @param e : Obtem o atual elemento
+     * ************************************************
+     */
+    function toggleList(e) {
+        //e.stopPropagation();
+        $next = e.target.nextElementSibling;
+        $ul.classList.add('active');
+        $head.classList.add('sarrow');
+    }
+
+    /**
+     * ************************************************
+     * * @function Adiciona o valor item clicado ao
+     * value do select
+     * * @param e : Atual elemento
+     * ************************************************
+     */
+    function clickItem(e) {
+        e.stopPropagation();
+        $cT = e.currentTarget;
+        $head.innerText = $cT.innerText;
+        $trg.value = $cT.dataset.select;
+        $cT.parentNode.classList.remove('active');
+        $head.classList.remove('sarrow');
+    }
+
+    /**
+     * ************************************************
+     * * @function Quando clicado fora do select
+     * personalizado oculta os elementos
+     * ************************************************
+     */
+    function closeOff() {
+        var $tol = document.getElementsByClassName('slt-ul');
+        for ($i = 0; $i &lt; $tol.length; $i++) {
+            $tol[$i].classList.remove('active');
+        }
+        $head.classList.remove('sarrow');
+    }
+    document.addEventListener('click', closeOff, true);
+};</code></pre>
+                </div>
+
+                <div class="margin-top-high">
+                    Também vamos precisar do CSS ao qual esse é quem vai estilizar nossa personalização:
+                    <blockquote class="blockquote-yellow">
+                        Caso queira um layout diferente para a aplicação é isso que você deve editar
+                        <p class="text-red">Mas não altere o nome dos métodos.</p>
+                    </blockquote>
+                    <pre class="language-css line-numbers"><code>.select {
+    display: none
+}
+.slt {
+    cursor: pointer;
+    font-size: 18px;
+    position: relative;
+    line-height: 49.5px;
+    width: 100%;
+    display: inline-block;
+    margin: auto;
+    background-color: #ededed
+}
+.slt-title {
+    height: 49.5px;
+    padding-left: 15px;
+    line-height: 49.5px;
+    width: 100%;
+    display: block;
+    overflow-x: hidden;
+    white-space: nowrap
+}
+.slt-title:after {
+    content: "";
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+    border-color: #cccccc transparent transparent transparent;
+    position: absolute;
+    top: 20px;
+    right: 10px
+}
+.slt-title.sarrow:after {
+    top: 10px;
+    border-color: transparent transparent #cccccc transparent
+}
+.slt > ul {
+    display: none;
+    list-style: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    cursor: pointer;
+    background: #ffffff;
+    border: 1px solid #dddddd
+}
+.slt > ul > li {
+    z-index: 1;
+    margin: 0;
+    padding: 0 30px;
+    color: #444444;
+    border-top: 1px solid #dddddd
+}
+.slt > ul > li:first-of-type {
+    border-top: none
+}
+.slt > ul > li:hover {
+    background-color: #ededed;
+}
+.slt > ul.active {
+    display: block
+}</code></pre>
+                </div>
+
+                <div class="margin-top-high">
+                    Assim sendo basta criar a estrutura no html, o mais importante é que grupo deve
+                    seguir dois critérios:
+                    <p class="list">Possuir a class <span class="bold">select</span></p>
+                    <p class="list">Possuir um identificador.</p>
+                    <br />
+                    <p class="font-medium">Estrutura</p>
+                    <pre class="language-html line-numbers"><code>&lt;select class="select" id="exemplo"&gt;
+    &lt;option value="valor_1"&gt;Opção 1&lt;/option&gt;
+    &lt;option value="valor_2"&gt;Opção 2&lt;/option&gt;
+    &lt;option value="valor_3"&gt;Opção 3&lt;/option&gt;
+&lt;/select&gt;</code></pre>
+                    <p class="font-medium">Resultado</p>
+                    <select class="select" id="exemplo">
+                        <option value="valor_1">Opção 1</option>
+                        <option value="valor_2">Opção 2</option>
+                        <option value="valor_3">Opção 3</option>
+                    </select>
+                </div>
+
+                <div class="margin-top-high">
+                    Mas para que a coisa funcione precisamos informar ao javascript qual select queremos
+                    a personalização, por isso o uso da tag <span class="bold">ID</span>.
+                    <p>Então ao final do carregamento da página iniciamos um objeto para nosso javascript;
+                        iniciando o mesmo sempre antes do fechamento da tag body</p>
+                    <pre class="language-html"><code>&lt;!-- Restante do html acima disso --&gt;
+        &lt;script&gt;var sel = new SelectOption('exemplo');&lt;/script&gt;
+    &lt;/body&gt; 
+&lt;/html&gt;</code></pre>
+                    Então para cada grupo que desejar a personalização basta seguir esse conseito da tag class
+                    e identificador obrigatório.
+                    <p>De qualquer forma podemos personalizar como bem queremos:</p>
+                </div>
+            </div>
+
+
+            <div style="margin-top: 10%">
+                <form method="post" action="post.php" target="_blank">
+                    <div class="box-x-500 margin-auto">
+                        <select class="select" id="form-a" name="form_select_A">
+                            <option value="none-a">Selecionar</option>
+                            <option value="option-a">Opção 1</option>
+                            <option value="option-a">Opção 2</option>
+                        </select>
+                    </div>
+                    <div class="margin-top-high">
+                        <div class="form-line">
+                            <div class="float-left" style="width: calc(100% - 100px)">
+                                <select class="select" id="form-b" name="form_select_B">
+                                    <option value="none-b">Selecionar B</option>
+                                    <option value="option1-b">Opção B 1</option>
+                                    <option value="option2-b">Opção B 2</option>
+                                </select>
+                            </div>
+                            <div class="float-left">
+                                <button class="btn-success text-white font-large" style="width: 100px">
+                                    Submit
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <pre class="language-html line-numbers"><code>&lt;form method="post" action="post.php" target="_blank"&gt;
+    &lt;div class="box-x-500 margin-auto"&gt;
+        &lt;select class="select" id="form-a" name="form_select_A"&gt;
+            &lt;option value="none-a"&gt;Selecionar&lt;/option&gt;
+            &lt;option value="option-a"&gt;Opção 1&lt;/option&gt;
+            &lt;option value="option-a"&gt;Opção 2&lt;/option&gt;
+        &lt;/select&gt;
+    &lt;/div&gt;
+    &lt;div class="margin-top-high"&gt;
+        &lt;div class="form-line"&gt;
+            &lt;div class="float-left" style="width: calc(100% - 100px)"&gt;
+                &lt;select class="select" id="form-b" name="form_select_B"&gt;
+                    &lt;option value="none-b"&gt;Selecionar B&lt;/option&gt;
+                    &lt;option value="option1-b"&gt;Opção B 1&lt;/option&gt;
+                    &lt;option value="option2-b"&gt;Opção B 2&lt;/option&gt;
+                &lt;/select&gt;
+            &lt;/div&gt;
+            &lt;div class="float-left"&gt;
+                &lt;button class="btn-success text-white font-large" style="width: 100px"&gt;
+                    Submit
+                &lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/form&gt;
+</code></pre>
+            <script>
+                var sel = new SelectOption('primeiro');
+                var selB = new SelectOption('exemplo');
+                var selC = new SelectOption('form-a');
+                var selD = new SelectOption('form-b');
+            </script>
+        </div>
+        <div class="box-y-100"></div>
+    </body>
+</html>
+

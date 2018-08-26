@@ -201,3 +201,73 @@
 .modal.active, .modal-close.active {
     display: block
 }
+/**
+ * ****************************************
+ * Select
+ * ****************************************
+ */
+.select {
+    display: none
+}
+.slt {
+    cursor: pointer;
+    font-size: 18px;
+    position: relative;
+    line-height: 49.5px;
+    /*color: #fff;*/
+    width: 100%;
+    display: inline-block;
+    margin: auto;
+    background-color: #ededed
+}
+.slt-title {
+    height: 49.5px;
+    padding-left: 15px;
+    line-height: 49.5px;
+    width: 100%;
+    display: block;
+    overflow-x: hidden;
+    white-space: nowrap
+}
+.slt-title:after {
+    content: "";
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+    border-color: #cccccc transparent transparent transparent;
+    position: absolute;
+    top: 20px;
+    right: 10px
+}
+.slt-title.sarrow:after {
+    top: 10px;
+    border-color: transparent transparent #cccccc transparent
+}
+.slt > ul {
+    display: none;
+    list-style: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    cursor: pointer;
+    background: #ffffff;
+    border: 1px solid #dddddd
+}
+.slt > ul > li {
+    z-index: 1;
+    margin: 0;
+    padding: 0 30px;
+    color: #444444;
+    border-top: 1px solid #dddddd
+}
+.slt > ul > li:first-of-type {
+    border-top: none
+}
+.slt > ul > li:hover {
+    background-color: #ededed;
+}
+.slt > ul.active {
+    display: block
+}

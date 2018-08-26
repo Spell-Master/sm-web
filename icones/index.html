@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Icones de Fontes</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="../lib/sm-default.css" rel="stylesheet" type="text/css"/>
+        <link href="../lib/sm-app.css" rel="stylesheet" type="text/css"/>
+        <script src="../javascript/ajax/AjaxRequest.js" type="text/javascript"></script>
+
+    </head>
+    <body>
+        <div class="container padding-lr-prop font-default">
+            <h1 class="align-center">Ícones</h1>
+            <hr class="border-bottom border-light" />
+
+            <div class="row-pad">
+                <div class="col-dual">
+                    <div class="align-center shadow-on-hover text-light">
+                        <a href="#" class="btn-dark font-jumbo button-block" onclick="return ajax.load('open-ajax', 'font-awesome/font-awesome.html');">AWESOME</a>
+                    </div>
+                </div>
+                <div class="col-dual">
+                    <div class="align-center shadow-on-hover text-light">
+                        <a class="btn-dark font-jumbo button-block" onclick="return ajax.load('open-ajax', 'icomoon/icomoon.html');">ICOMOON</a>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 10%">
+                <div id="open-ajax"></div>
+            </div>
+
+            <div class="margin-top-high">
+                <hr class="border-bottom border-dark" />
+                Arquivos vetores de fontes para ícones é sempre um boa aquisição pelo baixo consumo de banda
+                no seu carregamento do que usar propiamente imagens.
+                <p>Sua utilidade pode ser vasta, ficando a critério de qual faz o front-end aplicar-los
+                    em grande escala ou não.</p>
+            </div>
+            <div class="margin-top-high">
+                <hr class="border-bottom border-dark" />
+                As informações sobre a aquisição dos arquivos necessário e os métodos de utilização
+                pode ser conferido direto pelo website de cada arquivo de fonte.
+                <p>Aqui apenas apresento cada ícone disponível por fonte</p>
+                <div class="margin-left font-medium">
+                    <p class="list"><a href="https://fontawesome.com/" target="_blank" title="Página Oficial" class="href-link">Awesome</a></p>
+                    <p class="list"><a href="https://icomoon.io/" target="_blank" title="Página Oficial" class="href-link">Icomoon</a></p>
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="box-y-100"></div>
+        <script>
+            var ajax = new AjaxRequest();
+            function clearIcons() {
+                document.getElementById('open-ajax').innerHTML = null;
+            }
+        </script>
+    </body>
+</html>

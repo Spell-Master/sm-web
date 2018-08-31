@@ -201,8 +201,8 @@ var AjaxRequest = function () {
 
         $httpRequest.onreadystatechange = function () {
             if (($httpRequest.readyState === 4) && ($httpRequest.status === 200)) {
-                for (i = 0; i < $form.elements.length; i++) {
-                    $form.elements[i].disabled = false;
+                for (var $i = 0; $i < $form.elements.length; $i++) {
+                    $form.elements[$i].disabled = false;
                 }
                 setTimeout(function () {
                     $loadDiv.innerHTML = $httpRequest.responseText;
@@ -298,20 +298,20 @@ var AjaxRequest = function () {
      * ************************************************
      */
     function formElements() {
-        for (var i = 0; i < $form.elements.length; i++) {
-            $form.elements[i].disabled = true;
-            if ($form.elements[i].type == 'checkbox') {
-                if ($form.elements[i].checked) {
-                    var $checkbox = $form.elements[i].value;
-                    $head += '&' + $form.elements[i].name + '=' + $checkbox;
+        for (var $i = 0; $i < $form.elements.length; $i++) {
+            $form.elements[$i].disabled = true;
+            if ($form.elements[$i].type == 'checkbox') {
+                if ($form.elements[$i].checked) {
+                    var $checkbox = $form.elements[$i].value;
+                    $head += '&' + $form.elements[$i].name + '=' + $checkbox;
                 }
-            } else if ($form.elements[i].type == 'radio') {
-                if ($form.elements[i].checked) {
-                    var $radio = $form.elements[i].value;
-                    $head += '&' + $form.elements[i].name + '=' + $radio;
+            } else if ($form.elements[$i].type == 'radio') {
+                if ($form.elements[$i].checked) {
+                    var $radio = $form.elements[$i].value;
+                    $head += '&' + $form.elements[$i].name + '=' + $radio;
                 }
             } else {
-                $head += '&' + $form.elements[i].name + '=' + $form.elements[i].value;
+                $head += '&' + $form.elements[$i].name + '=' + $form.elements[$i].value;
             }
         }
     }

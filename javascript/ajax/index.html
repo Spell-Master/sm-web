@@ -51,18 +51,17 @@
             <div style="border: 5px dotted #000" class="padding-all font-medium">
                 <div id="ajx-load"></div>
             </div>
+
             <div class="margin-top font-medium">
                 <button class="btn-default" onclick="ajax.open('ajx-load', 'open.php?ajax=open');">Executar método open</button>
-                <button class="btn-default" onclick="ajax.get('ajx-load', 'open.php?ajax=get', '?ajax=get');">Executar método get</button>
+                <button class="btn-default" onclick="ajax.send('ajx-load', 'open.php?ajax=send', '?ajax=send');">Executar método send</button>
                 <button class="btn-default" onclick="ajax.pop('ajx-load', 'open.php?ajax=pop', '?ajax=pop');">Executar método pop</button>
-                <button class="btn-default" onclick="ajax.load('ajx-load', 'open.php?ajax=load', '?ajax=load');">Executar método load</button>
             </div>
             <pre class="language-html line-numbers"><code>&lt;div id="ajx-load"&gt;&lt;/div&gt;
 
 &lt;button class="btn-default" onclick="ajax.open('ajx-load', 'open.php?envio=open');"&gt;Executar método open&lt;/button&gt;
-&lt;button class="btn-default" onclick="ajax.get('ajx-load', 'open.php?envio=get', '?envio=get');"&gt;Executar método get&lt;/button&gt;
+&lt;button class="btn-default" onclick="ajax.send('ajx-load', 'open.php?envio=send', '?envio=send');"&gt;Executar método get&lt;/button&gt;
 &lt;button class="btn-default" onclick="ajax.pop('ajx-load', 'open.php?envio=pop', '?envio=pop');"&gt;Executar método pop&lt;/button&gt;
-&lt;button class="btn-default" onclick="ajax.load('ajx-load', 'open.php?envio=load', '?envio=load');"&gt;Executar método load&lt;/button&gt;
 </code></pre>
             <div class="margin-top font-default">
                 Acima temos quatro botões que executam os método GET do arquivo javascript que usaremos.
@@ -132,24 +131,13 @@ if (isset($_GET['envio'])) { // isso captura o valor eviado
                 <p><span class="italic bold">Ruim</span>: Maior consumo da máquina para processar.</p>
             </div>
 
-            <div class="margin-top-high padding-all bg-light font-default">
-                O quarto botão vemos a execução do método <span class="bold text-blue">load</span>
-                <p>Nos termos de requisição e envio não possui diferença quanto aos outros três métodos
-                    anteriores.</p>
-                <p>Esse método exibe um barra de carregamento no topo da página que contabiliza os dados já
-                    lidos pelo navegador.</p>
-                Sendo assim ele, monitora a renderização do HTML não a resposta do sevidor.
-                <p><span class="italic bold">Bom</span>: Sua animação mostra a porcentagem do carregamento.</p>
-                <p><span class="italic bold">Ruim</span>: Sua animação de carregamento não se baseia na
-                    resposta do servidor.</p>
-            </div>
-
             <div class="font-medium" style="margin-top: 15%">
-                Por último vemos o método POST que serve para envio de formulários
+                Por último vemos o métodos para POST que serve para envio de formulários
             </div>
             <div class="align-center font-medium margin-top">
                 <hr class="border-bottom border-dark" />
-                <p class="font-large align-left">POST</p>
+
+                <p class="font-large align-left">Método "form"</p>
                 <div style="border: 5px dotted #000" class="padding-all">
                     <div id="ajx-form"></div>
                 </div>
@@ -214,17 +202,8 @@ if (isset($_GET['envio'])) { // isso captura o valor eviado
                 </form>
             </div>
 
-            <div class="margin-top padding-all bg-light font-default">
-                Para usar o método <span class="bold text-blue">post</span> é obrigatório o uso de três
-                parâmetros.
-                <p>O primeiro parâmetro é o #ID do form ao qual queremos enviar os dados.</p>
-                <p>O segundo parâmetro é o #ID do elemento onde os dados da resposta deve ser mostrados,
-                    pós conclusão do ajax.</p>
-                <p>O terceiro parâmetro é o arquivo que deve ser submetido, seguindo nesse quisito o mesmo
-                    para solicitação de arquivo assim como nos métodos GET.</p>
-            </div>
-            <p class="font-large">html</p>
-            <pre class="language-html line-numbers"><code>&lt;form id="formulario" onsubmit="ajax.form('formulario', 'ajx-form', 'open.php'); return false;"&gt;
+            <div class="margin-top-high">
+                <pre class="language-html line-numbers"><code>&lt;form id="formulario" onsubmit="ajax.form('formulario', 'ajx-form', 'open.php'); return false;"&gt;
     &lt;div class="row-pad margin-top"&gt;
         &lt;div class="col-dual"&gt;
             &lt;input type="text" name="text" class="input-line" placeholder="type text" /&gt;
@@ -264,13 +243,73 @@ if (isset($_GET['envio'])) { // isso captura o valor eviado
         &lt;button class="btn-default button-block"&gt;Executar Post&lt;/button&gt;
     &lt;/div&gt;
 &lt;/form&gt;</code></pre>
-            <p class="font-large">php</p>
-            <pre class="language-php line-numbers"><code>&lt;?php
-if (isset($_POST)) {
-    echo ("&lt;pre&gt;");
-    var_dump($_POST);
-    echo ("&lt;/pre&gt;");
-}</code></pre>
+            </div>
+
+            <div class="margin-top-high">
+                <p class="font-large">Método "formSend"</p>
+                <div style="border: 5px dotted #000" class="padding-all font-medium">
+                    <div id="ajx-form-b"></div>
+                </div>
+                <div class="margin-top font-medium">
+                    <form id="formulario-b" onsubmit="return ajax.formSend('formulario-b', 'ajx-form-b', 'open.php');">
+                        <div class="row-pad">
+                            <div class="col-dual">
+                                <input type="text" name="input_text" placeholder="exemplo text" class="input-default"/>
+                            </div>
+                            <div class="col-dual">
+                                <input type="password" name="input_password" placeholder="exemplo password" class="input-default"/>
+                            </div>
+                        </div>
+                        <div class="margin-top">
+                            <button type="submit" class="btn-default">Executar formSend</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <pre class="language-html line-numbers"><code>&lt;div id="ajx-form-b"&gt;&lt;/div&gt;
+
+&lt;form id="formulario-b" onsubmit="return ajax.formSend('formulario-b', 'ajx-form-b', 'open.php');"&gt;
+    &lt;div class="row-pad"&gt;
+        &lt;div class="col-dual"&gt;
+            &lt;input type="text" name="input_text" placeholder="exemplo text" class="input-default"/&gt;
+        &lt;/div&gt;
+        &lt;div class="col-dual"&gt;
+            &lt;input type="password" name="input_password" placeholder="exemplo password" class="input-default"/&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="margin-top"&gt;
+        &lt;button type="submit" class="btn-default"&gt;Executar formSend&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/form&gt;</code></pre>
+
+            <div class="margin-top">
+                <blockquote class="blockquote">
+                    A diferença do método <span class="bold">form</span> para <span class="bold">fromSend</span>
+                    conciste em apenas o modo em que a animação de arregamento irá acontecer.
+                    <p>No método simples (form) a animação cobre todo a estrutura do formulário a mesma
+                        permanece até a que o servidor responda.</p>
+                    <p>Já o método (formSend) a animação de carregamento acontece no mesmo local onde os
+                        dados serão carregados pela requisição, a mesma animação deixa de existir quando o
+                        o servidor responde com os dados.</p>
+                    <br />
+                    <p>Em ambos métodos existe a proteção contra múltiplos submits ou envio de dados "FAKE".</p>
+                    <p>No entanto é extremamente importante que faça a segurança dos pelo servidor
+                        através da linguagem "back-end" utilizada, filtrando e tratando todos os dados que
+                        trafegam pela aplicação.</p>
+                    <p class="text-red">Porque nunca se deve confiar em nenhum tipo de dado que é
+                        enviado para sua aplicação.</p>
+                </blockquote>
+            </div>
+
+            <div class="margin-top padding-all bg-light font-default">
+                Para usar o método <span class="bold text-blue">form</span> ou
+                <span class="bold text-blue">formSend</span> é obrigatório o uso de três parâmetros.
+                <p>O primeiro parâmetro é o #ID do form ao qual queremos enviar os dados.</p>
+                <p>O segundo parâmetro é o #ID do elemento onde os dados da resposta deve ser mostrados,
+                    pós conclusão do ajax.</p>
+                <p>O terceiro parâmetro é o arquivo que deve ser submetido, seguindo nesse quisito o mesmo
+                    para solicitação de arquivo assim como nos métodos GET.</p>
+            </div>
 
             <blockquote class="margin-top blockquote-yellow">
                 Não necessariamente é nessesário que você adicione o comando <span class="bold">onsubmit</span>
@@ -279,8 +318,6 @@ if (isset($_POST)) {
                 Mas se usado o submit direto no form deve-se optar pelo retorno falso, prevendo que o
                 navegador execute sua ação padrão para formulários.
             </blockquote>
-
-
 
             <div class="font-medium" style="margin-top: 10%">
                 <hr class="border-bottom border-light" />

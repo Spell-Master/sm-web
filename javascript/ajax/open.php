@@ -1,29 +1,39 @@
 <script src="importado.js"></script>
-<?php if (isset($_GET) && !empty($_GET)) { ?>
-    Aberto pelo método <span class="bold text-red"><?= $_GET['ajax'] ?></span>
-    <div class="margin-top">
-        <button class="btn-info text-white" onclick="localJS('resposta_get')">Executar javascript Local</button>
-        <button class="btn-info text-white" onclick="importadoJS('resposta_get')">Executar javascript Incluído</button>
-        <div id="resposta_get" class="padding-all">
+<script src="importado.min.js" type="text/javascript"></script>
+
+<div class="padding-all-min bg-light" style="border: 2px dashed #000">
+    <div id="resposta" class="bg-white"></div>
+
+    <div class="row-pad">
+        <div class="col-dual">
+            <div class="card-green block">
+                <span class="bold">GET :</span>
+                <pre><?php var_dump($_GET); ?></pre>
+            </div>
+        </div>
+        <div class="col-dual">
+            <div class="card-blue block">
+                <span class="bold">POST :</span>
+                <pre><?php var_dump($_POST); ?></pre>
+            </div>
         </div>
     </div>
-    <?php
-} else if (isset($_POST)) {
-    echo ("<pre>");
-    var_dump($_POST);
-    echo ("</pre>");
-    ?>
-    <div class="margin-top">
-        <button class="btn-info text-white" onclick="localJS('resposta_post')">Executar javascript Local</button>
-        <button class="btn-info text-white" onclick="importadoJS('resposta_post')">Executar javascript Incluído</button>
-        <div id="resposta_post" class="padding-all">
-        </div>
+    <div class="margin-all">
+        <button class="btn-info text-white" onclick="localJS('resposta')">Executar javascript Local</button>
+        <button class="btn-info text-white" onclick="importadoJS('resposta')">Executar javascript Incluído</button>
+        <button class="btn-info text-white" onclick="importadoJSm('resposta')">Executar javascript.mim Incluído</button>
+        <button class="btn-danger text-white" onclick="removeLoad()">Limpar Local do AJAX</button>
     </div>
-    <?php
-}
-?>
-<script>
+</div>
+
+<script type="text/javascript">
     function localJS(param) {
         document.getElementById(param).innerText = 'Executado função javascript escrita no próprio arquivo';
     }
+
+    function removeLoad() {
+        document.getElementById('carrega-ajax').innerHTML = null;
+    }
 </script>
+
+

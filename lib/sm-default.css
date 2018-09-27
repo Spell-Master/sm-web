@@ -1,7 +1,7 @@
 /**
  * ****************************************
  * @Copyright (c) 2017, Spell Master.
- * @Version: 2.1
+ * @Version: 2.2
  * @Requisitos: Navegador compatível com
  * HTML 5
  * ****************************************
@@ -14,11 +14,10 @@
  * Padronização
  * ****************************************
  */
-*, *:before, *:after {margin:0; padding:0; box-sizing:border-box; -webkit-box-sizing:border-box; -moz-box-sizing:border-box; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%}
+*, *:before, *:after {margin:0; padding:0; box-sizing:border-box; font-size-adjust:inherit}
 html {overflow-x:hidden}
 body {font-size:62.5%; line-height:1.5; font-family:"Helvetica Neue", Helvetica, Arial, sans-serif; color:#444444}
 html, body {height:100%}
-header, main, footer {width:auto}
 article, aside, details, figcaption, figure, footer, header, main, menu, nav, section, summary {display:block}
 audio, canvas, progress, video {display:inline-block}
 progress {vertical-align:baseline}
@@ -29,11 +28,10 @@ b, strong {font-weight:bold}
 i, dfn {font-style:italic}
 blockquote {margin:1rem 2.5rem}
 mark {background:#ff0000; color:#000000}
-/*pre {margin:.2rem 0}*/
 code, kbd, pre, samp {font-family:monospace, monospace; font-size:1rem}
 pre {white-space:pre; white-space:pre-wrap; word-wrap:break-word}
 q {quotes:none}
-q:before, q:after {content:''; content:none}
+q:before, q:after {content:" "; content:none}
 small {font-size:50%}
 sub, sup {font-size:60%; line-height:0; position:relative; top:-1rem; vertical-align:baseline}
 sub {bottom:-.50rem}
@@ -44,28 +42,25 @@ svg:not(:root) {overflow:hidden}
 fieldset {border:.062rem solid #c0c0c0; margin:0 .24rem; padding:.70rem .62rem}
 legend {color:inherit; display:table; max-width:100%; white-space:normal }
 textarea {overflow:auto}
-legend, button::-moz-focus-inner, input::-moz-focus-inner {border:0; padding:0}
+legend, button, input {border:0; padding:0}
 button, input, select, textarea {font-size:100%; margin:0; vertical-align:baseline; vertical-align:middle; font:inherit}
 optgroup {font-weight:bold}
-button, input {line-height:normal; border:none}
-button, select {text-transform:none }
-button, html [type=button], [type=reset], [type=submit] {-webkit-appearance:button}
-button:-moz-focus-inner, [type=button]:-moz-focus-inner, [type=reset]:-moz-focus-inner, [type=submit]:-moz-focus-inner {border-style:none; padding:0}
 [type=checkbox], [type=radio] {padding:0}
-[type=number]:-webkit-inner-spin-button, [type=number]:-webkit-outer-spin-button {height:auto}
-[type=search] {-webkit-appearance:textfield; outline-offset:-1rem}
-[type=search]:-webkit-search-cancel-button, [type=search]:-webkit-search-decoration {-webkit-appearance:none}
-:-webkit-input-placeholder {color:inherit; opacity:0.5}
-:-webkit-file-upload-button {-webkit-appearance:button; font:inherit}
-a, button, select, textarea {outline:none; outline-width:0; font:inherit; color:inherit}
-a {text-decoration:none; background-color:transparent; -webkit-text-decoration-skip:objects}
+[type=number], [type=number] {height:auto}
+[type=search] {outline-offset:-1rem}
+button, [type=button], [type=reset], [type=submit] {border-style:none; border:none}
+button, input, select {line-height:normal; text-transform:none }
+button, html [type=button], [type=reset], [type=submit] {-webkit-appearance:button}
+input[type=text]:focus, input[type=password]:focus, input[type=button]:focus, select:focus, textarea:focus  {outline:none}
+::placeholder {color:inherit; opacity:.7}
+a, select, textarea {outline:none; outline-width:0; font:inherit; color:inherit}
+a {text-decoration:none; background-color:transparent}
 a:active, a:hover {outline-width:0}
 table {border-collapse:collapse; border-spacing:0}
 b {font-weight:600}
 i {font-style:italic}
-hr {box-sizing:content-box; height:0; overflow:visible; border:0; margin-top:1rem; margin-bottom:1rem}
+hr {box-sizing:content-box; height:0; overflow:visible; border:0; margin-top:1.25rem; margin-bottom:1.25rem}
 p {padding-top:.312rem; margin-bottom:0}
-input[type=text]:focus, input[type=password]:focus, input[type=button]:focus, select:focus, textarea:focus {outline:none}
 
 /**
  * ****************************************
@@ -439,7 +434,7 @@ h6 {font-size:1.5rem}
  * * Radius
  * ****************************************
  */
-.radius-circle {border-radius: 50%; -moz-border-radius: 50%; -webkit-border-radius: 50%}
+.radius-circle {border-radius: 50%}
 
 .radius-all-small  {border-radius: .375rem}
 .radius-all-medium {border-radius: .625rem}
@@ -571,7 +566,6 @@ h6 {font-size:1.5rem}
 .align-left   {text-align:left}
 .align-right  {text-align:right}
 
-.vertical-auto     {vertical-align:auto}
 .vertical-baseline {vertical-align:baseline}
 .vertical-middle   {vertical-align:middle}
 .vertical-bottom   {vertical-align:bottom}
@@ -855,4 +849,3 @@ h6 {font-size:1.5rem}
 @media (max-width: 240px) {
     .box-x-200 {width:99.99999%}
 }
-

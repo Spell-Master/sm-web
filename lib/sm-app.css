@@ -12,64 +12,15 @@
  * * AjaxRequest
  * ****************************************
  */
-.load-pop {
-    z-index: 999;
-    position: fixed;
-    bottom: 40px;
-    left: 20px;
-    width: 240px;
-    padding: 15px;
-    background-color: #222222;
-    box-shadow: 10px 0 16px rgba(0,0,0,.5);
-    border-radius: 3px;
-    font-size: 22px;
-    text-align: center;
-    color: #cccccc;
-    animation: loadpop 1s
-}
-.load-local {
-    width: 100%;
-    height: 100px;
-    padding: 15px;
-    text-align: center
-}
-.form-conter {
-    position: relative !important;
-}
-.load-form {
-    top: 0;
-    left: 0;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: rgba(255,255,255,.7);
-}
-.fade-progress {
-    position: relative;
-    top: 50%;
-    left: 50%;
-    text-align: center;
-    transform: translate(-50%, -50%);
-}
-.load-pop > div.progress-text {
-    margin-right: 15px
-}
-.load-pop > div.progress-text,
-.load-pop > svg.load-pre {
-    display: inline-block;
-    vertical-align: middle
-}
-svg.load-pre {
-    animation: rotate-progress 2s linear infinite;
-    transform-origin: center center;
-    margin: auto
-}
-svg.load-pre > .load-path {
-    stroke-dasharray: 1, 200;
-    stroke-dashoffset: 0;
-    stroke-linecap: round;
-    animation: dash-progress 1s ease-in-out infinite
-}
+.load-pop {z-index:999; position:fixed; bottom:2.5rem; left:1.25rem; width:15rem; padding:.9375rem; background-color:#222222; box-shadow:.625rem 0 1rem rgba(0,0,0,.5); border-radius:.1875rem; font-size:1.375rem; text-align:center; color:#cccccc; animation:loadpop 1s}
+.load-local {width:100%; height:6.25rem; padding:.9375rem; text-align:center}
+.form-conter {position:relative !important}
+.load-form {top:0; left:0; position:absolute; width:100%; height:100%; background:rgba(255,255,255,.7)}
+.fade-progress {position:relative; top:50%; left:50%; text-align:center; transform:translate(-50%, -50%)}
+.load-pop > div.progress-text {margin-right:.9375rem}
+.load-pop > div.progress-text, .load-pop > svg.load-pre {display:inline-block; vertical-align:middle}
+svg.load-pre {animation:rotate-progress 2s linear infinite; transform-origin:center center; margin:auto}
+svg.load-pre > .load-path {stroke-dasharray:1, 200; stroke-dashoffset:0; stroke-linecap:round; animation:dash-progress 1s ease-in-out infinite}
 
 /**
  * ****************************************
@@ -280,19 +231,14 @@ svg.load-pre > .load-path {
 
 /* AjaxRequest */
 @keyframes loadpop {
-    from {
-        bottom: -40px;
-        opacity: .3;
-    } to {
-        bottom: 40px;
-        opacity: 1
-    }
+    from {bottom: -2.5rem; opacity: .3;}
+    to {bottom: 2.5rem; opacity: 1}
 }
 @keyframes rotate-progress {
     100% {transform: rotate(360deg)}
 }
 @keyframes dash-progress {
     0% {stroke-dasharray: 1, 200; stroke-dashoffset: 0}
-    50% {stroke-dasharray: 89, 200; stroke-dashoffset: -35px}
-    100% {stroke-dasharray: 89, 200; stroke-dashoffset: -124px}
+    50% {stroke-dasharray: 89, 200; stroke-dashoffset: -2.1875rem}
+    100% {stroke-dasharray: 89, 200; stroke-dashoffset: -7.75rem}
 }

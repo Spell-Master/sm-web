@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>FileTransfer</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="../../lib/sm-default.css" rel="stylesheet" type="text/css"/>
+        <link href="../../lib/sm-app.css" rel="stylesheet" type="text/css"/>
+        <script src="../../lib/prism/prism.js" type="text/javascript"></script>
+        <link href="../../lib/prism/prism.css" rel="stylesheet" type="text/css"/>
+        <script src="FileTransfer.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <div class="container padding-lr-prop font-default">
+            <h1 class="align-center">FileTransfer.js</h1>
+            <hr class="border-bottom border-dark" />
+
+            Essa é uma aplicação em javascript para transferência de arquivos por meio de síncrono.
+            <p>Possui duas características, uma para envio de arquivo para o usuário outra para o
+                próprio usuário enviar arquivos para o servidor.</p>
+
+            <div class="margin-top">
+                De simples implementação e uso começamos então pelo recebimento de arquivos...
+
+                <div class="margin-top font-medium text-white">
+                    <button class="btn-info" onclick="objFile.download('../../lib/imagens/mustang.jpg', true);" title="mustang.jpg">Clique para Download</button>
+                </div>
+
+                <pre class="language-html"><code>&lt;button onclick="objFile.download('mustang.jpg', true);" title="mustang.jpg"&gt;Clique para Download&lt;/button&gt;</code></pre>
+                <div class="margin-top">
+                    Para usar o método de download de arquivos adicionamos o evento click a algum
+                    elemento, passando o objeto da instância.
+                    <p>Precisaremos de dois parâmetros, o primeiro obrigatório e o segundo é
+                        opcional.</p>
+                    <p class="list margin-left">No primeiro parâmetro informamos o arquivo que será enviado.</p>
+                    <p class="list margin-left">No segundo que é opcional, você pode informar um valor booleano (true/false).
+                        O se for verdadeiro, indicará para o método a ação a se tomar durante o processo.</p>
+                    <p>Nada mais é que se verdadeiro você quer um botão para cancelar a transferência se
+                        assim o usuário desejar.</p>
+                    <blockquote class="blockquote-yellow">
+                        Lembre-se que ao informar o arquivo, você deve informar corretamente o endereço
+                        do mesmo, dentro dos diretórios do website começando pela raíz (index) até o
+                        local dele.
+                        <p>Se o arquivo não está nos diretórios do website, você deve informar a url
+                            correta para o mesmo.
+                        </p>
+                        <p class="text-red">
+                            Em ambos os casos assegurar que o diretório é público para acesso,
+                            e não existe restrição para visualização para o arquivo,
+                            do contrário o servidor vai impedir que o javascript tenha
+                            acesso o arquivo para executar o download.
+                        </p>
+                    </blockquote>
+                    <blockquote class="blockquote-red">
+                        ATENÇÃO!!
+                        <p>Usar de truques para executar o método de download em segundo plano de
+                            forma sem o consentimento (ação) do usuário o script 
+                            <span class="bold">poderá ser inpedido de funcionar</span>
+                            pelo sofware de segurança da máquina que está acessando.</p>
+                        <p>Lembre-se que qualquer ação automatizada sem que o usuário saiba o que
+                            vai acontecer é falha gravíssima das boas práticas da web!</p>
+                    </blockquote>
+                </div>
+            </div>
+
+            <div class="margin-top-high">
+                <hr class="border-bottom border-dark" />
+                <div id="resultado"></div>
+                <form id="upload_exemplo" class="font-medium" onsubmit="return objFile.upload('upload_exemplo', 'action.php', 'resultado', true);">
+                    <input id="envio" type="file" name="enviar" class="btn-default"/>
+                    <button class="btn-info text-white" style="height: 53px">Upload</button>
+                </form>
+                <pre class="language-html"><code>
+&lt;div id="resultado"&gt;&lt;/div&gt;
+
+&lt;form id="upload_exemplo" onsubmit="return objFile.upload('upload_exemplo', 'action.php', 'resultado', true);"&gt;
+    &lt;input type="file" name="enviar" /&gt;
+    &lt;button&gt;Upload&lt;/button&gt;
+&lt;/form&gt;
+
+</code></pre>
+
+                <div class="margin-top">
+                    O método de upload necessita de dois parâmetros obrigatórios e dois opcionais, sendo
+                    um desses muito acoselhável a utilização mesmo sem a necessidade.
+                    <blockquote class="blockquote-yellow">
+                        Antes de falar sobre os parâmetros...
+                        <p>Tenha certeza que o input que irá receber o arquivo seja do tipo
+                            "<span class="text-blue bold">file</span>".
+                        </p>
+                        <p>Tenha certeza que o diretório de envio exista 
+                            (<span class="bold">O PHP é quem deve se responsabilizar por essa parte</span>).</p>
+                        <p>Tenha certeza que exite a permição de armazenamento no diretório de envio
+                            (<span class="bold">O PHP é quem deve se responsabilizar por essa parte</span>).</p>
+                        <p>Você deve impor uma limitação de bits no envio quem faz isso é o php de acordo
+                            com as configuração de envio do servidor.
+                            (<span class="bold">Detalhes sobre isso estará no final desse artigo</span>).
+                        </p>
+                    </blockquote>
+
+                    <p class="list margin-left">O primeiro parâmetro deve-se informar o #ID do
+                        formulário de envio.</p>
+                    <p class="list margin-left">O segundo deve-se informar um arquivo .PHP que irá
+                        fazer o finalizar o processo de armazenamento do arquivo, uma vez que o método
+                        desse javascript apenas envia para o diretório temporário do servidor.</p>
+                    Esse mesmo arquivo php é quem terá a responsabilidade de verificações e
+                    filtragem de dados pois <span class="text-red bold">nunca se deve confiar em
+                        javascript para finalização de dados</span>.
+                    <p>Para nosso exemplo genérico aqui vamos apenas confirmar o envio</p>
+                    <pre class="language-php line-numbers"><code>&lt;?php
+move_uploaded_file($_FILES['enviar']['tmp_name'], 'upload/' . $_FILES['enviar']['name']);
+echo ("Arquivo enviado para o servidor &lt;br /&gt;FILE INFO:&lt;pre&gt;");
+var_dump($_FILES);
+echo ("&lt;/pre&gt;");
+</code></pre>
+                    Note que em no exemplo não há verificação alguma do que foi enviado ou se de fato
+                    alguma coisa foi enviada. Então cabe ao PHP validar esse envio, no que nos rebate ao
+                    terceiro parâmetro.
+                    <p class="list margin-left">O terceiro parâmetro podemos informar um elemento
+                        #ID para mostrar a resposta do servidor.</p>
+                    <p>Digamos então que vamos apenas aceitar imagens
+                        (isso é só um exemplo básico pois esse artigo não se trata de programação em
+                        php):</p>
+                    <pre class="language-php line-numbers"><code>&lt;?php
+if (!isset($_FILES['enviar']) && !empty($_FILES['enviar']['name'])) {
+    echo ("Nenhum arquivo enviado, houve edição maliciosa do javascript!");
+} else if (!preg_match('/^image\/(pjpeg|jpeg|png|gif|bmp)$/', $_FILES['enviar']['type'])) {
+    echo ("O arquivo enviado não é uma imagem!");
+} else {
+    move_uploaded_file($_FILES['enviar']['tmp_name'], 'upload/' . $_FILES['enviar']['name']);
+    echo ("Processo de upload completado.");
+}
+</code></pre>
+                    <blockquote class="blockquote-yellow">
+                        Note que no php você se refere ao arquivo de envio pelo índice do array 
+                        super-global <span class="bold">$_FILE</span>. Esse índice é o mesmo name do
+                        input do tipo <span class="bold">file</span>
+                        <div class="margin-top">
+                            * Esse terceiro parâmetro como mencionado não é necessário, mesmo que o
+                            omita o processo será verificado em segundo plano pelo servidor.
+                            <p>Mas nesse termo nunca será possível saber o resultado do processo.</p>
+                            <p>Então eu criei a seguinte mensagem de alerta no console para essa 
+                                situação. O que também será lançado caso o elemento #ID não exista.</p>
+                            <div class="text-dark-orange padding-all-min bg-white">
+                                Não é possível determinar sucesso do envio, elemento de #ID de validação
+                                é "null"</div>
+                        </div>
+                    </blockquote>
+                    <p class="list margin-left">O quarto e último parâmetro do método de upload
+                        se trata de um valor booleano (true/false), assim como no download você indica
+                        para o método se "true" você deseja um botão para cancelar a transferência do
+                        arquivo.</p>
+                </div>
+            </div>
+
+            <div style="margin-top: 10%">
+                <hr class="border-bottom border-dark" />
+                <p class="font-jumbo">Instalação</p>
+                Faça o download dos arquivos necessários:
+                <div class="font-medium text-white">
+                    <button class="btn-dark" onclick="objFile.download('../../downloads/FileTransfer/FileTransfer.min.js', true);" title="download FileTransfer.js">JavasSript</button>
+                    <button class="btn-dark" onclick="objFile.download('../../downloads/FileTransfer/FileTransfer.min.css', true);" title="download FileTransfer.css">CSS</button>
+                </div>
+            </div>
+
+            <p>Uma vez que temos os arquivo adicionamos eles dentro da tag
+                <span class="bold">header</span> no index.</p>
+            <pre class="language-html"><code>&lt;link href="FileTransfer.css" rel="stylesheet" type="text/css"/&gt;
+&lt;script src="FileTransfer.js" type="text/javascript"&gt;&lt;/script&gt;</code></pre>
+            Para usar dos métodos temos que criar um objeto de manipulação, para isso vamos ao final do
+            index antes do fechamento da tag <span class="bold">body</span> e criamos o objeto.
+            <pre class="language-html"><code>&lt;!-- Restante do código HTML acima --&gt;
+        &lt;script&gt;var objFile = new FileTransfer();&lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+            Sendo assim para acessar qualquer método usamos o objeto, assim como demostrado nos exemplos
+            desse artigo.
+
+            <div style="margin-top: 10%">
+                <hr class="border-bottom border-dark" />
+                <p class="font-jumbo">Dica</p>
+                Você também pode optar por otimizações no funcionamento, vejamos um exemplo, usando
+                a biblioteca CSS padrão com conceitos de javascript:
+            </div>
+
+            <div id="validar"></div>
+            <form id="exemplo_b" onsubmit="return objFile.upload('exemplo_b', 'action.php', 'validar', true);">
+                <label id="alterar" for="otimizado" class="btn-default">Selecione um arquivo</label>
+                <input id="otimizado" type="file" name="enviar" class="none">
+                <button class="btn-default font-medium disable" id="oculto">Upload</button>
+            </form>
+            <div class="margin-top">
+                <p class="font-large">HTML</p>
+                <pre class="language-html"><code>&lt;link href="sm-default.css" rel="stylesheet" type="text/css"/&gt;
+&lt;link href="FileTransfer.css" rel="stylesheet" type="text/css"/&gt;
+&lt;script src="FileTransfer.js" type="text/javascript"&gt;&lt;/script&gt;
+
+&lt;div id="validar"&gt;&lt;/div&gt;
+&lt;form id="exemplo_b" onsubmit="return objFile.upload('exemplo_b', 'action.php', 'validar', true);"&gt;
+    &lt;label id="alterar" for="otimizado" class="btn-default"&gt;Selecione um arquivo&lt;/label&gt;
+    &lt;input id="otimizado" type="file" name="enviar" class="none"&gt;
+    &lt;button class="btn-default font-medium disable" id="oculto"&gt;Upload&lt;/button&gt;
+&lt;/form&gt;
+</code></pre>
+            </div>
+
+            <p class="font-large">Javascript</p>
+            <pre class="language-javascript"><code>document.getElementById('otimizado').addEventListener('change', myUpload, false);
+function myUpload(e) {
+    document.getElementById('alterar').innerText = e.target.files[0].name;
+    document.getElementById('oculto').classList.remove('disable');
+}
+var objFile = new FileTransfer();</code></pre>
+
+
+            <div class="margin-top-high">
+                <hr class="border-bottom border-light" />
+                <p class="font-medium">Vejamos outro exemplo:</p>
+                Nesse termo ao selecionar o arquivo o upload já inicia, e não usamos um objeto.
+                E sim um prototipo da função.
+            </div>
+            <div id="validar_b"></div>
+            <form id="exemplo_c" onsubmit="return false;">
+                <label id="alterar_b" for="otimizado_b" class="btn-default">Selecione um arquivo</label>
+                <input id="otimizado_b" type="file" name="enviar" class="none">
+            </form>
+            <div class="margin-top">
+                <p class="font-large">HTML</p>
+            </div>
+            <pre class="language-html"><code>&lt;link href="sm-default.css" rel="stylesheet" type="text/css"/&gt;
+&lt;link href="FileTransfer.css" rel="stylesheet" type="text/css"/&gt;
+&lt;script src="FileTransfer.js" type="text/javascript"&gt;&lt;/script&gt;
+
+&lt;div id="validar_b"&gt;&lt;/div&gt;
+&lt;form id="exemplo_c" onsubmit="return false;"&gt;
+    &lt;label id="alterar_b" for="otimizado_b" class="btn-default"&gt;Selecione um arquivo&lt;/label&gt;
+    &lt;input id="otimizado_b" type="file" name="enviar" class="none"&gt;
+&lt;/form&gt;
+</code></pre>
+
+            <p class="font-large">Javascript</p>
+            <pre class="language-javascript"><code>document.getElementById('otimizado_b').addEventListener('change', myUploadB, false);
+function myUploadB(e) {
+    document.getElementById('alterar_b').innerText = e.target.files[0].name;
+    myUploadB.prototype = new FileTransfer();
+    myUploadB.prototype.upload('exemplo_c', 'action.php', 'validar_b', true);
+}</code></pre>
+            
+            <div style="margin-top: 10%" class="bg-light padding-all">
+                <p class="font-medium">Tamanho limite no upload</p>
+                Essa configuração é típica do PHP, para modificar-la vá ao
+                <span class="bold">PHP.ini</span> e localize as seguintes linhas:
+                <div class="margin-left">
+                    <p class="list italic">post_max_size</p>
+                    <p class="list italic">upload_max_filesize</p>
+                </div>
+                <blockquote class="blockquote-yellow">
+                    Atenção!
+                    <p>Você deve verificar junto a hospedagem qual é o seu pacote limite para poder
+                    modificar essas configurações.</p>
+                </blockquote>
+            </div>
+        </div>
+
+        <div class="box-y-100"></div>
+        <script>
+            document.getElementById('otimizado').addEventListener('change', myUpload, false);
+            document.getElementById('otimizado_b').addEventListener('change', myUploadB, false);
+            function myUpload(e) {
+                document.getElementById('alterar').innerText = e.target.files[0].name;
+                document.getElementById('oculto').classList.remove('disable');
+            }
+            function myUploadB(e) {
+                document.getElementById('alterar_b').innerText = e.target.files[0].name;
+                myUploadB.prototype = new FileTransfer();
+                myUploadB.prototype.upload('exemplo_c', 'action.php', 'validar_b', true);
+            }
+            var objFile = new FileTransfer();
+        </script>
+    </body>
+</html>

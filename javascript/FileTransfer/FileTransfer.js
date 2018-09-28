@@ -222,9 +222,11 @@ var FileTransfer = function () {
         var $load = document.getElementById($result);
         if ($load !== null) {
             $load.innerHTML = $request.responseText;
-
-            // Método loadScripts do arquivo AjaxRequest.js
             var $j = $response.indexOf('<script', 0), $src, $idxSrc, $endSrc, $strSrc;
+            var $os = $load.getElementsByTagName('script'), $k;
+            for ($k = $os.length - 1; $k >= 0; $k--) {
+                $os[$k].parentNode.removeChild($os[$k]);
+            }
             while ($j != -1) {
                 $src = document.createElement('script');
                 $idxSrc = $response.indexOf(' src', $j);
@@ -233,21 +235,22 @@ var FileTransfer = function () {
                     $j = $idxSrc + 4;
                     $endSrc = $response.indexOf('.js', $j) + 3;
                     $strSrc = $response.substring($j, $endSrc);
-                    $strSrc = $strSrc.replace('=', '').replace('"', '').replace('>', '');
+                    $strSrc = $strSrc.replace('=', '')
+                            .replace(' ', '')
+                            .replace('"', '')
+                            .replace('"', '')
+                            .replace("'", '')
+                            .replace("'", '')
+                            .replace('>', '');
                     $src.src = $strSrc;
                 } else {
                     $endSrc = $response.indexOf('</script>', $j);
                     $strSrc = $response.substring($j, $endSrc);
-                    $src.innerText = $strSrc;
+                    $src.text = $strSrc;
                 }
-                $j = $response.indexOf('<script', $endSrc);
                 $load.appendChild($src);
-            }
-
-            // Método oldScripts do arquivo AjaxRequest.js
-            var $os = $load.getElementsByTagName('script'), $k;
-            for ($k = $os.length - 1; $k >= 0; $k--) {
-                $os[$k].parentNode.removeChild($os[$k]);
+                $j = $response.indexOf('<script', $endSrc);
+                $src = null;
             }
         } else {
             console.warn('Não é possível determinar sucesso do envio, elemento de #ID de validação é "null"');

@@ -157,44 +157,45 @@ svg.load-pre > .load-path {stroke-dasharray:1, 200; stroke-dashoffset:0; stroke-
  * Select
  * ****************************************
  */
-.select {
+.selected {
     display: none
 }
-.slt {
-    cursor: pointer;
-    font-size: 18px;
+.select-base {
     position: relative;
-    line-height: 49.5px;
-    /*color: #fff;*/
-    width: 100%;
-    display: inline-block;
-    margin: auto;
-    background-color: #ededed
+    width: 100%
 }
-.slt-title {
-    height: 49.5px;
-    padding-left: 15px;
-    line-height: 49.5px;
+.select-button {
     width: 100%;
     display: block;
+    height: 3.125rem;
+    line-height: 3.125rem;
     overflow-x: hidden;
-    white-space: nowrap
+    white-space: nowrap;
+    cursor: pointer;
+    background-color: #ededed;
+    text-align: left;
+    padding-left: .9375rem;
 }
-.slt-title:after {
+.select-button:after {
     content: "";
     width: 0;
     height: 0;
-    border: 10px solid transparent;
+    border: .625rem solid transparent;
     border-color: #cccccc transparent transparent transparent;
     position: absolute;
-    top: 20px;
-    right: 10px
+    top: 1.25rem;
+    right: .625rem
 }
-.slt-title.sarrow:after {
-    top: 10px;
+.select-button.active:after {
+    top: .625rem;
     border-color: transparent transparent #cccccc transparent
 }
-.slt > ul {
+.select-button > .select-text {
+    width: calc(100% - 2.1875rem);
+    overflow-x: hidden;
+    white-space: nowrap;
+}
+.select-base > .select-list {
     display: none;
     list-style: none;
     position: absolute;
@@ -204,23 +205,25 @@ svg.load-pre > .load-path {stroke-dasharray:1, 200; stroke-dashoffset:0; stroke-
     z-index: 1;
     cursor: pointer;
     background: #ffffff;
-    border: 1px solid #dddddd
+    border: .0625rem solid #ededed
 }
-.slt > ul > li {
+.select-base > .select-list.active {
+    display: block
+}
+.select-base > .select-list > li {
     z-index: 1;
     margin: 0;
-    padding: 0 30px;
+    padding: .625rem;
     color: #444444;
-    border-top: 1px solid #dddddd
+    border-top: .0625rem solid #ededed;
+    overflow-x: hidden;
+    white-space: nowrap
 }
-.slt > ul > li:first-of-type {
+.select-base > .select-list > li:first-of-type {
     border-top: none
 }
-.slt > ul > li:hover {
-    background-color: #ededed;
-}
-.slt > ul.active {
-    display: block
+.select-base > .select-list > li:hover {
+    background-color: #ededed
 }
 
 /**

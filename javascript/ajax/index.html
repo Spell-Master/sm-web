@@ -85,7 +85,7 @@
                                 <input type="password" name="password" class="input-line" placeholder="type password" />
                             </div>
                             <div class="col-dual">
-                                <select class="select" id="fomajx" name="select">
+                                <select class="selected" id="fomajx" name="select">
                                     <option value="Opção 1">Option 1</option>
                                     <option value="Opção 2">Option 2</option>
                                     <option value="Opção 3">Option 3</option>
@@ -288,9 +288,7 @@ echo $_GET['envio']; // No caso desse exemplo será mostrado o texto "parametro"
         <div class="box-y-100"></div>
         <script>
             var ajax = new AjaxRequest();
-            var sel = new SelectOption('fomajx');
-
-
+            var sel = new SelectOption();
         </script>
     </body>
 </html>

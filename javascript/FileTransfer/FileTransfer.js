@@ -1,3 +1,4 @@
+
 /**
  * ****************************************************
  * @Copyright (c) 2018, Spell Master.
@@ -59,7 +60,7 @@ var FileTransfer = function () {
                 $request.addEventListener('readystatechange', transferComplete, false);
 
                 $request.responseType = 'text';
-                $request.open('POST', 'action.php', true);
+                $request.open('POST', sendTo, true);
                 $request.send($data);
             }
         } else {

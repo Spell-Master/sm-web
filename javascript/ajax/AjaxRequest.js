@@ -1,7 +1,7 @@
 /**
  * ****************************************************
- * @Copyright (c) 2017, Spell Master.
- * @version 4.0 (2018)
+ * @Copyright (c) 2017, Omar Pautz "Spell Master".
+ * @version 4.1 (2018)
  * @requires  Navegador compatível com HTML 5
  * ****************************************************
  * @class Executa ajax.
@@ -13,8 +13,8 @@ var AjaxRequest = function () {
 
     /**
      * ************************************************
-     * * @public : Requisita um arquivo e o exibe o
-     * mesmo em um local expecífico.
+     * Requisita um arquivo e o exibe o mesmo em um
+     *  local expecífico.
      * * @param {STR} div
      * - Elemento#ID onde o arquivo deve ser aberto.
      * * @param {STR} file
@@ -23,9 +23,9 @@ var AjaxRequest = function () {
      */
     this.open = function (div, file) {
         if (!div) {
-            console.log('Parâmetro "div" não expecificado');
+            console.warn('Parâmetro "div" não expecificado');
         } else if (!file) {
-            console.log('Parâmetro "file" não expecificado');
+            console.warn('Parâmetro "file" não expecificado');
         } else {
             $loadDiv = document.getElementById(div);
             $file = file;
@@ -36,31 +36,31 @@ var AjaxRequest = function () {
 
     /**
      * ************************************************
-     * * @public : Requisita um arquivo e o exibe o
-     * mesmo em um local expecífico.
+     * Requisita um arquivo e o exibe o mesmo em um
+     *  local expecífico.
      * - Animação no mesmo local onde o arquivo será
-     * aberto.
+     *    aberto.
      * * @param {STR} div
      * - Elemento#ID onde o arquivo deve ser aberto.
      * * @param {STR} file
      * - Arquivo que será aberto.
      * * @param {STR} url (opcional)
      * - Quando informado adicionará a string a barra
-     * de navegação.
+     *    de navegação.
      * ************************************************
      */
     this.send = function (div, file, url) {
         if (!div) {
-            console.log('Parâmetro "div" não expecificado.');
+            console.warn('Parâmetro "div" não expecificado.');
         } else if (!file) {
-            console.log('Parâmetro "file" não expecificado.');
+            console.warn('Parâmetro "file" não expecificado.');
         } else if ($httpRequest instanceof XMLHttpRequest) {
-            console.log('Já existe uma requisição de protocolo em andamento.');
+            console.warn('Já existe uma requisição de protocolo em andamento.');
         } else {
             $loadDiv = document.getElementById(div);
             $url = (url ? url : null);
             $file = file;
-            $vetor = ['send', 70, 555];
+            $vetor = ['send', 555];
             $loadDiv.scrollIntoView({block: 'start', behavior: 'smooth'});
             requestGet();
         }
@@ -69,31 +69,31 @@ var AjaxRequest = function () {
 
     /**
      * ************************************************
-     * * @public : Requisita um arquivo e o exibe o
-     * mesmo em um local expecífico.
+     * Requisita um arquivo e o exibe o mesmo em um
+     *  local expecífico.
      * - Animação suspensa no canto inferior esqueda da
-     * página.
+     *    página.
      * * @param {STR} div
      * - Elemento#ID onde o arquivo deve ser aberto.
      * * @param {STR} file
      * - Arquivo que será aberto.
      * * @param {STR} url (opcional)
      * - Quando informado adicionará a string a barra
-     * de navegação.
+     *    de navegação.
      * ************************************************
      */
     this.pop = function (div, file, url) {
         if (!div) {
-            console.log('Parâmetro "div" não expecificado.');
+            console.warn('Parâmetro "div" não expecificado.');
         } else if (!file) {
-            console.log('Parâmetro "file" não expecificado.');
+            console.warn('Parâmetro "file" não expecificado.');
         } else if ($httpRequest instanceof XMLHttpRequest) {
-            console.log('Já existe uma requisição de protocolo em andamento.');
+            console.warn('Já existe uma requisição de protocolo em andamento.');
         } else {
             $loadDiv = document.getElementById(div);
             $url = (url ? url : null);
             $file = file;
-            $vetor = ['pop', 30, 'ccc'];
+            $vetor = ['pop', 'ccc'];
             requestGet();
         }
         return (false);
@@ -101,8 +101,8 @@ var AjaxRequest = function () {
 
     /**
      * ************************************************
-     * * @public : Envia os dados de um formulário
-     * para outro arquivo.
+     * Envia os dados de um formulário para outro
+     *  arquivo.
      * - Animação cobre o formulário.
      * * @param {STR} form
      * - Elemento#ID do formuário.
@@ -110,18 +110,18 @@ var AjaxRequest = function () {
      * - Elemento#ID onde o arquivo deve ser aberto.
      * * @param {STR} file
      * - Arquivo que será aberto e os dados devem ser
-     * enviados.
+     *    enviados.
      * ************************************************
      */
     this.form = function (form, div, file) {
         if (!form) {
-            console.log('Parâmetro "form" não expecificado.');
+            console.warn('Parâmetro "form" não expecificado.');
         } else if (!div) {
-            console.log('Parâmetro "div" não expecificado.');
+            console.warn('Parâmetro "div" não expecificado.');
         } else if (!file) {
-            console.log('Parâmetro "file" não expecificado.');
+            console.warn('Parâmetro "file" não expecificado.');
         } else if ($httpRequest instanceof XMLHttpRequest) {
-            console.log('Já existe uma requisição de protocolo em andamento.');
+            console.warn('Já existe uma requisição de protocolo em andamento.');
         } else {
             $form = document.getElementById(form);
             $loadDiv = document.getElementById(div);
@@ -129,7 +129,7 @@ var AjaxRequest = function () {
             $head = 'form_id=' + form;
             $form.scrollIntoView({block: 'start', behavior: 'smooth'});
 
-            $vetor = ['form', 80, 555];
+            $vetor = ['form', 555];
             formElements();
             requestForm();
         }
@@ -138,8 +138,8 @@ var AjaxRequest = function () {
 
     /**
      * ************************************************
-     * * @public : Envia os dados de um formulário
-     * para outro arquivo.
+     * Envia os dados de um formulário para outro
+     *  arquivo.
      * - Animação no local onde o arquivo será aberto.
      * * @param {STR} form
      * - Elemento#ID do formuário.
@@ -147,18 +147,18 @@ var AjaxRequest = function () {
      * - Elemento#ID onde o arquivo deve ser aberto.
      * * @param {STR} file
      * - Arquivo que será aberto e os dados devem ser
-     * enviados.
+     *    enviados.
      * ************************************************
      */
     this.formSend = function (form, div, file) {
         if (!form) {
-            console.log('Parâmetro "form" não expecificado.');
+            console.warn('Parâmetro "form" não expecificado.');
         } else if (!div) {
-            console.log('Parâmetro "div" não expecificado.');
+            console.warn('Parâmetro "div" não expecificado.');
         } else if (!file) {
-            console.log('Parâmetro "file" não expecificado.');
+            console.warn('Parâmetro "file" não expecificado.');
         } else if ($httpRequest instanceof XMLHttpRequest) {
-            console.log('Já existe uma requisição de protocolo em andamento.');
+            console.warn('Já existe uma requisição de protocolo em andamento.');
         } else {
             $form = document.getElementById(form);
             $loadDiv = document.getElementById(div);
@@ -166,7 +166,7 @@ var AjaxRequest = function () {
             $file = file;
             $head = 'form_id=' + form;
             $loadDiv.scrollIntoView({block: 'start', behavior: 'smooth'});
-            $vetor = ['formSend', 70, 555];
+            $vetor = ['formSend', 555];
             formElements();
             requestForm();
         }
@@ -175,8 +175,9 @@ var AjaxRequest = function () {
 
     /**
      * ************************************************
-     * * @private : Requisita os processos para os
-     * métodos de execução padrão via GET.
+     * * @private
+     * Requisita os processos para os métodos de
+     *  execução padrão via GET.
      * ************************************************
      */
     function requestGet() {
@@ -188,8 +189,9 @@ var AjaxRequest = function () {
 
     /**
      * ************************************************
-     * * @private : Requisita os processos para os
-     * métodos de execução de formulários via POST.
+     * * @private
+     * Requisita os processos para os métodos de
+     *  execução de formulários via POST.
      * ************************************************
      */
     function requestForm() {
@@ -202,9 +204,9 @@ var AjaxRequest = function () {
 
     /**
      * ************************************************
-     * * @private : Inicia o protocolo HttpRequest
-     * e cria a base de tipo de exibixão quando
-     * disponível.
+     * * @private
+     * Inicia o protocolo HttpRequest e cria a base de
+     * tipo de exibixão quando disponível.
      * ************************************************
      */
     function initXMLHR() {
@@ -217,18 +219,21 @@ var AjaxRequest = function () {
 
     /**
      * ************************************************
-     * * @private : Solicita funções de acordo com
-     * o status da requisição.
+     * * @private
+     * Solicita funções de acordo com o status da
+     *  requisição.
      * - Carregando -> Solicita animação de processo. 
      * - Completado -> Armazena a resposta e solicita
-     * o completo processamento.
+     *                  o completo processamento.
      * ************************************************
      */
     function responseStatus() {
         if ($vetor && ($httpRequest.readyState === 1)) {
             setProgress();
         } else if ($httpRequest.status === 404) {
-            console.log('Arquivo [' + $file + '] não encontrado!');
+            console.warn('Arquivo [' + $file + '] não encontrado!');
+        } else if ($httpRequest.status === 500) {
+            console.warn('Erro na resposta do servidor');
         } else if (($httpRequest.readyState === 4) && ($httpRequest.status === 200)) {
             $response = $httpRequest.responseText;
             completeProcess();
@@ -237,12 +242,13 @@ var AjaxRequest = function () {
 
     /**
      * ************************************************
-     * * @private : Cria diferentes tipos de animações
-     * conforme cada método.
+     * * @private
+     * Cria diferentes tipos de animações conforme
+     *  cada método.
      * ************************************************
      */
     function setProgress() {
-        var $svg = '<svg class="load-pre" viewBox="25 25 50 50" style="width:' + $vetor[1] + 'px; height:' + $vetor[1] + 'px"><circle class="load-path" cx="50" cy="50" r="20" fill="none" stroke="#' + $vetor[2] + '" stroke-width="4" stroke-miterlimit="10"/></svg>';
+        var $svg = '<svg class="load-pre" viewBox="25 25 50 50"><circle class="load-path" cx="50" cy="50" r="20" fill="none" stroke="#' + $vetor[1] + '" stroke-width="4" stroke-miterlimit="10"/></svg>';
         switch ($vetor[0]) {
             case 'send':
                 $loadDiv.innerHTML = '<div class="load-local">' + $svg + '</div>';
@@ -272,10 +278,11 @@ var AjaxRequest = function () {
 
     /**
      * ************************************************
-     * * @private : Exibe o conteúdo da requisição.
+     * * @private
+     * Exibe o conteúdo da requisição.
      * - Quando existem animações de processo remove
-     * primeiro essas animações só então exibe o
-     * conteúdo.
+     *    primeiro essas animações só então exibe o
+     *    conteúdo.
      * ************************************************
      */
     function completeProcess() {
@@ -309,9 +316,10 @@ var AjaxRequest = function () {
 
     /**
      * ************************************************
-     * * @private: Procura elementos javascript no
-     * arquivo aberto pela requisição e realoca os
-     * mesmos para correto funcionamento.
+     * * @private
+     * Procura elementos javascript no arquivo aberto
+     *  pela requisição e realoca os mesmos para
+     *  correto funcionamento.
      * ************************************************
      */
     function loadScripts() {
@@ -346,10 +354,10 @@ var AjaxRequest = function () {
 
     /**
      * ************************************************
-     * * @private : Localiza os antigos elementos
-     * javascript não funcionais da requisição e limpa
-     * eles para melhor leitura de dados pelo
-     * navegador.
+     * * @private
+     * Localiza os antigos elementos javascript antigos
+     *  não funcionais da requisição e limpa eles para
+     *  melhor leitura de dados pelo navegador.
      * ************************************************
      */
     function oldScripts() {
@@ -361,12 +369,12 @@ var AjaxRequest = function () {
 
     /**
      * ************************************************
-     * * @private : Procura elementos input em
-     * formulários, a adiciona-os ao cabeçalho da
-     * requisição.
+     * * @private
+     * Procura elementos input em formulários, a
+     *  adiciona-os ao cabeçalho da requisição.
      * * @augment : No caso de {input type="checkbox"}
-     * quando não marcados seu valor não será enviado
-     * pela função.
+     *               quando não marcados seu valor não
+     *               será enviado pela função.
      * ************************************************
      */
     function formElements() {
@@ -384,10 +392,38 @@ var AjaxRequest = function () {
                     $head += '&' + $form.elements[$i].name + '=' + $radio;
                 }
             } else {
-                $head += '&' + $form.elements[$i].name + '=' + $form.elements[$i].value;
+                $head += '&' + $form.elements[$i].name + '=' + encodeURI($form.elements[$i].value);
             }
         }
     }
+
+    /**
+     * ************************************************
+     * * @private
+     * Codifica o identificador de recurso uniforme em
+     *  sequências de escape que representam a
+     *  codificação UTF-8.
+     * - Escapa todos os caracteres que não são
+     *  alfabéticos, dígitos ou decimais.
+     * @param {STR} str : Valor de entrada do
+     * parâmetro URI.
+     * ************************************************
+     * Entrada: 
+     * &lt;div&gt; Algo?param=valor
+     * Saída: 
+     * %26amp%3Blt%3Bdiv%26amp%3Bgt%3B%20Algo%3Fparam%3Dvalor
+     * ************************************************
+     */
+    function encodeURI(str) {
+        var $replaceTags = str.replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/['()]/g, escape)
+                .replace(/\*/g, '%2A')
+                .replace(/%(?:7C|60|5E)/g, unescape);
+        var $encode = encodeURIComponent($replaceTags);
+        return ($encode);
+    }
+
 };
 
 /**
@@ -467,5 +503,9 @@ var AjaxRequest = function () {
  * - Corrigido bug na falha de iniciação de
  * javascripts, agora a função respeita a coesa
  * aquisição dos mesmos.
+ * 
+ * * 4.1 (Spell Master)
+ * - Crorrigido bug na passagem de codifição em
+ * sequências de escape.
  * ************************************************
  */

@@ -6,58 +6,38 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="../../lib/prism/prism.css" rel="stylesheet" type="text/css"/>
         <link href="../../lib/sm-default.css" rel="stylesheet" type="text/css"/>
+        <link href="../../downloads/FileTransfer/FileTransfer.min.css" rel="stylesheet" type="text/css"/>
         <script src="../../lib/prism/prism.js" type="text/javascript"></script>
-        <script src="AjaxRequest.js" type="text/javascript"></script>
+        <script src="../../downloads/FileTransfer/FileTransfer.min.js" type="text/javascript"></script>
     </head>
     <body>
-        <div class="container padding-lr-prop">
+        <div class="container padding-lr-prop font-medium">
             <div class="align-center font-medium">
                 <h1>AjaxRequest.js</h1>
             </div>
             <hr class="border-bottom border-dark" />
 
-            <div class="margin-top-high font-medium">
-                O primeiro passo para o uso do AjaxRequest.js é obter o arquivo.
-                <p>Crie um novo arquivo javascript com o nome AjaxRequest e adicione-o ao diretório
-                    do website de uso.</p>
-                <p>Pós então declare esse arquivo no <span class="bold">header</span> do index. 
-                    O diretório onde vai ficar se adicionado fica a seu critério.</p>
-                <pre class="language-html"><code>&lt;script src="AjaxRequest.js" type="text/javascript"&gt;&lt;/script&gt;</code></pre>
-                <p>Abra o aquivo AjaxRequest.js e cole o script abaixo nele, salvando depois.</p>
-                <pre class="language-javascript"><code>
-/**
- * ****************************************************
- * @Copyright (c) 2017, Spell Master.
- * @version 4.0 (2018)
- * @requires  Navegador compatível com HTML 5
- * ****************************************************
- * @class Executa ajax.
- * ****************************************************
- */
-var AjaxRequest=function(){var e,o,t,n,l,r,i,s,c;function a(){m(),e.addEventListener("readystatechange",p,!1),e.open("GET",t,!0),e.send()}function d(){m(),e.addEventListener("readystatechange",p,!1),e.open("POST",t,!0),e.setRequestHeader("Content-type","application/x-www-form-urlencoded"),e.send(c)}function m(){return(e=new XMLHttpRequest).overrideMimeType&&e.overrideMimeType("text/html"),e}function p(){r&&1===e.readyState?function(){var e='&lt;svg class="load-pre" viewBox="25 25 50 50" style="width:'+r[1]+"px; height:"+r[1]+'px"&gt;&lt;circle class="load-path" cx="50" cy="50" r="20" fill="none" stroke="#'+r[2]+'" stroke-width="4" stroke-miterlimit="10"/&gt;&lt;/svg&gt;';switch(r[0]){case"send":o.innerHTML='&lt;div class="load-local"&gt;'+e+"&lt;/div&gt;";break;case"pop":i=document.createElement("div"),document.body.appendChild(i),i.classList.add("load-pop"),i.innerHTML='&lt;div class="progress-text"&gt;Carregando...&lt;/div&gt;'+e;break;case"form":s.classList.add("form-conter"),(i=document.createElement("div")).classList.add("load-form"),s.appendChild(i),i.innerHTML='&lt;div class="fade-progress"&gt;'+e+"&lt;/div&gt;";break;case"formSend":s.classList.add("form-conter"),(i=document.createElement("div")).classList.add("load-form"),s.appendChild(i),o.innerHTML='&lt;div class="load-local"&gt;'+e+"&lt;/div&gt;"}}():404===e.status?console.log("Arquivo ["+t+"] não encontrado!"):4===e.readyState&&200===e.status&&(n=e.responseText,r?setTimeout(function(){if("pop"===r[0])o.scrollIntoView({block:"start",behavior:"smooth"}),document.body.removeChild(i);else if("form"===r[0]||"formSend"===r[0]){o.scrollIntoView({block:"start",behavior:"smooth"});for(var t=0;t&lt;s.elements.length;t++)s.elements[t].disabled=!1;s.removeChild(i)}o.innerHTML=n,r=null,e=null,u(),l&&(window.history.replaceState(null,null,l),l=null)},1e3):(o.innerHTML=n,u(),e=null))}function u(){var e,t,l,r,i=n.indexOf("&lt;script",0);for(!function(){var e,t=o.getElementsByTagName("script");for(e=t.length-1;e&gt;=0;e--)t[e].parentNode.removeChild(t[e])}();-1!=i;)e=document.createElement("script"),(t=n.indexOf(" src",i))&lt;(i=n.indexOf("&gt;",i)+1)&&t&gt;=0?(i=t+4,l=n.indexOf(".js",i)+3,r=(r=n.substring(i,l)).replace("=","").replace(" ","").replace('"',"").replace('"',"").replace("'","").replace("'","").replace("&gt;",""),e.src=r):(l=n.indexOf("&lt;\/script&gt;",i),r=n.substring(i,l),e.text=r),o.appendChild(e),i=n.indexOf("&lt;script",l),e=null}function f(){var e,o,t;for(e=0;e&lt;s.elements.length;e++)s.elements[e].disabled=!0,"checkbox"===s.elements[e].type?s.elements[e].checked&&(o=s.elements[e].value,c+="&"+s.elements[e].name+"="+o):"radio"===s.elements[e].type?s.elements[e].checked&&(t=s.elements[e].value,c+="&"+s.elements[e].name+"="+t):c+="&"+s.elements[e].name+"="+s.elements[e].value}this.open=function(e,n){return e?n?(o=document.getElementById(e),t=n,a()):console.log('Parâmetro "file" não expecificado'):console.log('Parâmetro "div" não expecificado'),!1},this.send=function(n,i,s){return n?i?e instanceof XMLHttpRequest?console.log("Já existe uma requisição de protocolo em andamento."):(o=document.getElementById(n),l=s||null,t=i,r=["send",70,555],o.scrollIntoView({block:"start",behavior:"smooth"}),a()):console.log('Parâmetro "file" não expecificado.'):console.log('Parâmetro "div" não expecificado.'),!1},this.pop=function(n,i,s){return n?i?e instanceof XMLHttpRequest?console.log("Já existe uma requisição de protocolo em andamento."):(o=document.getElementById(n),l=s||null,t=i,r=["pop",30,"ccc"],a()):console.log('Parâmetro "file" não expecificado.'):console.log('Parâmetro "div" não expecificado.'),!1},this.form=function(n,l,i){return n?l?i?e instanceof XMLHttpRequest?console.log("Já existe uma requisição de protocolo em andamento."):(s=document.getElementById(n),o=document.getElementById(l),t=i,c="form_id="+n,s.scrollIntoView({block:"start",behavior:"smooth"}),r=["form",80,555],f(),d()):console.log('Parâmetro "file" não expecificado.'):console.log('Parâmetro "div" não expecificado.'):console.log('Parâmetro "form" não expecificado.'),!1},this.formSend=function(n,l,i){return n?l?i?e instanceof XMLHttpRequest?console.log("Já existe uma requisição de protocolo em andamento."):(s=document.getElementById(n),(o=document.getElementById(l)).innerHTML=null,t=i,c="form_id="+n,o.scrollIntoView({block:"start",behavior:"smooth"}),r=["formSend",70,555],f(),d()):console.log('Parâmetro "file" não expecificado.'):console.log('Parâmetro "div" não expecificado.'):console.log('Parâmetro "form" não expecificado.'),!1}};
-
-</code></pre>
-                <blockquote class="blockquote">
-                    Esse é o arquivo minificado, consome menos banda do cliente para adquiri-lo, e processa cerca
-                    de 50% mais rápido.
-                    <p>Mas em todo caso esse é o mesmo arquivo de produção, para prgramadores em javascript:</p>
-                    <a class="href-link" href="AjaxRequest.js" target="_blank" title="Arquivo de Produção">AjaxRequest.js</a>
-                </blockquote>
-
-                Também é necessário apoio do CSS para execução das animações de progresso.
-                <p>Adicione as propiedades abaixo em um arquivo CSS já incluído no html ou crie um novo.</p>
-                <pre class="language-css"><code>
-.load-pop {z-index:999;position:fixed;bottom:2.5rem;left:1.25rem;width:15rem;padding:.9375rem;background-color:#222222;box-shadow:.625rem 0 1rem rgba(0,0,0,.5);border-radius:.1875rem;font-size:1.375rem;text-align:center;color:#cccccc;animation:loadpop 1s} .load-local {width:100%;height:6.25rem;padding:.9375rem;text-align:center} .form-conter {position:relative !important;} .load-form {top:0;left:0;position:absolute;width:100%;height:100%;background:rgba(255,255,255,.7);} .fade-progress {position:relative;top:50%;left:50%;text-align:center;transform:translate(-50%,-50%);} .load-pop > div.progress-text {margin-right:.9375rem;} .load-pop > div.progress-text, .load-pop > svg.load-pre {display:inline-block;vertical-align:middle} svg.load-pre {animation:rotate-progress 2s linear infinite;transform-origin:center center;margin:auto} svg.load-pre > .load-path {stroke-dasharray:1,200;stroke-dashoffset:0;stroke-linecap:round;animation:dash-progress 1s ease-in-out infinite} @keyframes loadpop {from {bottom:-2.5rem;opacity:.3;} to {bottom:2.5rem;opacity:1}} @keyframes rotate-progress {100% {transform:rotate(360deg)}} @keyframes dash-progress {0% {stroke-dasharray:1,200; stroke-dashoffset:0}50% {stroke-dasharray:89,200; stroke-dashoffset:-2.1875rem}100% {stroke-dasharray:89,200; stroke-dashoffset:-7.75rem}}
-
-</code></pre>
-
-                <div class="margin-top">
-                    Por fim basta criar o <span class="bold">objeto</span> de acesso aos métodos do AjaxRequest.
-                    <p>Ao final do documento HTML antes do fechamento da TAG
-                        <span class="bold">&lt;/body&gt;</span> acionamos a instância do arquivo:</p>
+            <div class="margin-top-high">
+                O primeiro passo para o uso do AjaxRequest é obter os arquivos necessários.
+                <p>Clique nos botões abaixo para fazer o download</p>
+                <div class="text-white">
+                    <button class="btn-info" onclick="dow.download('../../downloads/AjaxRequest/AjaxRequest.mim.js', true);" title="JS">AjaxRequest.min.js</button>
+                    <button class="btn-info" onclick="dow.download('../../downloads/AjaxRequest/AjaxRequest.min.css', true);" title="CSS">AjaxRequest.min.css</button>
                 </div>
+            </div>
 
+            <div class="margin-top-high">
+                Uma vez que temos os arquivos inserimos eles a tag <span class="bold">header</span> do nosso documento.
+                <p class="italic">O diretório onde vai adicionar fica a seu critério.</p>
+                <pre class="language-html"><code>&lt;link href="AjaxRequest.min.css" rel="stylesheet" type="text/css"/&gt;
+&lt;script src="AjaxRequest.mim.js" type="text/javascript"&gt;&lt;/script&gt;
+</code></pre>
+            </div>
 
+            <div class="margin-top-high">
+                Por fim basta criar o <span class="bold">objeto</span> de acesso aos métodos do AjaxRequest.
+                <p>Ao final do documento HTML antes do fechamento da TAG
+                    <span class="bold">&lt;/body&gt;</span> acionamos a instância do arquivo:</p>
                 <pre class="language-html"><code>
         &lt;!-- Conteúdo restante do html acima --&gt;
         &lt;script&gt;var myObj = new AjaxRequest();&lt;/script&gt;
@@ -65,16 +45,18 @@ var AjaxRequest=function(){var e,o,t,n,l,r,i,s,c;function a(){m(),e.addEventList
 &lt;/html&gt;
   
 </code></pre>
+
                 Assim sendo o objeto para acesso aos métodos é <span class="bold text-red">myObj</span>
                 <p>Modifique-o conforme a sua preferência.</p>
                 <pre class="language-html"><code>&lt;button onclick="myObj.open('param_1', 'param_2');"&gt;</code></pre>
+            </div>
 
-                <div class="margin-top-high">
-                    Também podemos nos utilizar de protótipos de funções isoladas ao invés de objetos,
-                    desde que o arquivo AjaxRequest já tenha sido devidamente incluído no HTML.
-                    Vejamos abaixo um exemplo de como proceder nesses casos.
-                </div>
-                <pre class="language-javascript line-numbers"><code>function myFunction () {
+            <div class="margin-top-high">
+                Também podemos nos utilizar de protótipos de funções isoladas ao invés de objetos,
+                desde que o arquivo AjaxRequest já tenha sido devidamente incluído no HTML.
+                Vejamos abaixo um exemplo de como proceder nesses casos.
+            </div>
+            <pre class="language-javascript line-numbers"><code>function myFunction () {
     myFunction.prototype = new AjaxRequest();
     return myFunction.prototype.open('param_1', 'param_2');
 
@@ -87,8 +69,10 @@ var AjaxRequest=function(){var e,o,t,n,l,r,i,s,c;function a(){m(),e.addEventList
     // return myFunction.prototype.formSend('param_1', 'param_2', 'param_3');
 }
 </code></pre>
-            </div>
+
         </div>
+
+        <script>var dow = new FileTransfer();</script>
         <div class="box-y-100"></div>
     </body>
 </html>

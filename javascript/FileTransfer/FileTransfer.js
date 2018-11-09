@@ -20,13 +20,13 @@ var FileTransfer = function () {
 
     /**
      * ************************************************
-     * * @public : Envia arquivos do hadware do
-     * usuário para o servidor remoto.
+     * Envia arquivos do hadware do usuário para o
+     * servidor remoto.
      * * @param {STR} form
      * - Elemento#ID do formulário de envio.
      * * @param {STR} sendTo
-     * - Arquivo que será processará os dados do envio
-     * pelo lado do servidor.
+     * - Arquivo que processará os dados do envio pelo
+     * lado do servidor.
      * * @param {BOLL} cancel (true/false/null)
      * - Durante o processo de envio um botão para
      * cancelar deve ser ativo?
@@ -71,13 +71,13 @@ var FileTransfer = function () {
 
     /**
      * ************************************************
-     * * @public : Envia arquivos do servidor remoto
+     * Envia arquivos do servidor remoto
      * para hadware do usuário.
      * * @param {STR} file
-     * - Arquivo para ser enviad.
-     * Informar extensão.
-     * Informar diretórios (se houver)
-     * Expl.: 'pasta/arquivos/envio.bmp'
+     * - Arquivo para ser enviado.
+     *   Informar extensão.
+     *   Informar diretórios (se houver)
+     *   Expl.: 'pasta/arquivos/envio.bmp'
      * * @param {BOLL} cancel (true/false/null)
      * - Durante o processo de envio um botão para
      * cancelar deve ser ativo?

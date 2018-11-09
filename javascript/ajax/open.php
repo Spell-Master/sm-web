@@ -1,6 +1,3 @@
-<script src="importado.js"></script>
-<script src="importado.min.js" type="text/javascript"></script>
-
 <div class="padding-all-min bg-light" style="border: 2px dashed #000">
     <div id="resposta" class="bg-white"></div>
 
@@ -19,18 +16,11 @@
         </div>
     </div>
     <div class="margin-all">
-        <button class="btn-info text-white" onclick="localJS('resposta')">Executar javascript Local</button>
-        <button class="btn-info text-white" onclick="importadoJS('resposta')">Executar javascript Incluído</button>
-        <button class="btn-info text-white" onclick="importadoJSm('resposta')">Executar javascript.mim Incluído</button>
-        <button class="btn-danger text-white" onclick="removeLoad()">Limpar Local do AJAX</button>
+       <button class="btn-danger text-white" onclick="removeLoad()">Limpar Local do AJAX</button>
     </div>
 </div>
 
 <script type="text/javascript">
-    function localJS(param) {
-        document.getElementById(param).innerText = 'Executado função javascript escrita no próprio arquivo';
-    }
-
     function removeLoad() {
         document.getElementById('carrega-ajax').innerHTML = null;
     }

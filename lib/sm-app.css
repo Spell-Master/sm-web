@@ -15,12 +15,15 @@
 .load-pop {z-index:999; position:fixed; bottom:2.5rem; left:1.25rem; width:15rem; padding:.9375rem; background-color:#222222; box-shadow:.625rem 0 1rem rgba(0,0,0,.5); border-radius:.1875rem; font-size:1.375rem; text-align:center; color:#cccccc; animation:loadpop 1s}
 .load-local {width:100%; height:6.25rem; padding:.9375rem; text-align:center}
 .form-conter {position:relative !important}
-.load-form {top:0; left:0; position:absolute; width:100%; height:100%; background:rgba(255,255,255,.7)}
+.load-form {top:0; left:0; position:absolute; height: inherit; width:100%; height:100%; background:rgba(255,255,255,.7)}
 .fade-progress {position:relative; top:50%; left:50%; text-align:center; transform:translate(-50%, -50%)}
 .load-pop > div.progress-text {margin-right:.9375rem}
 .load-pop > div.progress-text, .load-pop > svg.load-pre {display:inline-block; vertical-align:middle}
 svg.load-pre {animation:rotate-progress 2s linear infinite; transform-origin:center center; margin:auto}
-svg.load-pre > .load-path {stroke-dasharray:1, 200; stroke-dashoffset:0; stroke-linecap:round; animation:dash-progress 1s ease-in-out infinite}
+svg.load-pre > .load-path {animation:dash-progress 1s ease-in-out infinite}
+.load-local > svg.load-pre, .fade-progress > svg.load-pre {height: 4.375rem; width: 4.375rem}
+.load-pop > svg.load-pre {height: 2.5rem; width: 2.5rem}
+.form-line svg.load-pre {height: 3.125rem; width: 3.125rem}
 
 /**
  * ****************************************

@@ -5,12 +5,16 @@
  * ****************************************************
  * @class Gerencia aplicação modal
  * ****************************************************
- * @param modal elemento#ID do modal
+ * @param modal {STR} elemento#ID do modal
+ * @param clear {BOOL} (true/false*null) Quando
+ *  expecificado, a função sempre vai limpar todo o
+ *  conteúdo do modal quando ele for fechado.
  * ****************************************************
  */
-var ModalShow = function (modal) {
+var ModalShow = function (modal, clear) {
     var $tgt = document.getElementById(modal);
     var $box = $tgt.getElementsByClassName('modal-box')[0];
+    var $clear = (clear ? true : null);
     var $x, $content;
 
     /**
@@ -98,7 +102,9 @@ var ModalShow = function (modal) {
         setTimeout(function () {
             $box.classList.remove('zoom-out');
             $tgt.classList.remove('active');
-            $content.innerHTML = null;
+            if ($clear) {
+                $content.innerHTML = null;
+            }
         }, 500);
     }
 

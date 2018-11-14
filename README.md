@@ -1,7 +1,4 @@
-Padrão de desenvolvimento WEB
+Aplicações padrão para desenvolvimento WEB
 ========
 
-Aplicações para desenvolvimento de websites que traz um padrão.
-
-Agilizando e facilitando a criação dos mesmos, usando métodos é tecnicas simples, mas muito mais eficaz que qualquer uso de
-bibliotecas externas ou frameworks
+Minhas aplicações padronizadas para layout e funções, usando somente recursos nativos.

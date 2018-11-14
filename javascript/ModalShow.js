@@ -9,7 +9,7 @@
  * ****************************************************
  */
 
-var modalShow = function (modal) {
+var ModalShow = function (modal) {
     var $tgt = document.getElementById(modal);
     var $box = $tgt.getElementsByClassName('modal-box')[0];
     var $x;

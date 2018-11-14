@@ -1,0 +1,63 @@
+/**
+ * ****************************************
+ * ModalShow
+ * ****************************************
+ */
+.modal {
+    display: none;
+    z-index: 9;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0,.6);
+    animation: effect-fade-in 1s
+}
+.modal-box {
+    position: relative;
+    margin: 5% auto;
+    max-width: 900px;
+    background-color: #ffffff;
+    word-wrap: break-word
+}
+.modal-header {
+    height: 65px;
+    margin: 0 15px;
+    border-bottom: 1px solid #dddddd
+}
+.modal-title {
+    padding-left: 10px;
+    font-size: 30px;
+    line-height: 65px;
+    overflow-x: hidden;
+    white-space: nowrap
+}
+.modal-title:after,
+.modal-title:before {
+    content: " "; display: table;
+    clear: both
+}
+.modal-close {
+    display: none;
+    width: 50px;
+    font-size: 40px;
+    line-height: 65px;
+    text-align: center;
+    float: right;
+    padding-right: 10px;
+    cursor: pointer
+}
+.modal-close:hover {
+    color: #c40700
+}
+.modal-close:before {
+    content: "X"
+}
+.modal-content {
+    padding: 5px;
+    overflow-y: auto
+}
+.modal.active, .modal-close.active {
+    display: block
+}

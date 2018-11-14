@@ -1,7 +1,7 @@
 /**
  * ****************************************************
  * @Copyright (c) 2017, Spell Master.
- * @version 3.0 (2018)
+ * @version 3.1 (2018)
  * @requires  Navegador compatível com HTML 5
  * ****************************************************
  * @class Personaliza grupo de opções.
@@ -9,19 +9,18 @@
  */
 
 var SelectOption = function () {
-
-    var $select = document.getElementsByClassName('selected'), $idx, $current, $base, $button, $ul, $li, $head, $opt, $j, $active, $target;
+    var $select = document.getElementsByClassName('select-options'), $idx, $current, $base, $button, $ul, $li, $head, $opt, $j, $active, $target;
     createNew();
 
     /**
      * ************************************************
-     * * @private : Cria um novo elemento para
-     * abrigar o novo select
+     * Cria um novo elemento para abrigar o novo select
      * ************************************************
      */
     function createNew() {
         for ($idx = 0; $idx < $select.length; $idx++) {
             $current = $select[$idx];
+            $current.style.display = 'none';
             $base = document.createElement('div');
             $base.classList.add('select-base');
             $current.parentNode.insertBefore($base, $current);
@@ -31,7 +30,7 @@ var SelectOption = function () {
 
     /**
      * ************************************************
-     * * @private : Cria o botão de controle
+     * Cria o botão de controle
      * ************************************************
      */
     function createButton() {
@@ -43,8 +42,7 @@ var SelectOption = function () {
 
     /**
      * ************************************************
-     * * @private : Cria um elemento de lista
-     * para o novo select
+     * Cria um elemento de lista para o novo select
      * ************************************************
      */
     function createList() {
@@ -56,8 +54,8 @@ var SelectOption = function () {
 
     /**
      * ************************************************
-     * * @private : Obtem os valores do select e
-     * aplica os mesmos ao novo select
+     * Obtem os valores do select e aplica os mesmos
+     * ao novo select
      * ************************************************
      */
     function queryOptions() {
@@ -73,13 +71,19 @@ var SelectOption = function () {
             $li.addEventListener('click', clickItem.bind(this));
             $ul.appendChild($li);
         }
-        $head[$idx].innerText = $opt[0].innerText.substring(0, 20);
+        var $selected = $current.selectedIndex;
+        if ($selected >= 1) {
+            //var $fixVal = $current.options[$selected].value;
+            $head[$idx].innerText = $opt[$selected].innerText.substring(0, 20);
+        } else {
+            $head[$idx].innerText = $opt[0].innerText.substring(0, 20);
+        }
     }
 
     /**
      * ************************************************
-     * * @private : Modifica os dados quando uma das
-     * opções é clicada.
+     * Modifica os dados quando uma das opções é
+     * selecionada.
      * * @param e : Evento disparado
      * ************************************************
      */
@@ -92,7 +96,7 @@ var SelectOption = function () {
 
     /**
      * ************************************************
-     * * @private : Controle a exibição dos selects
+     * Controle a exibição dos selects
      * * @param event : Evento disparado
      * ************************************************
      */

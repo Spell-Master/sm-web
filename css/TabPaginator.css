@@ -1,0 +1,38 @@
+/**
+ * ****************************************
+ * * TabPaginator
+ * ****************************************
+ */
+.tab-menu {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    border: 1px solid #d9d9d9;
+    border-bottom: none;
+    background-color: #f1f1f1
+}
+.tab-link {
+    outline: 0;
+    border: none;
+    padding: 16px 32px;
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    word-wrap: break-word;
+    background-color: #f1f1f1
+}
+.tab-link.active {
+    background-color: #ffffff
+}
+.tab-body {
+    display: none;
+    padding: 16px;
+    border: 1px solid #d9d9d9;
+    border-top: none
+}
+.tab-body.active {
+    display: block !important
+}

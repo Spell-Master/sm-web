@@ -1,8 +1,0 @@
-/**
- * ****************************************************
- * @Copyright (c) 2017, Spell Master.
- * @version 3.0 (2018)
- * @requires  Navegador compatível com HTML 5
- * ****************************************************
- */
-.selected{display:none} .select-base{position:relative;width:100%} .select-button{width:100%;display:block;height:3.125rem;line-height:3.125rem;overflow-x:hidden;white-space:nowrap;cursor:pointer;background-color:#ededed;text-align:left;padding-left:.9375rem;} .select-button:after{content:"";width:0;height:0;border:.625rem solid transparent;border-color:#cccccc transparent transparent transparent;position:absolute;top:1.25rem;right:.625rem} .select-button.active:after{top:.625rem;border-color:transparent transparent #cccccc transparent} .select-base > .select-list{display:none;list-style:none;position:absolute;top:100%;left:0;right:0;z-index:1;cursor:pointer;background:#ffffff;border:.0625rem solid #ededed} .select-base > .select-list.active{display:block} .select-base > .select-list > li{z-index:1;margin:0;padding:.625rem;color:#444444;border-top:.0625rem solid #ededed;overflow-x:hidden;white-space:nowrap} .select-base > .select-list > li:first-of-type{border-top:none} .select-base > .select-list > li:hover{background-color:#ededed} 

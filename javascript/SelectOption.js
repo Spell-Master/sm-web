@@ -1,126 +1,130 @@
 /**
+ * ************************************************
+ * @Copyright (c) Spell Master.
+ * @Requisitos: Navegador compatível com HTML 5
  * ****************************************************
- * @Copyright (c) 2017, Spell Master.
- * @version 3.1 (2018)
- * @requires  Navegador compatível com HTML 5
+ * @class Gerencia aplicação modal
  * ****************************************************
- * @class Personaliza grupo de opções.
+ * @param modal {STR} elemento#ID do modal
+ * @param clear {BOOL} (true/false*null) Quando
+ *  expecificado, a função sempre vai limpar todo o
+ *  conteúdo do modal quando ele for fechado.
  * ****************************************************
  */
-
-var SelectOption = function () {
-    var $select = document.getElementsByClassName('select-options'), $idx, $current, $base, $button, $ul, $li, $head, $opt, $j, $active, $target;
-    createNew();
-
-    /**
-     * ************************************************
-     * Cria um novo elemento para abrigar o novo select
-     * ************************************************
-     */
-    function createNew() {
-        for ($idx = 0; $idx < $select.length; $idx++) {
-            $current = $select[$idx];
-            $current.style.display = 'none';
-            $base = document.createElement('div');
-            $base.classList.add('select-base');
-            $current.parentNode.insertBefore($base, $current);
-            createButton();
-        }
-    }
+var ModalShow = function (modal, clear) {
+    var $tgt = document.getElementById(modal);
+    var $box = $tgt.getElementsByClassName('modal-box')[0];
+    var $clear = (clear ? true : null);
+    var $x, $content;
 
     /**
      * ************************************************
-     * Cria o botão de controle
+     * * Abre a janela
+     * @param text : (opcional) Informar string para
+     * o título da janela
+     * @param x : (Opcional) Informar BOL true/false
+     * se verdadeiro o botão de fechar é mostrado no
+     * momento que a janela é aberta.
      * ************************************************
      */
-    function createButton() {
-        $button = document.createElement('div');
-        $button.classList.add('select-button');
-        $base.appendChild($button);
-        createList();
-    }
-
-    /**
-     * ************************************************
-     * Cria um elemento de lista para o novo select
-     * ************************************************
-     */
-    function createList() {
-        $ul = document.createElement('ul');
-        $ul.classList.add('select-list');
-        $button.parentNode.insertBefore($ul, $button.nextSibling);
-        queryOptions();
-    }
-
-    /**
-     * ************************************************
-     * Obtem os valores do select e aplica os mesmos
-     * ao novo select
-     * ************************************************
-     */
-    function queryOptions() {
-        if ($head == undefined) {
-            $head = document.getElementsByClassName('select-button');
-        }
-        $opt = $current.querySelectorAll('option');
-        for ($j = 0; $j < $opt.length; $j++) {
-            $li = document.createElement('li');
-            $li.setAttribute('data-select', $opt[$j].value);
-            $li.setAttribute('data-parent', $idx);
-            $li.innerText = $opt[$j].innerText.substring(0, 20);
-            $li.addEventListener('click', clickItem.bind(this));
-            $ul.appendChild($li);
-        }
-        var $selected = $current.selectedIndex;
-        if ($selected >= 1) {
-            //var $fixVal = $current.options[$selected].value;
-            $head[$idx].innerText = $opt[$selected].innerText.substring(0, 20);
+    this.open = function (text, x) {
+        $tgt.querySelector('.modal-header').innerHTML = '<div class="modal-close"></div><div class="modal-title"></div>';
+        $content = $tgt.querySelector('.modal-content');
+        if (text) {
+            title(text);
         } else {
-            $head[$idx].innerText = $opt[0].innerText.substring(0, 20);
+            title('Janela');
+        }
+        if (x) {
+            showX();
+        }
+        $tgt.classList.add('active');
+        checkH();
+    };
+
+    /**
+     * ************************************************
+     * * Esconde o botão de fechar
+     * ************************************************
+     */
+    this.hiddenX = function () {
+        if ($x) {
+            $x.classList.remove('active');
+            $x.removeEventListener('click', close, true);
+            $x = null;
+        }
+    };
+
+    /**
+     * ************************************************
+     * * Acesso públio as funções
+     * ************************************************
+     */
+    this.title = title;
+    this.showX = showX;
+    this.close = close;
+
+    /**
+     * ************************************************
+     * * Mostra o botão de fechar.
+     * ************************************************
+     */
+    function showX() {
+        if (!$x) {
+            $x = $tgt.querySelector('.modal-close');
+            $x.classList.add('active');
+            $x.addEventListener('click', close, true);
         }
     }
 
     /**
      * ************************************************
-     * Modifica os dados quando uma das opções é
-     * selecionada.
-     * * @param e : Evento disparado
+     * * Escreve o título da janela.
+     * @param {string} text : Título para a janela.
      * ************************************************
      */
-    function clickItem(e) {
-        var $cT = e.currentTarget;
-        var $dataSet = [$cT.dataset.parent, $cT.dataset.select];
-        $head[$dataSet[0]].innerText = $cT.innerText.substring(0, 20);
-        $select[$dataSet[0]].value = $dataSet[1];
+    function title(text) {
+        $tgt.querySelector('.modal-title').innerText = text;
     }
 
     /**
      * ************************************************
-     * Controle a exibição dos selects
-     * * @param event : Evento disparado
+     * * Fecha a janela.
      * ************************************************
      */
-    function clickDoc(event) {
-        if (event.which === 1) {
-            $target = event.target;
-            if ($active === $target) {
-                $active.classList.remove('active');
-                $target.nextElementSibling.classList.remove('active');
-                $active = null;
-            } else if ($target.className === 'select-button') {
-                if ($active) {
-                    $active.classList.remove('active');
-                    $active.nextElementSibling.classList.remove('active');
-                }
-                $target.classList.add('active');
-                $target.nextElementSibling.classList.add('active');
-                $active = $target;
-            } else if ($active != undefined || $active != null) {
-                $active.classList.remove('active');
-                $active.nextElementSibling.classList.remove('active');
-                $active = null;
+    function close() {
+        $box.classList.add('zoom-out');
+        if ($x) {
+            $x.removeEventListener('click', close);
+            $x.classList.remove('active');
+            $x = null;
+        }
+        setTimeout(function () {
+            $box.classList.remove('zoom-out');
+            $tgt.classList.remove('active');
+            if ($clear) {
+                $content.innerHTML = null;
             }
+        }, 500);
+    }
+
+    /**
+     * ************************************************
+     * * Checa a altura e a posição da
+     * janela.
+     * * Se não houver espaço no eixo vertical para
+     * compor margem e altura do elemento central
+     * remove a margem e manipula a altura do
+     * conteúdo.
+     * ************************************************
+     */
+    function checkH() {
+        var $wH = window.innerHeight;
+        var $bT = $box.offsetTop;
+        var $bH = $box.offsetHeight;
+        if (($bT + $bH) > $wH) {
+            $box.style.margin = 'auto';
+            $content.style.height = ($wH - 50) + 'px';
         }
     }
-    document.addEventListener('click', clickDoc, false);
 };

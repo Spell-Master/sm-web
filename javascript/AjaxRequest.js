@@ -13,8 +13,8 @@ var AjaxRequest = function () {
 
     /**
      * ************************************************
-     * Requisita um arquivo e o exibe o mesmo em um
-     *  local expecífico.
+     * * Requisita um arquivo e o exibe o
+     * mesmo em um local expecífico.
      * * @param {STR} div
      * - Elemento#ID onde o arquivo deve ser aberto.
      * * @param {STR} file
@@ -36,17 +36,17 @@ var AjaxRequest = function () {
 
     /**
      * ************************************************
-     * Requisita um arquivo e o exibe o mesmo em um
-     *  local expecífico.
+     * * Requisita um arquivo e o exibe o
+     * mesmo em um local expecífico.
      * - Animação no mesmo local onde o arquivo será
-     *    aberto.
+     * aberto.
      * * @param {STR} div
      * - Elemento#ID onde o arquivo deve ser aberto.
      * * @param {STR} file
      * - Arquivo que será aberto.
      * * @param {STR} url (opcional)
      * - Quando informado adicionará a string a barra
-     *    de navegação.
+     * de navegação.
      * ************************************************
      */
     this.send = function (div, file, url) {
@@ -69,17 +69,17 @@ var AjaxRequest = function () {
 
     /**
      * ************************************************
-     * Requisita um arquivo e o exibe o mesmo em um
-     *  local expecífico.
+     * * Requisita um arquivo e o exibe o
+     * mesmo em um local expecífico.
      * - Animação suspensa no canto inferior esqueda da
-     *    página.
+     * página.
      * * @param {STR} div
      * - Elemento#ID onde o arquivo deve ser aberto.
      * * @param {STR} file
      * - Arquivo que será aberto.
      * * @param {STR} url (opcional)
      * - Quando informado adicionará a string a barra
-     *    de navegação.
+     * de navegação.
      * ************************************************
      */
     this.pop = function (div, file, url) {
@@ -101,8 +101,8 @@ var AjaxRequest = function () {
 
     /**
      * ************************************************
-     * Envia os dados de um formulário para outro
-     *  arquivo.
+     * * Envia os dados de um formulário
+     * para outro arquivo.
      * - Animação cobre o formulário.
      * * @param {STR} form
      * - Elemento#ID do formuário.
@@ -110,7 +110,7 @@ var AjaxRequest = function () {
      * - Elemento#ID onde o arquivo deve ser aberto.
      * * @param {STR} file
      * - Arquivo que será aberto e os dados devem ser
-     *    enviados.
+     * enviados.
      * ************************************************
      */
     this.form = function (form, div, file) {
@@ -127,8 +127,6 @@ var AjaxRequest = function () {
             $loadDiv = document.getElementById(div);
             $file = file;
             $head = 'form_id=' + form;
-            $form.scrollIntoView({block: 'start', behavior: 'smooth'});
-
             $vetor = ['form', 555];
             formElements();
             requestForm();
@@ -138,8 +136,8 @@ var AjaxRequest = function () {
 
     /**
      * ************************************************
-     * Envia os dados de um formulário para outro
-     *  arquivo.
+     * * Envia os dados de um formulário
+     * para outro arquivo.
      * - Animação no local onde o arquivo será aberto.
      * * @param {STR} form
      * - Elemento#ID do formuário.
@@ -147,7 +145,7 @@ var AjaxRequest = function () {
      * - Elemento#ID onde o arquivo deve ser aberto.
      * * @param {STR} file
      * - Arquivo que será aberto e os dados devem ser
-     *    enviados.
+     * enviados.
      * ************************************************
      */
     this.formSend = function (form, div, file) {
@@ -175,9 +173,8 @@ var AjaxRequest = function () {
 
     /**
      * ************************************************
-     * * @private
-     * Requisita os processos para os métodos de
-     *  execução padrão via GET.
+     * * Requisita os processos para os
+     * métodos de execução padrão via GET.
      * ************************************************
      */
     function requestGet() {
@@ -189,9 +186,8 @@ var AjaxRequest = function () {
 
     /**
      * ************************************************
-     * * @private
-     * Requisita os processos para os métodos de
-     *  execução de formulários via POST.
+     * * Requisita os processos para os
+     * métodos de execução de formulários via POST.
      * ************************************************
      */
     function requestForm() {
@@ -204,9 +200,9 @@ var AjaxRequest = function () {
 
     /**
      * ************************************************
-     * * @private
-     * Inicia o protocolo HttpRequest e cria a base de
-     * tipo de exibixão quando disponível.
+     * * Inicia o protocolo HttpRequest
+     * e cria a base de tipo de exibixão quando
+     * disponível.
      * ************************************************
      */
     function initXMLHR() {
@@ -219,12 +215,11 @@ var AjaxRequest = function () {
 
     /**
      * ************************************************
-     * * @private
-     * Solicita funções de acordo com o status da
-     *  requisição.
+     * * Solicita funções de acordo com
+     * o status da requisição.
      * - Carregando -> Solicita animação de processo. 
      * - Completado -> Armazena a resposta e solicita
-     *                  o completo processamento.
+     * o completo processamento.
      * ************************************************
      */
     function responseStatus() {
@@ -242,9 +237,8 @@ var AjaxRequest = function () {
 
     /**
      * ************************************************
-     * * @private
-     * Cria diferentes tipos de animações conforme
-     *  cada método.
+     * * Cria diferentes tipos de animações
+     * conforme cada método.
      * ************************************************
      */
     function setProgress() {
@@ -278,21 +272,18 @@ var AjaxRequest = function () {
 
     /**
      * ************************************************
-     * * @private
-     * Exibe o conteúdo da requisição.
+     * * Exibe o conteúdo da requisição.
      * - Quando existem animações de processo remove
-     *    primeiro essas animações só então exibe o
-     *    conteúdo.
+     * primeiro essas animações só então exibe o
+     * conteúdo.
      * ************************************************
      */
     function completeProcess() {
         if ($vetor) {
             setTimeout(function () {
                 if ($vetor[0] === 'pop') {
-                    $loadDiv.scrollIntoView({block: 'start', behavior: 'smooth'});
                     document.body.removeChild($loading);
                 } else if ($vetor[0] === 'form' || $vetor[0] === 'formSend') {
-                    $loadDiv.scrollIntoView({block: 'start', behavior: 'smooth'});
                     for (var $i = 0; $i < $form.elements.length; $i++) {
                         $form.elements[$i].disabled = false;
                     }
@@ -316,10 +307,9 @@ var AjaxRequest = function () {
 
     /**
      * ************************************************
-     * * @private
-     * Procura elementos javascript no arquivo aberto
-     *  pela requisição e realoca os mesmos para
-     *  correto funcionamento.
+     * * Procura elementos javascript no
+     * arquivo aberto pela requisição e realoca os
+     * mesmos para correto funcionamento.
      * ************************************************
      */
     function loadScripts() {
@@ -354,10 +344,10 @@ var AjaxRequest = function () {
 
     /**
      * ************************************************
-     * * @private
-     * Localiza os antigos elementos javascript antigos
-     *  não funcionais da requisição e limpa eles para
-     *  melhor leitura de dados pelo navegador.
+     * * Localiza os antigos elementos
+     * javascript não funcionais da requisição e limpa
+     * eles para melhor leitura de dados pelo
+     * navegador.
      * ************************************************
      */
     function oldScripts() {
@@ -369,12 +359,12 @@ var AjaxRequest = function () {
 
     /**
      * ************************************************
-     * * @private
-     * Procura elementos input em formulários, a
-     *  adiciona-os ao cabeçalho da requisição.
+     * * Procura elementos input em
+     * formulários, a adiciona-os ao cabeçalho da
+     * requisição.
      * * @augment : No caso de {input type="checkbox"}
-     *               quando não marcados seu valor não
-     *               será enviado pela função.
+     * quando não marcados seu valor não será enviado
+     * pela função.
      * ************************************************
      */
     function formElements() {
@@ -399,29 +389,21 @@ var AjaxRequest = function () {
 
     /**
      * ************************************************
-     * * @private
      * Codifica o identificador de recurso uniforme em
-     *  sequências de escape que representam a
-     *  codificação UTF-8.
-     * - Escapa todos os caracteres que não são
-     *  alfabéticos, dígitos ou decimais.
+     * sequências de escape que representam a
+     * codificação UTF-8.
+     * Escapa todos os caracteres que não são
+     * alfabéticos, dígitos ou decimais.
      * @param {STR} str : Valor de entrada do
      * parâmetro URI.
      * ************************************************
-     * Entrada: 
-     * &lt;div&gt; Algo?param=valor
-     * Saída: 
-     * %26amp%3Blt%3Bdiv%26amp%3Bgt%3B%20Algo%3Fparam%3Dvalor
+     * Entrada: param=%&param_b=valor_b
+     * Saída: param &param_b=valor_b
      * ************************************************
      */
     function encodeURI(str) {
-        var $replaceTags = str.replace(/&/g, '&amp;')
-                .replace(/</g, '&lt;')
-                .replace(/['()]/g, escape)
-                .replace(/\*/g, '%2A')
-                .replace(/%(?:7C|60|5E)/g, unescape);
-        var $encode = encodeURIComponent($replaceTags);
-        return ($encode);
+        var $encode = encodeURIComponent(str);
+        return ($encode.replace(/['()]/g, escape).replace(/\*/g, '%2A').replace(/%(?:7C|60|5E)/g, unescape));
     }
 
 };

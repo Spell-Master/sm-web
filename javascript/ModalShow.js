@@ -8,15 +8,14 @@
  * @param modal elemento#ID do modal
  * ****************************************************
  */
-
 var ModalShow = function (modal) {
     var $tgt = document.getElementById(modal);
     var $box = $tgt.getElementsByClassName('modal-box')[0];
-    var $x;
+    var $x, $content;
 
     /**
      * ************************************************
-     * @function : Abre a janela
+     * * Abre a janela
      * @param text : (opcional) Informar string para
      * o título da janela
      * @param x : (Opcional) Informar BOL true/false
@@ -26,6 +25,7 @@ var ModalShow = function (modal) {
      */
     this.open = function (text, x) {
         $tgt.querySelector('.modal-header').innerHTML = '<div class="modal-close"></div><div class="modal-title"></div>';
+        $content = $tgt.querySelector('.modal-content');
         if (text) {
             title(text);
         } else {
@@ -40,7 +40,7 @@ var ModalShow = function (modal) {
 
     /**
      * ************************************************
-     * @public Esconde o botão de fechar
+     * * Esconde o botão de fechar
      * ************************************************
      */
     this.hiddenX = function () {
@@ -53,7 +53,7 @@ var ModalShow = function (modal) {
 
     /**
      * ************************************************
-     * @public Acesso públio as funções
+     * * Acesso públio as funções
      * ************************************************
      */
     this.title = title;
@@ -62,7 +62,7 @@ var ModalShow = function (modal) {
 
     /**
      * ************************************************
-     * @function : Mostra o botão de fechar.
+     * * Mostra o botão de fechar.
      * ************************************************
      */
     function showX() {
@@ -75,7 +75,7 @@ var ModalShow = function (modal) {
 
     /**
      * ************************************************
-     * @function : Escreve o título da janela.
+     * * Escreve o título da janela.
      * @param {string} text : Título para a janela.
      * ************************************************
      */
@@ -85,7 +85,7 @@ var ModalShow = function (modal) {
 
     /**
      * ************************************************
-     * @function : Fecha a janela.
+     * * Fecha a janela.
      * ************************************************
      */
     function close() {
@@ -96,14 +96,15 @@ var ModalShow = function (modal) {
             $x = null;
         }
         setTimeout(function () {
-            $tgt.classList.remove('active');
             $box.classList.remove('zoom-out');
+            $tgt.classList.remove('active');
+            $content.innerHTML = null;
         }, 500);
     }
 
     /**
      * ************************************************
-     * @function : Checa a altura e a posição da
+     * * Checa a altura e a posição da
      * janela.
      * * Se não houver espaço no eixo vertical para
      * compor margem e altura do elemento central
@@ -117,7 +118,7 @@ var ModalShow = function (modal) {
         var $bH = $box.offsetHeight;
         if (($bT + $bH) > $wH) {
             $box.style.margin = 'auto';
-            $box.querySelector('.modal-content').style.height = ($wH - 50) + 'px';
+            $content.style.height = ($wH - 50) + 'px';
         }
     }
 };

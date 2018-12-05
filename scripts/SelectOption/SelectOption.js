@@ -1,7 +1,7 @@
 /**
  * ****************************************************
  * @Copyright (c) 2017, Spell Master.
- * @version 3.1 (2018)
+ * @version 3.2 (2018)
  * @requires  Navegador compatível com HTML 5
  * ****************************************************
  * @class Personaliza grupo de opções.
@@ -9,8 +9,24 @@
  */
 
 var SelectOption = function () {
-    var $select = document.getElementsByClassName('select-options'), $idx, $current, $base, $button, $ul, $li, $head, $opt, $j, $active, $target;
+    var $select = document.getElementsByClassName('select-options'), $idx, $current, $base, $button, $j, $ul, $li, $head, $opt, $active, $target;
     createNew();
+
+    /**
+     * ************************************************
+     * Reinicia os grupo de opções.
+     * @see : Uso em caso de repassagem de requisições
+     *        sícronas.
+     * ************************************************
+     */
+    this.restart = function () {
+        var $sBase = document.getElementsByClassName('select-base');
+        while ($sBase.length > 0) {
+            $sBase[0].parentNode.removeChild($sBase[0]);
+        }
+        $select = document.getElementsByClassName('select-options');
+        createNew();
+    };
 
     /**
      * ************************************************
@@ -59,21 +75,18 @@ var SelectOption = function () {
      * ************************************************
      */
     function queryOptions() {
-        if ($head == undefined) {
-            $head = document.getElementsByClassName('select-button');
-        }
+        $head = document.getElementsByClassName('select-button');
         $opt = $current.querySelectorAll('option');
         for ($j = 0; $j < $opt.length; $j++) {
             $li = document.createElement('li');
             $li.setAttribute('data-select', $opt[$j].value);
             $li.setAttribute('data-parent', $idx);
             $li.innerText = $opt[$j].innerText.substring(0, 20);
-            $li.addEventListener('click', clickItem.bind(this));
+            $li.addEventListener('click', clickItem, false);
             $ul.appendChild($li);
         }
         var $selected = $current.selectedIndex;
         if ($selected >= 1) {
-            //var $fixVal = $current.options[$selected].value;
             $head[$idx].innerText = $opt[$selected].innerText.substring(0, 20);
         } else {
             $head[$idx].innerText = $opt[0].innerText.substring(0, 20);
@@ -88,7 +101,7 @@ var SelectOption = function () {
      * ************************************************
      */
     function clickItem(e) {
-        var $cT = e.currentTarget;
+        var $cT = e.target;
         var $dataSet = [$cT.dataset.parent, $cT.dataset.select];
         $head[$dataSet[0]].innerText = $cT.innerText.substring(0, 20);
         $select[$dataSet[0]].value = $dataSet[1];

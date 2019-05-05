@@ -1,7 +1,9 @@
 /**
- * ****************************************
- * SelectOption
- * ****************************************
+ * ****************************************************
+ * @Copyright (c) 2017, Spell Master.
+ * @version 3.2 (2018)
+ * @requires  Navegador compatível com HTML 5
+ * ****************************************************
  */
 .select-options {
     display: none
@@ -48,7 +50,7 @@
     top: 100%;
     left: 0;
     right: 0;
-    z-index: 1;
+    z-index: 2;
     cursor: pointer;
     background: #ffffff;
     border: .0625rem solid #dddddd
@@ -57,7 +59,7 @@
     display: block
 }
 .select-base > .select-list > li {
-    z-index: 1;
+    z-index: 99;
     margin: 0;
     padding: .625rem;
     color: #444444;

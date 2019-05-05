@@ -1,18 +1,20 @@
 /**
- * ****************************************
- * Accordion
- * ****************************************
- */
-.acc-button {
+ * ****************************************************
+ * @Copyright (c) 2016, Spell Master.
+ * @Version: 2.0
+ * ****************************************************
+ **/
+
+ .acc-button {
     width: 100%;
     overflow-x: hidden;
     white-space: nowrap;
     cursor: pointer;
     background-color: #ededed;
     text-align: left;
-    border: 1px solid #dddddd;
-    height: 60px;
-    padding-left: 18px;
+    border: .0625rem solid #dddddd;
+    height: 3.75rem;
+    padding-left: 1.125rem;
     transition: .5s;
     position: relative
 }
@@ -20,11 +22,11 @@
     background-color: #dddddd
 }
 .acc-container {
-    padding: 0 18px;
+    padding: 0 1.125rem;
     background-color: #ffffff;
     height: 0;
     overflow: hidden;
-    border: 1px solid #eeeeee;
+    border: .0625rem solid #eeeeee;
     border-top: none;
     transition: height .5s ease
 }
@@ -32,13 +34,13 @@
     content: " ";
     width: 0;
     height: 0;
-    border: 10px solid transparent;
+    border: .625rem solid transparent;
     border-color: #cccccc transparent transparent transparent;
     position: absolute;
-    top: 25px;
-    right: 8px
+    top: 1.5625rem;
+    right: .5rem
 }
 .acc-button.active:after {
-    top: 15px;
+    top: .9375rem;
     border-color: transparent transparent #cccccc transparent
 }

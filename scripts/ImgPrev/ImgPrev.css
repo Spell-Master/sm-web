@@ -1,0 +1,22 @@
+/**
+ * ****************************************************
+ * Prévia de imagem para upload.
+ * * @Copyright : (2015) Spell Master "omar pautz"
+ * * @version : 2.1 (2018) "Spell Master"
+ * ****************************************************
+ */
+#preview-progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: .1875rem;
+    width: 0;
+    background: #ff0000;
+    border-top: .0625rem solid #800000;
+    border-bottom: .0625rem solid #800000;
+    z-index: 999
+}
+.image-prev {
+    height: 12.5rem;
+    width: 12.5rem
+}

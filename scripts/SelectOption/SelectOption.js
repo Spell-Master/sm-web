@@ -7,7 +7,6 @@
  * @class Personaliza grupo de opções.
  * ****************************************************
  */
-
 var SelectOption = function () {
     var $select = document.getElementsByClassName('select-options'), $idx, $current, $base, $button, $j, $ul, $li, $head, $opt, $active, $target;
     createNew();

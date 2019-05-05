@@ -1,13 +1,12 @@
 /**
  * ****************************************************
- * @Copyright (c) 2017, Omar Pautz "Spell Master".
- * @version 4.1 (2018)
+ * @Copyright (c) 2017, Spell Master.
+ * @version 4.0 (2018)
  * @requires  Navegador compatível com HTML 5
  * ****************************************************
  * @class Executa ajax.
  * ****************************************************
  */
-
 var AjaxRequest = function () {
     var $httpRequest, $loadDiv, $file, $response, $url, $vetor, $loading, $form, $head;
 
@@ -407,87 +406,3 @@ var AjaxRequest = function () {
     }
 
 };
-
-/**
- * ****************************************************
- * @changes : 
- * * 2.0 (spell master)
- * - Adicionado método para validação de formulários.
- * - Corrigido alguns problemas de compatibilidade com
- * os navegadores da microsoft "IE/EDGE".
- * 
- * * 2.1 (spell master)
- * - Modificado monitor de comunicação com o servidor
- * no método GET para melhor adpatação na inclusão
- * de arquivos javascript. O método síncono carrega e 
- * comunica ao navegador que continue analizando, mas
- * permita interatividade com a página.
- * 
- * * 2.2 (Spell Master)
- * - Removido de monitoramento percentual.
- * - Criado animações de carregamento. Não sendo preciso
- * criar os elemento no HTML.
- * - Otimizado os métodos, facilitando o uso.
- * 
- * * 2.3 (Spell Master)
- * - Criado método para upload de arquivos.
- * 
- * * 2.4 (Spell Master)
- * - Re-Adcionado método de carregamento com animação
- * local.
- * 
- * * 2.5 (Spell Master)
- * - Separado em método o encapsulamento dos elementos
- * na header.
- * * Adicionado LOOP para checagem de input RADIO em
- * formulários.
- * 
- * * 3.0 (Spell Master)
- * - Almentado a velocidade para processamento.
- * - Reduzido consumo de banda para carregar.
- * - Removido função de upload.
- * - Renomeado métodos e simplificado seus usos.
- * - Adicionado novo método que usa barra de
- * progresso para monitorar o ajax.
- * - Correção na alteração da codificação do 
- * charset. Agora os dados serão enviados usando
- * a prórpia codificação do arquivo.
- * - Otimizado envio de Posts
- *   + Agora em checkbox e radio caso marcados
- *   o método enviará o conteúdo do value, quando
- *   não marcados os dados não são enviados.
- *   + Correção no caso de input radio, agora o
- *   método dar suporte a quantidade ilimitada de
- *   inputs desse tipo.
- *   
- * * 3.1 (Spell Master)
- * - Corrigido instâncias de variáveis em loop.
- * - Organizado para um padrão em todos métodos,
- * valores de variáveis.
- * - Removido método load.
- * - Adicionado método para formulário formSend.
- * - Renomeado o método "get" para "send"
- * 
- * * 4.0 (Spell Master)
- * - Refeita toda estrutura das funções.
- * - Dividido em métodos separados a
- * responsabilidade de cada funcionabilidade.
- * - Removido compatibilidade com antigos
- * navegadores.
- * - Removido parcialmente a compatibilidade 
- * com os navegadores da microsoft "IE/EDGE".
- * - Almentado a velocidade de processamento.
- * - Alterado as animações de carregamento.
- * - Reduzido bits de consumo no download do
- * javascript.
- * - Corrigido bug no carregamento dinâmico de
- * javascripts minificados.
- * - Corrigido bug na falha de iniciação de
- * javascripts, agora a função respeita a coesa
- * aquisição dos mesmos.
- * 
- * * 4.1 (Spell Master)
- * - Crorrigido bug na passagem de codifição em
- * sequências de escape.
- * ************************************************
- */

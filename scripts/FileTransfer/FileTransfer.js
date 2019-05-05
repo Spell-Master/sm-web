@@ -1,4 +1,3 @@
-
 /**
  * ****************************************************
  * @Copyright (c) 2018, Spell Master.
@@ -8,7 +7,6 @@
  * @class Executa ajax para processamento de arquivos.
  * ****************************************************
  */
-
 var FileTransfer = function () {
 
     // * Variáveis compatilhada pelo upload e download
@@ -20,13 +18,13 @@ var FileTransfer = function () {
 
     /**
      * ************************************************
-     * Envia arquivos do hadware do usuário para o
-     * servidor remoto.
+     * * Envia arquivos do hadware do
+     * usuário para o servidor remoto.
      * * @param {STR} form
      * - Elemento#ID do formulário de envio.
      * * @param {STR} sendTo
-     * - Arquivo que processará os dados do envio pelo
-     * lado do servidor.
+     * - Arquivo que será processará os dados do envio
+     * pelo lado do servidor.
      * * @param {BOLL} cancel (true/false/null)
      * - Durante o processo de envio um botão para
      * cancelar deve ser ativo?
@@ -37,9 +35,9 @@ var FileTransfer = function () {
      */
     this.upload = function (form, sendTo, result, cancel) {
         if (!form) {
-            console.log('ID do formulário não expecificado');
+            console.warn('ID do formulário não expecificado');
         } else if (!sendTo) {
-            console.log('Arquivo de recebimento não expecificado');
+            console.warn('Arquivo de recebimento não expecificado');
         } else if (!($request instanceof XMLHttpRequest)) {
             $request = new XMLHttpRequest();
             $data = new FormData();
@@ -49,7 +47,7 @@ var FileTransfer = function () {
             $input = document.getElementById(form).querySelector('input[type="file"]');
             if (!$input.value) {
                 clearVar();
-                console.log('Nenhum arquivo selecionado');
+                console.warn('Nenhum arquivo selecionado');
             } else {
                 $file = $input.files[0];
                 $name = $file.name;
@@ -64,20 +62,20 @@ var FileTransfer = function () {
                 $request.send($data);
             }
         } else {
-            console.log('Já existe um processo em andamento');
+            console.warn('Já existe um processo em andamento');
         }
         return (false);
     };
 
     /**
      * ************************************************
-     * Envia arquivos do servidor remoto
+     * * Envia arquivos do servidor remoto
      * para hadware do usuário.
      * * @param {STR} file
-     * - Arquivo para ser enviado.
-     *   Informar extensão.
-     *   Informar diretórios (se houver)
-     *   Expl.: 'pasta/arquivos/envio.bmp'
+     * - Arquivo para ser enviad.
+     * Informar extensão.
+     * Informar diretórios (se houver)
+     * Expl.: 'pasta/arquivos/envio.bmp'
      * * @param {BOLL} cancel (true/false/null)
      * - Durante o processo de envio um botão para
      * cancelar deve ser ativo?
@@ -85,7 +83,7 @@ var FileTransfer = function () {
      */
     this.download = function (file, cancel) {
         if (!file) {
-            console.log('Arquivo de envio não expecificado');
+            console.warn('Arquivo de envio não expecificado');
         } else if (!($request instanceof XMLHttpRequest)) {
             $request = new XMLHttpRequest();
             var $fileArr = file.split('/').reverse();
@@ -101,14 +99,14 @@ var FileTransfer = function () {
             $request.open('GET', file, true);
             $request.send();
         } else {
-            console.log('Já existe um processo em andamento');
+            console.warn('Já existe um processo em andamento');
         }
         return (false);
     };
 
     /**
      * ************************************************
-     * * @private : Criar um elemento HTML para
+     * * Criar um elemento HTML para
      * execução dos dados de processo.
      * ************************************************
      */
@@ -130,7 +128,7 @@ var FileTransfer = function () {
 
     /**
      * ************************************************
-     * * @private : Criar um elemento HTML para
+     * * Criar um elemento HTML para
      * execução dos dados de processo.
      * ************************************************
      */
@@ -147,7 +145,7 @@ var FileTransfer = function () {
 
     /**
      * ************************************************
-     * * @private : Monitora os dados da requisição
+     * * Monitora os dados da requisição
      * a partir da leitura dos mesmos.
      * * @param e
      * - Evento em andamento. 
@@ -164,7 +162,7 @@ var FileTransfer = function () {
 
     /**
      * ************************************************
-     * * @private : Quando completado o processo de
+     * * Quando completado o processo de
      * leitura dos dados toma as ações baseadas no
      * status da requisição em relação as definições
      * de variáveis.
@@ -172,7 +170,7 @@ var FileTransfer = function () {
      */
     function transferComplete() {
         if ($request.status === 404) {
-            console.log('Não foi possível localizar o arquivo (' + $name + ')');
+            console.warn('Não foi possível localizar o arquivo (' + $name + ')');
             stopTrasnfer();
         } else if (($request.readyState === 4) && ($request.status === 200)) {
             if ($cancel) {
@@ -195,7 +193,7 @@ var FileTransfer = function () {
 
     /**
      * ************************************************
-     * * @private : Para o processo de download cria
+     * * Para o processo de download cria
      * um novo elemento que requisita o arquivo como
      * link html, forçando um click falso no elemento.
      * ************************************************
@@ -211,7 +209,7 @@ var FileTransfer = function () {
 
     /**
      * ************************************************
-     * * @private : Sincorniza a abertura do arquivo
+     * * Sincorniza a abertura do arquivo
      * via parâmentro do upload, exibindo o mesmo
      * como como html limpo.
      * @augments : Essas ações são as mesmas usadas
@@ -260,7 +258,7 @@ var FileTransfer = function () {
 
     /**
      * ************************************************
-     * * @private : Elimina elementos criados pelos
+     * * Elimina elementos criados pelos
      * métodos.
      * ************************************************
      */
@@ -280,7 +278,7 @@ var FileTransfer = function () {
 
     /**
      * ************************************************
-     * * @private : Re-define todas variáveis
+     * * Re-define todas variáveis
      * usadas para nada.
      * ************************************************
      */
@@ -304,7 +302,7 @@ var FileTransfer = function () {
 
     /**
      * ************************************************
-     * * @private : Cancela/para a aquisição dos dados.
+     * * Cancela/para a aquisição dos dados.
      * ************************************************
      */
     function stopTrasnfer() {

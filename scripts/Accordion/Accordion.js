@@ -14,7 +14,7 @@ var Accordion = function () {
 
     /**
      * ************************************************
-     * @private : Obtem os botões do cabeçalho
+     * * Obtem os botões do cabeçalho
      * e adiciona o evento click em cada.
      * ************************************************
      */
@@ -26,7 +26,7 @@ var Accordion = function () {
 
     /**
      * ************************************************
-     * @private : Aciona as funções para expandir ou
+     * * Aciona as funções para expandir ou
      * contrair os elementos.
      * @param e : Referencio ao evento do elemento
      * clicado.
@@ -48,7 +48,7 @@ var Accordion = function () {
 
     /**
      * ************************************************
-     * @private : Cria temporariamente um elemento
+     * * Cria temporariamente um elemento
      * cópia do alvo na expansão para obter sua altura
      * ************************************************
      */
@@ -62,7 +62,7 @@ var Accordion = function () {
 
     /**
      * ************************************************
-     * @private : Contrai o elemento que estiver
+     * * Contrai o elemento que estiver
      * expandido
      * ************************************************
      */
@@ -75,7 +75,7 @@ var Accordion = function () {
 
     /**
      * ************************************************
-     * @private : Expande o elemento alvo
+     * * Expande o elemento alvo
      * ************************************************
      */
     function openTarget() {
@@ -86,7 +86,7 @@ var Accordion = function () {
 
     /**
      * ************************************************
-     * @public : Forca a expansão de um elemento.
+     * * Forca a expansão de um elemento.
      * @param p : Índice do elemento para expandir
      * ************************************************
      */
@@ -104,3 +104,4 @@ var Accordion = function () {
         openTarget();
     };
 };
+

@@ -1,7 +1,8 @@
 /**
- * ****************************************
- * ModalShow
- * ****************************************
+ * ************************************************
+ * @Copyright (c) Spell Master.
+ * @Requisitos: Navegador compatível com HTML 5
+ * ****************************************************
  */
 .modal {
     display: none;
@@ -17,19 +18,19 @@
 .modal-box {
     position: relative;
     margin: 5% auto;
-    max-width: 900px;
+    max-width: 56.25rem;
     background-color: #ffffff;
     word-wrap: break-word
 }
 .modal-header {
-    height: 65px;
-    margin: 0 15px;
-    border-bottom: 1px solid #dddddd
+    height: 4.0625rem;
+    margin: 0 .9375rem;
+    border-bottom: .0625rem solid #dddddd
 }
 .modal-title {
-    padding-left: 10px;
-    font-size: 30px;
-    line-height: 65px;
+    padding-left: .625rem;
+    font-size: 1.875rem;
+    line-height: 4.0625rem;
     overflow-x: hidden;
     white-space: nowrap
 }
@@ -40,12 +41,12 @@
 }
 .modal-close {
     display: none;
-    width: 50px;
-    font-size: 40px;
-    line-height: 65px;
+    width: 3.125rem;
+    font-size: 2.5rem;
+    line-height: 4.0625rem;
     text-align: center;
     float: right;
-    padding-right: 10px;
+    padding-right: .625rem;
     cursor: pointer
 }
 .modal-close:hover {
@@ -55,7 +56,7 @@
     content: "X"
 }
 .modal-content {
-    padding: 5px;
+    padding: .3125rem;
     overflow-y: auto
 }
 .modal.active, .modal-close.active {

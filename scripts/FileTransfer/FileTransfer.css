@@ -4,6 +4,7 @@
  * ****************************************
  */
 #transfer-progress {
+    z-index: 999;
     position: fixed;
     top: 0;
     left: 50%;
@@ -62,7 +63,8 @@
     color: #ffffff;
     background: #c40700
 }
+
 @keyframes process-send {
-    from {top: -60px; opacity: .3}
+    from {top: -3.75rem; opacity: .3}
     to {top: 0; opacity: 1}
 }

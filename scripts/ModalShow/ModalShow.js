@@ -6,9 +6,11 @@
  * @class Gerencia aplicação modal
  * ****************************************************
  * @param modal elemento#ID do modal
+ * @param clearContent Limpar o conteúdo interno do
+ * modal.
  * ****************************************************
  */
-var ModalShow = function (modal) {
+var ModalShow = function (modal, clearContent) {
     var $tgt = document.getElementById(modal);
     var $box = $tgt.getElementsByClassName('modal-box')[0];
     var $x, $content;
@@ -89,17 +91,16 @@ var ModalShow = function (modal) {
      * ************************************************
      */
     function close() {
-        $box.classList.add('zoom-out');
         if ($x) {
             $x.removeEventListener('click', close);
             $x.classList.remove('active');
             $x = null;
         }
-        setTimeout(function () {
-            $box.classList.remove('zoom-out');
-            $tgt.classList.remove('active');
+        $tgt.classList.remove('active');
+        if (clearContent) {
             $content.innerHTML = null;
-        }, 500);
+        }
+
     }
 
     /**

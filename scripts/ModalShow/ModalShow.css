@@ -1,9 +1,16 @@
 /**
  * ************************************************
  * @Copyright (c) Spell Master.
- * @Requisitos: Navegador compat�vel com HTML 5
+ * @Requisitos: Navegador compatível com HTML 5
+ * ****************************************************
+ * @class Gerencia aplicação modal
+ * ****************************************************
+ * @param modal : elemento#ID do modal
+ * @param clearContent : Limpar o conteúdo interno do
+ * modal.
  * ****************************************************
  */
+
 .modal {
     display: none;
     z-index: 9;

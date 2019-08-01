@@ -1,7 +1,7 @@
 /**
  * ****************************************
  * @Copyright (c) 2017, Spell Master.
- * @Version: 2.2
+ * @Version: 3.0
  * @Requisitos: Navegador compatível com
  * HTML 5
  * ****************************************
@@ -14,53 +14,49 @@
  * Padronização
  * ****************************************
  */
-*, *:before, *:after {margin:0; padding:0; box-sizing:border-box; font-size-adjust:inherit}
-html {overflow-x:hidden}
-body {font-size:62.5%; line-height:1.5; font-family:"Helvetica Neue", Helvetica, Arial, sans-serif; color:#444444}
-html, body {height:100%}
-article, aside, details, figcaption, figure, footer, header, main, menu, nav, section, summary {display:block}
-audio, canvas, progress, video {display:inline-block}
-progress {vertical-align:baseline}
-audio:not([controls]) {display:none; height:0}
-[hidden], template {display:none}
-abbr[title] {border-bottom:none; text-decoration:underline; text-decoration:underline dotted}
-b, strong {font-weight:bold}
-i, dfn {font-style:italic}
-blockquote {margin:1rem 2.5rem}
-mark {background:#ff0000; color:#000000}
-code, kbd, pre, samp {font-family:monospace, monospace; font-size:1rem}
-pre {white-space:pre; white-space:pre-wrap; word-wrap:break-word}
-q {quotes:none}
-q:before, q:after {content:" "; content:none}
-small {font-size:50%}
-sub, sup {font-size:60%; line-height:0; position:relative; top:-1rem; vertical-align:baseline}
-sub {bottom:-.50rem}
-img {border:0; border-style:none; -ms-interpolation-mode:bicubic}
-img, picture, video, embed {max-width:100%; max-height:100%; border:none}
-figure, form {margin:0}
-svg:not(:root) {overflow:hidden}
-fieldset {border:.062rem solid #c0c0c0; margin:0 .24rem; padding:.70rem .62rem}
-legend {color:inherit; display:table; max-width:100%; white-space:normal }
-textarea {overflow:auto}
-legend, button, input {border:0; padding:0}
-button, input, select, textarea {font-size:100%; margin:0; vertical-align:baseline; vertical-align:middle; font:inherit}
-optgroup {font-weight:bold}
-[type=checkbox], [type=radio] {padding:0}
-[type=number], [type=number] {height:auto}
-[type=search] {outline-offset:-1rem}
-button, [type=button], [type=reset], [type=submit] {border-style:none; border:none}
-button, input, select {line-height:normal; text-transform:none }
-button, html [type=button], [type=reset], [type=submit] {-webkit-appearance:button}
-input[type=text]:focus, input[type=password]:focus, input[type=button]:focus, select:focus, textarea:focus  {outline:none}
-::placeholder {color:inherit; opacity:.7}
-a, select, textarea {outline:none; outline-width:0; font:inherit; color:inherit}
-a {text-decoration:none; background-color:transparent}
-a:active, a:hover {outline-width:0}
-table {border-collapse:collapse; border-spacing:0}
-b {font-weight:600}
-i {font-style:italic}
-hr {box-sizing:content-box; height:0; overflow:visible; border:0; margin-top:1.25rem; margin-bottom:1.25rem}
-p {padding-top:.312rem; margin-bottom:0}
+*,:after,:before{margin:0;padding:0;box-sizing:border-box}
+html{overflow-x:hidden}
+body{font-size:62.5%;line-height:1.5;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;color:#444444}
+body,html{height:100%}
+footer,header,main{width:auto}
+article,aside,details,figcaption,figure,footer,header,main,menu,nav,section,summary{display:block}
+audio,canvas,progress,video{display:inline-block}
+audio:not([controls]){display:none;height:0}
+[hidden],template{display:none}
+abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}
+b,optgroup,strong{font-weight:700}
+dfn,i{font-style:italic}
+blockquote{margin:.5rem 1rem}
+mark{background:red;color:#000000}
+code,kbd,pre,samp{font-family:monospace,monospace;font-size:1rem}
+pre{white-space:pre;white-space:pre-wrap}
+q{quotes:none}
+q:after,q:before{content:'';content:none}
+small{font-size:50%}
+sub,sup{font-size:60%;line-height:0;position:relative}
+img{-ms-interpolation-mode:bicubic}
+embed,img,picture,video{max-width:100%;max-height:100%;border:none}
+figure,form{margin:0}
+svg:not(:root){overflow:hidden}
+fieldset{border:.062rem solid silver;margin:.24rem;padding:.7rem .62rem}
+legend{color:inherit;display:table;max-width:100%;white-space:normal}
+textarea{overflow:auto}
+legend{border:0;padding:0}
+button,input,select,textarea{margin:0;vertical-align:baseline;vertical-align:middle;font:inherit}
+button,input{line-height:normal;border:none}
+button,select{text-transform:none}
+[type=checkbox],[type=radio]{padding:0}
+[type=search]{outline-offset:-1rem}
+a,button,select,textarea{outline:0;font:inherit;color:inherit}
+a:active,a:hover{outline-width:0}
+a{text-decoration:none;background-color:transparent}
+table{border-collapse:collapse;border-spacing:0}
+b{font-weight:600}
+hr{box-sizing:content-box;height:0;overflow:visible;border:0;margin-top:1rem;margin-bottom:1rem}
+p{padding-top:.312rem;margin-bottom:0}
+input[type=button]:focus,input[type=password]:focus,input[type=text]:focus,select:focus,textarea:focus{outline:0}
+ul,ol {padding:0; margin:0}
+blockquote ul,blockquote ol{padding:0;margin-left:.9375rem}
 
 /**
  * ****************************************
@@ -160,7 +156,7 @@ h6 {font-size:1.5rem}
 .bg-white,        .bg-white-hover:hover        {background-color:#ffffff !important}
 .bg-light,        .bg-light-hover:hover        {background-color:#ededed !important}
 .bg-dark,         .bg-dark-hover:hover         {background-color:#d9d9d9 !important}
-.bg-black,        .bg-black-hover:hover        {background-color:#333333 !important}
+.bg-black,        .bg-black-hover:hover        {background-color:#222222 !important}
 .bg-light-black,  .bg-light-black-hover:hover  {background-color:#4d4d4d !important}
 .bg-dark-black,   .bg-dark-black-hover:hover   {background-color:#000000 !important}
 .bg-grey,         .bg-grey-hover:hover         {background-color:#808080 !important}
@@ -233,16 +229,17 @@ h6 {font-size:1.5rem}
 .col-10,   .col-9,   .col-8,   .col-7,   .col-6,   .col-5,   .col-4,   .col-3,   .col-2,   .col-1,
 .col-s-10, .col-s-9, .col-s-8, .col-s-7, .col-s-6, .col-s-5, .col-s-4, .col-s-3, .col-s-2, .col-s-1,
 .col-l-10, .col-l-9, .col-l-8, .col-l-7, .col-l-6, .col-l-5, .col-l-4, .col-l-3, .col-l-2, .col-l-1,
-.col-single,   .col-dual,   .col-third,   .col-twothird,   .col-quarter,
-.col-s-single, .col-s-dual, .col-s-third, .col-s-twothird, .col-s-quarter,
-.col-l-single, .col-l-dual, .col-l-third, .col-l-twothird, .col-l-quarter {width:99.99999%}
+.col-single,   .col-dual,   .col-triple,   .col-twothird,   .col-quarter,   .col-threequarter,
+.col-s-single, .col-s-dual, .col-s-triple, .col-s-twothird, .col-s-quarter, .col-s-threequarter,
+.col-l-single, .col-l-dual, .col-l-triple, .col-l-twothird, .col-l-quarter, .col-l-threequarter {width:99.99999%}
 
-.row > [class^="col-"], .row-pad > [class^="col-"] {
+.row     > [class^="col-"],
+.row-pad > [class^="col-"] {
     display:table-cell;
     float:left
 }
 .row-pad > [class^="col-"] {
-    padding:1rem
+    padding:.625rem
 }
 
 .col-fix.col-9  {width:11.11111%}
@@ -251,27 +248,31 @@ h6 {font-size:1.5rem}
 .col-fix.col-6  {width:16.66666%}
 .col-fix.col-5  {width:19.99999%}
 .col-fix.col-4, .col-fix.col-quarter {width:24.99999%}
-.col-fix.col-3, .col-fix.col-third   {width:33.33333%}
+.col-fix.col-3, .col-fix.col-triple  {width:33.33333%}
 .col-fix.col-2, .col-fix.col-dual    {width:49.99999%}
 .col-fix.col-twothird {width:66.66666%}
+.col-fix.col-threequarter {width:74.99999%}
 .col-fix.col-s-9  {width:11.11111%}
 .col-fix.col-s-8  {width:12.5%}
 .col-fix.col-s-7  {width:14.28571%}
 .col-fix.col-s-6  {width:16.66666%}
 .col-fix.col-s-5  {width:19.99999%}
 .col-fix.col-s-4, .col-fix.col-s-quarter {width:24.99999%}
-.col-fix.col-s-3, .col-fix.col-s-third   {width:33.33333%}
+.col-fix.col-s-3, .col-fix.col-s-triple  {width:33.33333%}
 .col-fix.col-s-2, .col-fix.col-s-dual    {width:49.99999%}
 .col-fix.col-s-twothird {width:66.66666%}
+.col-fix.col-s-threequarter {width:74.99999%}
 .col-fix.col-l-9  {width:11.11111%}
 .col-fix.col-l-8  {width:12.5%}
 .col-fix.col-l-7  {width:14.28571%}
 .col-fix.col-l-6  {width:16.66666%}
 .col-fix.col-l-5  {width:19.99999%}
 .col-fix.col-l-4, .col-fix.col-l-quarter {width:24.99999%}
-.col-fix.col-l-3, .col-fix.col-l-third   {width:33.33333%}
+.col-fix.col-l-3, .col-fix.col-l-triple  {width:33.33333%}
 .col-fix.col-l-2, .col-fix.col-l-dual    {width:49.99999%}
 .col-fix.col-l-twothird {width:66.66666%}
+.col-fix.col-l-threequarter {width:74.99999%}
+
 /**
  * ****************************************
  * * Caixas
@@ -291,7 +292,6 @@ h6 {font-size:1.5rem}
 .box-xy-100  {width:6.25rem;   height:6.25rem}
 .box-xy-50   {width:3.125rem;  height:3.125rem}
 .box-xy-25   {width:1.5625rem; height:1.5625rem}
-.box-xy-auto {width:auto;      height:auto}
 
 .box-x-1000 {width:62.5rem}
 .box-x-900  {width:56.25rem}
@@ -323,7 +323,6 @@ h6 {font-size:1.5rem}
 .box-y-100  {height:6.25rem}
 .box-y-50   {height:3.125rem}
 .box-y-25   {height:1.5625rem}
-.box-y-auto {height:auto}
 
 /**
  * ****************************************
@@ -343,17 +342,17 @@ h6 {font-size:1.5rem}
 .blockquote-red,
 .blockquote-green,
 .blockquote-blue,
-.blockquote-yellow {padding:.625rem; margin:.625rem; font-size:1rem}
+.blockquote-yellow {padding:.625rem; margin:.5rem; font-size:1rem}
 
 .card        {background-color:#ffffff; box-shadow:0 .125rem .375rem 0 rgba(100,100,100,.4)}
 .card-black  {background-color:#4c4c4c; box-shadow:0 .125rem .375rem 0 rgba(0,0,0,.8)}
 .card-grey   {background-color:#ededed; box-shadow:0 .125rem .375rem 0 rgba(0,0,0,.4)}
-.card-red    {background-color:#ff6565; box-shadow:0 .125rem .375rem 0 rgba(63,13,13,.5)}
+.card-red    {background-color:#ec7d7d; box-shadow:0 .125rem .375rem 0 rgba(63,13,13,.5)}
 .card-green  {background-color:#d9f7d9; box-shadow:0 .125rem .375rem 0 rgba(13,63,13,.5)}
 .card-blue   {background-color:#d9e9f7; box-shadow:0 .125rem .375rem 0 rgba(13,40,63,.5)}
 .card-yellow {background-color:#f5f0b2; box-shadow:0 .125rem .375rem 0 rgba(90,86,12,.5)}
 
-.blockquote        {background-color:#ffffff; border-left:.3125rem solid #444444}
+.blockquote        {background-color:#fafafa; border-left:.3125rem solid #444444}
 .blockquote-black  {background-color:#4c4c4c; border-left:.3125rem solid #000000}
 .blockquote-grey   {background-color:#e6e6e6; border-left:.3125rem solid #cccccc}
 .blockquote-red    {background-color:#f7d9d9; border-left:.3125rem solid #f44336}
@@ -386,7 +385,7 @@ h6 {font-size:1.5rem}
 .border-white,        .border-white-hover:hover        {border-color:#ffffff !important}
 .border-light,        .border-light-hover:hover        {border-color:#ededed !important}
 .border-dark,         .border-dark-hover:hover         {border-color:#d9d9d9 !important}
-.border-black,        .border-black-hover:hover        {border-color:#333333 !important}
+.border-black,        .border-black-hover:hover        {border-color:#222222 !important}
 .border-light-black,  .border-light-black-hover:hover  {border-color:#4d4d4d !important}
 .border-dark-black,   .border-dark-black-hover:hover   {border-color:#000000 !important}
 .border-grey,         .border-grey-hover:hover         {border-color:#808080 !important}
@@ -661,6 +660,19 @@ h6 {font-size:1.5rem}
 .list {display:list-item}
 .list-none {list-style: none}
 
+.hide {
+    display: none
+}
+.show {
+    display: block
+}
+[class^="hide show"] {
+    display: block
+}
+[class^="show hide"] {
+    display: none
+}
+
 /**
  * ****************************************
  * * Botões
@@ -682,13 +694,13 @@ h6 {font-size:1.5rem}
 
 .btn-success       {background-color:#4caf50}
 .btn-info          {background-color:#3f7ebf}
-.btn-warning       {background-color:#ff9800}
+.btn-warning       {background-color:#e57f19}
 .btn-danger        {background-color:#f44336}
 .btn-default       {background-color:#e7e7e7}
 .btn-light         {background-color:#ededed}
 .btn-dark          {background-color:#404040}
 .btn-success:hover {background:#46a049}
-.btn-info:hover    {background:#4f7eae}
+.btn-info:hover    {background:#4573a2}
 .btn-warning:hover {background:#e68a00}
 .btn-danger:hover  {background:#da190b}
 .btn-default:hover {background:#dddddd}
@@ -716,13 +728,13 @@ h6 {font-size:1.5rem}
 
 .form-line:after, .form-line:before {content:""; display: table; clear:both}
 
-.form-line > div > * {
+.form-line div * {
     font-size: 1.1rem !important;
     padding: 0 1.5rem !important;
     height: 3.1rem !important;
     line-height: 3.1rem
 }
-.form-line > div > button {
+.form-line div button {
     white-space: nowrap
 }
 .form-line > [class^="float"] > span,
@@ -735,22 +747,22 @@ h6 {font-size:1.5rem}
  * Animação
  * ****************************************
  */
-.spinner {animation:effect-spin 1s infinite linear}
-.rotate {animation:effect-spin 1s}
+.spinner {animation:effect-spin .5s infinite linear}
+.rotate {animation:effect-spin .5s}
 @keyframes effect-spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
 
-.spinner-off {animation:effect-spin-off 1s infinite linear}
-.rotate-off {animation:effect-spin-off 1s}
+.spinner-off {animation:effect-spin-off .5s infinite linear}
+.rotate-off {animation:effect-spin-off .5s}
 @keyframes effect-spin-off{from{transform:rotate(360deg)}to{transform:rotate(0deg)}}
 
-.turn {animation:effect-turn 1s}
-.turn-off {animation:effect-turn-off 1s}
+.turn {animation:effect-turn .5s}
+.turn-off {animation:effect-turn-off .5s}
 @keyframes effect-turn{from{transform:rotate(0deg)}to{transform:rotate(180deg)}}
 @keyframes effect-turn-off{from{transform:rotate(180deg)}to{transform:rotate(0deg)}}
 
 .flip, .flip-off {transform-style: preserve-3d}
-.flip {animation: effect-flip 1s}
-.flip-off {animation: effect-flip-off 1s;transform-origin: 100%}
+.flip {animation: effect-flip .5s}
+.flip-off {animation: effect-flip-off .5s;transform-origin: 100%}
 @keyframes effect-flip {from{transform:rotate(0deg)}to{transform:rotateY(180deg)}}
 @keyframes effect-flip-off {from{transform:rotate(0deg)}to{transform:rotateX(-180deg)}}
 
@@ -759,8 +771,8 @@ h6 {font-size:1.5rem}
 @keyframes effect-zoom-in{from{transform:scale(0)}to{transform:scale(1)}}
 @keyframes effect-zoom-out{from{transform:scale(1)}to{transform:scale(0)}}
 
-.fade-in{animation:effect-fade-in 1s}
-.fade-out{animation:effect-fade-out 1s}
+.fade-in{animation:effect-fade-in .5s}
+.fade-out{animation:effect-fade-out .5s}
 @keyframes effect-fade-in{from{opacity:0}to{opacity:1}}
 @keyframes effect-fade-out{from{opacity:1}to{opacity:0}}
 
@@ -777,9 +789,10 @@ h6 {font-size:1.5rem}
     .col-l-6 {width:16.66666%}
     .col-l-5 {width:19.99999%}
     .col-l-4, .col-l-quarter {width:24.99999%}
-    .col-l-3, .col-l-third {width:33.33333%}
+    .col-l-3, .col-l-triple {width:33.33333%}
     .col-l-2, .col-l-dual {width:49.99999%}
     .col-l-twothird {width:66.66666%}
+    .col-l-threequarter {width:74.99999%}
 }
 @media (min-width: 600px) {
     .col-10 {width: 9.99999%}
@@ -789,9 +802,10 @@ h6 {font-size:1.5rem}
     .col-6 {width:16.66666%}
     .col-5 {width:19.99999%}
     .col-4, .col-quarter {width:24.99999%}
-    .col-3, .col-third {width:33.33333%}
+    .col-3, .col-triple {width:33.33333%}
     .col-2, .col-dual {width:49.99999%}
     .col-twothird {width:66.66666%}
+    .col-threequarter {width:74.99999%}
 }
 @media (min-width: 480px) {
     .col-s-10 {width: 9.99999%}
@@ -801,9 +815,10 @@ h6 {font-size:1.5rem}
     .col-s-6 {width:16.66666%}
     .col-s-5 {width:19.99999%}
     .col-s-4, .col-s-quarter {width:24.99999%}
-    .col-s-3, .col-s-third {width:33.33333%}
+    .col-s-3, .col-s-triple {width:33.33333%}
     .col-s-2, .col-s-dual {width:49.99999%}
     .col-s-twothird {width:66.66666%}
+    .col-s-threequarter {width:74.99999%}
 }
 
 @media (max-width: 1024px) {

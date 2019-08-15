@@ -2,7 +2,7 @@
  * ****************************************************
  * @Copyright (c) 2017, Spell Master.
  * @version 3.2 (2018)
- * @requires  Navegador compatível com HTML 5
+ * @requires  Navegador compatï¿½vel com HTML 5
  * ****************************************************
  */
 .select-options {
@@ -10,7 +10,8 @@
 }
 .select-base {
     position: relative;
-    width: 100%
+    width: 100%;
+    /*z-index: 1*/
 }
 .select-button {
     width: 100%;
@@ -50,16 +51,17 @@
     top: 100%;
     left: 0;
     right: 0;
-    z-index: 2;
     cursor: pointer;
     background: #ffffff;
-    border: .0625rem solid #dddddd
+    border: .0625rem solid #dddddd;
+    max-height: 300px;
+    overflow-y: auto;
+    z-index: 1
 }
 .select-base > .select-list.active {
     display: block
 }
 .select-base > .select-list > li {
-    z-index: 99;
     margin: 0;
     padding: .625rem;
     color: #444444;

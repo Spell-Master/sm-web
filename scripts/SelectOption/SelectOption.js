@@ -1,14 +1,14 @@
 /**
  * ****************************************************
  * @Copyright (c) 2017, Spell Master.
- * @version 3.2 (2018)
+ * @version 3.3 (2019)
  * @requires  Navegador compatível com HTML 5
  * ****************************************************
  * @class Personaliza grupo de opções.
  * ****************************************************
  */
 var SelectOption = function () {
-    var $select = document.getElementsByClassName('select-options'), $idx, $current, $base, $button, $j, $ul, $li, $head, $opt, $active, $target;
+    var $select = document.getElementsByClassName('select-options'), $idx, $current, $base, $button, $j, $k, $ul, $li, $head, $opt, $active, $target;
     createNew();
 
     /**
@@ -83,6 +83,11 @@ var SelectOption = function () {
             $li.innerText = $opt[$j].innerText.substring(0, 20);
             $li.addEventListener('click', clickItem, false);
             $ul.appendChild($li);
+        }
+        for ($k = 0; $k < $opt.length; $k++) {
+            if ($opt[$k].selected) {
+                break;
+            }
         }
         var $selected = $current.selectedIndex;
         if ($selected >= 1) {

@@ -28,7 +28,7 @@
 
 .cut-container::selection,
 .cut-box::selection {
-     background: transparent
+    background: transparent
 }
 
 .cut-box {
@@ -49,6 +49,8 @@
 .cut-box > img {
     width: auto;
     height: auto;
+    max-height: inherit;
+    max-width: inherit;
     display: block;
     position: absolute;
     display: block

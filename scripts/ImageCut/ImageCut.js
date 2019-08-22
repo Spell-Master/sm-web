@@ -279,5 +279,6 @@ var ImageCut = function (img) {
                 return ($getImage);
             }
         }
+
     }
 };

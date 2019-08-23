@@ -1,0 +1,61 @@
+/**
+ * ****************************************************
+ * @Copyright (c) 2019, Omar Pautz "Spell Master".
+ * @version 1.0
+ * ****************************************************
+ * @info
+ * NÃO MODIFICAR NADA NESSE ARQUIVO!!!
+ * Para correto funcionamento da ferramenta de corte
+ * essas propiedades devem permanecer exatamente como
+ * estão!
+ * ****************************************************
+ */
+
+.cut-base {
+    width: auto;
+    height: auto;
+    max-width: 500px;
+    overflow: hidden
+}
+
+.cut-container {
+    position: relative;
+    width: inherit;
+    height: inherit;
+    border: 1px solid #e5e5e5;
+    width: inherit
+}
+
+.cut-container::selection,
+.cut-box::selection {
+    background: transparent
+}
+
+.cut-box {
+    cursor: move;
+    z-index: 1;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -100px;
+    margin-top: -100px;
+    width: 200px;
+    height: 200px;
+    border: 1px solid #e5e5e5;
+    overflow: hidden;
+    box-sizing: content-box
+}
+
+.cut-box > img {
+    width: auto;
+    height: auto;
+    max-height: inherit;
+    max-width: inherit;
+    display: block;
+    position: absolute;
+    display: block
+}
+
+.cut-focus {
+    filter: blur(5px)
+}

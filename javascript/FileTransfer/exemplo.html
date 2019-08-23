@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>File Transfer</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="../../css/sm-default.css" rel="stylesheet" type="text/css"/>
+        <link href="FileTransfer.css" rel="stylesheet" type="text/css"/>
+        <script src="FileTransfer.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <div class="container padding-lr font-default">
+
+            <button class="btn-default" onclick="file.download('transferecia/arquivo.zip', true);">Download</button>
+
+            <div class="margin-top-high padding-all-prop bg-dark">
+                <div id="resultado"></div>
+                <form id="upload_exemplo" onsubmit="return file.upload(this.id, 'upload.php', 'resultado', true);">
+                    <div class="row">
+                        <div class="col-s-threequarter">
+                            <input class="input-default" type="file" name="enviar" />
+                        </div>
+                        <div class="col-s-quarter">
+                            <button class="btn-info button-block text-white" style="height: 52px">Upload</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+
+        <script>
+            file = new FileTransfer();
+        </script>
+    </body>
+</html>

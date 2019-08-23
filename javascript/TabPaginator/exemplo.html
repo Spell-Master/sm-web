@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TabPaginator</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="../../css/sm-default.css" rel="stylesheet" type="text/css"/>
+        <link href="TabPaginator.css" rel="stylesheet" type="text/css"/>
+        <script src="TabPaginator.js" type="text/javascript"></script>
+        <style>
+            @media (max-width: 480px) {
+                .tab-menu > li {
+                    display: block;
+                    border-bottom: 1px solid #d9d9d9;
+                    width: 100%
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container padding-lr-prop font-default">
+
+            <ul class="tab-menu">
+                <li><a class="tab-link">Tab A</a></li>
+                <li><a class="tab-link">Tab B</a></li>
+                <li><a class="tab-link">Tab C</a></li>
+                <li><a class="tab-link">Tab D</a></li>
+            </ul>
+            <div class="tab-body">
+                Tab A
+                <p class="text-blue">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </div>
+            <div class="tab-body">
+                Tab B
+                <p class="text-red">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </div>
+            <div class="tab-body">
+                Tab C
+                <p class="text-green">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </div>
+            <div class="tab-body">
+                Tab D
+                <p class="text-dark-yellow">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </div>
+
+        </div>
+        <script>
+            var tab = new TabPaginator();
+        </script>
+    </body>
+</html>

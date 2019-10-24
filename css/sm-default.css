@@ -1,7 +1,7 @@
 /**
  * ****************************************
  * @Copyright (c) 2017, Spell Master.
- * @Version: 3.1 "Em progresso"
+ * @Version: 3.2
  * @Requisitos: Navegador compatível com
  * HTML 5
  * ****************************************
@@ -16,7 +16,7 @@
  */
 *,:after,:before{margin:0;padding:0;box-sizing:border-box}
 html{overflow-x:hidden}
-body{font-size:62.5%;line-height:1.5;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;color:#444444}
+body{font-size:1rem;line-height:1.5;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;color:#444444}
 body,html{height:100%}
 footer,header,main{width:auto}
 article,aside,details,figcaption,figure,footer,header,main,menu,nav,section,summary{display:block}
@@ -195,9 +195,10 @@ h6 {font-size:1.5rem}
 .bg-brown,        .bg-brown-hover:hover        {background-color:#9f705f !important}
 .bg-light-brown,  .bg-light-brown-hover:hover  {background-color:#c5a99f !important}
 .bg-dark-brown,   .bg-dark-brown-hover:hover   {background-color:#5f4339 !important}
-.bg-pale-red,     .bg-pale-red-hover:hover     {background-color:#fa968a !important}
-.bg-pale-green,   .bg-pale-green-hover:hover   {background-color:#d9f7d9 !important}
-.bg-pale-blue,    .bg-pale-blue-hover:hover    {background-color:#c2e3f9 !important}
+.bg-pale-red,     .bg-pale-red-hover:hover     {background-color:#ffc9c9 !important}
+.bg-pale-green,   .bg-pale-green-hover:hover   {background-color:#bdedbc !important}
+.bg-pale-blue,    .bg-pale-blue-hover:hover    {background-color:#c5e8f7 !important}
+.bg-pale-yellow,  .bg-pale-yellow-hover:hover  {background-color:#ffefa4 !important}
 
 /**
  * ****************************************
@@ -347,10 +348,10 @@ h6 {font-size:1.5rem}
 .card        {background-color:#ffffff; box-shadow:0 .125rem .375rem 0 rgba(100,100,100,.4)}
 .card-black  {background-color:#4c4c4c; box-shadow:0 .125rem .375rem 0 rgba(0,0,0,.8)}
 .card-grey   {background-color:#ededed; box-shadow:0 .125rem .375rem 0 rgba(0,0,0,.4)}
-.card-red    {background-color:#ec7d7d; box-shadow:0 .125rem .375rem 0 rgba(63,13,13,.5)}
-.card-green  {background-color:#d9f7d9; box-shadow:0 .125rem .375rem 0 rgba(13,63,13,.5)}
-.card-blue   {background-color:#d9e9f7; box-shadow:0 .125rem .375rem 0 rgba(13,40,63,.5)}
-.card-yellow {background-color:#f5f0b2; box-shadow:0 .125rem .375rem 0 rgba(90,86,12,.5)}
+.card-red    {background-color:#ffc9c9; box-shadow:0 .125rem .375rem 0 rgba(155,150,167,.5)}
+.card-green  {background-color:#bdedbc; box-shadow:0 .125rem .375rem 0 rgba(13,63,13,.5)}
+.card-blue   {background-color:#c5e8f7; box-shadow:0 .125rem .375rem 0 rgba(13,40,63,.5)}
+.card-yellow {background-color:#ffefa4; box-shadow:0 .125rem .375rem 0 rgba(90,86,12,.5)}
 
 .blockquote        {background-color:#fafafa; border-left:.3125rem solid #444444}
 .blockquote-black  {background-color:#4c4c4c; border-left:.3125rem solid #000000}
@@ -775,6 +776,28 @@ h6 {font-size:1.5rem}
 .fade-out{animation:effect-fade-out .5s}
 @keyframes effect-fade-in{from{opacity:0}to{opacity:1}}
 @keyframes effect-fade-out{from{opacity:1}to{opacity:0}}
+
+/**
+ * ****************************************
+ * * Tabelas
+ * ****************************************
+ */
+.tbl {border-collapse: collapse; border-spacing: 0; width: 100%; display: table}
+.tbl thead {background-color: #dddddd}
+.tbl td,
+.table th {padding: .625rem; display: table-cell; text-align: left; vertical-align: top}
+.tbl.streak th:first-child, .table td:first-child {padding-left: .8rem}
+.tbl.streak tbody tr:nth-child(even) {background-color: #f1f1f1}
+
+/**
+ * ****************************************
+ * * Emblema
+ * ****************************************
+ */
+.emblem-circle,
+.emblem-square {display: inline-block; text-align: center; font-size: .75rem; line-height: 1.75rem; overflow: hidden}
+.emblem-circle {height: 1.75rem; width: 1.75rem; border-radius: 50%}
+.emblem-square {padding: .125rem 1.125rem; border-radius: .375rem}
 
 /**
  * ****************************************

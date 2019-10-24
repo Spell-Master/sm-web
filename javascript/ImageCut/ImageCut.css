@@ -14,7 +14,7 @@
 .cut-base {
     width: auto;
     height: auto;
-    max-width: 500px;
+  /*max-width: 500px;*/
     overflow: hidden
 }
 

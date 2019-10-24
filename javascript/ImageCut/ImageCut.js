@@ -116,7 +116,9 @@ var ImageCut = function (img) {
          * ************************************************
          */
         function targetScale() {
-            $target.setAttribute('style', 'max-width:100% ; min-width:200px; min-height:200px;');
+            var $minW = ($target.offsetWidth < 210 ? 210 : $target.offsetWidth);
+            $base.setAttribute('style', 'max-width: ' + $minW + 'px; margin:auto;');
+            $target.setAttribute('style', 'max-width:100%; min-width:' + $minW + 'px; min-height:210px;');
             copyScale();
         }
 

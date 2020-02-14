@@ -1,14 +1,14 @@
 /**
  * ****************************************************
  * @Copyright (c) 2017, Spell Master.
- * @version 3.3 (2019)
+ * @version 3.4 (2020)
  * @requires  Navegador compatível com HTML 5
  * ****************************************************
  * @class Personaliza grupo de opções.
  * ****************************************************
  */
 var SelectOption = function () {
-    var $select = document.getElementsByClassName('select-options'), $idx, $current, $base, $button, $j, $k, $ul, $li, $head, $opt, $active, $target;
+    var $select = document.getElementsByClassName('select-options'), $idx, $current, $base, $button, $j, $k, $ul, $li, $head, $opt, $active, $target, $event;
     createNew();
 
     /**
@@ -33,9 +33,10 @@ var SelectOption = function () {
      * ************************************************
      */
     function createNew() {
+        $event = new Event('change');
         for ($idx = 0; $idx < $select.length; $idx++) {
             $current = $select[$idx];
-            $current.style.display = 'none';
+            $current.setAttribute('style', 'opacity:0; height:0; width:0; overflow:hidden');
             $base = document.createElement('div');
             $base.classList.add('select-base');
             $current.parentNode.insertBefore($base, $current);
@@ -109,6 +110,7 @@ var SelectOption = function () {
         var $dataSet = [$cT.dataset.parent, $cT.dataset.select];
         $head[$dataSet[0]].innerText = $cT.innerText.substring(0, 20);
         $select[$dataSet[0]].value = $dataSet[1];
+        $select[$dataSet[0]].dispatchEvent($event);
     }
 
     /**

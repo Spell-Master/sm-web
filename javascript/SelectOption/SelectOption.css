@@ -6,12 +6,14 @@
  * ****************************************************
  */
 .select-options {
-    display: none
+    opacity: 0 !important;
+    height: 0 !important;
+    width: 0 !important;
+    overflow: hidden !important
 }
 .select-base {
     position: relative;
-    width: 100%;
-    /*z-index: 1*/
+    width: 100%
 }
 .select-button {
     width: 100%;
@@ -23,7 +25,7 @@
     cursor: pointer;
     background-color: #ededed;
     text-align: left;
-    padding-left: .9375rem;
+    padding-left: .9375rem
 }
 .select-button:after {
     content: "";
@@ -42,7 +44,7 @@
 .select-button > .select-text {
     width: calc(100% - 2.1875rem);
     overflow-x: hidden;
-    white-space: nowrap;
+    white-space: nowrap
 }
 .select-base > .select-list {
     display: none;

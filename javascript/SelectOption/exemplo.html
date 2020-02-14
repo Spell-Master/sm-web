@@ -37,10 +37,39 @@
                 </div>
             </div>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+            <hr class="border-bottom border-dark" />
+            <div class="margin-top-high">
+                <p class="font-large">Detectando evento change</p>
+                <select class="select-options" id="seletor">
+                    <option value="x">Selecione uma opção</option>
+                    <option value="a-3">Opção A-3</option>
+                    <option value="b-3">Opção B-3</option>
+                    <option value="c-3">Opção C-3</option>
+                    <option value="d-3">Opção D-3</option>
+                    <option value="e-3">Opção E-3</option>
+                </select>
+            </div>
+            <div id="ativacao"></div>
+
         </div>
 
         <script>
             var select = new SelectOption();
+
+            var seletor = document.getElementById('seletor'),
+            check = document.getElementById('ativacao'),
+            contagem = 0;
+
+            seletor.addEventListener('change', funcao, false);
+
+            function funcao(e) {
+                var valor = (e.target).value;
+                if (valor != 'x') {
+                    contagem += 1;
+                    check.innerHTML = 'O evento change foi acionado (' + contagem + ')';
+                }
+            }
         </script>
     </body>
 </html>

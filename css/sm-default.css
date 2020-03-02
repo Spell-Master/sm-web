@@ -70,7 +70,7 @@ blockquote ul,blockquote ol{padding:0;margin-left:.9375rem}
 .over-x-not {overflow-x:hidden}
 .over-y {overflow-y:auto}
 .over-y-not {overflow-y:hidden}
-.over-text {overflow-x: hidden; white-space: nowrap}
+.over-text {overflow: hidden; white-space: nowrap}
 .maximized {width:99.99999% !important}
 .disable                {cursor: not-allowed !important; opacity: .5}
 .disable *, :disabled * {pointer-events: none !important}
@@ -91,7 +91,7 @@ h6 {font-size:1.5rem}
 .font-tiny {font-size:.6875rem}
 .font-small {font-size:.75rem}
 .font-default {font-size:1rem}
-.font-medium {font-size:1.125rem}
+.font-medium {font-size:1.25rem}
 .font-large {font-size:1.5rem}
 .font-jumbo {font-size:1.875rem}
 .font-extra {font-size:3rem}
@@ -114,7 +114,7 @@ h6 {font-size:1.5rem}
 .text-grey,         .text-grey-hover:hover         {color:#808080 !important}
 .text-light-grey,   .text-light-grey-hover:hover   {color:#cccccc !important}
 .text-dark-grey,    .text-dark-grey-hover:hover    {color:#595959 !important}
-.text-red,          .text-red-hover:hover          {color:#f44336 !important}
+.text-red,          .text-red-hover:hover          {color:#d42020 !important}
 .text-light-red,    .text-light-red-hover:hover    {color:#ff6560 !important}
 .text-dark-red,     .text-dark-red-hover:hover     {color:#c40700 !important}
 .text-green,        .text-green-hover:hover        {color:#3b9900 !important}
@@ -162,7 +162,7 @@ h6 {font-size:1.5rem}
 .bg-grey,         .bg-grey-hover:hover         {background-color:#808080 !important}
 .bg-light-grey,   .bg-light-grey-hover:hover   {background-color:#cccccc !important}
 .bg-dark-grey,    .bg-dark-grey-hover:hover    {background-color:#595959 !important}
-.bg-red,          .bg-red-hover:hover          {background-color:#f44336 !important}
+.bg-red,          .bg-red-hover:hover          {background-color:#d42020 !important}
 .bg-light-red,    .bg-light-red-hover:hover    {background-color:#ff6560 !important}
 .bg-dark-red,     .bg-dark-red-hover:hover     {background-color:#c40700 !important}
 .bg-green,        .bg-green-hover:hover        {background-color:#3b9900 !important}
@@ -356,7 +356,7 @@ h6 {font-size:1.5rem}
 .blockquote        {background-color:#fafafa; border-left:.3125rem solid #444444}
 .blockquote-black  {background-color:#4c4c4c; border-left:.3125rem solid #000000}
 .blockquote-grey   {background-color:#e6e6e6; border-left:.3125rem solid #cccccc}
-.blockquote-red    {background-color:#f7d9d9; border-left:.3125rem solid #f44336}
+.blockquote-red    {background-color:#f7d9d9; border-left:.3125rem solid #d42020}
 .blockquote-green  {background-color:#d9f7d9; border-left:.3125rem solid #46a049}
 .blockquote-blue   {background-color:#d9e9f7; border-left:.3125rem solid #0b7dda}
 .blockquote-yellow {background-color:#f5f0b2; border-left:.3125rem solid #ffeb3b}
@@ -392,7 +392,7 @@ h6 {font-size:1.5rem}
 .border-grey,         .border-grey-hover:hover         {border-color:#808080 !important}
 .border-light-grey,   .border-light-grey-hover:hover   {border-color:#cccccc !important}
 .border-dark-grey,    .border-dark-grey-hover:hover    {border-color:#595959 !important}
-.border-red,          .border-red-hover:hover          {border-color:#f44336 !important}
+.border-red,          .border-red-hover:hover          {border-color:#d42020 !important}
 .border-light-red,    .border-light-red-hover:hover    {border-color:#ff6560 !important}
 .border-dark-red,     .border-dark-red-hover:hover     {border-color:#c40700 !important}
 .border-green,        .border-green-hover:hover        {border-color:#3b9900 !important}
@@ -695,15 +695,15 @@ h6 {font-size:1.5rem}
 
 .btn-success       {background-color:#4caf50}
 .btn-info          {background-color:#3f7ebf}
-.btn-warning       {background-color:#e57f19}
-.btn-danger        {background-color:#f44336}
+.btn-warning       {background-color:#ff9600}
+.btn-danger        {background-color:#d42020}
 .btn-default       {background-color:#e7e7e7}
 .btn-light         {background-color:#ededed}
 .btn-dark          {background-color:#404040}
 .btn-success:hover {background:#46a049}
 .btn-info:hover    {background:#4573a2}
-.btn-warning:hover {background:#e68a00}
-.btn-danger:hover  {background:#da190b}
+.btn-warning:hover {background:#d67e00}
+.btn-danger:hover  {background:#b11b1b}
 .btn-default:hover {background:#dddddd}
 .btn-light:hover   {background:#e6e6e6}
 .btn-dark:hover    {background:#333333}
@@ -748,7 +748,7 @@ h6 {font-size:1.5rem}
  * Animação
  * ****************************************
  */
-.spinner {animation:effect-spin .5s infinite linear}
+.spinner {animation:effect-spin 4s infinite linear}
 .rotate {animation:effect-spin .5s}
 @keyframes effect-spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
 
@@ -795,7 +795,7 @@ h6 {font-size:1.5rem}
  * ****************************************
  */
 .emblem-circle,
-.emblem-square {display: inline-block; text-align: center; font-size: .75rem; line-height: 1.75rem; overflow: hidden}
+.emblem-square {display: inline-block; text-align: center; font-size: .75rem; line-height: 1.75rem}
 .emblem-circle {height: 1.75rem; width: 1.75rem; border-radius: 50%}
 .emblem-square {padding: .125rem 1.125rem; border-radius: .375rem}
 

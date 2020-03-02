@@ -60,7 +60,7 @@ var AjaxRequest = function () {
             $url = (url ? url : null);
             $file = file;
             $vetor = ['send', 555];
-            $loadDiv.scrollIntoView({block: 'start', behavior: 'smooth'});
+            //$loadDiv.scrollIntoView({block: 'start', behavior: 'smooth'});
             requestGet();
         }
         return (false);

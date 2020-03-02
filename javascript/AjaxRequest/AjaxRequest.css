@@ -55,7 +55,7 @@
     vertical-align: middle
 }
 svg.load-pre {
-    animation: rotate-progress 2s linear infinite;
+    animation: rotate-progress 3s linear infinite;
     transform-origin: center center;
     margin: auto
 }

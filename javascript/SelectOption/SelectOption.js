@@ -13,22 +13,6 @@ var SelectOption = function () {
 
     /**
      * ************************************************
-     * Reinicia os grupo de opções.
-     * @see : Uso em caso de repassagem de requisições
-     *        sícronas.
-     * ************************************************
-     */
-    this.restart = function () {
-        var $sBase = document.getElementsByClassName('select-base');
-        while ($sBase.length > 0) {
-            $sBase[0].parentNode.removeChild($sBase[0]);
-        }
-        $select = document.getElementsByClassName('select-options');
-        createNew();
-    };
-
-    /**
-     * ************************************************
      * Cria um novo elemento para abrigar o novo select
      * ************************************************
      */
@@ -36,11 +20,14 @@ var SelectOption = function () {
         $event = new Event('change');
         for ($idx = 0; $idx < $select.length; $idx++) {
             $current = $select[$idx];
-            $current.setAttribute('style', 'opacity:0; height:0; width:0; overflow:hidden');
-            $base = document.createElement('div');
-            $base.classList.add('select-base');
-            $current.parentNode.insertBefore($base, $current);
-            createButton();
+            if (!$current.classList.contains('init')) {
+                $current.classList.add('init');
+                $current.setAttribute('style', 'opacity:0; height:0; width:0; overflow:hidden');
+                $base = document.createElement('div');
+                $base.classList.add('select-base');
+                $current.parentNode.insertBefore($base, $current);
+                createButton();
+            }
         }
     }
 

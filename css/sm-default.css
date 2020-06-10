@@ -771,14 +771,17 @@ h6 {font-size:1.3125em}
 .input-default {background-color:var(--input-bg); border:.0625rem solid var(--input-border)}
 .input-line {border:.0625rem solid transparent; border-bottom:.0625rem solid var(--input-border)}
 .input-line:focus {color:var(--input-focus)}
-.input-default:focus, .input-line:focus {color:var(--input-focus); background:var(--input-bg)}
+.input-default:focus, .input-line:focus {color:var(--input-focus)}
+.input-default:focus{background:var(--input-bg)}
+.input-line:focus {background:transparent}
+textarea.input-default, textarea.input-line {resize:none}
 
 .checkmark {position:absolute; opacity:0}
 .checkmark + label {position:relative; cursor:pointer; padding:0}
 .checkmark + label:before {content:''; margin:0 .3125rem; display:inline-block; vertical-align:middle; width:1.875rem; height:1.875rem; border:.125rem solid var(--input-border)}
 .checkmark:hover + label:before {background-color:var(--input-bg)}
 .checkmark:checked + label:before {background-color:var(--input-bg)}
-.checkmark:disabled + label {color:var(--input-color); cursor:auto}
+.checkmark:disabled + label {color:var(--input-color); cursor:not-allowed}
 .checkmark:disabled + label:before {background-color:var(--input-bg)}
 .checkmark:checked + label:after {content:''; position:absolute; width:.75rem; height:1.25rem; left:.875rem; top:-.25rem; background-color:var(--input-bg); border:solid var(--input-color); border-width:0 .125rem .125rem 0; transform:rotate(45deg)}
 
@@ -859,7 +862,7 @@ h6 {font-size:1.3125em}
     .col-5 {width:19.99999%}
     .col-4, .col-quarter {width:24.99999%}
     .col-3, .col-third {width:33.33333%}
-    .col-2, .col-half { width:49.99999%}
+    .col-2, .col-half {width:49.99999%}
     .col-twothird {width:66.66666%}
     .col-threequarter {width:74.99999%}
 }

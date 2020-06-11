@@ -1,8 +1,11 @@
 /**
  * ****************************************************
- * @Copyright (c) 2017, Spell Master.
- * @version 4.0 (2018)
- * @requires  Navegador compat�vel com HTML 5
+ * * @Class AjaxRequest
+ * * @author Spell-Master (Omar Pautz)
+ * * @copyright 2018
+ * * @version 4.1 (2020)
+ * ****************************************************
+ * * Executa Asynchronous Javascript and Xml
  * ****************************************************
  */
 
@@ -76,7 +79,7 @@ svg.load-pre > .load-path {
 }
 
 @keyframes loadpop {
-    from {bottom: -2.5rem; opacity: .3;}
+    from {bottom: -2.5rem; opacity: .3}
     to {bottom: 2.5rem; opacity: 1}
 }
 @keyframes rotate-progress {

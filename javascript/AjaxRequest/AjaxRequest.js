@@ -68,7 +68,6 @@ var AjaxRequest = function () {
      * @param {STR} url (opcional)
      *  Quando informado adicionará a string a barra
      *  de navegação.
-     *  
      * ************************************************
      */
     function send(inId, file, url) {
@@ -106,7 +105,6 @@ var AjaxRequest = function () {
      * @param {STR} url (opcional)
      *  Quando informado adicionará a string a barra
      *  de navegação.
-     *  
      * ************************************************
      */
     function pop(inId, file, url) {
@@ -184,7 +182,6 @@ var AjaxRequest = function () {
      * @param {STR} file
      *  Arquivo que será aberto e os dados devem ser
      *  enviados.
-     * 
      * ************************************************
      */
     function formSend(form, inId, file) {
@@ -202,12 +199,31 @@ var AjaxRequest = function () {
             $this.loadID.innerHTML = null;
             $this.file = file;
             $this.head = 'form_id=' + form;
-            $this.loadID.scrollIntoView({block: 'start', behavior: 'smooth'});
             $this.vetor = ['formSend', 555];
             formElements();
             requestForm();
         }
         return (false);
+    }
+
+    /**
+     * ************************************************
+     * @Method: Codifica o identificador de recurso
+     *  uniforme em sequências de escape que
+     *  representam a codificação UTF-8.
+     *  Escapa todos os caracteres que não são
+     *  alfabéticos, dígitos ou decimais.
+     * 
+     * @public
+     * ************************************************
+     * 
+     * @param {STR} str
+     * Valor de entrada do parâmetro URI.
+     * ************************************************
+     */
+    function encodeURI(str) {
+        var $encode = encodeURIComponent(str);
+        return ($encode.replace(/['()]/g, escape).replace(/\*/g, '%2A').replace(/%(?:7C|60|5E)/g, unescape));
     }
 
     /**
@@ -291,19 +307,7 @@ var AjaxRequest = function () {
      * ************************************************
      */
     function setProgress() {
-        var $svg = '<svg \n\
-                        class="load-pre" \n\
-                        viewBox="25 25 50 50">\n\
-                            <circle \n\
-                                class="load-path" \n\
-                                cx="50" \n\
-                                cy="50" r="20" \n\
-                                fill="none" \n\
-                                stroke="#' + $this.vetor[1] + '" \n\
-                                stroke-width="4" \n\
-                                stroke-miterlimit="10" \n\
-                            />\n\
-                    </svg>';
+        var $svg = '<svg class="load-pre" viewBox="25 25 50 50"><circle class="load-path" cx="50" cy="50" r="20" fill="none" stroke="#' + $this.vetor[1] + '" stroke-width="4" stroke-miterlimit="10" /></svg>';
         switch ($this.vetor[0]) {
             case 'send':
                 $this.loadID.innerHTML = '<div class="load-local">' + $svg + '</div>';
@@ -455,27 +459,6 @@ var AjaxRequest = function () {
                 $this.head += '&' + $this.form.elements[$i].name + '=' + encodeURI($this.form.elements[$i].value);
             }
         }
-    }
-
-    /**
-     * ************************************************
-     * @Method: Codifica o identificador de recurso
-     *  uniforme em sequências de escape que
-     *  representam a codificação UTF-8.
-     *  Escapa todos os caracteres que não são
-     *  alfabéticos, dígitos ou decimais.
-     * 
-     * ************************************************
-     * 
-     * @param {STR} str
-     * Valor de entrada do parâmetro URI.
-     * 
-     * @public
-     * ************************************************
-     */
-    function encodeURI(str) {
-        var $encode = encodeURIComponent(str);
-        return ($encode.replace(/['()]/g, escape).replace(/\*/g, '%2A').replace(/%(?:7C|60|5E)/g, unescape));
     }
 
     /**

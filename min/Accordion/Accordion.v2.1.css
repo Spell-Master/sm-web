@@ -1,0 +1,11 @@
+/**
+ * ****************************************************
+ * * @Class Accordion
+ * * @author Spell-Master (Omar Pautz)
+ * * @copyright 2018
+ * * @version 2.1 (2020)
+ * ****************************************************
+ * * Executa efeito sanfona em elementos
+ * ****************************************************
+ */
+.acc-button{width:100%;overflow-x:hidden;white-space:nowrap;cursor:pointer;background-color:#ededed;text-align:left;border:.0625rem solid #dddddd;height:3.75rem;padding-left:1.125rem;transition:.5s;position:relative}.acc-button:hover{background-color:#dddddd}.acc-container{padding:0 1.125rem;background-color:#ffffff;height:0;overflow:hidden;border:.0625rem solid #eeeeee;border-top:none;transition:height .5s ease}.acc-button:after{content:" ";width:0;height:0;border:.625rem solid transparent;border-color:#cccccc transparent transparent transparent;position:absolute;top:1.5625rem;right:.5rem}.acc-button.active:after{top:.9375rem;border-color:transparent transparent #cccccc transparent}

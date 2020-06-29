@@ -3,21 +3,32 @@
     <head>
         <title>ImageCut</title>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="../../css/sm-default.css" rel="stylesheet" type="text/css"/>
-        <link href="ImageCut.css" rel="stylesheet" type="text/css"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href="../../css/sm-default.css" rel="stylesheet" type="text/css" />
+        <link href="ImageCut.css" rel="stylesheet" type="text/css" />
         <script src="ImageCut.js" type="text/javascript"></script>
+        <style>
+            #alvo-do-corte {
+                width: auto;
+                height: auto;
+                max-height: 400px
+            }
+        </style>
     </head>
     <body class="font-default">
         <div id="resultado"></div>
-        <img src="phone.jpg" id="alvo-do-corte" alt="cortar imagem" style="width: 500px"/>
-        <button onclick="cortar()">CORTAR</button>
+        <div class="padding-all">
+            <img src="paisagem.jpg" id="alvo-do-corte" alt="cortar imagem" />
+        </div>
+
+        <div class="align-center">
+            <button class="btn-default" onclick="cut.sizePlus()">Ampliar Zoom</button>
+            <button class="btn-default" onclick="cut.sizeMinus()">Reduzir Zoom</button>
+            <button class="btn-info text-white" onclick="cortar()">CORTAR</button>
+        </div>
 
         <script>
             var cut = new ImageCut('alvo-do-corte');
-
-            var resultado = document.getElementById('resultado');
-            var corte;
 
             function cortar() {
                 var resultado = document.getElementById('resultado');

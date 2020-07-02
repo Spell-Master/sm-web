@@ -1,0 +1,9 @@
+/**
+ * ****************************************************
+ * * ImageGalery
+ * * @author Spell-Master (Omar Pautz)
+ * * @copyright 2020
+ * * @version 1.0
+ * ****************************************************
+ */
+.galery-background{height:100%;animation:effect-fade-in .5s;background:rgba(0,0,0,1);filter:blur(.625rem);opacity:.9}.galery-background,.galery-box,.galery-image,.thumb-background{z-index:1;width:100%;position:fixed}.galery-background,.thumb-background,.galery-box{display:none}.galery-background,.galery-box{top:0;left:0}.galery-box{height:calc(100vh - 6.25rem);align-items:center;flex-direction:row;flex-wrap:wrap;justify-content:center}.galery-image{width:auto;height:auto;max-height:calc(100vh - 15.625rem);box-shadow:0 .125rem .375rem 0 rgba(0,0,0,.5)}.thumb-background{bottom:0;height:6.25rem;white-space:nowrap;overflow:auto;overflow-x:scroll;text-align:center;padding:5px;background:rgba(0,0,0,.5)}.thumb{max-width:5.875rem;display:inline-block;cursor:pointer}.galery-x{display:none;position:fixed;z-index:1;top:.0625rem;right:.625rem;font-size:3.75rem;color:#ffffff;cursor:pointer;text-shadow:.125rem .125rem .5rem #000000;}.galery-x:before{content:'X'}.galery-background.active,.thumb-background.active,.galery-x.active{display:block}.galery-box.active{display:flex}

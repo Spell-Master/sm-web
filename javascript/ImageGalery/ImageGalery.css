@@ -25,7 +25,9 @@
     justify-content: center
 }
 .galery-image {
-    max-width: 37.5rem;
+    width: auto;
+    height: auto;
+    max-height: calc(100vh - 15.625rem);
     box-shadow: 0 .125rem .375rem 0 rgba(0, 0, 0, .5)
 }
 .thumb-background {
@@ -52,7 +54,7 @@
     font-size: 3.75rem;
     color: #ffffff;
     cursor: pointer;
-    text-shadow: .125rem .125rem .5rem #ffffff;
+    text-shadow: .125rem .125rem .5rem #000000;
 }
 .galery-x:before {
     content: 'X'

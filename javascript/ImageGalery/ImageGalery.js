@@ -1,14 +1,14 @@
 /**
  * ****************************************************
- * @Copyright (c) 2020, Spell Master.
- * @version 1.0
- * @requires Navegador compatível com HTML 5
- * @requires CSS type 3 (++)
+ * * @Class ImageGalery
+ * * @author Spell-Master (Omar Pautz)
+ * * @copyright 2019
+ * * @version 1.0
+ * ****************************************************
+ * * Exibe imagens como forma de galeria.
  * 
  * @param {STR/DOM} box
  * #ID do elemento que contenha a galeria de imagens.
- * ****************************************************
- * @class Exibe imagens como forma de galeria.
  * ****************************************************
  */
 
@@ -16,12 +16,12 @@ var ImageGalery = function (box) {
 
     var $box = document.getElementById(box), $img;
     var $this = {
-        'backGround': null,
-        'galeryBox': null,
-        'boxImg': null,
-        'thumb': null,
-        'close': null,
-        'parent': null
+        backGround: null,
+        galeryBox: null,
+        boxImg: null,
+        thumb: null,
+        close: null,
+        parent: null
     };
 
     createBg();
@@ -147,6 +147,11 @@ var ImageGalery = function (box) {
         $this.boxImg.src = e.target.src;
     }
 
+    /**
+     * ************************************************
+     * * Remove todos elementos fechando a galeria
+     * ************************************************
+     */
     function closeGalery() {
         $this.backGround.src = null;
         $this.boxImg.src = null;

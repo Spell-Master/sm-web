@@ -20,8 +20,7 @@ var ImageGalery = function (box) {
         galeryBox: null,
         boxImg: null,
         thumb: null,
-        close: null,
-        parent: null
+        close: null
     };
 
     createBg();
@@ -67,7 +66,7 @@ var ImageGalery = function (box) {
         $this.thumb.classList.add('thumb-background');
         document.body.appendChild($this.thumb);
     }
-    
+
     /**
      * ************************************************
      * * Cria o botão de fechar
@@ -103,7 +102,6 @@ var ImageGalery = function (box) {
      * ************************************************
      */
     function openLight(e) {
-        $this.parent = e.target.parentNode;
         setTumbs();
         showBoxes();
     }
@@ -126,7 +124,7 @@ var ImageGalery = function (box) {
      * ************************************************
      */
     function setTumbs() {
-        var $tumb = $this.parent.getElementsByTagName('img'), $tImg;
+        var $tumb = $box.getElementsByTagName('img'), $tImg;
         for (var $i = 0; $i < $tumb.length; $i++) {
             $tImg = document.createElement('img');
             $tImg.src = $tumb[$i].src;
@@ -177,4 +175,7 @@ var ImageGalery = function (box) {
             closeGalery();
         }
     }
+
+    this.openLight = openLight;
+    this.setBg = setBg;
 };

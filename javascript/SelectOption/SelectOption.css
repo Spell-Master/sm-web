@@ -1,10 +1,14 @@
 /**
  * ****************************************************
- * @Copyright (c) 2017, Spell Master.
- * @version 3.2 (2018)
- * @requires  Navegador compatível com HTML 5
+ * * SelectOption
+ * * @author Spell-Master (Omar Pautz)
+ * * @copyright 2017
+ * * @version 3.5 (2020)
+ * ****************************************************
+ * * Personaliza menu suspenso.
  * ****************************************************
  */
+
 .select-options {
     opacity: 0 !important;
     height: 0 !important;

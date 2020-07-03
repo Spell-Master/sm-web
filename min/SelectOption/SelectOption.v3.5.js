@@ -1,0 +1,11 @@
+/**
+ * ****************************************************
+ * * SelectOption
+ * * @author Spell-Master (Omar Pautz)
+ * * @copyright 2017
+ * * @version 3.5 (2020)
+ * ****************************************************
+ * * Personaliza menu suspenso.
+ * ****************************************************
+ */
+var SelectOption=function(){var e,t=document.getElementsByClassName("select-options"),n={index:0,current:null,base:null,ul:null,active:null};function i(){n.button=document.createElement("div"),n.button.classList.add("select-button"),n.base.appendChild(n.button),n.ul=document.createElement("ul"),n.ul.classList.add("select-list"),n.button.parentNode.insertBefore(n.ul,n.button.nextSibling),function(){n.head=document.getElementsByClassName("select-button");for(var e,t=n.current.querySelectorAll("option"),i=0;i<t.length;i++)(e=document.createElement("li")).setAttribute("data-select",t[i].value),e.setAttribute("data-parent",n.index),e.innerText=t[i].innerText.substring(0,20),e.addEventListener("click",a,!1),n.ul.appendChild(e);for(var s=0;s<t.length&&!t[s].selected;s++);var c=n.current.selectedIndex;n.head[n.index].innerText=c>=1?t[c].innerText.substring(0,20):t[0].innerText.substring(0,20)}()}function a(i){var a=i.target,s=[a.dataset.parent,a.dataset.select];n.head[s[0]].innerText=a.innerText.substring(0,20),t[s[0]].value=s[1],t[s[0]].dispatchEvent(e)}!function(){for(e=new Event("change"),n.index=0;n.index<t.length;n.index++)n.current=t[n.index],n.current.classList.contains("init")||(n.current.classList.add("init"),n.current.setAttribute("style","opacity:0; height:0; width:0; overflow:hidden"),n.base=document.createElement("div"),n.base.classList.add("select-base"),n.current.parentNode.insertBefore(n.base,n.current),i())}(),document.addEventListener("click",function(e){if(1===e.which){var t=e.target;n.active===t?(n.active.classList.remove("active"),t.nextElementSibling.classList.remove("active"),n.active=null):"select-button"===t.className?(n.active&&(n.active.classList.remove("active"),n.active.nextElementSibling.classList.remove("active")),t.classList.add("active"),t.nextElementSibling.classList.add("active"),n.active=t):null==n.active&&null==n.active||(n.active.classList.remove("active"),n.active.nextElementSibling.classList.remove("active"),n.active=null)}},!1)};

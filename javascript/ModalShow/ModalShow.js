@@ -1,119 +1,141 @@
 /**
- * ************************************************
- * @Copyright (c) Spell Master.
- * @Requisitos: Navegador compatível com HTML 5
  * ****************************************************
- * @class Gerencia aplicação modal
+ * * ModalShow
+ * * @author Spell-Master (Omar Pautz)
+ * * @copyright 2018
+ * * @version 3.0 (2020)
  * ****************************************************
- * @param modal elemento#ID do modal
+ * * Gerencia aplicação modal.
+ * 
+ * ****************************************************
+ * @requires
+ * Estrutura HTML
+ * <div class="modal" id="identificador">
+ *     <div class="modal-box">
+ *         <div class="modal-header"></div>
+ *         <div class="modal-content">
+ *             Conteúdo...
+ *         </div>
+ *     </div>
+ * </div>
+ * ****************************************************
+ */
+
+/**
+ * ****************************************************
+ * @param {STR} modal
+ * * #ID do elemento modal
  * ****************************************************
  */
 var ModalShow = function (modal) {
-    var $tgt = document.getElementById(modal);
-    var $box = $tgt.getElementsByClassName('modal-box')[0];
-    var $x, $content;
 
-    /**
-     * ************************************************
-     * * Abre a janela
-     * @param text : (opcional) Informar string para
-     * o título da janela
-     * @param x : (Opcional) Informar BOL true/false
-     * se verdadeiro o botão de fechar é mostrado no
-     * momento que a janela é aberta.
-     * ************************************************
-     */
-    this.open = function (text, x) {
-        $tgt.querySelector('.modal-header').innerHTML = '<div class="modal-close"></div><div class="modal-title"></div>';
-        $content = $tgt.querySelector('.modal-content');
-        if (text) {
-            title(text);
-        } else {
-            title('Janela');
-        }
-        if (x) {
-            showX();
-        }
-        $tgt.classList.add('active');
-        checkH();
+    var $this = {
+        modal: document.getElementById(modal),
+        close: null,
+        content: null
     };
 
     /**
      * ************************************************
-     * * Esconde o botão de fechar
+     * Exibe o bloco modal designado pela instância.
+     *  
+     * @public
+     * ************************************************
+     * 
+     * @param {STR} title (opcional)
+     * Informar o título do cabeçalho do bloco modal
+     * designado pela instância.
+     * 
+     * @param {BOOL} close (opcional) true/false
+     * Se verdadeiro um botão para fechar será exibido
+     * no bloco modal designado pela instância.
      * ************************************************
      */
-    this.hiddenX = function () {
-        if ($x) {
-            $x.classList.remove('active');
-            $x.removeEventListener('click', close, true);
-            $x = null;
+    function openModal(title, close) {
+        $this.modal.querySelector('.modal-header').innerHTML = '<div class="modal-close"></div><div class="modal-title"></div>';
+        $this.content = $this.modal.querySelector('.modal-content');
+        if (title) {
+            setTitle(title);
         }
-    };
+        if (close) {
+            setClose();
+        }
+        $this.modal.classList.add('active');
+    }
 
     /**
      * ************************************************
-     * * Acesso públio as funções
+     * Oculta o bloco modal designado pela instância.
+     *  
+     * @public
      * ************************************************
      */
-    this.title = title;
-    this.showX = showX;
-    this.close = close;
+    function closeModal() {
+        if ($this.close) {
+            $this.close.removeEventListener('click', closeModal);
+            $this.close.classList.remove('active');
+            $this.close = null;
+        }
+        $this.modal.classList.remove('active');
+    }
 
     /**
      * ************************************************
-     * * Mostra o botão de fechar.
+     * Exibe o bloco modal designado pela instância.
+     *  
+     * @public
+     * ************************************************
+     * 
+     * @param {STR} title (opcional)
+     * Altera ou adiciona o título do cabeçalho do
+     * bloco designado pela instância.
      * ************************************************
      */
-    function showX() {
-        if (!$x) {
-            $x = $tgt.querySelector('.modal-close');
-            $x.classList.add('active');
-            $x.addEventListener('click', close, true);
+    function setTitle(title) {
+        $this.modal.querySelector('.modal-title').innerText = title;
+    }
+
+    /**
+     * ************************************************
+     * Mostra um botão de fechar se ele não estiver
+     * visível no bloco modal designado pela instância.
+     *  
+     * @public
+     * ************************************************
+     */
+    function setClose() {
+        if (!$this.close) {
+            $this.close = $this.modal.querySelector('.modal-close');
+            $this.close.classList.add('active');
+            $this.close.addEventListener('click', closeModal, true);
+        }
+    }
+
+    /**
+     * ************************************************
+     * Oculta o botão de fechar se ele estiver visível
+     * no bloco modal designado pela instância.
+     *  
+     * @public
+     * ************************************************
+     */
+    function unsetClose() {
+        if ($this.close) {
+            $this.close.classList.remove('active');
+            $this.close.removeEventListener('click', close, true);
+            $this.close = null;
         }
     }
 
     /**
      * ************************************************
-     * * Escreve o título da janela.
-     * @param {string} text : Título para a janela.
+     * * Acesso público aos métodos
      * ************************************************
      */
-    function title(text) {
-        $tgt.querySelector('.modal-title').innerText = text;
-    }
+    this.open = openModal;
+    this.close = closeModal;
+    this.title = setTitle;
+    this.showX = setClose;
+    this.hiddenX = unsetClose;
 
-    /**
-     * ************************************************
-     * * Fecha a janela.
-     * ************************************************
-     */
-    function close() {
-        if ($x) {
-            $x.removeEventListener('click', close);
-            $x.classList.remove('active');
-            $x = null;
-        }
-        $tgt.classList.remove('active');
-    }
-
-    /**
-     * ************************************************
-     * * Checa a altura e a posição da
-     * janela.
-     * * Se não houver espaço no eixo vertical para
-     * compor margem e altura do elemento central
-     * remove a margem e manipula a altura do
-     * conteúdo.
-     * ************************************************
-     */
-    function checkH() {
-        var $wH = window.innerHeight;
-        var $bT = $box.offsetTop;
-        var $bH = $box.offsetHeight;
-        if (($bT + $bH) > $wH) {
-            $box.style.margin = 'auto';
-            $content.style.height = ($wH - 50) + 'px';
-        }
-    }
 };

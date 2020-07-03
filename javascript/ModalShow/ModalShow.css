@@ -1,7 +1,9 @@
 /**
- * ************************************************
- * @Copyright (c) Spell Master.
- * @Requisitos: Navegador compatível com HTML 5
+ * ****************************************************
+ * * ModalShow
+ * * @author Spell-Master (Omar Pautz)
+ * * @copyright 2018
+ * * @version 3.0 (2020)
  * ****************************************************
  */
 
@@ -18,33 +20,35 @@
 }
 .modal-box {
     position: relative;
-    margin: 5% auto;
-    max-width: 56.25rem;
+    margin: 3.125rem auto;
+    height: auto;
+    max-width: 95vw;
     background-color: #ffffff;
     word-wrap: break-word
 }
 .modal-header {
-    height: 4.0625rem;
-    margin: 0 .9375rem;
+    height: 3.75rem;
+    margin: 0 1rem;
     border-bottom: .0625rem solid #dddddd
 }
 .modal-title {
     padding-left: .625rem;
-    font-size: 1.875rem;
-    line-height: 4.0625rem;
+    font-size: 1.5rem;
+    line-height: 3.75rem;
     overflow-x: hidden;
     white-space: nowrap
 }
 .modal-title:after,
 .modal-title:before {
-    content: " "; display: table;
+    content: " ";
+    display: table;
     clear: both
 }
 .modal-close {
     display: none;
     width: 3.125rem;
     font-size: 2.5rem;
-    line-height: 4.0625rem;
+    line-height: 3.75rem;
     text-align: center;
     float: right;
     padding-right: .625rem;
@@ -57,9 +61,11 @@
     content: "X"
 }
 .modal-content {
-    padding: .3125rem;
+    padding: 1rem;
+    height: auto;
+    max-height: calc(100vh - 10rem);
     overflow-y: auto
 }
 .modal.active, .modal-close.active {
-    display: block
+    display: block !important
 }

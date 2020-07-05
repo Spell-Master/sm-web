@@ -1,20 +1,41 @@
 /**
  * ****************************************************
- * @Copyright (c) 2017, Spell Master.
- * @Version: 4.0
- * @Requisitos: Navegador compatível com HTML 5
+ * * TabPaginator
+ * * @author Spell-Master (Omar Pautz)
+ * * @copyright 2017
+ * * @version 4.1 (2020)
  * ****************************************************
- * @class Gerencia APP TAB.
+ * * Executa paginação de conteúdo por blocos.
+ * 
  * ****************************************************
- * * @param propriety : (opcional) elemento para
- * determinar o conjunto de ativação.
+ * @requires
+ * Estrutura HTML
+ * <div id="identificador">
+ *    <ul class="tab-menu">
+ *        <li><a class="tab-link">A</a></li>
+ *        <li><a class="tab-link">B</a></li>
+ *    </ul>
+ *    <div class="tab-body">Conteúdo A</div>
+ *    <div class="tab-body">Conteúdo B</div>
+ * </div>
+ * ****************************************************
+ */
+
+/**
+ * ****************************************************
+ * * @param {STR} propriety (opcional)
+ * Elemento #ID para determinar o conjunto de ativação.
  * ****************************************************
  */
 var TabPaginator = function (propriety) {
 
     var $node = propriety ? document.getElementById(propriety) : document;
-    var $tl = $node.getElementsByClassName('tab-link');
-    var $tb = $node.getElementsByClassName('tab-body');
+
+    var $this = {
+        link: $node.getElementsByClassName('tab-link'),
+        body: $node.getElementsByClassName('tab-body'),
+        index: 0
+    };
 
     tabButtons();
     openTab();
@@ -22,53 +43,60 @@ var TabPaginator = function (propriety) {
 
     /**
      * ************************************************
-     * @function Inicia os botões
+     * Adiciona evento de click e cada botão do menu.
+     *  
+     * @private
      * ************************************************
-     **/
+     */
     function tabButtons() {
-        var $i;
-        for ($i = 0; $i < $tl.length; $i++) {
-            $tl[$i].addEventListener('click', getTab($i + 1), false);
+        for (var $i = 0; $i < $this.link.length; $i++) {
+            $this.link[$i].addEventListener('click', getTab($i + 1), false);
         }
     }
 
     /**
      * ************************************************
-     * @function Abre a tab solicitada
-     * @param index : índice do elemento class
+     * Solicita a abertura da tab solicitada por click
+     * nos botões do menu.
      * ************************************************
-     **/
-    function getTab(index) {
+     * 
+     * @param {INT} tb
+     * Índice da tab para abrir.
+     * ************************************************
+     */
+    function getTab(tb) {
         return function () {
-            openTab(index);
+            openTab(tb);
         };
     }
 
     /**
      * ************************************************
-     * @function Abre a tab solicitada
-     * @param tab : índice da tab para abrir
+     * Abre a tab solicitada.
      * ************************************************
-     **/
-    function openTab(tab) {
+     * 
+     * @param {INT} index
+     * Índice da tab para abrir.
+     * ************************************************
+     */
+    function openTab(index) {
         closeTabs();
-        var $tab = (tab ? parseInt(tab - 1) : 0);
-        $tl[$tab].classList.add('active');
-        $tb[$tab].classList.add('active');
+        $this.index = (index ? parseInt(index - 1) : 0);
+        $this.link[$this.index].classList.add('active');
+        $this.body[$this.index].classList.add('active');
     }
 
     /**
      * ************************************************
-     * @function Fecha todas as tabs para correta
-     * abertura da atual
+     * Fecha todas as tabs para correta abertura da
+     * atual.
      * ************************************************
-     **/
+     */
     function closeTabs() {
         var $i;
-        for ($i = 0; $i < $tl.length; $i++) {
-            $tl[$i].classList.remove('active');
-            $tb[$i].classList.remove('active');
+        for ($i = 0; $i < $this.link.length; $i++) {
+            $this.link[$i].classList.remove('active');
+            $this.body[$i].classList.remove('active');
         }
     }
-
 };

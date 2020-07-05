@@ -1,0 +1,9 @@
+/**
+ * ****************************************************
+ * * Paginator
+ * * @author Spell-Master (Omar Pautz)
+ * * @copyright 2020
+ * * @version 1.0
+ * ****************************************************
+ */
+ul.paginator{list-style:none}ul.paginator > li{display:inline-block;margin-left:-.0625rem;font-size:1.25rem;color:#4d4d4d}ul.paginator > li > a{display:block;padding:.375rem .75rem;background-color:#fafafa;border:.0625rem solid #eeeeee;cursor:pointer}ul.paginator > li:last-of-type > a{padding:.375rem .25rem;}ul.paginator > li.current > a{background:#4d4d4d;color:#ffffff;cursor:default}ul.paginator > li > a.paginator-link:hover{background:#e7e7e7}ul.paginator > li > a.amount,ul.paginator > li > a.pag-nuns:hover{background:#fafafa}

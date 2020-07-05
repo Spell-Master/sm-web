@@ -9,10 +9,12 @@
         <link href="Paginator.css" rel="stylesheet" type="text/css"/>
         <link href="../../css/sm-default.css" rel="stylesheet" type="text/css"/>
         <style>
-            #paginator > .item {
+            .item {
                 border: 1px solid #eeeeee;
                 margin: 1px;
                 padding: 20px;
+                width: 33%;
+                float: left;
                 display: none /* Ocultar todos itens para compensar atraso no carregamento do javascript */
             }
 
@@ -20,9 +22,9 @@
              * Exibir os primeiros itens para compensar
              * atraso no carregamento do javascript
              */
-            #paginator > .item:nth-child(1),
-            #paginator > .item:nth-child(2),
-            #paginator > .item:nth-child(3) {
+            .item:nth-child(1),
+            .item:nth-child(2),
+            .item:nth-child(3) {
                 display: block
             }
         </style>
@@ -30,52 +32,51 @@
     <body>
         <div class="container">
 
-            <div id="paginator">
-                <div class="padding-all-prop align-center">
-                    <div data-paginator=""></div>
-                </div>
-
-                <div class="item">Item 1</div>
-                <div class="item">Item 2</div>
-                <div class="item">Item 3</div>
-                <div class="item">
-                    <span class="text-red">Item 4</span>
-                </div>
-                <div class="item">
-                    <span class="text-red">Item 5</span>
-                </div>
-                <div class="item">
-                    <span class="text-red">Item 6</span>
-                </div>
-                <div class="item">
-                    <span class="text-green">Item 7</span>
-                </div>
-                <div class="item">
-                    <span class="text-green">Item 8</span>
-                </div>
-                <div class="item">
-                    <span class="text-green">Item 9</span>
-                </div>
-                <div class="item">
-                    <span class="text-blue">Item 10</span>
-                </div>
-                <div class="item">
-                    <span class="text-blue">Item 11</span>
-                </div>
-                <div class="item">
-                    <span class="text-blue">Item 12</span>
-                </div>
-                <div class="item">
-                    Item 13
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                </div>
-
-                <div class="padding-all-prop align-center">
-                    <div data-paginator=""></div>
-                </div>
-
+            <div class="padding-all-prop align-center">
+                <div data-paginator=""></div>
             </div>
 
+            <div class="item">Item 1</div>
+            <div class="item">Item 2</div>
+            <div class="item">Item 3</div>
+            <div class="item">
+                <span class="text-red">Item 4</span>
+            </div>
+            <div class="item">
+                <span class="text-red">Item 5</span>
+            </div>
+            <div class="item">
+                <span class="text-red">Item 6</span>
+            </div>
+            <div class="item">
+                <span class="text-green">Item 7</span>
+            </div>
+            <div class="item">
+                <span class="text-green">Item 8</span>
+            </div>
+            <div class="item">
+                <span class="text-green">Item 9</span>
+            </div>
+            <div class="item">
+                <span class="text-blue">Item 10</span>
+            </div>
+            <div class="item">
+                <span class="text-blue">Item 11</span>
+            </div>
+            <div class="item">
+                <span class="text-blue">Item 12</span>
+            </div>
+            <div class="item">
+                Item 13
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </div>
+            
+            <div style="clear: both"></div>
+
+            <div class="padding-all-prop align-center">
+                <div data-paginator=""></div>
+            </div>
+            
         </div>
 
         <script>

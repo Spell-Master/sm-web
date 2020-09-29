@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Exemplo de envio de e-mails por spell-master</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>*,:after,:before {margin:0;padding:0;box-sizing:border-box}html{overflow-x:hidden}body{font-size:1em; line-height:1.5;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;color:#444444}a:active,a:hover{outline-width:0}a{text-decoration:none;background-color:transparent}</style>
+    </head>
+    <body style="background:#333; color:#444">
+
+        <div style="background:#ff0000; padding:18px; font-size:24px; color:#fff">
+            Você está recebendo esse e-mail porque alguém executou o script para envios de e-mail de origem:
+            <a href="https://github.com/Spell-Master/sm-web" target="_blank">https://github.com/Spell-Master/sm-web</a>
+            <p>Enviado dia: {DATA} ás {HORARIO}</p>
+        </div>
+
+        <article style="padding:20px">
+            <h1 style="color:#fff">Informações que foram enviadas:</h1>
+            <pre style="background:#e5e5e5; padding:10px; font-family:inherit; font-size:inherit; word-wrap:break-word">{MENSAGEM}</pre>
+        </article>
+    </body>
+</html>

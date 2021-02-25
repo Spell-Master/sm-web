@@ -7,6 +7,6 @@ foreach ($iterator as $file) {
         class="box-xy-250 line-block vertical-top radius-circle"
         src="<?= $path . '/' . $file->getFilename() ?>"
         alt="imagem"
-    />
+        />
     <?php
 }

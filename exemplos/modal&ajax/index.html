@@ -16,8 +16,10 @@
         </style>
     </head>
     <body>
-        <div class="container font-medium padding-lr">
-            <button id="link" class="btn-info text-white">BOTÃO</button>
+        <div class="container padding-lr">
+            <h2>Enviar pelo protocolo GET</h2>
+
+            <button id="link" class="btn-info text-white">Enviar</button>
 
             <div class="modal" id="identificador">
                 <div class="modal-box">
@@ -26,20 +28,23 @@
                 </div>
             </div>
 
-            <div class="padding-top-high">
-                <div class="box-x-500 margin-auto">
-                    <form id="formulario" onsubmit="return executaPost();">
-                        <div class="form-line">
-                            <div class="float-right">
-                                <button class="btn-success text-white font-large">Salvar</button>
-                            </div>
-                            <div class="over-not">
-                                <input type="text" name="texto" class="input-default" />
-                            </div>
+            <hr class="border-bottom border-dark" />
+
+            <h2>Enviar pelo protocolo POST</h2>
+
+            <div style="max-width: 500px">
+                <form id="formulario" onsubmit="return executaPost();">
+                    <div class="row">
+                        <div class="float-right">
+                            <button class="btn-success text-white">Enviar</button>
                         </div>
-                    </form>
-                </div>
+                        <div class="over-not">
+                            <input type="text" class="input-default" placeholder="escreva algo aqui" />
+                        </div>
+                    </div>
+                </form>
             </div>
+
         </div>
 
         <script>

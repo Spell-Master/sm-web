@@ -386,7 +386,6 @@ var ImageCut = function (img) {
      * ************************************************
      */
     function cutBox() {
-        $img.crossOrigin = 'anonymous';
         $data.width = $img.width * $data.ratio;
         $data.height = $img.height * $data.ratio;
         $canvas.width = 200;

@@ -4,33 +4,18 @@
         <title>File Transfer</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="../../css/sm-default.css" rel="stylesheet" type="text/css"/>
         <link href="FileTransfer.css" rel="stylesheet" type="text/css"/>
         <script src="FileTransfer.js" type="text/javascript"></script>
     </head>
     <body>
-        <div class="container font-default">
+        <button onclick="file.download('transferecia/arquivo.zip', true);">Download</button>
 
-            <div id="resultado"></div>
-
-            <div class="row-pad">
-                <div class="col-third">
-                    <button class="btn-default button-block box-y-50" onclick="file.download('transferecia/arquivo.zip', true);">Download</button>
-                </div>
-                <div class="col-twothird">
-                    <form id="upload_exemplo" onsubmit="return file.upload(this.id, 'upload.php', 'resultado', true);">
-                        <div class="row">
-                            <div class="float-right">
-                                <button class="btn-info button-block box-y-50 text-white">Upload</button>
-                            </div>
-                            <div class="over-not">
-                                <input class="input-default" type="file" name="enviar" />
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
+        <hr />
+        <div id="resultado"></div>
+        <form id="upload_exemplo">
+            <input type="file" name="enviar" />
+        </form>
+        <button onclick="file.upload('upload_exemplo', 'upload.php', 'resultado', true);">Upload</button>
 
         <script>
             file = new FileTransfer();

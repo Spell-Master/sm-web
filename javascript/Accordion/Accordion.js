@@ -1,47 +1,37 @@
 /**
- * ****************************************************
+ * **************************************************
  * * @Class Accordion
  * * @author Spell-Master (Omar Pautz)
  * * @copyright 2018
- * * @version 2.1 (2020)
- * ****************************************************
+ * * @version 2.2 (2021)
+ * **************************************************
  * * Executa efeito sanfona em elementos
- * ****************************************************
+ * **************************************************
  */
 
 var Accordion = function () {
 
     var $button = document.getElementsByClassName('acc-button');
     var $this = {
-        'target': null,
-        'next': null,
-        'last': null,
-        'copy': null,
-        'height': null
+        target: null,
+        next: null,
+        last: null,
+        copy: null,
+        height: null
     };
 
-    queryButtons();
-
-    /**
-     * ************************************************
-     * @Method: Obtem os botões do cabeçalho
-     *  e adiciona o evento click em cada.
-     * ************************************************
-     */
-    function queryButtons() {
-        for (var $i = 0; $i < $button.length; $i++) {
-            $button[$i].addEventListener('click', togleContainer, false);
-        }
+    for (var $i = 0; $i < $button.length; $i++) {
+        $button[$i].addEventListener('click', togleContainer, false);
     }
 
     /**
-     * ************************************************
-     * @Method: Aciona as funções para expandir ou
-     *  contrair os elementos.
+     * **********************************************
+     * @private
+     * Aciona as funções para expandir ou contrair os
+     *  elementos.
      * @param {OBJ} e 
-     * Referencia ao evento do elemento
-     *  clicado.
-     * ************************************************
+     * Referencia ao evento do elemento clicado.
+     * **********************************************
      */
     function togleContainer(e) {
         $this.target = e.target;
@@ -58,10 +48,11 @@ var Accordion = function () {
     }
 
     /**
-     * ************************************************
-     * @Method: Cria temporariamente um elemento
-     *  cópia do alvo na expansão para obter sua altura
-     * ************************************************
+     * **********************************************
+     * @private
+     * Cria temporariamente um elemento cópia do alvo
+     *  na expansão para obter sua altura.
+     * **********************************************
      */
     function cloneNode() {
         $this.copy = $this.next.cloneNode(true);
@@ -72,10 +63,10 @@ var Accordion = function () {
     }
 
     /**
-     * ************************************************
-     * @Method: Contrai o elemento que estiver
-     *  expandido.
-     * ************************************************
+     * **********************************************
+     * @private
+     * Contrai o elemento que estiver expandido.
+     * **********************************************
      */
     function closeOpen() {
         $this.last.previousElementSibling.classList.remove('active');
@@ -85,9 +76,10 @@ var Accordion = function () {
     }
 
     /**
-     * ************************************************
-     * @Method: Expande o elemento alvo
-     * ************************************************
+     * **********************************************
+     * @private
+     * Expande o elemento alvo
+     * **********************************************
      */
     function openTarget() {
         $this.target.classList.add('active');
@@ -96,11 +88,12 @@ var Accordion = function () {
     }
 
     /**
-     * ************************************************
-     * @Method: Forca a expansão de um elemento.
+     * **********************************************
+     * @public
+     * Forca a expansão de um elemento.
      * @param {INT} p
-     *  Índice do elemento para expandir
-     * ************************************************
+     *  Índice do elemento para expandir.
+     * **********************************************
      */
     this.forceOpen = function (p) {
         var $n;

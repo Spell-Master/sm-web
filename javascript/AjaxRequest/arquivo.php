@@ -1,15 +1,19 @@
 <?php
+$return = [];
+$clearDiv = '';
 if (!empty($_GET)) {
-    $return = $_GET['metodo'];
+    $return[0] = $_GET['metodo'];
+    $clearDiv = 'carregar_post';
 } else if (!empty($_POST)) {
-    $return = [];
     foreach ($_POST as $key => $value) {
         $return[$key] = $value;
     }
+    $clearDiv = 'carregar_get';
 }
 ?>
-<div class="padding-all-min bg-light" style="border: 2px dashed #000">
-    <div class="card-blue block">
-        <pre><?php var_dump($return); ?></pre>
-    </div>
+<div style="border: 2px dashed black">
+    <pre><?php var_dump($return); ?></pre>
 </div>
+<script>
+    document.getElementById('<?= $clearDiv ?>').innerHTML = null;
+</script>

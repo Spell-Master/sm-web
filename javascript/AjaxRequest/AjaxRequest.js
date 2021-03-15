@@ -1,225 +1,256 @@
 /**
- * ****************************************************
+ * **************************************************
  * * @Class AjaxRequest
  * * @author Spell-Master (Omar Pautz)
  * * @copyright 2018
  * * @version 4.1 (2020)
- * ****************************************************
+ * **************************************************
  * * Executa Asynchronous Javascript and Xml
- * ****************************************************
+ * **************************************************
  */
 
 var AjaxRequest = function () {
     var $this = {
-        'http': null,
-        'loadID': null,
-        'file': null,
-        'response': null,
-        'url': null,
-        'form': null,
-        'head': null,
-        'loading': null,
-        'vetor': [null]
+        http: null,
+        loadID: null,
+        file: null,
+        response: null,
+        url: null,
+        form: null,
+        head: null,
+        loading: null,
+        vetor: [null],
+        exception: null
     };
 
     /**
-     * ************************************************
-     * @Method: Requisita um arquivo e o exibe o
-     *  mesmo em um local expecífico.
-     *  
+     * **********************************************
      * @public
-     * ************************************************
-     * 
+     * Requisita um arquivo e o exibe o mesmo em um
+     *  local expecífico.
+     *
      * @param {STR} inId
      *  Elemento#ID onde o arquivo deve ser aberto.
      * @param {STR} file
      *  Arquivo que será aberto.
-     * ************************************************
+     * **********************************************
      */
     function open(inId, file) {
-        if (!inId) {
-            console.warn('Parâmetro "inId" não expecificado');
-        } else if (!file) {
-            console.warn('Parâmetro "file" não expecificado');
-        } else {
-            $this.loadID = document.getElementById(inId);
-            $this.file = file;
-            requestGet();
+        $this.loadID = document.getElementById(inId);
+        $this.file = file;
+        try {
+            if (!inId) {
+                throw 'Parâmetro "inId" não expecificado';
+            } else if (!file) {
+                throw 'Parâmetro "file" não expecificado';
+            } else if (!isReady($this.loadID)) {
+                throw 'Elemento "#' + inId + '" não encontrado';
+            } else if ($this.http instanceof XMLHttpRequest) {
+                throw 'Já existe uma requisição de protocolo em andamento.';
+            } else {
+                requestGet();
+            }
+        } catch (exception) {
+            $this.exception = exception;
+            ExceptionReturn();
         }
         return (false);
     }
 
     /**
-     * ************************************************
-     * @Method: Requisita um arquivo e o exibe o mesmo
-     *   em um local expecífico.
+     * **********************************************
+     * @public
+     * Requisita um arquivo e o exibe o mesmo em um
+     *  local expecífico.
      *  Animação de progresso no local onde o arquivo
      *  será aberto.
-     *  
-     * @public
-     * ************************************************
-     *  
+     *
      * @param {STR} inId
      *  Elemento#ID onde o arquivo deve ser aberto.
-     *  
+     *
      * @param {STR} file
      *  Arquivo que será aberto.
-     *  
+     *
      * @param {STR} url (opcional)
      *  Quando informado adicionará a string a barra
      *  de navegação.
-     * ************************************************
+     * **********************************************
      */
     function send(inId, file, url) {
-        if (!inId) {
-            console.warn('Parâmetro "inId" não expecificado.');
-        } else if (!file) {
-            console.warn('Parâmetro "file" não expecificado.');
-        } else if ($this.http instanceof XMLHttpRequest) {
-            console.warn('Já existe uma requisição de protocolo em andamento.');
-        } else {
-            $this.loadID = document.getElementById(inId);
-            $this.url = (url ? url : null);
-            $this.file = file;
-            $this.vetor = ['send', 555];
-            requestGet();
+        $this.loadID = document.getElementById(inId);
+        $this.url = (url ? url : null);
+        $this.file = file;
+        $this.vetor = ['send', 555];
+        try {
+            if (!inId) {
+                throw 'Parâmetro "inId" não expecificado';
+            } else if (!file) {
+                throw 'Parâmetro "file" não expecificado';
+            } else if (!isReady($this.loadID)) {
+                throw 'Elemento "#' + inId + '" não encontrado';
+            } else if ($this.http instanceof XMLHttpRequest) {
+                throw 'Já existe uma requisição de protocolo em andamento.';
+            } else {
+                requestGet();
+            }
+        } catch (exception) {
+            $this.exception = exception;
+            ExceptionReturn();
         }
         return (false);
     }
 
     /**
-     * ************************************************
-     * @Method: Requisita um arquivo e o exibe o mesmo
-     *  em um local expecífico.
+     * **********************************************
+     * @public
+     * Requisita um arquivo e o exibe o mesmo em um
+     *  local expecífico.
      *  Animação suspensa no canto inferior esquerdo
      *  da página.
-     *  
-     * @public
-     * ************************************************
-     * 
+     *
      * @param {STR} inId
      *  Elemento#ID onde o arquivo deve ser aberto.
      * @param {STR} file
      *  Arquivo que será aberto.
-     *  
+     *
      * @param {STR} url (opcional)
      *  Quando informado adicionará a string a barra
      *  de navegação.
-     * ************************************************
+     * **********************************************
      */
     function pop(inId, file, url) {
-        if (!inId) {
-            console.warn('Parâmetro "div" não expecificado.');
-        } else if (!file) {
-            console.warn('Parâmetro "file" não expecificado.');
-        } else if ($this.http instanceof XMLHttpRequest) {
-            console.warn('Já existe uma requisição de protocolo em andamento.');
-        } else {
-            $this.loadID = document.getElementById(inId);
-            $this.url = (url ? url : null);
-            $this.file = file;
-            $this.vetor = ['pop', 'ccc'];
-            requestGet();
+        $this.loadID = document.getElementById(inId);
+        $this.url = (url ? url : null);
+        $this.file = file;
+        $this.vetor = ['pop', 'ccc'];
+        try {
+            if (!inId) {
+                throw 'Parâmetro "inId" não expecificado';
+            } else if (!file) {
+                throw 'Parâmetro "file" não expecificado';
+            } else if (!isReady($this.loadID)) {
+                throw 'Elemento "#' + inId + '" não encontrado';
+            } else if ($this.http instanceof XMLHttpRequest) {
+                throw 'Já existe uma requisição de protocolo em andamento.';
+            } else {
+                requestGet();
+            }
+        } catch (exception) {
+            $this.exception = exception;
+            ExceptionReturn();
         }
         return (false);
     }
 
     /**
-     * ************************************************
-     * @Method: Envia os dados de um formulário para
-     *  outro arquivo.
-     *  Animação cobre o formulário.
-     *  
+     * **********************************************
      *  @public
-     * ************************************************
+     * Envia os dados de um formulário para outro
+     *  arquivo.
+     *  Animação cobre o formulário.
+     *
      * @param {STR} form
      *  Elemento#ID do formuário.
-     *  
+     *
      * @param {STR} inId
      *  Elemento#ID onde o arquivo deve ser aberto.
-     *  
+     *
      * @param {STR} file
      *  Arquivo que será aberto e os dados devem ser
      *  enviados.
-     * ************************************************
+     * **********************************************
      */
     function form(form, inId, file) {
-        if (!form) {
-            console.warn('Parâmetro "form" não expecificado.');
-        } else if (!inId) {
-            console.warn('Parâmetro "inId" não expecificado.');
-        } else if (!file) {
-            console.warn('Parâmetro "file" não expecificado.');
-        } else if ($this.http instanceof XMLHttpRequest) {
-            console.warn('Já existe uma requisição de protocolo em andamento.');
-        } else {
-            $this.form = document.getElementById(form);
-            $this.loadID = document.getElementById(inId);
-            $this.file = file;
-            $this.head = 'form_id=' + form;
-            $this.vetor = ['form', 555];
-            formElements();
-            requestForm();
+        $this.form = document.getElementById(form);
+        $this.loadID = document.getElementById(inId);
+        $this.file = file;
+        $this.head = 'form_id=' + form;
+        $this.vetor = ['form', 555];
+        try {
+            if (!form) {
+                throw 'Parâmetro "form" não expecificado.';
+            } else if (!inId) {
+                throw 'Parâmetro "inId" não expecificado';
+            } else if (!file) {
+                throw 'Parâmetro "file" não expecificado';
+            } else if (!isReady($this.form)) {
+                throw 'Elemento "#' + form + '" não encontrado';
+            } else if (!isReady($this.loadID)) {
+                throw 'Elemento "#' + inId + '" não encontrado';
+            } else if ($this.http instanceof XMLHttpRequest) {
+                throw 'Já existe uma requisição de protocolo em andamento.';
+            } else {
+                formElements();
+                requestForm();
+            }
+        } catch (exception) {
+            $this.exception = exception;
+            ExceptionReturn();
         }
         return (false);
     }
 
     /**
-     * ************************************************
-     * @Method: Envia os dados de um formulário para
-     *  outro arquivo.
-     *  Animação no local onde o arquivo será aberto.
-     *  
+     * **********************************************
      * @public
-     * ************************************************
-     * 
+     * Envia os dados de um formulário para outro
+     *  arquivo.
+     *  Animação no local onde o arquivo será aberto.
+     *
      * @param {STR} form
      *  Elemento#ID do formuário.
-     *  
+     *
      * @param {STR} inId
      *  Elemento#ID onde o arquivo deve ser aberto.
-     *  
+     *
      * @param {STR} file
      *  Arquivo que será aberto e os dados devem ser
      *  enviados.
-     * ************************************************
+     * **********************************************
      */
     function formSend(form, inId, file) {
-        if (!form) {
-            console.warn('Parâmetro "form" não expecificado.');
-        } else if (!inId) {
-            console.warn('Parâmetro "inId" não expecificado.');
-        } else if (!file) {
-            console.warn('Parâmetro "file" não expecificado.');
-        } else if ($this.http instanceof XMLHttpRequest) {
-            console.warn('Já existe uma requisição de protocolo em andamento.');
-        } else {
-            $this.form = document.getElementById(form);
-            $this.loadID = document.getElementById(inId);
-            $this.loadID.innerHTML = null;
-            $this.file = file;
-            $this.head = 'form_id=' + form;
-            $this.vetor = ['formSend', 555];
-            formElements();
-            requestForm();
+        $this.form = document.getElementById(form);
+        $this.loadID = document.getElementById(inId);
+        $this.file = file;
+        $this.head = 'form_id=' + form;
+        $this.vetor = ['formSend', 555];
+        try {
+            if (!form) {
+                throw 'Parâmetro "form" não expecificado.';
+            } else if (!inId) {
+                throw 'Parâmetro "inId" não expecificado';
+            } else if (!file) {
+                throw 'Parâmetro "file" não expecificado';
+            } else if (!isReady($this.form)) {
+                throw 'Elemento "#' + form + '" não encontrado';
+            } else if (!isReady($this.loadID)) {
+                throw 'Elemento "#' + inId + '" não encontrado';
+            } else if ($this.http instanceof XMLHttpRequest) {
+                throw 'Já existe uma requisição de protocolo em andamento.';
+            } else {
+                $this.loadID.innerHTML = null;
+                formElements();
+                requestForm();
+            }
+        } catch (exception) {
+            $this.exception = exception;
+            ExceptionReturn();
         }
         return (false);
     }
 
     /**
-     * ************************************************
-     * @Method: Codifica o identificador de recurso
-     *  uniforme em sequências de escape que
-     *  representam a codificação UTF-8.
+     * **********************************************
+     * @private
+     * Codifica o identificador de recurso uniforme
+     *  em sequências de escape que representam a
+     *  codificação UTF-8.
      *  Escapa todos os caracteres que não são
      *  alfabéticos, dígitos ou decimais.
      * 
-     * @public
-     * ************************************************
-     * 
      * @param {STR} str
      * Valor de entrada do parâmetro URI.
-     * ************************************************
+     * **********************************************
      */
     function encodeURI(str) {
         var $encode = encodeURIComponent(str);
@@ -227,12 +258,11 @@ var AjaxRequest = function () {
     }
 
     /**
-     * ************************************************
-     * @Method: Requisita os processos para os
-     *  métodos de execução padrão via GET.
-     *  
+     * **********************************************
      * @private
-     * ************************************************
+     * Requisita os processos para os métodos de
+     *   execução padrão via GET.
+     * **********************************************
      */
     function requestGet() {
         initXMLHR();
@@ -242,12 +272,11 @@ var AjaxRequest = function () {
     }
 
     /**
-     * ************************************************
-     * @Method: Requisita os processos para os
-     *  métodos de execução de formulários via POST.
-     *  
+     * **********************************************
      * @private
-     * ************************************************
+     * Requisita os processos para os métodos de
+     *  execução de formulários via POST.
+     * **********************************************
      */
     function requestForm() {
         initXMLHR();
@@ -258,12 +287,11 @@ var AjaxRequest = function () {
     }
 
     /**
-     * ************************************************
-     * @Method: Inicia o protocolo HttpRequest e cria
-     *  a base de tipo de exibição quando disponível.
-     *  
+     * **********************************************
      * @private
-     * ************************************************
+     * Inicia o protocolo HttpRequest e cria a base
+     *  de tipo de exibição quando disponível.
+     * **********************************************
      */
     function initXMLHR() {
         $this.http = new XMLHttpRequest;
@@ -274,16 +302,15 @@ var AjaxRequest = function () {
     }
 
     /**
-     * ************************************************
-     * @Method: Solicita funções de acordo com o
-     *  status da requisição.
-     * 
-     *  - Carregando -> Solicita animação de processo. 
-     *  - Completado -> Armazena a resposta e solicita
-     *    o completo processamento.
-     *  
+     * **********************************************
      * @private
-     * ************************************************
+     * Solicita funções de acordo com o status da
+     *  requisição.
+     *  - Carregando -> Solicita animação de
+     *   processo. 
+     *  - Completado -> Armazena a resposta e
+     *   solicita o completo processamento.
+     * **********************************************
      */
     function responseStatus() {
         if ($this.vetor && ($this.http.readyState === 1)) {
@@ -299,12 +326,11 @@ var AjaxRequest = function () {
     }
 
     /**
-     * ************************************************
-     * @Method: Cria diferentes tipos de animações
-     *  conforme cada método.
-     * 
+     * **********************************************
      * @private
-     * ************************************************
+     * Cria diferentes tipos de animações conforme
+     *  cada método.
+     * **********************************************
      */
     function setProgress() {
         var $svg = '<svg class="load-pre" viewBox="25 25 50 50"><circle class="load-path" cx="50" cy="50" r="20" fill="none" stroke="#' + $this.vetor[1] + '" stroke-width="4" stroke-miterlimit="10" /></svg>';
@@ -314,36 +340,35 @@ var AjaxRequest = function () {
                 break;
             case 'pop':
                 $this.loading = document.createElement('div');
-                document.body.appendChild($this.loading);
                 $this.loading.classList.add('load-pop');
                 $this.loading.innerHTML = '<div class="progress-text">Carregando...</div>' + $svg;
+                document.body.appendChild($this.loading);
                 break;
             case 'form':
-                $this.form.classList.add('form-conter');
                 $this.loading = document.createElement('div');
+                $this.form.classList.add('form-conter');
                 $this.loading.classList.add('load-form');
-                $this.form.appendChild($this.loading);
                 $this.loading.innerHTML = '<div class="fade-progress">' + $svg + '</div>';
+                $this.form.appendChild($this.loading);
                 break;
             case 'formSend':
-                $this.form.classList.add('form-conter');
                 $this.loading = document.createElement('div');
+                $this.form.classList.add('form-conter');
                 $this.loading.classList.add('load-form');
-                $this.form.appendChild($this.loading);
                 $this.loadID.innerHTML = '<div class="load-local">' + $svg + '</div>';
+                $this.form.appendChild($this.loading);
                 break;
         }
     }
 
     /**
-     * ************************************************
-     * @Method: Exibe o conteúdo da requisição.
+     * **********************************************
+     * @private
+     * Exibe o conteúdo da requisição.
      *  Quando existem animações de processo remove
      *  primeiro essas animações só então exibe o
      *  conteúdo.
-     * 
-     * @private
-     * ************************************************
+     * **********************************************
      */
     function completeProcess() {
         if ($this.vetor[0]) {
@@ -373,73 +398,37 @@ var AjaxRequest = function () {
     }
 
     /**
-     * ************************************************
-     * @Method: Procura elementos javascript no
-     *  arquivo aberto pela requisição e realoca os
-     *  mesmos para correto funcionamento.
-     * 
+     * **********************************************
      * @private
-     * ************************************************
+     * Procura elementos javascript no arquivo
+     *  aberto pela requisição e realoca os mesmos
+     *  para correto funcionamento.
+     * **********************************************
      */
     function loadScripts() {
-        var $j = $this.response.indexOf('<script', 0), $src, $idxSrc, $endSrc, $strSrc;
-        oldScripts();
-        while ($j != -1) {
-            $src = document.createElement('script');
-            $idxSrc = $this.response.indexOf(' src', $j);
-            $j = $this.response.indexOf('>', $j) + 1;
-            if ($idxSrc < $j && $idxSrc >= 0) {
-                $j = $idxSrc + 4;
-                $endSrc = $this.response.indexOf('.js', $j) + 3;
-                $strSrc = $this.response.substring($j, $endSrc);
-                $strSrc = $strSrc.replace('=', '')
-                        .replace(' ', '')
-                        .replace('"', '')
-                        .replace('"', '')
-                        .replace("'", '')
-                        .replace("'", '')
-                        .replace('>', '');
-                $src.src = $strSrc;
+        var $script = $this.loadID.getElementsByTagName('script'), $i, $newScript;
+        for ($i = $script.length - 1; $i >= 0; $i--) {
+            $newScript = document.createElement('script');
+            if ($script[$i].src) {
+                $newScript.src = $script[$i].src;
             } else {
-                $endSrc = $this.response.indexOf('</script>', $j);
-                $strSrc = $this.response.substring($j, $endSrc);
-                $src.text = $strSrc;
+                $newScript.text = $script[$i].text;
             }
-            $this.loadID.appendChild($src);
-            $j = $this.response.indexOf('<script', $endSrc);
-            $src = null;
+            $this.loadID.appendChild($newScript);
+            $this.loadID.removeChild($script[$i]);
         }
     }
 
     /**
-     * ************************************************
-     * @Method: Localiza os antigos elementos
-     *  javascript não funcionais da requisição e limpa
-     *  eles para melhor leitura de dados pelo
-     *  navegador.
-     * 
+     * **********************************************
      * @private
-     * ************************************************
-     */
-    function oldScripts() {
-        var $os = $this.loadID.getElementsByTagName('script'), $k;
-        for ($k = $os.length - 1; $k >= 0; $k--) {
-            $os[$k].parentNode.removeChild($os[$k]);
-        }
-    }
-
-    /**
-     * ************************************************
-     * @Method: Procura elementos input em formulários
+     * Procura elementos input em formulários
      *  e adiciona eles no cabeçalho da requisição.
      * 
-     * @augment: No caso de {input type="checkbox"} ou
-     *  {input type="radio"}
-     *  quando não marcados seu valor não será enviado
-     *  pela função.
-     * 
-     * @private
-     * ************************************************
+     * @augment: No caso de {input type="checkbox"}
+     *  ou {input type="radio"} quando não marcados
+     *   seu valor não será enviado pela função.
+     * **********************************************
      */
     function formElements() {
         var $i, $checkbox, $radio;
@@ -462,15 +451,40 @@ var AjaxRequest = function () {
     }
 
     /**
-     * ************************************************
+     * **********************************************
+     * @private
+     * Verifica se algum objeto está pronto para uso.
+     * @param {OBJ} obj
+     * Objeto para analizar. 
+     * **********************************************
+     */
+    function isReady(obj) {
+        return ((typeof obj !== 'undefined' && obj !== null) ? true : false);
+    }
+
+    /**
+     * **********************************************
+     * @private
+     * Exibe alerta de console quando algo der errado
+     * redefinindo todos dados para nada.
+     * **********************************************
+     */
+    function ExceptionReturn() {
+        console.warn($this.exception);
+        $this.http = null;
+        $this.exception = null;
+        $this.vetor = [null];
+    }
+
+    /**
+     * **********************************************
      * @return {OBJ}
      * Métodos públicos
-     * ************************************************
+     * **********************************************
      */
     this.open = open;
     this.send = send;
     this.pop = pop;
     this.form = form;
     this.formSend = formSend;
-    this.encodeURI = encodeURI;
 };

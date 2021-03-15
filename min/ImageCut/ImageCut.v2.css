@@ -1,9 +1,0 @@
-/**
- * ****************************************************
- * ImageCut
- * * @author Spell-Master (Omar Pautz)
- * * @copyright 2019
- * * @version 2.0 (2020)
- * ****************************************************
- */
-.cut-focus{filter:blur(.1875rem) brightness(50%)}.cut-limiter::selection,.cut-box::selection{background:transparent}.cut-limiter{z-index:1;position:relative;margin:auto;width:auto;height:auto;overflow:hidden;border:.0625rem solid #e5e5e5}.cut-box{z-index:2;position:absolute;left:50%;top:50%;margin-left:-6.25rem;margin-top:-6.25rem;width:12.5rem;height:12.5rem;overflow:hidden;border:.0625rem solid #e5e5e5;box-sizing:content-box}.cut-box:hover,.cut-box:active{cursor:move}.cut-box > img{position:absolute;display:block}

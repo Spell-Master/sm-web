@@ -1,20 +1,20 @@
 /**
- * ****************************************************
+ * **************************************************
  * * @Class FileTransfer
  * * @author Spell-Master (Omar Pautz)
  * * @copyright 2019
- * * @version 2.0 (2020)
- * ****************************************************
+ * * @version 2.1 (2020)
+ * **************************************************
  * @info
  * NÃO MODIFICAR NADA NESSE ARQUIVO!!!
  * Para correto funcionamento da ferramenta de corte
  * essas propiedades devem permanecer exatamente como
  * estão!
- * ****************************************************
+ * **************************************************
  */
+
 .cut-focus {
     filter: blur(.1875rem) brightness(50%)
-
 }
 .cut-limiter::selection,
 .cut-box::selection {

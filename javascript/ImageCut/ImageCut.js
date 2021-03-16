@@ -1,32 +1,31 @@
 /**
- * ****************************************************
+ * **************************************************
  * * @Class ImageCut
  * * @author Spell-Master (Omar Pautz)
  * * @copyright 2019
- * * @version 2.0 (2020)
+ * * @version 2.1 (2021)
  * ****************************************************
  * * Executa corte de imagens.
  * 
- * 
  * @param {STR} img
  * * #ID da imagem para trabalho.
- * ****************************************************
+ * **************************************************
  */
+
 var ImageCut = function (img) {
 
-    var $imgTarget = document.getElementById(img);
-    var $isReady = false;
-    var $isCut = false;
-    var $limiter;
-    var $box;
-    var $img;
-    var $canvas;
-    var $data = {
+    var $imgTarget = document.getElementById(img),
+    $isReady = false,
+    $isCut = false,
+    $limiter,
+    $box,
+    $img,
+    $canvas,
+    $data = {
         ratio: 1.0,
         left: 0,
         top: 0
-    };
-    var $status = {
+    }, $status = {
         imgLeft: 0,
         imgTop: 0,
         imgWidth: 0,
@@ -35,8 +34,7 @@ var ImageCut = function (img) {
         boxTop: 0,
         posX: 0,
         posY: 0
-    };
-    var $zoom = {
+    }, $zoom = {
         boxWidth: 0,
         boxHeight: 0,
         imgWidth: 0,
@@ -45,6 +43,9 @@ var ImageCut = function (img) {
         top: 0,
         right: 0,
         bottom: 0
+    }, $target = {
+        w: 0,
+        h: 0
     };
 
     if (typeof $imgTarget === 'undefined' && $imgTarget === null) {
@@ -55,52 +56,48 @@ var ImageCut = function (img) {
     }
 
     /**
-     * ************************************************
-     * @function: Inicia as funções necessárias
-     *  
+     * **********************************************
      * @private
-     * ************************************************
+     * Inicia as funções necessárias.
      * 
      * @param {OBJ} e (Não utilizável)
-     * Imagem vinda do elemento #id requisitado
-     * ************************************************
+     * Imagem vinda do elemento #id requisitado.
+     * **********************************************
      */
     function initCut(e) {
-        if (targetSize('w') < 210) {
+        $target.w = targetSize('w');
+        $target.h = targetSize('h');
+        if ($target.w < 201) {
             console.warn('A imagem de corte deve possuir pelo menos 210 pixel\'s de largura');
-        } else if (targetSize('h') < 210) {
+        } else if ($target.h < 201) {
             console.warn('A imagem de corte deve possuir pelo menos 210 pixel\'s de altura');
         } else {
-            $isReady = true;
             newComponents();
             setProperties();
             insertComponents();
-            imgPos(targetSize('w') / 2 - (200 / 2), targetSize('h') / 2 - (200 / 2));
+            imgPos($target.w / 2 - (200 / 2), $target.h / 2 - (200 / 2));
             getEvents();
+            $isReady = true;
         }
     }
 
     /**
-     * ************************************************
-     * @function: Obtem as dimenções da imagem.
-     * 
+     * **********************************************
      * @private
-     * ************************************************
+     * Obtem as dimenções da imagem.
      * 
      * @param {STR} size (w ? h)
-     * Retorna a largura ou altura da imagem
-     * ************************************************
+     * Retorna a largura ou altura da imagem.
+     * **********************************************
      */
     function targetSize(size) {
         return Math.ceil((size === 'w' ? $imgTarget.offsetWidth : $imgTarget.offsetHeight));
     }
 
     /**
-     * ************************************************
-     * @function: Cria os elementos no documento
-     * para usos.
-     * 
+     * **********************************************
      * @private
+     * Cria os elementos no documento para usos.
      * ************************************************
      */
     function newComponents() {
@@ -111,34 +108,27 @@ var ImageCut = function (img) {
     }
 
     /**
-     * ************************************************
-     * @function: Define as características dos
-     * elementos criados.
-     * 
+     * **********************************************
      * @private
-     * ************************************************
+     * Define as características dos elementos
+     *  criados.
+     * **********************************************
      */
     function setProperties() {
-        var $this = {
-            w: targetSize('w'),
-            h: targetSize('h')
-        };
         $imgTarget.classList.add('cut-focus');
         $imgTarget.draggable = false;
         $limiter.classList.add('cut-limiter');
-        $limiter.setAttribute('style', 'max-width:' + $this.w + 'px; max-height:' + $this.h + 'px');
+        $limiter.setAttribute('style', 'max-width:' + $target.w + 'px; max-height:' + $target.h + 'px');
         $box.classList.add('cut-box');
         $img.src = $imgTarget.src;
         $img.draggable = false;
-        $img.setAttribute('style', 'width:auto; height:auto; max-width:' + $this.w + 'px; max-height:' + $this.h + 'px');
+        $img.setAttribute('style', 'width:auto; height:auto; max-width:' + $target.w + 'px; max-height:' + $target.h + 'px');
     }
 
     /**
      * ************************************************
-     * @function: Anexa os elementos criados ao
-     * documento.
-     * 
      * @private
+     * Anexa os elementos criados ao documento.
      * ************************************************
      */
     function insertComponents() {
@@ -149,18 +139,15 @@ var ImageCut = function (img) {
     }
 
     /**
-     * ************************************************
-     * @function: Posiciona a imagem criada dentro do
-     * limitador.
-     * 
+     * **********************************************
      * @private
-     * ************************************************
+     * Posiciona a imagem criada dentro do limitador.
      * 
      * @param {INT} left
-     *  Distância a esqueda
+     *  Distância a esqueda.
      * @param {INT} top
-     *  Distância ao topo
-     * ************************************************
+     *  Distância ao topo.
+     * **********************************************
      */
     function imgPos(left, top) {
         $data.left = -left * $data.ratio;
@@ -170,12 +157,11 @@ var ImageCut = function (img) {
     }
 
     /**
-     * ************************************************
-     * @function: Obtem os eventos de arraste e
-     *  alteração no tamanho da caixa de corte.
-     * 
+     * **********************************************
      * @private
-     * ************************************************
+     * Obtem os eventos de arraste e alteração no
+     *  tamanho da caixa de corte.
+     * **********************************************
      */
     function getEvents() {
         $box.addEventListener('mousedown', startEvents, false);
@@ -185,16 +171,14 @@ var ImageCut = function (img) {
     }
 
     /**
-     * ************************************************
-     * @function: Inicia os eventos de movimento
-     *  quando segurada a caixa de corte.
-     * 
+     * **********************************************
      * @private
-     * ************************************************
+     * Inicia os eventos de movimento quando
+     *  segurada a caixa de corte.
      * 
      * @param {OBJ} e
-     * Evento disparado
-     * ************************************************
+     * Evento disparado.
+     * **********************************************
      */
     function startEvents(e) {
         e.preventDefault();
@@ -207,16 +191,14 @@ var ImageCut = function (img) {
     }
 
     /**
-     * ************************************************
-     * @function: Remove os eventos de movimento
-     *  quando solta a caixa de corte.
-     * 
+     * **********************************************
      * @private
-     * ************************************************
+     * Remove os eventos de movimento quando solta a
+     *  caixa de corte.
      * 
      * @param {OBJ} e
-     * Evento disparado
-     * ************************************************
+     * Evento disparado.
+     * **********************************************
      */
     function stopEvents(e) {
         e.preventDefault();
@@ -227,16 +209,13 @@ var ImageCut = function (img) {
     }
 
     /**
-     * ************************************************
-     * @function: Obtem a posição do arraste da caixa
-     * de corte.
-     * 
+     * **********************************************
      * @private
-     * ************************************************
+     * Obtem a posição do arraste da caixa de corte.
      * 
      * @param {OBJ} e
-     * Evento disparado
-     * ************************************************
+     * Evento disparado.
+     * **********************************************
      */
     function dragMoving(e) {
         e.preventDefault();
@@ -260,16 +239,13 @@ var ImageCut = function (img) {
     }
 
     /**
-     * ************************************************
-     * @function: Obtem a posição inicial da caixa
-     * de corte.
-     * 
+     * **********************************************
      * @private
-     * ************************************************
+     * Obtem a posição inicial da caixa de corte.
      * 
      * @param {OBJ} pos
-     * Evento disparado
-     * ************************************************
+     * Evento disparado.
+     * **********************************************
      */
     function currentPos(pos) {
         $status.boxLeft = $box.offsetLeft;
@@ -279,18 +255,15 @@ var ImageCut = function (img) {
     }
 
     /**
-     * ************************************************
-     * @function: Obtem a posição atual da caixa
-     * de corte.
-     * 
+     * **********************************************
      * @private
-     * ************************************************
+     * Obtem a posição atual da caixa de corte.
      * 
      * @param {INT} left
-     *  Distância a esqueda
+     *  Distância a esqueda.
      * @param {INT} top
-     *  Distância ao topo
-     * ************************************************
+     *  Distância ao topo.
+     * **********************************************
      */
     function boxPos(left, top) {
         $box.style.top = top + (200 / 2) + 'px';
@@ -298,16 +271,14 @@ var ImageCut = function (img) {
     }
 
     /**
-     * ************************************************
-     * @function: Requisita alteração no tamanho da
-     * caixa de corte quando rolado a roda do mouse.
-     * 
+     * **********************************************
      * @private
-     * ************************************************
+     * Requisita alteração no tamanho da caixa de
+     *  corte quando rolado a roda do mouse.
      * 
      * @param {OBJ} e
-     *  Evento
-     * ************************************************
+     *  Evento.
+     * **********************************************
      */
     function scrollResize(e) {
         e.preventDefault();
@@ -315,15 +286,13 @@ var ImageCut = function (img) {
     }
 
     /**
-     * ************************************************
-     * @function: Altera o tamanho da caixa de corte.
-     * 
+     * **********************************************
      * @private
-     * ************************************************
+     * Altera o tamanho da caixa de corte.
      * 
      * @param {INT} zoom
      *  Quantidade de fluxo na escala.
-     * ************************************************
+     * **********************************************
      */
     function imgZoom(zoom) {
         if ($isReady) {
@@ -361,17 +330,15 @@ var ImageCut = function (img) {
     }
 
     /**
-     * ************************************************
-     * @function: Define o tamanho da caixa de corte.
-     * 
+     * **********************************************
      * @private
-     * ************************************************
+     * Define o tamanho da caixa de corte.
      * 
      * @param {INT} width
      *  Largura.
      * @param {INT} height
      *  Altura.
-     * ************************************************
+     * **********************************************
      */
     function boxSize(width, height) {
         $box.style.width = width + 'px';
@@ -379,11 +346,11 @@ var ImageCut = function (img) {
     }
 
     /**
-     * ************************************************
-     * @function: Faz o corte da imagem.
-     * 
+     * **********************************************
      * @private
-     * ************************************************
+     * Faz o corte da imagem.
+     * 
+     * **********************************************
      */
     function cutBox() {
         $data.width = $img.width * $data.ratio;
@@ -394,17 +361,15 @@ var ImageCut = function (img) {
     }
 
     /**
-     * ************************************************
-     * @function: Requisita alteração no tamanho da
-     * caixa de corte quando pressionado as teclas
-     * "+" ou "-".
-     * 
+     * **********************************************
      * @private
-     * ************************************************
+     * Requisita alteração no tamanho da caixa de
+     *  corte quando pressionado as teclas
+     *  "+" ou "-".
      * 
      * @param {OBJ} e
-     *  Evento
-     * ************************************************
+     *  Evento.
+     * **********************************************
      */
     function keyResize(e) {
         e.preventDefault();
@@ -419,50 +384,46 @@ var ImageCut = function (img) {
     }
 
     /**
-     * ************************************************
-     * @function: Requisita almento no tamanho da
-     * caixa de corte.
-     * 
+     * **********************************************
      * @public
-     * ************************************************
+     * Requisita almento no tamanho da caixa de
+     *  corte.
+     * **********************************************
      */
-    this.sizePlus = function() {
+    this.sizePlus = function () {
         imgZoom(10);
     };
 
     /**
-     * ************************************************
-     * @function: Requisita redução no tamanho da
-     * caixa de corte.
-     * 
+     * **********************************************
      * @public
-     * ************************************************
+     * Requisita redução no tamanho da caixa de
+     *  corte.
+     * **********************************************
      */
-    this.sizeMinus = function() {
+    this.sizeMinus = function () {
         imgZoom(-10);
     };
 
     /**
-     * ************************************************
-     * @function: Define a imagem de cortada
-     * 
+     * **********************************************
      * @public
-     * ************************************************
+     * Define a imagem de cortada.
+     * **********************************************
      */
-    this.setCut = function() {
+    this.setCut = function () {
         cutBox();
         $getImage = $canvas.toDataURL('image/png', 1.0);
         $isCut = true;
     };
 
     /**
-     * ************************************************
-     * @function: Obtem o corte
-     * 
+     * **********************************************
      * @public
-     * ************************************************
+     * Obtem o corte.
+     * **********************************************
      */
-    this.getImage = function() {
+    this.getImage = function () {
         if ($isCut) {
             return ($getImage);
         }

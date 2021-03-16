@@ -4,28 +4,29 @@
         <title>ImageCut</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link href="../../css/sm-default.css" rel="stylesheet" type="text/css" />
         <link href="ImageCut.css" rel="stylesheet" type="text/css" />
         <script src="ImageCut.js" type="text/javascript"></script>
         <style>
             #alvo-do-corte {
                 width: auto;
                 height: auto;
-                max-height: 400px
+                max-width: 100%;
+                max-height: 400px;
+                border: none
             }
         </style>
     </head>
-    <body class="font-default">
+    <body>
         <div id="resultado"></div>
-        <div class="padding-all">
-            <img src="paisagem.jpg" id="alvo-do-corte" alt="cortar imagem" />
+
+        <img src="paisagem.jpg" id="alvo-do-corte" alt="cortar imagem" />
+
+        <div>
+            <button onclick="cut.sizePlus()">Ampliar Zoom</button>
+            <button onclick="cut.sizeMinus()">Reduzir Zoom</button>
+            <button onclick="cortar()">CORTAR</button>
         </div>
 
-        <div class="align-center margin-top">
-            <button class="btn-default" onclick="cut.sizePlus()">Ampliar Zoom</button>
-            <button class="btn-default" onclick="cut.sizeMinus()">Reduzir Zoom</button>
-            <button class="btn-info text-white" onclick="cortar()">CORTAR</button>
-        </div>
 
         <script>
             var cut = new ImageCut('alvo-do-corte');

@@ -415,7 +415,7 @@ var AjaxRequest = function () {
                 $newScript.text = $script[$i].text;
             }
             $this.loadID.appendChild($newScript);
-            $this.loadID.removeChild($script[$i]);
+            $script[$i].parentNode.removeChild($script[$i]);
         }
     }
 

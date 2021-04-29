@@ -267,7 +267,7 @@ var FileTransfer = function () {
                     $newScript.text = $script[$i].text;
                 }
                 $upload.result.appendChild($newScript);
-                $upload.result.removeChild($script[$i]);
+                $script[$i].parentNode.removeChild($script[$i]);
             }
         } else {
             if ($download.blob) {

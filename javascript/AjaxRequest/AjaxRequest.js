@@ -3,7 +3,7 @@
  * * @Class AjaxRequest
  * * @author Spell-Master (Omar Pautz)
  * * @copyright 2018
- * * @version 4.1 (2021)
+ * * @version 4.2 (2021)
  * **************************************************
  * * Executa Asynchronous Javascript and Xml
  * **************************************************
@@ -400,22 +400,54 @@ var AjaxRequest = function () {
     /**
      * **********************************************
      * @private
-     * Procura elementos javascript no arquivo
-     *  aberto pela requisição e realoca os mesmos
-     *  para correto funcionamento.
+     * Procura elementos javascript no arquivo aberto
+     *  pela requisição e os re-escreve para correto
+     *   funcionamento.
      * **********************************************
      */
     function loadScripts() {
-        var $script = $this.loadID.getElementsByTagName('script'), $i, $newScript;
-        for ($i = $script.length - 1; $i >= 0; $i--) {
-            $newScript = document.createElement('script');
-            if ($script[$i].src) {
-                $newScript.src = $script[$i].src;
+        var $j = $this.response.indexOf('<script', 0), $src, $idxSrc, $endSrc, $strSrc;
+        oldScripts();
+        while ($j != -1) {
+            $src = document.createElement('script');
+            $idxSrc = $this.response.indexOf(' src', $j);
+            $j = $this.response.indexOf('>', $j) + 1;
+            if ($idxSrc < $j && $idxSrc >= 0) {
+                $j = $idxSrc + 4;
+                $endSrc = $this.response.indexOf('.js', $j) + 3;
+                $strSrc = $this.response.substring($j, $endSrc);
+                $strSrc = $strSrc.replace('=', '')
+                        .replace(' ', '')
+                        .replace('"', '')
+                        .replace('"', '')
+                        .replace("'", '')
+                        .replace("'", '')
+                        .replace('>', '');
+                $src.src = $strSrc;
             } else {
-                $newScript.text = $script[$i].text;
+                $endSrc = $this.response.indexOf('</script>', $j);
+                $strSrc = $this.response.substring($j, $endSrc);
+                $src.text = $strSrc;
             }
-            $this.loadID.appendChild($newScript);
-            $script[$i].parentNode.removeChild($script[$i]);
+            $this.loadID.appendChild($src);
+            $j = $this.response.indexOf('<script', $endSrc);
+            $src = null;
+        }
+    }
+
+    /**
+     * **********************************************
+     * @private
+     * Procura elementos javascript antigos já
+     *  re-escritos no arquivo aberto método
+     *  loadScripts e os remove para melhor
+     *  compilação do DOM.
+     * **********************************************
+     */
+    function oldScripts() {
+        var $os = $this.loadID.getElementsByTagName('script'), $k;
+        for ($k = $os.length - 1; $k >= 0; $k--) {
+            $os[$k].parentNode.removeChild($os[$k]);
         }
     }
 

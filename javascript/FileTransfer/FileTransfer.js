@@ -3,7 +3,7 @@
  * * @Class FileTransfer
  * * @author Spell-Master (Omar Pautz)
  * * @copyright 2018
- * * @version 2.0 (2021)
+ * * @version 2.1 (2021)
  * **************************************************
  * * Executa transferência de arquivos.
  * Servidor X usuário (download)
@@ -256,19 +256,7 @@ var FileTransfer = function () {
      */
     function sincHtml() {
         if ($transfer.method === 'up') {
-            var $script = $upload.result.getElementsByTagName('script');
-            var $i;
-            var $newScript;
-            for ($i = $script.length - 1; $i >= 0; $i--) {
-                $newScript = document.createElement('script');
-                if ($script[$i].src) {
-                    $newScript.src = $script[$i].src;
-                } else {
-                    $newScript.text = $script[$i].text;
-                }
-                $upload.result.appendChild($newScript);
-                $script[$i].parentNode.removeChild($script[$i]);
-            }
+            loadScripts();
         } else {
             if ($download.blob) {
                 $download.url = window.URL.createObjectURL($transfer.request.response);
@@ -279,6 +267,45 @@ var FileTransfer = function () {
             $download.link.download = $transfer.name;
             document.body.appendChild($download.link);
             $download.link.click();
+        }
+    }
+
+    function loadScripts() {
+        if ($upload.result) {
+            var $upLoadText = $transfer.request.responseText,
+                    $j = $upLoadText.indexOf('<script', 0),
+                    $os = ($upload.result).getElementsByTagName('script'),
+                    $src, $idxSrc, $endSrc, $strSrc, $k;
+            for ($k = $os.length - 1; $k >= 0; $k--) {
+                $os[$k].parentNode.removeChild($os[$k]);
+            }
+            while ($j != -1) {
+                $src = document.createElement('script');
+                $idxSrc = $upLoadText.indexOf(' src', $j);
+                $j = $upLoadText.indexOf('>', $j) + 1;
+                if ($idxSrc < $j && $idxSrc >= 0) {
+                    $j = $idxSrc + 4;
+                    $endSrc = $upLoadText.indexOf('.js', $j) + 3;
+                    $strSrc = $upLoadText.substring($j, $endSrc);
+                    $strSrc = $strSrc.replace('=', '')
+                            .replace(' ', '')
+                            .replace('"', '')
+                            .replace('"', '')
+                            .replace("'", '')
+                            .replace("'", '')
+                            .replace('>', '');
+                    $src.src = $strSrc;
+                } else {
+                    $endSrc = $upLoadText.indexOf('</script>', $j);
+                    $strSrc = $upLoadText.substring($j, $endSrc);
+                    $src.text = $strSrc;
+                }
+                $upload.result.appendChild($src);
+                $j = $upLoadText.indexOf('<script', $endSrc);
+                $src = null;
+            }
+        } else {
+            console.warn('Local de checagem do envio não expecíficado');
         }
     }
 

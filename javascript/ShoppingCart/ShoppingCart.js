@@ -3,7 +3,7 @@
  * * ShoppingCart
  * * @author Spell-Master (Omar Pautz)
  * * @copyright 2021
- * * @version 1.0
+ * * @version 1.1 (2021)
  * ****************************************************
  * * Carrinho de compras.
  * * Adiciona itens selecionados a um formulário para
@@ -33,28 +33,24 @@ var ShoppingCart = function (boxes) {
         text: $base.querySelector('[data-cart=""]'),
         form: $base.getElementsByTagName('form')[0],
         target: null,
-        count: 0
+        count: 0,
+        memory: []
     };
+    formInput();
 
     /**
      * ************************************************
-     * Adiciona ouvinte de eventos para quando a caixa
-     *  de seleção é alterada.
-     * * @param {OBJ} input
-     * input "checkbox" alvo
+     * Memoriza quaisquer input's já contidos no
+     *  formulário de envio.
      * 
-     * @public
+     * @private
      * ************************************************
      */
-    this.addInput = function (input) {
-        if (input.type === 'checkbox' && !input.classList.contains('cart-add')) {
-            if (input.checked) {
-                input.checked = null;
-            }
-            input.classList.add('cart-add');
-            input.addEventListener('change', changeInput, false);
+    function formInput() {
+        for (var $i = 0; $i < $this.form.children.length; $i++) {
+            $this.memory.push($i);
         }
-    };
+    }
 
     /**
      * ************************************************
@@ -94,6 +90,7 @@ var ShoppingCart = function (boxes) {
         $new.name = $this.target.name;
         $new.value = $this.target.value;
         $this.form.appendChild($new);
+        $this.memory.push($new);
     }
 
     /**
@@ -105,13 +102,18 @@ var ShoppingCart = function (boxes) {
      * ************************************************
      */
     function removeInput() {
+        for (var $i = 0; $i < $this.memory.length; $i++) {
+            if ($this.memory[$i].value == $this.target.value) {
+                $this.memory.splice($i, 1);
+            }
+        }
         var $unLink = $this.form.querySelector('input[value="' + $this.target.value + '"]');
         $this.form.removeChild($unLink);
     }
 
     /**
      * ************************************************
-     * Mostra ou esconde a elemento DIV do carrinho e
+     * Mostra ou esconde o elemento DIV do carrinho e
      *  mostra o contador de quantos itens estão no
      *  carrinho.
      * 
@@ -126,6 +128,65 @@ var ShoppingCart = function (boxes) {
         }
         $this.text.innerText = ($this.count >= 1 ? 'Selecionados (' + $this.count + ')' : null);
     }
+
+    /**
+     * ************************************************
+     * Quando reiniciado o carrinho desmarca todas as
+     *  caixas que enviaram dados.
+     * @param {OBJ} e 
+     * 
+     * @private
+     * ************************************************
+     */
+    function unCheck(e) {
+        if (e.checked) {
+            e.checked = null;
+        }
+    }
+
+    /**
+     * ************************************************
+     * Adiciona ouvinte de eventos para quando a caixa
+     *  de seleção é alterada.
+     * * @param {OBJ} input
+     * input "checkbox" alvo
+     * 
+     * @public
+     * ************************************************
+     */
+    this.addInput = function (input) {
+        if (input.type === 'checkbox' && !input.classList.contains('cart-add')) {
+            if (input.checked) {
+                input.checked = null;
+            }
+            input.classList.add('cart-add');
+            input.addEventListener('change', changeInput, false);
+        }
+    };
+
+    /**
+     * ************************************************
+     * Reinicia o carrinho
+     * 
+     * @public
+     * ************************************************
+     */
+    this.restart = function () {
+        var $delInpt = $this.form.querySelectorAll('input');
+        for (var $i = 0; $i < $delInpt.length; $i++) {
+            if ($this.memory.includes($delInpt[$i])) {
+                $this.form.removeChild($delInpt[$i]);
+            }
+        }
+        document.querySelectorAll('input.cart-add').forEach(unCheck);
+
+        $this.memory.splice(0, $this.memory.length);
+        $this.text.innerText = null;
+        $this.target = null;
+        $this.count = 0;
+        $base.classList.remove('opened');
+        formInput();
+    };
 
     /**
      * ************************************************

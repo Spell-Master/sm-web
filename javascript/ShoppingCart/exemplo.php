@@ -5,14 +5,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>ShoppingCart</title>
 
-        <script src="ShoppingCart.js?ran=<?= time() ?>" type="text/javascript"></script>
-        <link href="ShoppingCart.css?ran=<?= time() ?>" rel="stylesheet" type="text/css"/>
+        <script src="ShoppingCart.js" type="text/javascript"></script>
+        <link href="ShoppingCart.css" rel="stylesheet" type="text/css"/>
         <style>
             .alinhamento {
                 text-align: center
             }
             .bloco {
-                width: 30%;
+                width: 19%;
                 display: inline-block;
                 vertical-align: top;
                 margin: 10px 1px;
@@ -34,12 +34,7 @@
         ?>
 
         Outro valor
-        <input
-            type="checkbox"
-            name="caixa_qualquer"
-            value="qualquer coisa"
-            class="alvo"
-            />
+        <input type="checkbox" name="caixa_qualquer" value="qualquer coisa" class="alvo" />
 
         <div class="alinhamento">
             <div class="bloco">
@@ -64,20 +59,23 @@
             </div>
         </div>
 
-
         <hr />
-        Adicionar Elemento existente
+        Adicionar Elemento enexistente
         <input type="checkbox" name="externo" value="caixa externa" class="extra" />
-        <button onclick="adcionarExtra()">Ativar</button>
+        <button onclick="adcionarExtra()">Adicionar</button>
 
         <hr />
         Criar e adicionar elemento
-        <button onclick="criarNovo()">Ativar</button>
+        <button onclick="criarNovo()">Criar</button>
 
+        <hr />
+        Resetar carrinho
+        <button onclick="resetar()">Resetar</button>
 
         <div id="shopping-cart">
             <div data-cart=""></div>
             <form method="POST" action="">
+                <input type="hidden" name="manter" value="Inalterado pelo carrinho" />
                 <button type="submit">Enviar</button>
             </form>
         </div>
@@ -98,6 +96,10 @@
                 novo.name = 'criado[]';
                 document.body.appendChild(novo);
                 shop.addInput(novo);
+            }
+            
+            function resetar() {
+                shop.restart();
             }
         </script>
     </body>

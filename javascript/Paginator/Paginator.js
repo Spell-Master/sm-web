@@ -3,7 +3,7 @@
  * * Paginator
  * * @author Spell-Master (Omar Pautz)
  * * @copyright 2020
- * * @version 1.1 (2021)
+ * * @version 1.2 (2021)
  * ****************************************************
  * * Realiza paginação de elementos.
  * ****************************************************
@@ -11,7 +11,7 @@
 
 /**
  * ****************************************************
- * @param {STR} targetItem
+ * @param {STR} tgtItem
  * Informar quais são os alvos da paginação.
  * @param {INT} maxItens
  * Informar qual a quantidade máxima de itens a ser
@@ -22,13 +22,14 @@
  * documento.
  * ****************************************************
  */
-var Paginator = function (targetItem, maxItens, targetID = null) {
+var Paginator = function (tgt, maxItens, targetID) {
 
     var $targetID = (typeof targetID !== 'undefined' && targetID !== null) ? document.getElementById(targetID) : document;
 
     var $this = {
-        targetItem: $targetID.getElementsByClassName(targetItem),
+        tgtItem: $targetID.getElementsByClassName(tgt),
         limit: parseInt(maxItens),
+        length: 0,
         offset: 0,
         amount: 0,
         linksHtml: null
@@ -46,9 +47,41 @@ var Paginator = function (targetItem, maxItens, targetID = null) {
     function setData(rows) {
         $this.rows = (rows ? parseInt(rows) : 1);
         $this.offset = ($this.rows * $this.limit) - $this.limit;
-        hidenItens();
+        $this.length = $this.tgtItem.length;
+        showPages();
         navLinks();
-        showItens();
+    }
+
+    /**
+     * ************************************************
+     * @public
+     * Reincia os dados de quais elementos são os alvos
+     * da paginação.
+     * @param {INT} rows (opcional)
+     * Informar numero de linha de reinicio.
+     * ************************************************
+     */
+    function reloadData(rows) {
+        $this.tgtItem = $targetID.getElementsByClassName(tgt);
+        setData(rows);
+    }
+
+    /**
+     * ************************************************
+     * @private
+     * Mostra os elementos que fazem parte da coluna
+     * de itens atual.
+     * ************************************************
+     */
+    function showPages() {
+        var $delimiter = ($this.offset + $this.limit);
+        for (var $i = 0; $i < $this.length; $i++) {
+            if ($i < $this.offset || $i >= $delimiter) {
+                $this.tgtItem[$i].classList.add('pag-hide');
+            } else {
+                $this.tgtItem[$i].classList.remove('pag-hide');
+            }
+        }
     }
 
     /**
@@ -61,9 +94,8 @@ var Paginator = function (targetItem, maxItens, targetID = null) {
     function navLinks() {
         var $below = $this.rows - 1;
         var $above = $this.rows + 1;
-        var $length = $this.targetItem.length;
-        if ($length > $this.limit) {
-            $this.amount = Math.ceil($length / $this.limit);
+        if ($this.length > $this.limit) {
+            $this.amount = Math.ceil($this.length / $this.limit);
             $this.linksHtml = '<ul class="paginator">';
             if ($this.rows != 1) {
                 $this.linksHtml += '<li><a title="Primeira Página" data-link-paginator="1" class="paginator-link"> &lt; </a></li>';
@@ -85,37 +117,6 @@ var Paginator = function (targetItem, maxItens, targetID = null) {
             $this.linksHtml += '<li><a class="amount">' + $this.rows + '/ ' + $this.amount + '</a></li>';
             $this.linksHtml += "</ul>";
             $targetID.querySelectorAll('[data-paginator]').forEach(attachLinks);
-        }
-    }
-
-    /**
-     * ************************************************
-     * @private
-     * Oculta os elmentos que não fazem parte da
-     * coluna de itens atual.
-     * ************************************************
-     */
-    function hidenItens() {
-        for (var i = 0; i < $this.targetItem.length; i++) {
-            $this.targetItem[i].style.display = 'none';
-        }
-    }
-
-    /**
-     * ************************************************
-     * @private
-     * Mostra os elementos que fazem parte da coluna
-     * de itens atual.
-     * ************************************************
-     */
-    function showItens() {
-        var $count = $this.offset;
-        var $delimiter = $this.offset + $this.limit;
-        for (var i = $count; i < $delimiter; i++) {
-            if (typeof $this.targetItem[i] !== 'undefined' && $this.targetItem[i] !== null) {
-                $this.targetItem[i].style.display = 'block';
-            }
-            $count++;
         }
     }
 
@@ -162,8 +163,10 @@ var Paginator = function (targetItem, maxItens, targetID = null) {
 
     /**
      * ************************************************
-     * Inicia o processo de paginação.
+     * @init : Inicia o processo de paginação.
+     * @reload : Reinicia o processo de paginação.
      * ************************************************
      */
     this.init = setData;
+    this.reload = reloadData;
 };

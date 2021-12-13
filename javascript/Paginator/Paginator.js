@@ -29,7 +29,7 @@ var Paginator = function (tgt, maxItens, targetID) {
     var $this = {
         tgtItem: $targetID.getElementsByClassName(tgt),
         limit: parseInt(maxItens),
-        length: 0,
+        tgtLength: 0,
         offset: 0,
         amount: 0,
         linksHtml: null
@@ -47,7 +47,7 @@ var Paginator = function (tgt, maxItens, targetID) {
     function setData(rows) {
         $this.rows = (rows ? parseInt(rows) : 1);
         $this.offset = ($this.rows * $this.limit) - $this.limit;
-        $this.length = $this.tgtItem.length;
+        $this.tgtLength = $this.tgtItem.length;
         showPages();
         navLinks();
     }
@@ -75,7 +75,7 @@ var Paginator = function (tgt, maxItens, targetID) {
      */
     function showPages() {
         var $delimiter = ($this.offset + $this.limit);
-        for (var $i = 0; $i < $this.length; $i++) {
+        for (var $i = 0; $i < $this.tgtLength; $i++) {
             if ($i < $this.offset || $i >= $delimiter) {
                 $this.tgtItem[$i].classList.add('pag-hide');
             } else {
@@ -94,8 +94,8 @@ var Paginator = function (tgt, maxItens, targetID) {
     function navLinks() {
         var $below = $this.rows - 1;
         var $above = $this.rows + 1;
-        if ($this.length > $this.limit) {
-            $this.amount = Math.ceil($this.length / $this.limit);
+        if ($this.tgtLength > $this.limit) {
+            $this.amount = Math.ceil($this.tgtLength / $this.limit);
             $this.linksHtml = '<ul class="paginator">';
             if ($this.rows != 1) {
                 $this.linksHtml += '<li><a title="Primeira Página" data-link-paginator="1" class="paginator-link"> &lt; </a></li>';

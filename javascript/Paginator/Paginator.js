@@ -116,8 +116,10 @@ var Paginator = function (tgt, maxItens, targetID) {
             }
             $this.linksHtml += '<li><a class="amount">' + $this.rows + '/ ' + $this.amount + '</a></li>';
             $this.linksHtml += "</ul>";
-            $targetID.querySelectorAll('[data-paginator]').forEach(attachLinks);
+        } else {
+            $this.linksHtml = null;
         }
+        $targetID.querySelectorAll('[data-paginator]').forEach(attachLinks);
     }
 
     /**

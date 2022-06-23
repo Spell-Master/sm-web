@@ -315,6 +315,10 @@ var SlideCarousel = function (tgt, options = {}) {
                 createNav();
             }
 
+            $this.width = slideWidth();
+            $this.wrapper.setAttribute('style', 'left:-' + $this.width + 'px');
+            startEvents();
+
             if (typeof ($options.autoPlay) === 'number' || $options.autoPlay === true) {
                 $options.autoPlay = ($options.autoPlay < 3 ? 3 : $options.autoPlay);
                 $this.interval = ($options.autoPlay * 1000);
@@ -322,11 +326,10 @@ var SlideCarousel = function (tgt, options = {}) {
                     moveSlide(1);
                 }, $this.interval);
             }
-            $this.width = slideWidth();
 
-            $this.wrapper.setAttribute('style', 'left:-' + $this.width + 'px');
-            startEvents();
-
+            /*
+             * Adicionar a metodos públicos funções de mudança de slide
+             */
             this.next = nextSlide;
             this.prev = prevSlide;
         }

@@ -1,0 +1,80 @@
+/**
+ * **************************************************
+ * * @Class SlideCarousel
+ * * @author Spell-Master (Omar Pautz)
+ * * @copyright 2022
+ * * @version 1.0
+ * **************************************************
+ * @info
+ * NÃO MODIFICAR NADA NESSE ARQUIVO!!!
+ * **************************************************
+ */
+
+.slide-container {
+    position: relative;
+    width: inherit;
+    height: inherit;
+    top: 0;
+    left: 0;
+    overflow: hidden
+}
+.slide-container,
+.slide-container * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box
+}
+.slide-wrapper {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: row
+}
+.slide-wrapper.transition {
+    transition: left .2s ease-in
+}
+.slide-item {
+    width: 100%;
+    height: auto;
+    flex-shrink: 0
+}
+.slide-prev,
+.slide-next {
+    cursor: pointer;
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    width: 2.5rem;
+    height: 3.125rem;
+    background-size: 1.25rem 1.875rem !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-color: transparent !important;
+    background-position: center !important;
+    transform: translate(0%, -50%);
+    border: 0;
+    border-radius: .1875rem
+}
+.slide-prev:hover,
+.slide-next:hover {
+    background-color: rgba(255,255,255,.3);
+    box-shadow: 0 0 .25rem .125rem rgba(0,0,0,.3);
+}
+.slide-prev {
+    left: .625rem;
+    right: auto;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'%23007aff'%2F%3E%3C%2Fsvg%3E") !important
+}
+.slide-next {
+    right: .625rem;
+    left: auto;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M27%2C22L27%2C22L5%2C44l-2.1-2.1L22.8%2C22L2.9%2C2.1L5%2C0L27%2C22L27%2C22z'%20fill%3D'%23007aff'%2F%3E%3C%2Fsvg%3E") !important
+}
+.slide-img {
+    display: block;
+    max-width: 100%;
+    height: inherit
+}

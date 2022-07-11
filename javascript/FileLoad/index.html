@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>FileLoad</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="FileLoad.js" type="text/javascript"></script>
+    </head>
+    <body>
+
+        <input type="file" id="exemplo" />
+        <button onclick="enviar()">Enviar</button>
+        <button onclick="processarArquivo.cancel()">Cancelar</button>
+
+        <script>
+            var processarArquivo = new FileLoad();
+            var exemplo = document.getElementById('exemplo');
+
+            function enviar() {
+                var arquivo = exemplo.files[0]; // FileLoad só reconecerá a primeira chave na lista de arquivos do input!
+                if (!arquivo) {
+                    console.log('adicione algum arquivo no input');
+                } else {
+                    console.log('Dados do arquivo ainda não processados:');
+                    console.log(arquivo);
+
+                    processarArquivo.load(arquivo, {
+                        readType: 'text',
+                        onStart: function (e) {
+                            console.log('onStart() disparado');
+                            console.log(e);
+                        },
+                        onError: function (e) {
+                            console.log('onError() disparado');
+                            console.log(e);
+                            alert('Ops! erro na leitura, verifique o console');
+                        },
+                        onProgress: function (e) {
+                            console.log('onProgress() disparado');
+                            console.log(e.loaded, e.total);
+                        },
+                        onResult: function (e) {
+                            console.log('onResult() disparado');
+                            console.log(e);
+                        }
+                    });
+                }
+            }
+        </script>
+    </body>
+</html>

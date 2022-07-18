@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Limpar</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="js-default.js" type="text/javascript"></script>
+    </head>
+    <body>
+
+        <div id="exemplo">
+            <div id="elemento-inicial">elemento-inicial [
+                <div id="elemento-1">.... elemento-1</div>
+                <div id="elemento-2">.... elemento-2</div>
+                <div id="elemento-3">.... elemento-3 [
+                    <div id="elemento-4">........ elemento-4 [
+                        <div id="elemento-5">............ elemento-5 [
+                            <div id="elemento-final">................ elemento-final</div>
+                            <div class="foo">................ f1</div>
+                            <div class="foo">................ f2</div>
+                            <div class="foo">................ f3</div>
+                            <div class="foo">................ f4</div>
+                            <div class="foo">................ f5</div>
+                        </div>............ ] &lt; el 5
+                    </div>........ ] &lt; el 4
+                </div>
+            </div>] &lt; el 1
+        </div>
+
+        <div>
+            <button onclick="limparTudo()">Limpar tudo no elemento</button>
+            <button onclick="limparElemento()">Limpar elemento expecífico</button>
+            <button onclick="limparElementoB()">Limpar elemento expecífico que não é um filho direto</button>
+        </div>
+        <div>
+            <button onclick="remover()">Remover Elemento</button>
+        </div>
+        <div>
+            <button onclick="restaurar()">RESTAURAR EXEMPLO</button>
+        </div>
+
+
+        <script>
+            var exemplo = jsd('#exemplo');
+
+            function limparTudo() {
+                exemplo.clear();
+            }
+
+            function limparElemento() {
+                exemplo.clear('#elemento-3');
+            }
+
+            function limparElementoB() {
+                exemplo.find('#elemento-final').clear('.foo');
+            }
+            
+            function remover() {
+                jsd('#elemento-4').remove();
+            }
+
+            function restaurar() {
+                exemplo.html('<div id="elemento-inicial">elemento-inicial [\n\
+                    <div id="elemento-1">.... elemento-1</div>\n\
+                    <div id="elemento-2">.... elemento-2</div>\n\
+                    <div id="elemento-3">.... elemento-3 [\n\
+                        <div id="elemento-4">........ elemento-4 [\n\
+                            <div id="elemento-5">............ elemento-5 [\n\
+                                <div id="elemento-final">................ elemento-final</div>\n\
+                                <div class="foo">................ f1</div>\n\
+                                <div class="foo">................ f2</div>\n\
+                                <div class="foo">................ f3</div>\n\
+                                <div class="foo">................ f4</div>\n\
+                                <div class="foo">................ f5</div>\n\
+                            </div>............ ] &lt; el 5\n\
+                        </div>........ ] &lt; el 4\n\
+                    </div>\n\
+                </div>] &lt; el 1');
+            }
+        </script>
+    </body>
+</html>

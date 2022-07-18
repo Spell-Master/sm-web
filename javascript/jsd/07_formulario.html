@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Formulários</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="js-default.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <form id="formulario">
+            <input type="text" name="text-name" value="valor do text" id="text-id" />
+
+            <textarea name="textarea-name" id="textarea-id">valor do textarea</textarea>
+
+            <select name="select-name" id="select-id">
+                <option value="">select</option>
+                <option value="valor do select a" selected="">opção a</option>
+                <option value="valor do select b">opção b</option>
+                <option value="valor do select c">opção c</option>
+            </select>
+
+            <input type="checkbox" name="checkbox-name[]" value="valor do checkbox a" id="checkbox-id-a" checked="" />
+            <input type="checkbox" name="checkbox-name[]" value="valor do checkbox b" id="checkbox-id-b" checked="" />
+
+            <input type="radio" name="radio-name" value="valor do radio a" id="radio-id-a" checked="" />
+            <input type="radio" name="radio-name" value="valor do radio b" id="radio-id-b" />
+
+            <button type="button" value="valor do button" id="button-id">button</button>
+        </form>
+
+        <div>
+            <p>Manipular Valor</p>
+            <button onclick="todosValores()">Obter todos valores</button>
+            <button onclick="alterarValor()">Alterar valor do text</button>
+
+            <p>Seletor</p>
+            <button onclick="alterarSeletor(0)">Alterar para opção 0</button>
+            <button onclick="alterarSeletor(1)">Alterar para opção 1</button>
+            <button onclick="alterarSeletor(2)">Alterar para opção 2</button>
+            <button onclick="alterarSeletor(3)">Alterar para opção 3</button>
+
+            <p>Serializar formulario</p>
+            <button onclick="serializarForm()">Serializar</button>
+        </div>
+
+        <script>
+            var text = jsd('#text-id');
+            var textarea = jsd('#textarea-id');
+            var select = jsd('#select-id');
+            var checkboxA = jsd('#checkbox-id-a');
+            var checkboxB = jsd('#checkbox-id-b');
+            var radioA = jsd('#radio-id-a');
+            var radioB = jsd('#radio-id-b');
+            var button = jsd('#button-id');
+
+            //================
+            // obter valores individuais para cada elemento
+            function todosValores() {
+                console.log(
+                     text.value() + '\n',
+                     textarea.value() + '\n',
+                     select.value() + '\n',
+                     checkboxA.value() + '\n',
+                     checkboxB.value() + '\n',
+                     radioA.value() + '\n',
+                     radioB.value() + '\n',
+                     button.value()
+                );
+            }
+
+            //================
+            // alterar valor do elemento
+            function alterarValor() {
+                text.value('Lorem ipsum dolor sit amet...');
+            }
+
+            //================
+            // Mudar opção de um seletor
+            function alterarSeletor(chave) {
+                console.log('Índice antes de alterar era: ' + select.selectedIndex());
+                select.selectedIndex(chave); // Altera para o índice
+                console.log('Atual valor: ' + select.value());
+            }
+
+            //================
+            // Codificar todos elementos com atributo "name" no formulário
+            // Método para requisição HTTP[POST]
+            function serializarForm() {
+                var formulario = jsd('#formulario').serialize();
+                console.log(
+                    'Dados do formulário serializado:\n\n'
+                    + formulario
+                    + '\n\n=====================\n\n'
+                    + 'Dados do formulário serializado adicionado codificação URI:\n\n'
+                    + encodeURI(formulario)
+                );
+                    window.location = formulario;
+            }
+        </script>
+    </body>
+</html>

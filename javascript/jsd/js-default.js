@@ -902,7 +902,7 @@ var jsd = jsd || {};
             }
         },
 
-        /* Métodos de propriedades */
+        /* Métodos de atributos e propriedades */
         properties: {
             /**
              * *************************************
@@ -930,7 +930,7 @@ var jsd = jsd || {};
              *  do(s) elemento(s).
              * 
              * @param {STR} cl
-             * Informar o(s) valore(s) separados por
+             * Informar o(s) valor(es) separados por
              *  espaço.
              * *************************************
              */
@@ -951,7 +951,7 @@ var jsd = jsd || {};
              *  elemento(s).
              * 
              * @param {STR} cl
-             * Informar o(s) valore(s) separados por
+             * Informar o(s) valor(es) separados por
              *  espaço.
              * 
              * Nota!
@@ -977,7 +977,7 @@ var jsd = jsd || {};
              *  do(s) elemento(s).
              * 
              * @param {STR} cl (opcional)
-             * Informar o(s) valore(s) separados por
+             * Informar o(s) valor(es) separados por
              *  espaço.
              * Se não informado remove tudo.
              * *************************************
@@ -993,6 +993,97 @@ var jsd = jsd || {};
                 } else {
                     for (var $k = 0; $k < this.length; $k++) {
                         this[$k].className = '';
+                    }
+                }
+            },
+            /**
+             * *************************************
+             * Obterm valor do(s) atributo(s) no(s)
+             *  elemento(s).
+             * 
+             * @param {STR} attr (opcional)
+             * Informar o atributo a obter o valor.
+             * Se não informado retorna arrays
+             * com todos atributos presentes.
+             * *************************************
+             */
+            attr: function (attr) {
+                var $i = 0, $j = 0, $attr = null, $attrs = [];
+                if ($_.isDefined(attr)) {
+                    for (; $i < this.length; $i++) {
+                        $attr = this[$i].getAttribute(attr);
+                        $attrs.push($attr);
+                    }
+                } else {
+                    for (; $i < this.length; $i++) {
+                        $attr = this[$i].attributes;
+                        for ($j = 0; $j < $attr.length; $j++) {
+                            $attrs.push([$attr[$j].nodeName, $attr[$j].nodeValue]);
+                        }
+                    }
+                }
+                return $attrs;
+            },
+            /**
+             * *************************************
+             * Define/criar atributos no(s)
+             *  elemento(s).
+             * 
+             * @param {STR/OBJ} attr
+             * Quando string, informar o atributo a
+             * ser criado.
+             * Quando objeto, informar o atributo e
+             * seu valor a ser criado.
+             * 
+             * @param {STR} val (opcional)
+             * Somente válido quando "attr" é um
+             *  string.
+             * Informar o valor do atributo "attr"
+             *  a ser criado.
+             * Se não informado e "attr" for string
+             *  o atribut não terá valor.
+             * *************************************
+             */
+            setAttr: function (attr, val) {
+                var $i = 0;
+                if ($_.isString(attr) && $_.isString(val)) {
+                    for (; $i < this.length; $i++) {
+                        this[$i].setAttribute(attr, val);
+                    }
+                } else if ($_.isObject(attr)) {
+                    for (; $i < this.length; $i++) {
+                        for (var name in attr) {
+                            this[$i].setAttribute(name, attr[name]);
+                        }
+                    }
+                }
+            },
+            /**
+             * *************************************
+             * Remove atributos no(s) elemento(s).
+             * 
+             * @param {STR/ARR} attr
+             * Quando string, informar o nome do
+             *  atributo a ser removido.
+             * Quando array, informar em cada índice
+             *  o nome do atributo a ser removido.
+             * *************************************
+             */
+            removeAttr: function (attr) {
+                var $i = 0, $j;
+                if ($_.isString(attr)) {
+                    for (; $i < this.length; $i++) {
+                        this[$i].removeAttribute(attr);
+                    }
+                } else if ($_.isArray(attr)) {
+                    for (; $i < this.length; $i++) {
+                        for ($j = 0; $j < attr.length; $j++) {
+                            this[$i].removeAttribute(attr[$j]);
+                        }
+                    }
+                } else {
+                    while (this[$i].attributes.length) {
+                        this[$i].removeAttribute(this[$i].attributes[0].nodeName);
                     }
                 }
             }

@@ -25,9 +25,9 @@ var jsd = jsd || {};
      * **********************************************
      */
     var objectHTML = function (arr) {
-        var $this = this;
-        for (var i = 0; i < arr.length; i += 1) {
-            $this[i] = arr[i];
+        var $this = this, $i = 0;
+        for (; $i < arr.length; $i++) {
+            $this[$i] = arr[$i];
         }
         $this.length = arr.length;
         return this;
@@ -50,10 +50,8 @@ var jsd = jsd || {};
     function $_(tgt, onNode) {
         var $push = [], $nodes = [], $i;
         try {
-            if (typeof tgt === 'undefined') {
-                throw 'Não foi possível localizar o elemento porque ele é indefinido';
-            } else if (typeof tgt === null) {
-                throw 'Não foi possível localizar o elemento porque ele é nulo';
+            if (!$_.isExists(tgt)) {
+                throw 'Não foi possível localizar o elemento';
             } else if (tgt instanceof objectHTML) {
                 return tgt;
             } else if (typeof tgt === 'string') {
@@ -86,6 +84,45 @@ var jsd = jsd || {};
         }
     }
 
+    /**
+     * **********************************************
+     * @private
+     * Encontra elementos internos a outro.
+     * 
+     * @param {OBJ} node
+     * Objeto para buscar elementos internos.
+     * 
+     * @param {STR} find
+     * Elemento para ser encontrado.
+     * **********************************************
+     */
+    function allIn(node, find) {
+        var $context = null, $nodes = [], $i = 0;
+        if ($_.isDefined((node || document).querySelectorAll)) {
+            $context = (node || document).querySelectorAll(find || '*');
+        }
+        for (; $i < $context.length; $i++) {
+            $nodes.push($context[$i]);
+        }
+        return $_.arrayFilter($nodes);
+    }
+
+    function createNode(node) {
+        var $node = node, $temp = null, $add = [], $i = 0;
+        if ($_.isString($node)) {
+            $temp = document.createElement('div');
+            $temp.innerHTML = $node;
+            $add.push($temp.firstChild);
+        } else if ($node instanceof objectHTML) {
+            for (; $i < $node.length; $i++) {
+                $add.push($node[$i]);
+            }
+        } else {
+            $add.push($node);
+        }
+        return ($add);
+    }
+
     // ==============================================
     // = FUNÇÕES EXTRAS
     // ==============================================
@@ -95,7 +132,7 @@ var jsd = jsd || {};
      * @public
      * Verifica se o valor existe.
      * 
-     * @param {OBJS} val
+     * @param {OBJ} val
      * Informar o valor para verificação.
      * **********************************************
      */
@@ -198,6 +235,28 @@ var jsd = jsd || {};
             }
         }
         return $array;
+    };
+
+    /**
+     * **********************************************
+     * @public
+     * Vefifica o índice de um array.
+     * 
+     * @param {ARR} array
+     * Informar o array.
+     * 
+     * @param {STR/OBJ} key
+     * Informar a chave do índice.
+     * **********************************************
+     */
+    $_.indexOf = function (array, key) {
+        var $i = 0, $length = array.length;
+        for (; $i < $length; $i++) {
+            if (array[$i] === key) {
+                return $i;
+            }
+        }
+        return -1;
     };
 
     /**
@@ -514,28 +573,66 @@ var jsd = jsd || {};
              * 
              * @param {STR} tgt
              * Informar o elemento para procurar.
+             * Se não informado retorna todos
+             *  elementos internos, filhos diretos
+             *  ou não.
              * *************************************
              */
             find: function (tgt) {
-                var $i = 0, $j = 0, $nodeList = [], $selector = null;
-                if (!$_.isDefined(tgt)) {
-                    return undefined;
-                } else if (tgt instanceof objectHTML) {
+                if (tgt instanceof objectHTML) {
                     return tgt;
                 } else {
-                    for (; $i < this.length; $i++) {
-                        $selector = this[$i].querySelectorAll(tgt);
-                        for ($j = 0; $j < $selector.length; $j++) {
-                            $nodeList.push($selector[$j]);
-                        }
-                    }
-                    if ($nodeList.length >= 1) {
-                        return new objectHTML($_.arrayFilter($nodeList));
-                    } else {
+                    var $nodeList = allIn(this[0], (tgt || false));
+                    if ($nodeList.length < 1) {
                         return undefined;
+                    } else {
+                        return new objectHTML($nodeList);
                     }
                 }
+            }
+        },
+
+        /* Métodos para adicionar e remover */
+        addRemove: {
+            /**
+             * *************************************
+             * Cria/Adiciona elementos dentro do(s)
+             *  elemento(s) da instância, por
+             *  argumento.
+             * *************************************
+             */
+            append: function () {
+                var $args = arguments[0], $newNode = null, $i = 0, $j = 0, $newScript = null;
+                if (arguments.length >= 1) {
+                    for (; $i < this.length; $i++) {
+                        $newNode = createNode($args);
+                        for ($j = 0; $j < $newNode.length; $j++) {
+                            if ($_.isDefined($newNode[$j].tagName)) {
+                                if ($newNode[$j].tagName.toLowerCase() === 'script') {
+                                    $newScript = document.createElement('script');
+                                    $newScript.text = $newNode[$j].text;
+                                    this[$i].appendChild($newScript);
+                                } else {
+                                    this[$i].appendChild($newNode[$j]);
+                                }
+                            }
+                        }
+                    }
+                    return this;
+                } else {
+                    return false;
+                }
             },
+
+            prepend: function () {
+            },
+
+            before: function () {
+            },
+
+            after: function () {
+            },
+
             clear: function (tgt) {
                 var $child = this[0].childNodes, $target = null, $i = 0;
                 if ($child.length) {
@@ -576,7 +673,7 @@ var jsd = jsd || {};
              */
             html: function (setHtml) {
                 if (!$_.isDefined(setHtml)) {
-                    return this[0] ? this[0].innerHTML : undefined;
+                    return this[0].innerHTML;
                 } else if (this.length > 1) {
                     for (var $i = 0; $i < this.length; $i++) {
                         this[$i].innerHTML = setHtml;
@@ -597,7 +694,7 @@ var jsd = jsd || {};
              */
             text: function (setText) {
                 if (!$_.isDefined(setText)) {
-                    return this[0] ? this[0].innerText : undefined;
+                    return this[0].innerText;
                 } else if (this.length > 1) {
                     for (var $i = 0; $i < this.length; $i++) {
                         this[$i].innerText = setText;

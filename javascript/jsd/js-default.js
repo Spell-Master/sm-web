@@ -107,6 +107,15 @@ var jsd = jsd || {};
         return $_.arrayFilter($nodes);
     }
 
+    /**
+     * **********************************************
+     * @private
+     * Cria elementos.
+     * 
+     * @param {STR/OBJ} node
+     * Elemento para ser criado.
+     * **********************************************
+     */
     function createNode(node) {
         var $node = node, $temp = null, $add = [], $i = 0;
         if ($_.isString($node)) {
@@ -596,7 +605,7 @@ var jsd = jsd || {};
         addRemove: {
             /**
              * *************************************
-             * Cria/Adiciona elementos dentro do(s)
+             * Adiciona elemento dentro do(s)
              *  elemento(s) da instância, por
              *  argumento.
              * *************************************
@@ -623,16 +632,105 @@ var jsd = jsd || {};
                     return false;
                 }
             },
-
+            /**
+             * *************************************
+             * Adiciona elemento dentro do(s)
+             *  elemento(s) da instância, por
+             *  argumento, antes de qualquer outro
+             *  elemento interno que tenha.
+             * *************************************
+             */
             prepend: function () {
+                var $args = arguments[0], $newNode = null, $i = 0, $j = 0, $newScript = null;
+                if (arguments.length >= 1) {
+                    for (; $i < this.length; $i++) {
+                        $newNode = createNode($args);
+                        for ($j = 0; $j < $newNode.length; $j++) {
+                            if ($_.isDefined($newNode[$j].tagName)) {
+                                if ($newNode[$j].tagName.toLowerCase() === 'script') {
+                                    $newScript = document.createElement('script');
+                                    $newScript.text = $newNode[$j].text;
+                                    this[$i].insertBefore($newScript, this[$i].firstChild);
+                                } else {
+                                    this[$i].insertBefore($newNode[$j], this[$i].firstChild);
+                                }
+                            }
+                        }
+                    }
+                    return this;
+                } else {
+                    return false;
+                }
             },
-
+            /**
+             * *************************************
+             * Adiciona elemento fora do(s)
+             *  elemento(s) da instância, por
+             *  argumento, antes do(s) mesmo(s).
+             * *************************************
+             */
             before: function () {
+                var $args = arguments[0], $newNode = null, $i = 0, $j = 0, $newScript = null;
+                if (arguments.length >= 1) {
+                    for (; $i < this.length; $i++) {
+                        $newNode = createNode($args);
+                        for ($j = 0; $j < $newNode.length; $j++) {
+                            if ($_.isDefined($newNode[$j].tagName)) {
+                                if ($newNode[$j].tagName.toLowerCase() === 'script') {
+                                    $newScript = document.createElement('script');
+                                    $newScript.text = $newNode[$j].text;
+                                    this[$i].parentNode.insertBefore($newScript, this[$i]);
+                                } else {
+                                    this[$i].parentNode.insertBefore($newNode[$j], this[$i]);
+                                }
+                            }
+                        }
+                    }
+                    return this;
+                } else {
+                    return false;
+                }
             },
-
+            /**
+             * *************************************
+             * Adiciona elemento fora do(s)
+             *  elemento(s) da instância, por
+             *  argumento, depois do(s) mesmo(s).
+             * *************************************
+             */
             after: function () {
+                var $args = arguments[0], $newNode = null, $i = 0, $j = 0, $newScript = null;
+                if (arguments.length >= 1) {
+                    for (; $i < this.length; $i++) {
+                        $newNode = createNode($args);
+                        for ($j = 0; $j < $newNode.length; $j++) {
+                            if ($_.isDefined($newNode[$j].tagName)) {
+                                if ($newNode[$j].tagName.toLowerCase() === 'script') {
+                                    $newScript = document.createElement('script');
+                                    $newScript.text = $newNode[$j].text;
+                                    this[$i].parentNode.insertBefore($newScript, this[$i].nextSibling);
+                                } else {
+                                    this[$i].parentNode.insertBefore($newNode[$j], this[$i].nextSibling);
+                                }
+                            }
+                        }
+                    }
+                    return this;
+                } else {
+                    return false;
+                }
             },
-
+            /**
+             * *************************************
+             * Limpa/remove conteúdo interno do(s)
+             *  elemento(s) da instância.
+             *  
+             * @param {STR/OBJ} tgt
+             * Alvo para eliminar.
+             * Se não informado limpa todo conteúdo
+             *  interno.
+             * *************************************
+             */
             clear: function (tgt) {
                 var $child = this[0].childNodes, $target = null, $i = 0;
                 if ($child.length) {
@@ -650,6 +748,12 @@ var jsd = jsd || {};
                     }
                 }
             },
+            /**
+             * *************************************
+             * Remove o(s) elemento(s) da instância
+             *  no documento.
+             * *************************************
+             */
             remove: function () {
                 for (var $i = 0; $i < this.length; $i++) {
                     if (this[$i].parentNode) {

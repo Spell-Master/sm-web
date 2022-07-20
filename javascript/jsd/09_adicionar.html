@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Adicionar Elemento</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="js-default.js" type="text/javascript"></script>
+    </head>
+    <body>
+
+        <div class="classificador">classificaro a</div>
+        <div class="classificador">classificaro b</div>
+        <div id="exemplo" style="border:1px solid black">
+            <div>Elemento Interno já presente</div>
+        </div>
+
+        <hr />
+        <p>Adicionar elemento dentro do alvo, mas depois de qualquer outro que já esteja presente</p>
+        <button onclick="depoisString(true)">criado por string</button>
+        <button onclick="depoisVaria(true)">criado separado</button>
+        <button onclick="depoisInst(true)">Adicionar elementos da instância</button>
+        <button onclick="depoisScript(true)">Adicionar elemento script</button>
+
+        <hr />
+        <p>Adicionar elemento dentro alvo, mas antes de qualquer outro que já esteja presente</p>
+        <button onclick="antesString(true)">criado por string</button>
+        <button onclick="antesVaria(true)">criado separado</button>
+        <button onclick="antesInst(true)">Adicionar elementos da instância</button>
+        <button onclick="antesScript(true)">Adicionar elemento script</button>
+
+        <hr />
+        <p>Adicionar elemento fora do alvo, mas depois dele</p>
+        <button onclick="depoisString(false)">criado por string</button>
+        <button onclick="depoisVaria(false)">criado separado</button>
+        <button onclick="depoisInst(false)">Adicionar elementos da instância</button>
+        <button onclick="depoisScript(false)">Adicionar elemento script</button>
+
+        <hr />
+        <p>Adicionar elemento fora do alvo, mas antes dele</p>
+        <button onclick="antesString(false)">criado por string</button>
+        <button onclick="antesVaria(false)">criado separado</button>
+        <button onclick="antesInst(false)">Adicionar elementos da instância</button>
+        <button onclick="antesScript(false)">Adicionar elemento script</button>
+
+        <hr />
+        <button onclick="teste()">Testar função adicionada por javascript</button>
+
+        <script>
+            /*
+             * Resumo:
+             * append = Adiciona elemento interno no final
+             * prepend = Adiciona elemento interno no início
+             * after = Adiciona elemento externo depois
+             * before = Adiciona elemento externo antes
+             */
+            var exemplo = jsd('#exemplo');
+            var a = jsd('.classificador');
+            var p = document.createElement('p');
+            p.innerText = 'Parágrafo';
+
+            var string = '<div class="foo" style="color:red">Olá mundo</div>';
+            var script = '<script>function teste () {alert(\'Script Adicionado\')}<\/script>';
+
+            function depoisString(dentro) {
+                if (dentro) {
+                    exemplo.append(string);
+                } else {
+                    exemplo.after(string);
+                }
+            }
+
+            function depoisVaria(dentro) {
+                if (dentro) {
+                    exemplo.append(p);
+                } else {
+                    exemplo.after(p);
+                }
+            }
+
+            function depoisInst(dentro) {
+                /*
+                 mesmo resultado move o(s) elemento(s)
+                 exemplo.append(jsd('.classificador'));
+                 exemplo.after(jsd('.classificador'));
+                 */
+                if (dentro) {
+                    exemplo.append(a);
+                } else {
+                    exemplo.after(a);
+                }
+
+            }
+
+            function depoisScript(dentro) {
+                if (dentro) {
+                    exemplo.append(script);
+                } else {
+                    exemplo.after(script);
+                }
+            }
+
+            // ================================
+
+            function antesString(dentro) {
+                if (dentro) {
+                    exemplo.prepend(string);
+                } else {
+                    exemplo.before(string);
+                }
+            }
+
+            function antesVaria(dentro) {
+                if (dentro) {
+                    exemplo.prepend(p);
+                } else {
+                    exemplo.before(p);
+                }
+            }
+
+            function antesInst(dentro) {
+                /*
+                 mesmo resultado move o(s) elemento(s)
+                 exemplo.prepend(jsd('.classificador'));
+                 exemplo.before(jsd('.classificador'));
+                 */
+                if (dentro) {
+                    exemplo.prepend(a);
+                } else {
+                    exemplo.before(a);
+                }
+            }
+
+            function antesScript(dentro) {
+                if (dentro) {
+                    exemplo.prepend(script);
+                } else {
+                    exemplo.before(script);
+                }
+            }
+        </script>
+    </body>
+</html>

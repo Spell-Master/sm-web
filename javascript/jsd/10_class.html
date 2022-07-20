@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Class</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="js-default.js" type="text/javascript"></script>
+        <style>
+            .class-a {
+                color: red
+            }
+            .class-b {
+                color: blue
+            }
+        </style>
+    </head>
+    <body>
+
+        <div id="exemplo">
+            exemplo
+        </div>
+
+        <button onclick="verClass()">Ver quais classificadores tem</button>
+        <button onclick="verClass('class-a')">Checar se tem classificador expecífico</button>
+        <hr />
+        <button onclick="adicionarClass(false)">Adicionar classificador</button>
+        <button onclick="adicionarClass(true)">Adicionar mais de um classificador ao mesmo tempo</button>
+
+        <hr />
+        <button onclick="trocarClass(false)">Adicionar/remover classificador</button>
+        <button onclick="trocarClass(true)">Adicionar/remover mais de um classificador ao mesmo tempo</button>
+
+        <hr />
+        <button onclick="removerClass(false)">remover classificador</button>
+        <button onclick="removerClass(true)">remover mais de um classificador ao mesmo tempo</button>
+
+        <script>
+            var exemplo = jsd('#exemplo');
+
+            function verClass(x) {
+                console.log(exemplo.classList(x));
+            }
+
+            function adicionarClass(varias) {
+                if (varias) {
+                    exemplo.addClass('class-a class-b');
+                } else {
+                    exemplo.addClass('class-a');
+                }
+            }
+
+            function trocarClass(varias) {
+                if (varias) {
+                    exemplo.toggleClass('class-a class-b');
+                } else {
+                    exemplo.toggleClass('class-a');
+                }
+            }
+
+            function removerClass(varias) {
+                /*
+                 * Se não informar qual classificador é para remover todos serão removidos
+                 * exemplo.removeClass();
+                 */
+                if (varias) {
+                    exemplo.removeClass('class-a class-b');
+                } else {
+                    exemplo.removeClass('class-a');
+                }
+            }
+        </script>
+    </body>
+</html>

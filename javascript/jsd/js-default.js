@@ -900,6 +900,102 @@ var jsd = jsd || {};
                     return undefined;
                 }
             }
+        },
+
+        /* Métodos de propriedades */
+        properties: {
+            /**
+             * *************************************
+             * Verifica se na propriedade "class"
+             *  do(s) elemento(s) possui o valor.
+             * 
+             * @param {STR} cl (opcional)
+             * Informar o valor.
+             * Se não informado retorna o todos os
+             *  valores quando eles existirem.
+             * *************************************
+             */
+            classList: function (cl) {
+                if (this[0].className === '') {
+                    return undefined;
+                } else if (!$_.isDefined(cl)) {
+                    return this[0].classList;
+                } else {
+                    return this[0].classList.contains(cl);
+                }
+            },
+            /**
+             * *************************************
+             * Adiciona valor na propriedade "class"
+             *  do(s) elemento(s).
+             * 
+             * @param {STR} cl
+             * Informar o(s) valore(s) separados por
+             *  espaço.
+             * *************************************
+             */
+            addClass: function (cl) {
+                if ($_.isDefined(cl) && cl !== '') {
+                    var $add = cl.split(' '), $i = 0, $j = 0;
+                    for (; $i < this.length; $i++) {
+                        for ($j = 0; $j < $add.length; $j++) {
+                            this[$i].classList.add($add[$j]);
+                        }
+                    }
+                }
+            },
+            /**
+             * *************************************
+             * Adiciona ou remove valor na
+             *  propriedade "class" do(s)
+             *  elemento(s).
+             * 
+             * @param {STR} cl
+             * Informar o(s) valore(s) separados por
+             *  espaço.
+             * 
+             * Nota!
+             * Se houver mais de um valor em "cl"
+             * e o elemento já possuir algum desses
+             *  valores aquele que exite é retirado
+             *  e os demais adicionados.
+             * *************************************
+             */
+            toggleClass: function (cl) {
+                if ($_.isDefined(cl) && cl !== '') {
+                    var $toggle = cl.split(' '), $i = 0, $j = 0;
+                    for (; $i < this.length; $i++) {
+                        for ($j = 0; $j < $toggle.length; $j++) {
+                            this[$i].classList.toggle($toggle[$j]);
+                        }
+                    }
+                }
+            },
+            /**
+             * *************************************
+             * Remove valor na propriedade "class"
+             *  do(s) elemento(s).
+             * 
+             * @param {STR} cl (opcional)
+             * Informar o(s) valore(s) separados por
+             *  espaço.
+             * Se não informado remove tudo.
+             * *************************************
+             */
+            removeClass: function (cl) {
+                if ($_.isDefined(cl) && cl !== '') {
+                    var $remove = cl.split(' '), $i = 0, $j = 0;
+                    for (; $i < this.length; $i++) {
+                        for ($j = 0; $j < $remove.length; $j++) {
+                            this[$i].classList.remove($remove[$j]);
+                        }
+                    }
+                } else {
+                    for (var $k = 0; $k < this.length; $k++) {
+                        this[$k].className = '';
+                    }
+                }
+            }
         }
     };
 

@@ -20,7 +20,7 @@ var jsd = jsd || {};
      * Anexa todos elementos ao script adicionando
      * os métodos para cada um.
      * 
-     * @param {ARR} arr
+     * @param {ARRAY} arr
      * Array DOM elements
      * **********************************************
      */
@@ -40,10 +40,10 @@ var jsd = jsd || {};
      * @private
      * Busca pelos elementos no documento.
      * 
-     * @param {STR/OBJ} tgt
+     * @param {STRING/OBJECT} tgt
      * Elemento(s) alvo para anexar ao script.
      * 
-     * @param {OBJ} onNode
+     * @param {OBJECT} onNode
      * Elemento para buscar o alvo em "tgt".
      * **********************************************
      */
@@ -89,10 +89,10 @@ var jsd = jsd || {};
      * @private
      * Encontra elementos internos a outro.
      * 
-     * @param {OBJ} node
+     * @param {OBJECT} node
      * Objeto para buscar elementos internos.
      * 
-     * @param {STR} find
+     * @param {STRING} find
      * Elemento para ser encontrado.
      * **********************************************
      */
@@ -112,7 +112,7 @@ var jsd = jsd || {};
      * @private
      * Cria elementos.
      * 
-     * @param {STR/OBJ} node
+     * @param {STRING/OBJECT} node
      * Elemento para ser criado.
      * **********************************************
      */
@@ -141,7 +141,7 @@ var jsd = jsd || {};
      * @public
      * Verifica se o valor existe.
      * 
-     * @param {OBJ} val
+     * @param {ANYTHING} val
      * Informar o valor para verificação.
      * **********************************************
      */
@@ -154,7 +154,7 @@ var jsd = jsd || {};
      * @public
      * Verifica se o valor está definido.
      * 
-     * @param {OBJ} val
+     * @param {ANYTHING} val
      * Informar o valor para verificação.
      * **********************************************
      */
@@ -167,7 +167,7 @@ var jsd = jsd || {};
      * @public
      * Verifica se o valor é uma função.
      * 
-     * @param {OBJ} val
+     * @param {ANYTHING} val
      * Informar o valor para verificação.
      * **********************************************
      */
@@ -180,7 +180,7 @@ var jsd = jsd || {};
      * @public
      * Verifica se o valor é um objeto.
      * 
-     * @param {OBJ} val
+     * @param {ANYTHING} val
      * Informar o valor para verificação.
      * **********************************************
      */
@@ -193,7 +193,7 @@ var jsd = jsd || {};
      * @public
      * Verifica se o valor é uma string.
      * 
-     * @param {OBJ} val
+     * @param {ANYTHING} val
      * Informar o valor para verificação.
      * **********************************************
      */
@@ -219,7 +219,7 @@ var jsd = jsd || {};
      * @public
      * Verifica se o valor é uma array.
      * 
-     * @param {ARR} arr
+     * @param {ARRAY} arr
      * Informar o valor para verificação.
      * **********************************************
      */
@@ -232,7 +232,7 @@ var jsd = jsd || {};
      * @public
      * Filtra o array removendo índices duplicados.
      * 
-     * @param {ARR} arr
+     * @param {ARRAY} arr
      * Informar o array.
      * **********************************************
      */
@@ -251,10 +251,10 @@ var jsd = jsd || {};
      * @public
      * Vefifica o índice de um array.
      * 
-     * @param {ARR} array
+     * @param {ARRAY} array
      * Informar o array.
      * 
-     * @param {STR/OBJ} key
+     * @param {STRING/OBJECT} key
      * Informar a chave do índice.
      * **********************************************
      */
@@ -273,10 +273,10 @@ var jsd = jsd || {};
      * @public
      * Une duas arrays em uma.
      * 
-     * @param {ARR} arrA
+     * @param {ARRAY} arrA
      * Informar um array.
      * 
-     * @param {ARR} arrB
+     * @param {ARRAY} arrB
      * Informar outro array.
      * **********************************************
      */
@@ -294,7 +294,7 @@ var jsd = jsd || {};
      * @public
      * Converte em texto o tamanho de dados.
      * 
-     * @param {INT} sz
+     * @param {INTERGER} sz
      * Informar valor para conversão.
      * **********************************************
      */
@@ -307,6 +307,32 @@ var jsd = jsd || {};
         }
     };
 
+    /**
+     * *****************************************
+     * Executa um loop sobre objetos ou arrays
+     * definindo um chamanda de função por trás
+     * da execução a cada volta do loop.
+     *  
+     * @param {OBJECT/ARRAY} obj
+     * Objeto ou array para executar o loop.
+     *  
+     * @param {FUNCTION} callback
+     * Função a se executada a cada volta do
+     *  loop.
+     * *****************************************
+     */
+    $_.each = function (obj, callback) {
+        if ($_.isDefined(obj) && $_.isDefined(callback)) {
+            for (var $i in obj) {
+                if (callback.call(obj[$i], $i, obj[$i]) === false) {
+                    break;
+                }
+            }
+        } else {
+            return (obj);
+        }
+    };
+
     // ==============================================
     // = MÉTODOS
     // ==============================================
@@ -316,7 +342,7 @@ var jsd = jsd || {};
          * *****************************************
          * Obtem o indice na instancia dos objetos.
          * 
-         * @param {INT} idx
+         * @param {INTERGER} idx
          * Informar o índice o object-array.
          * *****************************************
          */
@@ -345,7 +371,7 @@ var jsd = jsd || {};
          *  repetição/duplicação de instâncias de
          *  objetos.
          *  
-         * @param {OBJ/STR} compare
+         * @param {OBJECT/STRING} compare
          * Informar o que comparar
          * *****************************************
          */
@@ -375,6 +401,27 @@ var jsd = jsd || {};
                     }
                 }
                 return false;
+            }
+        },
+
+        /**
+         * *****************************************
+         * Executa um loop interando uma função de
+         *  chamada a ele.
+         * 
+         * @param {FUNCTION} callback
+         * Função a se executada a cada volta do
+         *  loop.
+         * *****************************************
+         */
+        each: function (callback) {
+            if ($_.isFunction(callback)) {
+                for (var $i = 0; $i < this.length; $i++) {
+                    if (callback.call(this[$i], $i, this[$i]) === false) {
+                        break;
+                    }
+                }
+                return this;
             }
         },
 
@@ -438,7 +485,7 @@ var jsd = jsd || {};
              * Obtem o(s) elemento(s) antes do
              *  elemento da instância.
              * 
-             * @param {STR/OBJ} tgt (opcional)
+             * @param {STRING/OBJECT} tgt (opcional)
              * Informar o elemento para procurar.
              * Se não informado retorna todos
              *  elementos anteriores.
@@ -473,7 +520,7 @@ var jsd = jsd || {};
              * Obtem o(s) elemento(s) depois do
              *  elemento da instância.
              * 
-             * @param {STR/OBJ} tgt (opcional)
+             * @param {STRING/OBJECT} tgt (opcional)
              * Informar o elemento para procurar.
              * Se não informado retorna todos
              *  elementos posteriores.
@@ -508,7 +555,7 @@ var jsd = jsd || {};
              * Obtem o(s) elemento(s) filhos do
              *  elemento da instância.
              * 
-             * @param {STR/OBJ} tgt (opcional)
+             * @param {STRING/OBJECT} tgt (opcional)
              * Informar o elemento para procurar.
              * Se não informado retorna todos
              *  filhos diretos.
@@ -545,7 +592,7 @@ var jsd = jsd || {};
              * Obtem o(s) elemento(s) parentes do
              *  elemento da instância.
              * 
-             * @param {STR/OBJ} tgt (opcional)
+             * @param {STRING/OBJECT} tgt (opcional)
              * Informar o elemento para procurar
              * Se não informado retorna todos
              *  parentes.
@@ -580,7 +627,7 @@ var jsd = jsd || {};
              * Obtem o(s) elemento(s) internos ao
              *  elemento da instância.
              * 
-             * @param {STR} tgt
+             * @param {STRING} tgt
              * Informar o elemento para procurar.
              * Se não informado retorna todos
              *  elementos internos, filhos diretos
@@ -725,7 +772,7 @@ var jsd = jsd || {};
              * Limpa/remove conteúdo interno do(s)
              *  elemento(s) da instância.
              *  
-             * @param {STR/OBJ} tgt
+             * @param {OBJECT/STRING} tgt
              * Alvo para eliminar.
              * Se não informado limpa todo conteúdo
              *  interno.
@@ -769,7 +816,7 @@ var jsd = jsd || {};
              * *************************************
              * Escreve HTML no(s) elemento(s).
              * 
-             * @param {STR} setHtml (opcional)
+             * @param {STRING} setHtml (opcional)
              * Informar o HTML a escrever.
              * Se não informado retorna a estrutura
              *  HTML no(s) elemento(s).
@@ -790,7 +837,7 @@ var jsd = jsd || {};
              * *************************************
              * Escreve texto no(s) elemento(s).
              * 
-             * @param {STR} setText (opcional)
+             * @param {STRING} setText (opcional)
              * Informar o texto a escrever
              * Se não informado retorna o texto
              *  contido no(s) elemento(s).
@@ -846,7 +893,7 @@ var jsd = jsd || {};
              * *************************************
              * Define o valor no(s) elemento(s).
              * 
-             * @param {STR} setValue (opcional)
+             * @param {STRING} setValue (opcional)
              * Informar o valor a definir.
              * Se não informado retorna o valor
              *  contido no(s) elemento(s).
@@ -877,7 +924,7 @@ var jsd = jsd || {};
              * Alterar o índice no(s) elemento(s)
              *  cujo a tag for um "select".
              * 
-             * @param {INT} idx (opcional)
+             * @param {INTERGER} idx (opcional)
              * Informar o índice das opções
              *  disponíveis.
              * Se não informado retorna o índice
@@ -909,7 +956,7 @@ var jsd = jsd || {};
              * Verifica se na propriedade "class"
              *  do(s) elemento(s) possui o valor.
              * 
-             * @param {STR} cl (opcional)
+             * @param {STRING} cl (opcional)
              * Informar o valor.
              * Se não informado retorna o todos os
              *  valores quando eles existirem.
@@ -929,7 +976,7 @@ var jsd = jsd || {};
              * Adiciona valor na propriedade "class"
              *  do(s) elemento(s).
              * 
-             * @param {STR} cl
+             * @param {STRING} cl
              * Informar o(s) valor(es) separados por
              *  espaço.
              * *************************************
@@ -950,7 +997,7 @@ var jsd = jsd || {};
              *  propriedade "class" do(s)
              *  elemento(s).
              * 
-             * @param {STR} cl
+             * @param {STRING} cl
              * Informar o(s) valor(es) separados por
              *  espaço.
              * 
@@ -976,7 +1023,7 @@ var jsd = jsd || {};
              * Remove valor na propriedade "class"
              *  do(s) elemento(s).
              * 
-             * @param {STR} cl (opcional)
+             * @param {STRING} cl (opcional)
              * Informar o(s) valor(es) separados por
              *  espaço.
              * Se não informado remove tudo.
@@ -1001,7 +1048,7 @@ var jsd = jsd || {};
              * Obterm valor do(s) atributo(s) no(s)
              *  elemento(s).
              * 
-             * @param {STR} attr (opcional)
+             * @param {STRING} attr (opcional)
              * Informar o atributo a obter o valor.
              * Se não informado retorna arrays
              * com todos atributos presentes.
@@ -1029,13 +1076,13 @@ var jsd = jsd || {};
              * Define/criar atributos no(s)
              *  elemento(s).
              * 
-             * @param {STR/OBJ} attr
+             * @param {STRING/OBJECT} attr
              * Quando string, informar o atributo a
              * ser criado.
              * Quando objeto, informar o atributo e
              * seu valor a ser criado.
              * 
-             * @param {STR} val (opcional)
+             * @param {STRING} val (opcional)
              * Somente válido quando "attr" é um
              *  string.
              * Informar o valor do atributo "attr"
@@ -1062,7 +1109,7 @@ var jsd = jsd || {};
              * *************************************
              * Remove atributos no(s) elemento(s).
              * 
-             * @param {STR/ARR} attr
+             * @param {STRING/ARRAY} attr
              * Quando string, informar o nome do
              *  atributo a ser removido.
              * Quando array, informar em cada índice

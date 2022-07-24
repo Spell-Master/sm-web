@@ -1134,11 +1134,122 @@ var jsd = jsd || {};
                     }
                 }
             }
+        },
+
+        /* Métodos de eventos */
+        events: {
+            /**
+             * *************************************
+             * Adiciona evento no elemento.
+             * 
+             * @param {STRING} type
+             * Qual é o tipo de situação que
+             *  dispara a função.
+             * 
+             * @param {FUNCTION} listener
+             * Função ouvinte que será disparada.
+             * *************************************
+             */
+            on: function (type, listener) {
+                var $this = this[0], $type = type, $listener = listener, $insert = true;
+                if ($_.isString($type) && $_.isFunction($listener)) {
+                    if (!$_.isDefined($this.eventListener)) {
+                        $this.eventListener = [];
+                    }
+                    $_.each($this.eventListener, function (index, value) {
+                        if ($type == value.type && $listener == value.listener) {
+                            $insert = false;
+                        }
+                    });
+                    if ($insert) {
+                        $this.eventListener.push({
+                            type: $type,
+                            listener: $listener
+                        });
+                        $this.addEventListener($type, $listener, false);
+                    }
+                }
+            },
+            /**
+             * *************************************
+             * Remove eventos adicionados no
+             *  elemento.
+             * 
+             * @param {STRING} type (opcional)
+             * Qual é o tipo de situação que
+             *  dispara a função.
+             * 
+             * @param {FUNCTION} listener (opcional)
+             * Função ouvinte que é disparada.
+             * 
+             * NOTA:
+             * Quando informado "type" e "listener"
+             * A função ouvinte do requisito de
+             *  disparo é removida.
+             * Quando informado "type" e não o
+             *  "listener" todas funções ouvintes do
+             *  requisito de disparo são removidas.
+             * Quando não informado "type" e nem o
+             *  "listener" todas funções ouvintes
+             *  são removidas.
+             * *************************************
+             */
+            off: function (type, listener) {
+                var $this = this[0], $type = type, $listener = listener, $indexKey = [], $i = 0;
+                if ($_.isArray($this.eventListener)) {
+                    $_.each($this.eventListener, function (index, value) {
+                        if ($type == value.type && $listener == value.listener) {
+                            $this.removeEventListener($type, $listener, false);
+                            $indexKey.push(index);
+                        } else if ($type == value.type && !$listener) {
+                            $this.removeEventListener($type, value.listener, false);
+                            $indexKey.push(index);
+                        } else if (!$type) {
+                            $this.removeEventListener(value.type, value.listener, false);
+                            $indexKey.push(index);
+                        }
+                    });
+                    $i = $indexKey.length;
+                    if ($i < $this.eventListener.length) {
+                        while ($i--) {
+                            $this.eventListener.splice($indexKey[$i], 1);
+                        }
+                    } else {
+                        delete $this.eventListener;
+                    }
+                }
+            },
+            /**
+             * *************************************
+             * Aciona eventos adicionados no
+             *  elemento.
+             * 
+             * @param {STRING} type
+             * Qual é o tipo de situação que
+             *  dispara a função.
+             * *************************************
+             */
+            trigger: function (type) {
+                var $this = this[0], $type = type, $event = false;
+                if ($_.isArray($this.eventListener)) {
+                    $_.each($this.eventListener, function (index, value) {
+                        if ($type == value.type) {
+                            $event = $type;
+                        }
+                    });
+                    if ($event) {
+                        $this.dispatchEvent(new Event($event, {bubbles: true, cancelable: true}));
+                    }
+                }
+            }
+
         }
     };
 
     /*
+     * **********************************************
      * Define os métodos para os objetos HTML
+     * **********************************************
      */
     Object.keys(methods).forEach(function (e) {
         if (typeof methods[e] === 'function') {
@@ -1149,6 +1260,31 @@ var jsd = jsd || {};
             }
         }
     });
+
+    /**
+     * **********************************************
+     * Expande novos métodos para eventos sobre os
+     *  objetos HTML.
+     * Executa as funções:
+     *  "events.on()
+     *  "events.trigger()"
+     * 
+     * @param {INTEGER} index 
+     * @param {OBJECT} value 
+     * **********************************************
+     */
+    $_.each(('click dblclick blur focus focusin focusout resize scroll '
+            + 'mousedown mouseup mousemove mouseover mouseout mouseenter mouseleave '
+            + 'change select submit keydown keypress keyup contextmenu').split(' '),
+            function (index, value) {
+                $_.objectMethods[value] = function (fnc) {
+                    if ($_.isFunction(fnc)) {
+                        return this.on(value, fnc);
+                    } else {
+                        return this.trigger(value);
+                    }
+                };
+            });
 
     jsd = $_;
 }());

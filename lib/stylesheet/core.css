@@ -1,0 +1,67 @@
+/* 
+    Created on : 25/07/2022, 00:58:53
+    Author     : Spell Master
+*/
+
+html {
+    -webkit-tap-highlight-color: transparent
+}
+body {
+    color: #444444;
+    background-color: #ffffff;
+    font-size: 16px
+}
+
+.sm-margin-top {
+    margin-top: 96px
+}
+
+#view-code {
+    z-index: 9999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0,0,0,.6);
+    display: none
+}
+#view-code .pos-center {
+    position: absolute;
+    max-height: 90vh;
+    width: 90vw;
+    background: #ffffff;
+    box-shadow:0 0 6px 8px #fff;
+    padding: 5px 0
+}
+#view-code .code-head {
+    height: 45px;
+    font-size: 25px;
+    line-height: 40px;
+    margin: 0 10px;
+}
+#view-code .code-close {
+    float: right;
+    font-size: 40px;
+    font-weight: 400;
+    padding: 0 18px;
+    cursor: pointer;
+    margin-bottom: 1px
+}
+#view-code .code-close:hover {
+    color: #c40700;
+}
+#view-code .code-close:before {
+    content: "X"
+}
+#view-code .code-pre {
+    padding: 0 5px;
+}
+#view-code.active {
+    display: block !important
+}
+#view-code pre[class*="language-"] {
+    padding-top: 0 !important;
+    height: calc(50vh - 45px);
+    width: calc(90vw - 20px);
+}

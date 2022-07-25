@@ -42,45 +42,23 @@ var jsd = jsd || {};
      * 
      * @param {STRING/OBJECT} tgt
      * Elemento(s) alvo para anexar ao script.
-     * 
-     * @param {OBJECT} onNode
-     * Elemento para buscar o alvo em "tgt".
      * **********************************************
      */
-    function $_(tgt, onNode) {
-        var $push = [], $nodes = [], $i;
-        try {
-            if (!$_.isExists(tgt)) {
-                throw 'Não foi possível localizar o elemento';
-            } else if (tgt instanceof objectHTML) {
-                return tgt;
-            } else if (typeof tgt === 'string') {
-                if (!onNode && tgt === '#' && !tgt.match(/[ .<>:~]/)) {
-                    $push = [document.getElementById(tgt.trim().split('#')[1])];
-                } else {
-                    $push = (onNode || document).querySelectorAll(tgt.trim());
+    function $_(tgt) {
+        var $nodes = [];
+        if (tgt instanceof objectHTML) {
+            return tgt;
+        } else if (tgt.nodeType || tgt === window || tgt === document) {
+            $nodes.push(tgt);
+        } else if ($_.isString(tgt)) {
+            $_.each(document.querySelectorAll(tgt.trim()), function (index, value) {
+                if (value.nodeType) {
+                    $nodes.push(value);
                 }
-                for ($i = 0; $i < $push.length; $i++) {
-                    if ($push[$i]) {
-                        $nodes.push($push[$i]);
-                    }
-                }
-            } else if (tgt.nodeType || tgt === window || tgt === document) {
-                $nodes.push(tgt);
-            } else if (tgt.length > 0 && tgt[0].nodeType) {
-                for ($i = 0; $i < tgt.length; $i++) {
-                    $nodes.push(tgt[$i]);
-                }
-            }
-            if ($nodes.length < 1) {
-                throw 'Não foi possível localizar um ou mais elementos porque não há índices prováveis no documento';
-            } else if (typeof $nodes[0] === 'undefined') {
-                throw 'Não foi possível localizar o elemento porque seu índice é indefinido no documento';
-            } else {
-                return new objectHTML($nodes);
-            }
-        } catch (err) {
-            console.error(err);
+            });
+        }
+        if ($nodes.length >= 1) {
+            return new objectHTML($nodes);
         }
     }
 

@@ -380,6 +380,7 @@ var jsd = jsd || {};
                 }
                 return false;
             }
+
         },
 
         /**
@@ -415,7 +416,9 @@ var jsd = jsd || {};
                 if (!$_.isDefined(this[0].previousElementSibling)) {
                     return undefined;
                 } else {
-                    return new objectHTML([this[0].previousElementSibling]);
+                    for (var $i = 0; $i < this.length; $i++) {
+                        return new objectHTML([this[$i].previousElementSibling]);
+                    }
                 }
             },
             /**
@@ -428,7 +431,9 @@ var jsd = jsd || {};
                 if (!$_.isDefined(this[0].nextElementSibling)) {
                     return undefined;
                 } else {
-                    return new objectHTML([this[0].nextElementSibling]);
+                    for (var $i = 0; $i < this.length; $i++) {
+                        return new objectHTML([this[$i].nextElementSibling]);
+                    }
                 }
             },
             /**
@@ -438,12 +443,11 @@ var jsd = jsd || {};
              * *************************************
              */
             child: function () {
-                var $child = this[0].children[0];
-                if (!$_.isDefined($child)) {
-                    return undefined;
-                } else {
-                    return new objectHTML([$child]);
+                var $child = [], $i = 0;
+                for (; $i < this.length; $i++) {
+                    $child.push(this[$i].children[0]);
                 }
+                return new objectHTML($child);
             },
             /**
              * *************************************
@@ -452,11 +456,11 @@ var jsd = jsd || {};
              * *************************************
              */
             parent: function () {
-                if (!$_.isDefined(this[0].parentNode)) {
-                    return undefined;
-                } else {
-                    return new objectHTML([this[0].parentNode]);
+                var $parent = [], $i = 0;
+                for (; $i < this.length; $i++) {
+                    $parent.push(this[$i].parentNode);
                 }
+                return new objectHTML($parent);
             },
             /**
              * *************************************
@@ -1129,22 +1133,24 @@ var jsd = jsd || {};
              * *************************************
              */
             on: function (type, listener) {
-                var $this = this[0], $type = type, $listener = listener, $insert = true;
+                var $this = this, $type = type, $listener = listener, $i = 0, $insert = true;
                 if ($_.isString($type) && $_.isFunction($listener)) {
-                    if (!$_.isDefined($this.eventListener)) {
-                        $this.eventListener = [];
-                    }
-                    $_.each($this.eventListener, function (index, value) {
-                        if ($type == value.type && $listener == value.listener) {
-                            $insert = false;
+                    for (; $i < $this.length; $i++) {
+                        if (!$_.isDefined($this[$i].eventListener)) {
+                            $this[$i].eventListener = [];
                         }
-                    });
-                    if ($insert) {
-                        $this.eventListener.push({
-                            type: $type,
-                            listener: $listener
+                        $_.each($this[$i].eventListener, function (index, value) {
+                            if ($type == value.type && $listener == value.listener) {
+                                $insert = false;
+                            }
                         });
-                        $this.addEventListener($type, $listener, false);
+                        if ($insert) {
+                            $this[$i].eventListener.push({
+                                type: $type,
+                                listener: $listener
+                            });
+                            $this[$i].addEventListener($type, $listener, false);
+                        }
                     }
                 }
             },
@@ -1173,27 +1179,29 @@ var jsd = jsd || {};
              * *************************************
              */
             off: function (type, listener) {
-                var $this = this[0], $type = type, $listener = listener, $indexKey = [], $i = 0;
-                if ($_.isArray($this.eventListener)) {
-                    $_.each($this.eventListener, function (index, value) {
-                        if ($type == value.type && $listener == value.listener) {
-                            $this.removeEventListener($type, $listener, false);
-                            $indexKey.push(index);
-                        } else if ($type == value.type && !$listener) {
-                            $this.removeEventListener($type, value.listener, false);
-                            $indexKey.push(index);
-                        } else if (!$type) {
-                            $this.removeEventListener(value.type, value.listener, false);
-                            $indexKey.push(index);
+                var $this = this, $type = type, $listener = listener, $i = 0, $indexKey = [], $j = 0;
+                for (; $i < $this.length; $i++) {
+                    if ($_.isArray($this[$i].eventListener)) {
+                        $_.each($this[$i].eventListener, function (index, value) {
+                            if ($type == value.type && $listener == value.listener) {
+                                $this[$i].removeEventListener($type, $listener, false);
+                                $indexKey.push(index);
+                            } else if ($type == value.type && !$listener) {
+                                $this[$i].removeEventListener($type, value.listener, false);
+                                $indexKey.push(index);
+                            } else if (!$type) {
+                                $this[$i].removeEventListener(value.type, value.listener, false);
+                                $indexKey.push(index);
+                            }
+                        });
+                        $j = $indexKey.length;
+                        if ($j < $this[$i].eventListener.length) {
+                            while ($j--) {
+                                $this[$i].eventListener.splice($indexKey[$j], 1);
+                            }
+                        } else {
+                            delete $this[$i].eventListener;
                         }
-                    });
-                    $i = $indexKey.length;
-                    if ($i < $this.eventListener.length) {
-                        while ($i--) {
-                            $this.eventListener.splice($indexKey[$i], 1);
-                        }
-                    } else {
-                        delete $this.eventListener;
                     }
                 }
             },
@@ -1208,15 +1216,17 @@ var jsd = jsd || {};
              * *************************************
              */
             trigger: function (type) {
-                var $this = this[0], $type = type, $event = false;
-                if ($_.isArray($this.eventListener)) {
-                    $_.each($this.eventListener, function (index, value) {
-                        if ($type == value.type) {
-                            $event = $type;
+                var $this = this, $type = type, $i = 0, $event = false;
+                for (; $i < $this.length; $i++) {
+                    if ($_.isArray($this[$i].eventListener)) {
+                        $_.each($this[$i].eventListener, function (index, value) {
+                            if ($type == value.type) {
+                                $event = $type;
+                            }
+                        });
+                        if ($event) {
+                            $this[$i].dispatchEvent(new Event($event, {bubbles: true, cancelable: true}));
                         }
-                    });
-                    if ($event) {
-                        $this.dispatchEvent(new Event($event, {bubbles: true, cancelable: true}));
                     }
                 }
             }

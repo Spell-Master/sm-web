@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Asynchronous Javascript and Xml</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="js-default.js" type="text/javascript"></script>
+    </head>
+    <body>
+
+        <div id="exemplo" style="border: 1px dashed black"></div>
+
+        <div style="margin-top: 50px">
+            <button onclick="executarGET()">Protocolo GET</button>
+            <button onclick="executarPOST()">Protocolo POST</button>
+        </div>
+        
+        <hr />
+        <form id="formulario">
+            <input type="text" name="text-name" value="valor do text" id="text-id" />
+
+            <textarea name="textarea-name" id="textarea-id">valor do textarea</textarea>
+
+            <select name="select-name" id="select-id">
+                <option value="">select</option>
+                <option value="valor do select a" selected="">opção a</option>
+                <option value="valor do select b">opção b</option>
+                <option value="valor do select c">opção c</option>
+            </select>
+
+            <input type="checkbox" name="checkbox-name[]" value="valor do checkbox a" id="checkbox-id-a" checked="" />
+            <input type="checkbox" name="checkbox-name[]" value="valor do checkbox b" id="checkbox-id-b" checked="" />
+
+            <input type="radio" name="radio-name" value="valor do radio a" id="radio-id-a" checked="" />
+            <input type="radio" name="radio-name" value="valor do radio b" id="radio-id-b" />
+
+            <button type="submit">Obter automaticamente o valores no formulário</button> 
+        </form>
+
+        <script>
+            var exemplo = jsd('#exemplo');
+
+            function executarGET() {
+                jsd.ajax({
+                    url: 'ajax.php',
+                    protocol: 'GET',
+                    values: {get_a: 'Valor de A', get_b: 'Valor de B'},
+                    onResult: function (resposta) {
+                        exemplo.html(resposta);
+                    }
+                });
+            }
+
+            function executarPOST() {
+                jsd.ajax({
+                    url: 'ajax.php',
+                    protocol: 'POST',
+                    values: {post_a: 'Valor de A', post_b: 'Valor de B'},
+                    onResult: function (resposta) {
+                        exemplo.html(resposta);
+                    }
+                });
+            }
+
+            jsd('#formulario').submit(function (e) {
+                e.preventDefault();
+                jsd.ajax({
+                    url: 'ajax.php',
+                    protocol: 'POST',
+                    values: jsd(this).serialize(),
+                    onResult: function (resposta) {
+                        exemplo.html(resposta);
+                    }
+                });
+            });
+
+            /**
+             * Todos recursos, qualquer um é opcional de uso:
+             * 
+             * jsd.ajax({
+             *    url: 'url ou destino para o envio de dados',
+             *    protocol: 'Protocolo de envio (GET ou POST)',
+             *    type: 'Tipo de envio ([html ou text/html] ou [text, text/plain] ou [xml ou text/xml])'
+             *    response: 'Tipo de resposta ([text ou responseText] ou [xml, responseXML])',
+             *    values: 'Parâmetros adicionais, string ou objeto',
+             *    onError: function (erro) { // Executa quando ocorre erros (Se definido obrigatório ser função!)
+             *        console.log(erro);
+             *    },
+             *    onStart: function (start) { // Executa quando começa (Se definido obrigatório ser função!)
+             *        console.log(start);
+             *    },
+             *    onProgress: function (progr) { // Executa quando está carregando (Se definido obrigatório ser função!)
+             *        console.log(progr);
+             *    },
+             *    onEnd: function (end) { // Executa quando termina (Se definido obrigatório ser função!)
+             *        console.log(end);
+             *    },
+             *    onResult: function (resul) {
+             *        console.log(resul); // Executa quando tudo está terminado (Se definido obrigatório ser função!)
+             *    }
+             * }); 
+             * 
+             * ----------------------------
+             * Recusos quando não definidos
+             * ----------------------------
+             * url: 'será a url atual do navegador',
+             * protocol: 'GET',
+             * type: 'text/html'
+             * response: 'responseText',
+             * values: 'vazio',
+             * onError: 'não terá retorno e nem executará'
+             * onStart: 'não terá retorno e nem executará'
+             * onProgress: 'não terá retorno e nem executará'
+             * onEnd: 'não terá retorno e nem executará'
+             * onResult: 'não terá retorno e nem executará'
+             */
+        </script>
+    </body>
+</html>

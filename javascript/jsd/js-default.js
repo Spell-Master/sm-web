@@ -15,6 +15,8 @@ var jsd = jsd || {};
 (function () {
     'use strict';
 
+    var $xhr; // XMLHttpRequest 
+
     /**
      * **********************************************
      * Anexa todos elementos ao script adicionando
@@ -332,7 +334,7 @@ var jsd = jsd || {};
      * Recarrega tags "javascript" realocando-as
      *  novamente no mesmo local.
      * 
-     * @param {OBJ} objHTML
+     * @param {OBJECT} objHTML
      * Objeto HTML para busca e realocamento
      *  de javascript.
      * *****************************************
@@ -351,6 +353,172 @@ var jsd = jsd || {};
                 $newScript.type = $oldScript[$i].type;
             }
             objHTML.replaceChild($newScript, $oldScript[$i]);
+        }
+    };
+
+    /**
+     * *****************************************
+     * Executa Asynchronous Javascript and Xml.
+     * 
+     * @param {OBJECT} options (opcional)
+     * Opções de execução.
+     * 
+     * url: Informar string para onde os dados
+     *  devem ser enviados.
+     * protocol: Informar string qual é o tipo
+     *  de requisição.
+     * type: Tipo de envio de dados
+     * response: Tipo de dados na resposta
+     * values: Informar ou um objeto com
+     *  índices e valores a se enviar ou uma
+     *  string no formato de url válida.
+     * onError: Informar uma função que será
+     *  executada quando algum erro ocorrer.
+     * onStar': Informar uma função que será
+     *  executada quando o processo começa.
+     * onProgress: Informar uma função que será
+     *  executada quando o processo ainda está
+     *  carregando.
+     * onEnd: Informar uma função que será
+     *  executada quando o processo terminou de
+     *  carregar.
+     * onResult: Informar uma função que será
+     *  executada obtendo o resultado da
+     *  requisição.
+     * *****************************************
+     */
+    $_.ajax = function (options) {
+        if ($xhr instanceof XMLHttpRequest) {
+            console.warn('Já existe uma requisição em andamento.');
+        } else {
+            // Força que as opções seja um objeto
+            options = options || {};
+
+            var $mimes = {
+                html: 'text/html',
+                text: 'text/plain',
+                xml: 'text/xml'
+            }, $response = {
+                text: 'responseText',
+                xml: 'responseXML'
+            }, $ajax = {
+                data: '',
+                result: ''
+            }, $options = {
+                url: ((options.url || location.href) + '').replace(/^\/\//, location.protocol + '//'),
+                protocol: (options.protocol === 'GET') ? 'GET' : (options.protocol == 'POST') ? 'POST' : 'GET',
+                type: mimeTypes(options.type) || 'text/html',
+                response: responseTypes(options.response) || 'responseText',
+                values: options.values || undefined,
+                onError: options.onError || undefined,
+                onStart: options.onStart || undefined,
+                onProgress: options.onProgress || undefined,
+                onEnd: options.onEnd || undefined,
+                onResult: options.onResult || undefined
+            };
+
+            urlPath(); // Filtrar os dados para para url de destino
+            initXMLHR(); // Iniciar a requisição
+
+            // Retorna o correto valor para options.type
+            function mimeTypes(val) {
+                for (var key in $mimes) {
+                    if (key === val || $mimes[key] == val) {
+                        return ($mimes[val]);
+                    }
+                }
+            }
+            // Retorna o correto valor para options.response
+            function responseTypes(val) {
+                for (var key in $response) {
+                    if (key === val || $response[key] == val) {
+                        return ($response[key]);
+                    }
+                }
+            }
+            // Re-escreve dados da url de acordo com o valor options.values
+            function urlPath() {
+                var $typeOf = typeof $options.values;
+                if ($typeOf === 'string') {
+                    if ($options.protocol === 'GET') {
+                        $options.url += (/\?/.test($options.url) ? '&' : '?') + $options.values;
+                    } else if ($options.protocol === 'POST') {
+                        $ajax.data = $options.values;
+                    }
+                } else if ($typeOf === 'object') {
+                    $ajax.data += '_jsd_protocol_id=' + new Date().getTime();
+                    for (var key in $options.values) {
+                        if ($options.protocol === 'GET') {
+                            $options.url += (/\?/.test($options.url) ? '&' : '?') + key + '=' + $_.urlScapes($options.values[key]);
+                        } else if ($options.protocol === 'POST') {
+                            $ajax.data += '&' + key + '=' + $_.urlScapes($options.values[key]);
+                        }
+                    }
+                }
+            }
+            // Inicia e envia o protocolo para o HttpRequest
+            function initXMLHR() {
+                $xhr = new XMLHttpRequest;
+                if ($xhr.overrideMimeType) {
+                    $xhr.overrideMimeType($options.type);
+                }
+                $xhr.addEventListener('readystatechange', readyState, false);
+                $xhr.open($options.protocol, $options.url, true);
+                if ($options.protocol === 'GET') {
+                    $xhr.send();
+                } else {
+                    $xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded; charset=' + document.charset);
+                    $xhr.send($ajax.data.slice(1));
+                }
+            }
+            // Monitora o estado da requisição invocando as funções definidas para cada estágio do processo.
+            function readyState() {
+                if ($xhr.readyState === 1) {
+                    if (typeof $options.onStart === 'function') {
+                        $options.onStart('Situação: Solicitado resposta');
+                    }
+                } else if ($xhr.readyState === 3) {
+                    if (typeof $options.onProgress === 'function') {
+                        $options.onProgress('Situação: Aguardando resposta');
+                    }
+                } else if ($xhr.readyState === 4) {
+                    if (typeof $options.onEnd === 'function') {
+                        $options.onEnd('Situação: Resposta recebida, processando...');
+                    }
+                    readyComplete();
+                }
+            }
+            // Define as ações a se tormar quando a requisição está terminada.
+            function readyComplete() {
+                if ($xhr.status === 200) {
+                    $ajax.result = $xhr[$options.response];
+                    if (typeof $options.onResult === 'function') {
+                        $options.onResult($ajax.result);
+                    }
+                    resetVars();
+                } else if ($xhr.status > 200) {
+                    throwError('Situação: Não foi possível completar a operação (código ' + $xhr.status + ')');
+                } else if ($xhr.onerror) {
+                    throwError($xhr.onerror);
+                } else {
+                    throwError('Situação: Não foi possível completar a operação (código DESCONHECIDO)');
+                }
+            }
+            // Interrompe a requisição e informa erros ocorridos
+            function throwError(err) {
+                $xhr.abort();
+                if (typeof $options.onError === 'function') {
+                    $options.onError(err);
+                }
+                console.error(err);
+                resetVars();
+            }
+            // Redefine os parâmetros para o estado inicial.
+            function resetVars() {
+                $xhr = undefined;
+                $ajax = {data: '', result: ''};
+                $options = {};
+            }
         }
     };
 

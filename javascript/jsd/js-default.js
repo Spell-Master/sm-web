@@ -339,6 +339,7 @@ var jsd = jsd || {};
      */
     $_.updateScript = function (objHTML) {
         var $oldScript = objHTML.getElementsByTagName('script'), $i = 0, $newScript;
+
         for (; $i < $oldScript.length; $i++) {
             $newScript = document.createElement('script');
             if ($oldScript[$i].src) {
@@ -682,25 +683,17 @@ var jsd = jsd || {};
              * *************************************
              */
             append: function () {
-                var $args = arguments[0], $newNode = null, $i = 0, $j = 0, $newScript = null;
+                var $args = arguments[0], $newNode = null, $i = 0, $j = 0;
                 if (arguments.length >= 1) {
                     for (; $i < this.length; $i++) {
                         $newNode = createNode($args);
                         for ($j = 0; $j < $newNode.length; $j++) {
                             if ($_.isDefined($newNode[$j].tagName)) {
-                                if ($newNode[$j].tagName.toLowerCase() === 'script') {
-                                    $newScript = document.createElement('script');
-                                    $newScript.text = $newNode[$j].text;
-                                    this[$i].appendChild($newScript);
-                                } else {
-                                    this[$i].appendChild($newNode[$j]);
-                                }
+                                this[$i].appendChild($newNode[$j]);
+                                $_.updateScript(this[$i]);
                             }
                         }
                     }
-                    return this;
-                } else {
-                    return false;
                 }
             },
             /**
@@ -712,25 +705,17 @@ var jsd = jsd || {};
              * *************************************
              */
             prepend: function () {
-                var $args = arguments[0], $newNode = null, $i = 0, $j = 0, $newScript = null;
+                var $args = arguments[0], $newNode = null, $i = 0, $j = 0;
                 if (arguments.length >= 1) {
                     for (; $i < this.length; $i++) {
                         $newNode = createNode($args);
                         for ($j = 0; $j < $newNode.length; $j++) {
                             if ($_.isDefined($newNode[$j].tagName)) {
-                                if ($newNode[$j].tagName.toLowerCase() === 'script') {
-                                    $newScript = document.createElement('script');
-                                    $newScript.text = $newNode[$j].text;
-                                    this[$i].insertBefore($newScript, this[$i].firstChild);
-                                } else {
-                                    this[$i].insertBefore($newNode[$j], this[$i].firstChild);
-                                }
+                                this[$i].insertBefore($newNode[$j], this[$i].firstChild);
+                                $_.updateScript(this[$i]);
                             }
                         }
                     }
-                    return this;
-                } else {
-                    return false;
                 }
             },
             /**
@@ -741,25 +726,17 @@ var jsd = jsd || {};
              * *************************************
              */
             before: function () {
-                var $args = arguments[0], $newNode = null, $i = 0, $j = 0, $newScript = null;
+                var $args = arguments[0], $newNode = null, $i = 0, $j = 0;
                 if (arguments.length >= 1) {
                     for (; $i < this.length; $i++) {
                         $newNode = createNode($args);
                         for ($j = 0; $j < $newNode.length; $j++) {
                             if ($_.isDefined($newNode[$j].tagName)) {
-                                if ($newNode[$j].tagName.toLowerCase() === 'script') {
-                                    $newScript = document.createElement('script');
-                                    $newScript.text = $newNode[$j].text;
-                                    this[$i].parentNode.insertBefore($newScript, this[$i]);
-                                } else {
-                                    this[$i].parentNode.insertBefore($newNode[$j], this[$i]);
-                                }
+                                this[$i].parentNode.insertBefore($newNode[$j], this[$i]);
+                                $_.updateScript(this[$i].parentNode);
                             }
                         }
                     }
-                    return this;
-                } else {
-                    return false;
                 }
             },
             /**
@@ -770,25 +747,17 @@ var jsd = jsd || {};
              * *************************************
              */
             after: function () {
-                var $args = arguments[0], $newNode = null, $i = 0, $j = 0, $newScript = null;
+                var $args = arguments[0], $newNode = null, $i = 0, $j = 0;
                 if (arguments.length >= 1) {
                     for (; $i < this.length; $i++) {
                         $newNode = createNode($args);
                         for ($j = 0; $j < $newNode.length; $j++) {
                             if ($_.isDefined($newNode[$j].tagName)) {
-                                if ($newNode[$j].tagName.toLowerCase() === 'script') {
-                                    $newScript = document.createElement('script');
-                                    $newScript.text = $newNode[$j].text;
-                                    this[$i].parentNode.insertBefore($newScript, this[$i].nextSibling);
-                                } else {
-                                    this[$i].parentNode.insertBefore($newNode[$j], this[$i].nextSibling);
-                                }
+                                this[$i].parentNode.insertBefore($newNode[$j], this[$i].nextSibling);
+                                $_.updateScript(this[$i].parentNode);
                             }
                         }
                     }
-                    return this;
-                } else {
-                    return false;
                 }
             },
             /**
@@ -852,9 +821,11 @@ var jsd = jsd || {};
                 } else if (this.length > 1) {
                     for (var $i = 0; $i < this.length; $i++) {
                         this[$i].innerHTML = setHtml;
+                        $_.updateScript(this[$i]);
                     }
                 } else {
                     this[0].innerHTML = setHtml;
+                    $_.updateScript(this[0]);
                 }
             },
             /**

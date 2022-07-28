@@ -25,7 +25,7 @@
             <input type="radio" name="radio-name" value="valor do radio a" id="radio-id-a" checked="" />
             <input type="radio" name="radio-name" value="valor do radio b" id="radio-id-b" />
 
-            <button type="button" value="valor do button" id="button-id">button</button>
+            <button type="button" value="valor do button" id="button-id">button</button> 
         </form>
 
         <div>
@@ -84,17 +84,9 @@
 
             //================
             // Codificar todos elementos com atributo "name" no formulário
-            // Método para requisição HTTP[POST]
+            // Método para requisição HTTP[GET/POST]
             function serializarForm() {
-                var formulario = jsd('#formulario').serialize();
-                console.log(
-                    'Dados do formulário serializado:\n\n'
-                    + formulario
-                    + '\n\n=====================\n\n'
-                    + 'Dados do formulário serializado adicionado codificação URI:\n\n'
-                    + encodeURI(formulario)
-                );
-                    window.location = formulario;
+                console.log( jsd('#formulario').serialize() );
             }
         </script>
     </body>

@@ -311,6 +311,48 @@ var jsd = jsd || {};
         }
     };
 
+    /**
+     * *****************************************
+     * Codifica uma string para parâmetros
+     *  corretos de uso em uma URL
+     *  Escapa todos os caracteres que não são
+     *  alfabéticos, dígitos ou decimais.
+     * 
+     * @param {STRING} str
+     * String para ser transformada em URI válida.
+     * *****************************************
+     */
+    $_.urlScapes = function (str) {
+        var $encode = encodeURIComponent(str);
+        return ($encode.replace(/['()]/g, escape).replace(/\*/g, '%2A').replace(/%(?:7C|60|5E)/g, unescape));
+    };
+
+    /**
+     * *****************************************
+     * Recarrega tags "javascript" realocando-as
+     *  novamente no mesmo local.
+     * 
+     * @param {OBJ} objHTML
+     * Objeto HTML para busca e realocamento
+     *  de javascript.
+     * *****************************************
+     */
+    $_.updateScript = function (objHTML) {
+        var $oldScript = objHTML.getElementsByTagName('script'), $i = 0, $newScript;
+        for (; $i < $oldScript.length; $i++) {
+            $newScript = document.createElement('script');
+            if ($oldScript[$i].src) {
+                $newScript.src = $oldScript[$i].src;
+            } else {
+                $newScript.text = $oldScript[$i].text;
+            }
+            if ($oldScript[$i].type) {
+                $newScript.type = $oldScript[$i].type;
+            }
+            objHTML.replaceChild($newScript, $oldScript[$i]);
+        }
+    };
+
     // ==============================================
     // = MÉTODOS
     // ==============================================
@@ -853,7 +895,7 @@ var jsd = jsd || {};
              */
             serialize: function () {
                 if (this[0].tagName.toLowerCase() === 'form') {
-                    var $uri = 'jsd_protocol_id=' + new Date().getTime(), $i = 0, $value = '';
+                    var $uri = '_jsd_protocol_id=' + new Date().getTime(), $i = 0, $value = '';
                     for (; $i < this[0].elements.length; $i++) {
                         if (this[0].elements[$i].disabled === true) {
                             continue;
@@ -864,11 +906,9 @@ var jsd = jsd || {};
                         } else {
                             $value = this[0].elements[$i].value;
                         }
-                        $uri += '&' + this[0].elements[$i].name + '=' + $value;
+                        $uri += '&' + this[0].elements[$i].name + '=' + $_.urlScapes($value);
                     }
                     return $uri;
-                } else {
-                    return undefined;
                 }
             },
             /**
@@ -925,8 +965,6 @@ var jsd = jsd || {};
                     } else {
                         this[0].selectedIndex = $index;
                     }
-                } else {
-                    return undefined;
                 }
             }
         },

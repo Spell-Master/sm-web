@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Load</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="js-default.js" type="text/javascript"></script>
+    </head>
+    <body>
+
+        <div id="exemplo" style="border: 1px dashed black"></div>
+
+        <div style="margin-top: 50px">
+            <button onclick="carregar()">Carregar arquivo no local</button>
+            <button onclick="carregarB()">Carregar arquivo no local com parâmetros GET</button>
+        </div>
+
+        <script>
+            function carregar() {
+                jsd('#exemplo').load('ajax.php');
+            }
+
+            function carregarB() {
+                jsd('#exemplo').load('ajax.php?parametroA=a&parametroB=b');
+            }
+
+            /**
+             * OBSERVAÇÃO IMPORTANTE !!!
+             * Nunca use esse método dentro do ajax, pois ele já é ajax
+             * 
+             * Exemplo:
+             *  jsd.ajax({
+             *      protocol: 'GET',
+             *      onResult: function (e) {
+             *          jsd('#exemplo').load('https://destino');
+             *      }
+             *  });
+             *  
+             * Se fizer isso, load não será executado,
+             *  pois o ajax inicial ainda não terminou.
+             */
+        </script>
+    </body>
+</html>

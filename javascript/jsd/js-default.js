@@ -615,6 +615,28 @@ var jsd = jsd || {};
             }
         },
 
+        /**
+         * *****************************************
+         * Executa ajax simples carregando um
+         * arquivo de no primeiro elemento da
+         *  instância.
+         * 
+         * @param {STRING} url
+         * URL ou local do arquivo.
+         * *****************************************
+         */
+        load: function (url) {
+            var $this = this;
+            if ($_.isString(url)) {
+                jsd.ajax({
+                    url: url,
+                    onResult: function (html) {
+                        $this.index(0).html(html);
+                    }
+                });
+            }
+        },
+
         /* Métodos de buscas de elementos */
         elements: {
             /**

@@ -1,10 +1,10 @@
 /**
  * **************************************************
- * * @Class FileLoad
- * * @author Spell-Master (Omar Pautz)
- * * @copyright 2022
- * **************************************************
- * * Carrega arquivos através de input[file]
+ * @Class FileLoad
+ * @author Spell-Master (Omar Pautz)
+ * @copyright 2022
+ * 
+ * Carrega arquivos através de input[file]
  * Para processamento e gerenciamento de arquivos
  *  antes de enviar para o servidor.
  * **************************************************
@@ -19,8 +19,8 @@ var FileLoad = function () {
      * **********************************************
      * Obtem objeto/arquivo alvo da leitura.
      * @param {OBJ} file
-     * Informar o index[0] anexo ao
-     *  input[type="file"].
+     * Informar o input type file de seleção de
+     *  arquivo.
      *  
      * @param {OBJ} options
      * * metodos de execução
@@ -51,21 +51,22 @@ var FileLoad = function () {
      * **********************************************
      */
     function readStart(file, options = {}) {
-        if (typeof (file) !== 'object') {
-            console.warn('O arquivo não é um objeto válido');
-        } else {
-            $file = file;
+        if (typeof file.nodeType === 'number' && typeof file.nodeName === 'string') {
+            $file = file.files[0];
             $options = {
                 readType: options.readType || 'data',
-                onStart: options.onStart || null,
-                onError: options.onError || null,
-                onProgress: options.onProgress || null,
-                onResult: options.onResult || null
+                onStart: options.onStart || undefined,
+                onError: options.onError || undefined,
+                onProgress: options.onProgress || undefined,
+                onResult: options.onResult || undefined
             };
-            if (typeof ($options.onStart) === 'function') {
-                $options.onStart($file);
+            if (typeof $options.onStart === 'function') {
+                if ($options.onStart($file) !== false) {
+                    readListener();
+                }
+            } else {
+                readListener();
             }
-            readListener();
         }
     }
 
@@ -77,19 +78,21 @@ var FileLoad = function () {
      * **********************************************
      */
     function readListener(e) {
-        $reader.addEventListener('progress', readProgress, true);
-        $reader.addEventListener('load', readResult, true);
-        switch ($options.readType) {
-            case 'binary':
-                $reader.readAsBinaryString($file);
-                break;
-            case 'text':
-                $reader.readAsText($file);
-                break;
-            case 'data':
-            default:
-                $reader.readAsDataURL($file);
-                break;
+        if ($file) {
+            $reader.addEventListener('progress', readProgress, true);
+            $reader.addEventListener('load', readResult, true);
+            switch ($options.readType) {
+                case 'binary':
+                    $reader.readAsBinaryString($file);
+                    break;
+                case 'text':
+                    $reader.readAsText($file);
+                    break;
+                case 'data':
+                default:
+                    $reader.readAsDataURL($file);
+                    break;
+            }
         }
     }
 
@@ -105,9 +108,9 @@ var FileLoad = function () {
      * **********************************************
      */
     function readProgress(e) {
-        if ($reader.error && (typeof ($options.onError) === 'function')) {
+        if ($reader.error && (typeof $options.onError === 'function')) {
             $options.onError($reader.error);
-        } else if (e.lengthComputable && (typeof ($options.onProgress) === 'function')) {
+        } else if (e.lengthComputable && (typeof $options.onProgress === 'function')) {
             $options.onProgress({loaded: e.loaded, total: e.total});
         }
     }
@@ -123,9 +126,9 @@ var FileLoad = function () {
      * **********************************************
      */
     function readResult(e) {
-        if ($reader.error && (typeof ($options.onError) === 'function')) {
+        if ($reader.error && (typeof $options.onError === 'function')) {
             $options.onError($reader.error);
-        } else if ($reader.readyState === 2 && (typeof ($options.onProgress) === 'function')) {
+        } else if ($reader.readyState === 2 && (typeof $options.onProgress === 'function')) {
             $options.onResult($reader.result);
         }
     }

@@ -4,48 +4,255 @@
         <title>FileLoad</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="../../css/css-default.css" rel="stylesheet" type="text/css"/>
+        <link href="../../lib/stylesheet/core.css" rel="stylesheet" type="text/css"/>
+        <link href="../../lib/prism/prism.css" rel="stylesheet" type="text/css"/>
+        <script src="../../lib/prism/prism.js" type="text/javascript"></script>
+        <script src="../jsd/js-default.js" type="text/javascript"></script>
+        <script src="../../lib/js/mostarCodigo.js" type="text/javascript"></script>
+
         <script src="FileLoad.js" type="text/javascript"></script>
     </head>
     <body>
 
-        <input type="file" id="exemplo" />
-        <button onclick="enviar()">Enviar</button>
-        <button onclick="processarArquivo.cancel()">Cancelar</button>
+        <article class="container padding-all">
+            <h1 class="bold italic">FileLoad.js</h1>
+            <hr class="border-bottom border-dark" />
+            <p>O FileLoad ler qualquer arquivo que um usuário selecionar em sua
+                máquina.</p>
+            <p>Sua principal utilidade é adicionar o arquivo ao contexto da
+                página, assim podemos trabalhar com o ele sem que seja necessário
+                um upload para o servidor.</p>
+            <p>Vamos supor arquivo de texto ou imagem etc que pode ser editado entes
+                de salvar ele no servidor...</p>
+
+            <div class="margin-top-max">
+                <hr class="border-bottom border-dark" />
+                <h2>Apresentação:</h2>
+
+                <div id="code">
+                    <div class="row-pad reduce">
+                        <div class="col-twothird-max padding-all-min">
+                            <input type="file" id="exemplo" class="input-default" />
+                        </div>
+                        <div class="col-third-max padding-all-min">
+                            <div class="row">
+                                <div class="col-half col-fix">
+                                    <button onclick="enviar()" class="btn-info button-block">Enviar</button>
+                                </div>
+                                <div class="col-half col-fix">
+                                    <button onclick="ler.cancel()" class="btn-warning button-block">Cancelar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="margin-top align-center">
+                    <button class="btn-default" data-code="code">Ver código fonte</button>
+                </div>
+
+                <blockquote class="quote-yellow">
+                    <p class="bold">Observação:</p>
+                    <p>Para ver o resultado abra o console do navegador,
+                        todas as informações do processo serão mostradas lá.</p>
+                    <p>Não dar para eu apresentar um exemplo para cada coisa,
+                        pois cada tipo de arquivo enviado requer um tratamento
+                        expecífico para ele.</p>
+                </blockquote>
+            </div>
+
+            <div class="sm-margin-top">
+                <hr class="border-bottom border-dark" />
+                <h2>Utilização</h2>
+                <p>Adicione o arquivo necessário</p>
+                <pre><code class="language-html">&lt;script src="FileLoad.js" type="text/javascript"&gt;&lt;/script&gt;</code></pre>
+
+                <p>Inicie declarado em um javascript ao final do documento</p>
+                <pre><code class="language-javascript">var ler = new FileLoad();</code></pre>
+
+                <p>Então crie uma caixa de "input file" para que o usuário possa
+                    selecionar o arquivo na sua máquina.</p>
+                <p>Crie um botão que aciona uma função de para envio.</p>
+                <p>Exemplo:</p>
+                <pre><code class="language-html">&lt;input type="file" /&gt;
+&lt;button onclick="lerArquivo()"&gt;Ler Arquivo&lt;/button&gt;
+&lt;script&gt;
+    function lerArquivo() {
+        // Identifique o input file
+        var input = document.getElementsByTagName('input')[0];
+
+        // ler é o nome da instância do FileLoad
+        ler.load(input, {
+            readType: 'text',
+            onStart: function (arquivo) {
+                console.log(arquivo);
+            },
+            onError: function (erro) {
+                console.log(erro);
+            },
+            onProgress: function (progresso) {
+                console.log(progresso);
+            },
+            onResult: function (resultado) {
+                console.log(resultado);
+            }
+        });
+    }
+&lt;/script&gt;</code></pre>
+                <p>No caso a função <span class="bold">lerArquivo()</span>
+                    será acionada ao clicar no botão de envio.</p>
+                <p>Essa função por sua vez usa a instância do FileLoad para acionar
+                    seu método.
+                    <q class="quote-green">load()</q> que consiste em dois parâmetros:</p>
+                <p class="bold italic">load(A, B)</p>
+                <p><span class="bold">A)</span> -&gt; Você deve informar o input file
+                    que o usuário seleciona o arquivo.</p>
+                <p><span class="bold">B)</span> -&gt; Você deve informar os métodos
+                    de execução dentro de um objeto.</p>
+                <blockquote class="quote-yellow">
+                    Qualquer método de execução é opcional!
+                    <p>Use somente aqueles que achar necessário.</p>
+                </blockquote>
+            </div>
+
+            <div class="margin-top-max">
+                <hr class="border-bottom border-dark" />
+                <h3>Métodos de Execução</h3>
+                <p class="list margin-left bold font-max">readType</p>
+                <p>Nesse método você informa como string qual é o tipo de resultado
+                    que a leitura deve apresentar.</p>
+                <p>Os tipos disponíves são:</p>
+                <p><span class="bold">binary</span>: Resultado será os dados binários
+                    do arquivo.</p>
+                <p><span class="bold">text</span>: Resultado será o conteúdo do arquivo
+                    como string de texto.</p>
+                <p><span class="bold">data</span>: Resultado será um data URL
+                    representando os dados do arquivo.</p>
+                <p>O padrão será <span class="bold">data</span> se não informado
+                    o <span class="bold">readType</span>.</p>
+
+                <p class="list margin-left bold font-max">onStart</p>
+                <p>Nesse método você informa uma função
+                    que deve ser executada quando o quando o processo de
+                    leitura iniciar.</p>
+                <p>Você poderá adicionar um parâmetro de retorno, exemplo:</p>
+                <pre><code class="language-javascript">onStart: function (param) {
+}</code></pre>
+                <p>Dentro da função <span class="bold">param</span> será
+                    os dados pré processados do arquivo.</p>
+                <p>Então nesse método você pode avaliar o arquivo, digamos que
+                    somente queira arquivos PDF e o usuário selecinou qualquer
+                    outro tipo.</p>
+                <p>Nesse caso você poderá negar todo processo restante, interrompendo
+                    o FileLoad de prosseguir retornando <span class="bold">false</span>
+                    dentro do escopo do método.</p>
+                <p>Exemplo:</p>
+                <pre><code class="language-javascript">onStart: function (param) {
+    if (param.type !== 'application/pdf') {
+        return false;  // O FileLoad só executará esse método e vai parar aqui já que o tipo não é um PDF
+    }
+}</code></pre>
+                <p class="list margin-left bold font-max">onError</p>
+                <p>Nesse método você informa uma função que será executada
+                    sempre que ocorrer algum erro na leitura do arquivo.</p>
+                <p>Assim como o método <span class="bold">onStart</span>
+                    você também pode adicionar algum parâmetro que lhe informará
+                    qual erro ocorreu.</p>
+                <p class="list margin-left bold font-max">onProgress</p>
+                <p>Nesse método você informa uma função que será executada
+                    repetitivamente até que o processo de leitura termine ou aconteça algum
+                    erro.
+                <p class="text-red">Sim! Essa função vai ficar se repetindo,
+                    portanto cuidado.</p>
+                <p>Você também poderá adicionar um parâmetro que lhe informará
+                    um objeto com o tamanho original do arquivo e o quanto dele já foi
+                    lido.</p>
+                <p>Exemplo:</p>
+                <pre><code class="language-javascript">onProgress: function (e) {
+    console.log('Completado: ' + e.loaded + '| Tamanho total'+ e.total);
+}</code></pre>
+                <p>Use para o caso de queira criar animações de progresso.</p>
+                <blockquote class="quote-yellow">
+                    Tenha em mente que o FileLoad não faz upload, todo o processo
+                    é executado na máquina do usuário.
+                    <p>Dependendo da capacidade de processamento da máquina
+                        do usuário arquivos pequenos/medianos serão lidos quase que 
+                        instantaneamente.</p>
+                    <p>E arquivos grandes demais, maior que a memória da máquina
+                        resultará em "OUT_OF_MEMORY".</p>
+                    <p>Então você pode está limitando o tamanho do arquivo no
+                        método <span class="bold">onStart</span>, enfim fica a seu
+                        critério, afinal de contas não dar para saber qual é a
+                        capacidade da máquina do usuário, para prever eventuais
+                        problemas relacionados a memória.</p>
+                </blockquote>
+                <p class="list margin-left bold font-max">onResult</p>
+                <p>Nesse método você informa uma função que será executada
+                    quando todo o processo de leitura é terminado.<p>
+                <p>Assim como nos métodos anteriores você adiciona um
+                    parâmetro que lhe informará o resultado da leitura,
+                    de acordo com o tipo que você definiu em
+                    <span class="bold">readType</span>.</p>
+            </div>
+
+
+            <div class="sm-margin-top">
+                <hr class="border-bottom border-dark" />
+                <h2>Método extra</h2>
+                Você poderá interromper o processo de leitura através
+                da função <span class="bold text-red">cancel()</span>,
+                pode ser ativada a qualquer momento para abortar a operação.
+                <p>Exemplo:</p>
+                <pre><code class="language-javascript">// ler é o nome da instância do FileLoad
+ler.cancel();</code></pre>
+            </div>
+        </article>
+
+        <div id="view-code">
+            <div class="pos-center">
+                <div class="code-head">
+                    Código Fonte
+                    <button class="code-close"></button>
+                </div>
+                <div class="code-pre"></div>
+            </div>
+        </div>
 
         <script>
-            var processarArquivo = new FileLoad();
+            var ler = new FileLoad();
             var exemplo = document.getElementById('exemplo');
 
             function enviar() {
-                var arquivo = exemplo.files[0]; // FileLoad só reconecerá a primeira chave na lista de arquivos do input!
-                if (!arquivo) {
-                    console.log('adicione algum arquivo no input');
-                } else {
-                    console.log('Dados do arquivo ainda não processados:');
-                    console.log(arquivo);
-
-                    processarArquivo.load(arquivo, {
-                        readType: 'text',
-                        onStart: function (e) {
-                            console.log('onStart() disparado');
-                            console.log(e);
-                        },
-                        onError: function (e) {
-                            console.log('onError() disparado');
-                            console.log(e);
-                            alert('Ops! erro na leitura, verifique o console');
-                        },
-                        onProgress: function (e) {
-                            console.log('onProgress() disparado');
-                            console.log(e.loaded, e.total);
-                        },
-                        onResult: function (e) {
-                            console.log('onResult() disparado');
-                            console.log(e);
-                        }
-                    });
-                }
+                ler.load(exemplo, {
+                    readType: 'text',
+                    onStart: function (e) {
+                        console.log(e);
+                        console.log('onStart:() disparado');
+                    },
+                    onError: function (e) {
+                        console.log(e);
+                        console.log('onError() disparado');
+                        alert('Ops! erro na leitura, verifique o console');
+                    },
+                    onProgress: function (e) {
+                        console.log(e.loaded, e.total);
+                        console.log('onProgress() disparado');
+                    },
+                    onResult: function (e) {
+                        alert('Processo de leitura terminado');
+                        console.log(e);
+                        console.log('onResult() disparado');
+                    }
+                });
             }
+
+            jsd('[data-code]').click(function (e) {
+                smCode.openCode(e.target.dataset.code);
+            });
+            jsd('.code-close').click(function () {
+                smCode.coseCode();
+            });
         </script>
     </body>
 </html>

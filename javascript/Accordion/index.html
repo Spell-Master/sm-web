@@ -48,8 +48,8 @@
             </div>
 
             <div class="sm-margin-top">
-                <h2>Utilização</h2>
                 <hr class="border-bottom border-dark" />
+                <h2>Utilização</h2>
                 <p>Adicione os arquivos necessários</p>
 
                 <pre><code class="language-html">&lt;link href="Accordion.css" rel="stylesheet" type="text/css"/&gt;
@@ -70,6 +70,16 @@
 
                 <p>Inicie declarado em um javascript ao final do documento</p>
                 <pre><code class="language-javascript">var acc = new Accordion();</code></pre>
+            </div>
+
+            <div class="sm-margin-top">
+                <hr class="border-bottom border-dark" />
+                <h2>Método extra</h2>
+                <p>É possivel ordenar que algum dos elementos se expanda por ação externa utilizando o método <span class="bold text-red">forceOpen()</span>.</p>
+                <p>Bastando apenas fornecer como parâmetro o numero do elemento a ser expandido.</p>
+                <p>Exemplo:</p>
+                <pre><code class="language-javascript">// acc é o nome da instância do Accordion
+acc.forceOpen(2); // Expande o segundo elemento</code></pre>
             </div>
         </article>
 

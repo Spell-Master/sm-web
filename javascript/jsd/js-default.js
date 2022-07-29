@@ -184,6 +184,32 @@ var jsd = jsd || {};
     /**
      * **********************************************
      * @public
+     * Verifica se o valor é um inteiro.
+     * 
+     * @param {ANYTHING} val
+     * Informar o valor para verificação.
+     * **********************************************
+     */
+    $_.isInt = function (val) {
+        return (typeof val === 'number' && !isNaN(val)) ? true : false;
+    };
+
+    /**
+     * **********************************************
+     * @public
+     * Verifica se o valor é uma BOLL.
+     * 
+     * @param {ANYTHING} val
+     * Informar o valor para verificação.
+     * **********************************************
+     */
+    $_.isBoolean = function (val) {
+        return typeof val === 'boolean' ? true : false;
+    };
+
+    /**
+     * **********************************************
+     * @public
      * Verifica se o navegador é um modelo de
      *  dispositível móvel.
      * **********************************************
@@ -334,13 +360,13 @@ var jsd = jsd || {};
      * Recarrega tags "javascript" realocando-as
      *  novamente no mesmo local.
      * 
-     * @param {OBJECT} objHTML
-     * Objeto HTML para busca e realocamento
-     *  de javascript.
+     * @param {OBJECT} tgt
+     * Elemento no documento para busca e
+     *  realocamento de javascript.
      * *****************************************
      */
-    $_.updateScript = function (objHTML) {
-        var $oldScript = objHTML.getElementsByTagName('script'), $i = 0, $newScript;
+    $_.updateScript = function (tgt) {
+        var $oldScript = tgt.getElementsByTagName('script'), $i = 0, $newScript;
 
         for (; $i < $oldScript.length; $i++) {
             $newScript = document.createElement('script');
@@ -352,7 +378,7 @@ var jsd = jsd || {};
             if ($oldScript[$i].type) {
                 $newScript.type = $oldScript[$i].type;
             }
-            objHTML.replaceChild($newScript, $oldScript[$i]);
+            tgt.replaceChild($newScript, $oldScript[$i]);
         }
     };
 
@@ -1429,7 +1455,111 @@ var jsd = jsd || {};
                     }
                 }
             }
+        },
 
+        /* Métodos de estilos */
+        styles: {
+            /**
+             * *************************************
+             * Verifica ou define estilo para o
+             *  elemento da intância.
+             * 
+             * @param {STRING/OBJECT} val
+             * Qual propriedade computada.
+             * 
+             * Se não informado retorna todo estilo
+             *  computado.
+             * Se string retorna o valor do estilo
+             *  compuado.
+             * Se objeto define o estilo inline.
+             * *************************************
+             */
+            css: function (val) {
+                if (!$_.isDefined(val)) {
+                    return window.getComputedStyle(this[0], null);
+                } else if ($_.isString(val)) {
+                    return window.getComputedStyle(this[0], null).getPropertyValue(val);
+                } else if ($_.isObject(val)) {
+                    for (var prop in val) {
+                        this[0].style[prop] = val[prop];
+                    }
+                }
+            },
+            /**
+             * *************************************
+             * Verifica ou define a largura para o
+             *  elemento da intância.
+             * 
+             * @param {boolean/INTERGER} val
+             * 
+             * Se não informado retorna a largura
+             *  ocupada.
+             * Se não informado como "true" retorna
+             *  a largura ocupada junto a suas
+             *  margens.
+             * Se não informado como "numero" define
+             *  a largura.
+             * *************************************
+             */
+            width: function (val) {
+                if (!$_.isDefined(val)) {
+                    return this[0].offsetWidth;
+                } else if (val === true) {
+                    var $css = this.css();
+                    return (this[0].offsetWidth
+                            + parseFloat($css.getPropertyValue('margin-right'))
+                            + parseFloat($css.getPropertyValue('margin-left')));
+                } else if ($_.isInt(val)) {
+                    this[0].style.width = val + 'px';
+                }
+            },
+            /**
+             * *************************************
+             * Verifica ou define a altura para o
+             *  elemento da intância.
+             * 
+             * @param {boolean/INTERGER} val
+             * 
+             * Se não informado retorna a altura
+             *  ocupada.
+             * Se não informado como "true" retorna
+             *  a altura ocupada junto a suas
+             *  margens.
+             * Se não informado como "numero" define
+             *  a altura.
+             * *************************************
+             */
+            height: function (val) {
+                if (!$_.isDefined(val)) {
+                    return this[0].offsetHeight;
+                } else if (val === true) {
+                    var $css = this.css();
+                    return (this[0].offsetHeight
+                            + parseFloat($css.getPropertyValue('margin-top'))
+                            + parseFloat($css.getPropertyValue('margin-bottom')));
+                } else if ($_.isInt(val)) {
+                    this[0].style.height = val + 'px';
+                }
+            },
+            /**
+             * *************************************
+             * Obtem a correta posição do elemento
+             *  da intância no documento.
+             * *************************************
+             */
+            position: function () {
+                var $this = this[0],
+                        $body = document.body,
+                        $rect = $this.getBoundingClientRect(),
+                        $top = $this.clientTop || $body.clientTop || 0,
+                        $left = $this.clientLeft || $body.clientLeft || 0,
+                        $scrollTop = $this === window ? window.scrollY : $this.scrollTop,
+                        $scrollLeft = $this === window ? window.scrollX : $this.scrollLeft;
+                return {
+                    top: ($rect.top + $scrollTop) - $top,
+                    left: ($rect.left + $scrollLeft) - $left
+                };
+            }
         }
     };
 

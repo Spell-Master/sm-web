@@ -74,10 +74,9 @@ var FileLoad = function () {
      * **********************************************
      * * Inicia o processos de carregamento e define
      *  o modo de leitura.
-     * @param {OBJ} e
      * **********************************************
      */
-    function readListener(e) {
+    function readListener() {
         if ($file) {
             $reader.addEventListener('progress', readProgress, true);
             $reader.addEventListener('load', readResult, true);
@@ -122,13 +121,12 @@ var FileLoad = function () {
      *
      * * Em caso de erro antes da finalização do
      *  processo retorna o erro acontecido.
-     * @param {OBJ} e
      * **********************************************
      */
-    function readResult(e) {
+    function readResult() {
         if ($reader.error && (typeof $options.onError === 'function')) {
             $options.onError($reader.error);
-        } else if ($reader.readyState === 2 && (typeof $options.onProgress === 'function')) {
+        } else if ($reader.readyState === 2 && (typeof $options.onResult === 'function')) {
             $options.onResult($reader.result);
         }
     }
@@ -139,9 +137,7 @@ var FileLoad = function () {
      * **********************************************
      */
     function readAbort() {
-        if ($reader.readyState === 1) {
-            $reader.abort();
-        }
+        $reader.abort();
     }
 
     /**

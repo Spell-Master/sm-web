@@ -1,338 +1,325 @@
 /**
  * **************************************************
- * * @Class FileTransfer
- * * @author Spell-Master (Omar Pautz)
- * * @copyright 2018
- * * @version 2.1 (2021)
- * **************************************************
- * * Executa transferência de arquivos.
+ * @Class FileTransfer
+ * @author Spell-Master (Omar Pautz)
+ * @copyright 2018
+ * @version 3.0 (2022)
+ * 
+ * Executa transferência de arquivos.
  * Servidor X usuário (download)
  * Usuário X servidor (upload)
+ * 
+ * @param {OBJECT} options
+ * * 'method': Método a ser usado download ou upload.
+ * * 'url': Endereço/destino do processo,
+ *  quando download informar o local do arquivo,
+ *  quando upload informar o local de salvamento.
+ * * 'cancel': O botão para cancelar deve ser
+ *  adicionado? Defina como "false" para não mostrar
+ *  o botão.
+ * * 'input': tag input[file] para obter os arquivos
+ *  no upload, é opcional quando "method" for
+ *  download.
+ * * 'onStart': Função a ser executada antes do
+ *  início dos processos. (opcional)
+ * * 'onError': Função a ser executada quando ocorre
+ *  erros.  (opcional)
+ * * 'onResult': Função a ser executada quando os
+ *  processos terminam. (opcional)
  * **************************************************
  */
 
-var FileTransfer = function () {
-    var $transfer = {
+var FileTransfer = function (options) {
+
+    options = options || {};
+
+    var $options = {
+        method: options.method || undefined,
+        url: options.url || undefined,
+        cancel: options.cancel || undefined,
+        input: options.input || undefined,
+        onStart: options.onStart || undefined,
+        onError: options.onError || undefined,
+        onResult: options.onResult || undefined
+    }, $this = {
         request: null,
-        method: null,
-        file: null,
-        name: null,
-        progress: null,
-        percent: null,
-        cancel: null,
-        bar: null
-    }, $upload = {
-        form: null,
-        result: null
-    }, $download = {
-        url: null,
-        blob: null,
-        link: null
+        data: null,
+        link: undefined,
+        file: '',
+        loaded: 0
+    }, $node = {
+        container: undefined,
+        item: undefined,
+        method: undefined,
+        percent: undefined,
+        line: undefined,
+        progress: undefined,
+        name: undefined,
+        cancel: undefined
     };
 
-    this.upload = uploadFile;
-    this.download = downloadFile;
-    this.stop = stopTrasnfer;
-
     /**
      * **********************************************
-     * @public
-     * Envia arquivos do hadware do usuário para o
-     *  servidor.
-     * 
-     * @param {STR} form
-     *  Elemento#ID do formulário de envio.
-     *  
-     * @param {STR} url
-     *  Arquivo que será processará os dados do
-     *   envio pelo lado do servidor.
-     *  
-     * @param {BOLL} cancel (true/false/null)
-     *  Durante o processo de envio um botão para
-     *  cancelar deve ser ativo?
-     *  
-     * @param {STR/BOLL} result
-     *  Elemento#ID do local do html onde o arquivo
-     *  de processamento deve ser mostrado.
+     * Verifica se os valores necessários das opções
+     *  estão transcritos de forma correta para
+     *  melhor funcionamento dos recursos.
      * **********************************************
      */
-    function uploadFile(form, url, result, cancel) {
-        var $uploadInput = document.getElementById(form).querySelector('input[type="file"]');
-        if (!$uploadInput.value) {
-            console.warn('Nenhum arquivo selecionado');
-        } else if (!url) {
-            console.warn('Destino de recebimento não expecificado');
-        } else if ($transfer.request instanceof XMLHttpRequest) {
-            console.warn('Já existe um processo em andamento');
-        } else {
-            $transfer.request = new XMLHttpRequest();
-            $upload.form = new FormData();
-            $transfer.cancel = (cancel ? document.createElement('button') : null);
-            $upload.result = (result ? document.getElementById(result) : null);
-            $transfer.method = 'up';
-            $transfer.file = $uploadInput.files[0];
-            $transfer.name = $transfer.file.name;
-            $upload.form.append($uploadInput.name, $transfer.file);
-            createProgress();
-            htmlProgress();
-            $transfer.request.upload.addEventListener('progress', transferProgress, false);
-            $transfer.request.addEventListener('readystatechange', transferComplete, false);
-            $transfer.request.responseType = 'text';
-            $transfer.request.open('POST', url, true);
-            $transfer.request.send($upload.form);
-        }
-        return (false);
-    }
-
-    /**
-     * **********************************************
-     * @public
-     * Envia arquivos do servidor remoto para o
-     *  hadware do usuário.
-     * 
-     * @param {STR} file
-     *  Arquivo para ser enviado.
-     *  - Informar extensão.
-     *  - Informar diretórios (se houver)
-     *  - Expl.: 'pasta/arquivos/envio.zip'
-     * 
-     * @param {BOLL} cancel (true/false/null)
-     *  Durante o processo de envio um botão para
-     *  cancelar deve ser ativo?
-     * 
-     * @param {BOLL} blob (true/false/null)
-     *  A url para o arquivo deve ser binária?
-     *  Isso impedirar que conheçam o verdadeiro
-     *  endereço do arquivo.
-     * **********************************************
-     */
-    function downloadFile(file, cancel, blob) {
-        if (!file) {
-            console.warn('Arquivo de envio não expecificado');
-        } else if ($transfer.request instanceof XMLHttpRequest) {
-            console.warn('Já existe um processo em andamento');
-        } else {
-            $transfer.request = new XMLHttpRequest();
-            $transfer.file = file;
-            $transfer.name = $transfer.file.split('/').reverse()[0];
-            $transfer.cancel = (cancel ? document.createElement('button') : null);
-            $download.blob = (blob ? blob : null);
-            $transfer.method = 'do';
-            $download.link = document.createElement('a');
-            createProgress();
-            htmlProgress();
-            $transfer.request.addEventListener('progress', transferProgress, false);
-            $transfer.request.addEventListener('readystatechange', transferComplete, false);
-            $transfer.request.responseType = 'blob';
-            $transfer.request.open('GET', file, true);
-            $transfer.request.send();
-        }
-        return (false);
-    }
-
-    /**
-     * **********************************************
-     * @public
-     * Interrompe o processo de transferência dos
-     * arquivos.
-     * **********************************************
-     */
-    function stopTrasnfer() {
-        if ($transfer.request instanceof XMLHttpRequest) {
-            $transfer.request.abort();
-            removeProgress();
-        }
-    }
-
-    /**
-     * **********************************************
-     * @private
-     * Cria um monitorde progresso para informar o
-     *  status da aquisição do atual arquivo.
-     * Adiciona o botão de interrupção quando
-     *  definido no upload ou download.
-     * **********************************************
-     */
-    function createProgress() {
-        $transfer.progress = document.createElement('div');
-        $transfer.progress.id = 'transfer-progress';
-        $transfer.progress.innerHTML = '<div class="progress-text"></div><div class="progress-file"></div><div class="progress-percent"></div><div class="progress-line"><div class="progress-bar"></div></div>';
-        document.body.appendChild($transfer.progress);
-        if ($transfer.cancel) {
-            $transfer.cancel.classList.add('progress-cancel');
-            $transfer.cancel.innerText = 'Cancelar';
-            $transfer.cancel.addEventListener('click', stopTrasnfer, false);
-            $transfer.progress.appendChild($transfer.cancel);
-        }
-    }
-
-    /**
-     * ************************************************
-     * @private
-     * Obtem dados html do monitor de progresso.
-     * ************************************************
-     */
-    function htmlProgress() {
-        if ($transfer.method === 'up') {
-            $transfer.progress.querySelector('.progress-text').innerText = 'Enviando Arquivo';
-        } else if ($transfer.method === 'do') {
-            $transfer.progress.querySelector('.progress-text').innerText = 'Recebendo Arquivo';
-        }
-        $transfer.progress.querySelector('.progress-file').innerText = $transfer.name;
-        $transfer.percent = $transfer.progress.querySelector('.progress-percent');
-        $transfer.bar = $transfer.progress.querySelector('.progress-bar');
-    }
-
-    /**
-     * **********************************************
-     * @private
-     * Mostra o percentual da transferência no
-     *  monitor.
-     *  
-     * @param {OBJ} e
-     *  Dados do evento "progress" 
-     * ************************************************
-     */
-    function transferProgress(e) {
-        var $upProgress;
-        if (e.lengthComputable) {
-            $upProgress = Math.round((e.loaded / e.total) * 100);
-            $transfer.percent.innerText = $upProgress + '% completado';
-            $transfer.bar.style.width = $upProgress + '%';
-        }
-    }
-
-    /**
-     * **********************************************
-     * @private
-     * Quando completado o processo de leitura dos
-     *  dados toma as ações baseadas no status da
-     *  requisição em relação as definições de
-     *  variáveis.
-     * **********************************************
-     */
-    function transferComplete() {
-        if ($transfer.request.status === 404) {
-            console.warn('Não foi possível localizar o arquivo (' + $transfer.name + ')');
-            stopTrasnfer();
-        } else if (($transfer.request.readyState === 4) && ($transfer.request.status === 200)) {
-            if ($transfer.cancel) {
-                $transfer.cancel.style.display = 'none';
+    function checkOptions() {
+        try {
+            if (typeof $options.method !== 'string') {
+                throw  'method: não é uma string válida';
+            } else if ($options.method !== 'download' && $options.method !== 'upload') {
+                throw 'method: possui um valor inválido';
+            } else if (typeof $options.url !== 'string') {
+                throw 'url: não é uma string válida';
+            } else if ($options.url === '') {
+                throw 'url: não contém um arquivo válido';
             }
-            if ($upload.result) {
-                $upload.result.innerHTML = $transfer.request.responseText;
-            }
-            sincHtml();
-            setTimeout(removeProgress, 1000);
-        }
-    }
-
-    /**
-     * **********************************************
-     * @private
-     * Elimina elementos criados pelos métodos.
-     * **********************************************
-     */
-    function removeProgress() {
-        if ($transfer.cancel) {
-            $transfer.cancel.removeEventListener('click', stopTrasnfer);
-        }
-        if ($transfer.method === 'do') {
-            if ($download.blob) {
-                window.URL.revokeObjectURL($download.url);
-            }
-            document.body.removeChild($download.link);
-        }
-        document.body.removeChild($transfer.progress);
-        clearVar();
-    }
-
-    /**
-     * **********************************************
-     * @private
-     * Sincroniza o documento HTML com os nos novos
-     *  dados requeridos pelos métodos.
-     * **********************************************
-     */
-    function sincHtml() {
-        if ($transfer.method === 'up') {
-            loadScripts();
-        } else {
-            if ($download.blob) {
-                $download.url = window.URL.createObjectURL($transfer.request.response);
-                $download.link.href = $download.url;
-            } else {
-                $download.link.href = $transfer.file;
-            }
-            $download.link.download = $transfer.name;
-            document.body.appendChild($download.link);
-            $download.link.click();
-        }
-    }
-
-    function loadScripts() {
-        if ($upload.result) {
-            var $upLoadText = $transfer.request.responseText,
-                    $j = $upLoadText.indexOf('<script', 0),
-                    $os = ($upload.result).getElementsByTagName('script'),
-                    $src, $idxSrc, $endSrc, $strSrc, $k;
-            for ($k = $os.length - 1; $k >= 0; $k--) {
-                $os[$k].parentNode.removeChild($os[$k]);
-            }
-            while ($j != -1) {
-                $src = document.createElement('script');
-                $idxSrc = $upLoadText.indexOf(' src', $j);
-                $j = $upLoadText.indexOf('>', $j) + 1;
-                if ($idxSrc < $j && $idxSrc >= 0) {
-                    $j = $idxSrc + 4;
-                    $endSrc = $upLoadText.indexOf('.js', $j) + 3;
-                    $strSrc = $upLoadText.substring($j, $endSrc);
-                    $strSrc = $strSrc.replace('=', '')
-                            .replace(' ', '')
-                            .replace('"', '')
-                            .replace('"', '')
-                            .replace("'", '')
-                            .replace("'", '')
-                            .replace('>', '');
-                    $src.src = $strSrc;
-                } else {
-                    $endSrc = $upLoadText.indexOf('</script>', $j);
-                    $strSrc = $upLoadText.substring($j, $endSrc);
-                    $src.text = $strSrc;
+            if ($options.method === 'upload') {
+                if ($options.input.tagName === undefined) {
+                    throw 'input: não é um elemento type[\'file\']';
+                } else if ($options.input.tagName.toLowerCase() !== 'input') {
+                    throw 'input: não é um elemento type[\'file\']';
                 }
-                $upload.result.appendChild($src);
-                $j = $upLoadText.indexOf('<script', $endSrc);
-                $src = null;
             }
-        } else {
-            console.warn('Local de checagem do envio não expecíficado');
+        } catch (exception) {
+            console.error(exception);
+            return false;
         }
     }
 
     /**
      * **********************************************
-     * @private
-     * Define todos dados usadas para nada.
+     * Adiciona os principais elementos no documento
+     *  para mostrar os processos.
      * **********************************************
      */
-    function clearVar() {
-        if ($transfer.method == 'up') {
-            $upload.form = null;
-            $upload.result = null;
+    function addNodes() {
+        $node.container = document.getElementById('file-transfer-container');
+        if (typeof $node.container === undefined || $node.container === null) {
+            $node.container = document.createElement('div');
+            $node.container.id = 'file-transfer-container';
+            document.body.appendChild($node.container);
+        }
+        $node.item = document.createElement('div');
+        $node.item.className = 'transfer-item';
+        $node.container.insertBefore($node.item, $node.container.firstChild);
+        for (var $n in $node) {
+            if ($n === 'method' || $n === 'percent' || $n === 'line') {
+                $node[$n] = document.createElement('div');
+                $node[$n].className = 'transfer-' + $n;
+                $node.item.appendChild($node[$n]);
+            }
+        }
+        $node.progress = document.createElement('div');
+        $node.progress.className = 'transfer-progress';
+        $node.line.appendChild($node.progress);
+        methodNodes();
+        if ($options.cancel !== false) {
+            setCancel();
+        }
+    }
+
+    /**
+     * **********************************************
+     * Adiciona os elementos referentes aos métodos
+     *  de download ou upload.
+     * **********************************************
+     */
+    function methodNodes() {
+        if ($options.method === 'download') {
+            $this.link = document.createElement('a');
+            $node.name = document.createElement('div');
+            $node.name.className = 'transfer-name';
+            $node.item.appendChild($node.name);
+            $node.name.innerText = $options.url.split('/').reverse()[0].substring(0, 50);
+            $node.method.innerText = 'Recebendo...';
         } else {
-            $download.link = null;
+            $node.method.innerText = 'Enviando...';
         }
-        if ($download.blob) {
-            $download.blob = null;
-            $download.url = null;
+    }
+
+    /**
+     * **********************************************
+     * Adiciona o botão de parar a transferência.
+     * **********************************************
+     */
+    function setCancel() {
+        $node.cancel = document.createElement('button');
+        $node.cancel.className = 'file-transfer-cancel';
+        $node.cancel.innerText = 'Cancelar';
+        $node.cancel.addEventListener('click', transferStop, false);
+        $node.item.appendChild($node.cancel);
+    }
+
+    /**
+     * **********************************************
+     * Remove todos elementos adicionados do
+     *  documento.
+     * **********************************************
+     */
+    function removeNodes() {
+        $this.request = null;
+        var $time = 0, $interval = setInterval(function () {
+            if ($time === 1) {
+                //if ($options.method === 'download') {
+                //    $this.link.parentNode.removeChild($this.link);
+                //    document.body.removeChild($this.link);
+                //}
+                $node.item.className = 'file-transfer-out';
+            } else if ($time === 2) {
+                if ($node.container.childElementCount > 1) {
+                    $node.item.parentNode.removeChild($node.item);
+                } else {
+                    $node.container.parentNode.removeChild($node.container);
+                }
+                clearInterval($interval);
+            }
+            $time++;
+        }, 1000);
+    }
+
+    /**
+     * **********************************************
+     * Para a transferência dos arquivos.
+     * **********************************************
+     */
+    function transferStop() {
+        if ($this.request instanceof XMLHttpRequest) {
+            $this.request.abort();
+            removeNodes();
+            reset();
         }
-        $transfer.request = null;
-        $transfer.method = null;
-        $transfer.file = null;
-        $transfer.name = null;
-        $transfer.progress = null;
-        $transfer.percent = null;
-        $transfer.cancel = null;
-        $transfer.bar = null;
+    }
+
+    /**
+     * **********************************************
+     * Exibe os erros quando eles ocorrem.
+     * @param {STRING} err
+     * Texto de exibição do erro.
+     * **********************************************
+     */
+    function transferError(err) {
+        if (typeof $options.onError === 'function') {
+            $options.onError(err);
+            transferStop();
+        }
+    }
+
+    /**
+     * **********************************************
+     * Altera o tamanho da barra de progresso de
+     *  acordo com os dados já processados.
+     * @param {OBJECT} e
+     * progress prototype.
+     * **********************************************
+     */
+    function progressStatus(e) {
+        if (e.lengthComputable) {
+            $this.loaded = Math.round((e.loaded / e.total) * 100);
+            $node.percent.innerText = $this.loaded + '% completado';
+            $node.progress.style.width = $this.loaded + '%';
+        }
+    }
+
+    /**
+     * **********************************************
+     * Conclui as operações e mostra os resultados.
+     * **********************************************
+     */
+    function loadResult() {
+        var $response = '';
+        setTimeout(function () {
+            if ($options.method === 'download') {
+                $this.link.href = $this.file;
+                $this.link.download = $this.request.responseURL.split('/').reverse()[0];
+                //document.body.appendChild($this.link);
+                $this.link.click();
+                $response = 'Completo';
+            } else {
+                $response = $this.request.responseText;
+            }
+            if (typeof $options.onResult === 'function') {
+                $options.onResult($response);
+            }
+            removeNodes();
+            reset();
+        }, 1000);
+    }
+
+    /**
+     * **********************************************
+     * Monitora as alterações no status da aquisição
+     *  do arquivo.
+     * **********************************************
+     */
+    function readyState() {
+        if ($this.request.readyState === 4) {
+            if ($options.cancel !== false) {
+                $node.cancel.removeEventListener('click', transferStop);
+                $node.cancel.style.display = 'none';
+            }
+            if ($this.request.status === 200) {
+                loadResult();
+            }
+        } else if ($this.request.status > 200) {
+            transferError($this.request.status);
+        } else if ($this.request.onerror) {
+            transferError($this.request.onerror);
+        }
+    }
+
+    /**
+     * **********************************************
+     * Inicia os processos.
+     * **********************************************
+     */
+    function init() {
+        addNodes();
+        $this.request.addEventListener('progress', progressStatus, false);
+        $this.request.addEventListener('readystatechange', readyState, false);
+        $this.request.send($this.data);
+    }
+
+    /**
+     * **********************************************
+     * Define os dados principais ao estado inicial
+     *  para limpar a memória.
+     * **********************************************
+     */
+    function reset() {
+        $this = {
+            request: null,
+            data: null
+        };
+    }
+
+    /**
+     * **********************************************
+     * @constructor
+     * **********************************************
+     */
+    if (checkOptions() !== false) {
+        $this.request = new XMLHttpRequest();
+        if ($options.method === 'download') {
+            $this.data = null;
+            $this.file = $options.url;
+            $this.request.responseType = 'blob';
+            $this.request.open('GET', $options.url, true);
+        } else {
+            $this.data = new FormData();
+            $this.file = $options.input.files;
+            for (var $i = 0; $i < $this.file.length; $i++) {
+                $this.data.append($options.input.name, $this.file[$i]);
+            }
+            $this.request.responseType = 'text';
+            $this.request.open('POST', $options.url, true);
+        }
+        if (typeof $options.onStart === 'function') {
+            (($options.onStart($this.file) !== false) ? init() : reset());
+        } else {
+            init();
+        }
     }
 };

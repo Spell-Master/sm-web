@@ -1,72 +1,101 @@
 /**
- * ****************************************************
- * FileTransfer
- * * @author Spell-Master (Omar Pautz)
- * * @copyright 2018
- * * @version 2.1 (2021)
- * ****************************************************
+ * **************************************************
+ * @Class FileTransfer
+ * @author Spell-Master (Omar Pautz)
+ * @copyright 2018
+ * @version 3.0 (2022)
+ * **************************************************
  */
-#transfer-progress {
-    z-index: 999;
+
+#file-transfer-container {
+    z-index: 1;
     position: fixed;
-    top: 0;
-    left: 50%;
-    transform: translate(-50%, 0);
-    padding: 1.25rem 1.875rem;
-    min-width: 15rem;
+    bottom: 0;
+    left: 0;
+    width: 30vw;
+    max-height: 50vh;
+    min-width: 18.75rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border: 1.25rem solid transparent;
+    border-right: none;
+    direction: rtl;
+    padding-left: .625rem
+}
+#file-transfer-container .transfer-item,
+#file-transfer-container .file-transfer-out {
     background-color: #333333;
-    box-shadow: 0 .375rem 1rem rgba(0,0,0,.5);
-    border-radius: 0 0 .1875rem .1875rem;
+    border: .0625rem solid #eeeeee;
+    padding: .625rem;
     color: #cccccc;
-    text-align: center
-}
-#transfer-progress > .progress-text {
-    font-size: 1.125rem
-}
-#transfer-progress > .progress-file,
-#transfer-progress > .progress-percent {
-    font-size: .875rem;
-    display: inline-block;
-    vertical-align: top
-}
-#transfer-progress > .progress-file {
-    color: #54a1ff
-}
-#transfer-progress > .progress-percent {
-    margin-left: .3125rem
-}
-#transfer-progress > .progress-line {
+    text-align: center;
+    direction: ltr;
     position: relative;
-    top: .625rem;
-    margin: 0 0 .625rem;
-    height: .1875rem;
+    top: 0
+}
+#file-transfer-container .transfer-item {
+    left: 0;
+    animation: file-transfer-in 1s
+}
+#file-transfer-container .file-transfer-out {
+    left: -25rem;
+    animation: file-transfer-out 1s
+}
+#file-transfer-container .transfer-line,
+#file-transfer-container .transfer-progress {
+    top: 0;
+    left: 0;
+    height: .375rem
+}
+#file-transfer-container .transfer-line {
+    margin-top: .25rem;
+    position: relative;
     width: 100%;
     background: rgba(255,255,255,.1)
 }
-#transfer-progress > .progress-line > .progress-bar {
+#file-transfer-container .transfer-progress {
     position: absolute;
-    top: 0;
-    left: 0;
-    height: .1875rem;
     width: 0;
     background: #c40700;
     transition: 1s
 }
-#transfer-progress > .progress-cancel {
-    padding: .3125rem;
-    margin-top: 1.875rem;
+#file-transfer-container .transfer-method,
+#file-transfer-container .transfer-name,
+#file-transfer-container .transfer-percent {
+    font-size: 1rem
+}
+#file-transfer-container .transfer-name,
+#file-transfer-container .transfer-percent {
+    display: inline-block;
+    vertical-align: top                
+}
+#file-transfer-container .transfer-name {
+    max-width: 17.5rem;
+    max-height: 3rem;
+    overflow: hidden;
+    word-wrap: break-word
+}
+#file-transfer-container .file-transfer-cancel {
+    padding: .25rem;
+    margin-top: .625rem;
     display: block;
     width: 100%;
     font-size: 1rem;
     color: #333333;
     cursor: pointer;
-    background: #cccccc
+    background: #eeeeee;
+    transition: .2s ease-in;
+    border: none
 }
-#transfer-progress > .progress-cancel:hover {
+#file-transfer-container .file-transfer-cancel:hover {
     color: #ffffff;
     background: #c40700
 }
-@keyframes process-send {
-    from {top: -3.75rem; opacity: .3}
-    to {top: 0; opacity: 1}
+@keyframes file-transfer-in {
+    from {left: -18.75rem; opacity: 0}
+    to {left: 0; opacity: 1}
+}
+@keyframes file-transfer-out {
+    from {left: 0; opacity: 1}
+    to {left: -25rem; opacity: 0}
 }

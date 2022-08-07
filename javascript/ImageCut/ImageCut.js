@@ -1,76 +1,80 @@
 /**
  * **************************************************
- * * @Class ImageCut
- * * @author Spell-Master (Omar Pautz)
- * * @copyright 2019
- * * @version 2.1 (2021)
- * ****************************************************
- * * Executa corte de imagens.
+ * @Class ImageCut
+ * @author Spell-Master (Omar Pautz)
+ * @copyright 2019
+ * @version 2.2 (2022)
  * 
- * @param {STR} img
- * * #ID da imagem para trabalho.
+ * Executa corte de imagens.
+ * 
+ * @param {OBJECT} img
+ * Informar uma tag img.
  * **************************************************
  */
 
 var ImageCut = function (img) {
 
-    var $imgTarget = document.getElementById(img),
-    $isReady = false,
-    $isCut = false,
-    $limiter,
-    $box,
-    $img,
-    $canvas,
-    $data = {
-        ratio: 1.0,
-        left: 0,
-        top: 0
-    }, $status = {
-        imgLeft: 0,
-        imgTop: 0,
-        imgWidth: 0,
-        imgHeight: 0,
-        boxLeft: 0,
-        boxTop: 0,
-        posX: 0,
-        posY: 0
-    }, $zoom = {
-        boxWidth: 0,
-        boxHeight: 0,
-        imgWidth: 0,
-        imgHeight: 0,
-        left: 0,
-        top: 0,
-        right: 0,
-        bottom: 0
-    }, $target = {
-        w: 0,
-        h: 0
-    };
+    var $imgTarget = img || {},
+        $isReady = false,
+        $isCut = false,
+        $limiter,
+        $box,
+        $img,
+        $canvas,
+        $data = {
+            ratio: 1.0,
+            left: 0,
+            top: 0
+        }, $status = {
+            imgLeft: 0,
+            imgTop: 0,
+            imgWidth: 0,
+            imgHeight: 0,
+            boxLeft: 0,
+            boxTop: 0,
+            posX: 0,
+            posY: 0
+        }, $zoom = {
+            boxWidth: 0,
+            boxHeight: 0,
+            imgWidth: 0,
+            imgHeight: 0,
+            left: 0,
+            top: 0,
+            right: 0,
+            bottom: 0
+        }, $target = {
+            w: 0,
+            h: 0
+        };
 
-    if (typeof $imgTarget === 'undefined' && $imgTarget === null) {
-        console.error('Não foi possível identificar a imagem para corte');
-        return;
-    } else {
-        $imgTarget.addEventListener('load', initCut, false);
+    try {
+        if ($imgTarget.nodeType !== 1) {
+            throw 'img: forneça um tag <img> corretamente';
+        } else if ($imgTarget.tagName.toLowerCase() !== 'img') {
+            throw 'img: não é uma tag IMG válida';
+        } else if ($imgTarget.currentSrc === '') {
+            throw 'img: atributo src inválido';
+        } else {
+            $imgTarget.addEventListener('load', initCut, false);
+        }
+    } catch (exception) {
+        console.error(exception);
     }
 
     /**
      * **********************************************
      * @private
      * Inicia as funções necessárias.
-     * 
-     * @param {OBJ} e (Não utilizável)
-     * Imagem vinda do elemento #id requisitado.
      * **********************************************
      */
-    function initCut(e) {
+    function initCut() {
         $target.w = targetSize('w');
         $target.h = targetSize('h');
-        if ($target.w < 201) {
-            console.warn('A imagem de corte deve possuir pelo menos 210 pixel\'s de largura');
-        } else if ($target.h < 201) {
-            console.warn('A imagem de corte deve possuir pelo menos 210 pixel\'s de altura');
+        if ($target.w < 250) {
+            console.error('A imagem de corte deve possuir pelo menos 250 pixel\'s de largura');
+        } else if ($target.h < 250) {
+            console.error('A imagem de corte deve possuir pelo menos 250 pixel\'s de altura');
         } else {
             newComponents();
             setProperties();

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>ImageCut</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href="../../css/css-default.css" rel="stylesheet" type="text/css"/>
+        <link href="../../lib/stylesheet/core.css" rel="stylesheet" type="text/css"/>
+        <link href="../../lib/prism/prism.css" rel="stylesheet" type="text/css"/>
+        <script src="../../lib/prism/prism.js" type="text/javascript"></script>
+        <script src="../jsd/js-default.js" type="text/javascript"></script>
+
+        <link href="ImageCut.css" rel="stylesheet" type="text/css" />
+        <script src="ImageCut.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <article class="container padding-all">
+            <h1 class="bold italic">ImageCut.js</h1>
+            <hr class="border-bottom border-dark" />
+
+            <div class="margin-top-max">
+                <h2>Apresentação:</h2>
+
+                <div class="row-pad">
+                    <div class="col-half align-center">
+                        <div id="adicionar-imagem"></div>
+                    </div>
+                    <div class="col-half">
+                        <div id="adicionar-texto" class="over" style="max-height: 400px"></div>
+                    </div>
+                </div>
+
+                <div class="row-pad">
+                    <div class="col-single">
+                        <img src="../../lib/img/gt3.jpg" id="alvo-do-corte" alt="cortar imagem" class="image-auto" />
+                    </div>
+                    <div class="col-third">
+                        <button onclick="cortar.sizePlus()" class="btn-info button-block">Ampliar Zoom</button>
+                    </div>
+                    <div class="col-third">
+                        <button onclick="cortar.sizeMinus()" class="btn-info button-block">Reduzir Zoom</button>
+                    </div>
+                    <div class="col-third">
+                        <button onclick="definirCorte()" class="btn-success button-block">CORTAR</button>
+                    </div>
+                </div>
+
+                <div class="align-center margin-top">
+                </div>
+            </div>
+
+            <div class="sm-margin-top">
+                <hr class="border-bottom border-dark" />
+                <h2>Utilização</h2>
+                <p>Adicione o arquivos necessários</p>
+                <pre><code class="language-html">&lt;script src="ImageCut.js" type="text/javascript"&gt;&lt;/script&gt;
+&lt;link href="ImageCut.css" rel="stylesheet" type="text/css" /&gt;</code></pre>
+
+                <p>O próximo passo é ter uma imagem, e essa imagem deve possuir
+                    alguma forma de identificação aqui eu vou usar o atrinuto
+                    #ID para informar que ela será alvo das funções, exemplo:</p>
+                <pre><code class="language-html">&lt;img src="imagem.jpg" id="alvo" alt="" /&gt;</code></pre>
+
+                <p>Com a imagem identificada criamos um objeto do ImageCut,
+                    fornecendo a imagem como parâmetro.</p>
+                <pre><code class="language-javascript">var imagem = document.getElementById('alvo');
+var cortar = new ImageCut(imagem);</code></pre>
+                <p>Quando o ImageCut carregar irá substiutir a imagem por uma cópia
+                    que será usada nos demais processos.</p>
+                <p>Para o corte e os demais métodos usamos o objeto da instância,
+                    no caso como demostrado acima é
+                    "<span class="bold text-red">cortar</span>".</p>
+                <p>Assim como transcrito
+                    <q class="quote-green">var cortar = new ....</q></p>
+                <p>A partir de então com outras funções axiliares usa-se esse objeto
+                    para acionar os demais métodos.</p>
+            </div>
+
+            <div class="sm-margin-top">
+                <hr class="border-bottom border-dark" />
+                <h2>Métodos</h2>
+
+                <p><span class="bold font-max">sizePlus</span>:
+                    Este método irá almentar o tamanho da caixa de corte.
+                </p>
+                <p><span class="bold font-max">sizeMinus</span>:
+                    Este método irá diminuir o tamanho da caixa de corte.
+                </p>
+                <blockquote class="quote">
+                    <p>Girando a "roda" do mouse dentro da caixa de corte o tamanho também
+                        será alterado, o mesmo acontece pressionando as teclas "+" e "-"
+                        do teclado.</p>
+                    <p>Essa funcionabilidade não precisa de intervenção
+                        ela estará ativa a todo momento.</p>
+                </blockquote>
+                <p><span class="bold font-max">setCut</span>:
+                    Este método irá cortar a imagem no local e com as delimitações
+                    da caixa de corte.
+                </p>
+                <p><span class="bold font-max">getImage</span>:
+                    Este método irá obter um base64 da imagem no local e com as delimitações
+                    da caixa de corte.
+                </p>
+            </div>
+
+            <div class="sm-margin-top">
+                <hr class="border-bottom border-dark" />
+                <h2>Exemplo Prático</h2>
+
+                <pre><code class="language-html">&lt;img src="imagem.jpg" id="alvo" alt="" /&gt;
+&lt;button onclick="cortar.sizePlus()"&gt;Ampliar Zoom&lt;/button&gt;
+&lt;button onclick="cortar.sizeMinus()"&gt;Reduzir Zoom&lt;/button&gt;
+&lt;button onclick="definirCorte()"&gt;CORTAR&lt;/button&gt;
+&lt;script&gt;
+    var cortar = new ImageCut( document.getElementById('alvo') );
+    
+    function definirCorte() {
+        cortar.setCut(); // Corta a imagem
+        var imagemCortada = cortar.getImage(); // Obtem a imagem cortada
+        /* Com os dados de "imagemCortada" você faz o que tem de fazer
+         * Exemplo criano uma nova imagem */ 
+        var novaImagem = document.createElement('img');
+        novaImagem.src = imagemCortada;
+        console.log( novaImagem );
+    }
+&lt;/script&gt;</code></pre>
+                <p>Lembre-se que o corte não passa de uma representação em base64
+                    da imagem no local onde está a caixa de corte, portanto esse valor
+                    pode ser utilizado por uma infinidade de situações, conforme
+                    for necessário um corte de imagem.</p>
+
+                <p class="margin-top">ImageCut não se iniciará enquanto a imagem não estiver completamente
+                    carregada, portanto para images grandes dependendo da velocidade
+                    de conexão e capacidade de processamento da máquina do usuário,
+                    o script pode demorar a está operacional.</p>
+            </div>
+        </article>
+
+        <script>
+            var cortar = new ImageCut(jsd('#alvo-do-corte')[0]),
+                    addImg = jsd('#adicionar-imagem'),
+                    addText = jsd('#adicionar-texto'),
+                    novaImagem = null,
+                    b64 = null;
+
+            function definirCorte() {
+                novaImagem = document.createElement('img');
+                cortar.setCut();
+                b64 = cortar.getImage();
+                novaImagem.alt = '';
+                novaImagem.src = b64;
+                addImg.html('');
+                addImg.append(novaImagem);
+                addText.text(b64);
+                window.scrollTo({top: 0, behavior: 'smooth'});
+            }
+        </script>
+    </body>
+</html>

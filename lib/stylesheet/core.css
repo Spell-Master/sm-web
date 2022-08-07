@@ -23,8 +23,9 @@ body {
     left: 0;
     height: 100vh;
     width: 100vw;
-    background-color: rgba(0,0,0,.6);
-    display: none
+    background-color: rgba(100,100,100,.5);
+    display: none;
+    animation: effect-fade-in .5s
 }
 #view-code .pos-center {
     position: absolute;
@@ -32,19 +33,18 @@ body {
     width: 90vw;
     background: #ffffff;
     box-shadow:0 0 6px 8px #fff;
-    padding: 5px 0
+    padding: 10px;
+    animation: effect-fade-in 1s
 }
 #view-code .code-head {
     height: 45px;
     font-size: 25px;
-    line-height: 40px;
-    margin: 0 10px;
+    line-height: 40px
 }
 #view-code .code-close {
     float: right;
     font-size: 40px;
     font-weight: 400;
-    padding: 0 18px;
     cursor: pointer;
     margin-bottom: 1px
 }
@@ -55,7 +55,7 @@ body {
     content: "X"
 }
 #view-code .code-pre {
-    padding: 0 5px;
+
 }
 #view-code.active {
     display: block !important
@@ -63,5 +63,31 @@ body {
 #view-code pre[class*="language-"] {
     padding-top: 0 !important;
     height: calc(50vh - 45px);
-    width: calc(90vw - 20px);
+    width: auto
 }
+
+.spinner {animation:effect-spin 4s infinite linear}
+.rotate {animation:effect-spin .5s}
+.spinner-off {animation:effect-spin-off .5s infinite linear}
+.rotate-off {animation:effect-spin-off .5s}
+.turn {animation:effect-turn .5s}
+.turn-off {animation:effect-turn-off .5s}
+.flip,
+.flip-off {transform-style:preserve-3d}
+.flip {animation:effect-flip .5s}
+.flip-off {animation:effect-flip-off .5s; transform-origin:100%}
+.zoom-in {animation:effect-zoom-in .6s}
+.zoom-out {animation:effect-zoom-out .6s}
+.fade-in {animation:effect-fade-in .5s}
+.fade-out {animation:effect-fade-out .5s}
+
+@keyframes effect-spin {from {transform:rotate(0deg)} to {transform:rotate(360deg)}}
+@keyframes effect-spin-off {from {transform:rotate(360deg)} to {transform:rotate(0deg)}}
+@keyframes effect-turn {from {transform:rotate(0deg)} to {transform:rotate(180deg)}}
+@keyframes effect-turn-off {from {transform:rotate(180deg)} to {transform:rotate(0deg)}}
+@keyframes effect-flip {from {transform:rotate(0deg)} to {transform:rotateY(180deg)}}
+@keyframes effect-flip-off {from {transform:rotate(0deg)} to {transform:rotateX(-180deg)}}
+@keyframes effect-zoom-in {from {transform:scale(0)} to {transform:scale(1)}}
+@keyframes effect-zoom-out {from {transform:scale(1)} to {transform:scale(0)}}
+@keyframes effect-fade-in {from {opacity:0} to {opacity:1}}
+@keyframes effect-fade-out {from {opacity:1} to {opacity:0}}

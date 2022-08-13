@@ -1,181 +1,246 @@
 /**
- * ****************************************************
- * * @Class ImageGalery
- * * @author Spell-Master (Omar Pautz)
- * * @copyright 2019
- * * @version 1.0
- * ****************************************************
- * * Exibe imagens como forma de galeria.
- * 
- * @param {STR/DOM} box
- * #ID do elemento que contenha a galeria de imagens.
- * ****************************************************
+ * **************************************************
+ * @Class ImageGalery
+ * @author Spell-Master (Omar Pautz)
+ * @copyright 2019
+ * @version 2.0 (2022)
+ *
+ * Exibe imagens como forma de galeria.
+ * **************************************************
  */
 
-var ImageGalery = function (box) {
+var ImageGalery = function () {
 
-    var $box = document.getElementById(box), $img;
     var $this = {
-        backGround: null,
-        galeryBox: null,
-        boxImg: null,
-        thumb: null,
-        close: null
+        galery: document.querySelectorAll('img[data-galery]'),
+        images: [],
+        open: false
+    }, $add = {
+        bg: null,
+        center: null,
+        close: null,
+        bottom: null,
+        thumb: null
     };
 
-    createBg();
-    createBox();
-    createThumb();
-    createX();
-
-    $img = $box.querySelectorAll('img');
-    $img.forEach(setMod);
-
     /**
-     * ************************************************
-     * * Cria o plano de fundo
-     * ************************************************
+     * **********************************************
+     * @private
+     * Mostra ou escode os elementos da galeria.
+     * **********************************************
      */
-    function createBg() {
-        $this.backGround = document.createElement('img');
-        $this.backGround.classList.add('galery-background');
-        document.body.appendChild($this.backGround);
+    function toggleHidden() {
+        $add.bg.classList.toggle('hidden');
+        $add.center.classList.toggle('hidden');
+        $add.bottom.classList.toggle('hidden');
+        $add.close.classList.toggle('hidden');
     }
 
     /**
-     * ************************************************
-     * * Cria a caixa central da imagem
-     * ************************************************
+     * **********************************************
+     * @private
+     * Executa ação para mostrar a galeria.
+     * @param {OBJECT} e
+     * **********************************************
      */
-    function createBox() {
-        $this.galeryBox = document.createElement('div');
-        $this.boxImg = document.createElement('img');
-        $this.galeryBox.classList.add('galery-box');
-        $this.boxImg.classList.add('galery-image');
-        document.body.appendChild($this.galeryBox);
-        $this.galeryBox.appendChild($this.boxImg);
-    }
-
-    /**
-     * ************************************************
-     * * Cria a caixa de minituras da galeria
-     * ************************************************
-     */
-    function createThumb() {
-        $this.thumb = document.createElement('div');
-        $this.thumb.classList.add('thumb-background');
-        document.body.appendChild($this.thumb);
-    }
-
-    /**
-     * ************************************************
-     * * Cria o botão de fechar
-     * ************************************************
-     */
-    function createX() {
-        $this.close = document.createElement('a');
-        $this.close.classList.add('galery-x');
-        $this.close.title = 'Fechar';
-        document.body.appendChild($this.close);
-        $this.close.addEventListener('click', closeGalery, false);
-    }
-
-    /**
-     * ************************************************
-     * * Define eventos de click em todas as imagens
-     * para abertua da galeria.
-     * * Adiciona evento de click ao documento para
-     * fechar a galeria.
-     * * @param {OBJ} e
-     * ************************************************
-     */
-    function setMod(e) {
-        e.addEventListener('click', openLight, false);
-        e.addEventListener('click', setBg, false);
-        document.addEventListener('keypress', keyboard, false);
-    }
-
-    /**
-     * ************************************************
-     * * Abre a galeria
-     * * @param {OBJ} e
-     * ************************************************
-     */
-    function openLight(e) {
-        setTumbs();
-        showBoxes();
-    }
-
-    /**
-     * ************************************************
-     * * Mostra os elementos
-     * ************************************************
-     */
-    function showBoxes() {
-        $this.backGround.classList.toggle('active');
-        $this.galeryBox.classList.toggle('active');
-        $this.thumb.classList.toggle('active');
-        $this.close.classList.toggle('active');
-    }
-
-    /**
-     * ************************************************
-     * * Cria as miniaturas da galeria
-     * ************************************************
-     */
-    function setTumbs() {
-        var $tumb = $box.getElementsByTagName('img'), $tImg;
-        for (var $i = 0; $i < $tumb.length; $i++) {
-            $tImg = document.createElement('img');
-            $tImg.src = $tumb[$i].src;
-            $tImg.classList.add('thumb');
-            $this.thumb.appendChild($tImg);
-            $tImg.addEventListener('click', setBg, false);
+    function openGalery(e) {
+        if (!$this.open) {
+            $add.bg.src = e.target.src;
+            $add.center.src = e.target.src;
+            toggleHidden();
+            $this.open = true;
         }
     }
 
     /**
-     * ************************************************
-     * * Define a atual imagem clicada
-     * @param {OBJ} e
-     * ************************************************
-     */
-    function setBg(e) {
-        $this.backGround.src = e.target.src;
-        $this.boxImg.src = e.target.src;
-    }
-
-    /**
-     * ************************************************
-     * * Remove todos elementos fechando a galeria
-     * ************************************************
+     * **********************************************
+     * @private
+     * Executa ação para esconder a galeria.
+     * **********************************************
      */
     function closeGalery() {
-        $this.backGround.src = null;
-        $this.boxImg.src = null;
-        $this.thumb.innerHTML = null;
-        var $clearT = $this.thumb.getElementsByTagName('img'), $i;
-        for ($i = 0; $i < $clearT.length; $i++) {
-            if ($clearT[$i].parentNode) {
-                $clearT[$i].parentNode.removeChild($clearT[$i]);
-            }
+        if ($this.open) {
+            toggleHidden();
+            $this.open = false;
         }
-        showBoxes();
     }
 
     /**
-     * ************************************************
-     * * Fecha a galeria caso a tela "escape" é
-     * pressionada.
-     * @param {OBJ} e
-     * ************************************************
+     * **********************************************
+     * @private
+     * Altera a imagem central e do fundo quando
+     *  clicado em alguma minitura inferior.
+     * @param {OBJECT} e
+     * **********************************************
+     */
+    function changeOpen(e) {
+        if ($this.open) {
+            $add.bg.src = e.target.src;
+            $add.center.src = e.target.src;
+        }
+    }
+
+    /**
+     * **********************************************
+     * @private
+     * Cria a imagem de plano de fundo.
+     * **********************************************
+     */
+    function createBg() {
+        $add.bg = document.createElement('img');
+        $add.bg.id = 'galery-bg';
+        $add.bg.classList.add('hidden');
+        document.body.appendChild($add.bg);
+    }
+
+    /**
+     * **********************************************
+     * @private
+     * Cria a imagem de central.
+     * **********************************************
+     */
+    function createCenter() {
+        $add.center = document.createElement('img');
+        $add.center.id = 'galery-center';
+        $add.center.classList.add('hidden');
+        document.body.appendChild($add.center);
+    }
+
+    /**
+     * **********************************************
+     * @private
+     * Cria o botão de fechar.
+     * **********************************************
+     */
+    function createClose() {
+        $add.close = document.createElement('button');
+        $add.close.id = 'galery-close';
+        $add.close.title = 'Fechar';
+        $add.close.classList.add('hidden');
+        $add.close.addEventListener('click', closeGalery, false);
+        document.body.appendChild($add.close);
+    }
+
+    /**
+     * **********************************************
+     * @private
+     * Cria a barra inferior para as miniaturas.
+     * **********************************************
+     */
+    function createBottom() {
+        $add.bottom = document.createElement('div');
+        $add.bottom.id = 'galery-bottom';
+        $add.bottom.classList.add('hidden');
+        document.body.appendChild($add.bottom);
+    }
+
+    /**
+     * **********************************************
+     * @private
+     * Cria as miniaturas.
+     * @param {OBJECT} image
+     * **********************************************
+     */
+    function createThumb(image) {
+        $add.thumb = document.createElement('img');
+        $add.thumb.src = image;
+        $add.thumb.setAttribute('style', 'height:80px; max-width:' + Math.ceil(document.body.offsetWidth / $this.images.length) + 'px; cursor:pointer');
+        $add.thumb.addEventListener('click', changeOpen, false);
+        $add.bottom.appendChild($add.thumb);
+    }
+
+    /**
+     * **********************************************
+     * @private
+     * Detecta quando a tela "ESCAPE" é clicada
+     *  fechando a galeria.
+     * @param {OBJECT} e
+     * **********************************************
      */
     function keyboard(e) {
-        if (e.keyCode == 27) {
+        if (e.keyCode === 27) {
             closeGalery();
         }
     }
 
-    this.openLight = openLight;
-    this.setBg = setBg;
+    /**
+     * **********************************************
+     * @public
+     * Analiza novamente as imagens se alguma estiver
+     *  faltando remove ela da memória, se houver
+     *  alguma que não está na memória a adiciona.
+     * **********************************************
+     */
+    function reload() {
+        $this.galery = document.querySelectorAll('img[data-galery]');
+
+        if ($this.galery.length < $this.images.length) {
+            for (var $i = 0; $i < $this.galery.length; $i++) {
+                if ($this.galery[$i] !== $this.images[$i]) {
+                    $this.images.splice($i, 1);
+                    $add.bottom.removeChild($add.bottom.childNodes[$i]);
+                }
+            }
+        } else if ($this.galery.length > $this.images.length) {
+            for (var $i = 0; $i < $this.galery.length; $i++) {
+                if ($this.galery[$i] !== $this.images[$i] &&  $this.galery[$i].currentSrc !== '') {
+                    $this.images.push($this.galery[$i]);
+                    createThumb($this.images[$i].src);
+                    $this.images[$i].addEventListener('click', openGalery, false);
+                }
+            }
+        }
+    }
+
+    /**
+     * **********************************************
+     * @public
+     * Retorna as imagens carregadas.
+     * **********************************************
+     */
+    function elements() {
+        if (typeof $this.galery !== undefined && $this.galery !== null) {
+            return ($this.galery);
+        } else {
+            return ({});
+        }
+    }
+
+    /**
+     * **********************************************
+     * Adiciona as imagens carregadas na memória.
+     * @param {OBJECT} img
+     * **********************************************
+     */
+    $this.galery.forEach(function (img) {
+        if (img.currentSrc !== '') {
+            $this.images.push(img);
+        }
+    });
+
+    /**
+     * **********************************************
+     * Identifica quando a memória possui os mesmos
+     *  dados das imagens carregadas.
+     * **********************************************
+     */
+    if ($this.images.length === $this.galery.length) {
+        createBg();
+        createCenter();
+        createClose();
+        createBottom();
+        for (var $i = 0; $i < $this.images.length; $i++) {
+            createThumb($this.images[$i].src);
+            $this.images[$i].addEventListener('click', openGalery, false);
+        }
+        document.addEventListener('keydown', keyboard, false);
+    }
+
+    /**
+     * **********************************************
+     * Acesso público as funções.
+     * **********************************************
+     */
+    this.reload = reload;
+    this.elements = elements;
 };

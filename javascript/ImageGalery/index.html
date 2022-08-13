@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>ImageGalery</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="../../css/css-default.css" rel="stylesheet" type="text/css"/>
+        <link href="../../lib/stylesheet/core.css" rel="stylesheet" type="text/css"/>
+        <link href="../../lib/prism/prism.css" rel="stylesheet" type="text/css"/>
+        <script src="../../lib/prism/prism.js" type="text/javascript"></script>
+        <script src="../jsd/js-default.js" type="text/javascript"></script>
+        <script src="../../lib/js/mostarCodigo.js" type="text/javascript"></script>
+
+        <link href="ImageGalery.css" rel="stylesheet" type="text/css"/>
+        <script src="ImageGalery.js" type="text/javascript"></script>
+
+        <style>
+            .col-third > img {
+                max-height: 180px;
+                width: 100%;
+                cursor: pointer
+            }
+        </style>
+    </head>
+    <body>
+        <article class="container padding-all">
+            <h1 class="bold italic">ImageGalery.js</h1>
+            <hr class="border-bottom border-dark" />
+            <p>O ImageGalery exibe as imagens fora do contexto da página como
+                demonstração individual de cada imagem.</p>
+            <p>Adicionando assim uma galeria sobre quais imagens serão mostradas,
+                na parte inferior da tela, quando clicado sobre alguma altera a
+                imagem principal de exibição.</p>
+            <p>Clique sobre alguma imagem para iniciar.</p>
+
+            <div class="margin-top-max">
+                <hr class="border-bottom border-dark" />
+                <h2>Apresentação:</h2>
+
+                <div id="code">
+                    <div class="row-pad">
+                        <div class="col-third">
+                            <img src="../../lib/img/paisagem_01.jpg" alt="" data-galery="" />
+                        </div>
+                        <div class="col-third">
+                            <img src="../../lib/img/paisagem_02.jpg" alt="" data-galery="" />
+                        </div>
+                        <div class="col-third">
+                            <img src="../../lib/img/paisagem_03.jpg" alt="" data-galery="" />
+                        </div>
+                        <div class="col-third">
+                            <img src="../../lib/img/paisagem_04.jpg" alt="" data-galery="" />
+                        </div>
+                        <div class="col-third">
+                            <img src="../../lib/img/paisagem_05.jpg" alt="" data-galery="" />
+                        </div>
+                        <div class="col-third">
+                            <img src="../../lib/img/paisagem_06.jpg" alt="" data-galery="" />
+                        </div>
+                        <div class="col-third">
+                            <img src="../../lib/img/paisagem_07.jpg" alt="" data-galery="" />
+                        </div>
+                        <div class="col-third">
+                            <img src="../../lib/img/paisagem_08.jpg" alt="" data-galery="" />
+                        </div>
+                        <div class="col-third">
+                            <img src="../../lib/img/paisagem_09.jpg" alt="" data-galery="" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="margin-top align-center">
+                    <button class="btn-default" data-code="code">Ver código fonte</button>
+                </div>
+
+            </div>
+
+            <div class="sm-margin-top">
+                <hr class="border-bottom border-dark" />
+                <h2>Utilização</h2>
+                <p>Adicione o arquivos necessários:</p>
+                <pre><code class="language-html">&lt;script src="ImageGalery.js" type="text/javascript"&gt;&lt;/script&gt;
+&lt;link href="ImageGalery.css" rel="stylesheet" type="text/css" /&gt;</code></pre>
+
+                <p>Adicione os arquivos de imagens necessários, exemplo:</p>
+                <pre><code class="language-html">&lt;img src="imagem_a.jpg" alt="" data-galery="" /&gt;
+&lt;img src="imagem_b.jpg" alt="" data-galery="" /&gt;
+&lt;img src="imagem_c.jpg" alt="" data-galery="" /&gt;</code></pre>
+                <p>Perceba o uso do atributo
+                    <span class="bold text-red">data-galery</span>. Este atributo
+                    é o gatilho de dispara a iniciação do script, qualquer
+                    imagem que o possua será alvo das funções.</p>
+                <p>Caso alguma não tenha esse etributo não será carregada pelo
+                    ImageGalery.js</p>
+                <p>O próximo passo é instanciar o ImageGalery, essa etapa é adequada
+                    ser iniciado no final do documento html antes do fechamento
+                    da tag &lt;/body&gt;</p>
+                <p>No entanto também pode-se iniciar logo após a renderização dos
+                    elementos.</p>
+                <pre><code class="language-html">&lt;script&gt;
+    var exemplo = new ImageGalery();
+&lt;/script&gt;</code></pre>
+                <blockquote class="quote-yellow">
+                    <p class="bold">*NOTA:</p>
+                    <p>Para reduzir o custo do desempenho, o ImageGalery
+                    não irá verificar se todas as imagens estão devidamente
+                    carregadas, portanto incoerências aleatórias podem ocorrer
+                    devido a falhas de carregamento, imagens muito pesadas
+                    ou ataque cross-script.</p>
+                    <p>O processo de checagem pode ser realizado antes de criar
+                    a instância se achar que seja necessário.</p>
+                </blockquote>
+            </div>
+            
+            <div class="margin-top-max">
+                <hr class="border-bottom border-dark" />
+                <h3>Métodos Extras</h3>
+                <p class="list margin-left font-max bold">
+                    reload
+                </p>
+                <p>Este método irá recarregar as imagens pertecentes as funções,
+                caso venha a remover ou adicionar imagens você poderá usar-lo
+                para redefinir o ImageGalery a condição atual.</p>
+                <pre><code class="language-html">&lt;script&gt;
+    var exemplo = new ImageGalery();
+    exemplo.reload(); // Recarrega tudo.
+&lt;/script&gt;</code></pre>
+                <h3>Métodos de Extras</h3>
+                <p class="list margin-left font-max bold">
+                    elements
+                </p>
+                <p>Este método irá retonar todas imagens pertecentes as funções.</p>
+                <pre><code class="language-html">&lt;script&gt;
+    var exemplo = new ImageGalery();
+    exemplo.elements(); // NodeList das imagens.
+&lt;/script&gt;</code></pre>
+            </div>
+        </article>
+
+        <div id="view-code">
+            <div class="pos-center">
+                <div class="code-head">
+                    Código Fonte
+                    <button class="code-close"></button>
+                </div>
+                <div class="code-pre"></div>
+            </div>
+        </div>
+
+        <script>
+            var galery = new ImageGalery();
+
+            jsd('[data-code]').click(function (e) {
+                smCode.openCode(e.target.dataset.code);
+            });
+            jsd('.code-close').click(function () {
+                smCode.coseCode();
+            });
+        </script>
+    </body>
+</html>

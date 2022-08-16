@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>ModalShow</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <link href="../../css/css-default.css" rel="stylesheet" type="text/css"/>
+        <link href="../../lib/stylesheet/core.css" rel="stylesheet" type="text/css"/>
+        <link href="../../lib/prism/prism.css" rel="stylesheet" type="text/css"/>
+        <script src="../../lib/prism/prism.js" type="text/javascript"></script>
+        <script src="../jsd/js-default.js" type="text/javascript"></script>
+        <script src="../../lib/js/mostarCodigo.js" type="text/javascript"></script>
+
+        <link href="ModalShow.css" rel="stylesheet" type="text/css" />
+        <script src="ModalShow.js" type="text/javascript"></script>
+        <style>
+            select.input-default {
+                background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23444444' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+                background-repeat: no-repeat;
+                background-position: right 10px center;
+                background-size: 32px 22px;
+                appearance: none
+            }
+        </style>
+    </head>
+    <body>
+        <article class="container padding-all">
+            <h1 class="bold italic">ModalShow.js</h1>
+            <hr class="border-bottom border-dark" />
+
+            <div class="margin-top-max">
+                <h2>Apresentação:</h2>
+
+                <div id="code-1">
+                    <div class="modal" id="identificador">
+                        <div class="modal-box">
+                            <div class="modal-header"></div>
+                            <div class="modal-content">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                            </div>
+                        </div>
+                    </div>
+                    <button
+                        class="btn-info"
+                        onclick="modal.open({title: 'Título da Janela'})">
+                        Abrir Modal
+                    </button>
+                </div>
+
+                <div class="margin-top align-center">
+                    <button class="btn-default" data-code="code-1">Ver código fonte</button>
+                </div>
+
+
+                <div id="code-2">
+                    <div class="modal" id="identificador-2">
+                        <div class="modal-box">
+                            <div class="modal-header"></div>
+                            <div class="modal-content align-center">
+                                <button class="btn-info" onclick="modalB.title('olá')">Definir Título</button>
+                                <button class="btn-info" onclick="modalB.showX()">Mostrar Fechar</button>
+                                <button class="btn-info" onclick="modalB.hiddenX()">Ocultar Fechar</button>
+                                <button class="btn-info" onclick="modalB.close()">Fechar</button>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                <p>Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin mauris. Integer in mauris eu nibh euismod gravida. Duis ac tellus et risus vulputate vehicula. Donec lobortis risus a elit. Etiam tempor. Ut ullamcorper, ligula eu tempor congue, eros est euismod turpis, id tincidunt sapien risus a quam. Maecenas fermentum consequat mi. Donec fermentum. Pellentesque malesuada nulla a mi. Duis sapien sem, aliquet nec, commodo eget, consequat quis, neque. Aliquam faucibus, elit ut dictum aliquet, felis nisl adipiscing sapien, sed malesuada diam lacus eget erat. Cras mollis scelerisque nunc. Nullam arcu. Aliquam consequat. Curabitur augue lorem, dapibus quis, laoreet et, pretium ac, nisi. Aenean magna nisl, mollis quis, molestie eu, feugiat in, orci. In hac habitasse platea dictumst.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button
+                        class="btn-info"
+                        onclick="modalB.open({title: 'Título da Janela', close: false})">
+                        Abrir modal com métodos auxiliares
+                    </button>
+                </div>
+
+                <div class="margin-top align-center">
+                    <button class="btn-default" data-code="code-2">Ver código fonte</button>
+                </div>
+            </div>
+
+            <blockquote class="quote-yellow">
+                <p class="bold">Observação:</p>
+                <p>Perceba ao visualizar o código fonte o uso do atributo
+                    <span class="bold text-red">data-modal</span>.</p>
+                <p>Esse atributo é definido pelo ModalShow.js e não deve ser definido
+                    antecipadamente... Resumindo não adicione esse atributo!</p>
+            </blockquote>
+
+            <div class="sm-margin-top">
+                <hr class="border-bottom border-dark" />
+                <h2>Utilização</h2>
+                <p>Adicione o arquivos necessários</p>
+                <pre><code class="language-html">&lt;script src="ModalShow.js" type="text/javascript"&gt;&lt;/script&gt;
+&lt;link href="ModalShow.css" rel="stylesheet" type="text/css" /&gt;</code></pre>
+
+                <p>Crie a estrutura HTML</p>
+                <pre><code class="language-html">&lt;div class="modal" id="identificar_modal"&gt;
+    &lt;div class="modal-box"&gt;
+        &lt;div class="modal-header"&gt;&lt;/div&gt;
+        &lt;div class="modal-content"&gt;
+            O conteúdo do modal aqui dentro...
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+                <blockquote class="quote">
+                    Deve-se seguir essa estrutura, caso contrário erros indesperados
+                    pode ocorrer.
+                    <p>Mas o mais importante que a caixa pai tenha
+                        <q class="quote-green">class="modal"</q>
+                        e um atributo <q class="quote-green">#ID</q>
+                    </p>
+                    <p>Entendemos que você pode ter mais de um modal no documento,
+                        e é pelo #id que vamos distinguir um do outro.</p>
+                </blockquote>
+                <p>Crie a instância da classe ModalShow adicionando um objeto, então você
+                    informa como parâmetro o #ID do modal alvo.</p>
+                <pre><code class="language-html">&lt;script&gt;
+    var exemplo = new ModalShow('identificar_modal');
+&lt;/script&gt;</code></pre>
+                <p>Então para cada modal que deseja um novo objeto instanciando a class
+                    ModalShow deve ser iniciado.</p>
+                <p>Com esse objeto é vamos ter acesso ao métodos.</p>
+            </div>
+
+            <div class="sm-margin-top">
+                <hr class="border-bottom border-dark" />
+                <h2>Métodos</h2>
+                <p><span class="bold font-max">open</span>:
+                    Esse método abre a janela. Ele possui um parâmetro que define
+                    as característica do modal
+                </p>
+                <p class="italic">Falarei mais a frente sobre as opções de forma
+                    detalhada.</p>
+                <p><span class="bold font-max">close</span>:
+                    Esse método fecha a janela.
+                </p>
+                <p><span class="bold font-max">title</span>:
+                    Esse método define/altera o título da janela.
+                </p>
+                <p>Como parâmetro você informa o texto que terá o título.</p>
+                <p><span class="bold font-max">showX</span>:
+                    Esse método mostra o botão de fechar quando ele não estiver ativo.
+                </p>
+                <p><span class="bold font-max">hiddenX</span>:
+                    Esse método esconde o botão de fechar quando ele estiver ativo.
+                </p>
+                <p><span class="bold font-max">content</span>:
+                    Esse método define/altera o conteúdo do modal.
+                </p>
+                <p>Como parâmetro você informa o texto que terá o conteúdo.</p>
+                <p>Obs.: Você pode informar uma estrutura html também</p>
+
+                <pre><code class="language-html">&lt;script&gt;
+    var exemplo = new ModalShow('identificar_modal'); // Instância criada no objeto "exemplo"
+    exemplo.open(); // Abre o modal
+    exemplo.close(); // Fecha o modal
+    exemplo.title('Olá mundo'); // O título será: Olá mundo
+    exemplo.showX(); // Mostra o botão de fechar
+    exemplo.hiddenX(); // Esconde o botão de fechar
+    exemplo.content('&lt;div class="hello"&gt;Olá&lt;/div&gt;'); // Altera o conteúdo
+&lt;/script&gt;</code></pre>
+            </div>
+
+            <div class="sm-margin-top">
+                <hr class="border-bottom border-dark" />
+                <h2>Opções</h2>
+                <p>Essas são as opções ao qual você pode está usando quando for
+                    abrir o modal. Qualquer uma delas é opcional, use conforme achar
+                    necessário.</p>
+                <p><span class="bold font-max">title</span>:
+                    Nessa opção você informa um texto que terá o modal quando
+                    ele for aberto.
+                </p>
+                <p><span class="bold font-max">close</span>:
+                    Nessa opção você informa "true" ou "false".
+                </p>
+                <p>Se informar como false, o botão de fechar será oculto, no
+                    entando se você não informar como true ou mesmo se não informar
+                    o botão, será exibido de qualquer forma.</p>
+                <p><span class="bold font-max">width</span>:
+                    Nessa opção você informa um número ao qual determinará a largura
+                    máxima do modal.
+                </p>
+                <p><span class="bold font-max">effect</span>:
+                    Nessa opção você informa um texto com o tipo de efeito que deve
+                    ser executado toda vez que o modal for aberto.
+                </p>
+                <p>Os seguintes efeitos estão disponíveis:</p>
+                <ul class="list margin-left">
+                    <li>
+                        <span class="bold text-green">fade</span>
+                        Esse efeito faz com que o modal apareça lentamente.
+                    </li>
+                    <li>
+                        <span class="bold text-green">zoom</span>
+                        Esse efeito faz com que o modal começe pequeno até o seu
+                        tamanho real.
+                    </li>
+                    <li>
+                        <span class="bold text-green">top</span>
+                        Esse efeito faz com que o modal venha pelo topo 
+                        de fora da tela até sua posição real.
+                    </li>
+                    <li>
+                        <span class="bold text-green">bottom</span>
+                        Esse efeito faz com que o modal venha por baixo 
+                        de fora da tela até sua posição real.
+                    </li>
+                    <li>
+                        <span class="bold text-green">left</span>
+                        Esse efeito faz com que o modal venha pela esquerda 
+                        de fora da tela até sua posição real.
+                    </li>
+                    <li>
+                        <span class="bold text-green">right</span>
+                        Esse efeito faz com que o modal venha pela direita 
+                        de fora da tela até sua posição real.
+                    </li>
+                </ul>
+                <p><span class="bold font-max">onOpen</span>:
+                    Nessa opção você informa uma função de deve ser executada
+                    toda vez que o modal é aberto.
+                </p>
+                <p><span class="bold font-max">onClose</span>:
+                    Nessa opção você informa uma função de deve ser executada
+                    toda vez que o modal é fechado.
+                </p>
+                <pre><code class="language-javascript">objeto.open({
+    title: 'Título da Janela',
+    close: true,
+    width: 600,
+    effect: 'fade',
+    onOpen: function () {
+        // fazer alguma coisa quando o modal for aberto
+    },
+    onClose: function () {
+        // fazer alguma coisa quando o modal for fechado
+    }
+});</code></pre>
+            </div>
+
+            <div class="sm-margin-top">
+                <hr class="border-bottom border-dark" />
+                <h2>Exemplo Prático</h2>
+
+                <div id="code-3">
+                    <div class="floating">
+                        <div class="float-right">
+                            <button class="btn-info" id="reabir">
+                                Reabrir e manter as características
+                            </button>
+                        </div>
+                        <div class="over">
+                            <select class="input-default" id="exemplo">
+                                <option value="">Selecione um efeito</option>
+                                <option value="fade">fade</option>
+                                <option value="zoom">zoom</option>
+                                <option value="top">top</option>
+                                <option value="bottom">bottom</option>
+                                <option value="left">left</option>
+                                <option value="right">right</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="modal" id="identificar_modal">
+                        <div class="modal-box">
+                            <div class="modal-header"></div>
+                            <div class="modal-content">
+                                O conteúdo do modal aqui dentro...
+                            </div>
+                        </div>
+                    </div>
+                    <script>
+                        var exemplo = new ModalShow('identificar_modal');
+                        var foiAberto = false;
+                        jsd('#exemplo').change(function () {
+                            if (this.value) {
+                                exemplo.open({
+                                    title: 'Olá mundo',
+                                    close: true,
+                                    width: 600,
+                                    effect: this.value,
+                                    onOpen: function () {
+                                        console.log('onOpen ativado');
+                                    },
+                                    onClose: function () {
+                                        console.log('onClose ativado');
+                                    }
+                                });
+                                foiAberto = true;
+                            }
+                        });
+                        jsd('#reabir').click(function () {
+                            if (foiAberto) {
+                                exemplo.open();
+                            }
+                        });
+                    </script>
+                </div>
+
+                <div class="margin-top align-center">
+                    <button class="btn-default" data-code="code-3">Ver código fonte</button>
+                </div>
+            </div>
+        </article>
+
+        <div id="view-code">
+            <div class="pos-center">
+                <div class="code-head">
+                    Código Fonte
+                    <button class="code-close"></button>
+                </div>
+                <div class="code-pre"></div>
+            </div>
+        </div>
+
+        <script>
+            var modal = new ModalShow('identificador');
+            var modalB = new ModalShow('identificador-2');
+
+            jsd('[data-code]').click(function (e) {
+                smCode.openCode(e.target.dataset.code);
+            });
+            jsd('.code-close').click(function () {
+                smCode.coseCode();
+            });
+        </script>
+    </body>
+</html>

@@ -1,10 +1,10 @@
 /**
- * ****************************************************
- * * ModalShow
- * * @author Spell-Master (Omar Pautz)
- * * @copyright 2018
- * * @version 3.0 (2020)
- * ****************************************************
+ * **************************************************
+ * ModalShow
+ * @author Spell-Master (Omar Pautz)
+ * @copyright 2018
+ * @version 3.1 (2022)
+ * **************************************************
  */
 
 .modal {
@@ -13,52 +13,54 @@
     position: fixed;
     top: 0;
     left: 0;
-    height: 100%;
-    width: 100%;
-    background-color: rgba(0,0,0,.6);
-    animation: effect-fade-in .5s
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, .6)
 }
 .modal-box {
     position: relative;
     margin: 3.125rem auto;
     height: auto;
     max-width: 95vw;
+    padding: .625rem;
     background-color: #ffffff;
     word-wrap: break-word
 }
 .modal-header {
-    height: 3.75rem;
+    height: 3.125rem;
     margin: 0 1rem;
-    border-bottom: .0625rem solid #dddddd
+    border-bottom: .0625rem solid #dddddd;
+    line-height: 3.125rem
 }
-.modal-title {
-    padding-left: .625rem;
-    font-size: 1.5rem;
-    line-height: 3.75rem;
-    overflow-x: hidden;
-    white-space: nowrap
-}
-.modal-title:after,
-.modal-title:before {
+.modal-header:after,
+.modal-header:before {
     content: " ";
     display: table;
     clear: both
 }
+.modal-title {
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: 2em;
+    margin-right: 3.75rem
+}
 .modal-close {
     display: none;
-    width: 3.125rem;
-    font-size: 2.5rem;
-    line-height: 3.75rem;
-    text-align: center;
     float: right;
-    padding-right: .625rem;
-    cursor: pointer
-}
-.modal-close:hover {
-    color: #c40700
+    width: 2.5rem;
+    padding: 0 1.25rem;
+    font-size: 2em;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    background: transparent;
+    margin: 0 .625rem
 }
 .modal-close:before {
     content: "X"
+}
+.modal-close:hover {
+    color: #c40700 
 }
 .modal-content {
     padding: 1rem;
@@ -69,3 +71,17 @@
 .modal.active, .modal-close.active {
     display: block !important
 }
+
+.modal-box[data-modal-effect="fade"] {animation: effect-modal-fade .5s}
+.modal-box[data-modal-effect="zoom"] {animation: effect-modal-zoom .5s}
+.modal-box[data-modal-effect="top"] {animation: effect-modal-top .5s}
+.modal-box[data-modal-effect="bottom"] {animation: effect-modal-bottom .5s}
+.modal-box[data-modal-effect="left"] {animation: effect-modal-left .5s}
+.modal-box[data-modal-effect="right"] {animation: effect-modal-right .5s}
+
+@keyframes effect-modal-fade {from {opacity: 0} to {opacity: 1}}
+@keyframes effect-modal-zoom {from {transform: scale(0)} to {transform: scale(1)}}
+@keyframes effect-modal-top {from {top: -100%} to {top: 0}}
+@keyframes effect-modal-bottom {from {bottom: -100%} to {bottom: 0}}
+@keyframes effect-modal-left {from {left: -100%} to {left: 0}}
+@keyframes effect-modal-right {from {right: -100%} to {right: 0}}

@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Paginator.JS</title>
+
+        <link href="../../css/css-default.css" rel="stylesheet" type="text/css"/>
+        <link href="../../lib/stylesheet/core.css" rel="stylesheet" type="text/css"/>
+        <link href="../../lib/prism/prism.css" rel="stylesheet" type="text/css"/>
+        <script src="../../lib/prism/prism.js" type="text/javascript"></script>
+        <script src="../jsd/js-default.js" type="text/javascript"></script>
+        <script src="../../lib/js/mostarCodigo.js" type="text/javascript"></script>
+
+        <script src="Paginator.js" type="text/javascript"></script>
+        <link href="Paginator.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <article class="container padding-all">
+            <h1 class="bold italic">Paginator.js</h1>
+            <hr class="border-bottom border-dark" />
+            <p>O objetivo do Paginator.js é substituir as abordagens da paginação
+                convencional usadas, principalmente aquelas em que uma requisição
+                ao banco de dados é necessário.</p>
+            <p>Digamos então uma paginação onde os resultados da mesma devem
+                vir de um banco de dados:</p>
+            <p>Primeiro fazemos uma requisição para saber quantos itens existem.</p>
+            <p>Novamente fazemos praticalmente a mesma query, só que agora usamos
+                os dados da primeira query para ter-mos o limite e o offset.</p>
+            <p>E isso deve-se repetir a cada página que for trocada para que
+                a paginação funcione...</p>
+            <p>Pois bem, Paginator.js substitui essas etapas repetidas,
+                uma vez que com ele apenas trazemos todos resultados e script se encarrega
+                de fazer a paginação de tudo.</p>
+
+            <div class="margin-top-max">
+                <h2>Apresentação:</h2>
+
+                <div id="code">
+                    <div id="paginacao">
+                        <div class="align-center">
+                            <div data-paginator=""></div>
+                        </div>
+                        <div class="row">
+                            <div class="pagina col-third">
+                                <div class="card-red box-y-100 vertical-wrap">Página 1/Item 1</div>
+                            </div>
+                            <div class="pagina col-third">
+                                <div class="card-red box-y-100 vertical-wrap">Página 1/Item 2</div>
+                            </div>
+                            <div class="pagina col-third">
+                                <div class="card-red box-y-100 vertical-wrap">Página 1/Item 3</div>
+                            </div>
+                            <div class="pagina col-third">
+                                <div class="card-green box-y-100 vertical-wrap">Página 2/Item 1</div>
+                            </div>
+                            <div class="pagina col-third">
+                                <div class="card-green box-y-100 vertical-wrap">Página 2/Item 2</div>
+                            </div>
+                            <div class="pagina col-third">
+                                <div class="card-green box-y-100 vertical-wrap">Página 2/Item 3</div>
+                            </div>
+                            <div class="pagina col-third">
+                                <div class="card-blue box-y-100 vertical-wrap">Página 3/Item 1</div>
+                            </div>
+                            <div class="pagina col-third">
+                                <div class="card-blue box-y-100 vertical-wrap">Página 3/Item 2</div>
+                            </div>
+                            <div class="pagina col-third">
+                                <div class="card-blue box-y-100 vertical-wrap">Página 3/Item 3</div>
+                            </div>
+                            <div class="pagina col-third">
+                                <div class="card-yellow box-y-100 vertical-wrap">Página 4/Item 1</div>
+                            </div>
+                            <div class="pagina col-third">
+                                <div class="card-yellow box-y-100 vertical-wrap">Página 4/Item 2</div>
+                            </div>
+                            <div class="pagina col-third">
+                                <div class="card-yellow box-y-100 vertical-wrap">Página 4/Item 3</div>
+                            </div>
+                        </div>
+                        <div class="align-center">
+                            <div data-paginator=""></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="margin-top align-center">
+                    <button class="btn-default" data-code="code">Ver código fonte</button>
+                </div>
+            </div>
+
+            <div class="sm-margin-top">
+                <hr class="border-bottom border-dark" />
+                <h2>Utilização</h2>
+                <p>Adicione os arquivos necessários:</p>
+                <pre><code class="language-html">&lt;link href="Paginator.css" rel="stylesheet" type="text/css"/&gt;
+&lt;script src="Paginator.js" type="text/javascript"&gt;&lt;/script&gt;</code></pre>
+
+                <p>Crie a estrutura html:</p>
+                <pre><code class="language-html">&lt;div id="exemplo"&gt;
+    &lt;div data-paginator=""&gt;&lt;/div&gt;
+    &lt;div class="item"&gt;&lt;/div&gt;
+    &lt;div class="item"&gt;&lt;/div&gt;
+    &lt;div class="item"&gt;&lt;/div&gt;
+    &lt;div class="item"&gt;&lt;/div&gt;
+    &lt;div class="item"&gt;&lt;/div&gt;
+    &lt;div class="item"&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                <p>A estrutura é muito simples, pois fica tudo a seu critétio.
+                    As únicas coisas obrigatórias mesmo são:</p>
+                <blockquote class="quote">
+                    <ul class="margin-left">
+                        <li>
+                            <span class="bold">
+                                Elemento pai com ao atributo #ID a sua escolha
+                            </span>
+                            <p>No meu caso como no exemplo acima eu usei a palavra
+                                "exemplo"</p>
+                            <p>Esse será o recipente da paginação.</p>
+                        </li>
+                        <li>
+                            <span class="bold">
+                                Dentro desse elemento pai uma tag &lt;div&gt;
+                                com o atributo data-paginator
+                            </span>
+                            <p>Não necessáriamente é preciso, mas sem esse
+                                elemento não será criado os links de navegação.</p>
+                            <p>Você poderá adicionar quantos data-paginator quiser
+                                para serem gerados os links.</p>
+                            <p class="text-red">
+                                IMPORTANTE! Não adicione nenhum conteúdo dentro do
+                                <span class="bold">data-paginator=""</span>
+                            </p>
+                            <p class="text-red">
+                                Pois eles serão apagados para dar lugar aos links
+                                de navegação.
+                            </p>
+                        </li>
+                        <li>
+                            <span class="bold">
+                                Outros elementos que possuam algum atributo .class 
+                                a sua escolha.
+                            </span>
+                            <p>No meu caso como no exemplo acima eu usei a palavra
+                                "item"</p>
+                            <p>Esses vão ser os elementos para paginar.</p>
+                        </li>
+                    </ul>
+                </blockquote>
+
+                <blockquote class="quote-yellow">
+                    NOTA*
+                    <p>Dentro do elemento pai pode-se conter qualquer outra coisa,
+                        mas o Paginator.js só irá interagir com os elementos
+                        cujo o .class for o designado.</p>
+                </blockquote>
+
+                <p>Inicie em um javascript ao final do documento criando um objeto
+                    que instância a classe Paginator.</p>
+                <p>Esse objeto poderá ser usado para acessar os demais métodos
+                    da classe.</p>
+                <pre><code class="language-javascript">var pag = new Paginator({
+    id: 'exemplo',
+    item: 'item'
+});</code></pre>
+                <p>Assim sendo você informa um objeto com os seguintes parâmetros</p>
+                <ul class="margin-left">
+                    <li>
+                        <span class="bold">id:</span>
+                        Informe o id="" do local da paginação
+                    </li>
+                    <li>
+                        <span class="bold">item:</span>
+                        Informe o class="" dos elementos que serão paginados
+                    </li>
+                </ul>
+                <p>Porém você pode informar outros parâmentos que não são obrigatórios,
+                    mas mudará o comportamento do Paginator.js, são eles:</p>
+                <ul class="margin-left">
+                    <li>
+                        <span class="bold">limit:</span>
+                        Aqui você informa um numero de quantos elementos vão ser
+                        paginados por vez.
+                        <p>Por padrão sempre será 3 "três" elementos</p>
+                    </li>
+                    <li>
+                        <span class="bold">go:</span>
+                        Aqui você informa um numero para qual página a paginação
+                        deve ser iniciada.
+                        <p>Por padrão sempre será 1 "um", a primeira página.</p>
+                    </li>
+                    <li>
+                        <span class="bold">onChange:</span>
+                        Aqui você informa uma função que deve ser chamada toda
+                        vez que uma página é alterada.
+                        <p>Nessa função você pode adicionar algum parâmetro, e
+                            esse terá numero da página trocada.</p>
+                    </li>
+                </ul>
+
+                <p class="bold">Exemplo com todos os parâmetros:</p>
+                <pre><code class="language-javascript">var pag = new Paginator({
+    id: 'exemplo', // #id do local da paginação
+    item: 'item', // quais .class serão paginados
+    limit: 5, // cinco elementos paginados por página
+    go: 4, // começa na página quatro
+    onChange: function (indice) {
+        console.log('A página trocada foi: ' + indice)
+    }
+});</code></pre>
+            </div>
+
+            <div class="sm-margin-top">
+                <hr class="border-bottom border-dark" />
+                <h2>Métodos extra</h2>
+
+                <p><span class="bold font-max">reload</span>:
+                    Esse método recarrega a páginação já iniciada
+                </p>
+                <p>Use-o caso venha a adicionar ou remover elementos da paginação</p>
+                <blockquote class="quote-yellow">
+                    NOTA*
+                    <p>Esse método você deve informar os parâmetros
+                        <span class="bold">limit</span> e <span class="bold">go</span>
+                        se foram utilizado quando o Paginator foi iniciado.
+                    </p>
+                    <p>Caso não informe eles os valores serão redefinidos ao padrão.</p>
+                    <p>Esse termo foi abordado caso venha a redefinir os itens
+                        e a página inicial quando recarregado.</p>
+                </blockquote>
+                <p>Exemplo:</p>
+                <pre><code class="language-javascript">// A paginação será 4 elementos por página e iniciará na página 2
+var pag = new Paginator({
+    id: 'exemplo',
+    item: 'item',
+    limit: 4,
+    go: 2
+});
+// A paginação será recarregada com 7 elementos por página e iniciará na página 14
+pag.reload({limit: 7, go: 14});
+</code></pre>
+
+                <p><span class="bold font-max">go</span>:
+                    Esse método vai para a página designada, você então deve informar
+                    o número da página para ir.
+                </p>
+                <p>Use-o criar navegações personalizadas</p>
+                <p>Exemplo:</p>
+                <pre><code class="language-javascript">pag.go(8); // A paginação vai para a página 8</code></pre>
+                <blockquote class="quote-yellow">
+                    NOTA*
+                    Se o índice da página não existir um alerta no console será lançado
+                </blockquote>
+
+                <p><span class="bold font-max">lastIndex</span>:
+                    Esse método vai informar o numero da última página trocada.
+                </p>
+                <p>Use-o criar navegações personalizadas</p>
+                <p>Exemplo:</p>
+                <pre><code class="language-javascript">var X = pag.lastIndex(); // O valor de "X" será o numero da última página trocada</code></pre>
+
+                <p><span class="bold font-max">links</span>:
+                    Esse método vai informar todos os numeros das páginas.
+                </p>
+                <p>Use-o criar navegações personalizadas</p>
+                <p>Exemplo:</p>
+                <pre><code class="language-javascript">var X = pag.lastIndex(); // O valor de "X" será um array com o numero de cada página</code></pre>
+
+                <p><span class="bold font-max">pagIn</span>:
+                    Esse método vai informar a instância do objeto "window.document"
+                    do elemento #ID da paginação, com esse método no não precisa
+                    usar o javascript para buscar o elemento pois ele já foi
+                    armazenado na memória.
+                </p>
+                <p>Use-o para melhorar o desempenho</p>
+                <p>Exemplo:</p>
+                <pre><code class="language-javascript">var pag = new Paginator({
+    id: 'exemplo',
+    item: 'item'
+});
+
+/*
+ O mesmo resultado de:
+ document.getElementById('exemplo');
+ Porém você não gasta processamento para buscar o elemento.
+ Você usa os dados da memória do Paginator.js
+*/
+var x = pag.pagIn();
+</code></pre>
+            </div>
+
+            <div class="sm-margin-top">
+                <hr class="border-bottom border-dark" />
+                <h2>Desempenho do Usuário</h2>
+                <p>Como a ideia é fazer uma paginação, elementos desnecessários
+                    para a página durante o carregamento do website não devem
+                    aparecer, o usuário pode ver todos os elementos, mas
+                    quando tudo está carregado o script estiver operacional, os demais
+                    elementos vão ser ocultos.</p>
+                <p>Para evitar isso principalmente para usuários com
+                    uma conexão com a internet lenta você pode está adotando alguma
+                    dessas táticas.</p>
+                <p>No CSS:</p>
+                <pre><code class="language-css">.item {
+    display: block
+}
+.item:nth-child(3) ~ div.paginator-hide {
+    display: none
+}
+</code></pre>
+                <p>O que quer dizer, todo elemento depois de terceiro .item
+                    que for uma tag &lt;div&gt; e tiver o classificador
+                    .paginator-hide deve ser ocultado</p>
+                <p>Trocando esse numero 3 "três" pelo numero da quantidade de itens
+                    que serão mostrados a cada página.</p>
+                <p>Então basta que modifique o html adicionando o classificador
+                    .paginator-hide em todos.</p>
+                Exemplo:
+                <pre><code class="language-html">&lt;div id="exemplo"&gt;
+    &lt;div data-paginator=""&gt;&lt;/div&gt;
+    &lt;div class="item paginator-hide"&gt;&lt;/div&gt;
+    &lt;div class="item paginator-hide"&gt;&lt;/div&gt;
+    &lt;div class="item paginator-hide"&gt;&lt;/div&gt;
+    &lt;div class="item paginator-hide"&gt;&lt;/div&gt;
+    &lt;div class="item paginator-hide"&gt;&lt;/div&gt;
+    &lt;div class="item paginator-hide"&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+                <p>Outro recurso seria usando o próprio servidor para entregar
+                    os elementos já renderizados conforme desejar, digamos então esse
+                    exemplo em PHP:</p>
+                <pre><code class="language-php">
+&lt;?php
+$array = [
+    ['id' => 0, 'texto' => 'Nome A'],
+    ['id' => 1, 'texto' => 'Nome B'],
+    ['id' => 2, 'texto' => 'Nome C'],
+    ['id' => 3, 'texto' => 'Nome D'],
+    ['id' => 4, 'texto' => 'Nome E'],
+    ['id' => 5, 'texto' => 'Nome F'],
+    ['id' => 6, 'texto' => 'Nome G'],
+    ['id' => 7, 'texto' => 'Nome H'],
+    ['id' => 8, 'texto' => 'Nome I']
+];
+$esconder = '';
+foreach ($array as $chave => $valor) {
+    $esconder = ($chave >= 3 ? 'paginator-hide' : null);
+    echo ("&lt;div class=\"item {$esconder}\"&gt;{$valor['texto']}&lt;/div&gt;");
+}
+</code></pre>
+                <p>O que quer diz: Toda chave do array depois ou igual a
+                    terceira chave será paginator-hide</p>
+                <p>Então o servidor irá compilar o html já com o elemento oculto.</p>
+
+                <div class="margin-top">
+                    <p>En todo caso ainda pode-se esbarrar na questão da internet
+                    do usuário, uma vez que o navegador terá que que processar
+                    o que é paginator-hide.</p>
+                    <p>Então você pode optar por usar estilo inline nos
+                    elementos, esses são processados junto aos elementos e
+                    terão prioridade sobre o CSS. Assim sendo você pode abordar
+                    <q class="quote-green bold">style="display: none"</q>
+                    em todos os elementos que não devem ser exibidos antes
+                    da paginação estiver pronta.</p>
+                </div>
+
+                <div class="margin-top">
+                    <p>Outro ponto importantíssimo de ponderar ao utilizar o
+                        Paginator.js são o que você vai paginar e as capacidades
+                        da máquina do usuário.</p>
+                    <p>Uma vez que o paginator seu uso será o desapego do servidor
+                        em fazer a paginação deixando a responsabilidade disso no
+                        hardware do usuário.</p>
+                    <p>Portanto dependendo da quantidade de itens a paginar
+                        e a máquina do usuário não tiver um processamento adequado
+                        poderá causar travamentos devido a gargalos gerados pelos
+                        calculos necessários da paginação.</p>
+                    <p>Como sugestão quando a paginação tiver por volta dos
+                        5~6 mil itens desconsidere usar o Paginator.js</p>
+                    <p>No entanto como o Paginator.js irá apenas paginar os itens
+                    que você determinar, varios elementos da paginação podem
+                    está em cada item, assim você diminui a quantidade de itens em
+                    cada página resolvendo esse problema de processamento.</p>
+                </div>
+            </div>
+        </article>
+
+        <div id="view-code">
+            <div class="pos-center">
+                <div class="code-head">
+                    Código Fonte
+                    <button class="code-close"></button>
+                </div>
+                <div class="code-pre"></div>
+            </div>
+        </div>
+
+
+        <script>
+            var pag = new Paginator({
+                id: 'paginacao',
+                item: 'pagina'
+            });
+
+            jsd('[data-code]').click(function (e) {
+                smCode.openCode(e.target.dataset.code);
+            });
+            jsd('.code-close').click(function () {
+                smCode.coseCode();
+            });
+        </script>
+    </body>
+</html>

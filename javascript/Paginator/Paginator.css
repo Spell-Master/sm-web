@@ -1,44 +1,43 @@
 /**
- * ****************************************************
- * * Paginator
- * * @author Spell-Master (Omar Pautz)
- * * @copyright 2020
- * * @version 1.2 (2021)
- * ****************************************************
+ * **************************************************
+ * Paginator
+ * @author Spell-Master (Omar Pautz)
+ * @copyright 2020
+ * @version 2.0 (2022) Carol & Spell-Master
+ * **************************************************
  */
-
-.pag-hide {
-    display: none !important;
-    visibility: hidden !important
+ul.paginator-nav {
+    list-style: none;
+    white-space: nowrap;
+    overflow: hidden
 }
-ul.paginator {
-    list-style: none
-}
-ul.paginator > li {
+ul.paginator-nav > li {
     display: inline-block;
     margin-left: -.0625rem;
-    font-size: 1.25rem;
-    color: #4d4d4d
-}
-ul.paginator > li > a {
-    display: block;
-    padding: .375rem .75rem;
+    font-size: 1em;
+    font-weight: 600;
+    color: #4d4d4d;
+    padding: .625rem 1.125rem;
     background-color: #fafafa;
-    border: .0625rem solid #eeeeee;
+    border: .0625rem solid #e3e3e3;
     cursor: pointer
 }
-ul.paginator > li:last-of-type > a {
-    padding: .375rem .25rem;
+ul.paginator-nav > li:last-of-type {
+    cursor: default;
+    padding: .625rem 1.125rem
 }
-ul.paginator > li.current > a {
+ul.paginator-nav > li.current {
     background: #4d4d4d;
     color: #ffffff;
-    cursor: default
+    cursor: default;
+    pointer-events: none
 }
-ul.paginator > li > a.paginator-link:hover {
-    background: #e7e7e7
+ul.paginator-nav > li:hover:not(.current) {
+    background-color: #e7e7e7
 }
-ul.paginator > li > a.amount, ul.paginator > li > a.pag-nuns:hover {
-    background: #fafafa
+ul.paginator-nav > li:last-of-type:hover {
+    background-color: #fafafa
 }
-
+.paginator-hide {
+    display: none
+}

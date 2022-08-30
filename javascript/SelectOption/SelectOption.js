@@ -1,174 +1,224 @@
 /**
- * ****************************************************
- * * SelectOption
- * * @author Spell-Master (Omar Pautz)
- * * @copyright 2017
- * * @version 3.5 (2020)
- * ****************************************************
- * * Personaliza menu suspenso.
+ * **************************************************
+ * @Class SelectOption
+ * @author Spell-Master (Omar Pautz)
+ * @copyright 2017
+ * @version 3.6 (2022)
  * 
- * ****************************************************
- * @requires
- * Estrutura HTML
- * <select class="select-options">
- *     <option value="">Opção</option>
- *     <option value="">Opção</option>
- *     <option value="">Opção</option>
- * </select>
- * ****************************************************
+ * Personaliza menu suspenso.
+ * **************************************************
  */
 
 var SelectOption = function () {
 
-    var $select = document.getElementsByClassName('select-options'),
-        $event,
-        $this = {
-            index: 0,
-            current: null,
-            base: null,
-            ul: null,
-            active: null
-        };
-
-    createNew();
+    var $this = {},
+        $event = new Event('change');
 
     /**
-     * ************************************************
-     * Cria um novo elemento para abrigar o seletor.
-     *  
+     * **********************************************
      * @private
-     * ************************************************
+     * Cria o recipiente para o seletor
+     *  personalizado.
+     * **********************************************
      */
     function createNew() {
-        $event = new Event('change');
-        for ($this.index = 0; $this.index < $select.length; $this.index++) {
-            $this.current = $select[$this.index];
-            if (!$this.current.classList.contains('init')) {
-                $this.current.classList.add('init');
-                $this.current.setAttribute('style', 'opacity:0; height:0; width:0; overflow:hidden');
-                $this.base = document.createElement('div');
-                $this.base.classList.add('select-base');
-                $this.current.parentNode.insertBefore($this.base, $this.current);
-                createButton();
-            }
-        }
+        $this.container = document.createElement('div');
+        $this.container.classList.add('select-option-container');
+        $this.current.parentNode.insertBefore($this.container, $this.current);
     }
 
     /**
-     * ************************************************
-     * Cria o botão de controle que ao clicado
-     * mostrará as opções.
-     *  
+     * **********************************************
      * @private
-     * ************************************************
+     * Cria o botão para abrir as opções.
+     * **********************************************
      */
     function createButton() {
-        $this.button = document.createElement('div');
-        $this.button.classList.add('select-button');
-        $this.base.appendChild($this.button);
-        createList();
+        $this.button[$this.index] = document.createElement('div');
+        $this.button[$this.index].classList.add('select-button');
+        $this.container.appendChild($this.button[$this.index]);
     }
 
     /**
-     * ************************************************
-     * Cria o o elemento lista que abrigará as opções.
-     *  
+     * **********************************************
      * @private
-     * ************************************************
+     * Cria o recipiente para a lista de opções.
+     * **********************************************
      */
     function createList() {
-        $this.ul = document.createElement('ul');
-        $this.ul.classList.add('select-list');
-        $this.button.parentNode.insertBefore($this.ul, $this.button.nextSibling);
-        queryOptions();
+        $this.list = document.createElement('div');
+        $this.list.classList.add('select-list');
+        $this.container.appendChild($this.list);
     }
 
     /**
-     * ************************************************
-     * Obtem os valores do select e aplica os mesmos
-     * ao novo seletor personalizado.
-     *  
+     * **********************************************
      * @private
-     * ************************************************
+     * Reduz a quantidade de caracteres no botão
+     *  para abrir as opções.
+     * @param {STRING} t
+     * Texto para reduzir.
+     * **********************************************
      */
-    function queryOptions() {
-        $this.head = document.getElementsByClassName('select-button');
-        var $opt = $this.current.querySelectorAll('option'), $li;
-        for (var $i = 0; $i < $opt.length; $i++) {
-            $li = document.createElement('li');
-            $li.setAttribute('data-select', $opt[$i].value);
-            $li.setAttribute('data-parent', $this.index);
-            $li.innerText = $opt[$i].innerText.substring(0, 20);
-            $li.addEventListener('click', clickItem, false);
-            $this.ul.appendChild($li);
+    function parseTitle(t) {
+        return (t.length <= 20 ? t : t.substring(0, 20) + '...');
+    };
+
+    /**
+     * **********************************************
+     * @private
+     * Cria a lista de opções.
+     * **********************************************
+     */
+    function createOptions() {
+        var $opts = $this.current.children,
+            $selected = $this.current.selectedIndex,
+            $i = 0;
+            $title = '';
+        for (; $i < $opts.length; $i++) {
+            $this.option = document.createElement('div');
+            $this.option.innerText = $opts[$i].innerText;
+            $this.option.setAttribute('data-option-value', $opts[$i].value);
+            $this.option.setAttribute('data-option-select', $this.index);
+            $this.option.addEventListener('click', clickOption, false);
+            $this.list.appendChild($this.option);
         }
-        for (var $j = 0; $j < $opt.length; $j++) {
-            if ($opt[$j].selected) {
-                break;
-            }
-        }
-        var $selected = $this.current.selectedIndex;
-        if ($selected >= 1) {
-            $this.head[$this.index].innerText = $opt[$selected].innerText.substring(0, 20);
-        } else {
-            $this.head[$this.index].innerText = $opt[0].innerText.substring(0, 20);
-        }
+        $this.button[$this.index].innerText = parseTitle($opts[($selected >= 1 ? $selected : 0)].innerText);
     }
 
     /**
-     * ************************************************
+     * **********************************************
+     * @private
+     * Chama as funções dentro de um loop de todos
+     *  seletores obtidos.
+     * @param {OBJECT} selector
+     * tag select atual.
+     * @param {OBJECT} index
+     * índice da tag select atual.
+     * **********************************************
+     */
+    function runSelector(selector, index) {
+        $this.index = index;
+        $this.current = selector;
+        selector.style.display = 'none';
+        createNew();
+        createButton();
+        createList();
+        createOptions();
+    }
+
+    /**
+     * **********************************************
+     * @private
      * Modifica o seletor quando uma das opções é 
-     * clicada.
-     *  
-     * @private
-     * ************************************************
-     * 
-     * @param {OBJ} e
-     * Evento de click
-     * ************************************************
+     *  clicada.
+     * @param {OBJECT} e
+     * Evento click.
+     * **********************************************
      */
-    function clickItem(e) {
-        var $cT = e.target;
-        var $dataSet = [$cT.dataset.parent, $cT.dataset.select];
-        $this.head[$dataSet[0]].innerText = $cT.innerText.substring(0, 20);
-        $select[$dataSet[0]].value = $dataSet[1];
-        $select[$dataSet[0]].dispatchEvent($event);
+    function clickOption(e) {
+        var $targetOption = e.target,
+            $dataSet = [
+                $targetOption.dataset.optionSelect,
+                $targetOption.dataset.optionValue
+            ];
+        $this.select[$dataSet[0]].value = $dataSet[1];
+        $this.button[$dataSet[0]].innerText = parseTitle($targetOption.innerText);
+        $this.select[$dataSet[0]].dispatchEvent($event);
     }
 
     /**
-     * ************************************************
-     * Controle de exibição para os seletores
-     * personalizados.
-     *  
+     * **********************************************
      * @private
-     * ************************************************
-     * 
-     * @param {OBJ} e
-     * Evento de click
-     * ************************************************
+     * Mosta ou oculta dos seletores personalizados.
+     * @param {OBJECT} e
+     * Evento click.
+     * **********************************************
      */
     function clickDoc(e) {
-        if (e.which === 1) {
-            var $target = e.target;
-            if ($this.active === $target) {
-                $this.active.classList.remove('active');
-                $target.nextElementSibling.classList.remove('active');
-                $this.active = null;
-            } else if ($target.className === 'select-button') {
-                if ($this.active) {
-                    $this.active.classList.remove('active');
-                    $this.active.nextElementSibling.classList.remove('active');
-                }
-                $target.classList.add('active');
-                $target.nextElementSibling.classList.add('active');
-                $this.active = $target;
-            } else if ($this.active != undefined || $this.active != null) {
-                $this.active.classList.remove('active');
-                $this.active.nextElementSibling.classList.remove('active');
-                $this.active = null;
+        var $targetDoc = e.target;
+        if ($targetDoc.className === 'select-button') {
+            if ($this.open) {
+                $this.open.classList.remove('active');
+                $this.open.nextElementSibling.classList.remove('active');
             }
+            $targetDoc.classList.add('active');
+            $targetDoc.nextElementSibling.classList.add('active');
+            $this.open = $targetDoc;
+        } else if ($this.open) {
+            $this.open.classList.remove('active');
+            $this.open.nextElementSibling.classList.remove('active');
+            $this.open = undefined;
         }
     }
-    
+
+    /**
+     * **********************************************
+     * @public
+     * Obtem e define os dados necessários.
+     * **********************************************
+     */
+    function init() {
+        $this = {
+            select: document.querySelectorAll('select[data-select]'),
+            index: 0,
+            current: undefined,
+            container: null,
+            button: [],
+            list: null,
+            option: null,
+            open: undefined
+        };
+        $this.select.forEach(runSelector);
+    }
+
+    /**
+     * **********************************************
+     * @public
+     * Reinicia todos os dados e processos.
+     * **********************************************
+     */
+    function resetAll() {
+        var $select = $this.select,
+            $container = document.querySelectorAll('div.select-option-container'),
+            $i = 0,
+            $prev = null;
+        for (; $i < $select.length; $i++) {
+            $prev = $container[$i];
+            if (typeof $prev !== 'undefined' && $prev !== null) {
+                $prev.parentNode.removeChild($prev);
+            }
+        }
+        init();
+    }
+
+    /**
+     * **********************************************
+     * @public
+     * Retorna os dados das tag's select usadas.
+     * **********************************************
+     */
+    function getSeletor() {
+        var $select = $this.select,  $i = 0, $enties = {};
+        for (; $i < $select.length; $i++) {
+            $enties[$i] = {
+                index: $i,
+                name: $select[$i].name,
+                value: $select[$i].value,
+                select: $select[$i]
+            };
+        }
+        return ($enties);
+    }
+
+    /**
+     * **********************************************
+     * Acesso aos métodos públicos.
+     * **********************************************
+     */
+    this.reload = resetAll;
+    this.data = getSeletor;
+
+    init();
     document.addEventListener('click', clickDoc, false);
 };

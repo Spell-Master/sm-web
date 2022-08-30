@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>SelectOption.js</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link href="../../css/css-default.css" rel="stylesheet" type="text/css"/>
+        <link href="../../lib/stylesheet/core.css" rel="stylesheet" type="text/css"/>
+        <link href="../../lib/prism/prism.css" rel="stylesheet" type="text/css"/>
+        <script src="../../lib/prism/prism.js" type="text/javascript"></script>
+        <script src="../jsd/js-default.js" type="text/javascript"></script>
+
+        <script src="SelectOption.js" type="text/javascript"></script>
+        <link href="SelectOption.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+
+        <article class="container padding-all">
+            <h1 class="bold italic">SelectOption.js</h1>
+            <hr class="border-bottom border-dark" />
+
+            <div class="margin-top-max">
+                <h2>Apresentação:</h2>
+                <div class="box-x-600 margin-auto">
+                    <p class="bold">SelectOption</p>
+                    <select name="seletor" data-select="">
+                        <option value="">Selecionar Opção</option>
+                        <option value="valor_1">Opção 1</option>
+                        <option value="valor_2">Opção 2</option>
+                        <option value="valor_3">Opção 3</option>
+                        <option value="valor_4">Opção 4</option>
+                        <option value="valor_5">Opção 5</option>
+                        <option value="valor_6">Opção 6</option>
+                        <option value="valor_7">Opção 7</option>
+                        <option value="valor_8">Opção 8</option>
+                        <option value="valor_9">Opção 9</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="sm-margin-top">
+                <hr class="border-bottom border-dark" />
+                <h2>Utilização</h2>
+                <p>Adicione os arquivos necessários:</p>
+                <pre><code class="language-html">&lt;link href="SelectOption.css" rel="stylesheet" type="text/css"/&gt;
+&lt;script src="SelectOption.js" type="text/javascript"&gt;&lt;/script&gt;</code></pre>
+
+                <p>Crie a estrutura html:</p>
+                <pre><code class="language-html">&lt;select data-select=""&gt;
+    &lt;option value="">Opção&lt;/option&gt;
+    &lt;option value="">Opção&lt;/option&gt;
+    &lt;option value="">Opção&lt;/option&gt;
+&lt;/select&gt;</code></pre>
+                <p>A estrutura HTML é muito simples, apenas uma ou mais tag &lt;select&gt;
+                    definida com as opções e valores como você bem desejar, e sim você poderá
+                    ter várias, a única coisa necessária é o atributo
+                    <q class="quote-green">data-select=""</q>, ao qual o SelectOption.js
+                    irá saber que essa será uma tag ao qual vai interagir, então para cada
+                    cada  tag &lt;select&gt; ao qual queira a pesonalização adicione esse
+                    atributo.</p>
+                <div class="margin-top">
+                    <p>Inicie em um javascript ao final do documento criando um objeto
+                        que instância a classe SelectOption.</p>
+                    <p>Esse objeto poderá ser usado para acessar os demais métodos
+                        da classe.</p>
+
+                    <pre><code class="language-html">&lt;script&gt;
+    var objeto = new SelectOption();
+&lt;/script&gt;</code></pre>
+                    <p>Assim sendo não é necessário intervenções, o SelectOption irá buscar
+                        por todas as tag's <span class="bold">&lt;select&gt;</span>
+                        cujo possuam o atributo <span class="bold">data-select</span>.</p>
+                    <p>Mas se no momento não houver nenhum elemento, ou fora removido, ou mesmo
+                        um novo adicionado, você poderá está usando o método extra.</p>
+                </div>
+            </div>
+
+            <div class="sm-margin-top">
+                <hr class="border-bottom border-dark" />
+                <h2>Métodos extra</h2>
+                <p><span class="bold font-max">reload</span>:
+                    Esse método recarrega todos seletores, então você poderá está usando para
+                    redefinir os dados nas seguintes situações:
+                </p>
+                <p class="list margin-left">
+                    Caso venha a adicionar/remover uma nova tag &lt;select&gt;</p>
+                <p class="list margin-left">
+                    Altere alguma coisa em alguma tag &lt;select&gt; já iniciada.</p>
+                <p>Exemplo:</p>
+                <pre><code class="language-javascript">var objeto = new SelectOption(); // SelectOption iniciado sem nenhuma tag &lt;select&gt; no documento
+
+function adicionarNovo() { // função para criar uma nova tag
+    var novoSeleletor = document.createElement('select'), opcao, i = 0;
+    novoSeleletor.name = 'seletor-adicionado[]';
+    novoSeleletor.setAttribute('data-select', ''); // atributo necessário
+    while (i !== 10) {
+        i++;
+        opcao = document.createElement('option');
+        opcao.value = 'Opção criada ' + i;
+        opcao.innerText = 'Opção criada ' + i;
+        novoSeleletor.appendChild(opcao);
+    }
+    document.body.appendChild(novoSeleletor);
+    objeto.reload(); // recarrega adicionando esse novo ao SelectOption
+}</code></pre>
+                <p><span class="bold font-max">data</span>:
+                    Esse método irá retornar os dados em um objeto dos seletores que estão
+                    sendo manipulados pelo SelectOption.
+                </p>
+                <p>Os dados de retorno são:</p>
+                <ul class="margin-left">
+                    <li><span class="bold">index</span>:
+                        Equivale ao índice no documento da tag &lt;select&gt;
+                    </li>
+                    <li><span class="bold">name</span>:
+                        Atrinuto name da tag &lt;select&gt;
+                    </li>
+                    <li><span class="bold">value</span>:
+                        Atual valor da tag &lt;select&gt;
+                    </li>
+                    <li><span class="bold">select</span>:
+                        A prória tag &lt;select&gt;
+                    </li>
+                </ul>
+                <p>Exemplo:</p>
+                <pre><code class="language-javascript">var objeto = new SelectOption();
+objeto.data();</code></pre>
+                <p>Lembre-se que o SelectOption pode manipular várias seletores ao mesmo tempo,
+                    portanto quanto mais seletores estiverem sobre seus cuidados, maior será
+                    o objeto de retorno.</p>
+                <blockquote class="quote-yellow">
+                    <p>Exemplo de saída</p>
+                    <p>Abra o console do navegador e selecione uma opção</p>
+                </blockquote>
+                <select name="seletorB" data-select="">
+                    <option value="valor_A">Opção A</option>
+                    <option value="valor_B">Opção B</option>
+                    <option value="valor_C">Opção C</option>
+                </select>
+            </div>
+
+            <div class="sm-margin-top">
+                <hr class="border-bottom border-dark" />
+                <h2>Exemplo Prático</h2>
+                <pre><code class="language-html">&lt;select name="seletor" data-select=""&gt;
+    &lt;option value=""&gt;Selecionar Opção&lt;/option&gt;
+    &lt;option value="valor_1"&gt;Opção 1&lt;/option&gt;
+    &lt;option value="valor_2"&gt;Opção 2&lt;/option&gt;
+    &lt;option value="valor_3"&gt;Opção 3&lt;/option&gt;
+    &lt;option value="valor_4"&gt;Opção 4&lt;/option&gt;
+    &lt;option value="valor_5"&gt;Opção 5&lt;/option&gt;
+    &lt;option value="valor_6"&gt;Opção 6&lt;/option&gt;
+    &lt;option value="valor_7"&gt;Opção 7&lt;/option&gt;
+    &lt;option value="valor_8"&gt;Opção 8&lt;/option&gt;
+    &lt;option value="valor_9"&gt;Opção 9&lt;/option&gt;
+&lt;/select&gt;
+&lt;script&gt;
+    var select = new SelectOption();
+&lt;/script&gt;</code></pre>
+            </div>
+        </article>
+
+        <script>
+            var select = new SelectOption();
+
+            var alvo = select.data()[1].select;
+            jsd(select.data()[1].select).change(function (e) {
+                console.log(select.data());
+            });
+        </script>
+    </body>
+</html>

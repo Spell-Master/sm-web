@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Carrinho de Compras</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link href="../../css/css-default.css" rel="stylesheet" type="text/css"/>
+        <link href="../../lib/stylesheet/core.css" rel="stylesheet" type="text/css"/>
+        <link href="../../lib/prism/prism.css" rel="stylesheet" type="text/css"/>
+        <script src="../../lib/prism/prism.js" type="text/javascript"></script>
+        <script src="../jsd/js-default.js" type="text/javascript"></script>
+
+        <script src="ShoppingCart.js" type="text/javascript"></script>
+        <link href="ShoppingCart.css" rel="stylesheet" type="text/css"/>
+
+    </head>
+    <body>
+        <article class="container padding-all">
+            <h1 class="bold italic">ShoppingCart.js</h1>
+            <hr class="border-bottom border-dark" />
+
+            <div class="margin-top-max">
+                <h2>Apresentação:</h2>
+                <div class="row-pad">
+                    <div class="col-quarter">
+                        <div class="floating">
+                            <div class="float-left">
+                                <input type="checkbox" name="item-1" value="valor 1" id="checkbox-1" class="input-check" checked="" />
+                                <label for="checkbox-1"></label>
+                            </div>
+                            <div class="over-not">
+                                <label  for="checkbox-1" class="input-default cursor-pointer">Item 1</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-quarter">
+                        <div class="floating">
+                            <div class="float-left">
+                                <input type="checkbox" name="item-2" value="valor 2" id="checkbox-2" class="input-check" checked="" />
+                                <label for="checkbox-2"></label>
+                            </div>
+                            <div class="over-not">
+                                <label  for="checkbox-2" class="input-default cursor-pointer">Item 2</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-quarter">
+                        <div class="floating">
+                            <div class="float-left">
+                                <input type="checkbox" name="item-3" value="valor 3" id="checkbox-3" class="input-check" checked="" />
+                                <label for="checkbox-3"></label>
+                            </div>
+                            <div class="over-not">
+                                <label  for="checkbox-3" class="input-default cursor-pointer">Item 3</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-quarter">
+                        <div class="floating">
+                            <div class="float-left">
+                                <input type="checkbox" name="item-4" value="valor 4" id="checkbox-4" class="input-check" checked="" />
+                                <label for="checkbox-4"></label>
+                            </div>
+                            <div class="over-not">
+                                <label  for="checkbox-4" class="input-default cursor-pointer">Item 4</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-single">
+                        <button class="btn-info" onclick="limpar()">Limpar Carrinho</button>
+                    </div>
+                </div>
+                <pre><code id="submit-resultado" class="language-php"></code></pre>
+            </div>
+
+            <div class="sm-margin-top">
+                <hr class="border-bottom border-dark" />
+                <h2>Utilização</h2>
+                <p>Adicione os arquivos necessários:</p>
+                <pre><code class="language-html">&lt;link href="ShoppingCart.css" rel="stylesheet" type="text/css"/&gt;
+&lt;script src="ShoppingCart.js" type="text/javascript"&gt;&lt;/script&gt;</code></pre>
+
+                <p>Crie a estrutura html:</p>
+                <p>A estrutura não tem segredo, basta apenas criar checkbox para
+                    cada item que deseja adicionar ao script. Exemplo:</p>
+                <pre><code class="language-html">&lt;input type="checkbox" name="produto[]" value="valor_do_input_1" id="id-1" /&gt;
+&lt;input type="checkbox" name="produto[]" value="valor_do_input_2" id="id-2" /&gt;</code></pre>
+                <p>Cada input deve possuir o atributo <span class="bold">name</span>
+                    ao qual você irá utilizar no back-end para saber quais dados serão
+                    enviados pelo formulário.
+                </p>
+                <p>E deve possuir o atributo <span class="bold">value</span>
+                    ao qual você irá utilizar no back-end para saber quais são os valores
+                    que o usuário selecionou.
+                </p>
+                <blockquote class="quote-yellow">
+                    Perceba que eu utilizei como exemplo o uso do atributo <span class="bold">id</span>,
+                    ao qual não é necessário, mas sim uma forma de identificação do input.
+                    <p>Pois será preciso dizer ao ShoppingCart qual input o script deve interagir.</p>
+                </blockquote>
+
+                <p>Inicie em um javascript ao final do documento criando um objeto
+                    que instância a classe ShoppingCart.</p>
+                <p>Esse objeto poderá ser usado para acessar os demais métodos
+                    da classe.</p>
+                <pre><code class="language-html">&lt;script&gt;
+var shop = new ShoppingCart({
+    action: 'diretorio/arquivo_de_valida.php',
+    sendText: 'O texto do botão de envio',
+    formId: 'id_do_formulario',
+    maxCheck: 6,
+    submit: function (e) {}
+});
+&lt;/script&gt;</code></pre>
+            </div>
+
+            <div class="margin-top-max">
+                <hr class="border-bottom border-dark" />
+                <h3>Parâmetros do Formulário</h3>
+                <blockquote class="quote-yellow">
+                    Qualquer desses parâmetros é opcional
+                    <p>Use somente aqueles que achar necessário.</p>
+                    <p>Esses vão definir como o formulário de envio deve se comportar.</p>
+                </blockquote>
+                <p><span class="bold">action</span>: Você deve informar o local para
+                    onde será redirecinado ao enviar os dados do formulário.</p>
+                <p>Esse parâmetro se torna inutilizável caso o atributo
+                    <span class="bold">submit</span> estiver presente.</p>
+                <p><span class="bold">sendText</span>: Você deve informar um texto
+                    para o botão que submete o formulário.</p>
+                <p>Caso não definido o texto será "Enviar".</p>
+                <p><span class="bold">maxCheck</span>: Você deve informar um numero
+                    de quantos itens máximos podem ser adicionados ao carrinho.</p>
+                <p>Caso não definido o máximo será 99 "noventa-e-nove".</p>
+                <p><span class="bold">submit</span>: Você deve informar uma função
+                    ao qual irá sobre-escrever o comportamento padrão do navegador
+                    para com o formulário.</p>
+                <p>Se definida a função o parâmetro <span class="bold">action</span>
+                    deixa de valer e terá que enviar os dados de outra maneira
+                    através dessa função.</p>
+                <p>Você pode informar algum parâtro dentro da função que o ShoppingCart
+                    retornará o formulário, exemplo:</p>
+                <pre><code class="language-javascript">var shop = new ShoppingCart({
+    submit: function (param) {
+        console.log(param); // "param" será o formulário criado pelo ShoppingCart
+    }
+});</code></pre>
+            </div>
+
+            <div class="sm-margin-top">
+                <hr class="border-bottom border-dark" />
+                <h2>Métodos extra</h2>
+
+                <p><span class="bold font-max">addInput</span>:
+                    Logo no começo desse artivo disse que precisaria identificar de alguma forma
+                    o input ao qual o ShoppingCart vai interagir.
+                </p>
+                <p>Pois na sua instância apenas será criado a arquitetura do carrinho,
+                    então cada input deve ser adicionado separadamente. Exemplo:</p>
+                <pre><code class="language-javascript">shop.addInput({
+    input: document.getElementById('id-1'),
+    text: 'Produto Camisa'
+});
+shop.addInput({
+    input: document.getElementById('id-2'),
+    text: 'Produto Calsa'
+});</code></pre>
+                <p>Para o <span class="bold">addInput</span> então informamos dois parâmetros:</p>
+                <p><span class="bold">input</span>: Você deve informar o input que será
+                    gerenciado.</p>
+                <p><span class="bold">text</span>: Você deve informar um texto que será
+                    mostrado no carrinho para o item em questão.</p>
+                <blockquote class="quote-yellow">
+                    O ShoppingCart somente aceitará input do tipo "checkbox"
+                    <p>Somente o primeiro parâmetros é obrigatório, o segundo o "text" quando
+                        não informado, será usado o atributo "name" do input original.</p>
+                </blockquote>
+                <p><span class="bold font-max">setExtra</span>:
+                    Esse método diferente do anterior cria um input,
+                    sua finalidade é poder adicionar alguma informação extra no formulário
+                    para ser usada no back-end.
+                </p>
+                <pre><code class="language-javascript">shop.setExtra({
+    name: 'atributo_name_para_o_input_extra',
+    value: 'valor do input extra'
+});</code></pre>
+                <blockquote class="quote-yellow">
+                    Ambos parâmetros são obrigatórios!
+                    <p>Esse input adicionado de forma extra não poderá ser removido do formulário.</p>
+                </blockquote>
+                <p><span class="bold font-max">clearAll</span>:
+                    Esse método limpa o carrinho (todos checkbox que o usuário selecionou)
+                </p>
+                <pre><code class="language-javascript">shop.clearAll();</code></pre>
+            </div>
+
+            <div class="sm-margin-top">
+                <hr class="border-bottom border-dark" />
+                <h2>Exemplo Prático</h2>
+                <pre><code class="language-html">&lt;input type="checkbox" name="check-1" value="check-value-1" /&gt;
+&lt;input type="checkbox" name="check-2" value="check-value-2" /&gt;
+&lt;input type="checkbox" name="check-3" value="check-value-3" /&gt;
+&lt;input type="checkbox" name="check-4" value="check-value-4" /&gt;
+&lt;input type="checkbox" name="check-5" value="check-value-5" /&gt;
+&lt;input type="checkbox" name="check-6" value="check-value-6" /&gt;
+&lt;input type="checkbox" name="check-7" value="check-value-7" /&gt;
+&lt;input type="checkbox" name="check-8" value="check-value-8" /&gt;
+&lt;input type="checkbox" name="check-9" value="check-value-9" /&gt;
+
+&lt;button onclick="limpar()"&gt;Limpar Carrinho&lt;/button&gt;
+
+&lt;script&gt;
+    var shop = new ShoppingCart({
+        action: 'arquivo.php',
+        formId: 'carrinho_de_compras'
+    });
+    var inputs = document.querySelectorAll('input');
+    var indice = 0;
+    inputs.forEach(function (e) {
+        indice++;
+        shop.addInput({
+            input: e,
+            text: 'item: ' + indice
+        });
+    });
+    shop.setExtra({
+        name: 'input_extra',
+        value: 'valor do input extra'
+    });
+    function limpar() {
+        shop.clearAll();
+    }
+&lt;/script&gt;</code></pre>
+            </div>
+
+
+        </article>
+
+
+        <script>
+            var shop = new ShoppingCart({
+                action: '',
+                sendText: 'Enviar Formulário',
+                formId: 'carrinho_de_compras',
+                maxCheck: 3,
+                submit: function (form) {
+                    jsd.ajax({
+                        url: 'valida.php',
+                        protocol: 'POST',
+                        values: jsd(form).serialize(),
+                        onResult: function (html) {
+                            jsd('#submit-resultado').html(html);
+                            Prism.highlightAll();
+                            shop.clearAll();
+                        }
+                    });
+
+                }
+            });
+
+            var input = jsd('input');
+            input.each(function (index, e) {
+                shop.addInput({
+                    input: e,
+                    text: 'item-' + index
+                });
+            });
+            shop.setExtra({
+                name: 'input_extra',
+                value: 'valor do input extra'
+            });
+
+            function limpar() {
+                shop.clearAll();
+            }
+        </script>
+    </body>
+</html>

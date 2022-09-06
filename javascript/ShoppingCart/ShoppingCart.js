@@ -1,203 +1,350 @@
 /**
- * ****************************************************
- * * ShoppingCart
- * * @author Spell-Master (Omar Pautz)
- * * @copyright 2021
- * * @version 1.1 (2021)
- * ****************************************************
- * * Carrinho de compras.
- * * Adiciona itens selecionados a um formulário para
- *   envio de dados.
+ * **************************************************
+ * Class ShoppingCart
+ * @author Spell-Master (Omar Pautz)
+ * @copyright 2021
+ * @version 2.0 (2022)
  * 
- * ****************************************************
- * @requires
- * Estrutura HTML
- * <div id="shopping-cart">
- *     <div data-cart=""></div>
- *     <form method="POST" action=""></form>
- * </div>
- * ****************************************************
+ * Carrinho de compras.
+ * 
+ * @param {OBJECT} options
+ * * 'action': Atributo action para o formulário.
+ * * 'sendText': Texto para o botão de envio.
+ * * 'maxCheck': Quantidade máxima de itens que podem
+ * ser selecionados.
+ * * 'submit': Função a ser executada quando a
+ * quando o formulário é submetido.
+ * **************************************************
  */
 
-/**
- * ****************************************************
- * * @param {STR} boxes (opcional)
- * Informe o classificador ".class" dos elementos
- *  checkbox que vão está disponíveis já no
- *  carregamento do script.
- * ****************************************************
- */
-var ShoppingCart = function (boxes) {
-    var $base = document.getElementById('shopping-cart'), $initBox;
-    var $this = {
-        text: $base.querySelector('[data-cart=""]'),
-        form: $base.getElementsByTagName('form')[0],
-        target: null,
-        count: 0,
-        memory: []
+var ShoppingCart = function (options) {
+
+    options = options || {};
+
+    var $options = {
+        action: typeof options.action === 'string' ? options.action : '',
+        sendText: typeof options.sendText === 'string' ? options.sendText : 'Enviar',
+        maxCheck: typeof options.maxCheck === 'number' ? options.maxCheck : 99,
+        submit: typeof options.submit === 'function' ? options.submit : undefined
+    }, $boxOpen = {
+        open: null, // div para mostrar o botão de abrir e quantidade de selecionados
+        text: null, // div para mostrar a quantidade de selecionados
+        btn: null, //  button ao para abrir
+        submit: null // botão para enviar formulário
+    }, $boxCart = {
+        cart: null, // div para abrigar a lista e o carrinho
+        btn: null, // botão para fechar
+        container: null, // lista dos itens selecionados
+        form: null, // formulário
+        submit: null // botão para enviar formulário
+    }, $this = {
+        tgt: undefined, // atual checkbox
+        memory: [], // memorizar os checkbox adcionados
+        index: 0, // índice do checkbox adcionado
+        count: 0, // contagem dos selecionados
+        open: false // abrir ou fechar carrinho
     };
-    formInput();
 
     /**
-     * ************************************************
-     * Memoriza quaisquer input's já contidos no
-     *  formulário de envio.
-     * 
+     * **********************************************
      * @private
-     * ************************************************
+     * Abre ou fecha a lista de itens do carrinho.
+     * **********************************************
      */
-    function formInput() {
-        for (var $i = 0; $i < $this.form.children.length; $i++) {
-            $this.memory.push($i);
+    function toggleCart() {
+        $boxOpen.open.classList.toggle('open');
+        $boxCart.cart.classList.toggle('open');
+        $this.open = ($this.open === true ? false : true);
+    }
+
+    /**
+     * **********************************************
+     * @private
+     * Cria a estrutura inicial que abre e mostra
+     *  quantos itens estão selecionados.
+     * **********************************************
+     */
+    function createOpen() {
+        $boxOpen.open = document.createElement('div');
+        $boxOpen.open.setAttribute('data-shopping-open', '');
+
+        $boxOpen.text = document.createElement('div');
+        $boxOpen.text.classList.add('count-cart');
+        $boxOpen.text.innerText = 'Selecionados (0)';
+        $boxOpen.open.appendChild($boxOpen.text);
+
+        $boxOpen.submit = document.createElement('button');
+        $boxOpen.submit.classList.add('cart-submit');
+        $boxOpen.submit.title = $options.sendText;
+        $boxOpen.submit.addEventListener('click', sendForm, false);
+        $boxOpen.open.appendChild($boxOpen.submit);
+
+        $boxOpen.btn = document.createElement('button');
+        $boxOpen.btn.classList.add('cart-open');
+        $boxOpen.btn.title = 'Abrir Carrinho';
+        $boxOpen.btn.addEventListener('click', toggleCart, false);
+        $boxOpen.open.appendChild($boxOpen.btn);
+
+        document.body.appendChild($boxOpen.open);
+    }
+
+    /**
+     * **********************************************
+     * @private
+     * Cria a estrutura do carrinho lista e
+     *  formulário.
+     * **********************************************
+     */
+    function createCart() {
+        $boxCart.cart = document.createElement('div');
+        $boxCart.cart.setAttribute('data-shopping-cart', '');
+
+        $boxCart.btn = document.createElement('button');
+        $boxCart.btn.classList.add('cart-close');
+        $boxCart.btn.innerText = 'X';
+        $boxCart.btn.title = 'Fechar Carrinho';
+        $boxCart.btn.addEventListener('click', toggleCart);
+        $boxCart.cart.appendChild($boxCart.btn);
+
+        $boxCart.container = document.createElement('div');
+        $boxCart.container.classList.add('cart-container');
+        $boxCart.cart.appendChild($boxCart.container);
+
+        $boxCart.form = document.createElement('form');
+        $boxCart.form.method = 'POST';
+        $boxCart.form.action = $options.action;
+        $boxCart.container.appendChild($boxCart.form);
+
+        $boxCart.submit = $boxOpen.submit.cloneNode(true);
+        $boxCart.submit.innerText = $options.sendText;
+        $boxCart.submit.addEventListener('click', sendForm, false);
+        $boxCart.container.appendChild($boxCart.submit);
+
+        document.body.appendChild($boxCart.cart);
+    }
+
+    /**
+     * **********************************************
+     * @private
+     * Cria um novo input sempre quando um checkbox
+     *  é marcado.
+     * **********************************************
+     */
+    function createInput() {
+        for (var $i = 0; $i < $this.memory.length; $i++) {
+            if ($this.tgt.dataset.cartAdd == $this.memory[$i].index) {
+                var $new = {
+                    input: document.createElement('input'),
+                    item: document.createElement('div'),
+                    name: document.createElement('div'),
+                    remove: document.createElement('button')
+                };
+                $new.input.type = 'hidden';
+                $new.input.setAttribute('data-cart-add', $this.memory[$i].index);
+                $new.input.name = $this.tgt.name;
+                $new.input.value = $this.tgt.value;
+                $boxCart.form.appendChild($new.input);
+
+                $new.item.classList.add('cart-add');
+                $new.item.setAttribute('data-cart-add', $this.memory[$i].index);
+                $boxCart.container.insertBefore($new.item, $boxCart.submit);
+
+                $new.name.classList.add('cart-name');
+                $new.name.innerText = $this.memory[$i].name;
+                $new.item.appendChild($new.name);
+
+                $new.remove.classList.add('cart-remove');
+                $new.remove.setAttribute('data-cart-add', $this.memory[$i].index);
+                $new.remove.title = 'Remover';
+                $new.remove.addEventListener('click', removeItem, false);
+                $new.item.appendChild($new.remove);
+            }
         }
     }
 
     /**
-     * ************************************************
-     * Requisita funções quando o checkbox é alterado.
-     * - Marcado: Adiciona elemento no carrinho.
-     * - Desmarcado: Remove elemento no carrinho.
-     * - Atuliza contagem de elementos no carrinho.
-     * * @param {OBJ} e
-     * Evento disparado.
-     * 
+     * **********************************************
      * @private
-     * ************************************************
-     */
-    function changeInput(e) {
-        $this.target = e.target;
-        if ($this.target.checked) {
-            $this.count++;
-            insertInput();
-        } else {
-            $this.count--;
-            removeInput();
-        }
-        updateCount();
-    }
-
-    /**
-     * ************************************************
-     * Adiciona um input no carrinho com os atributos
-     *  [name] & [value] idênticos ao checkbox marcado.
-     * 
-     * @private
-     * ************************************************
-     */
-    function insertInput() {
-        var $new = document.createElement('input');
-        $new.type = 'hidden';
-        $new.name = $this.target.name;
-        $new.value = $this.target.value;
-        $this.form.appendChild($new);
-        $this.memory.push($new);
-    }
-
-    /**
-     * ************************************************
-     * Remove um input com o mesmo valor do checkbox
-     *  desmarcado.
-     * 
-     * @private
-     * ************************************************
+     * Remove o input e o item relacionado
+     *  sempre quando um checkbox é desmarcado.
+     * **********************************************
      */
     function removeInput() {
-        for (var $i = 0; $i < $this.memory.length; $i++) {
-            if ($this.memory[$i].value == $this.target.value) {
-                $this.memory.splice($i, 1);
-            }
+        var $ipt = $boxCart.form.querySelector('input[data-cart-add="' + $this.tgt.dataset.cartAdd + '"]'),
+            $itm = $boxCart.container.querySelector('div[data-cart-add="' + $this.tgt.dataset.cartAdd + '"]');
+        if ($this.count >= 1) {
+            $itm.classList.add('remove');
         }
-        var $unLink = $this.form.querySelector('input[value="' + $this.target.value + '"]');
-        $this.form.removeChild($unLink);
+        setTimeout(function () {
+            $boxCart.form.removeChild($ipt);
+            $boxCart.container.removeChild($itm);
+        }, 500);
     }
 
     /**
-     * ************************************************
-     * Mostra ou esconde o elemento DIV do carrinho e
-     *  mostra o contador de quantos itens estão no
-     *  carrinho.
-     * 
+     * **********************************************
      * @private
-     * ************************************************
+     * Remove o input e o item relacionado
+     *  sempre quando clicado no botão da lixeira.
+     * @param {OBJECT} e 
+     * **********************************************
+     */
+    function removeItem(e) {
+        $this.tgt = e.target;
+        for (var $i = 0; $i < $this.memory.length; $i++) {
+            if ($this.tgt.dataset.cartAdd == $this.memory[$i].index) {
+                $this.memory[$i].input.checked = null;
+                removeInput();
+                $this.count--;
+                updateCount();
+            }
+        }
+    }
+
+    /**
+     * **********************************************
+     * @private
+     * Altera o contador de itens selecionados.
+     * **********************************************
      */
     function updateCount() {
-        if ($this.count >= 1) {
-            $base.classList.add('opened');
+        if ($this.count < 1) {
+            $boxOpen.open.classList.remove('open');
+            $boxCart.cart.classList.remove('open');
+            $this.open = false;
+        } else if ($this.count >= 1 && $this.open === false) {
+            $boxOpen.open.classList.add('open');
         } else {
-            $base.classList.remove('opened');
+            $boxOpen.open.classList.remove('open');
         }
-        $this.text.innerText = ($this.count >= 1 ? 'Selecionados (' + $this.count + ')' : null);
+        $boxOpen.text.innerText = 'Selecionados (' + $this.count + ')';
     }
 
     /**
-     * ************************************************
-     * Quando reiniciado o carrinho desmarca todas as
-     *  caixas que enviaram dados.
-     * @param {OBJ} e 
-     * 
+     * **********************************************
      * @private
-     * ************************************************
+     * Detecta quando um input é alterado.
+     * @param {OBJECT} e 
+     * **********************************************
      */
-    function unCheck(e) {
-        if (e.checked) {
-            e.checked = null;
+    function changeInput(e) {
+        $this.tgt = e.target;
+        if ($this.tgt.checked === true) {
+            if ($this.count < $options.maxCheck) {
+                createInput();
+                $this.count++;
+                updateCount();
+            } else {
+                $this.tgt.checked = false;
+            }
+        } else if ($this.tgt.checked === false) {
+            removeInput();
+            $this.count--;
+            updateCount();
         }
     }
 
     /**
-     * ************************************************
-     * Adiciona ouvinte de eventos para quando a caixa
-     *  de seleção é alterada.
-     * * @param {OBJ} input
-     * input "checkbox" alvo
-     * 
-     * @public
-     * ************************************************
+     * **********************************************
+     * @private
+     * Submete ou executa função de callback para o
+     *  formulário.
+     * @param {OBJECT} e 
+     * **********************************************
      */
-    this.addInput = function (input) {
-        if (input.type === 'checkbox' && !input.classList.contains('cart-add')) {
-            if (input.checked) {
-                input.checked = null;
-            }
-            input.classList.add('cart-add');
-            input.addEventListener('change', changeInput, false);
-        }
-    };
-
-    /**
-     * ************************************************
-     * Reinicia o carrinho
-     * 
-     * @public
-     * ************************************************
-     */
-    this.restart = function () {
-        var $delInpt = $this.form.querySelectorAll('input');
-        for (var $i = 0; $i < $delInpt.length; $i++) {
-            if ($this.memory.includes($delInpt[$i])) {
-                $this.form.removeChild($delInpt[$i]);
-            }
-        }
-        document.querySelectorAll('input.cart-add').forEach(unCheck);
-
-        $this.memory.splice(0, $this.memory.length);
-        $this.text.innerText = null;
-        $this.target = null;
-        $this.count = 0;
-        $base.classList.remove('opened');
-        formInput();
-    };
-
-    /**
-     * ************************************************
-     * Se definido elementos checkbox no carregamento
-     * do script adiciona os mesmo as funções.
-     * ************************************************
-     */
-    if (boxes) {
-        $initBox = document.getElementsByClassName(boxes);
-        for (var $i = 0; $i < $initBox.length; $i++) {
-            this.addInput($initBox[$i]);
+    function sendForm(e) {
+        if ($options.submit !== undefined) {
+            $options.submit($boxCart.form);
+        } else {
+            $boxCart.form.submit();
         }
     }
+
+    /**
+     * **********************************************
+     * @public
+     * Adiciona o gerenciamento para algum input;
+     * @param {OBJECT} data {
+     *  input: input a ser gerenciado
+     *  text: texto de exibição do input
+     * }
+     * **********************************************
+     */
+    function addInput(data) {
+        data = data || {};
+        if (!data.input) {
+            console.error('ShoppingCart > addInput: "input" não definido');
+        } else if (data.input.nodeType !== 1 || data.input.type !== 'checkbox') {
+            console.error('ShoppingCart > addInput: "input" não é um elemento checkbox válido');
+        } else if (!data.input.classList.contains('cart-add')) {
+            if (data.input.checked) {
+                data.input.checked = false;
+            }
+            data.input.classList.add('cart-add');
+            data.input.setAttribute('data-cart-add', $this.index);
+            data.input.addEventListener('change', changeInput, false);
+            $this.memory.push({
+                input: data.input,
+                index: $this.index,
+                name: data.text || data.input.name
+            });
+            $this.index++;
+        }
+    }
+
+    /**
+     * **********************************************
+     * @public
+     * Cria e adiciona input global ao formulário.
+     * @param {OBJECT} data {
+     *  name: atributo name para o input
+     *  value: atributo value para o input
+     * }
+     * **********************************************
+     */
+    function setExtra(data) {
+        data = data || {};
+        if (!data.name) {
+            console.error('ShoppingCart > setExtra: "name" não definido');
+        } else if (!data.value) {
+            console.error('ShoppingCart > setExtra: "value" não definido');
+        } else {
+            var $hidden = document.createElement('input');
+            $hidden.type = 'hidden';
+            $hidden.name = data.name;
+            $hidden.value = data.value;
+            $boxCart.form.appendChild($hidden);
+        }
+    }
+
+    /**
+     * **********************************************
+     * @public
+     * Remove os input adicinados por checkbox do
+     *  carrinho.
+     * **********************************************
+     */
+    function clearAll() {
+        for (var $i = 0; $i < $this.memory.length; $i++) {
+            if ($this.memory[$i].input.checked === true) {
+                $this.tgt = $this.memory[$i].input;
+                $this.memory[$i].input.checked = false;
+                removeInput();
+                $this.count--;
+                updateCount();
+            }
+        }
+    }
+
+    /**
+     * **********************************************
+     * Acesso aos métodos públicos.
+     * **********************************************
+     */
+    this.addInput = addInput;
+    this.setExtra = setExtra;
+    this.clearAll = clearAll;
+
+    createOpen();
+    createCart();
 };

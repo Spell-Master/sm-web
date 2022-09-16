@@ -1,0 +1,52 @@
+/**
+ * **************************************************
+ * Class MultiCheck
+ * @author Spell-Master (Omar Pautz)
+ * @copyright 2022
+ * @version 1.0
+ * **************************************************
+ */
+
+div[data-multi-check] {
+    display: inline-block;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    bottom: 0;
+    transform: translate(-50%, 100%);
+    background-color: rgba(0, 0, 0, .8);
+    width: 14.375rem;
+    padding: .625rem;
+    box-shadow: .625rem 0 1rem rgba(0, 0, 0, .5);
+    border-radius: .25rem;
+    text-align: center;
+    color: #cccccc;
+    word-wrap: break-word;
+    opacity: 0;
+    transition: .5s all ease
+}
+div[data-multi-check].open {
+    transform: translate(-50%, -25%);
+    opacity: 1
+}
+div[data-line-check] {
+    display: inline-table;
+    vertical-align: middle;
+    font-size: 1em
+}
+div[data-line-check] > button {
+    cursor: pointer;
+    margin: 8px;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    padding: 8px 16px;
+    background-color: #111111;
+    color: #ffffff;
+    box-shadow: 0 0 3px 1px rgba(0, 0, 0, .5)
+}
+div[data-line-check] > button:hover {
+    border-color: #ffffff;
+    background-color: #eeeeee;
+    color: #444444;
+    box-shadow: 0 0 3px 1px rgba(238, 238, 238, .5)
+}

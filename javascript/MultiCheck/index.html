@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Multiplos Checkbox</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link href="../../css/css-default.css" rel="stylesheet" type="text/css"/>
+        <link href="../../lib/stylesheet/core.css" rel="stylesheet" type="text/css"/>
+        <link href="../../lib/prism/prism.css" rel="stylesheet" type="text/css"/>
+        <script src="../../lib/prism/prism.js" type="text/javascript"></script>
+        <script src="../jsd/js-default.js" type="text/javascript"></script>
+
+        <script src="MultiCheck.js" type="text/javascript"></script>
+        <link href="MultiCheck.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+
+        <article class="container padding-all">
+            <h1 class="bold italic">MultiCheck.js</h1>
+            <hr class="border-bottom border-dark" />
+            O MultiCheck trabalha com multiplas entradas de caixa de checagem.
+            <p>Para o envio de vários dados simultâneos dos mesmo.</p>
+            <p>Basicamente seu conceito se aplica como um carrinho de compras,
+                mas sem o apelo visual que tal aplicação deve possuir.</p>
+            <p>Assim então usando de algo mais simples de forma a uso em demais
+                situações corriqueiras onde o envio múltiplo de dados deve ocorrer.</p>
+
+            <div class="margin-top-max">
+                <h2>Apresentação:</h2>
+
+                <div class="row-pad">
+                    <div class="col-quarter">
+                        <div class="floating">
+                            <div class="float-left">
+                                <input type="checkbox" name="input-1" value="valor 1" id="checkbox-1" class="input-check" />
+                                <label for="checkbox-1"></label>
+                            </div>
+                            <div class="over-not">
+                                <label for="checkbox-1" class="input-default cursor-pointer">Item 1</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-quarter">
+                        <div class="floating">
+                            <div class="float-left">
+                                <input type="checkbox" name="input-2" value="valor 2" id="checkbox-2" class="input-check" />
+                                <label for="checkbox-2"></label>
+                            </div>
+                            <div class="over-not">
+                                <label for="checkbox-2" class="input-default cursor-pointer">Item 2</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-quarter">
+                        <div class="floating">
+                            <div class="float-left">
+                                <input type="checkbox" name="input-3" value="valor 3" id="checkbox-3" class="input-check" />
+                                <label for="checkbox-3"></label>
+                            </div>
+                            <div class="over-not">
+                                <label for="checkbox-3" class="input-default cursor-pointer">Item 3</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-quarter">
+                        <div class="floating">
+                            <div class="float-left">
+                                <input type="checkbox" name="input-4" value="valor 4" id="checkbox-4" class="input-check" />
+                                <label for="checkbox-4"></label>
+                            </div>
+                            <div class="over-not">
+                                <label for="checkbox-4" class="input-default cursor-pointer">Item 4</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-quarter">
+                        <div class="floating">
+                            <div class="float-left">
+                                <input type="checkbox" name="input-5" value="valor 5" id="checkbox-5" class="input-check" />
+                                <label for="checkbox-5"></label>
+                            </div>
+                            <div class="over-not">
+                                <label for="checkbox-5" class="input-default cursor-pointer">Item 5</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-quarter">
+                        <div class="floating">
+                            <div class="float-left">
+                                <input type="checkbox" name="input-6" value="valor 6" id="checkbox-6" class="input-check" />
+                                <label for="checkbox-6"></label>
+                            </div>
+                            <div class="over-not">
+                                <label for="checkbox-6" class="input-default cursor-pointer">Item 6</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-quarter">
+                        <div class="floating">
+                            <div class="float-left">
+                                <input type="checkbox" name="input-7" value="valor 7" id="checkbox-7" class="input-check" />
+                                <label for="checkbox-7"></label>
+                            </div>
+                            <div class="over-not">
+                                <label for="checkbox-7" class="input-default cursor-pointer">Item 7</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-quarter">
+                        <div class="floating">
+                            <div class="float-left">
+                                <input type="checkbox" name="input-8" value="valor 8" id="checkbox-8" class="input-check" />
+                                <label for="checkbox-8"></label>
+                            </div>
+                            <div class="over-not">
+                                <label for="checkbox-8" class="input-default cursor-pointer">Item 8</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <pre><code id="submit-resultado" class="language-php"></code></pre>
+            </div>
+
+            <div class="sm-margin-top">
+                <hr class="border-bottom border-dark" />
+                <h2>Utilização</h2>
+                <p>Adicione os arquivos necessários:</p>
+                <pre><code class="language-html">&lt;link href="MultiCheck.css" rel="stylesheet" type="text/css"/&gt;
+&lt;script src="MultiCheck.js" type="text/javascript"&gt;&lt;/script&gt;</code></pre>
+
+                <p>É opcional criar uma estrutura HTML, que nada mais é que criar um ou mais
+                    input "checkbox", ao qual a interação deve ocorrer assim que o MultiCheck carregar.</p>
+                <blockquote class="quote-yellow">
+                    É importante que consiga identificar esses input para serem repassados para o
+                    MultiCheck
+                </blockquote>
+                <pre><code class="language-html">&lt;input type="checkbox" name="input-a" value="valor a" class="exemplo" /&gt;
+&lt;input type="checkbox" name="input-b" value="valor b" class="exemplo" /&gt;
+&lt;input type="checkbox" name="input-c" value="valor c" class="exemplo" /&gt;</code></pre>
+                Perceba o uso do classificador <span class="bold">exemplo</span>
+                ao qual usarei para informar ao MultiCheck que ele deve interagir com esses input.
+
+                <div class="margin-top">
+                    <p>Inicie em um javascript ao final do documento criando um objeto
+                        que instância a classe MultiCheck.</p>
+                    <p>Esse objeto poderá ser usado para acessar os demais métodos
+                        da classe.</p>
+                    <pre><code class="language-html">&lt;script&gt;
+    var multi = new MultiCheck({
+        addInput: document.getElementsByClassName('exemplo'),
+        maxCheck: 3,
+        btnText: 'Olá mundo',
+        btnClass: 'um_classificador_qualquer',
+        onAction: 'https://url_do_post/arquivo.php',
+        onSubmit: function (e) {
+            console.log(e);
+        }
+    });
+&lt;/script&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="sm-margin-top">
+                <hr class="border-bottom border-dark" />
+                <h2>Parâmetros Iniciais</h2>
+                <p class="quote-yellow">Qualquer parâmetro inicial é opcional,
+                    portanto use aqueles que achar de deve ser usado.</p>
+                <ul class="margin-left">
+                    <li>
+                        <span class="bold">addInput</span>:
+                        Assim como dito anteriormente, você pode informar quais input vão está sobre os
+                        cuidados do MultiCheck.
+                        <p>Cada input deve possuir o atributo <span class="bold">name</span>
+                            ao qual você irá utilizar no back-end para saber quais dados serão
+                            enviados pelo formulário.
+                        </p>
+                        <p>E deve possuir o atributo <span class="bold">value</span>
+                            ao qual você irá utilizar no back-end para saber quais são os valores
+                            que o usuário selecionou.
+                        </p>
+                        <p>Caso não queira o utilização desse parâmetro, você poderá está usando
+                            os métodos auxiliares para adicionar um ou mais input ao script
+                            posteriomente.</p>
+                    </li>
+                    <li>
+                        <span class="bold">maxCheck</span>:
+                        Aqui você informa um número que indicará qual a quantidade máxima de input
+                        que o usuário pode marcar.
+                        <p>Se não definido o valor máximo será "99" noventa-e-nove.</p>
+                    </li>
+                    <li>
+                        <span class="bold">btnText</span>:
+                        Aqui você informa um texto que será mostrado no botão de validação do formulário.
+                        <p>Se não definido o texto será "Enviar"</p>
+                    </li>
+                    <li>
+                        <span class="bold">btnClass</span>:
+                        Aqui você informa um classificador ".class" para o botão de envio.
+                        <p>Use para estilizar conforme queira o botão de envio.</p>
+                    </li>
+                    <li>
+                        <span class="bold">onAction</span>:
+                        Aqui você informa para onde os dados serão enviados através do protocolo
+                        "POST".
+                        <p>Se não informado os dados serão enviados para a própria url atual.</p>
+                        <p>Esse parâmetro se torna obsoleto/inutilizável quando o parâmetro
+                            "onSubmit" estiver presente.</p>
+                    </li>
+                    <li>
+                        <span class="bold">onSubmit</span>:
+                        Aqui você informa uma função que será executada substituíndo o comportamento
+                        padrão do navegador com o formulário.
+                        <p>Você poderá adicionar um parâmetro ao escopo da função, esse parâmetro será
+                            o formulário de envio. Exemplo:</p>
+                        <pre><code class="language-javascript">var multi = new MultiCheck({
+    onSubmit: function (param) {
+        console.log(param); // "param" será o formulário criado pelo MultiCheck
+    }
+});</code></pre>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="sm-margin-top">
+                <hr class="border-bottom border-dark" />
+                <h2>Métodos extra</h2>
+                <ul class="margin-left">
+                    <li>
+                        <span class="bold font-max">addInput</span>:
+                        Como esse método você pode adicionar novos input aos cuidados do MultiCheck.
+                        Exemplo:
+                        <pre><code class="language-javascript">var multi = new MultiCheck();
+multi.addInput(
+    document.getElementById('um_input_checkbox')
+);</code></pre>
+                    </li>
+                    <li>
+                        <span class="bold font-max">addHidden</span>
+                        Com esse método você pode criar input extras no formulário para suas informações
+                        serem usadas no back-end. Exemplo:
+                        <pre><code class="language-javascript">var multi = new MultiCheck();
+var novo = document.createElement('input');
+novo.name = 'alguma_coisa';
+novo.value = 'algum valor';
+multi.addHidden({
+    name: novo.name,
+    value: novo.value
+});</code></pre>
+                        <p>Dois prâmetros são obrigatórios para esse método:</p>
+                        <p><span class="bold">name:</span>Ao qual você deve informar o "atributo name"
+                            para o input que será criado no formulário.</p>
+                        <p><span class="bold">value:</span>Ao qual você deve informar o "atributo value"
+                            para o input que será criado no formulário.</p>
+                        <blockquote class="quote-red">
+                            Qualquer input criado dessa forma para o formulário não poderá ser removido
+                        </blockquote>
+                    </li>
+                    <li>
+                        <span class="bold font-max">clearAll:</span>
+                        Com esse método você desmaca e remove todos checkbox selecionados pelo usuário
+                    </li>
+                </ul>
+            </div>
+
+            <div class="sm-margin-top">
+                <hr class="border-bottom border-dark" />
+                <h2>Exemplo Prático</h2>
+                <pre><code class="language-html">&lt;input type="checkbox" name="check-1" value="check-value-1" /&gt;
+&lt;input type="checkbox" name="check-2" value="check-value-2" /&gt;
+&lt;input type="checkbox" name="check-3" value="check-value-3" /&gt;
+&lt;input type="checkbox" name="check-4" value="check-value-4" /&gt;
+&lt;input type="checkbox" name="check-5" value="check-value-5" /&gt;
+&lt;input type="checkbox" name="check-6" value="check-value-6" /&gt;
+&lt;input type="checkbox" name="check-7" value="check-value-7" /&gt;
+&lt;input type="checkbox" name="check-8" value="check-value-8" /&gt;
+&lt;input type="checkbox" name="check-9" value="check-value-9" /&gt;
+&lt;script&gt;
+var multi = new MultiCheck({
+    addInput: document.querySelectorAll('input'),
+    maxCheck: 999,
+    btnText: 'Salvar',
+    btnClass: 'teste',
+    onAction: 'post.php',
+    onSubmit: function (param) {
+        console.log(param);
+    }
+});
+&lt;/script&gt;</code></pre>
+                </div>
+        </article>
+
+        <script>
+            var multi = new MultiCheck({
+                addInput: jsd('input'),
+                maxCheck: 8,
+                onSubmit: function (form) {
+                    jsd.ajax({
+                        url: 'post.php',
+                        protocol: 'POST',
+                        values: jsd(form).serialize(),
+                        onResult: function (html) {
+                            jsd('#submit-resultado').html(html);
+                            Prism.highlightAll();
+                            multi.clearAll();
+                        }
+                    });
+                }
+            });
+        </script>
+    </body>
+</html>

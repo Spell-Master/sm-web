@@ -8,8 +8,6 @@
         <link href="../../lib/stylesheet/core.css" rel="stylesheet" type="text/css"/>
         <link href="../../lib/prism/prism.css" rel="stylesheet" type="text/css"/>
         <script src="../../lib/prism/prism.js" type="text/javascript"></script>
-        <script src="../jsd/js-default.js" type="text/javascript"></script>
-        <script src="../../lib/js/mostarCodigo.js" type="text/javascript"></script>
 
         <link href="ImageGalery.css" rel="stylesheet" type="text/css"/>
         <script src="ImageGalery.js" type="text/javascript"></script>
@@ -37,42 +35,46 @@
                 <hr class="border-bottom border-dark" />
                 <h2>Apresentação:</h2>
 
-                <div id="code">
-                    <div class="row-pad">
-                        <div class="col-third">
-                            <img src="../../lib/img/paisagem_01.jpg" alt="" data-galery="" />
-                        </div>
-                        <div class="col-third">
-                            <img src="../../lib/img/paisagem_02.jpg" alt="" data-galery="" />
-                        </div>
-                        <div class="col-third">
-                            <img src="../../lib/img/paisagem_03.jpg" alt="" data-galery="" />
-                        </div>
-                        <div class="col-third">
-                            <img src="../../lib/img/paisagem_04.jpg" alt="" data-galery="" />
-                        </div>
-                        <div class="col-third">
-                            <img src="../../lib/img/paisagem_05.jpg" alt="" data-galery="" />
-                        </div>
-                        <div class="col-third">
-                            <img src="../../lib/img/paisagem_06.jpg" alt="" data-galery="" />
-                        </div>
-                        <div class="col-third">
-                            <img src="../../lib/img/paisagem_07.jpg" alt="" data-galery="" />
-                        </div>
-                        <div class="col-third">
-                            <img src="../../lib/img/paisagem_08.jpg" alt="" data-galery="" />
-                        </div>
-                        <div class="col-third">
-                            <img src="../../lib/img/paisagem_09.jpg" alt="" data-galery="" />
-                        </div>
+                <div class="row-pad">
+                    <div class="col-third">
+                        <img src="../../lib/img/paisagem_01.jpg" alt="" data-galery="" />
+                    </div>
+                    <div class="col-third">
+                        <img src="../../lib/img/paisagem_02.jpg" alt="" data-galery="" />
+                    </div>
+                    <div class="col-third">
+                        <img src="../../lib/img/paisagem_03.jpg" alt="" data-galery="" />
+                    </div>
+                    <div class="col-third">
+                        <img src="../../lib/img/paisagem_04.jpg" alt="" data-galery="" />
+                    </div>
+                    <div class="col-third">
+                        <img src="../../lib/img/paisagem_05.jpg" alt="" data-galery="" />
+                    </div>
+                    <div class="col-third">
+                        <img src="../../lib/img/paisagem_06.jpg" alt="" data-galery="" />
+                    </div>
+                    <div class="col-third">
+                        <img src="../../lib/img/paisagem_07.jpg" alt="" data-galery="" />
+                    </div>
+                    <div class="col-third">
+                        <img src="../../lib/img/paisagem_08.jpg" alt="" data-galery="" />
+                    </div>
+                    <div class="col-third">
+                        <img src="../../lib/img/paisagem_09.jpg" alt="" data-galery="" />
                     </div>
                 </div>
+            </div>
 
-                <div class="margin-top align-center">
-                    <button class="btn-default" data-code="code">Ver código fonte</button>
-                </div>
-
+            <div class="sm-margin-top">
+                <hr class="border-bottom border-dark" />
+                <h2>Exemplo Prático</h2>
+                <pre><code class="language-html">&lt;img src="imagem_a.jpg" alt="" data-galery="" /&gt;
+&lt;img src="imagem_b.jpg" alt="" data-galery="" /&gt;
+&lt;img src="imagem_c.jpg" alt="" data-galery="" /&gt;
+&lt;script&gt;
+    var exemplo = new ImageGalery();
+&lt;/script&gt;</code></pre>
             </div>
 
             <div class="sm-margin-top">
@@ -103,15 +105,15 @@
                 <blockquote class="quote-yellow">
                     <p class="bold">*NOTA:</p>
                     <p>Para reduzir o custo do desempenho, o ImageGalery
-                    não irá verificar se todas as imagens estão devidamente
-                    carregadas, portanto incoerências aleatórias podem ocorrer
-                    devido a falhas de carregamento, imagens muito pesadas
-                    ou ataque cross-script.</p>
+                        não irá verificar se todas as imagens estão devidamente
+                        carregadas, portanto incoerências aleatórias podem ocorrer
+                        devido a falhas de carregamento, imagens muito pesadas
+                        ou ataque cross-script.</p>
                     <p>O processo de checagem pode ser realizado antes de criar
-                    a instância se achar que seja necessário.</p>
+                        a instância se achar que seja necessário.</p>
                 </blockquote>
             </div>
-            
+
             <div class="margin-top-max">
                 <hr class="border-bottom border-dark" />
                 <h3>Métodos Extras</h3>
@@ -119,8 +121,8 @@
                     reload
                 </p>
                 <p>Este método irá recarregar as imagens pertecentes as funções,
-                caso venha a remover ou adicionar imagens você poderá usar-lo
-                para redefinir o ImageGalery a condição atual.</p>
+                    caso venha a remover ou adicionar imagens você poderá usar-lo
+                    para redefinir o ImageGalery a condição atual.</p>
                 <pre><code class="language-html">&lt;script&gt;
     var exemplo = new ImageGalery();
     exemplo.reload(); // Recarrega tudo.
@@ -137,25 +139,8 @@
             </div>
         </article>
 
-        <div id="view-code">
-            <div class="pos-center">
-                <div class="code-head">
-                    Código Fonte
-                    <button class="code-close"></button>
-                </div>
-                <div class="code-pre"></div>
-            </div>
-        </div>
-
         <script>
             var galery = new ImageGalery();
-
-            jsd('[data-code]').click(function (e) {
-                smCode.openCode(e.target.dataset.code);
-            });
-            jsd('.code-close').click(function () {
-                smCode.coseCode();
-            });
         </script>
     </body>
 </html>

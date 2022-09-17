@@ -8,13 +8,10 @@
         <link href="../../lib/stylesheet/core.css" rel="stylesheet" type="text/css"/>
         <link href="../../lib/prism/prism.css" rel="stylesheet" type="text/css"/>
         <script src="../../lib/prism/prism.js" type="text/javascript"></script>
-        <script src="../jsd/js-default.js" type="text/javascript"></script>
-        <script src="../../lib/js/mostarCodigo.js" type="text/javascript"></script>
 
         <script src="FileLoad.js" type="text/javascript"></script>
     </head>
     <body>
-
         <article class="container padding-all">
             <h1 class="bold italic">FileLoad.js</h1>
             <hr class="border-bottom border-dark" />
@@ -30,26 +27,20 @@
                 <hr class="border-bottom border-dark" />
                 <h2>Apresentação:</h2>
 
-                <div id="code">
-                    <div class="row-pad reduce">
-                        <div class="col-twothird-max padding-all-min">
-                            <input type="file" id="exemplo" class="input-default" />
-                        </div>
-                        <div class="col-third-max padding-all-min">
-                            <div class="row">
-                                <div class="col-half col-fix">
-                                    <button onclick="enviar()" class="btn-info button-block">Enviar</button>
-                                </div>
-                                <div class="col-half col-fix">
-                                    <button onclick="ler.cancel()" class="btn-warning button-block">Cancelar</button>
-                                </div>
+                <div class="row-pad reduce">
+                    <div class="col-twothird-max padding-all-min">
+                        <input type="file" id="exemplo" class="input-default" />
+                    </div>
+                    <div class="col-third-max padding-all-min">
+                        <div class="row">
+                            <div class="col-half col-fix">
+                                <button onclick="enviar()" class="btn-info button-block">Enviar</button>
+                            </div>
+                            <div class="col-half col-fix">
+                                <button onclick="ler.cancel()" class="btn-warning button-block">Cancelar</button>
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="margin-top align-center">
-                    <button class="btn-default" data-code="code">Ver código fonte</button>
                 </div>
 
                 <blockquote class="quote-yellow">
@@ -196,7 +187,6 @@
                     <span class="bold">readType</span>.</p>
             </div>
 
-
             <div class="sm-margin-top">
                 <hr class="border-bottom border-dark" />
                 <h2>Método extra</h2>
@@ -208,16 +198,6 @@
 ler.cancel();</code></pre>
             </div>
         </article>
-
-        <div id="view-code">
-            <div class="pos-center">
-                <div class="code-head">
-                    Código Fonte
-                    <button class="code-close"></button>
-                </div>
-                <div class="code-pre"></div>
-            </div>
-        </div>
 
         <script>
             var ler = new FileLoad();
@@ -246,13 +226,6 @@ ler.cancel();</code></pre>
                     }
                 });
             }
-
-            jsd('[data-code]').click(function (e) {
-                smCode.openCode(e.target.dataset.code);
-            });
-            jsd('.code-close').click(function () {
-                smCode.coseCode();
-            });
         </script>
     </body>
 </html>

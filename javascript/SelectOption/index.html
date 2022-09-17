@@ -15,7 +15,6 @@
         <link href="SelectOption.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-
         <article class="container padding-all">
             <h1 class="bold italic">SelectOption.js</h1>
             <hr class="border-bottom border-dark" />
@@ -78,6 +77,26 @@
 
             <div class="sm-margin-top">
                 <hr class="border-bottom border-dark" />
+                <h2>Exemplo Prático</h2>
+                <pre><code class="language-html">&lt;select name="seletor" data-select=""&gt;
+    &lt;option value=""&gt;Selecionar Opção&lt;/option&gt;
+    &lt;option value="valor_1"&gt;Opção 1&lt;/option&gt;
+    &lt;option value="valor_2"&gt;Opção 2&lt;/option&gt;
+    &lt;option value="valor_3"&gt;Opção 3&lt;/option&gt;
+    &lt;option value="valor_4"&gt;Opção 4&lt;/option&gt;
+    &lt;option value="valor_5"&gt;Opção 5&lt;/option&gt;
+    &lt;option value="valor_6"&gt;Opção 6&lt;/option&gt;
+    &lt;option value="valor_7"&gt;Opção 7&lt;/option&gt;
+    &lt;option value="valor_8"&gt;Opção 8&lt;/option&gt;
+    &lt;option value="valor_9"&gt;Opção 9&lt;/option&gt;
+&lt;/select&gt;
+&lt;script&gt;
+    var select = new SelectOption();
+&lt;/script&gt;</code></pre>
+            </div>
+
+            <div class="sm-margin-top">
+                <hr class="border-bottom border-dark" />
                 <h2>Métodos extra</h2>
                 <p><span class="bold font-max">reload</span>:
                     Esse método recarrega todos seletores, então você poderá está usando para
@@ -114,7 +133,7 @@ function adicionarNovo() { // função para criar uma nova tag
                         Equivale ao índice no documento da tag &lt;select&gt;
                     </li>
                     <li><span class="bold">name</span>:
-                        Atrinuto name da tag &lt;select&gt;
+                        Atributo name da tag &lt;select&gt;
                     </li>
                     <li><span class="bold">value</span>:
                         Atual valor da tag &lt;select&gt;
@@ -140,25 +159,6 @@ objeto.data();</code></pre>
                 </select>
             </div>
 
-            <div class="sm-margin-top">
-                <hr class="border-bottom border-dark" />
-                <h2>Exemplo Prático</h2>
-                <pre><code class="language-html">&lt;select name="seletor" data-select=""&gt;
-    &lt;option value=""&gt;Selecionar Opção&lt;/option&gt;
-    &lt;option value="valor_1"&gt;Opção 1&lt;/option&gt;
-    &lt;option value="valor_2"&gt;Opção 2&lt;/option&gt;
-    &lt;option value="valor_3"&gt;Opção 3&lt;/option&gt;
-    &lt;option value="valor_4"&gt;Opção 4&lt;/option&gt;
-    &lt;option value="valor_5"&gt;Opção 5&lt;/option&gt;
-    &lt;option value="valor_6"&gt;Opção 6&lt;/option&gt;
-    &lt;option value="valor_7"&gt;Opção 7&lt;/option&gt;
-    &lt;option value="valor_8"&gt;Opção 8&lt;/option&gt;
-    &lt;option value="valor_9"&gt;Opção 9&lt;/option&gt;
-&lt;/select&gt;
-&lt;script&gt;
-    var select = new SelectOption();
-&lt;/script&gt;</code></pre>
-            </div>
         </article>
 
         <script>

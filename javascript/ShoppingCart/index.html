@@ -1,9 +1,4 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
     <head>
         <title>Carrinho de Compras</title>
@@ -77,6 +72,45 @@ and open the template in the editor.
                     </div>
                 </div>
                 <pre><code id="submit-resultado" class="language-php"></code></pre>
+            </div>
+            
+<div class="sm-margin-top">
+                <hr class="border-bottom border-dark" />
+                <h2>Exemplo Prático</h2>
+                <pre><code class="language-html">&lt;input type="checkbox" name="check-1" value="check-value-1" /&gt;
+&lt;input type="checkbox" name="check-2" value="check-value-2" /&gt;
+&lt;input type="checkbox" name="check-3" value="check-value-3" /&gt;
+&lt;input type="checkbox" name="check-4" value="check-value-4" /&gt;
+&lt;input type="checkbox" name="check-5" value="check-value-5" /&gt;
+&lt;input type="checkbox" name="check-6" value="check-value-6" /&gt;
+&lt;input type="checkbox" name="check-7" value="check-value-7" /&gt;
+&lt;input type="checkbox" name="check-8" value="check-value-8" /&gt;
+&lt;input type="checkbox" name="check-9" value="check-value-9" /&gt;
+
+&lt;button onclick="limpar()"&gt;Limpar Carrinho&lt;/button&gt;
+
+&lt;script&gt;
+    var shop = new ShoppingCart({
+        action: 'arquivo.php',
+        formId: 'carrinho_de_compras'
+    });
+    var inputs = document.querySelectorAll('input');
+    var indice = 0;
+    inputs.forEach(function (e) {
+        indice++;
+        shop.addInput({
+            input: e,
+            text: 'item: ' + indice
+        });
+    });
+    shop.setExtra({
+        name: 'input_extra',
+        value: 'valor do input extra'
+    });
+    function limpar() {
+        shop.clearAll();
+    }
+&lt;/script&gt;</code></pre>
             </div>
 
             <div class="sm-margin-top">
@@ -199,47 +233,6 @@ shop.addInput({
                 </p>
                 <pre><code class="language-javascript">shop.clearAll();</code></pre>
             </div>
-
-            <div class="sm-margin-top">
-                <hr class="border-bottom border-dark" />
-                <h2>Exemplo Prático</h2>
-                <pre><code class="language-html">&lt;input type="checkbox" name="check-1" value="check-value-1" /&gt;
-&lt;input type="checkbox" name="check-2" value="check-value-2" /&gt;
-&lt;input type="checkbox" name="check-3" value="check-value-3" /&gt;
-&lt;input type="checkbox" name="check-4" value="check-value-4" /&gt;
-&lt;input type="checkbox" name="check-5" value="check-value-5" /&gt;
-&lt;input type="checkbox" name="check-6" value="check-value-6" /&gt;
-&lt;input type="checkbox" name="check-7" value="check-value-7" /&gt;
-&lt;input type="checkbox" name="check-8" value="check-value-8" /&gt;
-&lt;input type="checkbox" name="check-9" value="check-value-9" /&gt;
-
-&lt;button onclick="limpar()"&gt;Limpar Carrinho&lt;/button&gt;
-
-&lt;script&gt;
-    var shop = new ShoppingCart({
-        action: 'arquivo.php',
-        formId: 'carrinho_de_compras'
-    });
-    var inputs = document.querySelectorAll('input');
-    var indice = 0;
-    inputs.forEach(function (e) {
-        indice++;
-        shop.addInput({
-            input: e,
-            text: 'item: ' + indice
-        });
-    });
-    shop.setExtra({
-        name: 'input_extra',
-        value: 'valor do input extra'
-    });
-    function limpar() {
-        shop.clearAll();
-    }
-&lt;/script&gt;</code></pre>
-            </div>
-
-
         </article>
 
 

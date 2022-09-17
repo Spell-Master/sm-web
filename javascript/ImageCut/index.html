@@ -44,9 +44,29 @@
                         <button onclick="definirCorte()" class="btn-success button-block">CORTAR</button>
                     </div>
                 </div>
+            </div>
 
-                <div class="align-center margin-top">
-                </div>
+            <div class="sm-margin-top">
+                <hr class="border-bottom border-dark" />
+                <h2>Exemplo Prático</h2>
+
+                <pre><code class="language-html">&lt;img src="imagem.jpg" id="alvo" alt="" /&gt;
+&lt;button onclick="cortar.sizePlus()"&gt;Ampliar Zoom&lt;/button&gt;
+&lt;button onclick="cortar.sizeMinus()"&gt;Reduzir Zoom&lt;/button&gt;
+&lt;button onclick="definirCorte()"&gt;CORTAR&lt;/button&gt;
+&lt;script&gt;
+    var cortar = new ImageCut( document.getElementById('alvo') );
+    
+    function definirCorte() {
+        cortar.setCut(); // Corta a imagem
+        var imagemCortada = cortar.getImage(); // Obtem a imagem cortada
+        /* Com os dados de "imagemCortada" você faz o que tem de fazer
+         * Exemplo criano uma nova imagem */ 
+        var novaImagem = document.createElement('img');
+        novaImagem.src = imagemCortada;
+        console.log( novaImagem );
+    }
+&lt;/script&gt;</code></pre>
             </div>
 
             <div class="sm-margin-top">
@@ -104,35 +124,17 @@ var cortar = new ImageCut(imagem);</code></pre>
             </div>
 
             <div class="sm-margin-top">
-                <hr class="border-bottom border-dark" />
-                <h2>Exemplo Prático</h2>
+                <blockquote class="quote-green">
+                    <p>Lembre-se que o corte não passa de uma representação em base64
+                        da imagem no local onde está a caixa de corte, portanto esse valor
+                        pode ser utilizado por uma infinidade de situações, conforme
+                        for necessário um corte de imagem.</p>
 
-                <pre><code class="language-html">&lt;img src="imagem.jpg" id="alvo" alt="" /&gt;
-&lt;button onclick="cortar.sizePlus()"&gt;Ampliar Zoom&lt;/button&gt;
-&lt;button onclick="cortar.sizeMinus()"&gt;Reduzir Zoom&lt;/button&gt;
-&lt;button onclick="definirCorte()"&gt;CORTAR&lt;/button&gt;
-&lt;script&gt;
-    var cortar = new ImageCut( document.getElementById('alvo') );
-    
-    function definirCorte() {
-        cortar.setCut(); // Corta a imagem
-        var imagemCortada = cortar.getImage(); // Obtem a imagem cortada
-        /* Com os dados de "imagemCortada" você faz o que tem de fazer
-         * Exemplo criano uma nova imagem */ 
-        var novaImagem = document.createElement('img');
-        novaImagem.src = imagemCortada;
-        console.log( novaImagem );
-    }
-&lt;/script&gt;</code></pre>
-                <p>Lembre-se que o corte não passa de uma representação em base64
-                    da imagem no local onde está a caixa de corte, portanto esse valor
-                    pode ser utilizado por uma infinidade de situações, conforme
-                    for necessário um corte de imagem.</p>
-
-                <p class="margin-top">ImageCut não se iniciará enquanto a imagem não estiver completamente
-                    carregada, portanto para images grandes dependendo da velocidade
-                    de conexão e capacidade de processamento da máquina do usuário,
-                    o script pode demorar a está operacional.</p>
+                    <p class="margin-top">ImageCut não se iniciará enquanto a imagem não estiver completamente
+                        carregada, portanto para images grandes dependendo da velocidade
+                        de conexão e capacidade de processamento da máquina do usuário,
+                        o script pode demorar a está operacional.</p>
+                </blockquote>
             </div>
         </article>
 

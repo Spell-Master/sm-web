@@ -10,7 +10,6 @@
         <link href="../../lib/prism/prism.css" rel="stylesheet" type="text/css"/>
         <script src="../../lib/prism/prism.js" type="text/javascript"></script>
         <script src="../jsd/js-default.js" type="text/javascript"></script>
-        <script src="../../lib/js/mostarCodigo.js" type="text/javascript"></script>
 
         <script src="Paginator.js" type="text/javascript"></script>
         <link href="Paginator.css" rel="stylesheet" type="text/css"/>
@@ -36,57 +35,78 @@
             <div class="margin-top-max">
                 <h2>Apresentação:</h2>
 
-                <div id="code">
-                    <div id="paginacao">
-                        <div class="align-center">
-                            <div data-paginator=""></div>
+                <div id="paginacao">
+                    <div class="align-center">
+                        <div data-paginator=""></div>
+                    </div>
+                    <div class="row">
+                        <div class="pagina col-third">
+                            <div class="card-red box-y-100 vertical-wrap">Página 1/Item 1</div>
                         </div>
-                        <div class="row">
-                            <div class="pagina col-third">
-                                <div class="card-red box-y-100 vertical-wrap">Página 1/Item 1</div>
-                            </div>
-                            <div class="pagina col-third">
-                                <div class="card-red box-y-100 vertical-wrap">Página 1/Item 2</div>
-                            </div>
-                            <div class="pagina col-third">
-                                <div class="card-red box-y-100 vertical-wrap">Página 1/Item 3</div>
-                            </div>
-                            <div class="pagina col-third">
-                                <div class="card-green box-y-100 vertical-wrap">Página 2/Item 1</div>
-                            </div>
-                            <div class="pagina col-third">
-                                <div class="card-green box-y-100 vertical-wrap">Página 2/Item 2</div>
-                            </div>
-                            <div class="pagina col-third">
-                                <div class="card-green box-y-100 vertical-wrap">Página 2/Item 3</div>
-                            </div>
-                            <div class="pagina col-third">
-                                <div class="card-blue box-y-100 vertical-wrap">Página 3/Item 1</div>
-                            </div>
-                            <div class="pagina col-third">
-                                <div class="card-blue box-y-100 vertical-wrap">Página 3/Item 2</div>
-                            </div>
-                            <div class="pagina col-third">
-                                <div class="card-blue box-y-100 vertical-wrap">Página 3/Item 3</div>
-                            </div>
-                            <div class="pagina col-third">
-                                <div class="card-yellow box-y-100 vertical-wrap">Página 4/Item 1</div>
-                            </div>
-                            <div class="pagina col-third">
-                                <div class="card-yellow box-y-100 vertical-wrap">Página 4/Item 2</div>
-                            </div>
-                            <div class="pagina col-third">
-                                <div class="card-yellow box-y-100 vertical-wrap">Página 4/Item 3</div>
-                            </div>
+                        <div class="pagina col-third">
+                            <div class="card-red box-y-100 vertical-wrap">Página 1/Item 2</div>
                         </div>
-                        <div class="align-center">
-                            <div data-paginator=""></div>
+                        <div class="pagina col-third">
+                            <div class="card-red box-y-100 vertical-wrap">Página 1/Item 3</div>
+                        </div>
+                        <div class="pagina col-third">
+                            <div class="card-green box-y-100 vertical-wrap">Página 2/Item 1</div>
+                        </div>
+                        <div class="pagina col-third">
+                            <div class="card-green box-y-100 vertical-wrap">Página 2/Item 2</div>
+                        </div>
+                        <div class="pagina col-third">
+                            <div class="card-green box-y-100 vertical-wrap">Página 2/Item 3</div>
+                        </div>
+                        <div class="pagina col-third">
+                            <div class="card-blue box-y-100 vertical-wrap">Página 3/Item 1</div>
+                        </div>
+                        <div class="pagina col-third">
+                            <div class="card-blue box-y-100 vertical-wrap">Página 3/Item 2</div>
+                        </div>
+                        <div class="pagina col-third">
+                            <div class="card-blue box-y-100 vertical-wrap">Página 3/Item 3</div>
+                        </div>
+                        <div class="pagina col-third">
+                            <div class="card-yellow box-y-100 vertical-wrap">Página 4/Item 1</div>
+                        </div>
+                        <div class="pagina col-third">
+                            <div class="card-yellow box-y-100 vertical-wrap">Página 4/Item 2</div>
+                        </div>
+                        <div class="pagina col-third">
+                            <div class="card-yellow box-y-100 vertical-wrap">Página 4/Item 3</div>
                         </div>
                     </div>
+                    <div class="align-center">
+                        <div data-paginator=""></div>
+                    </div>
                 </div>
-                <div class="margin-top align-center">
-                    <button class="btn-default" data-code="code">Ver código fonte</button>
-                </div>
+            </div>
+
+            <div class="sm-margin-top">
+                <hr class="border-bottom border-dark" />
+                <h2>Exemplo Prático</h2>
+                <pre><code class="language-html">&lt;div id="exemplo"&gt;
+    &lt;div data-paginator=""&gt;&lt;/div&gt;
+    &lt;div class="classificador"&gt;Página 1 - item 1&lt;/div&gt;
+    &lt;div class="classificador"&gt;Página 1 - item 2&lt;/div&gt;
+    &lt;div class="classificador"&gt;Página 1 - item 3&lt;/div&gt;
+
+    &lt;div class="classificador"&gt;Página 2 - item 1&lt;/div&gt;
+    &lt;div class="classificador"&gt;Página 2 - item 2&lt;/div&gt;
+    &lt;div class="classificador"&gt;Página 2 - item 3&lt;/div&gt;
+
+    &lt;div class="classificador"&gt;Página 3 - item 1&lt;/div&gt;
+    &lt;div class="classificador"&gt;Página 3 - item 2&lt;/div&gt;
+    &lt;div class="classificador"&gt;Página 3 - item 3&lt;/div&gt;
+&lt;/div&gt;
+&lt;script&gt;
+    var pag = new Paginator({
+        id: 'exemplo',
+        item: 'classificador',
+        limit: 3
+    });
+&lt;/script&gt;</code></pre>
             </div>
 
             <div class="sm-margin-top">
@@ -353,15 +373,15 @@ foreach ($array as $chave => $valor) {
                 <p>Então o servidor irá compilar o html já com o elemento oculto.</p>
 
                 <div class="margin-top">
-                    <p>En todo caso ainda pode-se esbarrar na questão da internet
-                    do usuário, uma vez que o navegador terá que que processar
-                    o que é paginator-hide.</p>
+                    <p>Em todo caso ainda pode-se esbarrar na questão da internet
+                        do usuário, uma vez que o navegador terá que que processar
+                        o que é paginator-hide.</p>
                     <p>Então você pode optar por usar estilo inline nos
-                    elementos, esses são processados junto aos elementos e
-                    terão prioridade sobre o CSS. Assim sendo você pode abordar
-                    <q class="quote-green bold">style="display: none"</q>
-                    em todos os elementos que não devem ser exibidos antes
-                    da paginação estiver pronta.</p>
+                        elementos, esses são processados junto aos elementos e
+                        terão prioridade sobre o CSS. Assim sendo você pode abordar
+                        <q class="quote-green bold">style="display: none"</q>
+                        em todos os elementos que não devem ser exibidos antes
+                        da paginação estiver pronta.</p>
                 </div>
 
                 <div class="margin-top">
@@ -378,35 +398,17 @@ foreach ($array as $chave => $valor) {
                     <p>Como sugestão quando a paginação tiver por volta dos
                         5~6 mil itens desconsidere usar o Paginator.js</p>
                     <p>No entanto como o Paginator.js irá apenas paginar os itens
-                    que você determinar, varios elementos da paginação podem
-                    está em cada item, assim você diminui a quantidade de itens em
-                    cada página resolvendo esse problema de processamento.</p>
+                        que você determinar, varios elementos da paginação podem
+                        está em cada item, assim você diminui a quantidade de itens em
+                        cada página resolvendo esse problema de processamento.</p>
                 </div>
             </div>
         </article>
-
-        <div id="view-code">
-            <div class="pos-center">
-                <div class="code-head">
-                    Código Fonte
-                    <button class="code-close"></button>
-                </div>
-                <div class="code-pre"></div>
-            </div>
-        </div>
-
 
         <script>
             var pag = new Paginator({
                 id: 'paginacao',
                 item: 'pagina'
-            });
-
-            jsd('[data-code]').click(function (e) {
-                smCode.openCode(e.target.dataset.code);
-            });
-            jsd('.code-close').click(function () {
-                smCode.coseCode();
             });
         </script>
     </body>

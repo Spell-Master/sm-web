@@ -9,7 +9,6 @@
         <link href="../../lib/prism/prism.css" rel="stylesheet" type="text/css"/>
         <script src="../../lib/prism/prism.js" type="text/javascript"></script>
         <script src="../jsd/js-default.js" type="text/javascript"></script>
-        <script src="../../lib/js/mostarCodigo.js" type="text/javascript"></script>
 
         <link href="FileTransfer.css" rel="stylesheet" type="text/css" />
         <script src="FileTransfer.js" type="text/javascript"></script>
@@ -37,25 +36,20 @@
                 <hr class="border-bottom border-dark" />
                 <h2>Apresentação:</h2>
 
-                <div id="code">
-                    <div class="row-pad">
-                        <div class="col-quarter">
-                            <button class="btn-default button-block" onclick="download()">Download</button>
-                        </div>
-                        <div class="col-threequarter">
-                            <div class="floating">
-                                <div class="float-right">
-                                    <button class="btn-default button-block" onclick="upload()">Upload</button>
-                                </div>
-                                <div class="over-not">
-                                    <input class="input-default" type="file" name="enviar" />
-                                </div>
+                <div class="row-pad">
+                    <div class="col-quarter">
+                        <button class="btn-default button-block" onclick="download()">Download</button>
+                    </div>
+                    <div class="col-threequarter">
+                        <div class="floating">
+                            <div class="float-right">
+                                <button class="btn-default button-block" onclick="upload()">Upload</button>
+                            </div>
+                            <div class="over-not">
+                                <input class="input-default" type="file" name="enviar" />
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="margin-top align-center">
-                    <button class="btn-default" data-code="code">Ver código fonte</button>
                 </div>
 
                 <pre><code id="upload-resultado" class="language-php"></code></pre>
@@ -180,9 +174,9 @@
                 <p>Nesse método você informa uma função que será executada
                     quando algum erro de comunicação ou perda de dados ocorrer.</p>
                 <p>Ele não informará erros ocorrentes depois que os dados foram
-                enviados para o servidor.</p>
+                    enviados para o servidor.</p>
                 <p>Você pode adicinar um parâmetro para obter as informações
-                desses eventuais erros de comuniação.</p>
+                    desses eventuais erros de comuniação.</p>
                 <p class="list margin-left bold font-max">onResult:</p>
                 <p>Nesse método você informa uma função que será executada
                     quando todo o processo for concluído.</p>
@@ -191,14 +185,14 @@
                     do servidor, salvando ou não o arquivo 
                     (quem decide se salva é sempre o servidor).</p>
                 <p>Assim como nos métodos anteriores você pode está adicionando
-                um parâmetro para obter esse resultado.</p>
+                    um parâmetro para obter esse resultado.</p>
             </div>
-            
+
             <div class="margin-top-max">
                 <hr class="border-bottom border-dark" />
                 <h3>Restrições do Servidor</h3>
                 <p>Tanto um download quanto um upload normalmente um servidor
-                irá impedir o acesso ou aquisição de arquivos.</p>
+                    irá impedir o acesso ou aquisição de arquivos.</p>
                 <p>Se o local onde se encontra o arquivo ou o próprio arquivo
                     estiver bloqueado seu acesso, o download do mesmo não poderá
                     ser realizado.</p>
@@ -227,7 +221,7 @@
                     </ul>
                 </blockquote>
             </div>
-            
+
             <div class="margin-top-max text-red">
                 <hr class="border-bottom border-dark" />
                 <h3 class="bold">Boas Práticas!</h3>
@@ -240,16 +234,6 @@
                     vai fazer o que se espera.</p>
             </div>
         </article>
-
-       <div id="view-code">
-            <div class="pos-center">
-                <div class="code-head">
-                    Código Fonte
-                    <button class="code-close"></button>
-                </div>
-                <div class="code-pre"></div>
-            </div>
-        </div>
 
         <script>
             function download() {
@@ -286,13 +270,6 @@
                     }
                 });
             }
-
-            jsd('[data-code]').click(function (e) {
-                smCode.openCode(e.target.dataset.code);
-            });
-            jsd('.code-close').click(function () {
-                smCode.coseCode();
-            });
         </script>
     </body>
 </html>

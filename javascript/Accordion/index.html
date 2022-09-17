@@ -8,8 +8,6 @@
         <link href="../../lib/stylesheet/core.css" rel="stylesheet" type="text/css"/>
         <link href="../../lib/prism/prism.css" rel="stylesheet" type="text/css"/>
         <script src="../../lib/prism/prism.js" type="text/javascript"></script>
-        <script src="../jsd/js-default.js" type="text/javascript"></script>
-        <script src="../../lib/js/mostarCodigo.js" type="text/javascript"></script>
 
         <link href="Accordion.css" rel="stylesheet" type="text/css"/>
         <script src="Accordion.js" type="text/javascript"></script>
@@ -22,29 +20,43 @@
 
             <div class="margin-top-max">
                 <h2>Apresentação:</h2>
-                <div id="code">
-                    <button class="acc-button">Primeiro</button>
-                    <div class="acc-container">
-                        <h3>Primeiro interno</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                    </div>
+                <button class="acc-button">Primeiro</button>
+                <div class="acc-container">
+                    <h3>Primeiro interno</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
 
-                    <button class="acc-button">Segundo</button>
-                    <div class="acc-container">
-                        <h3>Segundo interno</h3>
-                        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                    </div>
+                <button class="acc-button">Segundo</button>
+                <div class="acc-container">
+                    <h3>Segundo interno</h3>
+                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                </div>
 
-                    <button class="acc-button">Terceiro</button>
-                    <div class="acc-container">
-                        <h3>Terceiro interno</h3>
-                        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>   
-                    </div>
+                <button class="acc-button">Terceiro</button>
+                <div class="acc-container">
+                    <h3>Terceiro interno</h3>
+                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>   
                 </div>
             </div>
 
-            <div class="margin-top align-center">
-                <button class="btn-default" data-code="code">Ver código fonte</button>
+            <div class="sm-margin-top">
+                <hr class="border-bottom border-dark" />
+                <h2>Exemplo Prático</h2>
+                <pre><code class="language-html">&lt;button class="acc-button"&gt;Primeiro&lt;/button&gt;
+&lt;div class="acc-container"&gt;
+    Primeiro
+&lt;/div&gt;
+&lt;button class="acc-button"&gt;Segundo&lt;/button&gt;
+&lt;div class="acc-container"&gt;
+    Segundo
+&lt;/div&gt;
+&lt;button class="acc-button"&gt;Terceiro&lt;/button&gt;
+&lt;div class="acc-container"&gt;
+    Terceiro
+&lt;/div&gt;
+&lt;script&gt;
+    var acc = new Accordion();
+&lt;/script&gt;</code></pre>
             </div>
 
             <div class="sm-margin-top">
@@ -56,7 +68,19 @@
 &lt;script src="Accordion.js" type="text/javascript"&gt;&lt;/script&gt;</code></pre>
 
                 <p>Crie a estrutura html</p>
-                <button class="btn-info" data-code="code">Estrutura HTML</button>
+                <pre><code class="language-html">&lt;button class="acc-button"&gt;Primeiro&lt;/button&gt;
+&lt;div class="acc-container"&gt;
+    Primeiro
+&lt;/div&gt;
+&lt;button class="acc-button"&gt;Segundo&lt;/button&gt;
+&lt;div class="acc-container"&gt;
+    Segundo
+&lt;/div&gt;
+&lt;button class="acc-button"&gt;Terceiro&lt;/button&gt;
+&lt;div class="acc-container"&gt;
+    Terceiro
+&lt;/div&gt;</code></pre>
+
                 <blockquote class="quote-yellow">
                     É importante que siga essa arquitetura:
                     <ul class="list">
@@ -67,9 +91,10 @@
                     <p>Fora esse contexto você pode ter quantos elementos quiser</p>
                 </blockquote>
 
-
                 <p>Inicie declarado em um javascript ao final do documento</p>
-                <pre><code class="language-javascript">var acc = new Accordion();</code></pre>
+                <pre><code class="language-html">&lt;script&gt;
+    var acc = new Accordion();
+&lt;/script&gt;</code></pre>
             </div>
 
             <div class="sm-margin-top">
@@ -83,21 +108,8 @@ acc.forceOpen(2); // Expande o segundo elemento</code></pre>
             </div>
         </article>
 
-        <div id="view-code">
-            <div class="pos-center">
-                <div class="code-head">Código Fonte<div class="code-close" onclick="smCode.coseCode()"></div></div>
-                <div class="code-pre"></div>
-            </div>
-        </div>
-
         <script>
             var acc = new Accordion();
-
-            jsd('[data-code]').click(function (e) {
-                smCode.openCode(e.target.dataset.code);
-            });
         </script>
     </body>
 </html>
-
-

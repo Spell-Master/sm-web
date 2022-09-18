@@ -4,123 +4,237 @@
         <title>SlideCarousel.js</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link href="../../css/css-default.css" rel="stylesheet" type="text/css"/>
+        <link href="../../lib/stylesheet/core.css" rel="stylesheet" type="text/css"/>
+        <link href="../../lib/prism/prism.css" rel="stylesheet" type="text/css"/>
+        <script src="../../lib/prism/prism.js" type="text/javascript"></script>
+        <script src="../jsd/js-default.js" type="text/javascript"></script>
+
         <link href="SlideCarousel.css" rel="stylesheet" type="text/css">
         <script src="SlideCarousel.js" type="text/javascript"></script>
         <style>
-            *, :after, :before {margin:0; padding:0; box-sizing:border-box}
-
             .vermelho {background-color: red; min-height: 250px}
             .verde {background-color: green; min-height: 250px}
             .azul {background-color: blue; min-height: 250px}
-            
             #exemplo_2 img {
                 max-height: 300px;
                 width: inherit
             }
-
             .imagem-de-fundo-a,
-            .imagem-de-fundo-b {
+            .imagem-de-fundo-b,
+            .imagem-de-fundo-c {
                 width: 100%;
                 height: 100%;
-                max-height: 400px;
+                max-height: 300px;
                 background-size: 100% 100%;
                 aspect-ratio: 16 / 9;
-                /*
-                width: 100%;
-                background-size: cover;
-                height: 0;
-                padding-bottom: calc(100% * 3 / 4);
-                */
             }
             .imagem-de-fundo-a {
-                background-image: url('../ImageGalery/img/b_1.jpg')
+                background-image: url('../../lib/img/paisagem_04.jpg')
             }
             .imagem-de-fundo-b {
-                background-image: url('../ImageGalery/img/b_2.jpg')
+                background-image: url('../../lib/img/paisagem_05.jpg')
+            }
+            .imagem-de-fundo-c {
+                background-image: url('../../lib/img/paisagem_06.jpg')
             }
         </style>
     </head>
     <body>
-        <h1>SlideCarousel.js</h1>
-        <hr />
-        <div style="margin-top: 70px">
-            <h2>Padrão</h2>
-            <div id="exemplo_1" style="color: white; text-align: center">
-                <div class="slide-item vermelho">
-                    <div style="padding: 20px">
-                        Slide 1
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+        <article class="container padding-all">
+            <h1 class="bold italic">SlideCarousel.js</h1>
+            <hr class="border-bottom border-dark" />
+
+            <div class="margin-top-max">
+                <h2>Apresentação:</h2>
+                <div class="row-pad">
+                    <div class="col-single">
+                        <div id="exemplo_1" class="text-white align-center">
+                            <div class="slide-item vermelho padding-all vertical-wrap">
+                                <div class="h4">Slide 1</div>
+                            </div>
+                            <div class="slide-item verde padding-all vertical-wrap">
+                                <div class="h4">Slide 2</div>
+                            </div>
+                            <div class="slide-item azul padding-all vertical-wrap">
+                                <div class="h4">Slide 3</div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="slide-item verde">
-                    <div style="padding: 20px">
-                        Slide 2
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <div class="col-half">
+                        <h3>Com Imagem</h3>
+                        <div id="exemplo_2" class="align-center">
+                            <div class="slide-item">
+                                Slide 1
+                                <img src="../../lib/img/paisagem_01.jpg" class="slide-img" alt="" />
+                            </div>
+                            <div class="slide-item">
+                                Slide 2
+                                <img src="../../lib/img/paisagem_02.jpg" class="slide-img" alt="" />
+                            </div>
+                            <div class="slide-item">
+                                Slide 3
+                                <img src="../../lib/img/paisagem_03.jpg" class="slide-img" alt="" />
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="slide-item azul">
-                    <div style="padding: 20px">
-                        Slide 3
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <div class="col-half">
+                        <h3>Com Imagem (estilo fundo)</h3>
+                        <div id="exemplo_3"  class="text-white align-center bold margin-top-max">
+                            <div class="slide-item">
+                                <div class="imagem-de-fundo-a">
+                                    Slide 1
+                                </div>
+                            </div>
+                            <div class="slide-item">
+                                <div class="imagem-de-fundo-b">
+                                    Slide 2
+                                </div>
+                            </div>
+                            <div class="slide-item">
+                                <div class="imagem-de-fundo-c">
+                                    Slide 3
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-        </div>
+            <div class="sm-margin-top">
+                <hr class="border-bottom border-dark" />
+                <h2>Exemplo Prático</h2>
+                <pre><code class="language-html">&lt;div id="identificador"&gt;
+    &lt;div class="slide-item"&gt;Slide 1&lt;/div&gt;
+    &lt;div class="slide-item"&gt;slide 2&lt;/div&gt;
+    &lt;div class="slide-item"&gt;Slide 3&lt;/div&gt;
+    &lt;div class="slide-item"&gt;Slide 4&lt;/div&gt;
+    &lt;div class="slide-item"&gt;Slide 5&lt;/div&gt;
+&lt;div&gt;
+&lt;script&gt;
+    var objeto = new SlideCarousel('identificador', {
+    enableTouch: true,
+    enableNav: true
+});
+&lt;/script&gt;</code></pre>
+            </div>
 
-        <div style="margin-top: 70px">
-            <h2>Com Imagem</h2>
-            <div id="exemplo_2" style="border: 10px solid gold; margin: auto; max-width: 900px">
-                <div class="slide-item">
-                    Slide 1
-                    <img src="../ImageGalery/img/a_1.jpg" class="slide-img" alt="" />
-                </div>
-                <div class="slide-item">
-                    Slide 2
-                    <img src="../ImageGalery/img/a_2.jpg" class="slide-img" alt="" />
-                </div>
-                <div class="slide-item">
-                    Slide 3
-                    <img src="../ImageGalery/img/a_3.jpg" class="slide-img" alt="" />
-                </div>
-                <div class="slide-item">
-                    Slide 4
-                    <img src="../ImageGalery/img/a_4.jpg" class="slide-img" alt="" />
-                </div>
-                <div class="slide-item">
-                    Slide 5
-                    <img src="../ImageGalery/img/a_5.jpg" class="slide-img" alt="" />
+            <div class="sm-margin-top">
+                <hr class="border-bottom border-dark" />
+                <h2>Utilização</h2>
+                <p>Adicione os arquivos necessários:</p>
+                <pre><code class="language-html">&lt;link href="SlideCarousel.css" rel="stylesheet" type="text/css"/&gt;
+&lt;script src="SlideCarousel.js" type="text/javascript"&gt;&lt;/script&gt;</code></pre>
+
+                <p>Crie a estrutura html:</p>
+                <pre><code class="language-html">&lt;div id="identificador"&gt;
+    &lt;div class="slide-item"&gt;Slide 1&lt;/div&gt;
+    &lt;div class="slide-item"&gt;slide 2&lt;/div&gt;
+    &lt;div class="slide-item"&gt;Slide 3&lt;/div&gt;
+&lt;div&gt;</code></pre>
+                <p>Você deve criar uma tag e adicionar o atributo
+                    <span class="bold">id</span>, o valor desse atributo você fornece
+                    ao SlideCarousel para que ele saiba que esse é o elemento alvo ao qual
+                    ele deve interagir.
+                </p>
+                <p>Dentro desse elemento você então adiciona os slides que deseja.</p>
+                <p>Cada slide deve possuir o classificador
+                    <span class="bold">class="slide-item"</span> ao qual o SlideCarousel
+                    saberá que esses são cada item pertecente.
+                </p>
+                <blockquote class="quote-red">
+                    <span class="bold">ATENCÃO!</span>
+                    <p>Qualquer outro elemento, texto, etc que esteja dentro do elemento alvo
+                        que não contenha o classificador <span class="bold">slide-item</span>
+                        será removido do documento.</p>
+                </blockquote>
+
+                <p>Inicie em um javascript ao final do documento criando um objeto
+                    que instância a classe SlideCarousel.</p>
+                <p>Esse objeto poderá ser usado para acessar os demais métodos
+                    da classe.</p>
+                <pre><code class="language-html">&lt;script&gt;
+    var objeto = new SlideCarousel('identificador');
+&lt;/script&gt;</code></pre>
+            </div>
+
+            <div class="margin-top-max">
+                <hr class="border-bottom border-dark" />
+                <h3>Parâmetros opcionais</h3>
+                <blockquote class="quote-yellow">
+                    Qualquer desses parâmetros é opcional
+                    <p>Use somente aqueles que achar necessário.</p>
+                    <p>Esses vão definir como o slide deve se comportar.</p>
+                </blockquote>
+                <p><span class="bold">maxWidth</span>: Você deve informar um número,
+                    esse número será a largura máxima em pixel's ao qual o slide terá.</p>
+                <p>Quando não definido a largura máxima será a largura real do elemento
+                    alvo.</p>
+                <p><span class="bold">autoPlay</span>: Você deve informar um número,
+                    esse número definirá de quantos em quantos segudos cada item deve
+                    ser trocado.</p>
+                <p>Por padrão essa funcionabilidade estará desabilitada.</p>
+                <p>O valor mínimo é 3 "três" (segundos) abaixo desse valor resultará
+                    nos mesmos 3.</p>
+                <p><span class="bold">enableTouch</span>: Você deve informar "false"
+                    para desabilitar.</p>
+                <p>Se habilitado permite que o usuário segure e arraste o item atual
+                    para trocar de slide (para segurar com o mouse e arrastar de dispositivos
+                    touch-screen).</p>
+                <p>Por padrão essa funcionabilidade estará ativa.</p>
+                <p><span class="bold">enableNav</span>: Você deve informar "false"
+                    para desabilitar.</p>
+                <p>Se habilitado cria botões laterais para mudar o slide.</p>
+                <p>Por padrão essa funcionabilidade estará ativa.</p>
+
+                <div class="margin-top">
+                    Exemplo:
+                    <pre><code class="language-javascript">var exemplo = new SlideCarousel('elemento_id', {
+    maxWidth: 600, // largura máxima será de 600 pixel
+    autoPlay: 4, // a cada 4 segundos troca o slide atual
+    enableTouch: false, // não permite arrastar
+    enableNav: false // não cria os botões de navegação
+});</code></pre>
                 </div>
             </div>
-        </div>
 
-        <div style="margin-top: 70px">
-            <h2>Com Imagem (estilo fundo)</h2>
-            <div id="exemplo_3" style="border: 10px solid gold; margin: auto; max-width: 900px">
-                <div class="slide-item">
-                    <div class="imagem-de-fundo-a">
-                        Slide 1
-                    </div>
-                </div>
-                <div class="slide-item">
-                    <div class="imagem-de-fundo-b">
-                        Slide 2
-                    </div>
+            <div class="sm-margin-top">
+                <hr class="border-bottom border-dark" />
+                <h2>Métodos extra</h2>
+                <p><span class="bold font-max">next</span>:
+                    Move o item atual para a esquerda e coloca o próximo no meio.
+                </p>
+                <p><span class="bold font-max">prev</span>:
+                    Move o item atual para a direita e coloca o anterior no meio.
+                </p>
+                <p><span class="bold font-max">get</span>:
+                    Obtem o elemento da instância do slide.
+                </p>
+                <div class="margin-top">
+                    Exemplo:
+                    <pre><code class="language-javascript">var exemplo = new SlideCarousel('elemento_id');
+function proximo() {
+    exemplo.next();
+}
+function anterior() {
+    exemplo.prev();
+}
+function elementoAlvo() {
+    exemplo.get();
+}</code></pre>
                 </div>
             </div>
-        </div>
-
+        </article>
         <script>
-
-            var exemplo_1 = new SlideCarousel('#exemplo_1', {
-                maxWidth: 600, // Largura máxima
-                autoPlay: 4, // 4 segundos (valor "true" ou qualquer valor abaixo de 3 são 3 dar em 3 segundos)
-                enableTouch: true, // permite arrastar (padrão é sempre true)
-                enableNav: true // permite navegar (padrão é sempre true)
+            var exemplo_1 = new SlideCarousel('exemplo_1', {
+                autoPlay: 1,
+                enableTouch: true,
+                enableNav: true
             });
-            var exemplo_2 = new SlideCarousel('#exemplo_2');
-            var exemplo_3 = new SlideCarousel('#exemplo_3');
-
+            var exemplo_2 = new SlideCarousel('exemplo_2');
+            var exemplo_3 = new SlideCarousel('exemplo_3');
         </script>
     </body>
 </html>

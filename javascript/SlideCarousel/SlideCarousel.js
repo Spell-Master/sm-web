@@ -3,8 +3,8 @@
  * * @Class SlideCarousel
  * * @author Spell-Master (Omar Pautz)
  * * @copyright 2022
- * * @version 1.0
- * ****************************************************
+ * * @version 1.1 (2022)
+ * **************************************************
  * * Apresentação do tipo carrosel.
  * 
  * @param {STR} tgt
@@ -22,14 +22,15 @@
  *       o valor pode ser true ou numero em
  *       segundos.
  * - "enableTouch" (BOLL): Se false/null remove a
- *       capacidade de arrastar para pular os slides,
- *       o padrão é ativo se não definido.
+ *       capacidade de arrastar para pular os slides.
  * - "enableNav" (BOLL): Se false/null remove os
  *       botões laterais para pular o slide,
  *       o padrão é ativo se não definido.
  * **************************************************
  */
-var SlideCarousel = function (tgt, options = {}) {
+var SlideCarousel = function (tgt, options) {
+
+    options = options || {};
 
     var $options = {
         maxWidth: options.maxWidth || null,
@@ -39,9 +40,10 @@ var SlideCarousel = function (tgt, options = {}) {
     };
     var $this = {
         target: null,
+        item: undefined,
         container: null,
         wrapper: null,
-        slides: null,
+        slides: [],
         length: 0,
         width: 0,
         index: 0,
@@ -56,14 +58,19 @@ var SlideCarousel = function (tgt, options = {}) {
     /**
      * **********************************************
      * @private
-     * Remove todos itens dentro do alvo para que o
-     *  slide seja criado corretamente.
+     * Obtem os itens para o slide dentro do alvo.
+     * E elimina quaisquer elementos que lá estejam.
      * **********************************************
      */
-    function clearSlide() {
-        $this.slides.forEach(function (e) {
-            $this.target.removeChild(e);
-        });
+    function init() {
+        while ($this.target.childNodes.length) {
+            $this.item = $this.target.firstChild;
+            if (typeof $this.item.classList !== 'undefined' && $this.item.classList.contains('slide-item')) {
+                $this.slides.push($this.item);
+            }
+            $this.target.removeChild($this.item);
+        }
+        $this.length = $this.slides.length;
     }
 
     /**
@@ -76,7 +83,7 @@ var SlideCarousel = function (tgt, options = {}) {
     function createSlide() {
         $this.container = document.createElement('div');
         $this.container.classList.add('slide-container');
-        $this.container.setAttribute('style', 'max-width:' + ($options.maxWidth === null ? document.body.offsetWidth : parseInt($options.maxWidth)) + 'px');
+        $this.container.setAttribute('style', 'max-width:' + ($options.maxWidth === null ? $this.target.offsetWidth : parseInt($options.maxWidth)) + 'px');
 
         $this.wrapper = document.createElement('div');
         $this.wrapper.classList.add('slide-wrapper');
@@ -149,26 +156,6 @@ var SlideCarousel = function (tgt, options = {}) {
     /**
      * **********************************************
      * @private
-     * Avança para o próximo slide.
-     * **********************************************
-     */
-    function nextSlide() {
-        moveSlide(1);
-    }
-
-    /**
-     * **********************************************
-     * @private
-     * Retorna para o slide anterior.
-     * **********************************************
-     */
-    function prevSlide() {
-        moveSlide(-1);
-    }
-
-    /**
-     * **********************************************
-     * @private
      * Obtem a largura correta do slide.
      * **********************************************
      */
@@ -185,7 +172,8 @@ var SlideCarousel = function (tgt, options = {}) {
     function startEvents() {
         $this.wrapper.addEventListener('transitionend', checkIndex, false);
         window.addEventListener('resize', slideResize, false);
-        if ($options.enableTouch === true || typeof ($options.enableTouch) === 'undefined') {
+
+        if ($options.enableTouch !== false || typeof $options.enableTouch === 'undefined') {
             $this.wrapper.addEventListener('mousedown', dragStart, false);
             $this.wrapper.addEventListener('touchstart', dragStart, false);
         }
@@ -300,40 +288,66 @@ var SlideCarousel = function (tgt, options = {}) {
         }
     }
 
-    try {
-        if (typeof tgt === 'undefined' && tgt === null) {
-            throw 'Alvo para iniciação não definidao';
-        } else {
-            $this.target = (tgt.nodeType ? tgt : document.querySelector(tgt));
-            $this.slides = $this.target.querySelectorAll('.slide-item');
-            $this.length = $this.slides.length;
+    $this.target = document.getElementById(tgt);
+    if (typeof $this.target === 'undefined' || $this.target === null) {
+        console.warn('SlideCarousel.js: ' + tgt + ' indefinido');
+    } else {
+        init();
+        createSlide();
 
-            clearSlide();
-            createSlide();
-
-            if ($options.enableNav === true || typeof ($options.enableNav) === 'undefined') {
-                createNav();
-            }
-
-            $this.width = slideWidth();
-            $this.wrapper.setAttribute('style', 'left:-' + $this.width + 'px');
-            startEvents();
-
-            if (typeof ($options.autoPlay) === 'number' || $options.autoPlay === true) {
-                $options.autoPlay = ($options.autoPlay < 3 ? 3 : $options.autoPlay);
-                $this.interval = ($options.autoPlay * 1000);
-                $this.timeOut = setTimeout(function () {
-                    moveSlide(1);
-                }, $this.interval);
-            }
-
-            /*
-             * Adicionar a metodos públicos funções de mudança de slide
-             */
-            this.next = nextSlide;
-            this.prev = prevSlide;
+        if ($options.enableNav !== false || typeof $options.enableNav === 'undefined') {
+            createNav();
         }
-    } catch (exception) {
-        console.warn('SlideCarousel.js ' + exception);
-}
+
+        $this.width = slideWidth();
+        $this.wrapper.setAttribute('style', 'left:-' + $this.width + 'px');
+        startEvents();
+
+        if ($options.autoPlay === true || typeof $options.autoPlay === 'number') {
+            $options.autoPlay = ($options.autoPlay < 3 ? 3 : $options.autoPlay);
+            $this.interval = ($options.autoPlay * 1000);
+            $this.timeOut = setTimeout(function () {
+                moveSlide(1);
+            }, $this.interval);
+
+        }
+    }
+
+    /**
+     * **********************************************
+     * @public
+     * Avança para o próximo slide.
+     * **********************************************
+     */
+    function nextSlide() {
+        moveSlide(1);
+    }
+
+    /**
+     * **********************************************
+     * @public
+     * Retorna para o slide anterior.
+     * **********************************************
+     */
+    function prevSlide() {
+        moveSlide(-1);
+    }
+
+    /**
+     * **********************************************
+     * @public
+     * Obtem o elemento alvo com os slides.
+     * **********************************************
+     */
+    function getSlide() {
+        return ($this.target);
+    }
+
+    /*
+     * Adicionar a metodos públicos funções de mudança de slide
+     */
+    this.next = nextSlide;
+    this.prev = prevSlide;
+    this.get = getSlide;
+
 };

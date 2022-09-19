@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TabPaginator</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link href="../../css/css-default.css" rel="stylesheet" type="text/css"/>
+        <link href="../../lib/stylesheet/core.css" rel="stylesheet" type="text/css"/>
+        <link href="../../lib/prism/prism.css" rel="stylesheet" type="text/css"/>
+        <script src="../../lib/prism/prism.js" type="text/javascript"></script>
+        <script src="../jsd/js-default.js" type="text/javascript"></script>
+
+        <link href="TabPaginator.css" rel="stylesheet" type="text/css"/>
+        <script src="TabPaginator.js" type="text/javascript"></script>
+
+    </head>
+    <body>
+        <article class="container padding-all">
+            <h1 class="bold italic">TabPaginator.js</h1>
+            <hr class="border-bottom border-dark" />
+
+            <div class="margin-top-max">
+                <h2>Apresentação:</h2>
+                <div id="exemplo">
+                    <ul class="tab-menu">
+                        <li class="tab-link">Tab A</li>
+                        <li class="tab-link">Tab B</li>
+                        <li class="tab-link">Tab C</li>
+                    </ul>
+                    <div class="tab-body">
+                        <div class="padding-all">
+                            Tab A
+                            <p class="text-red bold">Lorem ipsum dolor sit amet</p>
+                        </div>
+                    </div>
+                    <div class="tab-body">
+                        <div class="padding-all">
+                            Tab B
+                            <p class="text-green bold">Ut enim ad minim veniam</p>
+                        </div>
+                    </div>
+                    <div class="tab-body">
+                        <div class="padding-all">
+                            Tab C
+                            <p class="text-blue bold">Duis aute irure dolor in reprehenderit</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sm-margin-top">
+                <hr class="border-bottom border-dark" />
+                <h2>Exemplo Prático</h2>
+                <pre><code class="language-html">&lt;div id="identificador"&gt;
+    &lt;ul class="tab-menu"&gt;
+        &lt;li class="tab-link"&gt;A&lt;/li&gt;
+        &lt;li class="tab-link"&gt;B&lt;/li&gt;
+        &lt;li class="tab-link"&gt;C&lt;/li&gt;
+        &lt;li class="tab-link"&gt;D&lt;/li&gt;
+        &lt;li class="tab-link"&gt;E&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;div class="tab-body"&gt;Tab A&lt;/div&gt;
+    &lt;div class="tab-body"&gt;Tab B&lt;/div&gt;
+    &lt;div class="tab-body"&gt;Tab C&lt;/div&gt;
+    &lt;div class="tab-body"&gt;Tab D&lt;/div&gt;
+    &lt;div class="tab-body"&gt;Tab E&lt;/div&gt;
+&lt;/div&gt;
+&lt;script&gt;var tab = new TabPaginator('identificador');&lt;/script&gt;</code></pre>
+            </div>
+
+            <div class="sm-margin-top">
+                <hr class="border-bottom border-dark" />
+                <h2>Utilização</h2>
+                <p>Adicione os arquivos necessários:</p>
+                <pre><code class="language-html">&lt;link href="TabPaginator.css" rel="stylesheet" type="text/css"/&gt;
+&lt;script src="TabPaginator.js" type="text/javascript"&gt;&lt;/script&gt;</code></pre>
+
+                <p>Crie a estrutura html:</p>
+                <pre><code class="language-html">&lt;div id="identificador"&gt;
+    &lt;ul class="tab-menu"&gt;
+        &lt;li class="tab-link"&gt;A&lt;/li&gt;
+        &lt;li class="tab-link"&gt;B&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;div class="tab-body"&gt;Tab A&lt;/div&gt;
+    &lt;div class="tab-body"&gt;Tab B&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                <p>Antes da estrutura você deve criar um elemento pai,
+                    esse vai abrigar todo o resto, é importante que esse pai tenha
+                    o atributo <span class="bold">#ID</span>, ao qual você irá dizer ao
+                    TabPaginator que ele deve interagir com os elementos internos a ele.</p>
+                <p>Enquanto que a estrutura se trata de um elemento qualquer
+                    com o classfificador <span class="bold">tab-menu</span></p>
+                <p>E dentro do <span class="bold">tab-menu</span> você cria a navegação
+                    entre as TAB, cada link de navegação deve possuir o classificador
+                    <span class="bold">tab-link</span>.</p>
+                <p>O próximo elemento é nada mais do que os conteúdos de cada
+                    link, esse elemento conteúdo deve possuir o classificador
+                    <span class="bold">tab-body</span></p>
+                <blockquote class="quote-yellow">
+                    É importante que siga essa estrutura para a coisa toda funcionar.
+                    <p>Você deve possuir a mesma quantidade de 
+                        <span class="bold">tab-link</span>
+                        e <span class="bold">tab-body</span>
+                        Os links dentro do <span class="bold">tab-menu</span>
+                        e os <span class="bold">tab-menu</span> depois do menu.
+                    </p>
+                </blockquote>
+
+                <p>Inicie em um javascript ao final do documento criando um objeto
+                    que instância a classe TabPaginator.</p>
+                <pre><code class="language-html">&lt;script&gt;
+    var tab = new TabPaginator('identificador');
+&lt;/script&gt;</code></pre>
+                <p>Então você fornece o #ID do local onde está a estrutura.</p>
+            </div>
+
+            <div class="sm-margin-top">
+                <hr class="border-bottom border-dark" />
+                <h2>Parâmetro Opcional</h2>
+                <p>Além do primeiro parâmetro da classe TabPaginator que é o id
+                do local da estrutura (esse parâmento é obrigatório).</p>
+                <p>Existe um segundo parâmentro opcional, nele você informa qual
+                o número da tab que deve ser aberta já no carregamento do script.</p>
+                <p>Exemplo:</p>
+                <pre><code class="language-javascript">
+// Segunda tab aberta ao invés da primeira no carregamento do script
+var tab = new TabPaginator('identificador', 2);
+</code></pre>
+            </div>
+
+            <div class="sm-margin-top">
+                <hr class="border-bottom border-dark" />
+                <h2>Método extra</h2>
+                Você pode abrir qualquer tab por função externa como se
+                o usuário clicasse em um link através do método
+                <span class="bold">openTab(numero da tab)</span>
+                exemplo:
+                <pre><code class="language-javascript">var tab = new TabPaginator('identificador');
+tab.openTab(2); // Segunda tab aberta como se o usuário clicasse o segundo link
+</code></pre>
+            </div>
+        </article>
+        <script>
+            var tab = new TabPaginator('exemplo');
+        </script>
+    </body>
+</html>

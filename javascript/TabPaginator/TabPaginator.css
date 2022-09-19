@@ -1,12 +1,18 @@
 /**
- * ****************************************************
- * * TabPaginator
- * * @author Spell-Master (Omar Pautz)
- * * @copyright 2017
- * * @version 4.1 (2020)
- * ****************************************************
+ * **************************************************
+ * Class TabPaginator
+ * @author Spell-Master (Omar Pautz)
+ * @copyright 2017
+ * @version 4.2 (2022)
+ * **************************************************
  */
 
+.tab-menu,
+.tab-body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box
+}
 .tab-menu {
     list-style: none;
     display: flex;
@@ -33,7 +39,6 @@
 }
 .tab-body {
     display: none;
-    padding: 1rem;
     border: .0625rem solid #d9d9d9;
     border-top: none
 }

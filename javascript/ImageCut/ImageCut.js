@@ -53,8 +53,6 @@ var ImageCut = function (img) {
             throw 'img: forneça um tag <img> corretamente';
         } else if ($imgTarget.tagName.toLowerCase() !== 'img') {
             throw 'img: não é uma tag IMG válida';
-        } else if ($imgTarget.currentSrc === '') {
-            throw 'img: atributo src inválido';
         } else {
             $imgTarget.addEventListener('load', initCut, false);
         }

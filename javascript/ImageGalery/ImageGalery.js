@@ -183,7 +183,7 @@ var ImageGalery = function () {
             }
         } else if ($this.galery.length > $this.images.length) {
             for (var $i = 0; $i < $this.galery.length; $i++) {
-                if ($this.galery[$i] !== $this.images[$i] &&  $this.galery[$i].currentSrc !== '') {
+                if ($this.galery[$i] !== $this.images[$i]) {
                     $this.images.push($this.galery[$i]);
                     createThumb($this.images[$i].src);
                     $this.images[$i].addEventListener('click', openGalery, false);
@@ -213,9 +213,7 @@ var ImageGalery = function () {
      * **********************************************
      */
     $this.galery.forEach(function (img) {
-        if (img.currentSrc !== '') {
-            $this.images.push(img);
-        }
+        $this.images.push(img);
     });
 
     /**

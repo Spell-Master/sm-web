@@ -1,6 +1,6 @@
 /**
  * **************************************************
- * class ModalShow
+ * ModalShow
  * @author Spell-Master (Omar Pautz)
  * @copyright 2018
  * @version 3.1 (2022)

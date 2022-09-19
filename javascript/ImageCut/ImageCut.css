@@ -1,6 +1,6 @@
 /**
  * **************************************************
- * @Class ImageCut
+ * ImageCut
  * @author Spell-Master (Omar Pautz)
  * @copyright 2019
  * @version 2.2 (2022)

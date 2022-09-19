@@ -1,6 +1,6 @@
 /**
  * **************************************************
- * @Class FileTransfer
+ * FileTransfer
  * @author Spell-Master (Omar Pautz)
  * @copyright 2018
  * @version 3.0 (2022)

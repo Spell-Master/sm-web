@@ -1,6 +1,6 @@
 /**
  * **************************************************
- * @Class ImageGalery
+ * ImageGalery
  * @author Spell-Master (Omar Pautz)
  * @copyright 2019
  * @version 2.0 (2022)

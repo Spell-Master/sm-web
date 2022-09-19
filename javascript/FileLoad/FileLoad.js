@@ -1,6 +1,6 @@
 /**
  * **************************************************
- * @Class FileLoad
+ * FileLoad
  * @author Spell-Master (Omar Pautz)
  * @copyright 2022
  * 

@@ -1,6 +1,6 @@
 /**
  * **************************************************
- * Class ShoppingCart
+ * ShoppingCart
  * @author Spell-Master (Omar Pautz)
  * @copyright 2021
  * @version 2.0 (2022)

@@ -1,6 +1,6 @@
 /**
  * **************************************************
- * @Class SelectOption
+ * SelectOption
  * @author Spell-Master (Omar Pautz)
  * @copyright 2017
  * @version 3.6 (2022)

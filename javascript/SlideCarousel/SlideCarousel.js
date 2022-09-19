@@ -1,19 +1,14 @@
 /**
  * **************************************************
- * * @Class SlideCarousel
- * * @author Spell-Master (Omar Pautz)
- * * @copyright 2022
- * * @version 1.1 (2022)
- * **************************************************
- * * Apresentação do tipo carrosel.
+ * SlideCarousel
+ * @author Spell-Master (Omar Pautz)
+ * @copyright 2022
+ * @version 1.1 (2022)
+ * 
+ * Apresentação do tipo carrosel.
  * 
  * @param {STR} tgt
- * * Elemento onde estão os slides para executar.
- * Pode ser um objeto
- * Exemplo:
- * var el = document.querySelector('.exemplo');
- * SlideCarousel(el);
- * 
+ * #ID do elemento da estrutura html.
  * @param {OBJ} options
  * * Opções de execução.
  * - "maxWidth" (INT): largura máxima dos slides.
@@ -309,7 +304,6 @@ var SlideCarousel = function (tgt, options) {
             $this.timeOut = setTimeout(function () {
                 moveSlide(1);
             }, $this.interval);
-
         }
     }
 

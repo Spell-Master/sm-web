@@ -1,0 +1,52 @@
+/**
+ * **************************************************
+ * pLoading
+ * @author Spell-Master (Omar Pautz)
+ * @copyright 2018
+ * @version 1.0 (2022)
+ * **************************************************
+ */
+
+.p-loading-conter {
+    position: relative !important
+}
+.p-loading-conter > .p-loading-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%
+}
+.p-loading-bg {
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+.p-loading-bg > svg {
+    margin: auto;
+    transform-origin: center center;
+    animation: rotate-progress 9s infinite linear
+}
+.p-loading-bg > svg > circle {
+    animation: dash-progress 1s infinite linear
+}
+.p-loading-bg > .p-loading-bar {
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 5px;
+    transition: 1s
+}
+.p-loading-bg > .p-loading-bar.hide {
+    transition: 1s;
+    opacity: 0
+}
+@keyframes rotate-progress {
+    100% {transform: rotate(360deg)}
+}
+@keyframes dash-progress {
+    0% {stroke-dasharray: 0, 200}
+    50% {stroke-dasharray: 180, 200; stroke-dashoffset:-20}
+    100% {stroke-dasharray: 70, 200; stroke-dashoffset:-130}
+}

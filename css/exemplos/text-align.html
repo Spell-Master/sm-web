@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Alinhamento de texto</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="../css-default.css" rel="stylesheet" type="text/css"/>
+        <link href="../../lib/prism/prism.css" rel="stylesheet" type="text/css"/>
+        <link href="../../lib/stylesheet/core.css" rel="stylesheet" type="text/css"/>
+        <script src="../../lib/prism/prism.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <article class="container padding-all">
+            <h1>Alinhamento de texto</h1>
+            <ul class="margin-left bold">
+                <li>align-left</li>
+                <li>align-center</li>
+                <li>align-right</li>
+            </ul>
+            <hr class="sm-line" />
+
+            <div class="row-pad text-white">
+                <div class="col-third">
+                    <div class="align-left bg-red padding-all-min">
+                        <p class="bold">align-left</p>
+                        <p>Lorem ipsum dolor sit amet</p>
+                    </div>
+                </div>
+                <div class="col-third">
+                    <div class="align-center bg-red padding-all-min">
+                        <p class="bold">align-center</p>
+                        <p>Lorem ipsum dolor sit amet</p>
+                    </div>
+                </div>
+                <div class="col-third">
+                    <div class="align-right bg-red padding-all-min">
+                        <p class="bold">align-right</p>
+                        <p>Lorem ipsum dolor sit amet</p>
+                    </div>
+                </div>
+            </div>
+            <pre><code class="language-html">&lt;div class="row-pad text-white"&gt;
+    &lt;div class="col-third"&gt;
+        &lt;div class="align-left bg-red padding-all-min"&gt;
+            &lt;p class="bold"&gt;align-left&lt;/p&gt;
+            &lt;p&gt;Lorem ipsum dolor sit amet&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="col-third"&gt;
+        &lt;div class="align-center bg-red padding-all-min"&gt;
+            &lt;p class="bold"&gt;align-center&lt;/p&gt;
+            &lt;p&gt;Lorem ipsum dolor sit amet&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="col-third"&gt;
+        &lt;div class="align-right bg-red padding-all-min"&gt;
+            &lt;p class="bold"&gt;align-right&lt;/p&gt;
+            &lt;p&gt;Lorem ipsum dolor sit amet&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+            <div class="margin-top-max">
+                <p>Além de alinhar textos é possível também aplicar o conceito sobre elementos,
+                    desde que os elementos pai e filhos possuam alguma largura de referência.</p>
+                <div class="align-center bg-black box-full">
+                    <div class="box-xy-200 bg-red margin-all line-block"></div>
+                    <div class="box-xy-200 bg-red margin-all line-block"></div>
+                </div>
+                <pre><code class="language-html">&lt;div class="align-center bg-black box-full"&gt;
+    &lt;div class="box-xy-200 bg-red margin-all line-block"&gt;&lt;/div&gt;
+    &lt;div class="box-xy-200 bg-red margin-all line-block"&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+
+        </article>
+    </body>
+</html>

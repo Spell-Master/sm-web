@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Alinhamento de vertical</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="../css-default.css" rel="stylesheet" type="text/css"/>
+        <link href="../../lib/prism/prism.css" rel="stylesheet" type="text/css"/>
+        <link href="../../lib/stylesheet/core.css" rel="stylesheet" type="text/css"/>
+        <script src="../../lib/prism/prism.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <article class="container padding-all">
+            <h1>Alinhamento de vertical</h1>
+            <ul class="margin-left bold">
+                <li>vertical-baseline</li>
+                <li>vertical-middle</li>
+                <li>vertical-top</li>
+                <li>vertical-bottom</li>
+                <li>vertical-wrap</li>
+            </ul>
+            <hr class="border-bottom border-dark" />
+
+            <blockquote class="quote">
+                Requer uso da propriedade <span class="bold">table-cell</span> para elementos
+                não inline como imagens...
+            </blockquote>
+            <div class="row text-white">
+                <div class="col-4 col-fix bg-red">
+                    <div class="vertical-baseline table-cell box-y-200">
+                        <span class="font-max">vertical-baseline</span>
+                    </div>
+                </div>
+                <div class="col-4 col-fix bg-green">
+                    <div class="vertical-middle table-cell box-y-200">
+                        <span class="font-max">vertical-middle</span>
+                    </div>
+                </div>
+                <div class="col-4 col-fix bg-blue">
+                    <div class="vertical-top table-cell box-y-200">
+                        <span class="font-max">vertical-top</span>
+                    </div>
+                </div>
+                <div class="col-4 col-fix bg-red">
+                    <div class="vertical-bottom table-cell box-y-200">
+                        <span class="font-max">vertical-bottom</span>
+                    </div>
+                </div>
+            </div>
+            <pre><code class="language-html">&lt;div class="row text-white"&gt;
+    &lt;div class="col-4 col-fix bg-red"&gt;
+        &lt;div class="vertical-baseline table-cell box-y-200"&gt;
+            &lt;span class="font-max"&gt;vertical-baseline&lt;/span&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="col-4 col-fix bg-green"&gt;
+        &lt;div class="vertical-middle table-cell box-y-200"&gt;
+            &lt;span class="font-max"&gt;vertical-middle&lt;/span&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="col-4 col-fix bg-blue"&gt;
+        &lt;div class="vertical-top table-cell box-y-200"&gt;
+            &lt;span class="font-max"&gt;vertical-top&lt;/span&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="col-4 col-fix bg-red"&gt;
+        &lt;div class="vertical-bottom table-cell box-y-200"&gt;
+            &lt;span class="font-max"&gt;vertical-bottom&lt;/span&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+            <div class="sm-margin-top">
+                <hr class="border-bottom border-dark" />
+                <h2>Alinhamento vertical e horizontal</h2>
+                <p>A propriedade <q class="quote-green bold">vertical-wrap</q>
+                    alinha elementos filhos centro de elemento alvo na horizontal e vertical.</p>
+                <p>Mas é necessário que o mesmo possua uma altura de referência.</p>
+                <div class="vertical-wrap box-y-200 bg-black text-white">
+                    <span class="font-max">vertical-wrap</span>
+                </div>
+
+                <pre><code class="language-html">&lt;div class="vertical-wrap box-y-200 bg-black text-white"&gt;
+    &lt;span class="font-max"&gt;vertical-wrap&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+                <blockquote class="quote-yellow margin-top-max">
+                    <p>Todo e qualquer elemento perde sua orientação de margens,
+                        tudo será centralizado colocando cada elemento ao lado do outro ao centro,
+                        mesmo que sejam quebras de linhas como &lt;br /&gt;, &lt;p&gt;, &lt;div&gt; etc...</p>
+                    <p>Esse é um recuso ideal para se usado somente em texto,
+                        mas caso necessite que os elementos respeitem sua orientação considere usar posições.</p>
+                </blockquote>
+
+                <div class="relative box-y-200 bg-black text-white">
+                    <div class="pos-center">
+                        <div>Uma tag "DIV"</div>
+                        <div>Outra tag "DIV"</div>
+                        <p>Um parágrafo "P"</p>
+                    </div>
+                </div>
+                <pre><code class="language-html">&lt;div class="relative box-y-200 bg-black text-white"&gt;
+    &lt;div class="pos-center"&gt;
+        &lt;div&gt;Uma tag "DIV"&lt;/div&gt;
+        &lt;div&gt;Outra tag "DIV"&lt;/div&gt;
+        &lt;p&gt;Um parágrafo "P"&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </article>
+    </body>
+</html>

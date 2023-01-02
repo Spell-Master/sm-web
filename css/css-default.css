@@ -100,7 +100,7 @@
  * Ajustes Globais
  * ****************************************
  */
-*, :after, :before {margin:0; padding:0; box-sizing:border-box;}
+*, :after, :before {margin:0; padding:0; box-sizing:border-box}
 html {overflow-x:hidden}
 body {font-size:1em; line-height:1.5; font-family:"Helvetica Neue", Helvetica, Arial, sans-serif; color:#444444}
 body, html {height:100%}
@@ -114,7 +114,7 @@ b, optgroup, strong {font-weight:bold}
 dfn, i {font-style:italic}
 blockquote {margin:.5rem 1rem}
 mark {background:#ff0000; color:#000000}
-code, kbd, pre, samp {font-family:monospace; font-size:var(--text-sizeDefault)}
+code, kbd, pre, samp {font-family:monospace; font-size:var(--fontDefault)}
 pre {white-space:pre; white-space:pre-wrap; overflow:auto}
 q {quotes:none}
 q:after, q:before {content:""; content:none}
@@ -141,7 +141,7 @@ input[type=search] {outline-offset:-1rem}
 input[type=button]:focus, input[type=password]:focus, input[type=text]:focus, select:focus, textarea:focus {outline:0}
 a, button, select, textarea {outline:0; font:inherit; color:inherit; background:none}
 a {text-decoration:none; background-color:transparent}
-a:active, a:hover, button:hover {outline:0; background:inherit}
+a:active, a:hover, button:hover {outline:0}
 table {border-collapse:collapse; border-spacing:0; max-width:100%; background-color:transparent}
 th {font-weight:600}
 th, td {text-align:left}
@@ -232,16 +232,16 @@ h6, .h6 {font-size:var(--text-size-h6)}
 
 .btn,
 .btn-empty   {background-color:inherit; border-color:transparent}
-.btn-default {color:#4d4d4d !important}
+.btn-default {color:#4d4d4d}
 .btn-success,
 .btn-info,
 .btn-warning,
-.btn-danger  {color:#fafafa !important}
-.btn-default {background-color:#dddddd !important; border-color:#c4c4c4 !important}
-.btn-success {background-color:#0b7f32 !important; border-color:#064f1f !important}
-.btn-info    {background-color:#0e6a99 !important; border-color:#094766 !important}
-.btn-warning {background-color:#cc7e12 !important; border-color:#9a5f0d !important}
-.btn-danger  {background-color:#cc1222 !important; border-color:#9a0d19 !important}
+.btn-danger  {color:#fafafa}
+.btn-default {background-color:#dddddd !important; border-color:#cecece !important}
+.btn-success {background-color:#0b7f32 !important; border-color:#086728 !important}
+.btn-info    {background-color:#0e6a99 !important; border-color:#0b5a82 !important}
+.btn-warning {background-color:#cc7e12 !important; border-color:#b26d0f !important}
+.btn-danger  {background-color:#cc1222 !important; border-color:#b20f1d !important}
 
 .btn-default:hover {background-color:#cccccc !important}
 .btn-success:hover {background-color:#0a6629 !important}
@@ -657,7 +657,7 @@ table.table.streak tbody tr:nth-child(even) {background-color:var(--table-line)}
  * Caixas
  * ****************************************
  */
-.box-full {width:100%}
+.full-width {width:100%}
 .box-x-1000, .box-xy-1000 {width:62.5rem}
 .box-x-950,  .box-xy-950  {width:59.375rem}
 .box-x-900,  .box-xy-900  {width:56.25rem}
@@ -1054,17 +1054,17 @@ table.table.streak tbody tr:nth-child(even) {background-color:var(--table-line)}
 @media (max-width: 900px) {
     .reduce {--spacing-min:calc(var(--spacing-reduce-min) / 1.4); --spacing-medium:calc(var(--spacing-reduce-medium) / 1.4); --spacing-max:calc(var(--spacing-reduce-max) / 1.4)}
     .increase {--spacing-min:calc(var(--spacing-increase-min) * 1.2); --spacing-medium:calc(var(--spacing-increase-medium) * 1.2); --spacing-max:calc(var(--spacing-increase-max) * 1.2)}
-    .maximize-max {width:100% !important}
+    .full-width-max {width:100% !important}
 }
 @media (max-width: 600px) {
     .reduce {--spacing-min:calc(var(--spacing-reduce-min) / 1.8); --spacing-medium:calc(var(--spacing-reduce-medium) / 1.8); --spacing-max:calc(var(--spacing-reduce-max) / 1.8)}
     .increase {--spacing-min:calc(var(--spacing-increase-min) * 1.4); --spacing-medium:calc(var(--spacing-increase-medium) * 1.4); --spacing-max:calc(var(--spacing-increase-max) * 1.4)}
-    .maximize-medium {width:100% !important}
+    .full-width-medium {width:100% !important}
 }
 @media (max-width: 480px) {
     .reduce  {--spacing-min:calc(var(--spacing-reduce-min) / 2); --spacing-medium:calc(var(--spacing-reduce-medium) / 2); --spacing-max:calc(var(--spacing-reduce-max) / 2)}
     .increase {--spacing-min:calc(var(--spacing-increase-min) * 1.8); --spacing-medium:calc(var(--spacing-increase-medium) * 1.8); --spacing-max:calc(var(--spacing-increase-max) * 1.8)}
-    .maximize-min {width:100% !important}
+    .full-width-min {width:100% !important}
 }
 
 @media (min-width: 900px) {

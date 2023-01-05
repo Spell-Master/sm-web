@@ -20,28 +20,28 @@
     --text-size-min: .75em; /* 12px */
     --text-size-medium: 1em; /* 16px */
     --text-size-max: 1.5em; /* 22px */
-    --text-size-h1: calc(2.5625em + 1vw); /* 41px */
-    --text-size-h2: calc(1.9375em + 1vw); /* 31px */
+    --text-size-h1: calc(2.1875em + 1vw); /* 35px */
+    --text-size-h2: calc(1.875em + 1vw); /* 30px */
     --text-size-h3: calc(1.5625em + 1vw); /* 25px */
     --text-size-h4: calc(1.3125em + 1vw); /* 21px */
     --text-size-h5: calc(1.1875em + 1vw); /* 19px */
     --text-size-h6: calc(1em + 1vw); /* 16px */
 
-    --spacing-min: .5rem; /* 8px */
-    --spacing-medium: 1rem; /* 16px */
-    --spacing-max: 2rem; /* 32px */
-    --spacing-reduce-min: .5rem;
-    --spacing-reduce-medium: 1rem;
-    --spacing-reduce-max: 2rem;
-    --spacing-increase-min: .5rem;
-    --spacing-increase-medium: 1rem;
-    --spacing-increase-max: 2rem;
-    
+    --spacing-min: .375rem; /* 6px */
+    --spacing-medium: .75rem; /* 12px */
+    --spacing-max: 1.5rem; /* 24px */
+    --spacing-reduce-min: .1875rem; /* 3px */
+    --spacing-reduce-medium: .375rem; /* 6px */
+    --spacing-reduce-max: 1.5rem; /* 24px */
+    --spacing-increase-min: .1875rem; /* 3px */
+    --spacing-increase-medium: .375rem; /* 6px */
+    --spacing-increase-max: .375rem; /* 6px */
+
     --border-min: .0625rem; /* 1px */
     --border-medium: .125rem; /* 2px */
     --border-max: .3125rem; /* 5px */
 
-    --input-bg:    #e5e5e5;
+    --input-bg: #e5e5e5;
     --input-border: #d1d1d1;
     --input-color: #757575;
     --input-placeholder: #808080;
@@ -165,10 +165,10 @@ blockquote ul, blockquote ol {padding:0; margin-left:.9375rem}
     position:relative;
     clear:both
 }
-.container-min    {max-width:40rem} /* 480px */
-.container-medium {max-width:64rem} /* 1024px */
-.container        {max-width:120rem} /* 1920px */
-.container-max    {max-width:160rem} /* 2560px */
+.container-min    {max-width:40rem} /* 480px smartphone */
+.container-medium {max-width:64rem} /* 1024px monitor genérico 24 polegadas */
+.container        {max-width:120rem} /* 1920px full HD */
+.container-max    {max-width:240rem} /* 3840px 4k */
 
 /**
  * ****************************************
@@ -227,7 +227,7 @@ h6, .h6 {font-size:var(--text-size-h6)}
     transition:.5s
 }
 .button-min   {padding:.375rem .75rem; min-height:1.875rem}
-.button-max   {padding:1.5rem 3rem; min-height:3.75rem}
+.button-max   {padding:1.125rem 2rem; min-height:3.4375rem}
 .button-block {width:100%}
 
 .btn,
@@ -319,8 +319,8 @@ blockquote.quote-yellow {border-left:.3125rem solid #71631c !important}
  * ****************************************
  */
 .text-light,        .text-light-hover:hover        {color:var(--color-light)}
-.text-white,        .text-white-hover:hover        {color:var(--color-white)}
 .text-dark,         .text-dark-hover:hover         {color:var(--color-dark)}
+.text-white,        .text-white-hover:hover        {color:var(--color-white)}
 .text-black,        .text-black-hover:hover        {color:var(--color-black)}
 .text-grey,         .text-grey-hover:hover         {color:var(--color-grey)}
 .text-light-grey,   .text-light-grey-hover:hover   {color:var(--color-light-grey)}
@@ -1063,7 +1063,7 @@ table.table.streak tbody tr:nth-child(even) {background-color:var(--table-line)}
 }
 @media (max-width: 480px) {
     .reduce  {--spacing-min:calc(var(--spacing-reduce-min) / 2); --spacing-medium:calc(var(--spacing-reduce-medium) / 2); --spacing-max:calc(var(--spacing-reduce-max) / 2)}
-    .increase {--spacing-min:calc(var(--spacing-increase-min) * 1.8); --spacing-medium:calc(var(--spacing-increase-medium) * 1.8); --spacing-max:calc(var(--spacing-increase-max) * 1.8)}
+    .increase {--spacing-min:calc(var(--spacing-increase-min) * 2); --spacing-medium:calc(var(--spacing-increase-medium) * 2); --spacing-max:calc(var(--spacing-increase-max) * 1.8)}
     .full-width-min {width:100% !important}
 }
 

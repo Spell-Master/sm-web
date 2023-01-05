@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Alinhamento de colunas</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="../css-default.css" rel="stylesheet" type="text/css"/>
+        <link href="../../lib/prism/prism.css" rel="stylesheet" type="text/css"/>
+        <link href="../../lib/stylesheet/core.css" rel="stylesheet" type="text/css"/>
+        <script src="../../lib/prism/prism.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <article class="container padding-all">
+            <h1>Alinhamento de colunas</h1>
+            <ul class="margin-left bold">
+                <li>row</li>
+                <li>row-pad</li>
+            </ul>
+            <hr class="sm-line" />
+
+            <p>A propriedade <span class="bold">row</span> somente irá alinhar lado a lado cada coluna.</p>
+            <p>A propriedade <span class="bold">row-pad</span> terá o mesmo efeito de seu irmão
+                <span class="bold">row</span>, mas faz com que cada coluna ganhe um espaçamento interno.
+                Ou seja tudo que estiver dentro de uma coluna se distanciará das margens da linha.</p>
+
+            <div class="margin-top">
+                <p>Para melhor entendimento prestamos atenção ao prefixo
+                    <q class="quote-red bold">col-</q> logo seguindo do valor a ser aplicado.</p>
+                <p>Cada elemento pai definimos uma linha com <q class="quote-green">row ou row-pad</q>
+                    então se aplicamos quantas partes essa linha deve ser dividida.</p>
+                <p>E quando não houver disponibilidade de tela para conter a quantidade de colunas
+                    ao qual dividimos a linha, cada coluna salta para um espaço abaixo.</p>
+            </div>
+
+            <div class="sm-margin-top">
+                <hr class="sm-line" />
+                <h2>Divisão de linhas em colunas</h2>
+                <div class="row-pad">
+                    <div class="col-half-max">
+                        <p class="list margin-left">
+                            <span class="bold">col-1</span>: Linha dividida em 1 coluna só
+                        </p>
+                        <div class="row text-light">
+                            <div class="col-1 bg-red align-center">1</div>
+                        </div>
+                    </div>
+                    <div class="col-half-max">
+                        <p class="list margin-left">
+                            <span class="bold">col-2</span>: Linha dividida em 2 colunas
+                        </p>
+                        <div class="row text-light">
+                            <div class="col-2 bg-red align-center">1</div>
+                            <div class="col-2 bg-green align-center">2</div>
+                        </div>
+                    </div>
+                    <div class="col-half-max">
+                        <p class="list margin-left">
+                            <span class="bold">col-3</span>: Linha dividida em 3 colunas
+                        </p>
+                        <div class="row text-light">
+                            <div class="col-3 bg-red align-center">1</div>
+                            <div class="col-3 bg-green align-center">2</div>
+                            <div class="col-3 bg-blue align-center">3</div>
+                        </div>
+                    </div>
+                    <div class="col-half-max">
+                        <p class="list margin-left">
+                            <span class="bold">col-4</span>: Linha dividida em 4 colunas
+                        </p>
+                        <div class="row text-light">
+                            <div class="col-4 bg-red align-center">1</div>
+                            <div class="col-4 bg-green align-center">2</div>
+                            <div class="col-4 bg-blue align-center">3</div>
+                            <div class="col-4 bg-red align-center">4</div>
+                        </div>
+                    </div>
+                    <div class="col-half-max">
+                        <p class="list margin-left">
+                            <span class="bold">col-5</span>: Linha dividida em 5 colunas
+                        </p>
+                        <div class="row text-light">
+                            <div class="col-5 bg-red align-center">1</div>
+                            <div class="col-5 bg-green align-center">2</div>
+                            <div class="col-5 bg-blue align-center">3</div>
+                            <div class="col-5 bg-red align-center">4</div>
+                            <div class="col-5 bg-green align-center">5</div>
+                        </div>
+                    </div>
+                    <div class="col-half-max">
+                        <p class="list margin-left">
+                            <span class="bold">col-6</span>: Linha dividida em 6 colunas
+                        </p>
+                        <div class="row text-light">
+                            <div class="col-6 bg-red align-center">1</div>
+                            <div class="col-6 bg-green align-center">2</div>
+                            <div class="col-6 bg-blue align-center">3</div>
+                            <div class="col-6 bg-red align-center">4</div>
+                            <div class="col-6 bg-green align-center">5</div>
+                            <div class="col-6 bg-blue align-center">6</div>
+                        </div>
+                    </div>
+                    <div class="col-half-max">
+                        <p class="list margin-left">
+                            <span class="bold">col-7</span>: Linha dividida em 7 colunas
+                        </p>
+                        <div class="row text-light">
+                            <div class="col-7 bg-red align-center">1</div>
+                            <div class="col-7 bg-green align-center">2</div>
+                            <div class="col-7 bg-blue align-center">3</div>
+                            <div class="col-7 bg-red align-center">4</div>
+                            <div class="col-7 bg-green align-center">5</div>
+                            <div class="col-7 bg-blue align-center">6</div>
+                            <div class="col-7 bg-red align-center">7</div>
+                        </div>
+                    </div>
+                    <div class="col-half-max">
+                        <p class="list margin-left">
+                            <span class="bold">col-8</span>: Linha dividida em 8 colunas
+                        </p>
+                        <div class="row text-light">
+                            <div class="col-8 bg-red align-center">1</div>
+                            <div class="col-8 bg-green align-center">2</div>
+                            <div class="col-8 bg-blue align-center">3</div>
+                            <div class="col-8 bg-red align-center">4</div>
+                            <div class="col-8 bg-green align-center">5</div>
+                            <div class="col-8 bg-blue align-center">6</div>
+                            <div class="col-8 bg-red align-center">7</div>
+                            <div class="col-8 bg-green align-center">8</div>
+                        </div>
+                    </div>
+                    <div class="col-half-max">
+                        <p class="list margin-left">
+                            <span class="bold">col-9</span>: Linha dividida em 9 colunas
+                        </p>
+                        <div class="row text-light">
+                            <div class="col-9 bg-red align-center">1</div>
+                            <div class="col-9 bg-green align-center">2</div>
+                            <div class="col-9 bg-blue align-center">3</div>
+                            <div class="col-9 bg-red align-center">4</div>
+                            <div class="col-9 bg-green align-center">5</div>
+                            <div class="col-9 bg-blue align-center">6</div>
+                            <div class="col-9 bg-red align-center">7</div>
+                            <div class="col-9 bg-green align-center">8</div>
+                            <div class="col-9 bg-blue align-center">9</div>
+                        </div>
+                    </div>
+                    <div class="col-half-max">
+                        <p class="list margin-left">
+                            <span class="bold">col-10</span>: Linha dividida em 10 colunas
+                        </p>
+                        <div class="row text-light">
+                            <div class="col-10 bg-red align-center">1</div>
+                            <div class="col-10 bg-green align-center">2</div>
+                            <div class="col-10 bg-blue align-center">3</div>
+                            <div class="col-10 bg-red align-center">4</div>
+                            <div class="col-10 bg-green align-center">5</div>
+                            <div class="col-10 bg-blue align-center">6</div>
+                            <div class="col-10 bg-red align-center">7</div>
+                            <div class="col-10 bg-green align-center">8</div>
+                            <div class="col-10 bg-blue align-center">9</div>
+                            <div class="col-10 bg-red align-center">10</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="margin-top-max">
+                    Exemplo prático:
+                    <div class="row-pad">
+                        <div class="col-half">
+                            <p class="list margin-left bold">row</p>
+                            <div class="row text-light">
+                                <div class="col-2 bg-red">col-2</div>
+                                <div class="col-4 bg-green">col-4</div>
+                                <div class="col-4 bg-blue">col-4</div>
+                            </div>
+                            <pre><code class="language-html">&lt;div class="row text-light"&gt;
+    &lt;div class="col-2 bg-red"&gt;col-2&lt;/div&gt;
+    &lt;div class="col-4 bg-green"&gt;col-4&lt;/div&gt;
+    &lt;div class="col-4 bg-blue"&gt;col-4&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+                        </div>
+                        <div class="col-half">
+                            <p class="list margin-left bold">row-pad</p>
+                            <div class="row-pad text-light">
+                                <div class="col-2 bg-red">col-2</div>
+                                <div class="col-4 bg-green">col-4</div>
+                                <div class="col-4 bg-blue">col-4</div>
+                            </div>
+                            <pre><code class="language-html">&lt;div class="row-pad text-light"&gt;
+    &lt;div class="col-2 bg-red"&gt;col-2&lt;/div&gt;
+    &lt;div class="col-4 bg-green"&gt;col-4&lt;/div&gt;
+    &lt;div class="col-4 bg-blue"&gt;col-4&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="sm-margin-top">
+                <hr class="sm-line" />
+                <h2>Divisão comuns de linhas em colunas</h2>
+                <p>Além da numeração <q class="quote"><span class="bold">col</span>-?</q> de cada coluna,
+                    pois essas são técnicas que são amplamente usadas,
+                    desenvolvi algumas outras colunas que serão mais comuns para a montagem do layout.</p>
+                <p>Da mesma forma você deve declarar a linha com <q class="quote-green">row ou row-pad</q>
+                    e então dentro de uma dessas definições de linhas aplicar a coluna desejada.</p>
+                <div class="row-pad">
+                    <div class="col-half-max">
+                        <p class="list margin-left">
+                            <span class="bold">col-single</span>: Equivale a linha inteira
+                        </p>
+                        <div class="row text-light align-center">
+                            <div class="col-single bg-red">col-single</div>
+                        </div>
+                    </div>
+                    <div class="col-half-max">
+                        <p class="list margin-left">
+                            <span class="bold">col-half</span>: Equivale a metade da linha
+                        </p>
+                        <div class="row text-light align-center">
+                            <div class="col-half bg-green">col-half</div>
+                            <div class="col-half bg-blue">col-half</div>
+                        </div>
+                    </div>
+                    <div class="col-half-max">
+                        <p class="list margin-left">
+                            <span class="bold">col-twothird</span>: Equivale a dois terços da linha
+                        </p>
+                        <p class="list margin-left">
+                            <span class="bold">col-third</span>: Equivale a um terço da linha
+                        </p>
+                        <div class="row text-light align-center">
+                            <div class="col-twothird bg-red">col-twothird</div>
+                            <div class="col-third bg-green">col-third</div>
+                        </div>
+                    </div>
+                    <div class="col-half-max">
+                        <p class="list margin-left">
+                            <span class="bold">col-threequarter</span>: Equivale a três quartos da linha
+                        </p>
+                        <p class="list margin-left">
+                            <span class="bold">col-quarter</span>: Equivale a um quarto da linha
+                        </p>
+                        <div class="row text-light align-center">
+                            <div class="col-threequarter bg-blue">col-threequarter</div>
+                            <div class="col-quarter bg-red">col-quarter</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="margin-top-max">
+                    Exemplo prático:
+                    <div class="row-pad">
+                        <div class="col-half">
+                            <p class="list margin-left bold">row</p>
+                            <div class="row text-light">
+                                <div class="col-half bg-red">col-half</div>
+                                <div class="col-quarter bg-green">col-quarter</div>
+                                <div class="col-quarter bg-blue">col-quarter</div>
+                            </div>
+                            <pre><code class="language-html">&lt;div class="row text-light"&gt;
+    &lt;div class="col-half bg-red"&gt;col-half&lt;/div&gt;
+    &lt;div class="col-quarter bg-green"&gt;col-4&lt;/div&gt;
+    &lt;div class="col-quarter bg-blue"&gt;col-4&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+                        </div>
+                        <div class="col-half">
+                            <p class="list margin-left bold">row-pad</p>
+                            <div class="row-pad text-light">
+                                <div class="col-half bg-red">col-half</div>
+                                <div class="col-quarter bg-green">col-quarter</div>
+                                <div class="col-quarter bg-blue">col-quarter</div>
+                            </div>
+                            <pre><code class="language-html">&lt;div class="row-pad text-light"&gt;
+    &lt;div class="col-half bg-red"&gt;col-half&lt;/div&gt;
+    &lt;div class="col-quarter bg-green"&gt;col-quarter&lt;/div&gt;
+    &lt;div class="col-quarter bg-blue"&gt;col-quarter&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sm-margin-top">
+                <hr class="sm-line" />
+                <h2>Espaçamento</h2>
+                <p>Sabendo que se definir a linha como <span class="bold">row-pad</span> vamos criar um distaciamento da coluna
+                    às margens da linha.</p>
+                <p>Esse espaçamento é determindado pela configuração
+                    <q class="quote-green">--spacing-medium</q>, você poderá alterar
+                    essa configuração para ajustar o espaçamento conforme desejar.</p>
+                <p>Porém aterar essa configuração irá intervir nos demais padrões que a usam,
+                    então você pode está aplicando, o próprio conceito de espaço interno
+                    padrão para cada coluna.</p>
+                <p>Exemplo:</p>
+                <div class="row-pad">
+                    <div class="col-3 bg-red">
+                        <div class="bg-black text-light">Espaçamento para col-3 definido pelo
+                            <p class="bold">row-pad</p>
+                        </div>
+                    </div>
+                    <div class="col-3 bg-green">
+                        <div class="bg-black text-light">Espaçamento para col-3 definido pelo
+                            <p class="bold">row-pad</p>
+                        </div>
+                    </div>
+                    <div class="col-3 bg-blue">
+                        <div class="bg-black text-light">Espaçamento para col-3 definido pelo
+                            <p class="bold">row-pad</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row-pad margin-top">
+                    <div class="col-3 padding-all-min bg-red">
+                        <div class="bg-black text-light">Espaçamento para col-3 definido pelo
+                            <p class="bold">padding-all-min</p>
+                        </div>
+                    </div>
+                    <div class="col-3 padding-all-min bg-green">
+                        <div class="bg-black text-light">Espaçamento para col-3 definido pelo
+                            <p class="bold">padding-all-min</p>
+                        </div>
+                    </div>
+                    <div class="col-3 padding-all-min bg-blue">
+                        <div class="bg-black text-light">Espaçamento para col-3 definido pelo
+                            <p class="bold">padding-all-min</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row-pad margin-top">
+                    <div class="col-3 padding-all-max bg-red">
+                        <div class="bg-black text-light">Espaçamento para col-3 definido pelo
+                            <p class="bold">padding-all-max</p>
+                        </div>
+                    </div>
+                    <div class="col-3 padding-all-max bg-green">
+                        <div class="bg-black text-light">Espaçamento para col-3 definido pelo
+                            <p class="bold">padding-all-max</p>
+                        </div>
+                    </div>
+                    <div class="col-3 padding-all-max bg-blue">
+                        <div class="bg-black text-light">Espaçamento para col-3 definido pelo
+                            <p class="bold">padding-all-max</p>
+                        </div>
+                    </div>
+                </div>
+                <pre><code class="language-html">&lt;div class="row-pad"&gt;
+    &lt;div class="col-3 bg-red"&gt;
+        &lt;div class="bg-black text-light"&gt;Espaçamento para col-3 definido pelo &lt;p class="bold"&gt;row-pad&lt;/p&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="col-3 bg-green"&gt;
+        &lt;div class="bg-black text-light"&gt;Espaçamento para col-3 definido pelo &lt;p class="bold"&gt;row-pad&lt;/p&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="col-3 bg-blue"&gt;
+        &lt;div class="bg-black text-light"&gt;Espaçamento para col-3 definido pelo &lt;p class="bold"&gt;row-pad&lt;/p&gt;&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="row-pad margin-top"&gt;
+    &lt;div class="col-3 padding-all-min bg-red"&gt;
+        &lt;div class="bg-black text-light"&gt;Espaçamento para col-3 definido pelo &lt;p class="bold"&gt;padding-all-min&lt;/p&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="col-3 padding-all-min bg-green"&gt;
+        &lt;div class="bg-black text-light"&gt;Espaçamento para col-3 definido pelo &lt;p class="bold"&gt;padding-all-min&lt;/p&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="col-3 padding-all-min bg-blue"&gt;
+        &lt;div class="bg-black text-light"&gt;Espaçamento para col-3 definido pelo &lt;p class="bold"&gt;padding-all-min&lt;/p&gt;&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="row-pad margin-top"&gt;
+    &lt;div class="col-3 padding-all-max bg-red"&gt;
+        &lt;div class="bg-black text-light"&gt;Espaçamento para col-3 definido pelo &lt;p class="bold"&gt;padding-all-max&lt;/p&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="col-3 padding-all-max bg-green"&gt;
+        &lt;div class="bg-black text-light"&gt;Espaçamento para col-3 definido pelo &lt;p class="bold"&gt;padding-all-max&lt;/p&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="col-3 padding-all-max bg-blue"&gt;
+        &lt;div class="bg-black text-light"&gt;Espaçamento para col-3 definido pelo &lt;p class="bold"&gt;padding-all-max&lt;/p&gt;&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+
+            <div class="sm-margin-top">
+                <hr class="sm-line" />
+                <h2>É tudo questão de matemática</h2>
+                <p>Sabendo que cada linha se divide de acordo com a(s) coluna(s) aplicada podemos criar um layout usando
+                    a matemática.</p>
+                <p>Então podemos criar o layout responsivo com infinitas possibilidades.</p>
+                <p>Vejamos abaixo como funciona a coisa toda na prática:</p>
+
+                <div class="row">
+                    <div class="col-single bg-dark-grey">
+                        <div class="box-y-50"></div>
+                    </div>
+                    <div class="col-single bg-black">
+                        <div class="padding-all box-y-200"></div>
+                    </div>
+                </div>
+                <div class="row-pad">
+                    <div class="col-twothird bg-grey">
+                        <div class="row-pad">
+                            <div class="col-3"><div class="bg-red box-y-100"></div></div>
+                            <div class="col-3"><div class="bg-green box-y-100"></div></div>
+                            <div class="col-3"><div class="bg-blue box-y-100"></div></div>
+                            <div class="col-3"><div class="bg-yellow box-y-100"></div></div>
+                            <div class="col-3"><div class="bg-pink box-y-100"></div></div>
+                            <div class="col-3"><div class="bg-purple box-y-100"></div></div>
+                            <div class="col-1">
+                                <div class="row">
+                                    <div class="col-2"><div class="bg-indigo box-y-100"></div></div>
+                                    <div class="col-2"><div class="bg-aqua box-y-100"></div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-third bg-sand">
+                        <div class="row-pad">
+                            <div class="col-single"><div class="bg-orange box-y-100"></div></div>
+                            <div class="col-single"><div class="bg-brown box-y-100"></div></div>
+                            <div class="col-single"><div class="bg-dark-blue box-y-100"></div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-single bg-dark-grey"><div class="box-y-50"></div></div>
+                <pre><code class="language-html">&lt;div class="row"&gt;
+    &lt;div class="col-single bg-dark-grey"&gt;
+        &lt;div class="box-y-50"&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="col-single bg-black"&gt;
+        &lt;div class="padding-all box-y-200"&gt;&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="row-pad"&gt;
+    &lt;div class="col-twothird bg-grey"&gt;
+        &lt;div class="row-pad"&gt;
+            &lt;div class="col-3"&gt;&lt;div class="bg-red box-y-100"&gt;&lt;/div&gt;&lt;/div&gt;
+            &lt;div class="col-3"&gt;&lt;div class="bg-green box-y-100"&gt;&lt;/div&gt;&lt;/div&gt;
+            &lt;div class="col-3"&gt;&lt;div class="bg-blue box-y-100"&gt;&lt;/div&gt;&lt;/div&gt;
+            &lt;div class="col-3"&gt;&lt;div class="bg-yellow box-y-100"&gt;&lt;/div&gt;&lt;/div&gt;
+            &lt;div class="col-3"&gt;&lt;div class="bg-pink box-y-100"&gt;&lt;/div&gt;&lt;/div&gt;
+            &lt;div class="col-3"&gt;&lt;div class="bg-purple box-y-100"&gt;&lt;/div&gt;&lt;/div&gt;
+            &lt;div class="col-1"&gt;
+                &lt;div class="row"&gt;
+                    &lt;div class="col-2"&gt;&lt;div class="bg-indigo box-y-100"&gt;&lt;/div&gt;&lt;/div&gt;
+                    &lt;div class="col-2"&gt;&lt;div class="bg-aqua box-y-100"&gt;&lt;/div&gt;&lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="col-third bg-sand"&gt;
+        &lt;div class="row-pad"&gt;
+            &lt;div class="col-single"&gt;&lt;div class="bg-orange box-y-100"&gt;&lt;/div&gt;&lt;/div&gt;
+            &lt;div class="col-single"&gt;&lt;div class="bg-brown box-y-100"&gt;&lt;/div&gt;&lt;/div&gt;
+            &lt;div class="col-single"&gt;&lt;div class="bg-dark-blue box-y-100"&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+
+        </article>
+    </body>
+</html>

@@ -41,8 +41,8 @@
     --border-medium: .125rem; /* 2px */
     --border-max: .3125rem; /* 5px */
 
-    --input-bg: #e5e5e5;
-    --input-border: #d1d1d1;
+    --input-bg: #f0f0f0;
+    --input-border: #e1e1e1;
     --input-color: #757575;
     --input-placeholder: #808080;
     --input-focus: #444444;
@@ -53,8 +53,8 @@
     --table-head: #d9d9d9;
     --table-line: #ededed;
 
-    --color-light: #e5e5e5;
-    --color-dark: #d1d1d1;
+    --color-light: #f0f0f0;
+    --color-dark: #e1e1e1;
     --color-white: #ffffff;
     --color-black: #000000;
     --color-grey: #808080;
@@ -226,6 +226,10 @@ h6, .h6 {font-size:var(--text-size-h6)}
     white-space:nowrap;
     transition:.5s
 }
+[class^="btn"]:active {
+    filter:brightness(50%)
+}
+
 .button-min   {padding:.375rem .75rem; min-height:1.875rem}
 .button-max   {padding:1.125rem 2rem; min-height:3.4375rem}
 .button-block {width:100%}
@@ -252,6 +256,9 @@ h6, .h6 {font-size:var(--text-size-h6)}
 [class^="href"] {
     cursor:pointer;
     font-weight:500
+}
+[class^="href"]:active {
+    filter:brightness(50%)
 }
 .href,
 .href-info    {color:#149ee5 !important}
@@ -420,109 +427,154 @@ blockquote.quote-yellow {border-left:.3125rem solid #71631c !important}
     font-size:1em;
     transition:color .5s ease-in-out
 }
-
-.input-default {background-color:var(--input-bg); border:.0625rem solid var(--input-border)}
-.input-line    {border:.0625rem solid transparent; border-bottom:.0625rem solid var(--input-border)}
-
-textarea.input-default,
-textarea.input-line {resize:none}
-
-.input-check,
-.input-check-cross,
-.input-check-cube,
-.input-check-circle,
-.input-toggle,
-.input-toggle-circle {display:none}
-
-.input-check + label,
-.input-check-cross + label,
-.input-check-cube + label,
-.input-check-circle + label,
-.input-toggle + label,
-.input-toggle-circle + label {position:relative; display:inline-block; cursor:pointer}
-
-.input-check + label,
-.input-check-cross + label,
-.input-check-cube + label,
-.input-check-circle + label {
-    width:3.125rem;
-    height:3.125rem;
-    border:.0625rem solid var(--input-border);
-    background-color:var(--input-bg)
+.input-default {
+    background-color:var(--input-bg);
+    border:.0625rem solid var(--input-border)
 }
-.input-toggle + label,
-.input-toggle-circle + label {width:6.875rem; height:3.125rem; background-color:var(--input-border); transition:background 1s}
-.input-check-circle + label  {border-radius:50%}
-.input-toggle-circle + label {border-radius:3.125rem}
+.input-line    {
+    border:.0625rem solid transparent;
+    border-bottom:.0625rem solid var(--input-border)
+}
+textarea.input-default,
+textarea.input-line {
+    resize:none
+}
 
-.input-default:focus {background-color:var(--input-bg)}
-.input-line:focus    {background-color:transparent}
+.input-default:focus  {background-color:var(--input-bg)}
+.input-line:focus     {background-color:transparent}
 .input-default:focus,
-.input-line:focus    {color:var(--input-focus)}
+.input-line:focus     {color:var(--input-focus)}
 
 .input-default::placeholder,           .input-line::placeholder,
 .input-default::-moz-placeholder,      .input-line::-moz-placeholder,
 .input-default::-ms-input-placeholder, .input-line::-ms-input-placeholder {
     color:var(--input-placeholder)
 }
-.input-default.pattern:valid:focus:not(:placeholder-shown),
-.input-line.pattern:valid:focus:not(:placeholder-shown) {
-    color:var(--input-valid) !important
+
+.input-default[pattern]:valid:not(:placeholder-shown),
+.input-line[pattern]:valid:not(:placeholder-shown) {
+    color:var(--input-valid)
 }
-.input-default.pattern:invalid:not(:placeholder-shown),
-.input-line.pattern:invalid:not(:placeholder-shown) {
-    color:var(--input-invalid) !important
+.input-default[pattern]:invalid:not(:placeholder-shown),
+.input-line[pattern]:invalid:not(:placeholder-shown) {
+    color:var(--input-invalid)
 }
 
-.input-check + label:before,
-.input-check-cross + label:before,
-.input-check-cube + label:before,
-.input-check-circle + label:before,
-.input-toggle + label:before,
-.input-toggle-circle + label:before {
+.input-check,
+.input-check-x,
+.input-check-cube, 
+.input-check-circle,
+.input-toggle,
+.input-toggle-circle {
+    appearance:none;
+    position:relative;
+    display:inline-block;
+    border:.0625rem solid var(--input-border);
+    background-color:var(--input-bg);
+    cursor:pointer;
+    height:3.125rem
+}
+.input-check,
+.input-check-x,
+.input-check-cube,
+.input-check-circle {
+    width:3.125rem
+}
+.input-check:before,
+.input-check:after,
+.input-check-x:before,
+.input-check-x:after,
+.input-check-cube:before,
+.input-check-circle:before,
+.input-toggle:before,
+.input-toggle-circle:before {
     content:"";
     position:absolute;
-    transition:.5s
+    background-color:var(--input-border);
+    transition:all .5s
 }
-.input-check + label:before         {width:2rem;     height:.375rem;  bottom:1.25rem;   left:.875rem;  background-color:var(--input-border); transform:rotate(-50deg)}
-.input-check-cross + label:before   {width:2.25rem;  height:.375rem;  bottom:1.3125rem; left:.375rem;  background-color:var(--input-border); transform:rotate(-45deg)}
-.input-check-cube + label:before    {width:1.875rem; height:1.875rem; bottom:.5625rem;  left:.5625rem; background-color:var(--input-border)}
-.input-check-circle + label:before  {width:2.125rem; height:2.125rem; bottom:.4375rem;  left:.4375rem; background-color:var(--input-border); border-radius:50%}
-.input-toggle + label:before        {width:2.5rem;   height:2.5rem;   bottom:.3125rem;  left:.3125rem; background-color:var(--input-bg)}
-.input-toggle-circle + label:before {width:2.5rem;   height:2.5rem;   bottom:.3125rem;  left:.3125rem; background-color:var(--input-bg); border-radius:50%}
-
-.input-check + label:after,
-.input-check-cross + label:after {
-    content:"";
-    position:absolute;
-    transition:.5s
+.input-check:checked:before,
+.input-check:checked:after,
+.input-check-x:checked:before,
+.input-check-x:checked:after,
+.input-check-cube:checked:before,
+.input-check-circle:checked:before,
+.input-toggle:checked:before,
+.input-toggle-circle:checked:before {
+    background-color:var(--input-color)
 }
-.input-check + label:after       {width:1rem;    height:.375rem; bottom:1rem;      left:.375rem; background-color:var(--input-border); transform:rotate(40deg)}
-.input-check-cross + label:after {width:2.25rem; height:.375rem; bottom:1.3125rem; left:.375rem; background-color:var(--input-border); transform:rotate(45deg)}
-
-.input-check:checked + label:before,
-.input-check:checked + label:after,
-.input-check-cross:checked + label:before,
-.input-check-cross:checked + label:after,
-.input-check-cube:checked + label:before,
-.input-check-circle:checked + label:before,
-.input-toggle:checked + label,
-.input-toggle-circle:checked + label        {background-color:var(--input-color)}
-.input-toggle:checked + label:before,
-.input-toggle-circle:checked + label:before {transform:translateX(3.75rem)}
+.input-check:before {
+    width:2rem;
+    height:.375rem;
+    bottom:1.25rem;
+    left:.875rem;
+    transform:rotate(-50deg)
+}
+.input-check:after {
+    width:1rem;
+    height:.375rem;
+    bottom:1rem;
+    left:.375rem;
+    transform:rotate(40deg)
+}
+.input-check-x:before,
+.input-check-x:after {
+    width:2.25rem;
+    height:.375rem;
+    bottom:1.3125rem;
+    left:.375rem
+}
+.input-check-x:before {
+    transform:rotate(-45deg)
+}
+.input-check-x:after {
+    transform:rotate(45deg)
+}
+.input-check-cube:before {
+    width:1.875rem;
+    height:1.875rem;
+    bottom:.5625rem;
+    left:.5625rem
+}
+.input-check-circle {
+    border-radius:50%
+}
+.input-check-circle:before {
+    width:2.125rem;
+    height:2.125rem;
+    bottom:.4375rem;
+    left:.4375rem;
+    border-radius:50%
+}
+.input-toggle {
+    width:6.875rem
+}
+.input-toggle:before {
+    width:2.5rem;
+    height:2.5rem;
+    bottom:.3125rem;
+    left:.3125rem;
+}
+.input-toggle:checked:before,
+.input-toggle-circle:checked:before {
+    transform:translateX(3.75rem)
+}
+.input-toggle-circle {
+    width:6.875rem;
+    border-radius:3.125rem
+}
+.input-toggle-circle:before {
+    width:2.5rem;
+    height:2.5rem;
+    bottom:.3125rem;
+    left:.3125rem;
+    border-radius:50%
+}
 
 [class^="input-"][disabled],
-[class^="input-"][readonly],
-[class^="input-"][disabled] + label,
-[class^="input-"][readonly] + label {
+[class^="input-"][readonly] {
     opacity:.7 !important;
     pointer-events:none
-}
-[class^="input-"]:checked[disabled] + label:before,
-[class^="input-"]:checked[disabled] + label:after,
-[class^="input-"]:checked[readonly] + label,
-[class^="input-"]:checked[readonly] + label {
-    background-color:var(--input-focus)
 }
 
 /**

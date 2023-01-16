@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Formulário</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="../css-default.css" rel="stylesheet" type="text/css"/>
+        <link href="../../lib/prism/prism.css" rel="stylesheet" type="text/css"/>
+        <link href="../../lib/stylesheet/core.css" rel="stylesheet" type="text/css"/>
+        <script src="../../lib/prism/prism.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <article class="container padding-all">
+            <h1>Formulário</h1>
+            <ul class="margin-left bold">
+                <li>image-auto</li>
+            </ul>
+            <hr class="sm-line" />
+
+            <div class="row-pad">
+                <div class="col-half">
+                    <h3>input-default</h3>
+
+                    <input type="text" class="input-default" value="input"/>
+                    <div class="margin-top">
+                        <pre><code class="language-html">&lt;input type="text" class="input-default" /&gt;</code></pre>
+                    </div>
+                    <textarea class="input-default">textarea</textarea>
+                    <div class="margin-top">
+                        <pre><code class="language-html">&lt;textarea class="input-default"&gt;&lt;/textarea&gt;</code></pre>
+                    </div>
+                    <div class="input-default">div</div>
+                    <div class="margin-top">
+                        <pre><code class="language-html">&lt;div class="input-default"&gt;&lt;/div&gt;</code></pre>
+                    </div>
+                </div>
+                <div class="col-half">
+                    <h3>input-line</h3>
+                    <input type="text" class="input-line" value="input"/>
+                    <div class="margin-top">
+                        <pre><code class="language-html">&lt;input type="text" class="input-line" /&gt;</code></pre>
+                    </div>
+                    <textarea class="input-line">textarea</textarea>
+                    <div class="margin-top">
+                        <pre><code class="language-html">&lt;textarea class="input-line"&gt;&lt;/textarea&gt;</code></pre>
+                    </div>
+                    <div class="input-line">div</div>
+                    <div class="margin-top">
+                        <pre><code class="language-html">&lt;div class="input-line"&gt;&lt;/div&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sm-margin-top">
+                <hr class="sm-line" />
+                <h2>Padronizar Validação</h2>
+                <blockquote class="quote">
+                    Sempre aplicado quando o atributo
+                    <span class="bold">pattern</span> está presente
+                </blockquote>
+                <div class="row-pad">
+                    <div class="col-half">
+                        <p>Somente Letras (Válido)</p>
+                        <input type="text" class="input-default" pattern="([a-zA-Z]+)" value="AeIoU" />
+                    </div>
+                    <div class="col-half">
+                        <p>Somente Letras (Válido)</p>
+                        <input type="text" class="input-line" pattern="([a-zA-Z]+)" value="AeIoU" />
+                    </div>
+                    <div class="col-half">
+                        <p>Somente Letras (Inválido)</p>
+                        <input type="text" class="input-default" pattern="([a-zA-Z]+)" value="12345" />
+                    </div>
+                    <div class="col-half">
+                        <p>Somente Letras (Inválido)</p>
+                        <input type="text" class="input-line" pattern="([a-zA-Z]+)" value="12345" />
+                    </div>
+                </div>
+                <div class="col-single">
+                    <pre><code class="language-html">&lt;div class="row-pad"&gt;
+    &lt;div class="col-half"&gt;
+        &lt;p&gt;Somente Letras (Válido)&lt;/p&gt;
+        &lt;input type="text" class="input-default" pattern="([a-zA-Z]+)" value="AeIoU" /&gt;
+    &lt;/div&gt;
+    &lt;div class="col-half"&gt;
+        &lt;p&gt;Somente Letras (Válido)&lt;/p&gt;
+        &lt;input type="text" class="input-line" pattern="([a-zA-Z]+)" value="AeIoU" /&gt;
+    &lt;/div&gt;
+    &lt;div class="col-half"&gt;
+        &lt;p&gt;Somente Letras (Inválido)&lt;/p&gt;
+        &lt;input type="text" class="input-default" pattern="([a-zA-Z]+)" value="12345" /&gt;
+    &lt;/div&gt;
+    &lt;div class="col-half"&gt;
+        &lt;p&gt;Somente Letras (Inválido)&lt;/p&gt;
+        &lt;input type="text" class="input-line" pattern="([a-zA-Z]+)" value="12345" /&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="sm-margin-top">
+                <hr class="sm-line" />
+                <h2>Desabilitado</h2>
+                <div class="row-pad">
+                    <div class="col-half">
+                        <input class="input-default" disabled="" type="text" value="disabled" />
+                    </div>
+                    <div class="col-half">
+                        <input class="input-line" disabled="" type="text" value="disabled" />
+                    </div>
+                    <div class="col-half">
+                        <input class="input-default" readonly="" type="text" value="readonly" />
+                    </div>
+                    <div class="col-half">
+                        <input class="input-line" readonly="" type="text" value="readonly" />
+                    </div>
+                </div>
+                <div class="col-single">
+                    <pre><code class="language-html">&lt;div class="row-pad"&gt;
+    &lt;div class="col-half"&gt;
+        &lt;input class="input-default" disabled="" type="text" value="disabled" /&gt;
+    &lt;/div&gt;
+    &lt;div class="col-half"&gt;
+        &lt;input class="input-line" disabled="" type="text" value="disabled" /&gt;
+    &lt;/div&gt;
+    &lt;div class="col-half"&gt;
+        &lt;input class="input-default" readonly="" type="text" value="readonly" /&gt;
+    &lt;/div&gt;
+    &lt;div class="col-half"&gt;
+        &lt;input class="input-line" readonly="" type="text" value="readonly" /&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="sm-margin-top">
+                <hr class="sm-line" />
+                <h2>Marcação</h2>
+                <div class="row-pad">
+                    <div class="col-third-max">
+                        <p class="bold list margin-left">Marcar comum</p>
+                        <hr class="sm-line" />
+                        <p>type="checkbox"</p>
+                        <input class="input-check" type="checkbox" />
+                        <p>type="radio"</p>
+                        <input class="input-check" type="radio" name="radio-1" />
+                        <input class="input-check" type="radio" name="radio-1" />
+                        <pre><code class="language-html">&lt;input class="input-check" type="checkbox" /&gt;
+&lt;input class="input-check" type="radio" name="radio" /&gt;
+&lt;input class="input-check" type="radio" name="radio" /&gt;</code></pre>
+                    </div>
+                    <div class="col-third-max">
+                        <p class="bold list margin-left">Marcar x</p>
+                        <hr class="sm-line" />
+                        <p>type="checkbox"</p>
+                        <input class="input-check-x" type="checkbox" />
+                        <p>type="radio"</p>
+                        <input class="input-check-x" type="radio" name="radio-2" />
+                        <input class="input-check-x" type="radio" name="radio-2" />
+                        <pre><code class="language-html">&lt;input class="input-check-x" type="checkbox" /&gt;
+&lt;input class="input-check-x" type="radio" name="radio" /&gt;
+&lt;input class="input-check-x" type="radio" name="radio" /&gt;</code></pre>
+                    </div>
+                    <div class="col-third-max">
+                        <p class="bold list margin-left">Marcar caixa</p>
+                        <hr class="sm-line" />
+                        <p>type="checkbox"</p>
+                        <input class="input-check-cube" type="checkbox" />
+                        <p>type="radio"</p>
+                        <input class="input-check-cube" type="radio" name="radio-3" />
+                        <input class="input-check-cube" type="radio" name="radio-3" />
+                        <pre><code class="language-html">&lt;input class="input-check-cube" type="checkbox" /&gt;
+&lt;input class="input-check-cube" type="radio" name="radio" /&gt;
+&lt;input class="input-check-cube" type="radio" name="radio" /&gt;</code></pre>
+                    </div>
+                    <div class="col-third-max">
+                        <p class="bold list margin-left">Marcar circular</p>
+                        <hr class="sm-line" />
+                        <p>type="checkbox"</p>
+                        <input class="input-check-circle" type="checkbox" />
+                        <p>type="radio"</p>
+                        <input class="input-check-circle" type="radio" name="radio-4" />
+                        <input class="input-check-circle" type="radio" name="radio-4" />
+                        <pre><code class="language-html">&lt;input class="input-check-circle" type="checkbox" /&gt;
+&lt;input class="input-check-circle" type="radio" name="radio" /&gt;
+&lt;input class="input-check-circle" type="radio" name="radio" /&gt;</code></pre>
+                    </div>
+                    <div class="col-third-max">
+                        <p class="bold list margin-left">Marcar caixa alternada</p>
+                        <hr class="sm-line" />
+                        <p>type="checkbox"</p>
+                        <input class="input-toggle" type="checkbox" />
+                        <p>type="radio"</p>
+                        <input class="input-toggle" type="radio" name="radio-5" />
+                        <input class="input-toggle" type="radio" name="radio-5" />
+                        <pre><code class="language-html">&lt;input class="input-toggle" type="checkbox" /&gt;
+&lt;input class="input-toggle" type="radio" name="radio" /&gt;
+&lt;input class="input-toggle" type="radio" name="radio" /&gt;</code></pre>
+                    </div>
+                    <div class="col-third-max">
+                        <p class="bold list margin-left">Marcar circular alternada</p>
+                        <hr class="sm-line" />
+                        <p>type="checkbox"</p>
+                        <input class="input-toggle-circle" type="checkbox" />
+                        <p>type="radio"</p>
+                        <input class="input-toggle-circle" type="radio" name="radio-6" />
+                        <input class="input-toggle-circle" type="radio" name="radio-6" />
+                        <pre><code class="language-html">&lt;input class="input-toggle-circle" type="checkbox" /&gt;
+&lt;input class="input-toggle-circle" type="radio" name="radio" /&gt;
+&lt;input class="input-toggle-circle" type="radio" name="radio" /&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="sm-margin-top">
+                <hr class="sm-line" />
+                <h2>Em Linha</h2>
+                <div class="row-pad">
+                    <div class="col-half-max">
+                        <div class="floating">
+                            <div class="float-left">
+                                <div class="box-xy-50 vertical-wrap bg-dark">@</div>
+                            </div>
+                            <div class="over-not">
+                                <input type="text" class="input-default" placeholder="placeholder" />
+                            </div>
+                        </div>
+                        <pre><code class="language-html">&lt;div class="floating"&gt;
+    &lt;div class="float-left"&gt;
+        &lt;div class="box-xy-50 vertical-wrap bg-dark"&gt;@&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="over-not"&gt;
+        &lt;input type="text" class="input-default" placeholder="placeholder" /&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+                    <div class="col-half-max">
+                        <div class="floating">
+                            <div class="float-right">
+                                <div class="box-xy-50 vertical-wrap bg-dark">@</div>
+                            </div>
+                            <div class="over-not">
+                                <input type="text" class="input-default" placeholder="placeholder" />
+                            </div>
+                        </div>
+                        <pre><code class="language-html">&lt;div class="floating"&gt;
+    &lt;div class="float-right"&gt;
+        &lt;div class="box-xy-50 vertical-wrap bg-dark"&gt;@&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="over-not"&gt;
+        &lt;input type="text" class="input-default" placeholder="placeholder" /&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+                </div>
+
+                <div class="row-pad">
+                    <div class="col-half-max">
+                        <div class="floating">
+                            <div class="float-left">
+                                <div class="box-xy-50 vertical-wrap bg-dark">@</div>
+                            </div>
+                            <div class="float-right">
+                                <button class="btn-success">Submit</button>
+                            </div>
+                            <div class="over-not">
+                                <input type="text" class="input-default" placeholder="placeholder" />
+                            </div>
+                        </div>
+                        <pre><code class="language-html">&lt;div class="floating"&gt;
+    &lt;div class="float-left"&gt;
+        &lt;div class="box-xy-50 vertical-wrap bg-dark"&gt;@&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="float-right"&gt;
+        &lt;button class="btn-success"&gt;Submit&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class="over-not"&gt;
+        &lt;input type="text" class="input-default" placeholder="placeholder" /&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+                    <div class="col-half-max">
+                        <div class="floating">
+                            <div class="float-left">
+                                <button class="btn-success">Submit</button>
+                            </div>
+                            <div class="float-right">
+                                <div class="box-xy-50 vertical-wrap bg-dark">@</div>
+                            </div>
+                            <div class="over-not">
+                                <input type="text" class="input-default" placeholder="placeholder" />
+                            </div>
+                        </div>
+                        <pre><code class="language-html">&lt;div class="floating"&gt;
+    &lt;div class="float-left"&gt;
+        &lt;button class="btn-success"&gt;Submit&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class="float-right"&gt;
+        &lt;div class="box-xy-50 vertical-wrap bg-dark"&gt;@&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="over-not"&gt;
+        &lt;input type="text" class="input-default" placeholder="placeholder" /&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+                </div>
+
+
+                <div class="row-pad">
+                    <div class="col-half-max">
+                        <div class="floating">
+                            <div class="float-left">
+                                <input type="checkbox" class="input-check" checked="" />
+                            </div>
+                            <div class="over-not">
+                                <input type="text" class="input-default" placeholder="placeholder" />
+                            </div>
+                        </div>
+                        <pre><code class="language-html">&lt;div class="floating"&gt;
+    &lt;div class="float-left"&gt;
+        &lt;input type="checkbox" class="input-check" checked="" /&gt;
+    &lt;/div&gt;
+    &lt;div class="over-not"&gt;
+        &lt;input type="text" class="input-default" placeholder="placeholder" /&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+                    <div class="col-half-max">
+                        <div class="floating">
+                            <div class="float-right">
+                                <input type="checkbox" class="input-check" checked="" />
+                            </div>
+                            <div class="over-not">
+                                <input type="text" class="input-default" placeholder="placeholder" />
+                            </div>
+                        </div>
+                        <pre><code class="language-html">&lt;div class="floating"&gt;
+    &lt;div class="float-right"&gt;
+        &lt;input type="checkbox" class="input-check" checked="" /&gt;
+    &lt;/div&gt;
+    &lt;div class="over-not"&gt;
+        &lt;input type="text" class="input-default" placeholder="placeholder" /&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+                </div>
+
+                <div class="padding-all">
+                    <div class="floating">
+                        <div class="float-left">
+                            <div class="box-xy-50 vertical-wrap bg-dark">@</div>
+                        </div>
+                        <div class="float-left">
+                            <input type="checkbox" class="input-check" checked="" />
+                        </div>
+                        <div class="float-right">
+                            <button class="btn-success">Submit</button>
+                        </div>
+                        <div class="float-right">
+                            <input type="checkbox" class="input-check" checked="" />
+                        </div>
+                        <div class="over-not">
+                            <input type="text" class="input-default" placeholder="placeholder" />
+                        </div>
+                    </div>
+                    <pre><code class="language-html">&lt;div class="floating"&gt;
+    &lt;div class="float-left"&gt;
+        &lt;div class="box-xy-50 vertical-wrap bg-dark"&gt;@&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="float-left"&gt;
+        &lt;input type="checkbox" class="input-check" checked="" /&gt;
+    &lt;/div&gt;
+    &lt;div class="float-right"&gt;
+        &lt;button class="btn-success"&gt;Submit&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class="float-right"&gt;
+        &lt;input type="checkbox" class="input-check" checked="" /&gt;
+    &lt;/div&gt;
+    &lt;div class="over-not"&gt;
+        &lt;input type="text" class="input-default" placeholder="placeholder" /&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+        </article>
+    </body>
+</html>

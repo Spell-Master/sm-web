@@ -945,8 +945,8 @@ table.table.streak tr:nth-child(even) {
  * ****************************************
  */
 .break      {word-wrap:break-word}
-.over-text  {overflow:hidden; white-space:nowrap}
-.over       {overflow:auto}
+.over-line  {overflow:hidden; white-space:nowrap}
+.over-auto  {overflow:auto}
 .over-x     {overflow-x:auto; overflow-y:hidden}
 .over-y     {overflow-y:auto; overflow-x:hidden}
 .over-not   {overflow:hidden}

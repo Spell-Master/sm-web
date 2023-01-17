@@ -49,9 +49,9 @@
     --input-valid: #00a651;
     --input-invalid: #cc2424;
 
-    --table-border: #757575;
-    --table-head: #d9d9d9;
-    --table-line: #ededed;
+    --table-border: #cccccc;
+    --table-head: #e1e1e1;
+    --table-streak: #ededed;
 
     --color-light: #f0f0f0;
     --color-dark: #e1e1e1;
@@ -582,14 +582,18 @@ textarea.input-line {
  * * Tabela
  * ****************************************
  */
-table.table                          {width:100%; display:table; margin-bottom:1rem}
-table.table thead, table.table tfoot {background-color:var(--table-head)}
-table.table > thead > tr > th        {border-bottom:.0625rem solid var(--table-border)}
-table.table > tfoot                  {border-top:.0625rem solid var(--table-border)}
-table.table td, table.table th       {padding:.625rem}
+table.table {
+    width:100%;
+    display:table
+}
+table.table th,
+table.table td      {padding:.625rem}
+table.table > thead,
+table.table > tfoot {background-color:var(--table-head)}
 
-table.table.streak th:first-child, table.table td:first-child {padding-left:.75rem}
-table.table.streak tbody tr:nth-child(even) {background-color:var(--table-line)}
+table.table.streak tr:nth-child(even) {
+    background-color:var(--table-streak)
+}
 
 /**
  * ****************************************
@@ -837,8 +841,10 @@ table.table.streak tbody tr:nth-child(even) {background-color:var(--table-line)}
  * Posições
  * ****************************************
  */
+.static   {position:static}
 .relative {position:relative}
 .fixed    {position:fixed}
+.sticky   {position:sticky}
 .absolute,
 .relative > [class^="pos-"] {position:absolute}
 

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Posições Atípicas</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="../css-default.css" rel="stylesheet" type="text/css"/>
+        <link href="../../lib/prism/prism.css" rel="stylesheet" type="text/css"/>
+        <link href="../../lib/stylesheet/core.css" rel="stylesheet" type="text/css"/>
+        <script src="../../lib/prism/prism.js" type="text/javascript"></script>
+        <script src="../../javascript/jsd/js-default.js" type="text/javascript"></script>
+
+    </head>
+    <body>
+        <article class="container padding-all">
+            <h1>Posições Atípicas</h1>
+            <ul class="margin-left bold">
+                <li>static</li>
+                <li>relative</li>
+                <li>absolute</li>
+                <li>fixed</li>
+                <li>sticky</li>
+                <li>pos-top-left</li>
+                <li>pos-top-center</li>
+                <li>pos-top-right</li>
+
+                <li>pos-center-left</li>
+                <li>pos-center</li>
+                <li>pos-center-right</li>
+
+                <li>pos-bottom-left</li>
+                <li>pos-bottom-center</li>
+                <li>pos-bottom-right</li>
+            </ul>
+            <hr class="sm-line" />
+
+
+            <p class="h3 text-green">static</p>
+            <p>Trata o bloco como estático e sua posição segue o fluxo normal.</p>
+            <p>Qualquer elemento quando não posicionado é considerado estático.</p>
+
+            <div class="margin-top">
+                <p class="h3 text-green">relative</p>
+                <p>A posição da caixa é calculada de acordo com o fluxo normal.</p>
+                <p>Em seguida, a caixa é deslocada em relação à sua posição normal.</p>
+                <p>Quando uma caixa é posicionada relativamente, a posição da caixa
+                    a seguir é calculada como se não fosse compensada.</p>
+            </div>
+            <div class="margin-top">
+                <p class="h3 text-green">absolute</p>
+                <p>Caixas absolutamente posicionadas são retiradas do fluxo normal.</p>
+                <p>Isso significa que elas não afetam o layout dos irmãos posteriores.</p>
+                <p>Além disso, embora as caixas absolutamente posicionadas tenham margens,
+                    elas não colapsam com nenhuma outra margem.</p>
+            </div>
+            <div class="margin-top">
+                <p class="h3 text-green">fixed</p>
+                <p>A posição da caixa é calculada de acordo como o modelo 'absoluto',
+                    mas além disso, a caixa é fixada em relação a alguma referência.</p>
+                <p>Assim como no modelo 'absoluto', as margens da caixa não colapsam
+                    com nenhuma outra margem.</p>
+                <p>Seu efeito em diferença ao absolute é que o elemento fixa ao local,
+                    independente da rolagem na página.</p>
+            </div>
+            <div class="margin-top">
+                <p class="h3 text-green">sticky</p>
+                <p>A caixa é considerada como relativa dentro do elemento pai
+                    e se desloca quando há uma ralagem sobre o pai.</p>
+                <p>A caixa por sua vez ficará presa até encontrar-se com os limites
+                    do elemento pai.</p>
+                <p>Similar ao modelo 'fixed', no entanto suas margens da caixa colapsam
+                    com as demais margens.</p>
+            </div>
+
+            <div class="sm-margin-top">
+                <hr class="sm-line" />
+                <h2>Aplicando</h2>
+                <div class="row-pad">
+                    <div class="col-5 reduce">
+                        <button class="btn-info button-block">static</button>
+                    </div>
+                    <div class="col-5 reduce">
+                        <button class="btn-info button-block">relative</button>
+                    </div>
+                    <div class="col-5 reduce">
+                        <button class="btn-info button-block">absolute</button>
+                    </div>
+                    <div class="col-5 reduce">
+                        <button class="btn-info button-block">fixed</button>
+                    </div>
+                    <div class="col-5 reduce">
+                        <button class="btn-info button-block">sticky</button>
+                    </div>
+                    <div class="col-single reduce">
+                        <div class="box-y-200 over-y relative bg-dark margin-top">
+                            <div class="alert-info">
+                                Clique nos botões para alterar a propriedade da caixa abaixo de
+                                acordo com o texto do botão selecionado.
+                            </div>
+                            <div id="posicao" class="full-width padding-all bg-black text-white" style="z-index:1; top:0; left:0">
+                                static
+                            </div>
+                            <div class="padding-all">
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                </p>
+                                <p>
+                                    Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin mauris. Integer in mauris eu nibh euismod gravida. Duis ac tellus et risus vulputate vehicula. Donec lobortis risus a elit. Etiam tempor. Ut ullamcorper, ligula eu tempor congue, eros est euismod turpis, id tincidunt sapien risus a quam. Maecenas fermentum consequat mi. Donec fermentum. Pellentesque malesuada nulla a mi. Duis sapien sem, aliquet nec, commodo eget, consequat quis, neque. Aliquam faucibus, elit ut dictum aliquet, felis nisl adipiscing sapien, sed malesuada diam lacus eget erat. Cras mollis scelerisque nunc. Nullam arcu. Aliquam consequat. Curabitur augue lorem, dapibus quis, laoreet et, pretium ac, nisi. Aenean magna nisl, mollis quis, molestie eu, feugiat in, orci. In hac habitasse platea dictumst.
+                                </p>
+                                <p>
+                                    Fusce convallis, mauris imperdiet gravida bibendum, nisl turpis suscipit mauris, sed placerat ipsum urna sed risus. In convallis tellus a mauris. Curabitur non elit ut libero tristique sodales. Mauris a lacus. Donec mattis semper leo. In hac habitasse platea dictumst. Vivamus facilisis diam at odio. Mauris dictum, nisi eget consequat elementum, lacus ligula molestie metus, non feugiat orci magna ac sem. Donec turpis. Donec vitae metus. Morbi tristique neque eu mauris. Quisque gravida ipsum non sapien. Proin turpis lacus, scelerisque vitae, elementum at, lobortis ac, quam. Aliquam dictum eleifend risus. In hac habitasse platea dictumst. Etiam sit amet diam. Suspendisse odio. Suspendisse nunc. In semper bibendum libero.
+                                </p>
+                                <p>
+                                    Proin nonummy, lacus eget pulvinar lacinia, pede felis dignissim leo, vitae tristique magna lacus sit amet eros. Nullam ornare. Praesent odio ligula, dapibus sed, tincidunt eget, dictum ac, nibh. Nam quis lacus. Nunc eleifend molestie velit. Morbi lobortis quam eu velit. Donec euismod vestibulum massa. Donec non lectus. Aliquam commodo lacus sit amet nulla. Cras dignissim elit et augue. Nullam non diam. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In hac habitasse platea dictumst. Aenean vestibulum. Sed lobortis elit quis lectus. Nunc sed lacus at augue bibendum dapibus.
+                                </p>
+                            </div>
+                        </div>
+                        <pre><code class="language-html">&lt;div class=&quot;full-width padding-all bg-black text-white&quot; style=&quot;z-index:1; top:0; left:0&quot;>static&lt;/div&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="sm-margin-top">
+                <hr class="sm-line" />
+                <h2>Posições Absolutas</h2>
+                <blockquote class="quote-yellow">
+                    NOTA*
+                    <p>Sempre que essas propriedades são declaradas a um elemento
+                        filho de outro que recebeu a propriedade
+                        <span class="bold">relative</span>, automaticamente serão
+                        tratadas como <span class="bold">absolute</span>.</p>
+                </blockquote>
+                <div class="relative margin-top text-white">
+                    <img src="../../lib/img/paisagem_01.jpg" alt="" class="image-auto margin-auto" style="max-height:900px; opacity: .3" />
+
+                    <div class="pos-top-left padding-all bg-red">pos-top-left</div>
+                    <div class="pos-top-center padding-all bg-green">pos-top-center</div>
+                    <div class="pos-top-right padding-all bg-blue">pos-top-right</div>
+
+                    <div class="pos-center-left padding-all bg-red">pos-center-left</div>
+                    <div class="pos-center padding-all bg-green">pos-center</div>
+                    <div class="pos-center-right padding-all bg-blue">pos-center-right</div>
+
+                    <div class="pos-bottom-left padding-all bg-red">pos-bottom-left</div>
+                    <div class="pos-bottom-center padding-all bg-green">pos-bottom-bottom</div>
+                    <div class="pos-bottom-right padding-all bg-blue">pos-bottom-right</div>
+                </div>
+                <pre><code class="language-html">&lt;div class="relative margin-top text-white"&gt;
+    &lt;img src="../../lib/img/paisagem_01.jpg" alt="" class="image-auto margin-auto" style="max-height:900px; opacity: .3" /&gt;
+
+    &lt;div class="pos-top-left padding-all bg-red"&gt;pos-top-left&lt;/div&gt;
+    &lt;div class="pos-top-center padding-all bg-green"&gt;pos-top-center&lt;/div&gt;
+    &lt;div class="pos-top-right padding-all bg-blue"&gt;pos-top-right&lt;/div&gt;
+
+    &lt;div class="pos-center-left padding-all bg-red"&gt;pos-center-left&lt;/div&gt;
+    &lt;div class="pos-center padding-all bg-green"&gt;pos-center&lt;/div&gt;
+    &lt;div class="pos-center-right padding-all bg-blue"&gt;pos-center-right&lt;/div&gt;
+
+    &lt;div class="pos-bottom-left padding-all bg-red"&gt;pos-bottom-left&lt;/div&gt;
+    &lt;div class="pos-bottom-center padding-all bg-green"&gt;pos-bottom-bottom&lt;/div&gt;
+    &lt;div class="pos-bottom-right padding-all bg-blue"&gt;pos-bottom-right&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </article>
+        <script>
+            var $posicao = jsd('#posicao');
+
+            jsd('.btn-info').click(function (e) {
+                $posicao[0].className = 'full-width padding-all bg-black text-white ' + this.innerText;
+                $posicao[0].innerText = this.innerText;
+
+                $posicao.parent().next().html('<code class="language-html">'
+                        + '&lt;div '
+                        + 'class=&quot;full-width padding-all bg-black text-white '
+                        + this.innerText
+                        + '&quot;'
+                        + ' style=&quot;z-index:1; top:0; left:0&quot;&gt;'
+                        + this.innerText
+                        + '&lt;/div&gt;'
+                        + '</code>');
+                Prism.highlightAll();
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Caixas</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <link href="../css-default.css" rel="stylesheet" type="text/css" />
+        <link href="../../lib/prism/prism.css" rel="stylesheet" type="text/css" />
+        <link href="../../javascript/Accordion/Accordion.css" rel="stylesheet" type="text/css"/>
+        <link href="../../lib/stylesheet/core.css" rel="stylesheet" type="text/css" />
+        <link href="../../javascript/ModalShow/ModalShow.css" rel="stylesheet" type="text/css" />
+
+        <script src="../../javascript/jsd/js-default.js" type="text/javascript"></script>
+        <script src="../../javascript/Accordion/Accordion.js" type="text/javascript"></script>
+        <script src="../../javascript/ModalShow/ModalShow.js" type="text/javascript"></script>
+        <script src="../../lib/js/mostar-codigo.js" type="text/javascript"></script>
+        <script src="../../lib/prism/prism.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <header>
+            <div class="bg-dark-grey padding-all text-white">
+                <div class="container">
+                    <h1>Caixas</h1>
+                </div>
+            </div>
+            <div class="bg-dark padding-all">
+                <div class="container">
+                    <button class="acc-button">Largura Fixa</button>
+                    <div class="acc-container">
+                        <div class="row-pad">
+                            <div class="col-third">
+                                <ul class="margin-left bold">
+                                    <li>box-x-1000</li><li>box-x-950</li><li>box-x-900</li><li>box-x-850</li><li>box-x-800</li><li>box-x-750</li><li>box-x-700</li><li>box-x-650</li><li>box-x-600</li><li>box-x-550</li><li>box-x-500</li><li>box-x-450</li><li>box-x-400</li><li>box-x-350</li><li>box-x-300</li><li>box-x-250</li><li>box-x-200</li><li>box-x-150</li><li>box-x-100</li><li>box-x-50</li>
+                                </ul>
+                            </div>
+                            <div class="col-third">
+                                <ul class="margin-left bold">
+                                    <li>box-min-x-1000</li><li>box-min-x-950</li><li>box-min-x-900</li><li>box-min-x-850</li><li>box-min-x-800</li><li>box-min-x-750</li><li>box-min-x-700</li><li>box-min-x-650</li><li>box-min-x-600</li><li>box-min-x-550</li><li>box-min-x-500</li><li>box-min-x-450</li><li>box-min-x-400</li><li>box-min-x-350</li><li>box-min-x-300</li><li>box-min-x-250</li><li>box-min-x-200</li><li>box-min-x-150</li><li>box-min-x-100</li><li>box-min-x-50</li>
+                                </ul>
+                            </div>
+                            <div class="col-third">
+                                <ul class="margin-left bold">
+                                    <li>box-max-x-1000</li><li>box-max-x-950</li><li>box-max-x-900</li><li>box-max-x-850</li><li>box-max-x-800</li><li>box-max-x-750</li><li>box-max-x-700</li><li>box-max-x-650</li><li>box-max-x-600</li><li>box-max-x-550</li><li>box-max-x-500</li><li>box-max-x-450</li><li>box-max-x-400</li><li>box-max-x-350</li><li>box-max-x-300</li><li>box-max-x-250</li><li>box-max-x-200</li><li>box-max-x-150</li><li>box-max-x-100</li><li>box-max-x-50</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="acc-button">Altura Fixa</button>
+                    <div class="acc-container">
+                        <div class="row-pad">
+                            <div class="col-third">
+                                <ul class="margin-left bold">
+                                    <li>box-y-1000</li><li>box-y-950</li><li>box-y-900</li><li>box-y-850</li><li>box-y-800</li><li>box-y-750</li><li>box-y-700</li><li>box-y-650</li><li>box-y-600</li><li>box-y-550</li><li>box-y-500</li><li>box-y-450</li><li>box-y-400</li><li>box-y-350</li><li>box-y-300</li><li>box-y-250</li><li>box-y-200</li><li>box-y-150</li><li>box-y-100</li><li>box-y-50</li>
+                                </ul>
+                            </div>
+                            <div class="col-third">
+                                <ul class="margin-left bold">
+                                    <li>box-min-y-1000</li><li>box-min-y-950</li><li>box-min-y-900</li><li>box-min-y-850</li><li>box-min-y-800</li><li>box-min-y-750</li><li>box-min-y-700</li><li>box-min-y-650</li><li>box-min-y-600</li><li>box-min-y-550</li><li>box-min-y-500</li><li>box-min-y-450</li><li>box-min-y-400</li><li>box-min-y-350</li><li>box-min-y-300</li><li>box-min-y-250</li><li>box-min-y-200</li><li>box-min-y-150</li><li>box-min-y-100</li><li>box-min-y-50</li>
+                                </ul>
+                            </div>
+                            <div class="col-third">
+                                <ul class="margin-left bold">
+                                    <li>box-max-y-1000</li><li>box-max-y-950</li><li>box-max-y-900</li><li>box-max-y-850</li><li>box-max-y-800</li><li>box-max-y-750</li><li>box-max-y-700</li><li>box-max-y-650</li><li>box-max-y-600</li><li>box-max-y-550</li><li>box-max-y-500</li><li>box-max-y-450</li><li>box-max-y-400</li><li>box-max-y-350</li><li>box-max-y-300</li><li>box-max-y-250</li><li>box-max-y-200</li><li>box-max-y-150</li><li>box-max-y-100</li><li>box-max-y-50</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="acc-button">Largura e Altura Fixa</button>
+                    <div class="acc-container">
+                        <div class="row-pad">
+                            <div class="col-third">
+                                <ul class="margin-left bold">
+                                    <li>box-xy-1000</li><li>box-xy-950</li><li>box-xy-900</li><li>box-xy-850</li><li>box-xy-800</li><li>box-xy-750</li><li>box-xy-700</li><li>box-xy-650</li><li>box-xy-600</li><li>box-xy-550</li><li>box-xy-500</li><li>box-xy-450</li><li>box-xy-400</li><li>box-xy-350</li><li>box-xy-300</li><li>box-xy-250</li><li>box-xy-200</li><li>box-xy-150</li><li>box-xy-100</li><li>box-xy-50</li>
+                                </ul>
+                            </div>
+                            <div class="col-third">
+                                <ul class="margin-left bold">
+                                    <li>box-min-xy-1000</li><li>box-min-xy-950</li><li>box-min-xy-900</li><li>box-min-xy-850</li><li>box-min-xy-800</li><li>box-min-xy-750</li><li>box-min-xy-700</li><li>box-min-xy-650</li><li>box-min-xy-600</li><li>box-min-xy-550</li><li>box-min-xy-500</li><li>box-min-xy-450</li><li>box-min-xy-400</li><li>box-min-xy-350</li><li>box-min-xy-300</li><li>box-min-xy-250</li><li>box-min-xy-200</li><li>box-min-xy-150</li><li>box-min-xy-100</li><li>box-min-xy-50</li>
+                                </ul>
+                            </div>
+                            <div class="col-third">
+                                <ul class="margin-left bold">
+                                    <li>box-max-xy-1000</li><li>box-max-xy-950</li><li>box-max-xy-900</li><li>box-max-xy-850</li><li>box-max-xy-800</li><li>box-max-xy-750</li><li>box-max-xy-700</li><li>box-max-xy-650</li><li>box-max-xy-600</li><li>box-max-xy-550</li><li>box-max-xy-500</li><li>box-max-xy-450</li><li>box-max-xy-400</li><li>box-max-xy-350</li><li>box-max-xy-300</li><li>box-max-xy-250</li><li>box-max-xy-200</li><li>box-max-xy-150</li><li>box-max-xy-100</li><li>box-max-xy-50</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="acc-button">Largura Adaptável</button>
+                    <div class="acc-container">
+                        <div class="row-pad">
+                            <div class="col-half">
+                                <ul class="margin-left bold">
+                                    <li>box-fluid</li><li>box-fluid-2</li><li>box-fluid-3</li><li>box-fluid-4</li><li>box-fluid-5</li><li>box-fluid-6</li><li>box-fluid-7</li><li>box-fluid-8</li><li>box-fluid-9</li><li>box-fluid-10</li>
+                                </ul>
+                            </div>
+                            <div class="col-half">
+                                <ul class="margin-left bold">
+                                    <li>maximize</li><li>maximize-min</li><li>maximize-medium</li><li>maximize-max</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main class="bg-white">
+            <div class="container padding-all">
+                <div class="margin-top-max">
+                    <h2>Prefixos de orientação</h2>
+                    <p>Os prefixos de orientação determinam que o elemento deve possuir
+                        largura, altura ou ambas, que são:</p>
+                    <ul class="margin-left">
+                        <li><span class="text-blue bold">X</span> largura.</li>
+                        <li><span class="text-blue bold">Y</span> altura.</li>
+                        <li><span class="text-blue bold">XY</span> largura e altura.</li>
+                    </ul>
+                </div>
+
+                <div class="sm-margin-top">
+                    <hr class="sm-line" />
+                    <h2>Prefixos de escala</h2>
+                    <p>Os prefixos de escala ou numéricos determinam que o elemento
+                        deve possuir largura, altura ou
+                        ambas no tamanho designado, que são:</p>
+                    <ul class="margin-left">
+                        <li><span class="text-blue bold">1000</span> equivalente a pixel&apos;s</li>
+                        <li><span class="text-blue bold">950</span> equivalente a pixel&apos;s</li>
+                        <li><span class="text-blue bold">900</span> equivalente a pixel&apos;s</li>
+                        <li><span class="text-blue bold">850</span> equivalente a pixel&apos;s</li>
+                        <li><span class="text-blue bold">800</span> equivalente a pixel&apos;s</li>
+                        <li><span class="text-blue bold">750</span> equivalente a pixel&apos;s</li>
+                        <li><span class="text-blue bold">700</span> equivalente a pixel&apos;s</li>
+                        <li><span class="text-blue bold">650</span> equivalente a pixel&apos;s</li>
+                        <li><span class="text-blue bold">600</span> equivalente a pixel&apos;s</li>
+                        <li><span class="text-blue bold">550</span> equivalente a pixel&apos;s</li>
+                        <li><span class="text-blue bold">500</span> equivalente a pixel&apos;s</li>
+                        <li><span class="text-blue bold">450</span> equivalente a pixel&apos;s</li>
+                        <li><span class="text-blue bold">400</span> equivalente a pixel&apos;s</li>
+                        <li><span class="text-blue bold">350</span> equivalente a pixel&apos;s</li>
+                        <li><span class="text-blue bold">300</span> equivalente a pixel&apos;s</li>
+                        <li><span class="text-blue bold">250</span> equivalente a pixel&apos;s</li>
+                        <li><span class="text-blue bold">200</span> equivalente a pixel&apos;s</li>
+                        <li><span class="text-blue bold">150</span> equivalente a pixel&apos;s</li>
+                        <li><span class="text-blue bold">100</span> equivalente a pixel&apos;s</li>
+                        <li><span class="text-blue bold">50</span> equivalente a pixel&apos;s</li>
+                    </ul>
+                </div>
+
+                <div class="sm-margin-top">
+                    <hr class="sm-line" />
+                    <h2>Aplicando os prefixos</h2>
+                    <blockquote class="quote">
+                        <span class="bold">box-(*orientação*)-(*escala*)</span>
+                    </blockquote>
+                    Vejamos o exemplo:
+                    <pre><code class="language-html">&lt;div class=&quot;box-x-100&quot;&gt;
+X = largura / 100 = 100 equivalente em pixel&apos;s
+&lt;/div&gt;
+&lt;div class=&quot;box-y-200&quot;&gt;
+Y = altura / 200 = 200 equivalente em pixel&apos;s
+&lt;/div&gt;
+&lt;div class=&quot;box-xy-300&quot;&gt;
+XY = largura &amp; altura / 300 = 300 equivalente em pixel&apos;s
+&lt;/div&gt;</code></pre>
+                </div>
+                <div class="margin-top-max">
+                    <p>Vejamos na prática:</p>
+                    <div class="static">
+                        <div class="box-x-100 line-block bg-red padding-tb-max"></div>
+                        <div class="box-y-200 line-block bg-green padding-lr-max"></div>
+                        <div class="box-xy-300 line-block bg-blue"></div>
+                    </div>
+                    <div class="margin-top align-center">
+                        <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
+                    </div>
+                </div>
+
+                <div class="sm-margin-top">
+                    <hr class="sm-line" />
+                    <h2>Prefixos mínimos e máximos</h2>
+                    <p>Os prefixos de limite determinam que o elemento deve possuir
+                        no máximo, mínimo ou ambos de
+                        largura, altura ou ambas, que são:</p>
+                    <ul class="margin-left">
+                        <li><span class="text-blue bold">min</span> largura, altura ou ambos
+                            mínima.</li>
+                        <li><span class="text-blue bold">max</span> altura, altura ou ambos
+                            máximo.</li>
+                    </ul>
+                    <blockquote class="quote">
+                        <span class="bold">box-(*limite*)-(*orientação*)-(*escala*)</span>
+                    </blockquote>
+                </div>
+                <div class="margin-top">
+                    <p>Digamos que eu tenha um bloco com 60% de largura do bloco em que se
+                        encontra, mas que esses sessenta porcento pode ter até uns 800
+                        pixel&apos;s total, porém esse bloco na verdade nunca pode ter mais
+                        de 200 pixel&apos;s ou o mesmo conceito na altura</p>
+                    <p>Veremos isso na prática com uma imagem ao qual sua altura não
+                        pode ser maior que 500 e nunca menor que 200.</p>
+                    <div class="align-center">
+                        <div class="over-auto">
+                            <img src="../../lib/img/gt3.jpg" alt="" class="box-max-y-500 box-min-y-200" />
+                        </div>
+                        <div class="margin-top">
+                            <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
+                        </div>
+                    </div>
+                    <blockquote class="quote-yellow">
+                        NOTA*
+                        Em uso de imagem sempre determine a altura mínima ou máxima para
+                        correto emprego do responsivo.
+                    </blockquote>
+                </div>
+
+                <div class="sm-margin-top">
+                    <hr class="sm-line" />
+                    <h2>Caixas de fluidas flexiveis</h2>
+                    <p>Diferente das demais caixas de escala de largura fixas,
+                        mínimas ou máxima as caixas fluidas só manipulam a largura
+                        ajustando-se si própria a largura do elemento pai.</p>
+                    <p>Portanto sua largura real é em percentual ao tamanho designado,
+                        calculando a largura total do elemento pai.</p>
+                    <p>Ou seja a caixa deve possuir sua largura de forma que a soma em um
+                        total delas atinja a mesma largura do elemento pai, excluindo seu
+                        espaço resevardo.</p>
+                    <p>Quanto maior for a largura do pai maior será a largura dessas e
+                        virse-versa.</p>
+                    <p>São elas:</p>
+                    <ul class="margin-left">
+                        <li><span class="text-blue bold">box-fluid</span>
+                            largura disponível do elemento pai.</li>
+                        <li><span class="text-blue bold">box-fluid-2</span>
+                            largura disponível do elemento pai dividido por dois.</li>
+                        <li><span class="text-blue bold">box-fluid-3</span>
+                            largura disponível do elemento pai dividido por três.</li>
+                        <li><span class="text-blue bold">box-fluid-4</span>
+                            largura disponível do elemento pai dividido por quatro.</li>
+                        <li><span class="text-blue bold">box-fluid-5</span>
+                            largura disponível do elemento pai dividido por cinco.</li>
+                        <li><span class="text-blue bold">box-fluid-6</span>
+                            largura disponível do elemento pai dividido por seis.</li>
+                        <li><span class="text-blue bold">box-fluid-7</span>
+                            largura disponível do elemento pai dividido por sete.</li>
+                        <li><span class="text-blue bold">box-fluid-8</span>
+                            largura disponível do elemento pai dividido por oito.</li>
+                        <li><span class="text-blue bold">box-fluid-9</span>
+                            largura disponível do elemento pai dividido por nove.</li>
+                        <li><span class="text-blue bold">box-fluid-10</span>
+                            largura disponível do elemento pai dividido por 10.</li>
+                    </ul>
+
+                </div>
+                <div class="margin-top">
+                    <p>Exemplo:</p>
+                    <pre><code class="language-html">&lt;div class=&quot;box-fluid-3&quot;&gt;
+    A largura do elemento pai dividido por três
+&lt;/div&gt;
+&lt;div class=&quot;box-fluid-6&quot;&gt;
+    A largura do elemento pai dividido por seis
+&lt;/div&gt;
+&lt;div class=&quot;box-fluid-9&quot;&gt;
+    A largura do elemento pai dividido por nove
+&lt;/div&gt;</code></pre>
+                </div>
+                <div class="margin-top">
+                    <div class="box-fluid-3 padding-tb-max bg-red"></div>
+                    <div class="box-fluid-6 padding-tb-max bg-green"></div>
+                    <div class="box-fluid-9 padding-tb-max bg-blue"></div>
+                </div>
+                <div class="margin-top align-center">
+                    <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
+                </div>
+
+                <div class="margin-top-max">
+                    <p>Veja a divisão funcionando com elemento lado a lado</p>
+                    <div class="static text-white">
+                        <div class="padding-all bg-black">
+                            <p>box-fluid-3 = 100 dividido por 3</p>
+                            <div class="floating align-center bold font-max">
+                                <div class="box-fluid-3 float-left padding-tb-max bg-red">1</div>
+                                <div class="box-fluid-3 float-left padding-tb-max bg-green">2</div>
+                                <div class="box-fluid-3 float-left padding-tb-max bg-blue">3</div>
+                            </div>
+                            <p>box-fluid-6 = 100 dividido por 6</p>
+                            <div class="floating align-center bold font-max">
+                                <div class="box-fluid-6 float-left padding-tb-max bg-red">1</div>
+                                <div class="box-fluid-6 float-left padding-tb-max bg-green">2</div>
+                                <div class="box-fluid-6 float-left padding-tb-max bg-blue">3</div>
+                                <div class="box-fluid-6 float-left padding-tb-max bg-red">4</div>
+                                <div class="box-fluid-6 float-left padding-tb-max bg-green">5</div>
+                                <div class="box-fluid-6 float-left padding-tb-max bg-blue">6</div>
+                            </div>
+                            <p>box-fluid-9 = 100 dividido por 9</p>
+                            <div class="floating align-center bold font-max">
+                                <div class="box-fluid-9 float-left padding-tb-max bg-red">1</div>
+                                <div class="box-fluid-9 float-left padding-tb-max bg-green">2</div>
+                                <div class="box-fluid-9 float-left padding-tb-max bg-blue">3</div>
+                                <div class="box-fluid-9 float-left padding-tb-max bg-red">4</div>
+                                <div class="box-fluid-9 float-left padding-tb-max bg-green">5</div>
+                                <div class="box-fluid-9 float-left padding-tb-max bg-blue">6</div>
+                                <div class="box-fluid-9 float-left padding-tb-max bg-red">7</div>
+                                <div class="box-fluid-9 float-left padding-tb-max bg-green">8</div>
+                                <div class="box-fluid-9 float-left padding-tb-max bg-blue">9</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="margin-top align-center">
+                        <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
+                    </div>
+                </div>
+
+                <div class="sm-margin-top">
+                    <hr class="sm-line">
+                    <h2>Maximizando Largura</h2>
+                </div>
+                <p>Na maioria dos casos elementos de bloco como a tag &lt;div&gt;
+                    terá total extensão com algumas excessões do contexto do fluxo atual.</p>
+                <p>Para esse fim temos uma propriedade que força o elemento a atingir
+                    total extensão da largura do recipiente.</p>
+                <p>Mas nunca irá exceder a largura do elemento pai onde se encontra.
+                    Ao mesmo tempo que temos elemento que irá diminuir ou aumentar sua
+                    largura de acordo com o espaço disponível.</p>
+                <div class="static">
+                    <div class="maximize bg-black text-white padding-all">maximize</div>
+                </div>
+                <div class="margin-top align-center">
+                    <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
+                </div>
+
+                <p>Além de já definir uma largura total e adaptável em qualquer resolução de tela,
+                    podemos dizer quando essa largura total deve acontecer.</p>
+                <blockquote class="quote-blue">
+                    Altere a resolução de tela em mais de 900 e menos de 480 pixel's para visualizar
+                    como o efeito é aplicado
+                </blockquote>
+                <div class="text-white align-center">
+                    <div class="maximize-min box-x-200 line-block bg-red padding-all">
+                        <p class="bold">maximize-min</p>
+                        <p>Atinge a largura total disponível quando a resolução for 480 pixel's ou menos</p>
+                    </div>
+                    <div class="maximize-medium box-x-200 line-block bg-green padding-all">
+                        <p class="bold">maximize-medium</p>
+                        <p>Atinge a largura total disponível quando a resolução for 600 pixel's ou menos</p>
+                    </div>
+                    <div class="maximize-max box-x-200 line-block bg-blue padding-all">
+                        <p class="bold">maximize-max</p>
+                        <p>Atinge a largura total disponível quando a resolução for 900 pixel's ou menos</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer class="bg-white">
+            <div class="modal" id="show-code">
+                <div class="modal-box">
+                    <div class="modal-header"><span class="font-max">Código Fonte</span></div>
+                    <div class="modal-content"><pre><code class="language-html"></code></pre></div>
+                </div>
+            </div>
+        </footer>
+        <script>
+            showCode.init();
+            var acc = new Accordion();
+        </script>
+    </body>
+</html>

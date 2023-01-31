@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Espaçamento</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <link href="../css-default.css" rel="stylesheet" type="text/css" />
+        <link href="../../lib/prism/prism.css" rel="stylesheet" type="text/css" />
+        <link href="../../lib/stylesheet/core.css" rel="stylesheet" type="text/css" />
+        <link href="../../javascript/ModalShow/ModalShow.css" rel="stylesheet" type="text/css" />
+
+        <script src="../../javascript/jsd/js-default.js" type="text/javascript"></script>
+        <script src="../../javascript/ModalShow/ModalShow.js" type="text/javascript"></script>
+        <script src="../../lib/js/mostar-codigo.js" type="text/javascript"></script>
+        <script src="../../lib/prism/prism.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <header>
+            <div class="bg-dark-grey padding-all text-white">
+                <div class="container">
+                    <h1>Espaçamento</h1>
+                </div>
+            </div>
+            <div class="bg-light padding-all">
+                <div class="container">
+                    <div class="row-pad">
+                        <div class="col-single">
+                            <ul class="margin-left bold">
+                                <li>margin-auto</li>
+                            </ul>
+                        </div>
+                        <div class="col-third">
+                            <ul class="margin-left bold">
+                                <li>margin-all</li>
+                                <li>margin-left</li>
+                                <li>margin-right</li>
+                                <li>margin-top</li>
+                                <li>margin-bottom</li>
+                                <li>margin-lr</li>
+                                <li>margin-tb</li>
+                            </ul>
+                        </div>
+                        <div class="col-third">
+                            <ul class="margin-left bold">
+                                <li>margin-all-min</li>
+                                <li>margin-left-min</li>
+                                <li>margin-right-min</li>
+                                <li>margin-top-min</li>
+                                <li>margin-bottom-min</li>
+                                <li>margin-lr-min</li>
+                                <li>margin-tb-min</li>
+                            </ul>
+                        </div>
+                        <div class="col-third">
+                            <ul class="margin-left bold">
+                                <li>margin-all-max</li>
+                                <li>margin-left-max</li>
+                                <li>margin-right-max</li>
+                                <li>margin-top-max</li>
+                                <li>margin-bottom-max</li>
+                                <li>margin-lr-max</li>
+                                <li>margin-tb-max</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row-pad">
+                        <div class="col-third">
+                            <ul class="margin-left bold">
+                                <li>padding-all</li>
+                                <li>padding-left</li>
+                                <li>padding-right</li>
+                                <li>padding-top</li>
+                                <li>padding-bottom</li>
+                                <li>padding-lr</li>
+                                <li>padding-tb</li>
+                            </ul>
+                        </div>
+                        <div class="col-third">
+                            <ul class="margin-left bold">
+                                <li>padding-all-min</li>
+                                <li>padding-left-min</li>
+                                <li>padding-right-min</li>
+                                <li>padding-top-min</li>
+                                <li>padding-bottom-min</li>
+                                <li>padding-lr-min</li>
+                                <li>padding-tb-min</li>
+                            </ul>
+                        </div>
+                        <div class="col-third">
+                            <ul class="margin-left bold">
+                                <li>padding-all-max</li>
+                                <li>padding-left-max</li>
+                                <li>padding-right-max</li>
+                                <li>padding-top-max</li>
+                                <li>padding-bottom-max</li>
+                                <li>padding-lr-max</li>
+                                <li>padding-tb-max</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main class="bg-white">
+            <div class="container padding-all">
+                <div class="row-pad">
+                    <div class="col-half col-fix">
+                        <p class="list margin-left bold">margin-{?}</p>
+                        <p>Interage com elemento interno para com o elemento externo.</p>
+                        <img src="../../lib/img/margin.jpg" alt="" class="image-auto" />
+                    </div>
+                    <div class="col-half col-fix">
+                        <p class="list margin-left bold">padding-{?}</p>
+                        <p>Interage com elemento externo para com o elemento interno.</p>
+                        <img src="../../lib/img/padding.jpg" alt="" class="image-auto" />
+                    </div>
+                </div>
+
+                <div class="sm-margin-top">
+                    <hr class="sm-line" />
+                    <h2>Margem Central</h2>
+                    <blockquote class="quote">
+                        <p>A margem automática centraliza um elemento na horizontal,
+                            desde que esse elemento possua uma largura de referência.</p>
+                        <p>Caso contrário o efeito não será válido.</p>
+                    </blockquote>
+                    <div class="static">
+                        <div class="bg-black padding-tb">
+                            <div class="margin-auto box-x-200 padding-all bg-dark align-center">
+                                margin-auto
+                            </div>
+                        </div>
+                    </div>
+                    <div class="margin-top align-center">
+                        <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
+                    </div>
+                </div>
+
+                <div class="sm-margin-top">
+                    <hr class="sm-line" />
+                    <h2>Margem</h2>
+                </div>
+
+                <div class="margin-top-max">
+                    <div class="floating text-white">
+                        <div class="box-fluid-3 float-left bg-red">
+                            <div class="margin-all-min align-center bg-black">margin-all-min</div>
+                        </div>
+                        <div class="box-fluid-3 float-left bg-green">
+                            <div class="margin-all align-center bg-black">margin-all</div>
+                        </div>
+                        <div class="box-fluid-3 float-left bg-blue">
+                            <div class="margin-all-max align-center bg-black">margin-all-max</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="margin-top align-center">
+                    <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
+                </div>
+
+                <div class="margin-top-max">
+                    <div class="floating text-white">
+                        <div class="box-fluid-3 float-left bg-red">
+                            <div class="margin-left-min align-center bg-black">margin-left-min</div>
+                        </div>
+                        <div class="box-fluid-3 float-left bg-green">
+                            <div class="margin-left align-center bg-black">margin-left</div>
+                        </div>
+                        <div class="box-fluid-3 float-left bg-blue">
+                            <div class="margin-left-max align-center bg-black">margin-left-max</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="margin-top align-center">
+                    <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
+                </div>
+
+                <div class="margin-top-max">
+                    <div class="floating text-white">
+                        <div class="box-fluid-3 float-left bg-red">
+                            <div class="margin-right-min align-center bg-black">margin-right-min</div>
+                        </div>
+                        <div class="box-fluid-3 float-left bg-green">
+                            <div class="margin-right align-center bg-black">margin-right</div>
+                        </div>
+                        <div class="box-fluid-3 float-left bg-blue">
+                            <div class="margin-right-max align-center bg-black">margin-right-max</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="margin-top align-center">
+                    <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
+                </div>
+
+                <div class="margin-top-max">
+                    <div class="floating text-white">
+                        <div class="box-fluid-3 float-left bg-red">
+                            <div class="margin-top-min align-center bg-black">margin-top-min</div>
+                        </div>
+                        <div class="box-fluid-3 float-left bg-green">
+                            <div class="margin-top align-center bg-black">margin-top</div>
+                        </div>
+                        <div class="box-fluid-3 float-left bg-blue">
+                            <div class="margin-top-max align-center bg-black">margin-top-max</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="margin-top align-center">
+                    <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
+                </div>
+
+                <div class="margin-top-max">
+                    <div class="floating text-white">
+                        <div class="box-fluid-3 float-left bg-red">
+                            <div class="margin-bottom-min align-center bg-black">margin-bottom-min</div>
+                        </div>
+                        <div class="box-fluid-3 float-left bg-green">
+                            <div class="margin-bottom align-center bg-black">margin-bottom</div>
+                        </div>
+                        <div class="box-fluid-3 float-left bg-blue">
+                            <div class="margin-bottom-max align-center bg-black">margin-bottom-max</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="margin-top align-center">
+                    <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
+                </div>
+
+                <div class="margin-top-max">
+                    <div class="floating text-white">
+                        <div class="box-fluid-3 float-left bg-red">
+                            <div class="margin-lr-min align-center bg-black">margin-lr-min</div>
+                        </div>
+                        <div class="box-fluid-3 float-left bg-green">
+                            <div class="margin-lr align-center bg-black">margin-lr</div>
+                        </div>
+                        <div class="box-fluid-3 float-left bg-blue">
+                            <div class="margin-lr-max align-center bg-black">margin-lr-max</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="margin-top align-center">
+                    <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
+                </div>
+
+                <div class="margin-top-max">
+                    <div class="floating text-white">
+                        <div class="box-fluid-3 float-left bg-red">
+                            <div class="margin-tb-min align-center bg-black">margin-tb-min</div>
+                        </div>
+                        <div class="box-fluid-3 float-left bg-green">
+                            <div class="margin-tb align-center bg-black">margin-tb</div>
+                        </div>
+                        <div class="box-fluid-3 float-left bg-blue">
+                            <div class="margin-tb-max align-center bg-black">margin-tb-max</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="margin-top align-center">
+                    <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
+                </div>
+
+                <div class="sm-margin-top">
+                    <hr class="sm-line" />
+                    <h2>Preenchimento</h2>
+                </div>
+                <div class="margin-top-max">
+                    <div class="floating text-white">
+                        <div class="padding-all-min col-third-max float-left bg-red">
+                            <div class="align-center bg-black">padding-all-min</div>
+                        </div>
+                        <div class="padding-all col-third-max float-left bg-green">
+                            <div class="align-center bg-black">padding-all</div>
+                        </div>
+                        <div class="padding-all-max col-third-max float-left bg-blue">
+                            <div class="align-center bg-black">padding-all-max</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="margin-top align-center">
+                    <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
+                </div>
+
+                <div class="margin-top-max">
+                    <div class="floating text-white">
+                        <div class="padding-left-min col-third-max float-left bg-red">
+                            <div class="align-center bg-black">padding-left-min</div>
+                        </div>
+                        <div class="padding-left col-third-max float-left bg-green">
+                            <div class="align-center bg-black">padding-left</div>
+                        </div>
+                        <div class="padding-left-max col-third-max float-left bg-blue">
+                            <div class="align-center bg-black">padding-left-max</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="margin-top align-center">
+                    <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
+                </div>
+
+                <div class="margin-top-max">
+                    <div class="floating text-white">
+                        <div class="padding-right-min col-third-max float-left bg-red">
+                            <div class="align-center bg-black">padding-right-min</div>
+                        </div>
+                        <div class="padding-right col-third-max float-left bg-green">
+                            <div class="align-center bg-black">padding-right</div>
+                        </div>
+                        <div class="padding-right-max col-third-max float-left bg-blue">
+                            <div class="align-center bg-black">padding-right-max</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="margin-top align-center">
+                    <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
+                </div>
+
+                <div class="margin-top-max">
+                    <div class="floating text-white">
+                        <div class="padding-right-min col-third-max float-left bg-red">
+                            <div class="align-center bg-black">padding-top-min</div>
+                        </div>
+                        <div class="padding-right col-third-max float-left bg-green">
+                            <div class="align-center bg-black">padding-top</div>
+                        </div>
+                        <div class="padding-right-max col-third-max float-left bg-blue">
+                            <div class="align-center bg-black">padding-top-max</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="margin-top align-center">
+                    <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
+                </div>
+
+                <div class="margin-top-max">
+                    <div class="floating text-white">
+                        <div class="padding-bottom-min col-third-max float-left bg-red">
+                            <div class="align-center bg-black">padding-bottom-min</div>
+                        </div>
+                        <div class="padding-bottom col-third-max float-left bg-green">
+                            <div class="align-center bg-black">padding-bottom</div>
+                        </div>
+                        <div class="padding-bottom-max col-third-max float-left bg-blue">
+                            <div class="align-center bg-black">padding-bottom-max</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="margin-top align-center">
+                    <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
+                </div>
+
+                <div class="margin-top-max">
+                    <div class="floating text-white">
+                        <div class="padding-lr-min col-third-max float-left bg-red">
+                            <div class="align-center bg-black">padding-lr-min</div>
+                        </div>
+                        <div class="padding-lr col-third-max float-left bg-green">
+                            <div class="align-center bg-black">padding-lr</div>
+                        </div>
+                        <div class="padding-lr-max col-third-max float-left bg-blue">
+                            <div class="align-center bg-black">padding-lr-max</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="margin-top align-center">
+                    <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
+                </div>
+
+                <div class="margin-top-max">
+                    <div class="floating text-white">
+                        <div class="padding-tb-min col-third-max float-left bg-red">
+                            <div class="align-center bg-black">padding-tb-min</div>
+                        </div>
+                        <div class="padding-tb col-third-max float-left bg-green">
+                            <div class="align-center bg-black">padding-tb</div>
+                        </div>
+                        <div class="padding-tb-max col-third-max float-left bg-blue">
+                            <div class="align-center bg-black">padding-tb-max</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="margin-top align-center">
+                    <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
+                </div>
+            </div>
+        </main>
+        <footer class="bg-white">
+            <div class="modal" id="show-code">
+                <div class="modal-box">
+                    <div class="modal-header"><span class="font-max">Código Fonte</span></div>
+                    <div class="modal-content"><pre><code class="language-html"></code></pre></div>
+                </div>
+            </div>
+        </footer>
+        <script>showCode.init()</script>
+    </body>
+</html>

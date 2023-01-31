@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Linhas e Colunas</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <link href="../css-default.css" rel="stylesheet" type="text/css" />
+        <link href="../../lib/prism/prism.css" rel="stylesheet" type="text/css" />
+        <link href="../../lib/stylesheet/core.css" rel="stylesheet" type="text/css" />
+        <link href="../../javascript/ModalShow/ModalShow.css" rel="stylesheet" type="text/css" />
+
+        <script src="../../javascript/jsd/js-default.js" type="text/javascript"></script>
+        <script src="../../javascript/ModalShow/ModalShow.js" type="text/javascript"></script>
+        <script src="../../lib/js/mostar-codigo.js" type="text/javascript"></script>
+        <script src="../../lib/prism/prism.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <header>
+            <div class="bg-dark-grey padding-all text-white">
+                <div class="container">
+                    <h1>Linas e Colunas</h1>
+                </div>
+            </div>
+            <div class="bg-light padding-all">
+                <div class="container">
+                    <div class="row-pad">
+                        <div class="col-third">
+                            <ul class="margin-left bold">
+                                <li>row</li>
+                                <li>row-pad</li>
+                            </ul>
+                        </div>
+                        <div class="col-third">
+                            <ul class="margin-left bold">
+                                <li>col-fix</li>
+                                <li>col-reverse</li>
+                            </ul>
+                        </div>
+                        <div class="col-third" style="padding: 0"></div>
+                        <div class="col-third">
+                            <ul class="margin-left bold">
+                                <li>col-single</li>
+                                <li>col-threequarter</li>
+                                <li>col-twothird</li>
+                                <li>col-half</li>
+                                <li>col-third</li>
+                                <li>col-quarter</li>
+                            </ul>
+                        </div>
+                        <div class="col-third">
+                            <ul class="margin-left bold">
+                                <li>col-threequarter-min</li>
+                                <li>col-twothird-min</li>
+                                <li>col-half-min</li>
+                                <li>col-third-min</li>
+                                <li>col-quarter-min</li>
+                            </ul>
+                        </div>
+                        <div class="col-third">
+                            <ul class="margin-left bold">
+                                <li>col-threequarter-max</li>
+                                <li>col-twothird-max</li>
+                                <li>col-half-max</li>
+                                <li>col-third-max</li>
+                                <li>col-quarter-max</li>
+                            </ul>
+                        </div>
+                        <div class="col-third">
+                            <ul class="margin-left bold">
+                                <li>col-1</li>
+                                <li>col-2</li>
+                                <li>col-3</li>
+                                <li>col-4</li>
+                                <li>col-5</li>
+                                <li>col-6</li>
+                                <li>col-7</li>
+                                <li>col-8</li>
+                                <li>col-9</li>
+                                <li>col-10</li>
+                            </ul>
+                        </div>
+                        <div class="col-third">
+                            <ul class="margin-left bold">
+                                <li>col-2-min</li>
+                                <li>col-3-min</li>
+                                <li>col-4-min</li>
+                                <li>col-5-min</li>
+                                <li>col-6-min</li>
+                                <li>col-7-min</li>
+                                <li>col-8-min</li>
+                                <li>col-9-min</li>
+                                <li>col-10-min</li>
+                            </ul>
+                        </div>
+                        <div class="col-third">
+                            <ul class="margin-left bold">
+                                <li>col-2-max</li>
+                                <li>col-3-max</li>
+                                <li>col-4-max</li>
+                                <li>col-5-max</li>
+                                <li>col-6-max</li>
+                                <li>col-7-max</li>
+                                <li>col-8-max</li>
+                                <li>col-9-max</li>
+                                <li>col-10-max</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main class="bg-white">
+            <div class="container padding-all">
+
+                <div class="row-pad">
+                    <div class="col-third">
+                        <img src="../../lib/img/col-row.jpg" class="image-auto box-max-y-300 margin-auto" alt="" />
+                    </div>
+                    <div class="col-twothird">
+                        <p class="list margin-left">
+                            <span class="bold text-red">row*</span> Linha</p>
+                        <pre><code class="language-html">&lt;div class=&quot;row&quot;&gt;
+&lt;/div&gt;</code></pre>
+                        <p class="list margin-left">
+                            <span class="bold text-green">col*</span> Coluna</p>
+                        <pre><code class="language-html">&lt;div class=&quot;row-pad&quot;&gt;
+&lt;/div&gt;</code></pre>
+
+                        <p>A propriedade <span class="bold">row</span> somente irá alinhar
+                            lado a lado cada coluna.</p>
+                        <p>A propriedade <span class="bold">row-pad</span> terá o mesmo efeito
+                            de seu irmão <span class="bold">row</span>,
+                            mas faz com que cada coluna ganhe um espaçamento interno.
+                            Ou seja tudo que estiver dentro de uma coluna se distanciará
+                            de suas margens.</p>
+
+                        <div class="margin-top">
+                            <p>Cada elemento pai definimos uma linha com
+                                <q class="quote-red">row</q>
+                                ou <q class="quote-red">row-pad</q>
+                                então se aplicamos quantas partes essa linha deve ser dividida.</p>
+                            <p>E quando não houver disponibilidade de tela para conter a quantidade de colunas
+                                ao qual dividimos a linha, cada coluna salta para um espaço abaixo.</p>
+                            <p>Para melhor entendimento prestamos atenção ao prefixo
+                                <q class="quote-green">col-</q> logo seguindo do valor a ser aplicado.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sm-margin-top">
+                    <hr class="sm-line" />
+                    <h2>Linhas</h2>
+                    <p>Linhas agrupam as colunas lado a lado cada coluna.</p>
+                    <p>A medida que a largura da tela for menor as colunas vão sendo
+                        reduzidas sua largura, porém quando o limite é alcançado, a largura
+                        total da coluna passa a ser o total disponível saltando para baixo.</p>
+                    <div class="row-pad">
+                        <div class="col-half">
+                            <p class="list margin-left bold">row</p>
+                            <div class="static">
+                                <div class="row text-light">
+                                    <div class="col-2 bg-red">col-2</div>
+                                    <div class="col-4 bg-green">col-4</div>
+                                    <div class="col-4 bg-blue">col-4</div>
+                                </div>
+                            </div>
+                            <div class="margin-top align-center">
+                                <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
+                            </div>
+                        </div>
+                        <div class="col-half">
+                            <p class="list margin-left bold">row-pad</p>
+                            <div class="static">
+                                <div class="row-pad text-light">
+                                    <div class="col-2 bg-red">col-2</div>
+                                    <div class="col-4 bg-green">col-4</div>
+                                    <div class="col-4 bg-blue">col-4</div>
+                                </div>
+                            </div>
+                            <div class="margin-top align-center">
+                                <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sm-margin-top">
+                    <hr class="sm-line" />
+                    <h2>Colunas</h2>
+                    <p class="list margin-left">
+                        <span class="bold">col-1</span>
+                        Completa largura da linha.
+                    </p><div class="col-1 padding-all bg-red"></div>
+
+                    <p class="list margin-left">
+                        <span class="bold">col-2</span>
+                        Largura da linha dividida em duas partes.
+                    </p><div class="col-2 col-fix padding-all bg-green"></div>
+
+                    <p class="list margin-left">
+                        <span class="bold">col-3</span>
+                        Largura da linha dividida em três partes.
+                    </p><div class="col-3 col-fix padding-all bg-blue"></div>
+
+                    <p class="list margin-left">
+                        <span class="bold">col-4</span>
+                        Largura da linha dividida em quatro partes.
+                    </p><div class="col-4 col-fix padding-all bg-red"></div>
+
+                    <p class="list margin-left">
+                        <span class="bold">col-5</span>
+                        Largura da linha dividida em cinco partes.
+                    </p><div class="col-5 col-fix padding-all bg-green"></div>
+
+                    <p class="list margin-left">
+                        <span class="bold">col-6</span>
+                        Largura da linha dividida em seis partes.
+                    </p><div class="col-6 col-fix padding-all bg-blue"></div>
+
+                    <p class="list margin-left">
+                        <span class="bold">col-7</span>
+                        Largura da linha dividida em sete partes.
+                    </p><div class="col-7 col-fix padding-all bg-red"></div>
+
+                    <p class="list margin-left">
+                        <span class="bold">col-8</span>
+                        Largura da linha dividida em oito partes.
+                    </p><div class="col-8 col-fix padding-all bg-green"></div>
+
+                    <p class="list margin-left">
+                        <span class="bold">col-9</span>
+                        Largura da linha dividida em nove partes.
+                    </p><div class="col-9 col-fix padding-all bg-blue"></div>
+
+                    <p class="list margin-left">
+                        <span class="bold">col-10</span>
+                        Largura da linha dividida em dez partes.
+                    </p><div class="col-10 col-fix padding-all bg-red"></div>
+                </div>
+                <div class="margin-top-max">
+                    <p>Além da numeração <q class="quote">
+                            <span class="bold">col-(*)</span></q> de cada coluna,
+                        pois essas são técnicas que são amplamente usadas,
+                        desenvolvi algumas outras colunas que serão mais comuns para a
+                        montagem do layout.</p>
+                    <p class="list margin-left">
+                        <span class="bold">col-single</span>
+                        Equivale a linha inteira.
+                    </p>
+                    <div class="col-single padding-all bg-red"></div>
+
+                    <p class="list margin-left">
+                        <span class="bold">col-threequarter</span>
+                        Equivale a três quartos da linha.
+                    </p>
+                    <div class="col-threequarter col-fix padding-all bg-green"></div>
+
+                    <p class="list margin-left">
+                        <span class="bold">col-twothird</span>
+                        Equivale a dois terços da linha.
+                    </p>
+                    <div class="col-twothird col-fix padding-all bg-blue"></div>
+
+                    <p class="list margin-left">
+                        <span class="bold">col-half</span>
+                        Equivale a metade da linha.
+                    </p>
+                    <div class="col-half col-fix padding-all bg-red"></div>
+
+                    <p class="list margin-left">
+                        <span class="bold">col-third</span>
+                        Equivale a um terço da linha.
+                    </p>
+                    <div class="col-third col-fix padding-all bg-green"></div>
+
+                    <p class="list margin-left">
+                        <span class="bold">col-quarter</span>
+                        Equivale a um quarto da linha.
+                    </p>
+                    <div class="col-quarter col-fix padding-all bg-blue"></div>
+                </div>
+
+                <div class="sm-margin-top">
+                    <hr class="sm-line" />
+                    <h2>Dividindo linhas com colunas</h2>
+                    <div class="row-pad">
+                        <div class="col-half">
+                            <p class="list margin-left bold">col-1</p>
+                            <div class="static">
+                                <div class="row text-light">
+                                    <div class="col-1 bg-red align-center">1</div>
+                                </div>
+                            </div>
+                            <div class="margin-top align-center">
+                                <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
+                            </div>
+                        </div>
+                        <div class="col-half">
+                            <p class="list margin-left bold">col-2</p>
+                            <div class="static">
+                                <div class="row text-light">
+                                    <div class="col-2 col-fix bg-red align-center">1</div>
+                                    <div class="col-2 col-fix bg-green align-center">2</div>
+                                </div>
+                            </div>
+                            <div class="margin-top align-center">
+                                <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
+                            </div>
+                        </div>
+                        <div class="col-half">
+                            <p class="list margin-left bold">col-3</p>
+                            <div class="static">
+                                <div class="row text-light">
+                                    <div class="col-3 col-fix bg-red align-center">1</div>
+                                    <div class="col-3 col-fix bg-green align-center">2</div>
+                                    <div class="col-3 col-fix bg-blue align-center">3</div>
+                                </div>
+                            </div>
+                            <div class="margin-top align-center">
+                                <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
+                            </div>
+                        </div>
+                        <div class="col-half">
+                            <p class="list margin-left bold">col-4</p>
+                            <div class="static">
+                                <div class="row text-light">
+                                    <div class="col-4 col-fix bg-red align-center">1</div>
+                                    <div class="col-4 col-fix bg-green align-center">2</div>
+                                    <div class="col-4 col-fix bg-blue align-center">3</div>
+                                    <div class="col-4 col-fix bg-red align-center">4</div>
+                                </div>
+                            </div>
+                            <div class="margin-top align-center">
+                                <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
+                            </div>
+                        </div>
+                        <div class="col-half">
+                            <p class="list margin-left bold">col-5</p>
+                            <div class="static">
+                                <div class="row text-light">
+                                    <div class="col-5 col-fix bg-red align-center">1</div>
+                                    <div class="col-5 col-fix bg-green align-center">2</div>
+                                    <div class="col-5 col-fix bg-blue align-center">3</div>
+                                    <div class="col-5 col-fix bg-red align-center">4</div>
+                                    <div class="col-5 col-fix bg-green align-center">5</div>
+                                </div>
+                            </div>
+                            <div class="margin-top align-center">
+                                <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
+                            </div>
+                        </div>
+                        <div class="col-half">
+                            <p class="list margin-left bold">col-6</p>
+                            <div class="static">
+                                <div class="row text-light">
+                                    <div class="col-6 col-fix bg-red align-center">1</div>
+                                    <div class="col-6 col-fix bg-green align-center">2</div>
+                                    <div class="col-6 col-fix bg-blue align-center">3</div>
+                                    <div class="col-6 col-fix bg-red align-center">4</div>
+                                    <div class="col-6 col-fix bg-green align-center">5</div>
+                                    <div class="col-6 col-fix bg-blue align-center">6</div>
+                                </div>
+                            </div>
+                            <div class="margin-top align-center">
+                                <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
+                            </div>
+                        </div>
+                        <div class="col-half">
+                            <p class="list margin-left bold">col-7</p>
+                            <div class="static">
+                                <div class="row text-light">
+                                    <div class="col-7 col-fix bg-red align-center">1</div>
+                                    <div class="col-7 col-fix bg-green align-center">2</div>
+                                    <div class="col-7 col-fix bg-blue align-center">3</div>
+                                    <div class="col-7 col-fix bg-red align-center">4</div>
+                                    <div class="col-7 col-fix bg-green align-center">5</div>
+                                    <div class="col-7 col-fix bg-blue align-center">6</div>
+                                    <div class="col-7 col-fix bg-red align-center">7</div>
+                                </div>
+                            </div>
+                            <div class="margin-top align-center">
+                                <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
+                            </div>
+                        </div>
+                        <div class="col-half">
+                            <p class="list margin-left bold">col-8</p>
+                            <div class="static">
+                                <div class="row text-light">
+                                    <div class="col-8 col-fix bg-red align-center">1</div>
+                                    <div class="col-8 col-fix bg-green align-center">2</div>
+                                    <div class="col-8 col-fix bg-blue align-center">3</div>
+                                    <div class="col-8 col-fix bg-red align-center">4</div>
+                                    <div class="col-8 col-fix bg-green align-center">5</div>
+                                    <div class="col-8 col-fix bg-blue align-center">6</div>
+                                    <div class="col-8 col-fix bg-red align-center">7</div>
+                                    <div class="col-8 col-fix bg-green align-center">8</div>
+                                </div>
+                            </div>
+                            <div class="margin-top align-center">
+                                <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
+                            </div>
+                        </div>
+                        <div class="col-half">
+                            <p class="list margin-left bold">col-9</p>
+                            <div class="static">
+                                <div class="row text-light">
+                                    <div class="col-9 col-fix bg-red align-center">1</div>
+                                    <div class="col-9 col-fix bg-green align-center">2</div>
+                                    <div class="col-9 col-fix bg-blue align-center">3</div>
+                                    <div class="col-9 col-fix bg-red align-center">4</div>
+                                    <div class="col-9 col-fix bg-green align-center">5</div>
+                                    <div class="col-9 col-fix bg-blue align-center">6</div>
+                                    <div class="col-9 col-fix bg-red align-center">7</div>
+                                    <div class="col-9 col-fix bg-green align-center">8</div>
+                                    <div class="col-9 col-fix bg-blue align-center">9</div>
+                                </div>
+                            </div>
+                            <div class="margin-top align-center">
+                                <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
+                            </div>
+                        </div>
+                        <div class="col-half">
+                            <p class="list margin-left bold">col-10</p>
+                            <div class="static">
+                                <div class="row text-light">
+                                    <div class="col-10 col-fix bg-red align-center">1</div>
+                                    <div class="col-10 col-fix bg-green align-center">2</div>
+                                    <div class="col-10 col-fix bg-blue align-center">3</div>
+                                    <div class="col-10 col-fix bg-red align-center">4</div>
+                                    <div class="col-10 col-fix bg-green align-center">5</div>
+                                    <div class="col-10 col-fix bg-blue align-center">6</div>
+                                    <div class="col-10 col-fix bg-red align-center">7</div>
+                                    <div class="col-10 col-fix bg-green align-center">8</div>
+                                    <div class="col-10 col-fix bg-blue align-center">9</div>
+                                    <div class="col-10 col-fix bg-red align-center">10</div>
+                                </div>
+                            </div>
+                            <div class="margin-top align-center">
+                                <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
+                            </div>
+                        </div>
+                        <div class="col-single">
+                            <p class="list margin-left bold">col-single</p>
+                            <div class="static">
+                                <div class="row text-light">
+                                    <div class="col-single align-center bg-red">1</div>
+                                </div>
+                            </div>
+                            <div class="margin-top align-center">
+                                <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
+                            </div>
+
+                            <p class="list margin-left bold">col-half</p>
+                            <div class="static">
+                                <div class="row text-light">
+                                    <div class="col-half col-fix align-center bg-red">1</div>
+                                    <div class="col-half col-fix align-center bg-green">2</div>
+                                </div>
+                            </div>
+                            <div class="margin-top align-center">
+                                <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
+                            </div>
+
+                            <p class="list margin-left bold">col-third</p>
+                            <div class="static">
+                                <div class="row text-light">
+                                    <div class="col-third col-fix align-center bg-red">1</div>
+                                    <div class="col-third col-fix align-center bg-green">2</div>
+                                    <div class="col-third col-fix align-center bg-blue">3</div>
+                                </div>
+                            </div>
+                            <div class="margin-top align-center">
+                                <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
+                            </div>
+
+                            <p class="list margin-left bold">col-quarter</p>
+                            <div class="static">
+                                <div class="row text-light">
+                                    <div class="col-quarter col-fix align-center bg-red">1</div>
+                                    <div class="col-quarter col-fix align-center bg-green">2</div>
+                                    <div class="col-quarter col-fix align-center bg-blue">3</div>
+                                    <div class="col-quarter col-fix align-center bg-red">4</div>
+                                </div>
+                            </div>
+                            <div class="margin-top align-center">
+                                <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
+                            </div>
+
+                            <p class="list margin-left bold">col-threequarter | col-quarter</p>
+                            <div class="static">
+                                <div class="row text-light">
+                                    <div class="col-threequarter col-fix align-center bg-red">1</div>
+                                    <div class="col-quarter col-fix align-center bg-green">2</div>
+                                </div>
+                            </div>
+                            <div class="margin-top align-center">
+                                <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
+                            </div>
+
+                            <p class="list margin-left bold">col-twothird | col-third</p>
+                            <div class="static">
+                                <div class="row text-light">
+                                    <div class="col-twothird col-fix align-center bg-red">1</div>
+                                    <div class="col-third col-fix align-center bg-green">2</div>
+                                </div>
+                            </div>
+                            <div class="margin-top align-center">
+                                <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
+                            </div>
+
+                            <p class="list margin-left bold">col-half | col-quarter | col-quarter</p>
+                            <div class="static">
+                                <div class="row text-light">
+                                    <div class="col-half col-fix align-center bg-red">1</div>
+                                    <div class="col-quarter col-fix align-center bg-green">2</div>
+                                    <div class="col-quarter col-fix align-center bg-blue">3</div>
+                                </div>
+                            </div>
+                            <div class="margin-top align-center">
+                                <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sm-margin-top">
+                    <hr class="sm-line" />
+                    <h2>Escala Máxima</h2>
+                    <p>Todas colunas são ajustadas para ter a largura total disponível quando
+                        a resolução for aproximadamente de 600 pixel&apos;s.</p>
+                    <p>Porém essa escala pode ser alterada adicionando um novo prefixo a
+                        coluna selecionada.</p>
+
+                    <div class="text-white">
+                        <div class="col-2 bg-red padding-all">
+                            <p class="list margin-left bold">col-2</p>
+                            Atinge total a largura total quando a resolução por de
+                            aproximadamente 600 pixel&apos;s
+                        </div>
+                        <div class="col-2-min bg-green padding-all">
+                            <p class="list margin-left bold">col-2-min</p>
+                            Atinge total a largura total quando a resolução por de
+                            aproximadamente 480 pixel&apos;s
+                        </div>
+                        <div class="col-2-max bg-blue padding-all">
+                            <p class="list margin-left bold">col-2-max</p>
+                            Atinge total a largura total quando a resolução por de
+                            aproximadamente 900 pixel&apos;s
+                        </div>
+                    </div>
+                    <div class="margin-top align-center">
+                        <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
+                    </div>
+                    <blockquote class="quote">
+                        O mesmo vale para qualquer coluna apenas definindo:
+                        <span class="bold">col-{tipo de coluna}-{escala}</span>.
+                        <p>Aumente ou diminua a largura da tela para visualizar o
+                            funcionamento.</p>
+                    </blockquote>
+                </div>
+
+                <div class="sm-margin-top">
+                    <hr class="sm-line" />
+                    <h2>Coluna fixa</h2>
+                    <p><span class="bold">col-fix</span>:
+                        Faz com que a coluna não atinja a largura total mesmo que a
+                        resolução tenha alcançado o limite permitido pela propriedade.</p>
+                    <blockquote class="quote-yellow">
+                        NOTA!
+                        <p>Essa propriedade só funciona com as colunas, sou seja qualquer
+                            col-{?}</p>
+                    </blockquote>
+                    <div class="text-white">
+                        <div class="col-2 col-fix padding-all bg-red">
+                            col-2 col-fix
+                        </div>
+                        <div class="col-3-min col-fix padding-all bg-green">
+                            col-3-min col-fix
+                        </div>
+                        <div class="col-4-max col-fix padding-all bg-blue">
+                            col-4-max col-fix
+                        </div>
+                    </div>
+                    <div class="margin-top align-center">
+                        <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
+                    </div>
+                </div>
+
+                <div class="sm-margin-top">
+                    <hr class="sm-line" />
+                    <h2>Coluna de escala reversa</h2>
+                    <p><span class="bold">col-reverse</span>:
+                        Altera o conceito das colunas, que são menores e passam a ter a
+                        largura total quando o limite da resoluçao é alcançado.</p>
+                    <p>Com essa propriedade a coluna já possui total a largura disponível
+                        por completo no entanto quando o limite designado pela coluna
+                        é alcançado, sua largura passa a ser a original.</p>
+                    <blockquote class="quote-yellow">
+                        NOTA!
+                        <p>Essa propriedade só funciona com as colunas, sou seja qualquer
+                            col-{?}</p>
+                    </blockquote>
+                    <div class="text-white">
+                        <div class="col-2 col-reverse padding-all bg-red">
+                            col-2 col-reverse
+                        </div>
+                        <div class="col-3-min col-reverse padding-all bg-green">
+                            col-3-min col-reverse
+                        </div>
+                        <div class="col-4-max col-reverse padding-all bg-blue">
+                            col-4-max col-reverse
+                        </div>
+                    </div>
+                    <div class="margin-top align-center">
+                        <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
+                    </div>
+                </div>
+
+                <div class="sm-margin-top">
+                    <hr class="sm-line" />
+                    <h2>Espaçamento</h2>
+                    <p>Sabendo que se definir a linha como <span class="bold">row-pad</span> vamos criar um distaciamento da coluna
+                        às margens da linha.</p>
+                    <p>Esse espaçamento é determindado pela configuração
+                        <q class="quote-green">--spacing-medium</q>, você poderá alterar
+                        essa configuração para ajustar o espaçamento conforme desejar.</p>
+                    <p>Porém aterar essa configuração irá intervir nos demais padrões que a usam,
+                        então você pode está aplicando, o próprio conceito de espaço interno
+                        padrão para cada coluna.</p>
+                    <p>Exemplo:</p>
+                    <div class="static">
+                        <div class="row-pad">
+                            <div class="col-3 bg-red">
+                                <div class="bg-black text-light">Espaçamento para col-3 definido pelo
+                                    <p class="bold">row-pad</p>
+                                </div>
+                            </div>
+                            <div class="col-3 bg-green">
+                                <div class="bg-black text-light">Espaçamento para col-3 definido pelo
+                                    <p class="bold">row-pad</p>
+                                </div>
+                            </div>
+                            <div class="col-3 bg-blue">
+                                <div class="bg-black text-light">Espaçamento para col-3 definido pelo
+                                    <p class="bold">row-pad</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="margin-top align-center">
+                        <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
+                    </div>
+                    <div class="margin-top">
+                        <div class="row">
+                            <div class="col-3 padding-all-min bg-red">
+                                <div class="bg-black text-light">Espaçamento para col-3 definido pelo
+                                    <p class="bold">padding-all-min</p>
+                                </div>
+                            </div>
+                            <div class="col-3 padding-all-min bg-green">
+                                <div class="bg-black text-light">Espaçamento para col-3 definido pelo
+                                    <p class="bold">padding-all-min</p>
+                                </div>
+                            </div>
+                            <div class="col-3 padding-all-min bg-blue">
+                                <div class="bg-black text-light">Espaçamento para col-3 definido pelo
+                                    <p class="bold">padding-all-min</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="margin-top align-center">
+                        <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
+                    </div>
+                    <div class="margin-top">
+                        <div class="row">
+                            <div class="col-3 padding-all-max bg-red">
+                                <div class="bg-black text-light">Espaçamento para col-3 definido pelo
+                                    <p class="bold">padding-all-max</p>
+                                </div>
+                            </div>
+                            <div class="col-3 padding-all-max bg-green">
+                                <div class="bg-black text-light">Espaçamento para col-3 definido pelo
+                                    <p class="bold">padding-all-max</p>
+                                </div>
+                            </div>
+                            <div class="col-3 padding-all-max bg-blue">
+                                <div class="bg-black text-light">Espaçamento para col-3 definido pelo
+                                    <p class="bold">padding-all-max</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="margin-top align-center">
+                        <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
+                    </div>
+                </div>
+
+                <div class="sm-margin-top">
+                    <hr class="sm-line" />
+                    <h2>É tudo questão de matemática</h2>
+                    <p>Sabendo que cada linha se divide de acordo com a(s) coluna(s) aplicada podemos criar um layout usando
+                        a matemática.</p>
+                    <p>Então podemos criar o layout responsivo com infinitas possibilidades.</p>
+                    <p>Vejamos abaixo como funciona a coisa toda na prática:</p>
+                    <div class="text-white bold align-center">
+                        <div class="row">
+                            <div class="col-single bg-dark-grey">
+                                <div class="box-y-50"></div>
+                            </div>
+                            <div class="col-single bg-black">
+                                <div class="padding-all box-y-200"></div>
+                            </div>
+                        </div>
+                        <div class="row-pad">
+                            <div class="col-twothird bg-grey">
+                                <div class="row-pad">
+                                    <div class="col-3"><div class="bg-red box-y-100"></div></div>
+                                    <div class="col-3"><div class="bg-green box-y-100"></div></div>
+                                    <div class="col-3"><div class="bg-blue box-y-100"></div></div>
+                                    <div class="col-3"><div class="bg-yellow box-y-100"></div></div>
+                                    <div class="col-3"><div class="bg-pink box-y-100"></div></div>
+                                    <div class="col-3"><div class="bg-purple box-y-100"></div></div>
+                                    <div class="col-1">
+                                        <div class="row">
+                                            <div class="col-2"><div class="bg-indigo box-y-100"></div></div>
+                                            <div class="col-2"><div class="bg-aqua box-y-100"></div></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-third bg-sand">
+                                <div class="row-pad">
+                                    <div class="col-single"><div class="bg-orange box-y-100"></div></div>
+                                    <div class="col-single"><div class="bg-brown box-y-100"></div></div>
+                                    <div class="col-single"><div class="bg-dark-blue box-y-100"></div></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-single bg-dark-grey"><div class="box-y-50"></div></div>
+                    </div>
+                    <div class="margin-top align-center">
+                        <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer class="bg-white">
+            <div class="modal" id="show-code">
+                <div class="modal-box">
+                    <div class="modal-header"><span class="font-max">Código Fonte</span></div>
+                    <div class="modal-content"><pre><code class="language-html"></code></pre></div>
+                </div>
+            </div>
+        </footer>
+        <script>showCode.init()</script>
+    </body>
+</html>

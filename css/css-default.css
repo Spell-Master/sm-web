@@ -129,7 +129,7 @@ svg:not(:root) {overflow:hidden}
 fieldset {border:.0625rem solid #c0c0c0; margin:.125rem; padding:.35rem .625rem .75rem}
 legend {color:inherit; display:table; max-width:100%; white-space:normal; border:0; padding:0}
 textarea {overflow:auto}
-button, input, optgroup, select, textarea {margin:0; vertical-align:baseline; vertical-align:middle; font:inherit}
+button, input, optgroup, select, textarea {margin:0; vertical-align:baseline; font:inherit}
 button, input {line-height:normal; border:none}
 button, select {text-transform:none}
 button, [type="button"], [type="reset"], [type="submit"] {-webkit-appearance:button; cursor:pointer}

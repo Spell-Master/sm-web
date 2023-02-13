@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>clear</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <link href="../../../css/css-default.css" rel="stylesheet" type="text/css" />
+        <link href="../../../lib/prism/prism.css" rel="stylesheet" type="text/css" />
+        <link href="../../../lib/stylesheet/core.css" rel="stylesheet" type="text/css" />
+
+        <script src="../js-default.js" type="text/javascript"></script>
+        <script src="../../../lib/prism/prism.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <header>
+            <div class="bg-dark-grey padding-all text-white">
+                <div class="container">
+                    <h1>clear</h1>
+                </div>
+            </div>
+            <div class="bg-light padding-all">
+                <div class="container">
+                    Elimina elementos dentro do alvo
+                </div>
+            </div>
+            <div class="alert-info">
+                <div class="container">
+                    <p class="bold italic">recursion</p>
+                    <p>Esse método é recursivo outros elementos</p>
+                    <pre class="language-javascript"><code>jsd('#exemplo').clear(); // Executa apenas em &lt;div id="exemplo"&gt;
+jsd('.exemplo').clear(); // Executa em todos &lt;div class="exemplo"&gt;</code></pre>
+                </div>
+            </div>
+        </header>
+        <main class="bg-white">
+            <div class="container padding-all">
+                <div class="row-pad">
+                    <div class="col-single">
+                        <pre class="language-html"><code>&lt;div id="exemplo"&gt;
+    &lt;span&gt;Vão 1 / &lt;/span&gt;
+    &lt;span&gt;Vão 2 / &lt;/span&gt;
+    &lt;span&gt;Vão 3 / &lt;/span&gt;
+    &lt;span&gt;Vão 4 / &lt;/span&gt;
+    &lt;span&gt;Vão 5&lt;/span&gt;
+    &lt;p class="x"&gt;Parágrafo 1&lt;/p&gt;
+    &lt;p&gt;Parágrafo 2&lt;/p&gt;
+    &lt;p&gt;Parágrafo 3&lt;/p&gt;
+    &lt;p&gt;Parágrafo 4&lt;/p&gt;
+    &lt;p class="x"&gt;Parágrafo 5&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+                    <div class="col-half">
+                        Elimina todos elementos internos
+                        <pre class="language-javascript"><code>jsd('#exemplo').clear();</code></pre>
+                        <div class="padding-top-max"><p></p></div>
+                        <div class="margin-top align-center">
+                            <button onclick="executar('1')" class="btn-default radius-all-min bold">Executar</button>
+                        </div>
+                    </div>
+                    <div class="col-half">
+                        Elimina elementos internos expecíficos
+                        <pre class="language-javascript"><code>var exemplo = jsd('#exemplo');
+exemplo.clear('span'); // Todas: tag's &lt;span&gt;
+exemplo.clear('.x'); // Todos: class="x"
+</code></pre>
+                        <div class="margin-top align-center">
+                            <button onclick="executar('2')" class="btn-default radius-all-min bold">Executar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="margin-top-max">
+                    <div class="card padding-all">
+                        <div id="exemplo">
+                            <span>Vão 1  / / </span>
+                            <span>Vão 2 / </span>
+                            <span>Vão 3 / </span>
+                            <span>Vão 4 / </span>
+                            <span>Vão 5</span>
+                            <p class="x">Parágrafo 1</p>
+                            <p>Parágrafo 2</p>
+                            <p>Parágrafo 3</p>
+                            <p>Parágrafo 4</p>
+                            <p class="x">Parágrafo 5</p>
+                        </div>
+                    </div>
+                    <div class="margin-top align-center">
+                        <button onclick="restaurar()" class="btn-info bold">Restaurar Exemplo</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer class="bg-white"></footer>
+        <script>
+            var exemplo = jsd('#exemplo');
+            function executar(param) {
+                switch (param) {
+                    case '1':
+                        exemplo.clear();
+                        break;
+                    case '2':
+                        exemplo.clear('span');
+                        exemplo.clear('.x');
+                        break;
+                }
+            }
+
+            function restaurar() {
+                exemplo.html('<span>Vão 1 / </span>\n\
+                    <span>Vão 2 / </span>\n\
+                    <span>Vão 3 / </span>\n\
+                    <span>Vão 4 / </span>\n\
+                    <span>Vão 5</span>\n\
+                    <p class="x">Parágrafo 1</p>\n\
+                    <p>Parágrafo 2</p>\n\
+                    <p>Parágrafo 3</p>\n\
+                    <p>Parágrafo 4</p>\n\
+                    <p class="x">Parágrafo 5</p>');
+            }
+        </script>
+    </body>
+</html>

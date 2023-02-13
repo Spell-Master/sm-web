@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>selectIndex</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <link href="../../../css/css-default.css" rel="stylesheet" type="text/css" />
+        <link href="../../../lib/prism/prism.css" rel="stylesheet" type="text/css" />
+        <link href="../../../lib/stylesheet/core.css" rel="stylesheet" type="text/css" />
+
+        <script src="../js-default.js" type="text/javascript"></script>
+        <script src="../../../lib/prism/prism.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <header>
+            <div class="bg-dark-grey padding-all text-white">
+                <div class="container">
+                    <h1>selectIndex</h1>
+                </div>
+            </div>
+            <div class="bg-light padding-all">
+                <div class="container">
+                    Manipula o índice selecionado de tag &lt;select&gt;
+                </div>
+            </div>
+            <div class="alert-info">
+                <div class="container">
+                    <p class="bold italic">recursion</p>
+                    <p>Esse método é recursivo outros elementos</p>
+                    <pre class="language-javascript"><code>
+jsd('#exemplo').selectIndex(); // Executa apenas em &lt;div id="exemplo"&gt;
+jsd('.exemplo').selectIndex(); // Executa apenas no primeiro &lt;div class="exemplo"&gt;
+
+jsd('#exemplo').selectIndex(2); // Executa apenas em &lt;div id="exemplo"&gt;
+jsd('.exemplo').selectIndex(2); // Executa em todos &lt;div class="exemplo"&gt;
+</code></pre>
+                </div>
+            </div>
+        </header>
+        <main class="bg-white">
+            <div class="container padding-all">
+                <blockquote class="quote">
+                    Caso o valor designado para alterar o seletor for maior que as opções
+                    disponíveis o seletor não será modificado.
+                </blockquote>
+
+                <pre class="language-html"><code>&lt;select id="exemplo"&gt;
+    &lt;option value="valor do select a"&gt;opção a&lt;/option&gt;
+    &lt;option value="valor do select b"&gt;opção b&lt;/option&gt;
+    &lt;option value="valor do select c"&gt;opção c&lt;/option&gt;
+&lt;/select&gt;</code></pre>
+
+                <div class="row-pad">
+                    <div class="col-half">
+                        Mostra o índice selecionado
+                        <pre class="language-javascript"><code>jsd('#exemplo').selectIndex()</code></pre>
+                        <div class="margin-top align-center">
+                            <button onclick="executar('1')" class="btn-default radius-all-min bold">Executar</button>
+                        </div>
+                    </div>
+                    <div class="col-half">
+                        Altera o índice selecionado
+                        <pre class="language-javascript"><code>jsd('#exemplo').selectIndex(2)</code></pre>
+                        <div class="margin-top align-center">
+                            <button onclick="executar('2')" class="btn-default radius-all-min bold">Executar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="margin-top-max">
+                    <div class="card padding-all">
+                        <select id="exemplo">
+                            <option value="valor do select a">opção a</option>
+                            <option value="valor do select b">opção b</option>
+                            <option value="valor do select c">opção c</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer class="bg-white"></footer>
+        <script>
+            var exemplo = jsd('#exemplo');
+            function executar(p) {
+                switch (p) {
+                    case '1':
+                        console.log(exemplo.selectIndex());
+                        break;
+                    case '2':
+                        exemplo.selectIndex(2);
+                        break;
+                }
+            }
+        </script>
+    </body>
+</html>

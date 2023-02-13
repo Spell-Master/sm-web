@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>addFunction</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <link href="../../../css/css-default.css" rel="stylesheet" type="text/css" />
+        <link href="../../../lib/prism/prism.css" rel="stylesheet" type="text/css" />
+        <link href="../../../lib/stylesheet/core.css" rel="stylesheet" type="text/css" />
+
+        <script src="../js-default.js" type="text/javascript"></script>
+        <script src="../../../lib/prism/prism.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <header>
+            <div class="bg-dark-grey padding-all text-white">
+                <div class="container">
+                    <h1>addFunction</h1>
+                </div>
+            </div>
+            <div class="bg-light padding-all">
+                Adiciona nova função vinculada a jsd
+            </div>
+        </header>
+        <main class="bg-white">
+            <div class="container padding-all">
+                <div class="row-pad">
+                    <div class="col-half">
+                        Adicionar alguma função
+                        <pre class="language-javascript"><code>function funcaoA() {
+    console.log('Função A', this('#exemplo').html());
+}
+jsd.addFunction(funcaoA);
+
+// Executa função adicionada
+jsd.funcaoA();</code></pre>
+                        <div class="margin-top align-center">
+                            <button onclick="executar('1')" class="btn-default radius-all-min bold">Executar funcaoA</button>
+                        </div>
+                    </div>
+                    <div class="col-half">
+                        Adicionar multiplas funções
+                        <pre class="language-javascript"><code>function boooo() {
+    console.log('BOOOOOOO!!!!', this);
+}
+jsd.addFunction({
+    funcaoB: function () {
+    console.log('Função B');
+    },
+    funcaoC: function () {
+        console.log('Função C');
+    },
+    funcaoD: boooo
+});
+
+// Executa funções adicionadas
+jsd.funcaoB();
+jsd.funcaoC();
+jsd.funcaoD();</code></pre>
+                        <div class="margin-top align-center">
+                            <button onclick="executar('2')" class="btn-default radius-all-min bold">Executar Todas</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="margin-top-max">
+                    <div class="card padding-all">
+                        <div id="exemplo">Olá mundo</div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer class="bg-white"></footer>
+        <script>
+            function funcaoA() {
+                console.log('Função A', this('#exemplo').html());
+            }
+            jsd.addFunction(funcaoA);
+
+            function boooo() {
+                console.log('BOOOOOOO!!!!', this);
+            }
+            jsd.addFunction({
+                funcaoB: function () {
+                    console.log('Função B');
+                },
+                funcaoC: function () {
+                    console.log('Função C');
+                },
+                funcaoD: boooo
+            });
+
+
+            function executar(param) {
+                switch (param) {
+                    case '1':
+                        jsd.funcaoA();
+                        break;
+                    case '2':
+                        jsd.funcaoB();
+                        jsd.funcaoC();
+                        jsd.funcaoD();
+                        break;
+                }
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Encontrar Internos</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <link href="../../../css/css-default.css" rel="stylesheet" type="text/css" />
+        <link href="../../../lib/prism/prism.css" rel="stylesheet" type="text/css" />
+        <link href="../../../lib/stylesheet/core.css" rel="stylesheet" type="text/css" />
+
+        <script src="../js-default.js" type="text/javascript"></script>
+        <script src="../../../lib/prism/prism.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <header>
+            <div class="bg-dark-grey padding-all text-white">
+                <div class="container">
+                    <h1>Encontrar Internos</h1>
+                </div>
+            </div>
+            <div class="bg-light padding-all">
+                Encontra elemento interno sendo filho direto ou não
+            </div>
+        </header>
+        <main class="bg-white">
+            <div class="container padding-all">
+                <pre class="language-html"><code>&lt;div id="pai-a"&gt;Pai A
+    &lt;div class="filho-a"&gt;Filho 1&lt;/div&gt;
+    &lt;div class="filho-a"&gt;Filho 2&lt;/div&gt;
+    &lt;div class="filho-a"&gt;Filho 3&lt;/div&gt;
+    &lt;div id="pai-b"&gt;Pai B
+        &lt;div class="filho-b"&gt;Filho 4&lt;/div&gt;
+        &lt;div class="filho-b"&gt;Filho 5&lt;/div&gt;
+        &lt;div class="filho-b"&gt;Filho 6&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;script&gt;
+console.log(
+    jsd('#pai-a').find('.filho-a'), // Filho 1/2/3
+    jsd('#pai-a').find('.filho-b'), // Filho 4/5/6
+
+    jsd('#pai-b').find('.filho-b') // Filho 4/5/6
+);
+&lt;/script&gt;</code></pre>
+                <div class="margin-top align-center">
+                    <button onclick="executar()" class="btn-default radius-all-min bold">Executar</button>
+                </div>
+                <div class="margin-top-max">
+                    <div class="card padding-all">
+                        <div id="pai-a">Pai A
+                            <div class="filho-a">Filho 1</div>
+                            <div class="filho-a">Filho 2</div>
+                            <div class="filho-a">Filho 3</div>
+                            <div id="pai-b">Pai B
+                                <div class="filho-b">Filho 4</div>
+                                <div class="filho-b">Filho 5</div>
+                                <div class="filho-b">Filho 6</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer class="bg-white"></footer>
+        <script>
+            var paiA = jsd('#pai-a'), paiB = jsd('#pai-b');
+            function executar() {
+                console.log(paiA.find('.filho-a'));
+                console.log(paiA.find('.filho-b'));
+                console.log(paiB.find('.filho-b'));
+            }
+        </script>
+    </body>
+</html>

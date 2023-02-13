@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Asynchronous Javascript and Xml</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <link href="../../../css/css-default.css" rel="stylesheet" type="text/css" />
+        <link href="../../../lib/prism/prism.css" rel="stylesheet" type="text/css" />
+        <link href="../../../lib/stylesheet/core.css" rel="stylesheet" type="text/css" />
+
+        <script src="../../jsd/js-default.js" type="text/javascript"></script>
+        <script src="ajax.js" type="text/javascript"></script>
+        <script src="../../../lib/prism/prism.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <header>
+            <div class="bg-dark-grey padding-all text-white">
+                <div class="container">
+                    <h1>Asynchronous Javascript and Xml</h1>
+                </div>
+            </div>
+        </header>
+        <main class="bg-white">
+            <div class="container padding-all">
+                A função <span class="bold">ajax</span> é uma função de extensão para
+                <span class="bold">jsd</span>, portantanto torna-se opcional.
+                <p>Requer instalação seperada.</p>
+
+                <div class="margin-top-max">
+                    <hr class="sm-line" />
+                    <h2>Apresentação:</h2>
+                    <div class="row-pad">
+                        <div class="col-half">
+                            <button class="btn-default button-block radius-all-min bold" onclick="executar('1')">Executar GET</button>
+                        </div>
+                        <div class="col-half">
+                            <button class="btn-default button-block radius-all-min bold" onclick="executar('2')">Executar POST</button>
+                        </div>
+                    </div>
+                    <blockquote class="quote-yellow">
+                        <p class="bold">Observação:</p>
+                        <p>Para mais detalhes veja o console do navegador.</p>
+                    </blockquote>
+                </div>
+                <div id="resultado" class="margin-top-max"></div>
+
+                <hr class="sm-line sm-margin-top" />
+                <h2>Intalação</h2>
+                <p>Adicione os arquivos necessários</p>
+                <ul class="margin-left">
+                    <li><span class="bold">js-default.js</span>: Biblioteca de recursos</li>
+                    <li><span class="bold">ajax.js</span>: Função extendida para js-default.js</li>
+                </ul>
+                <pre><code class="language-html">&lt;script src="../jsd/js-default.js" type="text/javascript"&gt;&lt;/script&gt;
+&lt;script src="ajax.js" type="text/javascript"&gt;&lt;/script&gt;</code></pre>
+
+                <hr class="sm-line sm-margin-top" />
+                <h2>Utilização</h2>
+                <pre><code class="language-javascript">jsd.ajax({
+   url: 'url ou arquivo de destino',
+   protocol: 'Protocolo de envio (GET ou POST)',
+   type: 'Tipo de envio ([html ou text/html] ou [text, text/plain] ou [xml ou text/xml])'
+   response: 'Tipo de resposta ([text ou responseText] ou [xml, responseXML])',
+   values: 'Dados para enviar envio, string ou objeto',
+   onError: function (error) { // Executa quando ocorre erros (Se definido obrigatório ser função!)
+       console.log(error);
+   },
+   onStart: function (start) { // Executa quando começa (Se definido obrigatório ser função!)
+       console.log(start);
+   },
+   onProgress: function (progress) { // Executa quando está carregando (Se definido obrigatório ser função!)
+       console.log(progress);
+   },
+   onEnd: function (end) { // Executa quando termina (Se definido obrigatório ser função!)
+       console.log(end);
+   },
+   onResult: function (result) { // Executa quando tudo está terminado (Se definido obrigatório ser função!)
+       console.log(result);
+   }
+});</code></pre>
+
+                <hr class="sm-line sm-margin-top" />
+                <h2>Opções</h2>
+                <p>As opções definidas vão ditar como todo o processo deve ser executado.</p>
+                <p>Qualquer uma é opcional se não definida. Use somente o que achar necessário.</p>
+
+                <div class="margin-top">
+                    <p><span class="font-max">url</span>:
+                        Como "string" você informa uma para onde a requisição será lançada.
+                    </p>
+                    <p>Por padrão quando não definida essa opção o local onde será lançado
+                        a requisição será a própria url atual.</p>
+                    <p>Então pode-se optar por url's, arquivos ou ambos exemplo:</p>
+                    <pre><code class="language-javascript">url: &apos;arquivo&period;php&apos;
+url: &apos;https&colon;&sol;&sol;endereco&sol;diretorio&sol;&apos;
+url: &apos;https&colon;&sol;&sol;endereco&sol;diretorio&sol;arquivo&period;php&apos;</code></pre>
+                    <div class="alert-warning">
+                        Mas atenção!
+                        <p>Não utilize parâmetros de envio junto tais como
+                            <q class="quote-red italic">
+                                arquivo&period;php&quest;param&equals;value
+                            </q>
+                            a função sempre vai tentar ignorar, porque existe uma opção expecífica para
+                            enviar dados.
+                        </p>
+                    </div>
+                </div>
+                <div class="margin-top">
+                    <p><span class="font-max">protocol</span>:
+                        Como "string" você informa qual o tipo requisição que será lançada.</p>
+                    <p>Se não informado o padrão será GET</p>
+                    <p>Aqui há duas possibilidades, exemplo:</p>
+                    <pre><code class="language-javascript">protocol: &apos;GET&apos;
+protocol: &apos;POST&apos;</code></pre>
+                </div>
+                <div class="margin-top">
+                    <p><span class="font-max">type</span>:
+                        Como "string" você informa qual o tipo de dados está sendo enviado,
+                        isso definirar como quem recebe deve processar tais dados.
+                    </p>
+                    <p>Se não informado o padrão será text/html</p>
+                    <p>Aqui há três possibilidades que podemos sub-dividir em seis, exemplo:</p>
+                    <pre><code class="language-javascript">type: &apos;text/html&apos;
+type: &apos;text/plain&apos;
+type: &apos;text/xml&apos;
+type: &apos;html&apos; // O mesmo que text/html
+type: &apos;text&apos; // O mesmo que text/plain
+type: &apos;xml&apos; // O mesmo que text/xml</code></pre>
+                </div>
+                <div class="margin-top">
+                    <p><span class="font-max">response</span>:
+                        Como "string" você informa qual o tipo de dados será recebido.</p>
+                    <p>Se não informado o padrão será responseText</p>
+                    <p>Aqui há dus possibilidades que podemos sub-dividir em quatro, exemplo:</p>
+                    <pre><code class="language-javascript">type: &apos;responseText&apos;
+type: &apos;responseXML&apos;
+type: &apos;text&apos; // O mesmo que responseText
+type: &apos;xml&apos; // O mesmo que responseXML</code></pre>
+                </div>
+                <div class="margin-top">
+                    <p><span class="font-max">values</span>:
+                        Pode-se informar como "string" exemplo:</p>
+                    <pre><code class="language-javascript">values: &apos;pessoa=maria&amp;idade=30&apos;</code></pre>
+                    <p>Pode-se informar como "object" exemplo:</p>
+                    <pre><code class="language-javascript">values: {pessoa: 'maria', idade: '30'}</code></pre>
+                    <div class="alert-warning">
+                        Mas atenção!
+                        <p>Quando optar em usar um objeto; será convertido as entradas e valores
+                            para uma uri válida <span class="bold">isso é necessário para que
+                                os dados sejam repassados corretamente pelo protocolo</span></p>
+                        <p>Como sugestão se for usar um texto também execute esse
+                            processo:</p>
+                        <pre><code class="language-javascript">// Na prática seria isso mas com uma URI inválida:
+// Nome da Pessoa=a pessoa é maria&amp;Idade da Pessoa=ela tem 30 anos
+
+// Para correta URI faça a conversão
+var enviar = encodeURIComponent('Nome da Pessoa') + '=' + encodeURIComponent('a pessoa é maria')
++ '&amp;'
++ encodeURIComponent('Idade da Pessoa') + '=' + encodeURIComponent('ela tem 30 anos');
+// Resultando em uma URI válida:
+// Nome%20da%20Pessoa=a%20pessoa%20%C3%A9%20maria&amp;Idade%20da%20Pessoa=ela%20tem%2030%20anos 
+values: enviar
+</code></pre>
+                        <p>Optando em usar um objeto esse processo já é altomatizado, não sendo
+                            necessário preocupações a respeito.</p>
+                    </div>
+                </div>
+                <div class="margin-top">
+                    <p><span class="font-max">onError</span>:
+                        Pode-se informar alguma função que deve ser executada quando ocorrer algum
+                        erro com o destino.
+                    </p>
+                    <p>Você poderá adicionar um parâmetro de retorno, que terá informação
+                        do erro que aconteceu, exemplo:</p>
+                    <pre><code class="language-javascript">onError: function (retorno) {
+    console.log(retorno)
+}</code></pre>
+                </div>
+                <div class="margin-top">
+                    <p><span class="font-max">onStart</span>:
+                        Pode-se informar alguma função que deve ser executada quando 
+                        a comuniação é iniciada.
+                    </p>
+                    <p>Exemplo:</p>
+                    <pre><code class="language-javascript">onStart: function () {}</code></pre>
+                </div>
+                <div class="margin-top">
+                    <p><span class="font-max">onProgress</span>:
+                        Pode-se informar alguma função que deve ser executada antes que a resposta
+                        com o destino ainda não existe.
+                    </p>
+                    <p>Exemplo:</p>
+                    <pre><code class="language-javascript">onProgress: function () {}</code></pre>
+                </div>
+                <div class="margin-top">
+                    <p><span class="font-max">onEnd</span>:
+                        Pode-se informar alguma função que deve ser executada quando a conexão
+                        foi completada, mas ainda não foi processada a resposta recebida
+                        pelo destino.
+                    </p>
+                    <p>Exemplo:</p>
+                    <pre><code class="language-javascript">onEnd: function () {}</code></pre>
+                </div>
+                <div class="margin-top">
+                    <p><span class="font-max">onResult</span>:
+                        Pode-se informar alguma função que deve ser executada depois que alguma
+                        resposta já possa ser usada.</p>
+                    <p>Você poderá adicionar um parâmetro de retorno, que terá informação
+                        da resposta;
+                        <q class="quote-blue">mas é necessário que o destino informe algum
+                            retorno no formato pré estipulado pela opção
+                            <span class="bold">response</span></q>, exemplo:</p>
+                    <p>Exemplo:</p>
+                    <pre><code class="language-javascript">onResult: function (reposta) {
+    console.log(reposta)
+}</code></pre>
+                </div>
+
+                <div class="margin-top-max">
+                    <hr class="sm-line" />
+                    <h2>Valores para formulários:</h2>
+                </div>
+                <p>Você pode simplificar os valores para um formulário apenas utilizando
+                    o método <span class="bold">serialize</span>.</p>
+                <p>Ele irá lhe retornar todos dados do formulário disponível, com a correta
+                    codificação para ser enviada pelo protocolo.</p>
+                <p>Exemlo:</p>
+                <pre><code class="language-html">
+&lt;div id="dados-da-resposta"&gt;&lt;/div&gt;
+&lt;form id="formulario"&gt;
+    &lt;input type="text" name="enviar_text" value="olá" /&gt;
+    &lt;input type="checkbox" name="enviar_checkbox" value="mundo" checked="" /&gt;
+    &lt;button type="submit">Enviar&lt;/button&gt;
+&lt;/form&gt;
+&lt;script&gt;
+    var formulario = jsd('#formulario');
+    formulario.submit(function (e) {
+        e.preventDefault();
+        jsd.ajax({
+            url: 'receber_dados.php',
+            protocol: 'GET',
+            values: formulario.serialize(), // automaticamente obtemos e codificamos os dados do formulário
+            onError: function (erro) {
+                console.log(erro);
+            },
+            onResult: function (resposta_obtida) {
+                jsd('#dados-da-resposta').html(resposta_obtida);
+            }
+        });
+    });
+&lt;/script&gt;
+</code></pre>
+            </div>
+        </main>
+        <footer class="bg-white"></footer>
+        <script>
+            function executar(p) {
+                jsd.ajax({
+                    url: 'receber_dados.php',
+                    protocol: (p === '1' ? 'GET' : 'POST'),
+                    values: {
+                        entrada_A: 'valor de A',
+                        entrada_E: 'valor de E',
+                        entrada_I: 'valor de I',
+                        entrada_O: 'valor de O',
+                        entrada_U: 'valor de U'
+                    },
+                    onError: function (retorno) {
+                        console.log('função "onError" executada, retornando:\n' + retorno);
+                    },
+                    onStart: function (retorno) {
+                        console.log('função "onStart" executada, retornando:\n' + retorno);
+                    },
+                    onProgress: function (retorno) {
+                        console.log('função "onProgress" executada, retornando:\n' + retorno);
+                    },
+                    onEnd: function (retorno) {
+                        console.log('função "onEnd" executada, retornando:\n' + retorno);
+                    },
+                    onResult: function (retorno) {
+                        console.log('função "onResult" executada, retornando:\n' + retorno);
+                        jsd('#resultado').html(retorno);
+                    }
+                });
+            }
+        </script>
+    </body>
+</html>

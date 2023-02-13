@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>width</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <link href="../../../css/css-default.css" rel="stylesheet" type="text/css" />
+        <link href="../../../lib/prism/prism.css" rel="stylesheet" type="text/css" />
+        <link href="../../../lib/stylesheet/core.css" rel="stylesheet" type="text/css" />
+
+        <script src="../js-default.js" type="text/javascript"></script>
+        <script src="../../../lib/prism/prism.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <header>
+            <div class="bg-dark-grey padding-all text-white">
+                <div class="container">
+                    <h1>width</h1>
+                </div>
+            </div>
+            <div class="bg-light padding-all">
+                <div class="container">
+                    Largura do elemento
+                </div>
+            </div>
+            <div class="alert-info">
+                <div class="container">
+                    <p class="bold italic">recursion</p>
+                    <p>Esse método é recursivo outros elementos</p>
+                    <pre class="language-javascript"><code>jsd('#exemplo').width(); // Executa apenas em &lt;div id="exemplo"&gt;
+jsd('.exemplo').width(); // Executa apenas no primeiro &lt;div class="exemplo"&gt;
+
+jsd('#exemplo').width(true); // Executa apenas em &lt;div id="exemplo"&gt;
+jsd('.exemplo').width(true); // Executa apenas no primeiro &lt;div class="exemplo"&gt;
+
+jsd('#exemplo').width('100px'); // Executa apenas em &lt;div id="exemplo"&gt;
+jsd('.exemplo').width('100px'); // Executa em todos &lt;div class="exemplo"&gt;</code></pre>
+                </div>
+            </div>
+        </header>
+        <main class="bg-white">
+            <div class="container padding-all">
+                <blockquote class="quote">
+                    O retorno da largura é um numero inteiro com base nos pixel's computados
+                </blockquote>
+                <div class="row-pad">
+                    <div class="col-single">
+                        <pre class="language-html"><code>&lt;div id="exemplo" class="margin-all"&gt;exemplo&lt;/div&gt;</code></pre>
+                    </div>
+                    <div class="col-third">
+                        Largura do elemento
+                        <pre class="language-javascript"><code>jsd('#exemplo').width()</code></pre>
+                        <div class="margin-top align-center">
+                            <button onclick="executar('1')" class="btn-default radius-all-min bold">Executar</button>
+                        </div>
+                    </div>
+                    <div class="col-third">
+                        Largura do elemento computada (Inclui suas margens)
+                        <pre class="language-javascript"><code>jsd('#exemplo').width(true);</code></pre>
+                        <div class="margin-top align-center">
+                            <button onclick="executar('2')" class="btn-default radius-all-min bold">Executar</button>
+                        </div>
+                    </div>
+                    <div class="col-third">
+                        Alterar ou definir largura
+                        <pre class="language-javascript"><code>jsd('#exemplo').width('5rem');</code></pre>
+                        <div class="margin-top align-center">
+                            <button onclick="executar('3')" class="btn-default radius-all-min bold">Executar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="margin-top-max">
+                    <div class="card padding-all">
+                        <div id="exemplo" class="margin-all">exemplo</div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer class="bg-white"></footer>
+        <script>
+            var exemplo = jsd('#exemplo');
+            function executar(param) {
+                switch (param) {
+                    case '1':
+                        console.log(exemplo.width());
+                        break;
+                    case '2':
+                        console.log(exemplo.width(true));
+                        break;
+                    case '3':
+                        exemplo.width('5rem');
+                        break;
+                }
+            }
+        </script>
+    </body>
+</html>

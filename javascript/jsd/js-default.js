@@ -15,8 +15,6 @@ var jsd = jsd || {};
 (function () {
     'use strict';
 
-    var $xhr; // XMLHttpRequest 
-
     /**
      * **********************************************
      * Anexa todos elementos ao script adicionando
@@ -32,246 +30,171 @@ var jsd = jsd || {};
             $this[$i] = arr[$i];
         }
         $this.length = arr.length;
-        return this;
+        return (this);
     };
-    $_.objectMethods = objectHTML.prototype;
     $_.objectHTML = objectHTML;
+    $_.objectMethods = objectHTML.prototype;
 
     /**
      * **********************************************
      * @private
      * Busca pelos elementos no documento.
      * 
-     * @param {STRING/OBJECT} tgt
-     * Elemento(s) alvo para anexar ao script.
+     * @param {STRING/OBJECT} strObj
+     * Elemento alvo para anexar ao script.
      * **********************************************
      */
-    function $_(tgt) {
-        var $nodes = [];
-        if (tgt instanceof objectHTML) {
-            return tgt;
-        } else if (tgt.nodeType || tgt === window || tgt === document) {
-            $nodes.push(tgt);
-        } else if ($_.isString(tgt)) {
-            $_.each(document.querySelectorAll(tgt.trim()), function (index, value) {
-                if (value.nodeType) {
-                    $nodes.push(value);
+    function $_(strObj) {
+        var $push = [], $i = 0;
+        try {
+            if (strObj instanceof objectHTML) {
+                return (strObj);
+            } else if (strObj.nodeType || strObj === window || strObj === document) {
+                return (new objectHTML([strObj]));
+            } else if ($_.isExists(strObj[0].nodeType)) {
+                for (; $i < strObj.length; $i++) {
+                    $push.push(strObj[$i]);
                 }
-            });
-        }
-        if ($nodes.length >= 1) {
-            return new objectHTML($nodes);
+            } else if (typeof strObj === 'string') {
+                $push = $_.getAll(strObj.trim());
+            }
+            if ($push.length >= 1) {
+                return (new objectHTML($push));
+            }
+        } catch (exception) {
+            return (undefined);
         }
     }
 
     /**
-     * **********************************************
+     * *************************************
      * @private
-     * Encontra elementos internos a outro.
+     * Função auxiliar para o métodos:
+     * - value
      * 
-     * @param {OBJECT} node
-     * Objeto para buscar elementos internos.
-     * 
-     * @param {STRING} find
-     * Elemento para ser encontrado.
-     * **********************************************
+     * @param {OBJECT} obj
+     * Informar o elemento para retorno de
+     *  valor.
+     *  
+     * @return {STRING} Valor do elemento.
+     * *************************************
      */
-    function allIn(node, find) {
-        var $context = null, $nodes = [], $i = 0;
-        if ($_.isDefined((node || document).querySelectorAll)) {
-            $context = (node || document).querySelectorAll(find || '*');
+    function getValue(obj) {
+        if (obj.type === 'checkbox' && obj.checked === false) {
+            return ('');
+        } else if (obj.type === 'radio' && obj.checked === false) {
+            return ('');
+        } else {
+            return (obj.value);
         }
-        for (; $i < $context.length; $i++) {
-            $nodes.push($context[$i]);
-        }
-        return $_.arrayFilter($nodes);
     }
 
     /**
-     * **********************************************
+     * *************************************
      * @private
-     * Cria elementos.
+     * Função auxiliar para os métodos:
+     * - append
+     * - prepend
+     * - before
+     * - after
      * 
-     * @param {STRING/OBJECT} node
-     * Elemento para ser criado.
-     * **********************************************
+     * @param {STRING/OBJECT} strObj
+     * Informar o elemento que será anexo.
+     * 
+     * @returns {ARRAY}
+     * Lista de elementos a serem anexos ou
+     *  os que foram criados.
+     * *************************************
      */
-    function createNode(node) {
-        var $node = node, $temp = null, $add = [], $i = 0;
-        if ($_.isString($node)) {
-            $temp = document.createElement('div');
-            $temp.innerHTML = $node;
-            $add.push($temp.firstChild);
-        } else if ($node instanceof objectHTML) {
-            for (; $i < $node.length; $i++) {
-                $add.push($node[$i]);
+    function attSupport(strObj) {
+        var $arr = [], $i = 0;
+        if (strObj instanceof objectHTML) {
+            $arr = strObj;
+        } else if (strObj.length && strObj[0].nodeType) {
+            for (; $i < strObj.length; $i++) {
+                $arr.push(strObj[$i]);
             }
         } else {
-            $add.push($node);
+            $arr.push($_.create(strObj));
         }
-        return ($add);
+        return ($arr);
     }
 
-    // ==============================================
-    // = FUNÇÕES EXTRAS
-    // ==============================================
-
     /**
      * **********************************************
      * @public
-     * Verifica se o valor existe.
+     * Adiciona função com vincluo a jsd.
      * 
-     * @param {ANYTHING} val
-     * Informar o valor para verificação.
+     * @param {FUNCTION/OBJECT} fncObj
+     * Informar uma função.
      * **********************************************
      */
-    $_.isExists = function (val) {
-        return (typeof val !== 'undefined' && val !== null) ? true : false;
-    };
-
-    /**
-     * **********************************************
-     * @public
-     * Verifica se o valor está definido.
-     * 
-     * @param {ANYTHING} val
-     * Informar o valor para verificação.
-     * **********************************************
-     */
-    $_.isDefined = function (val) {
-        return typeof val === 'undefined' ? false : true;
-    };
-
-    /**
-     * **********************************************
-     * @public
-     * Verifica se o valor é uma função.
-     * 
-     * @param {ANYTHING} val
-     * Informar o valor para verificação.
-     * **********************************************
-     */
-    $_.isFunction = function (val) {
-        return typeof val === 'function' ? true : false;
-    };
-
-    /**
-     * **********************************************
-     * @public
-     * Verifica se o valor é um objeto.
-     * 
-     * @param {ANYTHING} val
-     * Informar o valor para verificação.
-     * **********************************************
-     */
-    $_.isObject = function (val) {
-        return typeof val === 'object' ? true : false;
-    };
-
-    /**
-     * **********************************************
-     * @public
-     * Verifica se o valor é uma string.
-     * 
-     * @param {ANYTHING} val
-     * Informar o valor para verificação.
-     * **********************************************
-     */
-    $_.isString = function (val) {
-        return typeof val === 'string' ? true : false;
-    };
-
-    /**
-     * **********************************************
-     * @public
-     * Verifica se o valor é um inteiro.
-     * 
-     * @param {ANYTHING} val
-     * Informar o valor para verificação.
-     * **********************************************
-     */
-    $_.isInt = function (val) {
-        return (typeof val === 'number' && !isNaN(val)) ? true : false;
-    };
-
-    /**
-     * **********************************************
-     * @public
-     * Verifica se o valor é uma BOLL.
-     * 
-     * @param {ANYTHING} val
-     * Informar o valor para verificação.
-     * **********************************************
-     */
-    $_.isBoolean = function (val) {
-        return typeof val === 'boolean' ? true : false;
-    };
-
-    /**
-     * **********************************************
-     * @public
-     * Verifica se o navegador é um modelo de
-     *  dispositível móvel.
-     * **********************************************
-     */
-    $_.isMobile = function () {
-        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-            return true;
+    $_.addFunction = function (fncObj) {
+        var $name = '', $prop = fncObj;
+        for (var $def in $_) {
+            if ($def === $prop.name) {
+                console.warn('A função ' + $def + ' já existe');
+                break;
+            } else {
+                if (typeof $prop === 'function') {
+                    $_[$prop.name] = $prop;
+                    break;
+                } else if (typeof fncObj === 'object') {
+                    for ($name in $prop) {
+                        $_[$name] = $prop[$name];
+                    }
+                    break;
+                }
+            }
         }
     };
 
     /**
      * **********************************************
      * @public
-     * Verifica se o valor é uma array.
+     * Adiciona métodos com vincluo aos elementos.
      * 
-     * @param {ARRAY} arr
-     * Informar o valor para verificação.
+     * @param {FUNCTION/OBJECT} fncObj
+     * Informar uma função.
      * **********************************************
      */
-    $_.isArray = function (arr) {
-        return Array.isArray(arr) ? true : false;
+    $_.addMethod = function (fncObj) {
+        var $prop = fncObj, $name = '';
+        for (var $def in $_.objectMethods) {
+            if ($def === $prop.name) {
+                console.warn('O método ' + $def + ' já existe');
+                break;
+            } else {
+                if (typeof $prop === 'function') {
+                    $_.objectMethods[$prop.name] = $prop;
+                    break;
+                } else if (typeof fncObj === 'object') {
+                    for ($name in $prop) {
+                        $_.objectMethods[$name] = $prop[$name];
+                    }
+                    break;
+                }
+            }
+        }
     };
 
     /**
      * **********************************************
      * @public
-     * Filtra o array removendo índices duplicados.
+     * Removendo índices duplicados de array.
      * 
      * @param {ARRAY} arr
      * Informar o array.
      * **********************************************
      */
     $_.arrayFilter = function (arr) {
-        var $array = [], $i = 0;
+        var $arr = [], $i = 0;
         for (; $i < arr.length; $i++) {
-            if ($array.indexOf(arr[$i]) === -1) {
-                $array.push(arr[$i]);
+            if ($_.isExists(arr[$i]) && $arr.indexOf(arr[$i]) === -1) {
+                $arr.push(arr[$i]);
             }
         }
-        return $array;
-    };
-
-    /**
-     * **********************************************
-     * @public
-     * Vefifica o índice de um array.
-     * 
-     * @param {ARRAY} array
-     * Informar o array.
-     * 
-     * @param {STRING/OBJECT} key
-     * Informar a chave do índice.
-     * **********************************************
-     */
-    $_.indexOf = function (array, key) {
-        var $i = 0, $length = array.length;
-        for (; $i < $length; $i++) {
-            if (array[$i] === key) {
-                return $i;
-            }
-        }
-        return -1;
+        return ($arr);
     };
 
     /**
@@ -287,30 +210,52 @@ var jsd = jsd || {};
      * **********************************************
      */
     $_.arrayMerge = function (arrA, arrB) {
-        var $length = +arrB.length, $j = 0, $i = arrA.length;
-        for (; $j < $length; $j++) {
-            arrA[$i++] = arrB[$j];
+        var $newArr = [], $i = 0;
+        if ($_.isArray(arrA) && $_.isArray(arrB)) {
+            $_.each(arrA, function (val) {
+                $newArr[$i] = val;
+                $i++;
+            });
+            $_.each(arrB, function (val) {
+                $newArr[$i] = val;
+                $i++;
+            });
+            return ($_.arrayFilter($newArr));
         }
-        arrA.length = $i;
-        return arrA;
     };
 
     /**
      * **********************************************
-     * @public
-     * Converte em texto o tamanho de dados.
+     * @private
+     * Cria elementos.
      * 
-     * @param {INTERGER} sz
-     * Informar valor para conversão.
+     * @param {OBJECT} obj
+     * Elemento para ser criado.
      * **********************************************
      */
-    $_.sizeName = function (sz) {
-        var $path = ['Bit\'s', 'KB\'s', 'MB\'s', 'GB\'s', 'TB\'s'], $comb = (sz > 0 ? Math.floor(Math.log(sz) / Math.log(1024)) : 0);
-        if ($comb < 5) {
-            return parseFloat((sz / Math.pow(1024, $comb)).toFixed(2)) + ' ' + $path[$comb];
-        } else {
-            return 'Maior que 1 Peta-byte';
+    $_.create = function (obj) {
+        var $create = undefined, $prop = {}, $dt = {};
+        if (obj.nodeType) {
+            return (obj);
+        } else if ($_.isString(obj)) {
+            $create = document.createElement('div');
+            $create.innerHTML = obj;
+            return ($create.firstChild);
+        } else if ($_.isExists(obj.tagName)) {
+            $create = document.createElement(obj.tagName);
+            for (var $prop in obj) {
+                if ($prop !== 'tagName' && obj[$prop] !== obj.tagName) {
+                    $create[$prop] = obj[$prop];
+                }
+                if ($prop === 'data') {
+                    for ($dt in obj[$prop]) {
+                        $create.setAttribute('data-' + obj[$prop].name, obj[$prop].value);
+                    }
+                }
+            }
+            return ($create);
         }
+        return (undefined);
     };
 
     /**
@@ -319,7 +264,7 @@ var jsd = jsd || {};
      * definindo um chamanda de função por trás
      * da execução a cada volta do loop.
      *  
-     * @param {OBJECT/ARRAY} obj
+     * @param {OBJECT/ARRAY} objArr
      * Objeto ou array para executar o loop.
      *  
      * @param {FUNCTION} callback
@@ -327,32 +272,16 @@ var jsd = jsd || {};
      *  loop.
      * *****************************************
      */
-    $_.each = function (obj, callback) {
-        if ($_.isDefined(obj) && $_.isDefined(callback)) {
-            for (var $i in obj) {
-                if (callback.call(obj[$i], $i, obj[$i]) === false) {
+    $_.each = function (objArr, callback) {
+        if ($_.isDefined(objArr) && $_.isDefined(callback)) {
+            for (var $i in objArr) {
+                if (callback.call(objArr[$i], objArr[$i], $i) === false) {
                     break;
                 }
             }
         } else {
-            return (obj);
+            return (objArr);
         }
-    };
-
-    /**
-     * *****************************************
-     * Codifica uma string para parâmetros
-     *  corretos de uso em uma URL
-     *  Escapa todos os caracteres que não são
-     *  alfabéticos, dígitos ou decimais.
-     * 
-     * @param {STRING} str
-     * String para ser transformada em URI válida.
-     * *****************************************
-     */
-    $_.urlScapes = function (str) {
-        var $encode = encodeURIComponent(str);
-        return ($encode.replace(/['()]/g, escape).replace(/\*/g, '%2A').replace(/%(?:7C|60|5E)/g, unescape));
     };
 
     /**
@@ -360,266 +289,239 @@ var jsd = jsd || {};
      * Recarrega tags "javascript" realocando-as
      *  novamente no mesmo local.
      * 
-     * @param {OBJECT} tgt
+     * @param {OBJECT/STRING} objStr
      * Elemento no documento para busca e
      *  realocamento de javascript.
      * *****************************************
      */
-    $_.updateScript = function (tgt) {
-        var $oldScript = tgt.getElementsByTagName('script'), $i = 0, $newScript;
-
-        for (; $i < $oldScript.length; $i++) {
-            $newScript = document.createElement('script');
-            if ($oldScript[$i].src) {
-                $newScript.src = $oldScript[$i].src;
-            } else {
-                $newScript.text = $oldScript[$i].text;
+    $_.evalSrc = function (objStr) {
+        var $this = $_(objStr)[0], $old = $this.getElementsByTagName('script'), $new = {}, $i = 0;
+        if ($old.length) {
+            for (; $i < $old.length; $i++) {
+                $new = document.createElement('script');
+                ($old[$i].src !== '' ? $new.src = $old[$i].src : null);
+                ($old[$i].text !== '' ? $new.text = $old[$i].text : null);
+                ($old[$i].type !== '' ? $new.type = $old[$i].text : null);
+                if ($this === $old[$i].parentNode) {
+                    $this.replaceChild($new, $old[$i]);
+                }
             }
-            if ($oldScript[$i].type) {
-                $newScript.type = $oldScript[$i].type;
-            }
-            tgt.replaceChild($newScript, $oldScript[$i]);
         }
     };
 
     /**
-     * *****************************************
-     * Executa Asynchronous Javascript and Xml.
+     * **********************************************
+     * @public
+     * Busca por quaisquer elementos que se enquadre
+     * no documento.
      * 
-     * @param {OBJECT} options (opcional)
-     * Opções de execução.
-     * 
-     * url: Informar string para onde os dados
-     *  devem ser enviados.
-     * protocol: Informar string qual é o tipo
-     *  de requisição.
-     * type: Tipo de envio de dados
-     * response: Tipo de dados na resposta
-     * values: Informar ou um objeto com
-     *  índices e valores a se enviar ou uma
-     *  string no formato de url válida.
-     * onError: Informar uma função que será
-     *  executada quando algum erro ocorrer.
-     * onStar': Informar uma função que será
-     *  executada quando o processo começa.
-     * onProgress: Informar uma função que será
-     *  executada quando o processo ainda está
-     *  carregando.
-     * onEnd: Informar uma função que será
-     *  executada quando o processo terminou de
-     *  carregar.
-     * onResult: Informar uma função que será
-     *  executada obtendo o resultado da
-     *  requisição.
-     * *****************************************
+     * @param {STRING} str
+     * Informar o valor da busca.
+     * **********************************************
      */
-    $_.ajax = function (options) {
-        if ($xhr instanceof XMLHttpRequest) {
-            console.warn('Já existe uma requisição em andamento.');
-        } else {
-            // Força que as opções seja um objeto
-            options = options || {};
+    $_.getAll = function (str) {
+        return (new objectHTML(document.querySelectorAll(str)));
+    };
 
-            var $mimes = {
-                html: 'text/html',
-                text: 'text/plain',
-                xml: 'text/xml'
-            }, $response = {
-                text: 'responseText',
-                xml: 'responseXML'
-            }, $ajax = {
-                data: '',
-                result: ''
-            }, $options = {
-                url: ((options.url || location.href) + '').replace(/^\/\//, location.protocol + '//'),
-                protocol: (options.protocol === 'GET') ? 'GET' : (options.protocol == 'POST') ? 'POST' : 'GET',
-                type: mimeTypes(options.type) || 'text/html',
-                response: responseTypes(options.response) || 'responseText',
-                values: options.values || undefined,
-                onError: options.onError || undefined,
-                onStart: options.onStart || undefined,
-                onProgress: options.onProgress || undefined,
-                onEnd: options.onEnd || undefined,
-                onResult: options.onResult || undefined
-            };
+    /**
+     * **********************************************
+     * @public
+     * Busca por elementos pelo atributo "class" no
+     * documento.
+     * 
+     * @param {STRING} str
+     * Informar o valor da busca.
+     * **********************************************
+     */
+    $_.getClass = function (str) {
+        return (new objectHTML(document.getElementsByClassName(str)));
+    };
 
-            urlPath(); // Filtrar os dados para para url de destino
-            initXMLHR(); // Iniciar a requisição
+    /**
+     * **********************************************
+     * @public
+     * Busca por elementos pelo atributo "id" no
+     * documento.
+     * 
+     * @param {STRING} str
+     * Informar o valor da busca.
+     * **********************************************
+     */
+    $_.getID = function (str) {
+        return (new objectHTML([document.getElementById(str)]));
+    };
 
-            // Retorna o correto valor para options.type
-            function mimeTypes(val) {
-                for (var key in $mimes) {
-                    if (key === val || $mimes[key] == val) {
-                        return ($mimes[val]);
-                    }
-                }
-            }
-            // Retorna o correto valor para options.response
-            function responseTypes(val) {
-                for (var key in $response) {
-                    if (key === val || $response[key] == val) {
-                        return ($response[key]);
-                    }
-                }
-            }
-            // Re-escreve dados da url de acordo com o valor options.values
-            function urlPath() {
-                var $typeOf = typeof $options.values;
-                if ($typeOf === 'string') {
-                    if ($options.protocol === 'GET') {
-                        $options.url += (/\?/.test($options.url) ? '&' : '?') + $options.values;
-                    } else if ($options.protocol === 'POST') {
-                        $ajax.data = $options.values;
-                    }
-                } else if ($typeOf === 'object') {
-                    $ajax.data += '_jsd_protocol_id=' + new Date().getTime();
-                    for (var key in $options.values) {
-                        if ($options.protocol === 'GET') {
-                            $options.url += (/\?/.test($options.url) ? '&' : '?') + key + '=' + $_.urlScapes($options.values[key]);
-                        } else if ($options.protocol === 'POST') {
-                            $ajax.data += '&' + key + '=' + $_.urlScapes($options.values[key]);
-                        }
-                    }
-                }
-            }
-            // Inicia e envia o protocolo para o HttpRequest
-            function initXMLHR() {
-                $xhr = new XMLHttpRequest;
-                if ($xhr.overrideMimeType) {
-                    $xhr.overrideMimeType($options.type);
-                }
-                $xhr.addEventListener('readystatechange', readyState, false);
-                $xhr.open($options.protocol, $options.url, true);
-                if ($options.protocol === 'GET') {
-                    $xhr.send();
-                } else {
-                    $xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded; charset=' + document.charset);
-                    $xhr.send($ajax.data.slice(1));
-                }
-            }
-            // Monitora o estado da requisição invocando as funções definidas para cada estágio do processo.
-            function readyState() {
-                if ($xhr.readyState === 1) {
-                    if (typeof $options.onStart === 'function') {
-                        $options.onStart('Situação: Solicitado resposta');
-                    }
-                } else if ($xhr.readyState === 3) {
-                    if (typeof $options.onProgress === 'function') {
-                        $options.onProgress('Situação: Aguardando resposta');
-                    }
-                } else if ($xhr.readyState === 4) {
-                    if (typeof $options.onEnd === 'function') {
-                        $options.onEnd('Situação: Resposta recebida, processando...');
-                    }
-                    readyComplete();
-                }
-            }
-            // Define as ações a se tormar quando a requisição está terminada.
-            function readyComplete() {
-                if ($xhr.status === 200) {
-                    $ajax.result = $xhr[$options.response];
-                    if (typeof $options.onResult === 'function') {
-                        $options.onResult($ajax.result);
-                    }
-                    resetVars();
-                } else if ($xhr.status > 200) {
-                    throwError('Situação: Não foi possível completar a operação (código ' + $xhr.status + ')');
-                } else if ($xhr.onerror) {
-                    throwError($xhr.onerror);
-                } else {
-                    throwError('Situação: Não foi possível completar a operação (código DESCONHECIDO)');
-                }
-            }
-            // Interrompe a requisição e informa erros ocorridos
-            function throwError(err) {
-                $xhr.abort();
-                if (typeof $options.onError === 'function') {
-                    $options.onError(err);
-                }
-                console.error(err);
-                resetVars();
-            }
-            // Redefine os parâmetros para o estado inicial.
-            function resetVars() {
-                $xhr = undefined;
-                $ajax = {data: '', result: ''};
-                $options = {};
-            }
+    /**
+     * **********************************************
+     * @public
+     * Busca por elementos pelo atributo "name" no
+     * documento.
+     * 
+     * @param {STRING} str
+     * Informar o valor da busca.
+     * **********************************************
+     */
+    $_.getName = function (str) {
+        return (new objectHTML(document.getElementsByName(str)));
+    };
+
+    /**
+     * **********************************************
+     * @public
+     * Busca por elementos pela "tag" no documento.
+     * 
+     * @param {STRING} str
+     * Informar o valor da busca.
+     * **********************************************
+     */
+    $_.getTag = function (str) {
+        return (new objectHTML(document.getElementsByTagName(str)));
+    };
+
+    /**
+     * **********************************************
+     * @public
+     * Verifica se o valor é uma array.
+     * 
+     * @param {ARRAY} arr
+     * Informar o valor para verificação.
+     * **********************************************
+     */
+    $_.isArray = function (arr) {
+        return (Array.isArray(arr) ? true : false);
+    };
+
+    /**
+     * **********************************************
+     * @public
+     * Verifica se o valor é um booleano.
+     * 
+     * @param {ANYTHING} any
+     * Informar o valor para verificação.
+     * **********************************************
+     */
+    $_.isBoolean = function (any) {
+        return (typeof any === 'boolean' ? true : false);
+    };
+
+    /**
+     * **********************************************
+     * @public
+     * Verifica se o valor está definido.
+     * 
+     * @param {ANYTHING} any
+     * Informar o valor para verificação.
+     * **********************************************
+     */
+    $_.isDefined = function (any) {
+        return (typeof any === 'undefined' ? false : true);
+    };
+
+    /**
+     * **********************************************
+     * @public
+     * Verifica se o valor existe.
+     * 
+     * @param {ANYTHING} any
+     * Informar o valor para verificação.
+     * **********************************************
+     */
+    $_.isExists = function (any) {
+        return (typeof any !== 'undefined' && any !== null ? true : false);
+    };
+
+    /**
+     * **********************************************
+     * @public
+     * Verifica se o valor é uma função.
+     * 
+     * @param {ANYTHING} any
+     * Informar o valor para verificação.
+     * **********************************************
+     */
+    $_.isFunction = function (any) {
+        return (typeof any === 'function' ? true : false);
+    };
+
+    /**
+     * **********************************************
+     * @public
+     * Verifica se o valor é um inteiro.
+     * 
+     * @param {ANYTHING} any
+     * Informar o valor para verificação.
+     * **********************************************
+     */
+    $_.isInt = function (any) {
+        return (typeof any === 'number' && !isNaN(any)) ? true : false;
+    };
+
+    /**
+     * **********************************************
+     * @public
+     * Verifica se o valor é um objeto.
+     * 
+     * @param {ANYTHING} any
+     * Informar o valor para verificação.
+     * **********************************************
+     */
+    $_.isObject = function (any) {
+        return (typeof any === 'object' && $_.isArray(any) === false ? true : false);
+    };
+
+    /**
+     * **********************************************
+     * @public
+     * Verifica se o valor é uma string.
+     * 
+     * @param {ANYTHING} any
+     * Informar o valor para verificação.
+     * **********************************************
+     */
+    $_.isString = function (any) {
+        return (typeof any === 'string' ? true : false);
+    };
+
+    /**
+     * **********************************************
+     * @public
+     * Une dois objetos em um.
+     * 
+     * @param {OBJECT} objA
+     * Informar um objeto.
+     * 
+     * @param {OBJECT} objB
+     * Informar outro objeto.
+     * **********************************************
+     */
+    $_.objectMerge = function (objA, objB) {
+        for (var $name in objB) {
+            objA[$name] = objB[$name];
         }
+        return (objA);
     };
 
     // ==============================================
     // = MÉTODOS
     // ==============================================
-
-    var methods = {
+    var $methods = {
         /**
          * *****************************************
          * Obtem o indice na instancia dos objetos.
          * 
-         * @param {INTERGER} idx
+         * @param {INTERGER} int
          * Informar o índice o object-array.
          * *****************************************
          */
-        index: function (idx) {
-            var $length = this.length, $index;
-            if (!$_.isDefined(idx)) {
-                return this;
-            } else if (idx > $length - 1) {
-                return undefined;
-            } else if (idx < 0) {
-                $index = $length + idx;
-                if ($index < 0) {
-                    return undefined;
-                } else {
-                    return new objectHTML([this[$index]]);
-                }
+        index: function (int) {
+            if (!$_.isDefined(int)) {
+                return (undefined);
+            } else if (int > this.length) {
+                return (undefined);
             } else {
-                return new objectHTML([this[idx]]);
+                return ($_(this[int]));
             }
         },
-
-        /**
-         * *****************************************
-         * Compara se o elemnto é igual ao mesmo
-         *  elemento com a finalidade de impedir a
-         *  repetição/duplicação de instâncias de
-         *  objetos.
-         *  
-         * @param {OBJECT/STRING} compare
-         * Informar o que comparar
-         * *****************************************
-         */
-        is: function (compare) {
-            var $type = typeof compare, $equal = [], $i = 0;
-            if (!this[0] || $type === 'undefined') {
-                return false;
-            } else if (compare === document) {
-                return this[0] === document;
-            } else if (compare === window) {
-                return this[0] === window;
-            } else if ($type === 'string' && this[0].matches) {
-                return this[0].matches(compare);
-            } else if ($type === 'string') {
-                $equal = $_(compare);
-                for (; $i < $equal.length; $i++) {
-                    if ($equal[$i] === this[0]) {
-                        return true;
-                    }
-                }
-                return false;
-            } else if (compare.nodeType || compare instanceof objectHTML) {
-                $equal = compare.nodeType ? [compare] : compare;
-                for (; $i < $equal.length; $i++) {
-                    if ($equal[$i] === this[0]) {
-                        return true;
-                    }
-                }
-                return false;
-            }
-
-        },
-
         /**
          * *****************************************
          * Executa um loop interando uma função de
@@ -633,52 +535,49 @@ var jsd = jsd || {};
         each: function (callback) {
             if ($_.isFunction(callback)) {
                 for (var $i = 0; $i < this.length; $i++) {
-                    if (callback.call(this[$i], $i, this[$i]) === false) {
+                    if (callback.call(this[$i], $_(this[$i]), $i) === false) {
                         break;
                     }
                 }
-                return this;
             }
         },
-
         /**
          * *****************************************
-         * Executa ajax simples carregando um
-         * arquivo de no primeiro elemento da
-         *  instância.
-         * 
-         * @param {STRING} url
-         * URL ou local do arquivo.
+         * Compara se o elemento é igual ao mesmo
+         *  elemento com a finalidade de impedir a
+         *  repetição/duplicação de instâncias de
+         *  objetos.
+         *  
+         * @param {OBJECT/STRING} objStr
+         * Informar o que comparar
          * *****************************************
          */
-        load: function (url) {
-            var $this = this;
-            if ($_.isString(url)) {
-                jsd.ajax({
-                    url: url,
-                    onResult: function (html) {
-                        $this.index(0).html(html);
-                    }
-                });
-            }
-        },
-
-        /* Métodos de buscas de elementos */
-        elements: {
-            /**
-             * *************************************
-             * Obtem o primeiro elemento antes do
-             *  elemento da instância.
-             * *************************************
-             */
-            prev: function () {
-                if (!$_.isDefined(this[0].previousElementSibling)) {
-                    return undefined;
+        same: function (objStr) {
+            var $str = $_.isString(objStr), $equal = $_(objStr), $i = 0;
+            if ($_.isExists($equal)) {
+                if ($str && this[0].matches) {
+                    return (this[0].matches(objStr));
                 } else {
-                    for (var $i = 0; $i < this.length; $i++) {
-                        return new objectHTML([this[$i].previousElementSibling]);
+                    for (; $i < $equal.length; $i++) {
+                        if (this[0] === $equal[$i]) {
+                            return (true);
+                        }
                     }
                 }
+            }
+            return (false);
+        },
+
+        /* Elementos relacionados */
+        related: {
+            /**
+             * *************************************
+             * Obtem o primeiro filho do elemento
+             *  da instância.
+             * *************************************
+             */
+            child: function () {
+                return ($_(this[0].children[0]));
             },
             /**
              * *************************************
@@ -688,25 +587,23 @@ var jsd = jsd || {};
              */
             next: function () {
                 if (!$_.isDefined(this[0].nextElementSibling)) {
-                    return undefined;
+                    return (undefined);
                 } else {
-                    for (var $i = 0; $i < this.length; $i++) {
-                        return new objectHTML([this[$i].nextElementSibling]);
-                    }
+                    return ($_(this[0].nextElementSibling));
                 }
             },
             /**
              * *************************************
-             * Obtem o primeiro filho do elemento
-             *  da instância.
+             * Obtem o primeiro elemento antes do
+             *  elemento da instância.
              * *************************************
              */
-            child: function () {
-                var $child = [], $i = 0;
-                for (; $i < this.length; $i++) {
-                    $child.push(this[$i].children[0]);
+            prev: function () {
+                if (!$_.isDefined(this[0].previousElementSibling)) {
+                    return (undefined);
+                } else {
+                    return ($_(this[0].previousElementSibling));
                 }
-                return new objectHTML($child);
             },
             /**
              * *************************************
@@ -715,80 +612,28 @@ var jsd = jsd || {};
              * *************************************
              */
             parent: function () {
-                var $parent = [], $i = 0;
-                for (; $i < this.length; $i++) {
-                    $parent.push(this[$i].parentNode);
-                }
-                return new objectHTML($parent);
+                return ($_(this[0].parentNode));
             },
             /**
              * *************************************
-             * Obtem o(s) elemento(s) antes do
+             * Obtem o(s) elemento(s) internos ao
              *  elemento da instância.
              * 
-             * @param {STRING/OBJECT} tgt (opcional)
+             * @param {STRING} str
              * Informar o elemento para procurar.
-             * Se não informado retorna todos
-             *  elementos anteriores.
              * *************************************
              */
-            prevAll: function (tgt) {
-                var $current = this[0], $before = null, $nodeList = [];
-                if (!$_.isDefined($current) || !$_.isDefined($current.previousElementSibling)) {
-                    return undefined;
-                } else if (tgt && !$_.isDefined($_(tgt))) {
-                    return undefined;
-                } else if (tgt instanceof objectHTML) {
-                    return tgt;
+            find: function (str) {
+                var $target = this[0].querySelectorAll(str), $nodeList = [], $i = 0;
+                if (!$_.isDefined($target)) {
+                    return (undefined);
+                } else if (str instanceof objectHTML) {
+                    return (str);
                 } else {
-                    while ($current.previousElementSibling) {
-                        $before = $current.previousElementSibling;
-                        if (tgt) {
-                            if ($_($before).is(tgt)) {
-                                $nodeList.push($before);
-                                break;
-                            }
-                        } else {
-                            $nodeList.push($before);
-                        }
-                        $current = $before;
+                    for (; $i < $target.length; $i++) {
+                        $nodeList.push($target[$i]);
                     }
-                    return new objectHTML($_.arrayFilter($nodeList));
-                }
-            },
-            /**
-             * *************************************
-             * Obtem o(s) elemento(s) depois do
-             *  elemento da instância.
-             * 
-             * @param {STRING/OBJECT} tgt (opcional)
-             * Informar o elemento para procurar.
-             * Se não informado retorna todos
-             *  elementos posteriores.
-             * *************************************
-             */
-            nextAll: function (tgt) {
-                var $current = this[0], $next = null, $nodeList = [];
-                if (!$_.isDefined($current) || !$_.isDefined($current.nextElementSibling)) {
-                    return undefined;
-                } else if (tgt && !$_.isDefined($_(tgt))) {
-                    return undefined;
-                } else if (tgt instanceof objectHTML) {
-                    return tgt;
-                } else {
-                    while ($current.nextElementSibling) {
-                        $next = $current.nextElementSibling;
-                        if (tgt) {
-                            if ($_($next).is(tgt)) {
-                                $nodeList.push($next);
-                                break;
-                            }
-                        } else {
-                            $nodeList.push($next);
-                        }
-                        $current = $next;
-                    }
-                    return new objectHTML($_.arrayFilter($nodeList));
+                    return ($_($nodeList));
                 }
             },
             /**
@@ -796,36 +641,93 @@ var jsd = jsd || {};
              * Obtem o(s) elemento(s) filhos do
              *  elemento da instância.
              * 
-             * @param {STRING/OBJECT} tgt (opcional)
+             * @param {STRING/OBJECT} strObj (opcional)
              * Informar o elemento para procurar.
              * Se não informado retorna todos
              *  filhos diretos.
              * *************************************
              */
-            childAll: function (tgt) {
-                var $child = this[0].children, $nodeList = [], $i = 0, $j = 0;
+            childAll: function (strObj) {
+                var $child = this[0].children, $nodeList = [], $i = 0;
                 if (!$_.isDefined($child)) {
-                    return undefined;
-                } else if (tgt instanceof objectHTML) {
-                    return tgt;
+                    return (undefined);
+                } else if (strObj instanceof objectHTML) {
+                    return (strObj);
                 } else {
-                    for (; $i < this.length; $i++) {
-                        $child = this[$i].children;
-                        while ($child) {
-                            for ($j = 0; $j < $child.length; $j++) {
-                                if (tgt) {
-                                    if ($_($child[$j]).is(tgt)) {
-                                        $nodeList.push($child[$j]);
-                                        break;
-                                    }
-                                } else {
-                                    $nodeList.push($child[$j]);
-                                }
+                    for ($i = 0; $i < $child.length; $i++) {
+                        if (strObj) {
+                            if ($_($child[$i]).same(strObj)) {
+                                $nodeList.push($child[$i]);
                             }
-                            $child = $child.children;
+                        } else {
+                            $nodeList.push($child[$i]);
                         }
                     }
-                    return new objectHTML($_.arrayFilter($nodeList));
+                    return ($_($nodeList));
+                }
+            },
+            /**
+             * *************************************
+             * Obtem o(s) elemento(s) depois do
+             *  elemento da instância.
+             * 
+             * @param {STRING/OBJECT} strObj (opcional)
+             * Informar o elemento para procurar.
+             * Se não informado retorna todos
+             *  elementos posteriores.
+             * *************************************
+             */
+            nextAll: function (strObj) {
+                var $current = this[0].nextElementSibling, $target = null, $nodeList = [];
+                if (!$_.isDefined($current)) {
+                    return (undefined);
+                } else if (strObj instanceof objectHTML) {
+                    return (strObj);
+                } else {
+                    while ($current) {
+                        $target = $current;
+                        if (strObj) {
+                            if ($_($target).same(strObj)) {
+                                $nodeList.push($target);
+                            }
+                        } else {
+                            $nodeList.push($target);
+                        }
+                        $current = $target.nextElementSibling;
+                    }
+                    return ($_($nodeList));
+                }
+            },
+            /**
+             * *************************************
+             * Obtem o(s) elemento(s) antes do
+             *  elemento da instância.
+             * 
+             * @param {STRING/OBJECT} strObj (opcional)
+             * Informar o elemento para procurar.
+             * Se não informado retorna todos
+             *  elementos anteriores.
+             * *************************************
+             */
+            prevAll: function (strObj) {
+                var $current = this[0].previousElementSibling, $target = null, $nodeList = [];
+                if (!$_.isDefined($current)) {
+                    return (undefined);
+                } else if (strObj instanceof objectHTML) {
+                    return (strObj);
+                } else {
+                    while ($current) {
+                        $target = $current;
+                        if (strObj) {
+                            if ($_($target).same(strObj)) {
+                                $nodeList.push($target);
+                            }
+                        } else {
+                            $nodeList.push($target);
+                        }
+                        $current = $target.previousElementSibling;
+                    }
+                    return ($_($nodeList));
                 }
             },
             /**
@@ -833,147 +735,108 @@ var jsd = jsd || {};
              * Obtem o(s) elemento(s) parentes do
              *  elemento da instância.
              * 
-             * @param {STRING/OBJECT} tgt (opcional)
+             * @param {STRING/OBJECT} strObj (opcional)
              * Informar o elemento para procurar
              * Se não informado retorna todos
              *  parentes.
              * *************************************
              */
-            parentAll: function (tgt) {
-                var $parent = this[0].parentNode, $nodeList = [], $i = 0;
-                if (!$_.isDefined($parent)) {
-                    return undefined;
-                } else if (tgt instanceof objectHTML) {
-                    return tgt;
+            parentAll: function (strObj) {
+                var $current = this[0].parentNode, $target = null, $nodeList = [];
+                if (!$_.isDefined($current)) {
+                    return (undefined);
+                } else if (strObj instanceof objectHTML) {
+                    return (strObj);
                 } else {
-                    for (; $i < this.length; $i++) {
-                        $parent = this[$i].parentNode;
-                        while ($parent) {
-                            if (tgt) {
-                                if ($_($parent).is(tgt)) {
-                                    $nodeList.push($parent);
-                                    break;
-                                }
-                            } else {
-                                $nodeList.push($parent);
+                    while ($current && $current !== document) {
+                        $target = $current;
+                        if (strObj) {
+                            if ($_($target).same(strObj)) {
+                                $nodeList.push($target);
                             }
-                            $parent = $parent.parentNode;
+                        } else {
+                            $nodeList.push($target);
                         }
+                        $current = $target.parentNode;
                     }
-                    return new objectHTML($_.arrayFilter($nodeList));
-                }
-            },
-            /**
-             * *************************************
-             * Obtem o(s) elemento(s) internos ao
-             *  elemento da instância.
-             * 
-             * @param {STRING} tgt
-             * Informar o elemento para procurar.
-             * Se não informado retorna todos
-             *  elementos internos, filhos diretos
-             *  ou não.
-             * *************************************
-             */
-            find: function (tgt) {
-                if (tgt instanceof objectHTML) {
-                    return tgt;
-                } else {
-                    var $nodeList = allIn(this[0], (tgt || false));
-                    if ($nodeList.length < 1) {
-                        return undefined;
-                    } else {
-                        return new objectHTML($nodeList);
-                    }
+                    return ($_($nodeList));
                 }
             }
-        },
+        }, // elements
 
-        /* Métodos para adicionar e remover */
-        addRemove: {
+        /* Métodos de anexos */
+        attachment: {
             /**
              * *************************************
-             * Adiciona elemento dentro do(s)
-             *  elemento(s) da instância, por
-             *  argumento.
+             * Adiciona elemento depois do elemento
+             *  da instância.
+             * 
+             * @param {STRING/OBJECT} strObj
+             * Informar o elemento para adicionar.
              * *************************************
              */
-            append: function () {
-                var $args = arguments[0], $newNode = null, $i = 0, $j = 0;
-                if (arguments.length >= 1) {
-                    for (; $i < this.length; $i++) {
-                        $newNode = createNode($args);
-                        for ($j = 0; $j < $newNode.length; $j++) {
-                            if ($_.isDefined($newNode[$j].tagName)) {
-                                this[$i].appendChild($newNode[$j]);
-                                $_.updateScript(this[$i]);
-                            }
-                        }
+            after: function (strObj) {
+                if ($_.isExists(strObj)) {
+                    var $after = attSupport(strObj), $i = 0;
+                    for (; $i < $after.length; $i++) {
+                        this[0].parentNode.insertBefore($after[$i], this[0].nextSibling);
                     }
+                    $_.evalSrc(this[0].parentNode); // too much recursion
                 }
             },
             /**
              * *************************************
-             * Adiciona elemento dentro do(s)
-             *  elemento(s) da instância, por
-             *  argumento, antes de qualquer outro
-             *  elemento interno que tenha.
+             * Adiciona elemento antes do elemento
+             *  da instância.
+             * 
+             * @param {STRING/OBJECT} strObj
+             * Informar o elemento para adicionar.
              * *************************************
              */
-            prepend: function () {
-                var $args = arguments[0], $newNode = null, $i = 0, $j = 0;
-                if (arguments.length >= 1) {
-                    for (; $i < this.length; $i++) {
-                        $newNode = createNode($args);
-                        for ($j = 0; $j < $newNode.length; $j++) {
-                            if ($_.isDefined($newNode[$j].tagName)) {
-                                this[$i].insertBefore($newNode[$j], this[$i].firstChild);
-                                $_.updateScript(this[$i]);
-                            }
-                        }
+            before: function (strObj) {
+                if ($_.isExists(strObj)) {
+                    var $before = attSupport(strObj), $i = 0;
+                    for (; $i < $before.length; $i++) {
+                        this[0].parentNode.insertBefore($before[$i], this[0]);
                     }
+                    $_.evalSrc(this[0].parentNode);
                 }
             },
             /**
              * *************************************
-             * Adiciona elemento fora do(s)
-             *  elemento(s) da instância, por
-             *  argumento, antes do(s) mesmo(s).
+             * Adiciona elemento dentro do elemento
+             *  da instância.
+             * 
+             * @param {STRING/OBJECT} strObj
+             * Informar o elemento para adicionar.
              * *************************************
              */
-            before: function () {
-                var $args = arguments[0], $newNode = null, $i = 0, $j = 0;
-                if (arguments.length >= 1) {
-                    for (; $i < this.length; $i++) {
-                        $newNode = createNode($args);
-                        for ($j = 0; $j < $newNode.length; $j++) {
-                            if ($_.isDefined($newNode[$j].tagName)) {
-                                this[$i].parentNode.insertBefore($newNode[$j], this[$i]);
-                                $_.updateScript(this[$i].parentNode);
-                            }
-                        }
+            append: function (strObj) {
+                if ($_.isExists(strObj)) {
+                    var $append = attSupport(strObj), $i = 0;
+                    for (; $i < $append.length; $i++) {
+                        this[0].appendChild($append[$i]);
                     }
+                    $_.evalSrc(this[0]);
                 }
             },
             /**
              * *************************************
-             * Adiciona elemento fora do(s)
-             *  elemento(s) da instância, por
-             *  argumento, depois do(s) mesmo(s).
+             * Adiciona elemento dentro do elemento
+             *  da instância, antes de qualquer
+             *  outro elemento interno.
+             * 
+             * @param {STRING/OBJECT} strObj
+             * Informar o elemento para adicionar.
              * *************************************
              */
-            after: function () {
-                var $args = arguments[0], $newNode = null, $i = 0, $j = 0;
-                if (arguments.length >= 1) {
-                    for (; $i < this.length; $i++) {
-                        $newNode = createNode($args);
-                        for ($j = 0; $j < $newNode.length; $j++) {
-                            if ($_.isDefined($newNode[$j].tagName)) {
-                                this[$i].parentNode.insertBefore($newNode[$j], this[$i].nextSibling);
-                                $_.updateScript(this[$i].parentNode);
-                            }
-                        }
+            prepend: function (strObj) {
+                if ($_.isExists(strObj)) {
+                    var $prepend = attSupport(strObj), $i = 0;
+                    for (; $i < $prepend.length; $i++) {
+                        this[0].insertBefore($prepend[$i], this[0].firstChild);
                     }
+                    $_.evalSrc(this[0]);
                 }
             },
             /**
@@ -981,217 +844,224 @@ var jsd = jsd || {};
              * Limpa/remove conteúdo interno do(s)
              *  elemento(s) da instância.
              *  
-             * @param {OBJECT/STRING} tgt
+             * @param {STRING} strObj
              * Alvo para eliminar.
              * Se não informado limpa todo conteúdo
              *  interno.
              * *************************************
              */
-            clear: function (tgt) {
-                var $child = this[0].childNodes, $target = null, $i = 0;
-                if ($child.length) {
-                    $target = (tgt ? $_(tgt) : false);
-                    if (!$_.isDefined($target)) {
-                        return false;
-                    } else if ($target) {
-                        for (; $i < $target.length; $i++) {
-                            $target[$i].parentNode.removeChild($target[$i]);
+            clear: function (strObj) {
+                var $target = undefined, $i, $j;
+                for ($i = 0; $i < this.length; $i++) {
+                    if (strObj) {
+                        $target = $_(this[$i]).childAll(strObj);
+                        for ($j = 0; $j < $target.length; $j++) {
+                            $target[$j].parentNode.removeChild($target[$j]);
                         }
                     } else {
-                        while ($child.length) {
-                            this[0].removeChild(this[0].firstChild);
+                        while (this[$i].childNodes.length) {
+                            this[$i].removeChild(this[$i].firstChild);
                         }
                     }
                 }
             },
             /**
              * *************************************
-             * Remove o(s) elemento(s) da instância
+             * Remove o elemento da instância
              *  no documento.
              * *************************************
              */
             remove: function () {
                 for (var $i = 0; $i < this.length; $i++) {
-                    if (this[$i].parentNode) {
+                    if ($_.isExists(this[$i].parentNode) && /^(body|html)$/i.test(this[0].tagName) === false) {
                         this[$i].parentNode.removeChild(this[$i]);
                     }
                 }
+
             }
-        },
+        }, // attachment
 
         /* Métodos de escrita */
         write: {
             /**
              * *************************************
-             * Escreve HTML no(s) elemento(s).
+             * Escreve HTML no elemento.
              * 
-             * @param {STRING} setHtml (opcional)
+             * @param {STRING} str (opcional)
              * Informar o HTML a escrever.
              * Se não informado retorna a estrutura
-             *  HTML no(s) elemento(s).
+             *  HTML no elemento.
              * *************************************
              */
-            html: function (setHtml) {
-                if (!$_.isDefined(setHtml)) {
-                    return this[0].innerHTML;
-                } else if (this.length > 1) {
-                    for (var $i = 0; $i < this.length; $i++) {
-                        this[$i].innerHTML = setHtml;
-                        $_.updateScript(this[$i]);
+            html: function (str) {
+                var $length = this.length, $i = 0;
+                if ($_.isDefined(str)) {
+                    for (; $i < $length; $i++) {
+                        this[$i].innerHTML = str;
+                        $_.evalSrc(this[$i]);
                     }
                 } else {
-                    this[0].innerHTML = setHtml;
-                    $_.updateScript(this[0]);
+                    return (this[0].innerHTML);
                 }
             },
             /**
              * *************************************
-             * Escreve texto no(s) elemento(s).
+             * Escreve texto no elemento.
              * 
-             * @param {STRING} setText (opcional)
+             * @param {STRING} str (opcional)
              * Informar o texto a escrever
              * Se não informado retorna o texto
-             *  contido no(s) elemento(s).
+             *  contido no elemento.
              * *************************************
              */
-            text: function (setText) {
-                if (!$_.isDefined(setText)) {
-                    return this[0].innerText;
-                } else if (this.length > 1) {
-                    for (var $i = 0; $i < this.length; $i++) {
-                        this[$i].innerText = setText;
+            text: function (str) {
+                var $length = this.length, $i = 0;
+                if ($_.isDefined(str)) {
+                    for (; $i < $length; $i++) {
+                        this[$i].innerText = str;
                     }
                 } else {
-                    this[0].innerText = setText;
+                    return (this[0].innerText);
                 }
             }
-        },
+        }, // write
 
-        /* Métodos de formulário */
-        forms: {
+        /* Métodos de atributos */
+        attributes: {
             /**
              * *************************************
-             * Obtem todos valores de elementos que
-             *  possuam o atriburo "name" cujo a
-             *  tag que se encontram dentro seja um
-             *  "form".
+             * Obtem valor do(s) atributo(s) no
+             *  elemento.
              * 
-             * Criando um cabeçalho URI com os
-             *  valores.
+             * @param {STRING} str (opcional)
+             * Informar o atributo a obter o valor.
+             * Se não informado retorna array com
+             *  todos atributos presentes.
              * *************************************
              */
-            serialize: function () {
-                if (this[0].tagName.toLowerCase() === 'form') {
-                    var $uri = '_jsd_protocol_id=' + new Date().getTime(), $i = 0, $value = '';
-                    for (; $i < this[0].elements.length; $i++) {
-                        if (this[0].elements[$i].disabled === true) {
-                            continue;
-                        } else if (this[0].elements[$i].type === 'checkbox' && this[0].elements[$i].checked === false) {
-                            $value = '';
-                        } else if (this[0].elements[$i].type === 'radio' && this[0].elements[$i].checked === false) {
-                            $value = '';
-                        } else {
-                            $value = this[0].elements[$i].value;
+            attr: function (str) {
+                var $attr = this[0].attributes, $i = 0, $attrs = {}, $accept = false;
+                for (; $i < $attr.length; $i++) {
+                    if ($_.isString(str)) {
+                        if (str === $attr[$i].nodeName) {
+                            $attrs = $attr[$i].nodeValue;
+                            $accept = true;
                         }
-                        $uri += '&' + this[0].elements[$i].name + '=' + $_.urlScapes($value);
+                    } else {
+                        $attrs[$attr[$i].nodeName] = $attr[$i].nodeValue;
+                        $accept = true;
                     }
-                    return $uri;
+                }
+                return ($accept ? $attrs : undefined);
+            },
+            /**
+             * *************************************
+             * Define/criar atributos no elemento.
+             * 
+             * @param {OBJECT} obj
+             * Informar o atributo e seu valor a
+             *  ser criado.
+             * *************************************
+             */
+            setAttr: function (obj) {
+                var $this = this, $i = 0;
+                if ($_.isObject(obj)) {
+                    for (; $i < $this.length; $i++) {
+                        for (var $x in obj) {
+                            $this[$i].setAttribute($x, obj[$x]);
+                        }
+                    }
                 }
             },
             /**
              * *************************************
-             * Define o valor no(s) elemento(s).
+             * Remove atributos no elemento.
              * 
-             * @param {STRING} setValue (opcional)
-             * Informar o valor a definir.
-             * Se não informado retorna o valor
-             *  contido no(s) elemento(s).
+             * @param {STRING} str (opcional)
+             * Informar o nome do atributo a ser
+             *  removido.
              * *************************************
              */
-            value: function (setValue) {
-                if (!$_.isDefined(setValue)) {
-                    if (this[0].disabled === true) {
-                        return '';
-                    } else if (this[0].type === 'checkbox' && this[0].checked === false) {
-                        return '';
-                    } else if (this[0].type === 'radio' && this[0].checked === false) {
-                        return '';
+            removeAttr: function (str) {
+                var $attr = $_.isString(str), $this = this, $i = 0;
+                for (; $i < $this.length; $i++) {
+                    if ($attr) {
+                        $this[$i].removeAttribute(str);
                     } else {
-                        return this[0].value ? this[0].value : '';
+                        while ($this[$i].attributes.length) {
+                            $this[$i].removeAttribute($this[$i].attributes[0].nodeName);
+                        }
                     }
-                } else if (this.length > 1) {
-                    for (var $i = 0; $i < this.length; $i++) {
-                        this[$i].value = setValue;
-                    }
+                }
+            },
+            /**
+             * *************************************
+             * Define elemento como marcado.
+             * 
+             * @param {BOOLEAN} bool (opcional)
+             * Informar true para desabilitar e
+             *  false para habilitar.
+             * *************************************
+             */
+            checked: function (bool) {
+                var $bool = typeof bool, $this = this, $i = 0;
+                if ($bool === 'undefined') {
+                    return (this[0].checked ? true : false);
                 } else {
-                    this[0].value = setValue;
+                    for (; $i < $this.length; $i++) {
+                        if ($bool === 'boolean') {
+                            $this[$i].checked = (bool ? true : false);
+                        } else if (bool === 'toggle') {
+                            $this[$i].checked = (this[0].checked ? false : true);
+                        }
+                    }
                 }
             },
-
             /**
              * *************************************
-             * Alterar o índice no(s) elemento(s)
-             *  cujo a tag for um "select".
+             * Desabilita elemento.
              * 
-             * @param {INTERGER} idx (opcional)
-             * Informar o índice das opções
-             *  disponíveis.
-             * Se não informado retorna o índice
-             *  selecionado no(s) elemento(s).
+             * @param {BOOLEAN} bool (opcional)
+             * Informar true para desabilitar e
+             *  false para habilitar.
              * *************************************
              */
-            selectedIndex: function (idx) {
-                if (this[0].tagName.toLowerCase() === 'select') {
-                    var $count = this[0].childElementCount, $index = (idx > $count ? $count : idx), $i = 0;
-                    if (!$_.isDefined(idx)) {
-                        return this[0].selectedIndex;
-                    } else if (this.length > 1) {
-                        for (; $i < this.length; $i++) {
-                            this[$i].selectedIndex = $index;
+            disable: function (bool) {
+                var $bool = typeof bool, $this = this, $i = 0;
+                if ($bool === 'undefined') {
+                    return (this[0].disabled ? true : false);
+                } else {
+                    for (; $i < $this.length; $i++) {
+                        if ($bool === 'boolean') {
+                            if (bool) {
+                                $this[$i].setAttribute('disabled', 'true');
+                            } else {
+                                $this[$i].removeAttribute('disabled');
+                            }
+                        } else if (bool === 'toggle') {
+                            $this[$i].disabled = (this[0].disabled ? false : true);
                         }
-                    } else {
-                        this[0].selectedIndex = $index;
                     }
                 }
             }
-        },
+        }, // attributes
 
-        /* Métodos de atributos e propriedades */
-        properties: {
+        /* Metodos de classificador */
+        classifier: {
             /**
              * *************************************
-             * Verifica se na propriedade "class"
-             *  do(s) elemento(s) possui o valor.
+             * Adiciona na propriedade de "class"
+             *  do elemento novos valores.
              * 
-             * @param {STRING} cl (opcional)
-             * Informar o valor.
-             * Se não informado retorna o todos os
-             *  valores quando eles existirem.
-             * *************************************
-             */
-            classList: function (cl) {
-                if (this[0].className === '') {
-                    return undefined;
-                } else if (!$_.isDefined(cl)) {
-                    return this[0].classList;
-                } else {
-                    return this[0].classList.contains(cl);
-                }
-            },
-            /**
-             * *************************************
-             * Adiciona valor na propriedade "class"
-             *  do(s) elemento(s).
-             * 
-             * @param {STRING} cl
+             * @param {STRING} str
              * Informar o(s) valor(es) separados por
              *  espaço.
              * *************************************
              */
-            addClass: function (cl) {
-                if ($_.isDefined(cl) && cl !== '') {
-                    var $add = cl.split(' '), $i = 0, $j = 0;
-                    for (; $i < this.length; $i++) {
+            addClass: function (str) {
+                if ($_.isString(str)) {
+                    var $add = str.split(' '), $i, $j;
+                    for ($i = 0; $i < this.length; $i++) {
                         for ($j = 0; $j < $add.length; $j++) {
                             this[$i].classList.add($add[$j]);
                         }
@@ -1200,273 +1070,101 @@ var jsd = jsd || {};
             },
             /**
              * *************************************
-             * Adiciona ou remove valor na
-             *  propriedade "class" do(s)
-             *  elemento(s).
+             * Remove na propriedade de "class"
+             *  do elemento valores.
              * 
-             * @param {STRING} cl
-             * Informar o(s) valor(es) separados por
-             *  espaço.
-             * 
-             * Nota!
-             * Se houver mais de um valor em "cl"
-             * e o elemento já possuir algum desses
-             *  valores aquele que exite é retirado
-             *  e os demais adicionados.
-             * *************************************
-             */
-            toggleClass: function (cl) {
-                if ($_.isDefined(cl) && cl !== '') {
-                    var $toggle = cl.split(' '), $i = 0, $j = 0;
-                    for (; $i < this.length; $i++) {
-                        for ($j = 0; $j < $toggle.length; $j++) {
-                            this[$i].classList.toggle($toggle[$j]);
-                        }
-                    }
-                }
-            },
-            /**
-             * *************************************
-             * Remove valor na propriedade "class"
-             *  do(s) elemento(s).
-             * 
-             * @param {STRING} cl (opcional)
+             * @param {STRING} str (opcional)
              * Informar o(s) valor(es) separados por
              *  espaço.
              * Se não informado remove tudo.
              * *************************************
              */
-            removeClass: function (cl) {
-                if ($_.isDefined(cl) && cl !== '') {
-                    var $remove = cl.split(' '), $i = 0, $j = 0;
-                    for (; $i < this.length; $i++) {
+            removeClass: function (str) {
+                var $remove = ($_.isString(str) ? str.split(' ') : false), $i, $j;
+                for ($i = 0; $i < this.length; $i++) {
+                    if ($remove) {
                         for ($j = 0; $j < $remove.length; $j++) {
                             this[$i].classList.remove($remove[$j]);
                         }
+                    } else {
+                        this[$i].className = '';
                     }
+                }
+            },
+            /**
+             * *************************************
+             * Verifica se na propriedade "class"
+             *  do(s) elemento(s) possui o valor.
+             * 
+             * @param {STRING} str (opcional)
+             * Informar o valor.
+             * Se não informado retorna o todos os
+             *  valores quando eles existirem.
+             * *************************************
+             */
+            classList: function (str) {
+                if (this[0].className === '') {
+                    return (undefined);
+                } else if (!$_.isDefined(str)) {
+                    return (this[0].classList);
                 } else {
-                    for (var $k = 0; $k < this.length; $k++) {
-                        this[$k].className = '';
-                    }
+                    return (this[0].classList.contains(str));
                 }
             },
             /**
              * *************************************
-             * Obterm valor do(s) atributo(s) no(s)
-             *  elemento(s).
-             * 
-             * @param {STRING} attr (opcional)
-             * Informar o atributo a obter o valor.
-             * Se não informado retorna arrays
-             * com todos atributos presentes.
-             * *************************************
-             */
-            attr: function (attr) {
-                var $i = 0, $j = 0, $attr = null, $attrs = [];
-                if ($_.isDefined(attr)) {
-                    for (; $i < this.length; $i++) {
-                        $attr = this[$i].getAttribute(attr);
-                        $attrs.push($attr);
-                    }
-                } else {
-                    for (; $i < this.length; $i++) {
-                        $attr = this[$i].attributes;
-                        for ($j = 0; $j < $attr.length; $j++) {
-                            $attrs.push([$attr[$j].nodeName, $attr[$j].nodeValue]);
-                        }
-                    }
-                }
-                return $attrs;
-            },
-            /**
-             * *************************************
-             * Define/criar atributos no(s)
-             *  elemento(s).
-             * 
-             * @param {STRING/OBJECT} attr
-             * Quando string, informar o atributo a
-             * ser criado.
-             * Quando objeto, informar o atributo e
-             * seu valor a ser criado.
-             * 
-             * @param {STRING} val (opcional)
-             * Somente válido quando "attr" é um
-             *  string.
-             * Informar o valor do atributo "attr"
-             *  a ser criado.
-             * Se não informado e "attr" for string
-             *  o atribut não terá valor.
-             * *************************************
-             */
-            setAttr: function (attr, val) {
-                var $i = 0;
-                if ($_.isString(attr) && $_.isString(val)) {
-                    for (; $i < this.length; $i++) {
-                        this[$i].setAttribute(attr, val);
-                    }
-                } else if ($_.isObject(attr)) {
-                    for (; $i < this.length; $i++) {
-                        for (var name in attr) {
-                            this[$i].setAttribute(name, attr[name]);
-                        }
-                    }
-                }
-            },
-            /**
-             * *************************************
-             * Remove atributos no(s) elemento(s).
-             * 
-             * @param {STRING/ARRAY} attr
-             * Quando string, informar o nome do
-             *  atributo a ser removido.
-             * Quando array, informar em cada índice
-             *  o nome do atributo a ser removido.
-             * *************************************
-             */
-            removeAttr: function (attr) {
-                var $i = 0, $j;
-                if ($_.isString(attr)) {
-                    for (; $i < this.length; $i++) {
-                        this[$i].removeAttribute(attr);
-                    }
-                } else if ($_.isArray(attr)) {
-                    for (; $i < this.length; $i++) {
-                        for ($j = 0; $j < attr.length; $j++) {
-                            this[$i].removeAttribute(attr[$j]);
-                        }
-                    }
-                } else {
-                    while (this[$i].attributes.length) {
-                        this[$i].removeAttribute(this[$i].attributes[0].nodeName);
-                    }
-                }
-            }
-        },
-
-        /* Métodos de eventos */
-        events: {
-            /**
-             * *************************************
-             * Adiciona evento no elemento.
-             * 
-             * @param {STRING} type
-             * Qual é o tipo de situação que
-             *  dispara a função.
-             * 
-             * @param {FUNCTION} listener
-             * Função ouvinte que será disparada.
-             * *************************************
-             */
-            on: function (type, listener) {
-                var $this = this, $type = type, $listener = listener, $i = 0, $insert = true;
-                if ($_.isString($type) && $_.isFunction($listener)) {
-                    for (; $i < $this.length; $i++) {
-                        if (!$_.isDefined($this[$i].eventListener)) {
-                            $this[$i].eventListener = [];
-                        }
-                        $_.each($this[$i].eventListener, function (index, value) {
-                            if ($type == value.type && $listener == value.listener) {
-                                $insert = false;
-                            }
-                        });
-                        if ($insert) {
-                            $this[$i].eventListener.push({
-                                type: $type,
-                                listener: $listener
-                            });
-                            $this[$i].addEventListener($type, $listener, false);
-                        }
-                    }
-                }
-            },
-            /**
-             * *************************************
-             * Remove eventos adicionados no
+             * Redefine a propriedade "class" do
              *  elemento.
              * 
-             * @param {STRING} type (opcional)
-             * Qual é o tipo de situação que
-             *  dispara a função.
-             * 
-             * @param {FUNCTION} listener (opcional)
-             * Função ouvinte que é disparada.
-             * 
-             * NOTA:
-             * Quando informado "type" e "listener"
-             * A função ouvinte do requisito de
-             *  disparo é removida.
-             * Quando informado "type" e não o
-             *  "listener" todas funções ouvintes do
-             *  requisito de disparo são removidas.
-             * Quando não informado "type" e nem o
-             *  "listener" todas funções ouvintes
-             *  são removidas.
+             * @param {STRING} str (opcional)
+             * Informar o valor.
+             * Se não informado retorna o valor do
+             *  atributo.
              * *************************************
              */
-            off: function (type, listener) {
-                var $this = this, $type = type, $listener = listener, $i = 0, $indexKey = [], $j = 0;
-                for (; $i < $this.length; $i++) {
-                    if ($_.isArray($this[$i].eventListener)) {
-                        $_.each($this[$i].eventListener, function (index, value) {
-                            if ($type == value.type && $listener == value.listener) {
-                                $this[$i].removeEventListener($type, $listener, false);
-                                $indexKey.push(index);
-                            } else if ($type == value.type && !$listener) {
-                                $this[$i].removeEventListener($type, value.listener, false);
-                                $indexKey.push(index);
-                            } else if (!$type) {
-                                $this[$i].removeEventListener(value.type, value.listener, false);
-                                $indexKey.push(index);
-                            }
-                        });
-                        $j = $indexKey.length;
-                        if ($j < $this[$i].eventListener.length) {
-                            while ($j--) {
-                                $this[$i].eventListener.splice($indexKey[$j], 1);
-                            }
-                        } else {
-                            delete $this[$i].eventListener;
-                        }
-                    }
+            className: function (str) {
+                if ($_.isString(str)) {
+                    this[0].className = str;
+                } else {
+                    return (this[0].className);
                 }
             },
             /**
              * *************************************
-             * Aciona eventos adicionados no
-             *  elemento.
+             * Adiciona ou remove valor na
+             * propriedade "class" do elemento.
              * 
-             * @param {STRING} type
-             * Qual é o tipo de situação que
-             *  dispara a função.
+             * @param {STRING} str
+             * Informar o(s) valor(es) separados por
+             *  espaço.
+             * Nota!
+             * Se houver mais de um valor em "x"
+             * e o elemento já possuir algum desses
+             *  valores aquele que exite é retirado
+             *  e os demais adicionados.
              * *************************************
              */
-            trigger: function (type) {
-                var $this = this, $type = type, $i = 0, $event = false;
-                for (; $i < $this.length; $i++) {
-                    if ($_.isArray($this[$i].eventListener)) {
-                        $_.each($this[$i].eventListener, function (index, value) {
-                            if ($type == value.type) {
-                                $event = $type;
-                            }
-                        });
-                        if ($event) {
-                            $this[$i].dispatchEvent(new Event($event, {bubbles: true, cancelable: true}));
+            toggleClass: function (str) {
+                if ($_.isString(str)) {
+                    var $toggle = str.split(' '), $i, $j;
+                    for ($i = 0; $i < this.length; $i++) {
+                        for ($j = 0; $j < $toggle.length; $j++) {
+                            this[$i].classList.toggle($toggle[$j]);
                         }
                     }
                 }
             }
-        },
+        }, // classifier
 
-        /* Métodos de estilos */
+        /* Metodos de formatos para estilo */
         styles: {
             /**
              * *************************************
              * Verifica ou define estilo para o
              *  elemento da intância.
              * 
-             * @param {STRING/OBJECT} val
+             * @param {STRING/OBJECT} strObj
              * Qual propriedade computada.
-             * 
              * Se não informado retorna todo estilo
              *  computado.
              * Se string retorna o valor do estilo
@@ -1474,43 +1172,18 @@ var jsd = jsd || {};
              * Se objeto define o estilo inline.
              * *************************************
              */
-            css: function (val) {
-                if (!$_.isDefined(val)) {
-                    return window.getComputedStyle(this[0], null);
-                } else if ($_.isString(val)) {
-                    return window.getComputedStyle(this[0], null).getPropertyValue(val);
-                } else if ($_.isObject(val)) {
-                    for (var prop in val) {
-                        this[0].style[prop] = val[prop];
+            css: function (strObj) {
+                var $this = this, $prop = {}, $i;
+                if ($_.isString(strObj)) {
+                    return (window.getComputedStyle($this[0], null).getPropertyValue(strObj));
+                } else if ($_.isObject(strObj)) {
+                    for ($i = 0; $i < $this.length; $i++) {
+                        for ($prop in strObj) {
+                            $this[$i].style[$prop] = strObj[$prop];
+                        }
                     }
-                }
-            },
-            /**
-             * *************************************
-             * Verifica ou define a largura para o
-             *  elemento da intância.
-             * 
-             * @param {boolean/INTERGER} val
-             * 
-             * Se não informado retorna a largura
-             *  ocupada.
-             * Se não informado como "true" retorna
-             *  a largura ocupada junto a suas
-             *  margens.
-             * Se não informado como "numero" define
-             *  a largura.
-             * *************************************
-             */
-            width: function (val) {
-                if (!$_.isDefined(val)) {
-                    return this[0].offsetWidth;
-                } else if (val === true) {
-                    var $css = this.css();
-                    return (this[0].offsetWidth
-                            + parseFloat($css.getPropertyValue('margin-right'))
-                            + parseFloat($css.getPropertyValue('margin-left')));
-                } else if ($_.isInt(val)) {
-                    this[0].style.width = val + 'px';
+                } else {
+                    return (window.getComputedStyle($this[0], null));
                 }
             },
             /**
@@ -1518,27 +1191,57 @@ var jsd = jsd || {};
              * Verifica ou define a altura para o
              *  elemento da intância.
              * 
-             * @param {boolean/INTERGER} val
-             * 
+             * @param {BOOLEAN/STRING} boolStr
              * Se não informado retorna a altura
              *  ocupada.
              * Se não informado como "true" retorna
              *  a altura ocupada junto a suas
              *  margens.
-             * Se não informado como "numero" define
+             * Se não informado como "texto" define
              *  a altura.
              * *************************************
              */
-            height: function (val) {
-                if (!$_.isDefined(val)) {
-                    return this[0].offsetHeight;
-                } else if (val === true) {
+            height: function (boolStr) {
+                if ($_.isString(boolStr)) {
+                    for (var $i = 0; $i < this.length; $i++) {
+                        this[$i].style.height = boolStr;
+                    }
+                } else if (boolStr === true) {
                     var $css = this.css();
                     return (this[0].offsetHeight
                             + parseFloat($css.getPropertyValue('margin-top'))
                             + parseFloat($css.getPropertyValue('margin-bottom')));
-                } else if ($_.isInt(val)) {
-                    this[0].style.height = val + 'px';
+                } else {
+                    return (this[0].offsetHeight);
+                }
+            },
+            /**
+             * *************************************
+             * Verifica ou define a largura para o
+             *  elemento da intância.
+             * 
+             * @param {BOOLEAN/STRING} boolStr (opcional)
+             * Se não informado retorna a largura
+             *  ocupada.
+             * Se não informado como "true" retorna
+             *  a largura ocupada junto a suas
+             *  margens.
+             * Se não informado como "texto" define
+             *  a largura.
+             * *************************************
+             */
+            width: function (boolStr) {
+                if ($_.isString(boolStr)) {
+                    for (var $i = 0; $i < this.length; $i++) {
+                        this[$i].style.width = boolStr;
+                    }
+                } else if (boolStr === true) {
+                    var $css = this.css();
+                    return (this[0].offsetWidth
+                            + parseFloat($css.getPropertyValue('margin-right'))
+                            + parseFloat($css.getPropertyValue('margin-left')));
+                } else {
+                    return (this[0].offsetWidth);
                 }
             },
             /**
@@ -1555,53 +1258,276 @@ var jsd = jsd || {};
                         $left = $this.clientLeft || $body.clientLeft || 0,
                         $scrollTop = $this === window ? window.scrollY : $this.scrollTop,
                         $scrollLeft = $this === window ? window.scrollX : $this.scrollLeft;
-                return {
+                return ({
                     top: ($rect.top + $scrollTop) - $top,
                     left: ($rect.left + $scrollLeft) - $left
-                };
+                });
             }
-        }
-    };
+        }, // styles
+
+        /* Metodos de definição de valores */
+        values: {
+            /**
+             * *************************************
+             * Obtem os dados do dataset.
+             * 
+             * @param {STRING} str (opcional)
+             * Informar o dataset.
+             * Se não informado retorna todos os
+             *  dados do dataset no elemento.
+             * *************************************
+             */
+            data: function (str) {
+                var $target = '', $match = null, $dataSet = this[0].dataset;
+                if ($_.isString(str)) {
+                    $match = str.split('-');
+                    $target = ($match[0] === 'data' ? str.substr(str.lastIndexOf('data-') + 5) : str).toLowerCase();
+                    for (var $dt in $dataSet) {
+                        if ($dt.toLowerCase() === $target) {
+                            return ($dataSet[$dt]);
+                        }
+                    }
+                } else {
+                    return ($dataSet);
+                }
+            },
+            /**
+             * *************************************
+             * Obtem os dados do dataset.
+             * 
+             * @param {OBJECT} obj
+             * Informar dataset's e seus valores.
+             * *************************************
+             */
+            setData: function (obj) {
+                if ($_.isObject(obj)) {
+                    var $this = this, $prop = {}, $i;
+                    for ($i = 0; $i < $this.length; $i++) {
+                        for ($prop in obj) {
+                            $this[$i].setAttribute('data-' + $prop, obj[$prop]);
+                        }
+                    }
+                }
+            },
+
+            /**
+             * *************************************
+             * Alterar o índice no elemento cujo a
+             *  tag for um "select".
+             * 
+             * @param {INTERGER} int (opcional)
+             * Informar o índice das opções
+             *  disponíveis.
+             * Se não informado retorna o índice
+             *  selecionado no(s) elemento(s).
+             * *************************************
+             */
+            selectIndex: function (int) {
+                var $selected = parseInt(int), $i = 0, $options = 0;
+                if (this[0].tagName.toLowerCase() === 'select') {
+                    if ($_.isInt($selected) && $selected >= 1) {
+                        for (; $i < this.length; $i++) {
+                            $options = this[$i].childElementCount;
+                            this[$i].selectedIndex = ($selected > $options ? this[$i].selectedIndex : $selected);
+                        }
+                    } else {
+                        return (this[0].selectedIndex);
+                    }
+                }
+            },
+            /**
+             * *************************************
+             * Define o valor no elemento.
+             * 
+             * @param {STRING} str (opcional)
+             * Informar o valor a definir.
+             * Se não informado retorna o valor
+             *  contido no elemento(s).
+             * *************************************
+             */
+            value: function (str) {
+                if ($_.isDefined(str)) {
+                    for (var $i = 0; $i < this.length; $i++) {
+                        this[$i].value = str;
+                    }
+                } else if (this[0].tagName.toLowerCase() === 'form') {
+                    var $elements = this[0].elements, $i = 0, $arr = [];
+                    for (; $i < $elements.length; $i++) {
+                        $arr.push({name: $elements[$i].name, value: getValue($elements[$i])});
+                    }
+                    return ($arr);
+                } else {
+                    return (getValue(this[0]));
+                }
+            },
+            /**
+             * *************************************
+             * Retorna os elementos contidos em
+             *  formulário.
+             * *************************************
+             */
+            formElements: function () {
+                if (this[0].tagName.toLowerCase() === 'form') {
+                    return ($_(this[0].elements));
+                }
+            },
+            /**
+             * *************************************
+             * Cria um cabeçalho URI com os valores
+             * dos elementos contidos em
+             *  formulário.
+             * *************************************
+             */
+            serialize: function () {
+                if (this[0].tagName.toLowerCase() === 'form') {
+                    var $elements = this[0].elements, $i = 0, $arr = [];
+                    for (; $i < $elements.length; $i++) {
+                        if ($elements[$i].name === '' || $elements[$i].disabled === true) {
+                            continue;
+                        } else {
+                            $arr.push(encodeURIComponent($elements[$i].name) + '=' + encodeURIComponent(getValue($elements[$i])));
+                        }
+                    }
+                    return ($arr.join('&'));
+                }
+            }
+        }, // values
+
+        /* Métodos de eventos */
+        events: {
+            /**
+             * *************************************
+             * Adiciona ouvinte de evento no
+             *  elemento.
+             * 
+             * @param {STRING} type
+             * Qual ação que aciona a função.
+             * 
+             * @param {FUNCTION} fnc
+             * Função ouvinte.
+             * 
+             * @param {BOOLEAN} cap
+             * Utilizar ou não user-capture.
+             * *************************************
+             */
+            on: function (type, fnc, cap) {
+                var $this = this, $i = 0, $name = '', $type = (type || '').toString().toLowerCase(), $insert = true;
+                for (; $i < $this.length; $i++) {
+                    $this[$i].event = $this[$i].event || {};
+                    if ($type.length >= 1 && $_.isFunction(fnc)) {
+                        for ($name in $this[$i].event) {
+                            if ($name === $type) {
+                                console.warn('addEventListener já está definido como');
+                                $insert = false;
+                                break;
+                            }
+                        }
+                        if ($insert) {
+                            $this[$i].event[$type] = fnc;
+                            $this[$i].addEventListener($type, fnc, (cap === true ? true : false));
+                        }
+                    }
+                }
+            },
+            /**
+             * *************************************
+             * Remove ouvinte de evento no elemento.
+             * 
+             * @param {STRING} type
+             * Qual ouvinte ou função para remover.
+             * *************************************
+             */
+            off: function (type) {
+                var $this = this, $i = 0, $name = '', $function = (type || '').toString(), $type = $function.toLowerCase();
+                for (; $i < $this.length; $i++) {
+                    $this[$i].event = $this[$i].event || {};
+                    for ($name in $this[$i].event) {
+                        if ($type.length >= 1) {
+                            if ($type === $name || $function === $this[$i].event[$name].name) {
+                                $this[0].removeEventListener($name, $this[$i].event[$name], false);
+                                delete $this[$i].event[$name];
+                            }
+                        } else {
+                            $this[$i].removeEventListener($name, $this[$i].event[$name], false);
+                            delete $this[$i].event[$name];
+                        }
+                    }
+                }
+            },
+            /**
+             * *************************************
+             * Executa ouvinte de evento no
+             *  elemento.
+             * 
+             * @param {STRING} type
+             * Qual é o tipo de situação para
+             *  ativar a função.
+             * *************************************
+             */
+            trigger: function (type) {
+                var $this = this, $i = 0, $name = '', $event = '', $type = (type || '').toString().toLowerCase();
+                for (; $i < $this.length; $i++) {
+                    $this[$i].event = $this[$i].event || {};
+                    for ($name in $this[$i].event) {
+                        if ($type.length >= 1) {
+                            if ($name === $type) {
+                                $event = $type;
+                            }
+                        } else {
+                            $event = $name;
+                        }
+                        $this[$i].dispatchEvent(new Event($event, {bubbles: true, cancelable: true}));
+                    }
+                }
+            }
+        } // events
+
+    }; // $methods
 
     /*
      * **********************************************
      * Define os métodos para os objetos HTML
      * **********************************************
      */
-    Object.keys(methods).forEach(function (e) {
-        if (typeof methods[e] === 'function') {
-            $_.objectMethods[e] = methods[e];
-        } else if (typeof methods[e] === 'object') {
-            for (var key in methods[e]) {
-                $_.objectMethods[key] = methods[e][key];
+    Object.keys($methods).forEach(function (e) {
+        if (typeof $methods[e] === 'function') {
+            $_.objectMethods[e] = $methods[e];
+        } else if (typeof $methods[e] === 'object') {
+            for (var key in $methods[e]) {
+                $_.objectMethods[key] = $methods[e][key];
             }
         }
     });
 
-    /**
+    /*
      * **********************************************
      * Expande novos métodos para eventos sobre os
      *  objetos HTML.
-     * Executa as funções:
-     *  "events.on()
-     *  "events.trigger()"
-     * 
-     * @param {INTEGER} index 
-     * @param {OBJECT} value 
+     * Executa através de events.on()
      * **********************************************
      */
-    $_.each(('click dblclick blur focus focusin focusout resize scroll '
-            + 'mousedown mouseup mousemove mouseover mouseout mouseenter mouseleave '
-            + 'change select submit keydown keypress keyup contextmenu').split(' '),
-            function (index, value) {
-                $_.objectMethods[value] = function (fnc) {
-                    if ($_.isFunction(fnc)) {
-                        return this.on(value, fnc);
-                    } else {
-                        return this.trigger(value);
-                    }
-                };
-            });
+    $_.each([
+        // Mouse
+        'click', 'dblclick', 'auxclick', 'mousedown', 'mouseenter', 'mouseleave', 'mousemove', 'mouseout', 'mouseover', 'mouseup', 'contextmenu',
+        // Teclado
+        'keydown', 'keypress', 'keyup',
+        // Foco
+        'blur', 'focus', 'focusin', 'focusout',
+        // Form
+        'change', 'reset', 'select', 'submit',
+        // Toque
+        'touchstart', 'touchend', 'touchcancel', 'touchmove',
+        // Tela cheia
+        'fullscreenchange', 'fullscreenerror',
+        // Área de transferencia
+        'copy', 'cut', 'paste',
+        // Outros
+        'load', 'unload', 'cancel', 'error', 'scroll', 'resize'
+    ], function (value) {
+        $_.objectMethods[value] = function (fnc) {
+            this.on(value, fnc);
+        };
+    });
 
-    jsd = $_;
+    window.jsd = $_;
 }());

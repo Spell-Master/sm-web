@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>isExists</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <link href="../../../css/css-default.css" rel="stylesheet" type="text/css" />
+        <link href="../../../lib/prism/prism.css" rel="stylesheet" type="text/css" />
+        <link href="../../../lib/stylesheet/core.css" rel="stylesheet" type="text/css" />
+
+        <script src="../js-default.js" type="text/javascript"></script>
+        <script src="../../../lib/prism/prism.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <header>
+            <div class="bg-dark-grey padding-all text-white">
+                <div class="container">
+                    <h1>isExists</h1>
+                </div>
+            </div>
+            <div class="bg-light padding-all">
+                Verificar se existe
+            </div>
+        </header>
+        <main class="bg-white">
+            <div class="container padding-all">
+                <pre class="language-html"><code>&lt;div id="exemplo-a"&gt;&lt;/div&gt;
+&lt;script&gt;
+    var a = true;
+    var b = null;
+    var c = undefined;
+    var d = document.getElementById('exemplo-a');
+    var e = document.getElementById('exemplo-b'); // Não existe: &lt;div id="exemplo-b"&gt;&lt;/div&gt;
+            
+    console.log(
+        jsd.isExists(a), // true
+        jsd.isExists(b), // false
+        jsd.isExists(c), // false
+        jsd.isExists(d), // true
+        jsd.isExists(e)  // false
+    );
+&lt;/script&gt;</code></pre>
+                <div class="margin-top align-center">
+                    <button onclick="executar()" class="btn-default radius-all-min bold">Executar</button>
+                </div>
+            </div>
+
+            <div class="sm-margin-top">
+                <div class="card padding-all">
+                    <div id="exemplo-a">exemplo</div>
+                </div>
+            </div>
+        </main>
+        <footer class="bg-white"></footer>
+
+        <script>
+            function executar() {
+                var a = true;
+                var b = null;
+                var c = undefined;
+                var d = document.getElementById('exemplo-a');
+                var e = document.getElementById('exemplo-b');
+
+                console.log(
+                        jsd.isExists(a),
+                        jsd.isExists(b),
+                        jsd.isExists(c),
+                        jsd.isExists(d),
+                        jsd.isExists(e)
+                        );
+            }
+        </script>
+    </body>
+</html>

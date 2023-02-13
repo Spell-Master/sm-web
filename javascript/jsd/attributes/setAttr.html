@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>setAttr</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <link href="../../../css/css-default.css" rel="stylesheet" type="text/css" />
+        <link href="../../../lib/prism/prism.css" rel="stylesheet" type="text/css" />
+        <link href="../../../lib/stylesheet/core.css" rel="stylesheet" type="text/css" />
+
+        <script src="../js-default.js" type="text/javascript"></script>
+        <script src="../../../lib/prism/prism.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <header>
+            <div class="bg-dark-grey padding-all text-white">
+                <div class="container">
+                    <h1>setAttr</h1>
+                </div>
+            </div>
+            <div class="bg-light padding-all">
+                <div class="container">
+                    Cria atributos no elemento
+                </div>
+            </div>
+            <div class="alert-info">
+                <div class="container">
+                    <p class="bold italic">recursion</p>
+                    <p>Esse método é recursivo outros elementos</p>
+                    <pre class="language-javascript"><code>jsd('#exemplo').setAttr({width: '10px'}); // Executa apenas em &lt;div id="exemplo"&gt;
+jsd('.exemplo').setAttr({width: '10px'}); // Executa em todos &lt;div class="exemplo"&gt;</code></pre>
+                </div>
+            </div>
+        </header>
+        <main class="bg-white">
+            <div class="container padding-all">
+                <div class="row-pad">
+                    <div class="col-half">
+                        Criar atributo
+                        <pre class="language-javascript"><code>jsd('#exemplo').setAttr({style: 'color:blue; padding:10px'});</code></pre>
+                        <div class="margin-top align-center">
+                            <button onclick="executar('1')" class="btn-default radius-all-min bold">Executar</button>
+                        </div>
+                    </div>
+                    <div class="col-half">
+                        Criar multiplos atributos
+                        <pre class="language-javascript"><code>jsd('#exemplo').setAttr({style: "color:red; padding:10px", 'data-exemplo': "data valor"});</code></pre>
+                        <div class="margin-top align-center">
+                            <button onclick="executar('2')" class="btn-default radius-all-min bold">Executar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="margin-top-max">
+                    <div class="card padding-all">
+                        <div id="exemplo">Exemplo</div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer class="bg-white"></footer>
+        <script>
+            var exemplo = jsd('#exemplo');
+            function executar(param) {
+                switch (param) {
+                    case '1':
+                        exemplo.setAttr({style: 'color:blue; padding:10px'});
+                        break;
+                    case '2':
+                        exemplo.setAttr({style: "color:red; padding:10px", 'data-exemplo': "data valor"});
+                        break;
+                }
+                console.log(exemplo.attr());
+            }
+        </script>
+    </body>
+</html>

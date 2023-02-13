@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>isFunction</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <link href="../../../css/css-default.css" rel="stylesheet" type="text/css" />
+        <link href="../../../lib/prism/prism.css" rel="stylesheet" type="text/css" />
+        <link href="../../../lib/stylesheet/core.css" rel="stylesheet" type="text/css" />
+
+        <script src="../js-default.js" type="text/javascript"></script>
+        <script src="../../../lib/prism/prism.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <header>
+            <div class="bg-dark-grey padding-all text-white">
+                <div class="container">
+                    <h1>isFunction</h1>
+                </div>
+            </div>
+            <div class="bg-light padding-all">
+                Verifica se é função
+            </div>
+        </header>
+        <main class="bg-white">
+            <div class="container padding-all">
+                <pre class="language-javascript"><code>var a = 'ABC';
+var b = 123;
+var c = function () {};
+var d = {};
+var e = document.querySelector;
+
+console.log(
+    jsd.isFunction(a), // false
+    jsd.isFunction(b), // false
+    jsd.isFunction(c), // true
+    jsd.isFunction(d), // false
+    jsd.isFunction(e)  // true
+);</code></pre>
+                <div class="margin-top align-center">
+                    <button onclick="executar()" class="btn-default radius-all-min bold">Executar</button>
+                </div>
+            </div>
+        </main>
+        <footer class="bg-white"></footer>
+
+        <script>
+            function executar() {
+                var a = 'ABC';
+                var b = 123;
+                var c = function () {};
+                var d = {};
+                var e = document.querySelector;
+
+                console.log(
+                        jsd.isFunction(a),
+                        jsd.isFunction(b),
+                        jsd.isFunction(c),
+                        jsd.isFunction(d),
+                        jsd.isFunction(e)
+                        );
+            }
+        </script>
+    </body>
+</html>

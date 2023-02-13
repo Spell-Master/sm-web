@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>serialize</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <link href="../../../css/css-default.css" rel="stylesheet" type="text/css" />
+        <link href="../../../lib/prism/prism.css" rel="stylesheet" type="text/css" />
+        <link href="../../../lib/stylesheet/core.css" rel="stylesheet" type="text/css" />
+
+        <script src="../js-default.js" type="text/javascript"></script>
+        <script src="../../../lib/prism/prism.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <header>
+            <div class="bg-dark-grey padding-all text-white">
+                <div class="container">
+                    <h1>serialize</h1>
+                </div>
+            </div>
+            <div class="bg-light padding-all">
+                <div class="container">
+                    Obtem e codifica quaisquer valores contidos em elementos de formulário.
+                </div>
+            </div>
+        </header>
+        <main class="bg-white">
+            <div class="container padding-all">
+                <blockquote class="quote-yellow">
+                    A função <span class="bold">serialize</span> só irá codificar elementos no formulário
+                    que atendam esses requisitos:
+                    <ul>
+                        <li>Deve possuir o atributo <span class="bold">name</span></li> 
+                        <li>O atributo name não pode está <span class="bold">vazio</span></li> 
+                        <li>Não pode possuir o atributo <span class="bold">disabled</span></li> 
+                    </ul>
+                </blockquote>
+                <blockquote class="quote-red">
+                    <p class="bold h6">Atenção</p>
+                    Atributos <span class="bold">name</span> vazios em tag &lt;form&gt; resulta em
+                    erros na sintaxe do HTML.
+                </blockquote>
+
+                <pre class="language-html"><code>&lt;form id="formulario"&gt;
+    &lt;input type="text" name="text-name" value="valor do text" /&gt;
+
+    &lt;!-- Ausência do atributo name (Não será caputado pelo método) --&gt;
+    &lt;input type="text" value="sem nome" class="input-default" /&gt;
+    &lt;!-- Ausência do atributo name (Não será caputado pelo método) --&gt;
+    &lt;input type="text" name="disabled" value="disabled" disabled="" class="input-default" /&gt;
+
+    &lt;textarea name="textarea-name"&gt;valor do textarea&lt;/textarea&gt;
+
+    &lt;select name="select-name"&gt;
+        &lt;option value=""&gt;select&lt;/option&gt;
+        &lt;option value="valor do select a" selected=""&gt;opção a&lt;/option&gt;
+        &lt;option value="valor do select b"&gt;opção b&lt;/option&gt;
+        &lt;option value="valor do select c"&gt;opção c&lt;/option&gt;
+    &lt;/select&gt;
+
+    &lt;input type="checkbox" name="checkbox-name[]" value="valor do checkbox a" checked="" /&gt;
+    &lt;input type="checkbox" name="checkbox-name[]" value="valor do checkbox b" checked="" /&gt;
+
+    &lt;input type="radio" name="radio-name" value="valor do radio a" checked="" /&gt;
+    &lt;input type="radio" name="radio-name" value="valor do radio b" /&gt;
+    &lt;button type="button" value="valor do button"&gt;button&lt;/button&gt;
+&lt;/form&gt;
+&lt;script&gt;
+    jsd('#formulario').serialize();
+&lt;/script&gt;
+</code></pre>
+                <div class="margin-top align-center">
+                    <button onclick="executar()" class="btn-default radius-all-min bold">Executar</button>
+                </div>
+
+                <div class="margin-top-max">
+                    <div class="card padding-all">
+                        <form id="formulario">
+                            <div class="row-pad">
+                                <div class="col-third">
+                                    <input type="text" name="text-name" value="valor do text" class="input-default" />
+                                </div>
+                                <div class="col-third">
+                                    <input type="text" value="sem nome" class="input-default" />
+                                    <input type="text" name="disabled" value="disabled" disabled="" class="input-default" />
+                                </div>
+                                <div class="col-third">
+                                    <textarea name="textarea-name" class="input-default">valor do textarea</textarea>
+                                </div>
+                            </div>
+                            <div class="row-pad">
+                                <div class="col-quarter">
+                                    <select name="select-name" class="input-default">
+                                        <option value="">select</option>
+                                        <option value="valor do select a" selected="">opção a</option>
+                                        <option value="valor do select b">opção b</option>
+                                        <option value="valor do select c">opção c</option>
+                                    </select>
+                                </div>
+                                <div class="col-quarter align-center">
+                                    <input type="checkbox" name="checkbox-name[]" value="valor do checkbox a" checked="" class="input-check" />
+                                    <input type="checkbox" name="checkbox-name[]" value="valor do checkbox b" checked="" class="input-check" />
+                                </div>
+                                <div class="col-quarter align-center">
+                                    <input type="radio" name="radio-name" value="valor do radio a" checked="" class="input-check" />
+                                    <input type="radio" name="radio-name" value="valor do radio b" class="input-check" />
+                                </div>
+                                <div class="col-quarter">
+                                    <button type="button" value="valor do button" class="btn-info button-block">button</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer class="bg-white"></footer>
+
+        <script>
+            var form = jsd('#formulario');
+            function executar() {
+                console.log(form.serialize());
+            }
+        </script>
+    </body>
+</html>

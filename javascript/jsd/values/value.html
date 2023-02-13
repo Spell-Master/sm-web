@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>value</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <link href="../../../css/css-default.css" rel="stylesheet" type="text/css" />
+        <link href="../../../lib/prism/prism.css" rel="stylesheet" type="text/css" />
+        <link href="../../../lib/stylesheet/core.css" rel="stylesheet" type="text/css" />
+
+        <script src="../js-default.js" type="text/javascript"></script>
+        <script src="../../../lib/prism/prism.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <header>
+            <div class="bg-dark-grey padding-all text-white">
+                <div class="container">
+                    <h1>value</h1>
+                </div>
+            </div>
+            <div class="bg-light padding-all">
+                <div class="container">
+                    Manipula valores de elementos de formulário
+                </div>
+            </div>
+        </header>
+        <main class="bg-white">
+            <div class="container padding-all">
+                <pre class="language-html"><code>&lt;form id="formulario"&gt;
+    &lt;input type="text" name="text-name" value="valor do text" /&gt;
+
+    &lt;textarea name="textarea-name"&gt;valor do textarea&lt;/textarea&gt;
+
+    &lt;select name="select-name"&gt;
+        &lt;option value=""&gt;select&lt;/option&gt;
+        &lt;option value="valor do select a" selected=""&gt;opção a&lt;/option&gt;
+        &lt;option value="valor do select b"&gt;opção b&lt;/option&gt;
+        &lt;option value="valor do select c"&gt;opção c&lt;/option&gt;
+    &lt;/select&gt;
+
+    &lt;input type="checkbox" name="checkbox-name[]" value="valor do checkbox a" checked="" /&gt;
+    &lt;input type="checkbox" name="checkbox-name[]" value="valor do checkbox b" checked="" /&gt;
+
+    &lt;input type="checkbox" name="checkbox-disable" value="valor do checkbox c" disabled="" /&gt;
+
+    &lt;input type="radio" name="radio-name" value="valor do radio a" checked="" /&gt;
+    &lt;input type="radio" name="radio-name" value="valor do radio b" /&gt;
+    &lt;button type="button" value="valor do button"&gt;button&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+
+                <div class="margin-top-max">
+                    <div class="card padding-all">
+                        <form id="formulario">
+                            <div class="row-pad">
+                                <div class="col-third">
+                                    <p>Input text</p>
+                                    <input type="text" name="text-name" value="valor do text" class="input-default" />
+                                </div>
+                                <div class="col-third">
+                                    <p>Textarea</p>
+                                    <textarea name="textarea-name" class="input-default">valor do textarea</textarea>
+                                </div>
+                                <div class="col-third">
+                                    <p>Seletor</p>
+                                    <select name="select-name" class="input-default">
+                                        <option value="">select</option>
+                                        <option value="valor do select a" selected="">opção a</option>
+                                        <option value="valor do select b">opção b</option>
+                                        <option value="valor do select c">opção c</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="row-pad">
+                                <div class="col-third">
+                                    <p>Input checkbox mesmo nome</p>
+                                    <input type="checkbox" name="checkbox-name[]" value="valor do checkbox a" checked="" class="input-check" />
+                                </div>
+                                <div class="col-third">
+                                    <p>Input checkbox mesmo nome</p>
+                                    <input type="checkbox" name="checkbox-name[]" value="valor do checkbox b" checked="" class="input-check" />
+
+                                </div>
+                                <div class="col-third">
+                                    <p>Input checkbox desabilitado</p>
+                                    <input type="checkbox" name="checkbox-disable" value="valor do checkbox c" disabled="" class="input-check" />
+                                </div>
+                            </div>
+
+                            <div class="row-pad">
+                                <div class="col-third">
+                                    <p>Input radio</p>
+                                    <input type="radio" name="radio-name" value="valor do radio a" checked="" class="input-check-x" />
+                                </div>
+                                <div class="col-third">
+                                    <p>Input radio irmão</p>
+                                    <input type="radio" name="radio-name" value="valor do radio b" class="input-check-x" />
+                                </div>
+                                <div class="col-third">
+                                    <p>Botão</p>
+                                    <button type="button" value="valor do button" class="btn-warning">button</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="margin-top-max">
+                    <div class="row-pad">
+                        <div class="col-third">
+                            Obtem o valor do elemento
+                            <pre class="language-javascript"><code>jsd('input[type="text"]').value(); //valor do input
+jsd('select').value(); //valor do seletor</code></pre>
+                            <div class="margin-top align-center">
+                                <button onclick="executar('1')" class="btn-default radius-all-min bold">Executar</button>
+                            </div>
+                        </div>
+                        <div class="col-third">
+                            Obtem o valor de tudo no formulário
+                            <p class="quote-green">Se a tag alvo for um form altomaticamente
+                                retorna todos os values do formulário</p>
+                            <pre class="language-javascript"><code>jsd('#formulario').value();</code></pre>
+                            <div class="margin-top align-center">
+                                <button onclick="executar('2')" class="btn-default radius-all-min bold">Executar</button>
+                            </div>
+                        </div>
+                        <div class="col-third">
+                            Altera o valor
+                            <pre class="language-javascript"><code>jsd('textarea').value('Olá mundo');</code></pre>
+                            <div class="margin-top align-center">
+                                <button onclick="executar('3')" class="btn-default radius-all-min bold">Executar</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="margin-top-max">
+                        <div class="row-pad">
+                            <div class="col-half">
+                                Não é possível alterar todos os valores diretamente do formulário dessa forma:
+                                <div class="code-error">
+                                    <pre class="language-javascript"><code>jsd('#formulario').value('Alguma coisa');</code></pre>
+                                </div>
+                            </div>
+                            <div class="col-half">
+                                Use <span class="bold">formElements</span>:
+                                <pre class="language-javascript"><code>var formulario = jsd('#formulario');
+console.log( formulario.formElements() ); // Vendo todos elementos válidos do formulário
+formulario.formElements().each(function (elemento) {
+    elemento.value('Outro Valor'); // Redefinindo todos values
+});</code></pre>
+                                <div class="margin-top align-center">
+                                    <button onclick="executar('4')" class="btn-default radius-all-min bold">Executar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer class="bg-white"></footer>
+
+        <script>
+            var form = jsd('#formulario');
+            var text = form.find('input[type="text"]').index(0);
+            var select = form.find('select').index(0);
+            var textarea = form.find('textarea').index(0);
+
+            function executar(p) {
+                switch (p) {
+                    case '1':
+                        console.log(text.value(), '\n' + select.value());
+                        break;
+                    case '2':
+                        console.log(jsd('#formulario').value());
+                        break;
+                    case '3':
+                        textarea.value('Olá mundo');
+                        break;
+                    case '4':
+                        console.log(form.formElements());
+                        break;
+                }
+            }
+
+            form.formElements().each(function (elemento) {
+                elemento.value('Outro Valor');
+            });
+        </script>
+    </body>
+</html>

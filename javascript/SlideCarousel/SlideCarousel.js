@@ -3,7 +3,7 @@
  * SlideCarousel
  * @author Spell-Master (Omar Pautz)
  * @copyright 2022
- * @version 1.2 (2022)
+ * @version 1.2 (2023)
  * 
  * Apresentação do tipo carrosel.
  * 
@@ -309,14 +309,11 @@ var SlideCarousel = function (tgt, options) {
     } else {
         init();
         createSlide();
+        slideResize();
 
         if ($options.enableNav !== false || typeof $options.enableNav === 'undefined') {
             createNav();
         }
-
-        $this.width = slideWidth();
-        $this.wrapper.setAttribute('style', 'left:-' + $this.width + 'px');
-
         if ($options.autoPlay === true || typeof $options.autoPlay === 'number') {
             $options.autoPlay = ($options.autoPlay < 3 ? 3 : $options.autoPlay);
             $this.interval = ($options.autoPlay * 1000);

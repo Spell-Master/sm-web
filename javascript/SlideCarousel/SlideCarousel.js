@@ -3,12 +3,12 @@
  * SlideCarousel
  * @author Spell-Master (Omar Pautz)
  * @copyright 2022
- * @version 1.1 (2022)
+ * @version 1.2 (2022)
  * 
  * Apresentação do tipo carrosel.
  * 
- * @param {STR} tgt
- * #ID do elemento da estrutura html.
+ * @param {STR/OBJ} tgt
+ * Elemento da estrutura html que abriga o carrosel.
  * @param {OBJ} options
  * * Opções de execução.
  * - "maxWidth" (INT): largura máxima dos slides.
@@ -28,7 +28,7 @@ var SlideCarousel = function (tgt, options) {
     options = options || {};
 
     var $options = {
-        maxWidth: options.maxWidth || null,
+        maxWidth: options.maxWidth || 1920,
         autoPlay: options.autoPlay,
         enableTouch: options.enableTouch,
         enableNav: options.enableNav
@@ -78,7 +78,7 @@ var SlideCarousel = function (tgt, options) {
     function createSlide() {
         $this.container = document.createElement('div');
         $this.container.classList.add('slide-container');
-        $this.container.setAttribute('style', 'max-width:' + ($options.maxWidth === null ? $this.target.offsetWidth : parseInt($options.maxWidth)) + 'px');
+        $this.container.setAttribute('style', 'max-width:' + parseInt($options.maxWidth) + 'px');
 
         $this.wrapper = document.createElement('div');
         $this.wrapper.classList.add('slide-wrapper');
@@ -167,6 +167,9 @@ var SlideCarousel = function (tgt, options) {
     function startEvents() {
         $this.wrapper.addEventListener('transitionend', checkIndex, false);
         window.addEventListener('resize', slideResize, false);
+        if ($options.autoPlay >= 3) {
+            document.addEventListener('visibilitychange', visibilityChange, false);
+        }
 
         if ($options.enableTouch !== false || typeof $options.enableTouch === 'undefined') {
             $this.wrapper.addEventListener('mousedown', dragStart, false);
@@ -202,7 +205,7 @@ var SlideCarousel = function (tgt, options) {
      */
     function slideResize() {
         $this.width = slideWidth();
-        $this.wrapper.style.left = '-' + ($this.width * ($this.index + 1)) + 'px';
+        $this.wrapper.setAttribute('style', 'left:-' + $this.width + 'px; width:' + $this.width + 'px');
     }
 
     /**
@@ -283,7 +286,24 @@ var SlideCarousel = function (tgt, options) {
         }
     }
 
-    $this.target = document.getElementById(tgt);
+    /**
+     * **********************************************
+     * @private
+     * Detecta se o documento está sendo visualizado
+     *  para evitar passagens de slides inexistentes.
+     * **********************************************
+     */
+    function visibilityChange() {
+        if (document.hidden) {
+            clearTimeout($this.timeOut);
+        } else {
+            $this.timeOut = setTimeout(function () {
+                moveSlide(1);
+            }, $this.interval);
+        }
+    }
+
+    $this.target = (tgt.nodeType ? tgt : document.querySelector(tgt));
     if (typeof $this.target === 'undefined' || $this.target === null) {
         console.warn('SlideCarousel.js: ' + tgt + ' indefinido');
     } else {
@@ -296,7 +316,6 @@ var SlideCarousel = function (tgt, options) {
 
         $this.width = slideWidth();
         $this.wrapper.setAttribute('style', 'left:-' + $this.width + 'px');
-        startEvents();
 
         if ($options.autoPlay === true || typeof $options.autoPlay === 'number') {
             $options.autoPlay = ($options.autoPlay < 3 ? 3 : $options.autoPlay);
@@ -305,6 +324,8 @@ var SlideCarousel = function (tgt, options) {
                 moveSlide(1);
             }, $this.interval);
         }
+
+        startEvents();
     }
 
     /**
@@ -343,5 +364,4 @@ var SlideCarousel = function (tgt, options) {
     this.next = nextSlide;
     this.prev = prevSlide;
     this.get = getSlide;
-
 };

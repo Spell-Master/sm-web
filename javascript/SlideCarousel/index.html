@@ -114,7 +114,7 @@
     &lt;div class="slide-item"&gt;Slide 5&lt;/div&gt;
 &lt;div&gt;
 &lt;script&gt;
-    var objeto = new SlideCarousel('identificador', {
+    var objeto = new SlideCarousel('#identificador', {
     enableTouch: true,
     enableNav: true
 });
@@ -156,8 +156,12 @@
                 <p>Esse objeto poderá ser usado para acessar os demais métodos
                     da classe.</p>
                 <pre><code class="language-html">&lt;script&gt;
-    var objeto = new SlideCarousel('identificador');
+    var objeto = new SlideCarousel('#identificador');
 &lt;/script&gt;</code></pre>
+                <p>Você também pode fornecer o elemento exemplo:</p>
+<pre><code class="language-javascript">var elemento = document.getElementById('identificador');
+var objeto = new SlideCarousel(elemento);
+</code></pre>
             </div>
 
             <div class="margin-top-max">
@@ -191,7 +195,7 @@
 
                 <div class="margin-top">
                     Exemplo:
-                    <pre><code class="language-javascript">var exemplo = new SlideCarousel('elemento_id', {
+                    <pre><code class="language-javascript">var exemplo = new SlideCarousel('#elemento', {
     maxWidth: 600, // largura máxima será de 600 pixel
     autoPlay: 4, // a cada 4 segundos troca o slide atual
     enableTouch: false, // não permite arrastar
@@ -214,7 +218,7 @@
                 </p>
                 <div class="margin-top">
                     Exemplo:
-                    <pre><code class="language-javascript">var exemplo = new SlideCarousel('elemento_id');
+                    <pre><code class="language-javascript">var exemplo = new SlideCarousel('.elemento');
 function proximo() {
     exemplo.next();
 }
@@ -228,13 +232,13 @@ function elementoAlvo() {
             </div>
         </article>
         <script>
-            var exemplo_1 = new SlideCarousel('exemplo_1', {
-                autoPlay: 1,
+            var exemplo_1 = new SlideCarousel('#exemplo_1', {
+                autoPlay: false,
                 enableTouch: true,
                 enableNav: true
             });
-            var exemplo_2 = new SlideCarousel('exemplo_2');
-            var exemplo_3 = new SlideCarousel('exemplo_3');
+            var exemplo_2 = new SlideCarousel('#exemplo_2');
+            var exemplo_3 = new SlideCarousel('#exemplo_3');
         </script>
     </body>
 </html>

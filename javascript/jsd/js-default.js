@@ -295,17 +295,15 @@ var jsd = jsd || {};
      * *****************************************
      */
     $_.evalSrc = function (objStr) {
-        var $this = $_(objStr)[0], $old = $this.getElementsByTagName('script'), $new = {}, $i = 0;
-        if ($old.length) {
-            for (; $i < $old.length; $i++) {
-                $new = document.createElement('script');
-                ($old[$i].src !== '' ? $new.src = $old[$i].src : null);
-                ($old[$i].text !== '' ? $new.text = $old[$i].text : null);
-                ($old[$i].type !== '' ? $new.type = $old[$i].text : null);
-                if ($this === $old[$i].parentNode) {
-                    $this.replaceChild($new, $old[$i]);
-                }
-            }
+        var $this = $_(objStr)[0], $old = $this.getElementsByTagName('script'), $i, $new = {};
+        for ($i = $old.length - 1; $i >= 0; $i--) {
+            $new = document.createElement('script');
+            ($old[$i].src !== '' ? $new.src = $old[$i].src : null);
+            ($old[$i].text !== '' ? $new.text = $old[$i].text : null);
+            ($old[$i].type !== '' ? $new.type = $old[$i].type : null);
+            //$old[$i].parentNode.appendChild($new);
+            //$old[$i].parentNode.removeChild($old[$i]);
+            $old[$i].parentNode.replaceChild($new, $old[$i]);
         }
     };
 
@@ -1417,7 +1415,7 @@ var jsd = jsd || {};
                     if ($type.length >= 1 && $_.isFunction(fnc)) {
                         for ($name in $this[$i].event) {
                             if ($name === $type) {
-                                console.warn('addEventListener já está definido como');
+                                console.warn('addEventListener já está definido');
                                 $insert = false;
                                 break;
                             }

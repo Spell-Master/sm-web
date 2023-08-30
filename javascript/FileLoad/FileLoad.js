@@ -123,7 +123,7 @@ var FileLoad = function () {
      *  processo retorna o erro acontecido.
      * **********************************************
      */
-    function readResult() {
+    function readResult(e) {
         if ($reader.error && (typeof $options.onError === 'function')) {
             $options.onError($reader.error);
         } else if ($reader.readyState === 2 && (typeof $options.onResult === 'function')) {

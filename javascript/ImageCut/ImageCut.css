@@ -3,7 +3,7 @@
  * ImageCut
  * @author Spell-Master (Omar Pautz)
  * @copyright 2019
- * @version 2.2 (2022)
+ * @version 2.3 (2023)
  * 
  * NÃO MODIFICAR NADA NESSE ARQUIVO!!!
  * Para correto funcionamento da ferramenta de corte
@@ -12,6 +12,11 @@
  * **************************************************
  */
 
+img {
+    max-width: 100%;
+    max-height: 100%;
+    border: none
+}
 .cut-focus {
     filter: blur(.1875rem) brightness(50%)
 }

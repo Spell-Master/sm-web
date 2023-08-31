@@ -3,7 +3,7 @@
  * ImageCut
  * @author Spell-Master (Omar Pautz)
  * @copyright 2019
- * @version 2.2 (2022)
+ * @version 2.3 (2023)
  * 
  * Executa corte de imagens.
  * 
@@ -25,7 +25,8 @@ var ImageCut = function (img) {
             ratio: 1.0,
             left: 0,
             top: 0
-        }, $status = {
+        },
+        $status = {
             imgLeft: 0,
             imgTop: 0,
             imgWidth: 0,
@@ -34,7 +35,8 @@ var ImageCut = function (img) {
             boxTop: 0,
             posX: 0,
             posY: 0
-        }, $zoom = {
+        },
+        $zoom = {
             boxWidth: 0,
             boxHeight: 0,
             imgWidth: 0,
@@ -43,7 +45,8 @@ var ImageCut = function (img) {
             top: 0,
             right: 0,
             bottom: 0
-        }, $target = {
+        },
+        $target = {
             w: 0,
             h: 0
         };
@@ -170,6 +173,7 @@ var ImageCut = function (img) {
         $box.addEventListener('touchstart', startEvents, false);
         $box.addEventListener('wheel', scrollResize, false);
         document.addEventListener('keypress', keyResize, false);
+        window.addEventListener('resize', resetSize, false);
     }
 
     /**
@@ -387,6 +391,31 @@ var ImageCut = function (img) {
 
     /**
      * **********************************************
+     * @private
+     * Reinicia os tamanhos prefixos dos elementos
+     *  para compatibilidade quando o tamanho da tela
+     *  é alterado.
+     * 
+     * @param {OBJ} e
+     *  Evento.
+     * **********************************************
+     */
+    function resetSize(e) {
+        $img.style.width = targetSize('w') + 'px';
+        $img.style.height = targetSize('h') + 'px';
+        $status.imgWidth = ($box.offsetWidth + 3);
+        $status.imgHeight = ($box.offsetHeight + 3);
+        $status.imgLeft = $img.offsetWidth - $status.imgWidth;
+        $status.imgTop = $img.offsetHeight - $status.imgHeight;
+
+        $data.ratio = 200 / $box.clientWidth;
+        boxSize(200, 200);
+        imgPos($status.imgLeft / 2, $status.imgTop / 2);
+        boxPos($status.imgLeft / 2, $status.imgTop / 2);
+    }
+
+    /**
+     * **********************************************
      * @public
      * Requisita almento no tamanho da caixa de
      *  corte.
@@ -430,4 +459,5 @@ var ImageCut = function (img) {
             return ($getImage);
         }
     };
+
 };

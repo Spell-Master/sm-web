@@ -32,13 +32,13 @@
 
                 <div class="row-pad">
                     <div class="col-single">
-                        <img src="../../lib/img/gt3.jpg" id="alvo-do-corte" alt="cortar imagem" class="image-auto" />
+                        <img src="../../lib/img/bmw-m8-gte.jpg" id="alvo-do-corte" alt="cortar imagem" class="image-auto box-max-y-500" />
                     </div>
                     <div class="col-third">
-                        <button onclick="cortar.sizePlus()" class="btn-info button-block">Ampliar Zoom</button>
+                        <button data-size="plus" class="btn-info button-block">Ampliar Zoom</button>
                     </div>
                     <div class="col-third">
-                        <button onclick="cortar.sizeMinus()" class="btn-info button-block">Reduzir Zoom</button>
+                        <button data-size="minus" class="btn-info button-block">Reduzir Zoom</button>
                     </div>
                     <div class="col-third">
                         <button onclick="definirCorte()" class="btn-success button-block">CORTAR</button>
@@ -140,10 +140,12 @@ var cortar = new ImageCut(imagem);</code></pre>
 
         <script>
             var cortar = new ImageCut(jsd('#alvo-do-corte')[0]),
-                    addImg = jsd('#adicionar-imagem'),
-                    addText = jsd('#adicionar-texto'),
-                    novaImagem = null,
-                    b64 = null;
+                addImg = jsd('#adicionar-imagem'),
+                addText = jsd('#adicionar-texto'),
+                novaImagem = null,
+                b64 = null,
+                sizeBtn = jsd('[data-size]'),
+                interval = 0;
 
             function definirCorte() {
                 novaImagem = document.createElement('img');
@@ -156,6 +158,19 @@ var cortar = new ImageCut(imagem);</code></pre>
                 addText.text(b64);
                 window.scrollTo({top: 0, behavior: 'smooth'});
             }
+
+            sizeBtn.mousedown(function (e) {
+                interval = setInterval(function () {
+                    if (e.target.dataset.size === 'plus') {
+                        cortar.sizePlus();
+                    } else {
+                        cortar.sizeMinus();
+                    }
+                }, 100);
+            });
+            sizeBtn.mouseup(function (e) {
+                clearInterval(intervalo);
+            });
         </script>
     </body>
 </html>

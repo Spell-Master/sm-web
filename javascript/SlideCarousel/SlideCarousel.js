@@ -116,10 +116,10 @@ var SlideCarousel = function (tgt, options) {
         if (!onDrag) {
             $this.onLeft = $this.wrapper.offsetLeft;
         }
-        if (dir == 1) {
+        if (dir === 1) {
             $this.wrapper.style.left = ($this.onLeft - $this.width) + 'px';
             $this.index++;
-        } else if (dir == -1) {
+        } else if (dir === -1) {
             $this.wrapper.style.left = ($this.onLeft + $this.width) + 'px';
             $this.index--;
         }
@@ -187,10 +187,10 @@ var SlideCarousel = function (tgt, options) {
      */
     function checkIndex() {
         $this.wrapper.classList.remove('transition');
-        if ($this.index == -1) {
+        if ($this.index === -1) {
             $this.wrapper.style.left = -($this.length * $this.width) + 'px';
             $this.index = $this.length - 1;
-        } else if ($this.index == $this.length) {
+        } else if ($this.index === $this.length) {
             $this.wrapper.style.left = -(1 * $this.width) + 'px';
             $this.index = 0;
         }

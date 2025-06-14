@@ -145,7 +145,7 @@ var cortar = new ImageCut(imagem);</code></pre>
                 novaImagem = null,
                 b64 = null,
                 sizeBtn = jsd('[data-size]'),
-                interval = 0;
+                intervalo = 0;
 
             function definirCorte() {
                 novaImagem = document.createElement('img');
@@ -160,7 +160,7 @@ var cortar = new ImageCut(imagem);</code></pre>
             }
 
             sizeBtn.mousedown(function (e) {
-                interval = setInterval(function () {
+                intervalo = setInterval(function () {
                     if (e.target.dataset.size === 'plus') {
                         cortar.sizePlus();
                     } else {

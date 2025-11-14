@@ -17,9 +17,9 @@
 
 /* Configurações */
 :root {
-    --text-size-min:    calc(.75em + 1vw);    /* 12px */
-    --text-size-medium: calc(1em + 1vw);      /* 16px */
-    --text-size-max:    calc(1.5em + 1vw);    /* 22px */
+    --text-size-min:    .75em;    /* 12px */
+    --text-size-medium: 1em;      /* 16px */
+    --text-size-max:    1.5em;    /* 22px */
     --text-size-h1:     calc(2.1875em + 1vw); /* 35px */
     --text-size-h2:     calc(1.875em + 1vw);  /* 30px */
     --text-size-h3:     calc(1.5625em + 1vw); /* 25px */
@@ -30,12 +30,6 @@
     --spacing-min:             0.375rem;  /* 6px */
     --spacing-medium:          0.75rem;   /* 12px */
     --spacing-max:             1.5rem;    /* 24px */
-    --spacing-reduce-min:      0.1875rem; /* 3px */
-    --spacing-reduce-medium:   0.375rem;  /* 6px */
-    --spacing-reduce-max:      1.5rem;    /* 24px */
-    --spacing-increase-min:    0.1875rem; /* 3px */
-    --spacing-increase-medium: 0.375rem;  /* 6px */
-    --spacing-increase-max:    0.375rem;  /* 6px */
 
     --border-min:    0.0625rem; /* 1px */
     --border-medium: 0.125rem;  /* 2px */
@@ -56,7 +50,7 @@
     --color-light:        #f0f0f0;
     --color-dark:         #cecece;
     --color-white:        #ffffff;
-    --color-black:        #000000;
+    --color-black:        #333333;
     --color-grey:         #808080;
     --color-red:          #d42020;
     --color-green:        #3b9900;
@@ -261,9 +255,6 @@ h6, .h6 {font-size:var(--text-size-h6)}
     white-space:nowrap;
     transition:.5s
 }
-[class^="btn"]:active {
-    filter:brightness(50%)
-}
 
 .button-min   {padding:.375rem .75rem; min-height:1.875rem}
 .button-max   {padding:1.125rem 2rem; min-height:3.4375rem}
@@ -286,7 +277,15 @@ h6, .h6 {font-size:var(--text-size-h6)}
 .btn-success:hover {background-color:#0a6629 !important}
 .btn-info:hover    {background-color:#0b5072 !important}
 .btn-warning:hover {background-color:#a56710 !important}
-.btn-danger:hover  {background:#a50f1c !important}
+.btn-danger:hover  {background-color:#a50f1c !important}
+
+.btn-default:active,
+.btn-success:active,
+.btn-info:active,
+.btn-warning:active,
+.btn-danger:active {
+    filter:brightness(50%)
+}
 
 [class^="href"] {
     cursor:pointer;
@@ -324,8 +323,8 @@ h6, .h6 {font-size:var(--text-size-h6)}
     position: relative;
     word-wrap:break-word;
     background-clip:border-box;
-    border-radius:.375rem;
-    overflow: hidden
+    border-radius:.375rem
+        /*overflow: hidden*/
 }
 
 .alert-success {background-color:#bdedbc !important; color:#045702}
@@ -818,8 +817,8 @@ table.table.streak tr:nth-child(even) {
 .box-min-y-100,  .box-min-xy-100  {min-height:6.25rem}
 .box-min-y-50,   .box-min-xy-50   {min-height:3.125rem}
 
-.maximize     {width:100% !important}
-.box-fluid    {width:100%}
+.box-max      {width:100% !important}
+.box-fluid-1  {width:100%}
 .box-fluid-2  {width:49.99999%}
 .box-fluid-3  {width:33.33333%}
 .box-fluid-4  {width:24.99999%}
@@ -843,6 +842,11 @@ table.table.streak tr:nth-child(even) {
 .row > [class^="col-"],
 .row-pad > [class^="col-"] {
     flex-shrink:0
+}
+.row.no-warp,
+.row-pad.no-warp {
+    display:flex;
+    flex-wrap:nowrap
 }
 .row-pad > [class^="col-"] {padding:var(--spacing-medium)}
 
@@ -898,6 +902,15 @@ table.table.streak tr:nth-child(even) {
 .col-third.col-reverse,        .col-third-min.col-reverse,        .col-third-max.col-reverse        {width:33.33333%}
 .col-quarter.col-fix,          .col-quarter-min.col-fix,          .col-quarter-max.col-fix,
 .col-quarter.col-reverse,      .col-quarter-min.col-reverse,      .col-quarter-max.col-reverse      {width:24.99999%}
+
+.flex-row {
+    display:flex;
+    flex-wrap:nowrap;
+    height:100%;
+}
+.flex-column {
+    flex:1 1 auto
+}
 
 /**
  * ****************************************
@@ -1109,6 +1122,32 @@ table.table.streak tr:nth-child(even) {
 
 .show, .show-min, .show-medium, .show-max, [class="hide show"] {display:block !important}
 .hide, .hide-min, .hide-medium, .hide-max, [class="show hide"] {display:none !important}
+
+/**
+ * ****************************************
+ * Visuais de ocupação de espaço
+ * ****************************************
+ */
+.vp-threequarter {
+    padding-top: 18.25rem !important;
+    padding-bottom: 18.25rem !important
+}
+.vp-twothird {
+    padding-top: 66.66666% !important;
+    padding-bottom: 66.66666% !important
+}
+.vp-half {
+    padding-top: 12.5rem !important;
+    padding-bottom: 12.5rem !important
+}
+.vp-third {
+    padding-top: 33.33333% !important;
+    padding-bottom: 33.33333% !important
+}
+.vp-quarter {
+    padding-top: 5.75rem !important;
+    padding-bottom: 5.75rem !important
+}
 
 /**
  * ****************************************

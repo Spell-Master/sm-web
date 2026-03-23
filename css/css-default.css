@@ -94,56 +94,56 @@
  * Ajustes Globais
  * ****************************************
  */
-*, :after, :before {margin:0; padding:0; box-sizing:border-box}
-html {overflow-x:hidden}
-body {font-size:1rem; line-height:1.5; font-family:"Helvetica Neue", Helvetica, Arial, sans-serif; color:#444444}
-body, html {height:100%}
-footer, header, main {width:auto}
-article, aside, details, figcaption, figure, footer, header, main, menu, nav, section, summary {display:block}
-audio, canvas, progress, video {display:inline-block; vertical-align:baseline}
-audio:not([controls]) {display:none; height:0}
-[hidden], template {display:none}
-abbr[title] {border-bottom:.0625rem dotted}
-b, optgroup, strong {font-weight:bold}
-dfn, i {font-style:italic}
-blockquote {margin:.5rem 1rem}
-mark {background:#ff0000; color:#000000}
-code, kbd, pre, samp {font-family:monospace; font-size:var(--fontDefault)}
-pre {white-space:pre; white-space:pre-wrap; overflow:auto}
-q {quotes:none}
-q:after, q:before {content:""; content:none}
-small {font-size:80%}
-sub, sup {font-size:60%; line-height :0; position:relative; vertical-align:baseline}
-sup {top:-.5rem;}
-sub {bottom:-.25rem}
-img {-ms-interpolation-mode:bicubic}
-embed, img, picture, video {max-width:100%; max-height:100%; border:none}
-figure {margin:1rem 2.5rem;}
-svg:not(:root) {overflow:hidden}
-fieldset {border:.0625rem solid #c0c0c0; margin:.125rem; padding:.35rem .625rem .75rem}
-legend {color:inherit; display:table; max-width:100%; white-space:normal; border:0; padding:0}
-textarea {overflow:auto}
-button, input, optgroup, select, textarea {margin:0; vertical-align:baseline; font:inherit}
-button, input {line-height:normal; border:none}
-button, select {text-transform:none}
-button, [type="button"], [type="reset"], [type="submit"] {-webkit-appearance:button; cursor:pointer}
+*, :after, :before {margin: 0;padding: 0; box-sizing: border-box}
+html {overflow-x: hidden}
+body {font-size: 1rem; line-height: 1.5; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; color: #444444}
+body, html {height: 100%}
+footer, header, main {width: auto}
+article, aside, details, figcaption, figure, footer, header, main, menu, nav, section, summary {display: block}
+audio, canvas, progress, video {display: inline-block; vertical-align: baseline}
+audio:not([controls]) {display: none; height: 0}
+[hidden], template {display: none}
+abbr[title] {border-bottom: .0625rem dotted}
+b, optgroup, strong {font-weight: bold}
+dfn, i {font-style: italic}
+blockquote {margin: .5rem 1rem}
+mark {background: #ff0000; color: #000000}
+code, kbd, pre, samp {font-family: monospace; font-size: .75rem}
+pre {white-space: pre; white-space: pre-wrap; overflow: auto}
+q {quotes: none}
+q:after, q:before {content: ""; content: none}
+small {font-size: .5625rem}
+sub, sup {font-size: .4375rem; line-height: 0; position: relative; vertical-align: baseline}
+sup {top: -.5rem}
+sub {bottom: -.25rem}
+img {-ms-interpolation-mode: bicubic}
+embed, img, picture, video {max-width: 100%; max-height: 100%; border: none}
+figure {margin: 1rem 2.5rem}
+svg:not(:root) {overflow: hidden}
+fieldset {border: .0625rem solid #c0c0c0; margin: .125rem; padding: .35rem .625rem .75rem}
+legend {color: inherit; display: table; max-width: 100%; white-space: normal; border: 0; padding: 0}
+textarea {overflow: auto}
+button, input, optgroup, select, textarea {margin: 0; vertical-align: baseline; font: inherit}
+button, input {line-height: normal; border: none}
+button, select {text-transform: none}
+button, [type="button"], [type="reset"], [type="submit"] {-webkit-appearance: button; cursor: pointer}
 button[disabled],
-input[disabled] {cursor:default}
-input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-outer-spin-button {height:auto}
-input[type=checkbox], input[type=radio] {padding:0}
-input[type=search] {outline-offset:-1rem}
-input[type=button]:focus, input[type=password]:focus, input[type=text]:focus, select:focus, textarea:focus {outline:0}
-a, button, select, textarea {outline:0; font:inherit; color:inherit; background:none}
-a {text-decoration:none; background-color:transparent}
-a:active, a:hover, button:hover {outline:0}
-table {border-collapse:collapse; border-spacing:0; max-width:100%; background-color:transparent}
-th {font-weight:600}
-th, td {text-align:left}
-b {font-weight:bold}
-hr {box-sizing:content-box; height:0; overflow:visible; border:0; margin:1rem 0}
-p {padding-top:.3125rem; margin-bottom:0}
-ul, ol {padding:0; margin:0}
-ul:not([class]), ol:not([class]) {margin-left:.75rem}
+input[disabled] {cursor: default}
+input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-outer-spin-button {height: auto}
+input[type=checkbox], input[type=radio] {padding: 0}
+input[type=search] {outline-offset: -1rem}
+input[type=button]:focus, input[type=password]:focus, input[type=text]:focus, select:focus, textarea:focus {outline: 0}
+a, button, select, textarea {outline: 0; font: inherit; color: inherit; background: none}
+a {text-decoration: none; background-color: transparent}
+a:active, a:hover, button:hover {outline: 0}
+table {border-collapse: collapse; border-spacing: 0; max-width: 100%; background-color: transparent}
+th {font-weight: 600}
+th, td {text-align: left}
+b {font-weight: bold}
+hr {box-sizing: content-box; height: 0; overflow: visible; border: 0; margin: 1rem 0}
+p {padding-top: .3125rem; margin-bottom: 0}
+ul, ol {padding: 0; margin: 0}
+ul:not([class]), ol:not([class]) {margin-left: .75rem}
 
 /**
  * ****************************************
@@ -152,35 +152,35 @@ ul:not([class]), ol:not([class]) {margin-left:.75rem}
  */
 .container-min,
 .container-medium,
-.container,
-.container-max {
-    width:auto;
-    margin:auto;
-    position:relative;
-    clear:both
+.container-max,
+.container {
+    width: auto;
+    margin: auto;
+    position: relative;
+    clear: both
 }
-.container-min    {max-width:40rem}  /* 480px smartphone */
-.container-medium {max-width:64rem}  /* 1024px monitor genérico 24 polegadas */
-.container        {max-width:120rem} /* 1920px full HD */
-.container-max    {max-width:240rem} /* 3840px 4k */
+.container-min    {max-width: 40rem}    /* 480px smartphone */
+.container-medium {max-width: 64rem}    /* 1024px monitor genérico 24 polegadas */
+.container-max    {max-width: 240rem}   /* 3840px 4k */
+.container        {max-width: 120rem}   /* 1920px full HD */
 
 /**
  * ****************************************
  * Cursor
  * ****************************************
  */
-.cursor-auto      {cursor:auto}
-.cursor-copy      {cursor:copy}
-.cursor-crosshair {cursor:crosshair}
-.cursor-default   {cursor:default}
-.cursor-grab      {cursor:grab}
-.cursor-help      {cursor:help}
-.cursor-none      {cursor:none}
-.cursor-text      {cursor:text}
-.cursor-pointer   {cursor:pointer}
-.cursor-progress  {cursor:progress}
-.cursor-zoomi     {cursor:zoom-in}
-.cursor-zoomo     {cursor:zoom-out}
+.cursor-auto      {cursor: auto}
+.cursor-copy      {cursor: copy}
+.cursor-crosshair {cursor: crosshair}
+.cursor-default   {cursor: default}
+.cursor-grab      {cursor: grab}
+.cursor-help      {cursor: help}
+.cursor-none      {cursor: none}
+.cursor-text      {cursor: text}
+.cursor-pointer   {cursor: pointer}
+.cursor-progress  {cursor: progress}
+.cursor-zoomi     {cursor: zoom-in}
+.cursor-zoomo     {cursor: zoom-out}
 
 /**
  * ****************************************

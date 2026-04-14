@@ -16,126 +16,152 @@
         <script src="../../lib/prism/prism.js" type="text/javascript"></script>
     </head>
     <body>
-        <header>
-            <div class="bg-dark-grey padding-all text-white">
+        <div class="bg-dark-grey padding-all text-white">
+            <div class="container">
                 <div class="container">
                     <h1>Tipografia</h1>
                 </div>
             </div>
-            <div class="bg-light padding-all">
-                <div class="container">
-                    <div class="row-pad">
-                        <div class="col-third">
-                            <ul class="margin-left bold">
-                                <li>h1</li>
-                                <li>h2</li>
-                                <li>h3</li>
-                                <li>h4</li>
-                                <li>h5</li>
-                                <li>h6</li>
-                            </ul>
-                        </div>
-                        <div class="col-third">
-                            <ul class="margin-left bold">
-                                <li>font-min</li>
-                                <li>font-medium</li>
-                                <li>font-max</li>
-                            </ul>
-                        </div>
-                        <div class="col-third">
-                            <ul class="margin-left bold">
-                                <li>italic</li>
-                                <li>bold</li>
-                                <li>overline</li>
-                                <li>underline</li>
-                                <li>through</li>
-                            </ul>
-                        </div>
+        </div>
+        <div class="bg-light padding-all">
+            <div class="container">
+                <div class="row-pad">
+                    <div class="col-third">
+                        <ul class="margin-left bold">
+                            <li>h1</li>
+                            <li>h2</li>
+                            <li>h3</li>
+                            <li>h4</li>
+                            <li>h5</li>
+                            <li>h6</li>
+                        </ul>
+                    </div>
+                    <div class="col-third">
+                        <ul class="margin-left bold">
+                            <li>font-min</li>
+                            <li>font-medium</li>
+                            <li>font-max</li>
+                        </ul>
+                    </div>
+                    <div class="col-third">
+                        <ul class="margin-left bold">
+                            <li>italic</li>
+                            <li>bold</li>
+                            <li>overline</li>
+                            <li>underline</li>
+                            <li>through</li>
+                        </ul>
                     </div>
                 </div>
             </div>
-        </header>
-        <main class="bg-white">
+        </div>
+
+        <div class="card-yellow padding-all">
+            <div class="container italic">
+                Exemplos abaixo vão apresentar uso de caracteres:
+                <span class="bold text-red">&lt;</span> e <span class="bold text-red">&gt;</span>
+                nos exemplos, mas isso é um erro devido a deficiêcia do codec utilizado na
+                demonstração dos exemplos
+                <p class="list margin-left bold">Os tamanhos das fontes serão definidas pela altura do hadware do utilizador</p>
+            </div>
+        </div>
+
+        <div class="container padding-lr">
+            <div class="margin-top">
+                <div class="row-pad">
+                    <div class="col-third">
+                        <h1>Tag &lt;h1&gt;</h1> <!-- tag &lt;h6&gt; demonstrada erronea no exemplo -->
+                        <div class="h1">Propriedade .h1</div>
+                    </div>
+                    <div class="col-third">
+                        <h2>Tag &lt;h2&gt;</h2> <!-- tag &lt;h6&gt; demonstrada erronea no exemplo -->
+                        <div class="h2">Propriedade .h2</div>
+                    </div>
+                    <div class="col-third">
+                        <h4>Tag &lt;h3&gt;</h4> <!-- tag &lt;h6&gt; demonstrada erronea no exemplo -->
+                        <div class="h3">Propriedade .h3</div>
+                    </div>
+                    <div class="col-third">
+                        <h5>Tag &lt;h4&gt;</h5> <!-- tag &lt;h6&gt; demonstrada erronea no exemplo -->
+                        <div class="h4">Propriedade .h4</div>
+                    </div>
+                    <div class="col-third">
+                        <h6>Tag &lt;h5&gt;</h6> <!-- tag &lt;h6&gt; demonstrada erronea no exemplo -->
+                        <div class="h5">Propriedade .h5</div>
+                    </div>
+                    <div class="col-third">
+                        <h6>Tag &lt;h6&gt;</h6> <!-- tag &lt;h6&gt; demonstrada erronea no exemplo -->
+                        <div class="h6">Propriedade .h6</div>
+                    </div>
+                </div>
+            </div>
+            <div class="margin-top align-center">
+                <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
+            </div>
+
+            <hr class="border-bottom border-dark" />
+        </div>
+
+        <div class="container align-center">
+            <div class="margin-top">
+                <div class="row-pad">
+                    <div class="col-third">
+                        <p class="font-min">font-min</p>
+                    </div>
+                    <div class="col-third">
+                        <p class="font-medium">font-medium</p>
+                    </div>
+                    <div class="col-third">
+                        <p class="font-max">font-max</p>
+                    </div>
+                </div>
+            </div>
+            <div class="margin-top align-center">
+                <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
+            </div>
+        </div>
+
+        <div class="card-dark padding-all margin-top-max">
+            <div class="container">
+                <span class="bold">Efeitos para marcar texto</span>
+            </div>
+        </div>
+        <div class="container align-center">
+            <div class="margin-top">
+                <div class="row-pad">
+                    <div class="col-5 align-center">
+                        <p class="italic">italic</p>
+                    </div>
+                    <div class="col-5 align-center">
+                        <p class="bold">bold</p>
+                    </div>
+                    <div class="col-5 align-center">
+                        <p class="overline">overline</p>
+                    </div>
+                    <div class="col-5 align-center">
+                        <p class="underline">underline</p>
+                    </div>
+                </div>
+            </div>
+            <div class="margin-top align-center">
+                <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
+            </div>
+        </div>
+        <div class="card-red margin-top-max">
             <div class="container padding-all">
-                <div class="margin-top align-center">
-                    <div class="line-block padding-all">
-                        <h1>Título h1</h1>
-                    </div>
-                    <div class="line-block padding-all">
-                        <h2>Título h2</h2>
-                    </div>
-                    <div class="line-block padding-all">
-                        <h3>Título h3</h3>
-                    </div>
-                    <div class="line-block padding-all">
-                        <h4>Título h4</h4>
-                    </div>
-                    <div class="line-block padding-all">
-                        <h5>Título h5</h5>
-                    </div>
-                    <div class="line-block padding-all">
-                        <h6>Título h6</h6>
-                    </div>
-                </div>
-                <div class="margin-top align-center">
-                    <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
-                </div>
-
-                <div class="sm-margin-top">
-                    <hr class="sm-line" />
-                    A definição á aplicada a outras tag's com as mesmas característica de título
-                    <div class="margin-top align-center">
-                        <div class="h1 line-block padding-all">Texto .h1</div>
-                        <div class="h2 line-block padding-all">Texto .h2</div>
-                        <div class="h3 line-block padding-all">Texto .h3</div>
-                        <div class="h4 line-block padding-all">Texto .h4</div>
-                        <div class="h5 line-block padding-all">Texto .h5</div>
-                        <div class="h6 line-block padding-all">Texto .h6</div>
-                    </div>
-                    <div class="margin-top align-center">
-                        <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
-                    </div>
-                </div>
-
-                <div class="sm-margin-top">
-                    <hr class="sm-line" />
-                    <div class="margin-top align-center">
-                        <div class="font-min line-block padding-all">font-min</div>
-                        <div class="font-medium line-block padding-all">font-medium</div>
-                        <div class="font-max line-block padding-all">font-max</div>
-                    </div>
-                    <div class="margin-top align-center">
-                        <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
-                    </div>
-                </div>
-                <div class="sm-margin-top">
-                    <hr class="sm-line" />
-                    <div class="margin-top align-center font-max">
-                        <div class="italic line-block margin-all">italic</div>
-                        <div class="bold line-block margin-all">bold</div>
-                        <div class="overline line-block margin-all">overline</div>
-                        <div class="underline line-block margin-all">underline</div>
-                        <div class="through line-block margin-all">through</div>
-                    </div>
-                    <div class="margin-top align-center">
-                        <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
-                    </div>
-                    <div class="card-red margin-top">
-                        <p>Não é possível combinar efeitos de marcagem de texto:</p>
-                        <p class="bold">ISSO AQUI É ERRADO!</p>
-                        <pre id="code-err"><code class="language-html">&lt;p class=&quot;overline underline through&quot;&gt;Exemplo de coisa errada a se fazer!&lt;/p&gt;</code></pre>
-                    </div>
-                </div>
+                <p>Não é possível combinar efeitos de marcagem de texto:</p>
+                <p class="bold">ISSO AQUI É ERRADO!</p>
+                <pre id="code-err"><code class="language-html">&lt;p class=&quot;overline underline through&quot;&gt;Exemplo de coisa errada a se fazer!&lt;/p&gt;</code></pre>
             </div>
-        </main>
-        <footer class="bg-white">
-            <div class="modal" id="show-code">
-                <div class="modal-box">
-                    <div class="modal-header"><span class="font-max">Código Fonte</span></div>
-                    <div class="modal-content"><pre><code class="language-html"></code></pre></div>
-                </div>
+        </div>
+
+        <div class="modal" id="show-code">
+            <div class="modal-box">
+                <div class="modal-header"><span class="font-max">Código Fonte</span></div>
+                <div class="modal-content"><pre><code class="language-html"></code></pre></div>
             </div>
-        </footer>
+        </div>
+
         <script>
             showCode.init();
             Prism.highlightElement(jsd('#code-err > code')[0]);

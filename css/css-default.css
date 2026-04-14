@@ -17,15 +17,16 @@
 
 /* Configurações */
 :root {
-    --text-size-min:    .75em;    /* 12px */
-    --text-size-medium: 1em;      /* 16px */
-    --text-size-max:    1.5em;    /* 22px */
-    --text-size-h1:     calc(2.1875em + 1vw); /* 35px */
-    --text-size-h2:     calc(1.875em + 1vw);  /* 30px */
-    --text-size-h3:     calc(1.5625em + 1vw); /* 25px */
-    --text-size-h4:     calc(1.3125em + 1vw); /* 21px */
-    --text-size-h5:     calc(1.1875em + 1vw); /* 19px */
-    --text-size-h6:     calc(1em + 1vw);      /* 16px */
+    --text-size-h1: calc(2.25rem + 1vw); /* 36px */
+    --text-size-h2: calc(2rem + 1vw);    /* 32px */
+    --text-size-h3: calc(1.75rem + 1vw); /* 28px */
+    --text-size-h4: calc(1.5rem + 1vw);  /* 24px */
+    --text-size-h5: calc(1.25rem + 1vw); /* 20px */
+    --text-size-h6: calc(1rem + 1vw);    /* 16px */
+
+    --text-size-min:    .6875em; /* 11px */
+    --text-size-medium: 1em;     /* 16px */
+    --text-size-max:    1.375em; /* 22px */
 
     --spacing-min:             0.375rem;  /* 6px */
     --spacing-medium:          0.75rem;   /* 12px */
@@ -147,6 +148,35 @@ ul:not([class]), ol:not([class]) {margin-left: .75rem}
 
 /**
  * ****************************************
+ * Tipografia
+ * ****************************************
+ */
+h1, h2, h3, h4, h5, h6,
+.h1,.h2,.h3,.h4,.h5,.h6 {
+    font-family: inherit; font-weight: lighter; line-height: 1.1; color: inherit; word-wrap: break-word
+}
+h1, h2, h3,.h1,.h2,.h3 {margin: 1rem 0}
+h4, h5, h6,.h4,.h5,.h6 {margin: .5rem 0}
+
+h1, .h1 {font-size: var(--text-size-h1)}
+h2, .h2 {font-size: var(--text-size-h2)}
+h3, .h3 {font-size: var(--text-size-h3)}
+h4, .h4 {font-size: var(--text-size-h4)}
+h5, .h5 {font-size: var(--text-size-h5)}
+h6, .h6 {font-size: var(--text-size-h6)}
+
+.font-min    {font-size: var(--text-size-min)}
+.font-medium {font-size: var(--text-size-medium)}
+.font-max    {font-size: var(--text-size-max)}
+
+.italic    {font-style: italic !important}
+.bold      {font-weight: bold !important}
+.overline  {text-decoration: overline !important}
+.underline {text-decoration: underline !important}
+.through   {text-decoration: line-through !important}
+
+/**
+ * ****************************************
  * Recipientes
  * ****************************************
  */
@@ -198,34 +228,6 @@ ul:not([class]), ol:not([class]) {margin-left: .75rem}
     white-space:nowrap;
     border-radius:.5rem
 }
-
-/**
- * ****************************************
- * Tipografia
- * ****************************************
- */
-.font-min    {font-size:var(--text-size-min)}
-.font-medium {font-size:var(--text-size-medium)}
-.font-max    {font-size:var(--text-size-max)}
-
-h1,   h2,  h3,  h4,  h5,  h6,
-.h1, .h2, .h3, .h4, .h5, .h6 {
-    font-family:inherit; font-weight:lighter; line-height:1.1; color:inherit; word-wrap:break-word
-}
-h1, h2, h3, .h1, .h2, .h3 {margin:1rem 0}
-h4, h5, h6, .h4, .h5, .h6 {margin:.5rem 0}
-h1, .h1 {font-size:var(--text-size-h1)}
-h2, .h2 {font-size:var(--text-size-h2)}
-h3, .h3 {font-size:var(--text-size-h3)}
-h4, .h4 {font-size:var(--text-size-h4)}
-h5, .h5 {font-size:var(--text-size-h5)}
-h6, .h6 {font-size:var(--text-size-h6)}
-
-.italic    {font-style:italic !important}
-.bold      {font-weight:bold !important}
-.overline  {text-decoration:overline !important}
-.underline {text-decoration:underline !important}
-.through   {text-decoration:line-through !important}
 
 /**
  * ****************************************

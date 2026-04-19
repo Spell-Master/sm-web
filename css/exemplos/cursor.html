@@ -16,11 +16,13 @@
         <script src="../../lib/prism/prism.js" type="text/javascript"></script>
     </head>
     <body>
-        <div class="container">
-            <div class="bg-dark-grey padding-all text-white">
+        <div class="bg-dark-grey padding-all text-white">
+            <div class="container">
                 <h1>Cursores</h1>
             </div>
-            <div class="bg-light padding-all">
+        </div>
+        <div class="bg-light padding-all">
+            <div class="container">
                 <ul class="margin-left bold">
                     <li>cursor-auto</li>
                     <li>cursor-copy</li>
@@ -36,13 +38,16 @@
                     <li>cursor-zoomo</li>
                 </ul>
             </div>
-            <blockquote class="quote-yellow">
-                <p>Estes efeitos só estão dispositivos em dispositivos que não sejam touch-screen, ou seja só serão válidos para aparelhos
-                    desktop/computador de messa.</p>
-                <p>A imagem do cursor apresentada por cada propriedade varia de acordo com o sistema operacional ou configuração do
-                    software/hadware do utilizador.</p>
-                <p class="italic bold">Mova seu cursor sobre os elementos</p>
+        </div>
+
+        <div class="container">
+            <blockquote class="alert-danger">
+                <p>Estes efeitos só estão dispositivos em dispositivos que não sejam touch-screen (toque de tela),
+                    ou seja só serão válidos para aparelhos desktop/computador de messa.</p>
+                <p>A imagem do cursor é definida de acordo com o sistema operacional ou configuração do software/hadware do utilizador.</p>
+                <p class="list italic bold">Mova seu cursor (mouse) sobre os elementos para visualizar</p>
             </blockquote>
+
             <div class="margin-top">
                 <div class="row-pad text-white">
                     <div class="col-third">
@@ -83,18 +88,17 @@
                     </div>
                 </div>
             </div>
-            <div class="margin-top align-center">
+            <div class="margin-top margin-bottom-max align-center">
                 <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
             </div>
         </div>
+
         <div class="modal" id="show-code">
             <div class="modal-box">
                 <div class="modal-header"><span class="font-max">Código Fonte</span></div>
                 <div class="modal-content"><pre><code class="language-html"></code></pre></div>
             </div>
         </div>
-        <textarea>
-        </textarea>
         <script>showCode.init();</script>
     </body>
 </html>

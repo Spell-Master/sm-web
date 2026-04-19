@@ -326,7 +326,10 @@ h6, .h6 {font-size: var(--text-size-h6)}
     word-wrap:break-word;
     background-clip:border-box;
     border-radius:.375rem
-        /*overflow: hidden*/
+    /*overflow: hidden*/
+}
+[class^="alert"] .list, [class^="card"] .list, blockquote[class^="quote"] .list {
+    margin-left: var(--spacing-medium)
 }
 
 .alert-success {background-color:#bdedbc !important; color:#045702}

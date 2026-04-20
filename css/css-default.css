@@ -214,23 +214,6 @@ h6, .h6 {font-size: var(--text-size-h6)}
 
 /**
  * ****************************************
- * Emblema
- * ****************************************
- */
-.emblem {
-    display:inline-block;
-    vertical-align:middle;
-    padding:.4em .56em;
-    font-size:1em;
-    font-weight:600;
-    line-height:1;
-    text-align:center;
-    white-space:nowrap;
-    border-radius:.5rem
-}
-
-/**
- * ****************************************
  * Imagem
  * ****************************************
  */

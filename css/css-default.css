@@ -217,7 +217,7 @@ h6, .h6 {font-size: var(--text-size-h6)}
  * Imagem
  * ****************************************
  */
-.image-auto {display:block; max-width:100%; height:auto}
+.image-auto {display: block; max-width: 100%; height: auto}
 
 /**
  * ****************************************
@@ -310,9 +310,6 @@ h6, .h6 {font-size: var(--text-size-h6)}
     background-clip:border-box;
     border-radius:.375rem
     /*overflow: hidden*/
-}
-[class^="alert"] .list, [class^="card"] .list, blockquote[class^="quote"] .list {
-    margin-left: var(--spacing-medium)
 }
 
 .alert-success {background-color:#bdedbc !important; color:#045702}
@@ -1103,7 +1100,10 @@ table.table.streak tr:nth-child(even) {
 .table      {display:table; width:100%}
 .table-row  {display:table-row}
 .table-cell {display:table-cell}
-.list       {display:list-item}
+.list {
+    display: list-item;
+    margin-left: var(--spacing-medium)
+}
 .list-none  {list-style:none}
 .block      {display:block}
 .none       {display:none}

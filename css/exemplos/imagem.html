@@ -16,41 +16,67 @@
         <script src="../../lib/prism/prism.js" type="text/javascript"></script>
     </head>
     <body>
-        <header>
-            <div class="bg-dark-grey padding-all text-white">
-                <div class="container">
-                    <h1>Imagem Responsiva</h1>
-                </div>
+        <div class="bg-dark-grey padding-all text-white">
+            <div class="container">
+                <h1>Imagem Responsiva</h1>
             </div>
-            <div class="bg-light padding-all">
-                <div class="container">
-                    <ul class="margin-left bold">
-                        <li>image-auto</li>
-                    </ul>
-                </div>
+        </div>
+        <div class="bg-light padding-all">
+            <div class="container">
+                <ul class="margin-left bold">
+                    <li>image-auto</li>
+                </ul>
             </div>
-        </header>
-        <main class="bg-white">
+        </div>
+
+        <div class="container">
+            <blockquote class="quote-yellow">
+                <p class="list italic bold">Redimencione a tela para auto ajustar o tamanho da imagem</p>
+            </blockquote>
+        </div>
+
+        <div class="margin-top-max">
             <div class="container padding-all">
-                <div class="margin-top">
-                    <hr class="sm-line" />
-                    <div class="col-half margin-auto">
-                        <img class="image-auto" src="../../lib/img/gt3.jpg" alt="image-auto" />
-                    </div>
+                Ajusta a imagem de acordo com a disponibilidade da largura do elemento
+            </div>
+            <div class="padding-lr">
+                <img class="image-auto" src="../../lib/img/uracan.jpg" alt="image-auto" />
+            </div>
+            <div class="margin-top align-center">
+                <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
+            </div>
+        </div>
+
+        <div class="margin-top-max">
+            <div class="row-pad">
+                <div class="col-half">
+                    <img class="image-auto" src="../../lib/img/paisagem_01.jpg" alt="image-auto" />
                 </div>
-                <div class="margin-top align-center">
-                    <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
+                <div class="col-half">
+                    <img class="image-auto" src="../../lib/img/paisagem_02.jpg" alt="image-auto" />
+                </div>
+                <div class="col-third">
+                    <img class="image-auto" src="../../lib/img/paisagem_03.jpg" alt="image-auto" />
+                </div>
+                <div class="col-third">
+                    <img class="image-auto" src="../../lib/img/paisagem_04.jpg" alt="image-auto" />
+                </div>
+                <div class="col-third">
+                    <img class="image-auto" src="../../lib/img/paisagem_05.jpg" alt="image-auto" />
                 </div>
             </div>
-        </main>
-        <footer class="bg-white">
-            <div class="modal" id="show-code">
-                <div class="modal-box">
-                    <div class="modal-header"><span class="font-max">Código Fonte</span></div>
-                    <div class="modal-content"><pre><code class="language-html"></code></pre></div>
-                </div>
+        </div>
+        <div class="margin-top margin-bottom-max align-center">
+            <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
+        </div>
+
+        <div class="modal" id="show-code">
+            <div class="modal-box">
+                <div class="modal-header"><span class="font-max">Código Fonte</span></div>
+                <div class="modal-content"><pre><code class="language-html"></code></pre></div>
             </div>
-        </footer>
+        </div>
+
         <script>showCode.init()</script>
     </body>
 </html>

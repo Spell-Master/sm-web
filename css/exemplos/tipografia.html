@@ -58,52 +58,75 @@
 
         <div class="card-yellow padding-all">
             <div class="container italic">
-                Exemplos abaixo vão apresentar uso de caracteres:
-                <span class="bold text-red">&lt;</span> e <span class="bold text-red">&gt;</span>
-                nos exemplos, mas isso é um erro devido a deficiêcia do codec utilizado na
-                demonstração dos exemplos
-                <p class="list bold italic">Os tamanhos das fontes por padrão são definidas pelo hadware do utilizador</p>
+                <p class="list bold italic">
+                    O tamanho das fontes para títulos são ajustadas em relação
+                    a largura de tela no hadware do utilizador
+                </p>
             </div>
         </div>
 
-        <div class="container padding-lr">
-            <div class="margin-top">
-                <div class="row-pad">
-                    <div class="col-third">
-                        <h1>Tag &lt;h1&gt;</h1> <!-- tag &lt;h6&gt; demonstrada erronea no exemplo -->
-                        <div class="h1">Propriedade .h1</div>
+        <div class="container padding-lr margin-top">
+            <p class="list bold italic">Títulos: h1, h2, h3, h4, h5, h6</p>
+            <div class="align-center">
+                <div class="row-pad text-white">
+                    <div class="col-third bg-red border-all border-dark-red">
+                        <h1>Título h1</h1>
                     </div>
-                    <div class="col-third">
-                        <h2>Tag &lt;h2&gt;</h2> <!-- tag &lt;h6&gt; demonstrada erronea no exemplo -->
-                        <div class="h2">Propriedade .h2</div>
+                    <div class="col-third bg-green border-all border-dark-green">
+                        <h2>Título h2</h2>
                     </div>
-                    <div class="col-third">
-                        <h4>Tag &lt;h3&gt;</h4> <!-- tag &lt;h6&gt; demonstrada erronea no exemplo -->
-                        <div class="h3">Propriedade .h3</div>
+                    <div class="col-third bg-blue border-all border-dark-blue">
+                        <h3>Título h3</h3>
                     </div>
-                    <div class="col-third">
-                        <h5>Tag &lt;h4&gt;</h5> <!-- tag &lt;h6&gt; demonstrada erronea no exemplo -->
-                        <div class="h4">Propriedade .h4</div>
+                    <div class="col-third bg-red border-all border-dark-red">
+                        <h4>Título h4</h4>
                     </div>
-                    <div class="col-third">
-                        <h6>Tag &lt;h5&gt;</h6> <!-- tag &lt;h6&gt; demonstrada erronea no exemplo -->
-                        <div class="h5">Propriedade .h5</div>
+                    <div class="col-third bg-green border-all border-dark-green">
+                        <h5>Título h5</h5>
                     </div>
-                    <div class="col-third">
-                        <h6>Tag &lt;h6&gt;</h6> <!-- tag &lt;h6&gt; demonstrada erronea no exemplo -->
-                        <div class="h6">Propriedade .h6</div>
+                    <div class="col-third bg-blue border-all border-dark-blue">
+                        <h6>Título h6</h6>
                     </div>
                 </div>
             </div>
             <div class="margin-top align-center">
                 <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
             </div>
-
-            <hr class="border-bottom border-dark" />
         </div>
 
-        <div class="container align-center">
-            <div class="margin-top">
+        <div class="container padding-lr margin-top">
+            <p class="list bold italic">Textos: .h1, .h2, .h3, .h4, .h5, .h6</p>
+            <div class="align-center">
+                <div class="row-pad text-white">
+                    <div class="col-third bg-red border-all border-dark-red">
+                        <p class="h1">Texto h1</p>
+                    </div>
+                    <div class="col-third bg-green border-all border-dark-green">
+                        <p class="h2">Texto h2</p>
+                    </div>
+                    <div class="col-third bg-blue border-all border-dark-blue">
+                        <p class="h3">Texto h3</p>
+                    </div>
+                    <div class="col-third bg-red border-all border-dark-red">
+                        <p class="h4">Texto h4</p>
+                    </div>
+                    <div class="col-third bg-green border-all border-dark-green">
+                        <p class="h5">Texto h5</p>
+                    </div>
+                    <div class="col-third bg-blue border-all border-dark-blue">
+                        <p class="h6">Texto h6</p>
+                    </div>
+                </div>
+            </div>
+            <div class="margin-top align-center">
+                <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
+            </div>
+        </div>
+
+        <div class="container padding-lr margin-top">
+            <hr class="border-bottom border-dark" />
+            <p class="list bold italic">Tamanhos padrão</p>
+            <div class="margin-top align-center">
                 <div class="row-pad">
                     <div class="col-third">
                         <p class="font-min">font-min</p>
@@ -121,9 +144,10 @@
             </div>
         </div>
 
-        <div class="card-dark padding-all margin-top-max">
+        <div class="padding-lr margin-top-max">
             <div class="container">
-                <span class="bold">Efeitos para marcar texto</span>
+                <hr class="border-bottom border-dark" />
+                <p class="list bold italic">Marcação de texto</p>
             </div>
         </div>
         <div class="container align-center">
@@ -141,6 +165,9 @@
                     <div class="col-5 align-center">
                         <p class="underline">underline</p>
                     </div>
+                    <div class="col-5 align-center">
+                        <p class="through">through</p>
+                    </div>
                 </div>
             </div>
             <div class="margin-top align-center">
@@ -152,6 +179,31 @@
                 <p>Não é possível combinar efeitos de marcagem de texto:</p>
                 <p class="bold">ISSO AQUI É ERRADO!</p>
                 <pre id="code-err"><code class="language-html">&lt;p class=&quot;overline underline through&quot;&gt;Exemplo de coisa errada a se fazer!&lt;/p&gt;</code></pre>
+            </div>
+        </div>
+
+        <div class="margin-top-max">
+            <div class="container padding-all">
+                <div class="card">
+                    <h1>Lorem ipsum dolor sit amet</h1>,
+                    <h2>consectetur adipisicing elit</h2>,
+                    <h3> sed do eiusmod tempor incididunt</h3>
+                    <h4>ut labore et dolore magna aliqua</h4>.
+                    <h5>Ut enim ad minim veniam</h5>,
+                    <h6>quis nostrud exercitation ullamco</h6>
+                    <span class="h1">laboris nisi ut aliquip</span>
+                    <span class="h2">ex ea commodo consequat</span>.
+                    <span class="h3">Duis aute irure dolor in reprehenderit</span>
+                    <span class="h4">in voluptate velit esse cillum dolore</span>
+                    <span class="h5">eu fugiat nulla pariatur</span>.
+                    <span class="h6">Excepteur sint occaecat</span>
+                    <span class="font-min">cupidatat non proident</span>,
+                    <span class="font-medium">sunt in culpa qui officia deserunt</span>
+                    <span class="font-max">mollit anim id est laborum</span>.
+                </div>
+                <div class="margin-top align-center">
+                    <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
+                </div>
             </div>
         </div>
 

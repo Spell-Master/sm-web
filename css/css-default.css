@@ -160,7 +160,7 @@ h6, .h6 {font-size: var(--text-size-h6); line-height: 116%}
 
 .h1, .h2, .h3, .h4, .h5, .h6,
  h1,  h2,  h3,  h4,  h5,  h6 {
-     font-family: inherit; font-weight: lighter; color: inherit; word-wrap: break-word
+     font-family: inherit; font-weight: lighter; color: inherit; word-wrap: break-word; font-size-adjust: .37
 }
 
 .font-min    {font-size: var(--text-size-min)}
@@ -187,10 +187,10 @@ h6, .h6 {font-size: var(--text-size-h6); line-height: 116%}
     position: relative;
     clear: both
 }
-.container-min    {max-width: 40rem}    /* 480px smartphone */
-.container-medium {max-width: 64rem}    /* 1024px monitor genérico 24 polegadas */
-.container-max    {max-width: 240rem}   /* 3840px 4k */
-.container        {max-width: 120rem}   /* 1920px full HD */
+.container-min    {max-width: 30rem}  /* 480px smartphone */
+.container-medium {max-width: 64rem}  /* 1024px monitor genérico 24 polegadas */
+.container-max    {max-width: 240rem} /* 3840px 4k */
+.container        {max-width: 120rem} /* 1920px full HD */
 
 /**
  * ****************************************
@@ -321,15 +321,15 @@ q[class^="quote"] {
 .alert-danger  {color: #ac1818; background-color: #eababa !important}
 
 .card,
-.card-light  {border: .0625rem solid rgba(0,0,10,.1)}
+.card-light,
 .card-dark   {border: .0625rem solid rgba(0,0,0,.1)}
 .card-red    {border: .0625rem solid rgba(200,10,0,.1)}
 .card-green  {border: .0625rem solid rgba(50,120,0,.1)}
 .card-blue   {border: .0625rem solid rgba(0,80,180,.1)}
 .card-yellow {border: .0625rem solid rgba(110,100,30,.1)}
 
-.card,        .quote        {color: #4c4c4c; background-color: #f0f0f0 !important}
-.card-light                 {color: #444444; background-color: #e1e1e1 !important}
+.card,        .quote        {color: #4c4c4c; background-color: #e5e5e5 !important}
+.card-light                 {color: #444444; background-color: #d8d8d8 !important}
 .card-dark                  {color: #4c4c4c; background-color: #bfbfbf !important}
 .card-red,    .quote-red    {color: #990500; background-color: #f7d9d9 !important}
 .card-green,  .quote-green  {color: #1d4c00; background-color: #d9f7d9 !important}
@@ -344,49 +344,51 @@ blockquote.quote-yellow {border-left: .3125rem solid #71631c !important}
 
 /**
  * ****************************************
- * * Cores de Texto
+ * Cores de Texto
  * ****************************************
  */
-.text-light,        .text-light-hover:hover        {color:var(--color-light)}
-.text-dark,         .text-dark-hover:hover         {color:var(--color-dark)}
-.text-white,        .text-white-hover:hover        {color:var(--color-white)}
-.text-black,        .text-black-hover:hover        {color:var(--color-black)}
-.text-grey,         .text-grey-hover:hover         {color:var(--color-grey)}
-.text-light-grey,   .text-light-grey-hover:hover   {color:var(--color-light-grey)}
-.text-dark-grey,    .text-dark-grey-hover:hover    {color:var(--color-dark-grey)}
-.text-red,          .text-red-hover:hover          {color:var(--color-red)}
-.text-light-red,    .text-light-red-hover:hover    {color:var(--color-light-red)}
-.text-dark-red,     .text-dark-red-hover:hover     {color:var(--color-dark-red)}
-.text-green,        .text-green-hover:hover        {color:var(--color-green)}
-.text-light-green,  .text-light-green-hover:hover  {color:var(--color-light-green)}
-.text-dark-green,   .text-dark-green-hover:hover   {color:var(--color-dark-green)}
-.text-blue,         .text-blue-hover:hover         {color:var(--color-blue)}
-.text-light-blue,   .text-light-blue-hover:hover   {color:var(--color-light-blue)}
-.text-dark-blue,    .text-dark-blue-hover:hover    {color:var(--color-dark-blue)}
-.text-yellow,       .text-yellow-hover:hover       {color:var(--color-yellow)}
-.text-light-yellow, .text-light-yellow-hover:hover {color:var(--color-light-yellow)}
-.text-dark-yellow,  .text-dark-yellow-hover:hover  {color:var(--color-dark-yellow)}
-.text-pink,         .text-pink-hover:hover         {color:var(--color-pink)}
-.text-light-pink,   .text-light-pink-hover:hover   {color:var(--color-light-pink)}
-.text-dark-pink,    .text-dark-pink-hover:hover    {color:var(--color-dark-pink)}
-.text-purple,       .text-purple-hover:hover       {color:var(--color-purple)}
-.text-light-purple, .text-light-purple-hover:hover {color:var(--color-light-purple)}
-.text-dark-purple,  .text-dark-purple-hover:hover  {color:var(--color-dark-purple)}
-.text-indigo,       .text-indigo-hover:hover       {color:var(--color-indigo)}
-.text-light-indigo, .text-light-indigo-hover:hover {color:var(--color-light-indigo)}
-.text-dark-indigo,  .text-dark-indigo-hover:hover  {color:var(--color-dark-indigo)}
-.text-aqua,         .text-aqua-hover:hover         {color:var(--color-aqua)}
-.text-light-aqua,   .text-light-aqua-hover:hover   {color:var(--color-light-aqua)}
-.text-dark-aqua,    .text-dark-aqua-hover:hover    {color:var(--color-dark-aqua)}
-.text-sand,         .text-sand-hover:hover         {color:var(--color-sand)}
-.text-light-sand,   .text-light-sand-hover:hover   {color:var(--color-light-sand)}
-.text-dark-sand,    .text-dark-sand-hover:hover    {color:var(--color-dark-sand)}
-.text-orange,       .text-orange-hover:hover       {color:var(--color-orange)}
-.text-light-orange, .text-light-orange-hover:hover {color:var(--color-light-orange)}
-.text-dark-orange,  .text-dark-orange-hover:hover  {color:var(--color-dark-orange)}
-.text-brown,        .text-brown-hover:hover        {color:var(--color-brown)}
-.text-light-brown,  .text-light-brown-hover:hover  {color:var(--color-light-brown)}
-.text-dark-brown,   .text-dark-brown-hover:hover   {color:var(--color-dark-brown)}
+.text-light,  .text-light-hover:hover  {color: var(--color-light)}
+.text-dark,   .text-dark-hover:hover   {color: var(--color-dark)}
+.text-white,  .text-white-hover:hover  {color: var(--color-white)}
+.text-black,  .text-black-hover:hover  {color: var(--color-black)}
+.text-grey,   .text-grey-hover:hover   {color: var(--color-grey)}
+.text-red,    .text-red-hover:hover    {color: var(--color-red)}
+.text-green,  .text-green-hover:hover  {color: var(--color-green)}
+.text-blue,   .text-blue-hover:hover   {color: var(--color-blue)}
+.text-yellow, .text-yellow-hover:hover {color: var(--color-yellow)}
+.text-pink,   .text-pink-hover:hover   {color: var(--color-pink)}
+.text-purple, .text-purple-hover:hover {color: var(--color-purple)}
+.text-indigo, .text-indigo-hover:hover {color: var(--color-indigo)}
+.text-aqua,   .text-aqua-hover:hover   {color: var(--color-aqua)}
+.text-sand,   .text-sand-hover:hover   {color: var(--color-sand)}
+.text-orange, .text-orange-hover:hover {color: var(--color-orange)}
+.text-brown,  .text-brown-hover:hover  {color: var(--color-brown)}
+
+.text-light-grey,   .text-light-grey-hover:hover   {color: var(--color-light-grey)}
+.text-light-red,    .text-light-red-hover:hover    {color: var(--color-light-red)}
+.text-light-green,  .text-light-green-hover:hover  {color: var(--color-light-green)}
+.text-light-blue,   .text-light-blue-hover:hover   {color: var(--color-light-blue)}
+.text-light-yellow, .text-light-yellow-hover:hover {color: var(--color-light-yellow)}
+.text-light-pink,   .text-light-pink-hover:hover   {color: var(--color-light-pink)}
+.text-light-purple, .text-light-purple-hover:hover {color: var(--color-light-purple)}
+.text-light-indigo, .text-light-indigo-hover:hover {color: var(--color-light-indigo)}
+.text-light-aqua,   .text-light-aqua-hover:hover   {color: var(--color-light-aqua)}
+.text-light-sand,   .text-light-sand-hover:hover   {color: var(--color-light-sand)}
+.text-light-orange, .text-light-orange-hover:hover {color: var(--color-light-orange)}
+.text-light-brown,  .text-light-brown-hover:hover  {color: var(--color-light-brown)}
+
+.text-dark-grey,   .text-dark-grey-hover:hover   {color: var(--color-dark-grey)}
+.text-dark-red,    .text-dark-red-hover:hover    {color: var(--color-dark-red)}
+.text-dark-green,  .text-dark-green-hover:hover  {color: var(--color-dark-green)}
+.text-dark-blue,   .text-dark-blue-hover:hover   {color: var(--color-dark-blue)}
+.text-dark-yellow, .text-dark-yellow-hover:hover {color: var(--color-dark-yellow)}
+.text-dark-pink,   .text-dark-pink-hover:hover   {color: var(--color-dark-pink)}
+.text-dark-purple, .text-dark-purple-hover:hover {color: var(--color-dark-purple)}
+.text-dark-indigo, .text-dark-indigo-hover:hover {color: var(--color-dark-indigo)}
+.text-dark-aqua,   .text-dark-aqua-hover:hover   {color: var(--color-dark-aqua)}
+.text-dark-sand,   .text-dark-sand-hover:hover   {color: var(--color-dark-sand)}
+.text-dark-orange, .text-dark-orange-hover:hover {color: var(--color-dark-orange)}
+.text-dark-brown,  .text-dark-brown-hover:hover  {color: var(--color-dark-brown)}
 
 /**
  * ****************************************

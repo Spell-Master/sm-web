@@ -302,47 +302,45 @@ h6, .h6 {font-size: var(--text-size-h6); line-height: 116%}
  * Informativos
  * ****************************************
  */
-[class^="alert"], blockquote[class^="quote"] {padding:.625rem}
-[class^="alert"], [class^="card"], blockquote[class^="quote"] {font-size:1em}
+[class^="alert"], [class^="card"], blockquote[class^="quote"] {
+    font-size: 1rem;
+    padding: .625rem
+}
+q[class^="quote"] {
+    padding: 0 .125rem
+}
 [class^="card"] {
     position: relative;
-    word-wrap:break-word;
-    background-clip:border-box;
-    border-radius:.375rem
-    /*overflow: hidden*/
+    word-wrap: break-word;
+    background-clip: border-box;
+    border-radius: .375rem
 }
-
-.alert-success {background-color:#bdedbc !important; color:#045702}
-.alert-info    {background-color:#c5e8f7 !important; color:#004d6f}
-.alert-warning {background-color:#ffefa4 !important; color:#574802}
-.alert-danger  {background-color:#eababa !important; color:#ac1818}
+.alert-success {color: #045702; background-color: #bdedbc !important}
+.alert-info    {color: #004d6f; background-color: #c5e8f7 !important}
+.alert-warning {color: #574802; background-color: #ffefa4 !important}
+.alert-danger  {color: #ac1818; background-color: #eababa !important}
 
 .card,
-.card-light,
-.card-dark {
-    border: 1px solid rgba(0,0,20,.1)
-}
+.card-light  {border: .0625rem solid rgba(0,0,10,.1)}
+.card-dark   {border: .0625rem solid rgba(0,0,0,.1)}
+.card-red    {border: .0625rem solid rgba(200,10,0,.1)}
+.card-green  {border: .0625rem solid rgba(50,120,0,.1)}
+.card-blue   {border: .0625rem solid rgba(0,80,180,.1)}
+.card-yellow {border: .0625rem solid rgba(110,100,30,.1)}
 
-.card        {background-color:#fefefe !important}
-.card-light  {background-color:#f0f0f0 !important; color:#444444}
-.card-dark   {background-color:#e1e1e1 !important; color:#333333}
-.card-red    {border: 1px solid rgba(200,10,0,.1)}
-.card-green  {border: 1px solid rgba(50,120,0,.1)}
-.card-blue   {border: 1px solid rgba(0,80,180,.1)}
-.card-yellow {border: 1px solid rgba(110,100,30,.1)}
+.card,        .quote        {color: #4c4c4c; background-color: #f0f0f0 !important}
+.card-light                 {color: #444444; background-color: #e1e1e1 !important}
+.card-dark                  {color: #4c4c4c; background-color: #bfbfbf !important}
+.card-red,    .quote-red    {color: #990500; background-color: #f7d9d9 !important}
+.card-green,  .quote-green  {color: #1d4c00; background-color: #d9f7d9 !important}
+.card-blue,   .quote-blue   {color: #0051b4; background-color: #d9e9f7 !important}
+.card-yellow, .quote-yellow {color: #71631c; background-color: #f5f0b2 !important}
 
-.card,        .quote        {color:#555555}
-.card-red,    .quote-red    {background-color:#f7d9d9 !important; color:#c40700}
-.card-green,  .quote-green  {background-color:#d9f7d9 !important; color:#2f7a00}
-.card-blue,   .quote-blue   {background-color:#d9e9f7 !important; color:#0051b4}
-.card-yellow, .quote-yellow {background-color:#f5f0b2 !important; color:#71631c}
-.quote                      {background-color:#ededed !important}
-
-blockquote.quote        {border-left:.3125rem solid #333333 !important}
-blockquote.quote-red    {border-left:.3125rem solid #c40700 !important}
-blockquote.quote-green  {border-left:.3125rem solid #2f7a00 !important}
-blockquote.quote-blue   {border-left:.3125rem solid #0051b4 !important}
-blockquote.quote-yellow {border-left:.3125rem solid #71631c !important}
+blockquote.quote        {border-left: .3125rem solid #333333 !important}
+blockquote.quote-red    {border-left: .3125rem solid #990500 !important}
+blockquote.quote-green  {border-left: .3125rem solid #1d4c00 !important}
+blockquote.quote-blue   {border-left: .3125rem solid #0051b4 !important}
+blockquote.quote-yellow {border-left: .3125rem solid #71631c !important}
 
 /**
  * ****************************************

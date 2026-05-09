@@ -48,46 +48,48 @@
     --table-head:   #e1e1e1;
     --table-streak: #ededed;
 
-    --color-light:        #f0f0f0;
-    --color-dark:         #cecece;
     --color-white:        #ffffff;
-    --color-black:        #333333;
+    --color-black:        #1a1a1a;
     --color-grey:         #808080;
-    --color-red:          #d42020;
-    --color-green:        #3b9900;
-    --color-blue:         #3b7fe7;
-    --color-yellow:       #ffd400;
-    --color-pink:         #ff01ff;
+    --color-red:          #d90000;
+    --color-green:        #1eb400;
+    --color-blue:         #337ae6;
+    --color-yellow:       #e6b400;
+    --color-pink:         #ff4dff;
     --color-purple:       #8e28a3;
-    --color-indigo:       #324299;
-    --color-aqua:         #00ffff;
-    --color-sand:         #f4cca4;
-    --color-orange:       #ff7f00;
-    --color-brown:        #9f705f;
-    --color-light-grey:   #a4a4a4;
-    --color-light-red:    #ff6560;
-    --color-light-green:  #7bff29;
-    --color-light-blue:   #54a1ff;
-    --color-light-yellow: #ffdd33;
+    --color-indigo:       #3e52c1;
+    --color-aqua:         #00cccc;
+    --color-sand:         #e3ac68;
+    --color-orange:       #ff6400;
+    --color-brown:        #92503a;
+
+    --color-light:        #cdcdcd;
+    --color-light-grey:   #bfbfbf;
+    --color-light-red:    #ff3232;
+    --color-light-green:  #5aff32;
+    --color-light-blue:   #77a7ee;
+    --color-light-yellow: #ffe146;
     --color-light-pink:   #ff71ff;
-    --color-light-purple: #b232cc;
-    --color-light-indigo: #3f53bf;
-    --color-light-aqua:   #99ffff;
-    --color-light-sand:   #f9e5d1;
-    --color-light-orange: #ff9933;
-    --color-light-brown:  #c5a99f;
-    --color-dark-grey:    #595959;
-    --color-dark-red:     #c40700;
-    --color-dark-green:   #2f7a00;
-    --color-dark-blue:    #0051b4;
-    --color-dark-yellow:  #ae9100;
+    --color-light-purple: #bb46d2;
+    --color-light-indigo: #7886d3;
+    --color-light-aqua:   #1affff;
+    --color-light-sand:   #efd0a9;
+    --color-light-orange: #ff944d;
+    --color-light-brown:  #be745b;
+    
+    --color-dark:         #bbbbbb;
+    --color-dark-grey:    #404040;
+    --color-dark-red:     #990000;
+    --color-dark-green:   #318000;
+    --color-dark-blue:    #1656b6;
+    --color-dark-yellow:  #b49600;
     --color-dark-pink:    #b100b1;
-    --color-dark-purple:  #6b1e7a;
-    --color-dark-indigo:  #263172;
-    --color-dark-aqua:    #009999;
-    --color-dark-sand:    #efb275;
-    --color-dark-orange:  #cc6600;
-    --color-dark-brown:   #5f4339
+    --color-dark-purple:  #5a1967;
+    --color-dark-indigo:  #2c3987;
+    --color-dark-aqua:    #008080;
+    --color-dark-sand:    #d78828;
+    --color-dark-orange:  #b34700;
+    --color-dark-brown:   #5b3224
 }
 
 /**
@@ -95,7 +97,7 @@
  * Ajustes Globais
  * ****************************************
  */
-*, :after, :before {margin: 0;padding: 0; box-sizing: border-box}
+*, :after, :before {margin: 0; padding: 0; box-sizing: border-box}
 html {overflow-x: hidden}
 body {font-size: 1rem; line-height: 1.5; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; color: #444444}
 body, html {height: 100%}
@@ -395,46 +397,48 @@ blockquote.quote-yellow {border-left: .3125rem solid #71631c !important}
  * Cores de Fundo
  * ****************************************
  */
-.bg-light,        .bg-light-hover:hover        {background-color:var(--color-light)}
-.bg-dark,         .bg-dark-hover:hover         {background-color:var(--color-dark)}
-.bg-white,        .bg-white-hover:hover        {background-color:var(--color-white)}
-.bg-black,        .bg-black-hover:hover        {background-color:var(--color-black)}
-.bg-grey,         .bg-grey-hover:hover         {background-color:var(--color-grey)}
+.bg-light,  .bg-light-hover:hover  {background-color:var(--color-light)}
+.bg-dark,   .bg-dark-hover:hover   {background-color:var(--color-dark)}
+.bg-white,  .bg-white-hover:hover  {background-color:var(--color-white)}
+.bg-black,  .bg-black-hover:hover  {background-color:var(--color-black)}
+.bg-grey,   .bg-grey-hover:hover   {background-color:var(--color-grey)}
+.bg-red,    .bg-red-hover:hover    {background-color:var(--color-red)}
+.bg-green,  .bg-green-hover:hover  {background-color:var(--color-green)}
+.bg-blue,   .bg-blue-hover:hover   {background-color:var(--color-blue)}
+.bg-yellow, .bg-yellow-hover:hover {background-color:var(--color-yellow)}
+.bg-pink,   .bg-pink-hover:hover   {background-color:var(--color-pink)}
+.bg-purple, .bg-purple-hover:hover {background-color:var(--color-purple)}
+.bg-indigo, .bg-indigo-hover:hover {background-color:var(--color-indigo)}
+.bg-aqua,   .bg-aqua-hover:hover   {background-color:var(--color-aqua)}
+.bg-sand,   .bg-sand-hover:hover   {background-color:var(--color-sand)}
+.bg-orange, .bg-orange-hover:hover {background-color:var(--color-orange)}
+.bg-brown,  .bg-brown-hover:hover  {background-color:var(--color-brown)}
+
 .bg-light-grey,   .bg-light-grey-hover:hover   {background-color:var(--color-light-grey)}
-.bg-dark-grey,    .bg-dark-grey-hover:hover    {background-color:var(--color-dark-grey)}
-.bg-red,          .bg-red-hover:hover          {background-color:var(--color-red)}
 .bg-light-red,    .bg-light-red-hover:hover    {background-color:var(--color-light-red)}
-.bg-dark-red,     .bg-dark-red-hover:hover     {background-color:var(--color-dark-red)}
-.bg-green,        .bg-green-hover:hover        {background-color:var(--color-green)}
 .bg-light-green,  .bg-light-green-hover:hover  {background-color:var(--color-light-green)}
-.bg-dark-green,   .bg-dark-green-hover:hover   {background-color:var(--color-dark-green)}
-.bg-blue,         .bg-blue-hover:hover         {background-color:var(--color-blue)}
 .bg-light-blue,   .bg-light-blue-hover:hover   {background-color:var(--color-light-blue)}
-.bg-dark-blue,    .bg-dark-blue-hover:hover    {background-color:var(--color-dark-blue)}
-.bg-yellow,       .bg-yellow-hover:hover       {background-color:var(--color-yellow)}
 .bg-light-yellow, .bg-light-yellow-hover:hover {background-color:var(--color-light-yellow)}
-.bg-dark-yellow,  .bg-dark-yellow-hover:hover  {background-color:var(--color-dark-yellow)}
-.bg-pink,         .bg-pink-hover:hover         {background-color:var(--color-pink)}
 .bg-light-pink,   .bg-light-pink-hover:hover   {background-color:var(--color-light-pink)}
-.bg-dark-pink,    .bg-dark-pink-hover:hover    {background-color:var(--color-dark-pink)}
-.bg-purple,       .bg-purple-hover:hover       {background-color:var(--color-purple)}
 .bg-light-purple, .bg-light-purple-hover:hover {background-color:var(--color-light-purple)}
-.bg-dark-purple,  .bg-dark-purple-hover:hover  {background-color:var(--color-dark-purple)}
-.bg-indigo,       .bg-indigo-hover:hover       {background-color:var(--color-indigo)}
 .bg-light-indigo, .bg-light-indigo-hover:hover {background-color:var(--color-light-indigo)}
-.bg-dark-indigo,  .bg-dark-indigo-hover:hover  {background-color:var(--color-dark-indigo)}
-.bg-aqua,         .bg-aqua-hover:hover         {background-color:var(--color-aqua)}
 .bg-light-aqua,   .bg-light-aqua-hover:hover   {background-color:var(--color-light-aqua)}
-.bg-dark-aqua,    .bg-dark-aqua-hover:hover    {background-color:var(--color-dark-aqua)}
-.bg-sand,         .bg-sand-hover:hover         {background-color:var(--color-sand)}
 .bg-light-sand,   .bg-light-sand-hover:hover   {background-color:var(--color-light-sand)}
-.bg-dark-sand,    .bg-dark-sand-hover:hover    {background-color:var(--color-dark-sand)}
-.bg-orange,       .bg-orange-hover:hover       {background-color:var(--color-orange)}
 .bg-light-orange, .bg-light-orange-hover:hover {background-color:var(--color-light-orange)}
-.bg-dark-orange,  .bg-dark-orange-hover:hover  {background-color:var(--color-dark-orange)}
-.bg-brown,        .bg-brown-hover:hover        {background-color:var(--color-brown)}
 .bg-light-brown,  .bg-light-brown-hover:hover  {background-color:var(--color-light-brown)}
-.bg-dark-brown,   .bg-dark-brown-hover:hover   {background-color:var(--color-dark-brown)}
+
+.bg-dark-grey,   .bg-dark-grey-hover:hover   {background-color:var(--color-dark-grey)}
+.bg-dark-red,    .bg-dark-red-hover:hover    {background-color:var(--color-dark-red)}
+.bg-dark-green,  .bg-dark-green-hover:hover  {background-color:var(--color-dark-green)}
+.bg-dark-blue,   .bg-dark-blue-hover:hover   {background-color:var(--color-dark-blue)}
+.bg-dark-yellow, .bg-dark-yellow-hover:hover {background-color:var(--color-dark-yellow)}
+.bg-dark-pink,   .bg-dark-pink-hover:hover   {background-color:var(--color-dark-pink)}
+.bg-dark-purple, .bg-dark-purple-hover:hover {background-color:var(--color-dark-purple)}
+.bg-dark-indigo, .bg-dark-indigo-hover:hover {background-color:var(--color-dark-indigo)}
+.bg-dark-aqua,   .bg-dark-aqua-hover:hover   {background-color:var(--color-dark-aqua)}
+.bg-dark-sand,   .bg-dark-sand-hover:hover   {background-color:var(--color-dark-sand)}
+.bg-dark-orange, .bg-dark-orange-hover:hover {background-color:var(--color-dark-orange)}
+.bg-dark-brown,  .bg-dark-brown-hover:hover  {background-color:var(--color-dark-brown)}
 
 /**
  * ****************************************

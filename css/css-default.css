@@ -622,6 +622,92 @@ table.table.streak tr:nth-child(even) {
 
 /**
  * ****************************************
+ * Bordas
+ * ****************************************
+ */
+.border-all-min    {border:        var(--border-min) solid transparent}
+.border-all        {border:        var(--border-medium) solid transparent}
+.border-all-max    {border:        var(--border-max) solid transparent}
+.border-left-min   {border-left:   var(--border-min) solid transparent}
+.border-left       {border-left:   var(--border-medium) solid transparent}
+.border-left-max   {border-left:   var(--border-max) solid transparent}
+.border-right-min  {border-right:  var(--border-min) solid transparent}
+.border-right      {border-right:  var(--border-medium) solid transparent}
+.border-right-max  {border-right:  var(--border-max) solid transparent}
+.border-top-min    {border-top:    var(--border-min) solid transparent}
+.border-top        {border-top:    var(--border-medium) solid transparent}
+.border-top-max    {border-top:    var(--border-max) solid transparent}
+.border-bottom-min {border-bottom: var(--border-min) solid transparent}
+.border-bottom     {border-bottom: var(--border-medium) solid transparent}
+.border-bottom-max {border-bottom: var(--border-max) solid transparent}
+.border-lr-min     {border-left:   var(--border-min) solid transparent;    border-right:  var(--border-min) solid transparent}
+.border-lr         {border-left:   var(--border-medium) solid transparent; border-right:  var(--border-medium) solid transparent}
+.border-lr-max     {border-left:   var(--border-max) solid transparent;    border-right:  var(--border-max) solid transparent}
+.border-tb-min     {border-top:    var(--border-min) solid transparent;    border-bottom: var(--border-min) solid transparent}
+.border-tb         {border-top:    var(--border-medium) solid transparent; border-bottom: var(--border-medium) solid transparent}
+.border-tb-max     {border-top:    var(--border-max) solid transparent;    border-bottom: var(--border-max) solid transparent}
+
+.border-light,  .border-light-hover:hover  {border-color: var(--color-light)}
+.border-dark,   .border-dark-hover:hover   {border-color: var(--color-dark)}
+.border-white,  .border-white-hover:hover  {border-color: var(--color-white)}
+.border-black,  .border-black-hover:hover  {border-color: var(--color-black)}
+.border-grey,   .border-grey-hover:hover   {border-color: var(--color-grey)}
+.border-red,    .border-red-hover:hover    {border-color: var(--color-red)}
+.border-green,  .border-green-hover:hover  {border-color: var(--color-green)}
+.border-blue,   .border-blue-hover:hover   {border-color: var(--color-blue)}
+.border-yellow, .border-yellow-hover:hover {border-color: var(--color-yellow)}
+.border-pink,   .border-pink-hover:hover   {border-color: var(--color-pink)}
+.border-purple, .border-purple-hover:hover {border-color: var(--color-purple)}
+.border-indigo, .border-indigo-hover:hover {border-color: var(--color-indigo)}
+.border-aqua,   .border-aqua-hover:hover   {border-color: var(--color-aqua)}
+.border-sand,   .border-sand-hover:hover   {border-color: var(--color-sand)}
+.border-orange, .border-orange-hover:hover {border-color: var(--color-orange)}
+.border-brown,  .border-brown-hover:hover  {border-color: var(--color-brown)}
+
+.border-light-grey,   .border-light-grey-hover:hover   {border-color: var(--color-light-grey)}
+.border-light-red,    .border-light-red-hover:hover    {border-color: var(--color-light-red)}
+.border-light-green,  .border-light-green-hover:hover  {border-color: var(--color-light-green)}
+.border-light-blue,   .border-light-blue-hover:hover   {border-color: var(--color-light-blue)}
+.border-light-yellow, .border-light-yellow-hover:hover {border-color: var(--color-light-yellow)}
+.border-light-pink,   .border-light-pink-hover:hover   {border-color: var(--color-light-pink)}
+.border-light-purple, .border-light-purple-hover:hover {border-color: var(--color-light-purple)}
+.border-light-indigo, .border-light-indigo-hover:hover {border-color: var(--color-light-indigo)}
+.border-light-aqua,   .border-light-aqua-hover:hover   {border-color: var(--color-light-aqua)}
+.border-light-sand,   .border-light-sand-hover:hover   {border-color: var(--color-light-sand)}
+.border-light-orange, .border-light-orange-hover:hover {border-color: var(--color-light-orange)}
+.border-light-brown,  .border-light-brown-hover:hover  {border-color: var(--color-light-brown)}
+
+.border-dark-grey,   .border-dark-grey-hover:hover   {border-color: var(--color-dark-grey)}
+.border-dark-red,    .border-dark-red-hover:hover    {border-color: var(--color-dark-red)}
+.border-dark-green,  .border-dark-green-hover:hover  {border-color: var(--color-dark-green)}
+.border-dark-blue,   .border-dark-blue-hover:hover   {border-color: var(--color-dark-blue)}
+.border-dark-yellow, .border-dark-yellow-hover:hover {border-color: var(--color-dark-yellow)}
+.border-dark-pink,   .border-dark-pink-hover:hover   {border-color: var(--color-dark-pink)}
+.border-dark-purple, .border-dark-purple-hover:hover {border-color: var(--color-dark-purple)}
+.border-dark-indigo, .border-dark-indigo-hover:hover {border-color: var(--color-dark-indigo)}
+.border-dark-aqua,   .border-dark-aqua-hover:hover   {border-color: var(--color-dark-aqua)}
+.border-dark-sand,   .border-dark-sand-hover:hover   {border-color: var(--color-dark-sand)}
+.border-dark-orange, .border-dark-orange-hover:hover {border-color: var(--color-dark-orange)}
+.border-dark-brown,  .border-dark-brown-hover:hover  {border-color: var(--color-dark-brown)}
+
+.border-all-hidden    {border-color:        transparent !important}
+.border-left-hidden   {border-left-color:   transparent !important}
+.border-right-hidden  {border-right-color:  transparent !important}
+.border-top-hidden    {border-top-color:    transparent !important}
+.border-bottom-hidden {border-bottom-color: transparent !important}
+.border-lr-hidden     {border-left-color:   transparent !important; border-right-color: transparent !important}
+.border-tb-hidden     {border-top-color:    transparent !important; border-bottom-color: transparent !important}
+
+.border-all-none    {border:        none !important}
+.border-left-none   {border-left:   none !important}
+.border-right-none  {border-right:  none !important}
+.border-top-none    {border-top:    none !important}
+.border-bottom-none {border-bottom: none !important}
+.border-lr-none     {border-left:   none !important; border-right: none !important}
+.border-tb-none     {border-top:    none !important; border-bottom: none !important}
+
+/**
+ * ****************************************
  * * Arredondamento
  * ****************************************
  */
@@ -662,74 +748,6 @@ table.table.streak tr:nth-child(even) {
 .radius-bottom-right-min {border-bottom-right-radius:var(--spacing-min)}
 .radius-bottom-right     {border-bottom-right-radius:var(--spacing-medium)}
 .radius-bottom-right-max {border-bottom-right-radius:var(--spacing-max)}
-
-/**
- * ****************************************
- * * Bordas
- * ****************************************
- */
-.border-all-min    {border:var(--border-min) solid transparent}
-.border-all        {border:var(--border-medium) solid transparent}
-.border-all-max    {border:var(--border-max) solid transparent}
-.border-left-min   {border-left:var(--border-min) solid transparent}
-.border-left       {border-left:var(--border-medium) solid transparent}
-.border-left-max   {border-left:var(--border-max) solid transparent}
-.border-right-min  {border-right:var(--border-min) solid transparent}
-.border-right      {border-right:var(--border-medium) solid transparent}
-.border-right-max  {border-right:var(--border-max) solid transparent}
-.border-top-min    {border-top:var(--border-min) solid transparent}
-.border-top        {border-top:var(--border-medium) solid transparent}
-.border-top-max    {border-top:var(--border-max) solid transparent}
-.border-bottom-min {border-bottom:var(--border-min) solid transparent}
-.border-bottom     {border-bottom:var(--border-medium) solid transparent}
-.border-bottom-max {border-bottom:var(--border-max) solid transparent}
-.border-lr-min     {border-left:var(--border-min) solid transparent; border-right:var(--border-min) solid transparent}
-.border-lr         {border-left:var(--border-medium) solid transparent; border-right:var(--border-medium) solid transparent}
-.border-lr-max     {border-left:var(--border-max) solid transparent; border-right:var(--border-max) solid transparent}
-.border-tb-min     {border-top:var(--border-min) solid transparent; border-bottom:var(--border-min) solid transparent}
-.border-tb         {border-top:var(--border-medium) solid transparent; border-bottom:var(--border-medium) solid transparent}
-.border-tb-max     {border-top:var(--border-max) solid transparent; border-bottom:var(--border-max) solid transparent}
-
-.border-light,        .border-light-hover:hover        {border-color:var(--color-light)}
-.border-dark,         .border-dark-hover:hover         {border-color:var(--color-dark)}
-.border-white,        .border-white-hover:hover        {border-color:var(--color-white)}
-.border-black,        .border-black-hover:hover        {border-color:var(--color-black)}
-.border-grey,         .border-grey-hover:hover         {border-color:var(--color-grey)}
-.border-light-grey,   .border-light-grey-hover:hover   {border-color:var(--color-light-grey)}
-.border-dark-grey,    .border-dark-grey-hover:hover    {border-color:var(--color-dark-grey)}
-.border-red,          .border-red-hover:hover          {border-color:var(--color-red)}
-.border-light-red,    .border-light-red-hover:hover    {border-color:var(--color-light-red)}
-.border-dark-red,     .border-dark-red-hover:hover     {border-color:var(--color-dark-red)}
-.border-green,        .border-green-hover:hover        {border-color:var(--color-green)}
-.border-light-green,  .border-light-green-hover:hover  {border-color:var(--color-light-green)}
-.border-dark-green,   .border-dark-green-hover:hover   {border-color:var(--color-dark-green)}
-.border-blue,         .border-blue-hover:hover         {border-color:var(--color-blue)}
-.border-light-blue,   .border-light-blue-hover:hover   {border-color:var(--color-light-blue)}
-.border-dark-blue,    .border-dark-blue-hover:hover    {border-color:var(--color-dark-blue)}
-.border-yellow,       .border-yellow-hover:hover       {border-color:var(--color-yellow)}
-.border-light-yellow, .border-light-yellow-hover:hover {border-color:var(--color-light-yellow)}
-.border-dark-yellow,  .border-dark-yellow-hover:hover  {border-color:var(--color-dark-yellow)}
-.border-pink,         .border-pink-hover:hover         {border-color:var(--color-pink)}
-.border-light-pink,   .border-light-pink-hover:hover   {border-color:var(--color-light-pink)}
-.border-dark-pink,    .border-dark-pink-hover:hover    {border-color:var(--color-dark-pink)}
-.border-purple,       .border-purple-hover:hover       {border-color:var(--color-purple)}
-.border-light-purple, .border-light-purple-hover:hover {border-color:var(--color-light-purple)}
-.border-dark-purple,  .border-dark-purple-hover:hover  {border-color:var(--color-dark-purple)}
-.border-indigo,       .border-indigo-hover:hover       {border-color:var(--color-indigo)}
-.border-light-indigo, .border-light-indigo-hover:hover {border-color:var(--color-light-indigo)}
-.border-dark-indigo,  .border-dark-indigo-hover:hover  {border-color:var(--color-dark-indigo)}
-.border-aqua,         .border-aqua-hover:hover         {border-color:var(--color-aqua)}
-.border-light-aqua,   .border-light-aqua-hover:hover   {border-color:var(--color-light-aqua)}
-.border-dark-aqua,    .border-dark-aqua-hover:hover    {border-color:var(--color-dark-aqua)}
-.border-sand,         .border-sand-hover:hover         {border-color:var(--color-sand)}
-.border-light-sand,   .border-light-sand-hover:hover   {border-color:var(--color-light-sand)}
-.border-dark-sand,    .border-dark-sand-hover:hover    {border-color:var(--color-dark-sand)}
-.border-orange,       .border-orange-hover:hover       {border-color:var(--color-orange)}
-.border-light-orange, .border-light-orange-hover:hover {border-color:var(--color-light-orange)}
-.border-dark-orange,  .border-dark-orange-hover:hover  {border-color:var(--color-dark-orange)}
-.border-brown,        .border-brown-hover:hover        {border-color:var(--color-brown)}
-.border-light-brown,  .border-light-brown-hover:hover  {border-color:var(--color-light-brown)}
-.border-dark-brown,   .border-dark-brown-hover:hover   {border-color:var(--color-dark-brown)}
 
 /**
  * ****************************************

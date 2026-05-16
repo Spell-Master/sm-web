@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Formulário</title>
+        <title>Formulario</title>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -16,94 +16,48 @@
         <script src="../../lib/prism/prism.js" type="text/javascript"></script>
     </head>
     <body>
-        <header>
-            <div class="bg-dark-grey padding-all text-white">
-                <div class="container">
-                    <h1>Elementos de Formulário</h1>
-                </div>
+        <div class="bg-dark-grey padding-all text-white">
+            <div class="container">
+                <h1>Formulário</h1>
             </div>
-            <div class="bg-light padding-all">
-                <div class="container">
-                    <ul class="margin-left bold">
-                        <li>input-default</li>
-                        <li>input-line</li>
-                        <li>input-check</li>
-                        <li>input-check-x</li>
-                        <li>input-check-cube</li>
-                        <li>input-check-circle</li>
-                        <li>input-toggle</li>
-                        <li>input-toggle-circle</li>
-                    </ul>
-                </div>
+        </div>
+        <div class="bg-light padding-all">
+            <div class="container">
+                <ul class="margin-left bold">
+                    <li>input-default</li>
+                    <li>input-line</li>
+                    <li>input-check</li>
+                    <li>input-check-x</li>
+                    <li>input-check-cube</li>
+                    <li>input-check-circle</li>
+                    <li>input-toggle</li>
+                    <li>input-toggle-circle</li>
+                    <li>input-range</li>
+                </ul>
             </div>
-        </header>
-        <main class="bg-white">
-            <div class="container padding-all">
+        </div>
 
-                <div class="row-pad">
-                    <div class="col-half">
-                        <h3>input-default</h3>
-                        <div class="static">
-                            <div class="margin-top">
-                                <input type="text" class="input-default" value="input"/>
-                            </div>
-                            <div class="margin-top">
-                                <textarea class="input-default">textarea</textarea>
-                            </div>
-                            <div class="margin-top">
-                                <div class="input-default">div</div>
-                            </div>
-                        </div>
-                        <div class="margin-top align-center">
-                            <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
-                        </div>
-                    </div>
-                    <div class="col-half">
-                        <h3>input-line</h3>
-                        <div class="relative">
-                            <div class="margin-top">
-                                <input type="text" class="input-line" value="input" />
-                            </div>
-                            <div class="margin-top">
-                                <textarea class="input-line">textarea</textarea>
-                            </div>
-                            <div class="margin-top">
-                                <div class="input-line">div</div>
-                            </div>
-                        </div>
-                        <div class="margin-top align-center">
-                            <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="sm-margin-top">
-                    <hr class="sm-line" />
-                    <h2>Padronizar Validação</h2>
-                    <blockquote class="quote">
-                        Usando o <span class="bold">input-default</span> ou
-                        <span class="bold">input-line</span>
-                        será aplicado caso o atributo
-                        <span class="bold">pattern</span> estiver presente
-                    </blockquote>
+        <div class="container padding-all margin-top-max">
+            <h2>Entrada de Texto</h2>
+            <div class="row-pad">
+                <div class="col-half">
+                    <h3>input-default</h3>
                     <div class="static">
-                        <div class="row-pad">
-                            <div class="col-half">
-                                <p>Somente Letras (Válido)</p>
-                                <input type="text" class="input-default" pattern="([a-zA-Z]+)" value="AeIoU" />
-                            </div>
-                            <div class="col-half">
-                                <p>Somente Letras (Válido)</p>
-                                <input type="text" class="input-line" pattern="([a-zA-Z]+)" value="AeIoU" />
-                            </div>
-                            <div class="col-half">
-                                <p>Somente Letras (Inválido)</p>
-                                <input type="text" class="input-default" pattern="([a-zA-Z]+)" value="12345" />
-                            </div>
-                            <div class="col-half">
-                                <p>Somente Letras (Inválido)</p>
-                                <input type="text" class="input-line" pattern="([a-zA-Z]+)" value="12345" />
-                            </div>
+                        <div class="margin-top">
+                            <p class="bold list">Caixa de texto de uma linha</p>
+                            <input type="text" class="input-default" value="input" />
+                        </div>
+                        <div class="margin-top">
+                            <p class="bold list">Caixa de texto de múltipas linhas</p>
+                            <textarea class="input-default" rows="3">textarea</textarea>
+                        </div>
+                        <div class="margin-top">
+                            <p class="bold list">Elemento editável</p>
+                            <div class="input-default" contenteditable="true">contenteditable</div>
+                        </div>
+                        <div class="margin-top">
+                            <p class="bold list">Elemento qualquer</p>
+                            <div class="input-default">div</div>
                         </div>
                     </div>
                     <div class="margin-top align-center">
@@ -111,27 +65,87 @@
                     </div>
                 </div>
 
-                <div class="sm-margin-top">
-                    <hr class="sm-line" />
-                    <h2>Desabilitado</h2>
-                    <blockquote class="quote">
-                        Será aplicado caso o atributo
-                        <span class="bold">disabled</span> ou
-                        <span class="bold">readonly</span> estiver presente
-                    </blockquote>
+                <div class="col-half">
+                    <h3>input-line</h3>
                     <div class="static">
-                        <div class="row-pad">
-                            <div class="col-half">
-                                <input class="input-default" disabled="" type="text" placeholder="disabled" />
+                        <div class="margin-top">
+                            <p class="bold list">Caixa de texto de uma linha</p>
+                            <input type="text" class="input-line" value="input" />
+                        </div>
+                        <div class="margin-top">
+                            <p class="bold list">Caixa de texto de múltipas linhas</p>
+                            <textarea class="input-line" rows="3">textarea</textarea>
+                        </div>
+                        <div class="margin-top">
+                            <p class="bold list">Elemento editável</p>
+                            <div class="input-line" contenteditable="true">contenteditable</div>
+                        </div>
+                        <div class="margin-top">
+                            <p class="bold list">Elemento qualquer</p>
+                            <div class="input-line">div</div>
+                        </div>
+                    </div>
+                    <div class="margin-top align-center">
+                        <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container padding-all margin-top-max">
+            <hr class="border-bottom-min border-light" />
+            <h2>Validar</h2>
+            <blockquote class="quote">
+                Usando o <span class="bold">input-default</span> ou
+                <span class="bold">input-line</span>
+                será aplicado caso o atributo
+                <span class="bold">pattern</span> estiver presente
+                <p class="italic">Ao acionar/tocar nas caixas válidas o efeito na cor do texto é visível</p>
+            </blockquote>
+            <div class="static">
+                <div class="row-pad">
+                    <div class="col-half">
+                        <p>Somente Letras (Válido)</p>
+                        <input type="text" class="input-default" pattern="([a-zA-Z]+)" value="AeIoU" />
+                    </div>
+                    <div class="col-half">
+                        <p>Somente Letras (Inválido)</p>
+                        <input type="text" class="input-default" pattern="([a-zA-Z]+)" value="12345" />
+                    </div>
+                    <div class="col-half">
+                        <p>Somente Letras (Válido)</p>
+                        <input type="text" class="input-line" pattern="([a-zA-Z]+)" value="AeIoU" />
+                    </div>
+                    <div class="col-half">
+                        <p>Somente Letras (Inválido)</p>
+                        <input type="text" class="input-line" pattern="([a-zA-Z]+)" value="12345" />
+                    </div>
+                </div>
+            </div>
+            <div class="margin-top align-center">
+                <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
+            </div>
+        </div>
+
+        <div class="container padding-all margin-top-max">
+            <hr class="border-bottom-min border-light" />
+            <h2>Marcar/Selecionar</h2>
+            <div class="row-pad">
+                <div class="col-half">
+                    <h3>Caixa de checagem</h3>
+                    <div class="static align-center">
+                        <div class="row">
+                            <div class="col-quarter col-fix">
+                                <input class="input-check" type="checkbox" />
                             </div>
-                            <div class="col-half">
-                                <input class="input-line" disabled="" type="text" placeholder="disabled" />
+                            <div class="col-quarter col-fix">
+                                <input class="input-check-x" type="checkbox" />
                             </div>
-                            <div class="col-half">
-                                <input class="input-default" readonly="" type="text" placeholder="readonly" />
+                            <div class="col-quarter col-fix">
+                                <input class="input-check-cube" type="checkbox" />
                             </div>
-                            <div class="col-half">
-                                <input class="input-line" readonly="" type="text" placeholder="readonly" />
+                            <div class="col-quarter col-fix">
+                                <input class="input-check-circle" type="checkbox" />
                             </div>
                         </div>
                     </div>
@@ -139,147 +153,45 @@
                         <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
                     </div>
                 </div>
-
-
-                <div class="sm-margin-top">
-                    <hr class="sm-line" />
-                    <h2>Marcação</h2>
-                    <div class="row-pad">
-                        <div class="col-half">
-                            <div class="card">
-                                <p class="bold list margin-left">Marcar comum</p>
-                                <div class="row-pad">
-                                    <div class="col-half-max align-center">
-                                        <p>checkbox</p>
-                                        <input class="input-check" type="checkbox" />
-                                    </div>
-                                    <div class="col-half-max align-center">
-                                        <p>radio</p>
-                                        <input class="input-check" type="radio" name="radio-1" checked="" />
-                                        <input class="input-check" type="radio" name="radio-1" />
-                                    </div>
-                                </div>
+                <div class="col-half">
+                    <h3>Caixa de Seleção</h3>
+                    <div class="static align-center">
+                        <div class="row">
+                            <div class="col-quarter col-fix">
+                                <input class="input-check" type="radio" name="checagem-basica" checked="" />
+                                <input class="input-check" type="radio" name="checagem-basica" />
                             </div>
-                            <div class="margin-top align-center">
-                                <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
+                            <div class="col-quarter col-fix">
+                                <input class="input-check-x" type="radio" name="checagem-x" checked="" />
+                                <input class="input-check-x" type="radio" name="checagem-x" />
                             </div>
-                        </div>
-
-                        <div class="col-half">
-                            <div class="card">
-                                <p class="bold list margin-left">Marcar x</p>
-                                <div class="row-pad">
-                                    <div class="col-half-max align-center">
-                                        <p>checkbox</p>
-                                        <input class="input-check-x" type="checkbox" />
-                                    </div>
-                                    <div class="col-half-max align-center">
-                                        <p>radio</p>
-                                        <input class="input-check-x" type="radio" name="radio-2" checked="" />
-                                        <input class="input-check-x" type="radio" name="radio-2" />
-                                    </div>
-                                </div>
+                            <div class="col-quarter col-fix">
+                                <input class="input-check-cube" type="radio" name="checagem-caixa" checked="" />
+                                <input class="input-check-cube" type="radio" name="checagem-caixa" />
                             </div>
-                            <div class="margin-top align-center">
-                                <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
-                            </div>
-                        </div>
-
-                        <div class="col-half">
-                            <div class="card">
-                                <p class="bold list margin-left">Marcar caixa</p>
-                                <div class="row-pad">
-                                    <div class="col-half-max align-center">
-                                        <p>checkbox</p>
-                                        <input class="input-check-cube" type="checkbox" />
-                                    </div>
-                                    <div class="col-half-max align-center">
-                                        <p>radio</p>
-                                        <input class="input-check-cube" type="radio" name="radio-3" checked="" />
-                                        <input class="input-check-cube" type="radio" name="radio-3" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="margin-top align-center">
-                                <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
-                            </div>
-                        </div>
-
-                        <div class="col-half">
-                            <div class="card">
-                                <p class="bold list margin-left">Marcar circular</p>
-                                <div class="row-pad">
-                                    <div class="col-half-max align-center">
-                                        <p>checkbox</p>
-                                        <input class="input-check-circle" type="checkbox" />
-                                    </div>
-                                    <div class="col-half-max align-center">
-                                        <p>radio</p>
-                                        <input class="input-check-circle" type="radio" name="radio-4" checked="" />
-                                        <input class="input-check-circle" type="radio" name="radio-4" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="margin-top align-center">
-                                <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
-                            </div>
-                        </div>
-
-                        <div class="col-half">
-                            <div class="card">
-                                <p class="bold list margin-left">Marcar caixa alternada</p>
-                                <div class="row-pad">
-                                    <div class="col-half-max align-center">
-                                        <p>checkbox</p>
-                                        <input class="input-toggle" type="checkbox" />
-                                    </div>
-                                    <div class="col-half-max align-center">
-                                        <p>radio</p>
-                                        <input class="input-toggle" type="radio" name="radio-5" checked="" />
-                                        <input class="input-toggle" type="radio" name="radio-5" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="margin-top align-center">
-                                <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
-                            </div>
-                        </div>
-
-                        <div class="col-half">
-                            <div class="card">
-                                <p class="bold list margin-left">Marcar circular alternada</p>
-                                <div class="row-pad">
-                                    <div class="col-half-max align-center">
-                                        <p>checkbox</p>
-                                        <input class="input-toggle-circle" type="checkbox" />
-                                    </div>
-                                    <div class="col-half-max align-center">
-                                        <p>radio</p>
-                                        <input class="input-toggle-circle" type="radio" name="radio-6" checked="" />
-                                        <input class="input-toggle-circle" type="radio" name="radio-6" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="margin-top align-center">
-                                <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
+                            <div class="col-quarter col-fix">
+                                <input class="input-check-circle" type="radio" name="checagem-circulo" checked="" />
+                                <input class="input-check-circle" type="radio" name="checagem-circulo" />
                             </div>
                         </div>
                     </div>
+                    <div class="margin-top align-center">
+                        <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
+                    </div>
                 </div>
+            </div>
 
-                <div class="sm-margin-top">
-                    <hr class="sm-line" />
-                    <h2>Em Linha</h2>
-                </div>
+            <div class="margin-top align-center">
                 <div class="row-pad">
-                    <div class="col-half-max">
+                    <div class="col-half">
+                        <h3 class="italic">Caixa de checagem alternada</h3>
                         <div class="static">
-                            <div class="floating">
-                                <div class="float-left">
-                                    <div class="box-xy-50 vertical-wrap bg-dark">@</div>
+                            <div class="row">
+                                <div class="col-half">
+                                    <input class="input-toggle" type="checkbox" />
                                 </div>
-                                <div class="over-not">
-                                    <input type="text" class="input-default" placeholder="placeholder" />
+                                <div class="col-half">
+                                    <input class="input-toggle-circle" type="checkbox" />
                                 </div>
                             </div>
                         </div>
@@ -287,134 +199,17 @@
                             <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
                         </div>
                     </div>
-                    <div class="col-half-max">
+                    <div class="col-half">
+                        <h3 class="italic">Caixa de Seleção alternada</h3>
                         <div class="static">
-                            <div class="floating">
-                                <div class="float-right">
-                                    <div class="box-xy-50 vertical-wrap bg-dark">@</div>
+                            <div class="row">
+                                <div class="col-half">
+                                    <input class="input-toggle" type="radio" name="alternada-basica" checked="" />
+                                    <input class="input-toggle" type="radio" name="alternada-basica" />
                                 </div>
-                                <div class="over-not">
-                                    <input type="text" class="input-default" placeholder="placeholder" />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="margin-top align-center">
-                            <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
-                        </div>
-                    </div>
-                    <div class="col-half-max">
-                        <div class="static">
-                            <div class="floating">
-                                <div class="float-left">
-                                    <div class="box-xy-50 vertical-wrap bg-dark">@</div>
-                                </div>
-                                <div class="float-right">
-                                    <button class="btn-success">Submit</button>
-                                </div>
-                                <div class="over-not">
-                                    <input type="text" class="input-default" placeholder="placeholder" />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="margin-top align-center">
-                            <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
-                        </div>
-                    </div>
-                    <div class="col-half-max">
-                        <div class="static">
-                            <div class="floating">
-                                <div class="float-left">
-                                    <button class="btn-success">Submit</button>
-                                </div>
-                                <div class="float-right">
-                                    <div class="box-xy-50 vertical-wrap bg-dark">@</div>
-                                </div>
-                                <div class="over-not">
-                                    <input type="text" class="input-default" placeholder="placeholder" />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="margin-top align-center">
-                            <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
-                        </div>
-                    </div>
-                    <div class="col-half-max">
-                        <div class="static">
-                            <div class="floating">
-                                <div class="float-left">
-                                    <input type="checkbox" class="input-check" checked="" />
-                                </div>
-                                <div class="over-not">
-                                    <input type="text" class="input-default" placeholder="placeholder" />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="margin-top align-center">
-                            <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
-                        </div>
-                    </div>
-                    <div class="col-half-max">
-                        <div class="static">
-                            <div class="floating">
-                                <div class="float-right">
-                                    <input type="checkbox" class="input-check" checked="" />
-                                </div>
-                                <div class="over-not">
-                                    <input type="text" class="input-default" placeholder="placeholder" />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="margin-top align-center">
-                            <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
-                        </div>
-                    </div>
-                    <div class="col-half-max">
-                        <div class="static">
-                            <div class="floating">
-                                <div class="float-left">
-                                    <input type="checkbox" class="input-toggle" checked="" />
-                                </div>
-                                <div class="over-not">
-                                    <input type="text" class="input-default" placeholder="placeholder" />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="margin-top align-center">
-                            <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
-                        </div>
-                    </div>
-                    <div class="col-half-max">
-                        <div class="static">
-                            <div class="floating">
-                                <div class="float-right">
-                                    <input type="checkbox" class="input-toggle" checked="" />
-                                </div>
-                                <div class="over-not">
-                                    <input type="text" class="input-default" placeholder="placeholder" />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="margin-top align-center">
-                            <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
-                        </div>
-                    </div>
-                    <div class="col-single">
-                        <div class="static">
-                            <div class="floating">
-                                <div class="float-left">
-                                    <div class="box-xy-50 vertical-wrap bg-dark">@</div>
-                                </div>
-                                <div class="float-left">
-                                    <input type="checkbox" class="input-check" checked="" />
-                                </div>
-                                <div class="float-right">
-                                    <button class="btn-success">Submit</button>
-                                </div>
-                                <div class="float-right">
-                                    <input type="checkbox" class="input-toggle" checked="" />
-                                </div>
-                                <div class="over-not">
-                                    <input type="text" class="input-default" placeholder="placeholder" />
+                                <div class="col-half">
+                                    <input class="input-toggle-circle" type="radio" name="alternada-circulo" checked="" />
+                                    <input class="input-toggle-circle" type="radio" name="alternada-circulo" />
                                 </div>
                             </div>
                         </div>
@@ -424,16 +219,145 @@
                     </div>
                 </div>
             </div>
-        </main>
-        <footer class="bg-white">
-            <div class="modal" id="show-code">
-                <div class="modal-box">
-                    <div class="modal-header"><span class="font-max">Código Fonte</span></div>
-                    <div class="modal-content"><pre><code class="language-html"></code></pre></div>
-                </div>
-            </div>
-        </footer>
+        </div>
 
-        <script>showCode.init()</script>
+        <div class="container padding-all margin-top-max">
+            <hr class="border-bottom-min border-light" />
+            <h2>Barra seletora</h2>
+            <div class="static">
+                <input class="input-range" type="range" min="0" max="100" step="10" value="0" />
+            </div>
+            <div class="margin-top align-center">
+                <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
+            </div>
+        </div>
+
+        <div class="container padding-all margin-top-max">
+            <hr class="border-bottom-min border-light" />
+            <h2>Desabilitado</h2>
+            <blockquote class="quote">
+                Será aplicado caso o atributo
+                <span class="bold">disabled</span> ou
+                <span class="bold">readonly</span> estiver presente
+            </blockquote>
+
+            <div class="static">
+                <div class="row-pad">
+                    <div class="col-half col-fix">
+                        <p class="list text-red">Desabilitado</p>
+                        <input class="input-default" disabled="" type="text" placeholder="input-default" />
+                        <div class="margin-top">
+                            <input class="input-line" disabled="" type="text" placeholder="input-line" />
+                        </div>
+                    </div>
+                    <div class="col-half col-fix">
+                        <p class="list text-blue">Habilitado</p>
+                        <input class="input-default" type="text" placeholder="input-default" />
+                        <div class="margin-top">
+                            <input class="input-line" type="text" placeholder="input-line" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="margin-top align-center">
+                <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
+            </div>
+
+            <div class="margin-top-max">
+                <h3>Outros exemplos</h3>
+                <div class="static">
+                    <input class="input-check" disabled="" type="checkbox">
+                    <input class="input-toggle-circle"  disabled="" type="checkbox" />
+                    <input class="btn-info" disabled="" type="button" value="disabled" />
+                    <button class="btn-info" disabled="" type="button" >disabled</button>
+                    <input class="input-range" disabled="" type="range" min="0" max="100" step="10" value="0" />
+                    <textarea class="input-default" readonly="">textarea readonly</textarea>
+                </div>
+                <div class="margin-top align-center">
+                    <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="container padding-all margin-top-max">
+            <blockquote class="quote-yellow">
+                Qualquer elemento pode ser apresentado com efeito desabilitado ou de leitura,
+                basta usar a propriedade <span class="bold">disabled</span>
+            </blockquote>
+
+            <div class="static">
+                <div class="row-pad">
+                    <div class="col-half">
+                        <div class="card-blue disabled">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        </div>
+                    </div>
+                    <div class="col-half">
+                        <img src="../../lib/img/uracan.jpg" class="image-auto disabled" alt="" />
+                    </div>
+                </div>
+            </div>
+            <div class="margin-top align-center">
+                <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
+            </div>
+        </div>
+
+        <div class="container padding-all margin-top-max">
+            <hr class="border-bottom-min border-light" />
+            <h2>Estilizando elementos em linha</h2>
+            <div class="row-pad">
+                <div class="col-half">
+                    <div class="static">
+                        <div class="floating">
+                            <div class="float-left">
+                                <div class="box-xy-50 vertical-wrap bg-dark">@</div>
+                            </div>
+                            <div class="float-right">
+                                <button class="btn-success">Submit</button>
+                            </div>
+                            <div class="over-not">
+                                <input type="text" class="input-default" placeholder="placeholder" style="border-right: none" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="margin-top align-center">
+                        <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
+                    </div>
+                </div>
+                <div class="col-half">
+                    <div class="static">
+                        <div class="floating">
+                            <div class="float-left">
+                                <div class="box-xy-50 vertical-wrap bg-dark">@</div>
+                            </div>
+                            <div class="float-left">
+                                <input type="checkbox" class="input-check" checked="" />
+                            </div>
+                            <div class="float-right">
+                                <button class="btn-success">Submit</button>
+                            </div>
+                            <div class="float-right">
+                                <input type="checkbox" class="input-toggle" checked="" />
+                            </div>
+                            <div class="over-not">
+                                <input type="text" class="input-default" placeholder="placeholder" style="border-right: none; border-left: none" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="margin-top align-center">
+                        <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal" id="show-code">
+            <div class="modal-box">
+                <div class="modal-header"><span class="font-max">Código Fonte</span></div>
+                <div class="modal-content"><pre><code class="language-html"></code></pre></div>
+            </div>
+        </div>
+        <script>showCode.init();</script>
     </body>
 </html>

@@ -27,7 +27,7 @@
     --text-size-min:    .75rem;  /* 12px */
     --text-size-medium: 1rem;    /* 16px */
     --text-size-max:    1.25rem; /* 20px */
-    
+
     --spacing-min:    .375rem;  /* 6px */
     --spacing-medium: .75rem;   /* 12px */
     --spacing-max:    1.5rem;   /* 24px */
@@ -44,8 +44,8 @@
     --input-valid:        #00a651;
     --input-invalid:      #cc2424;
 
-    --table-border:       #cccccc;
-    --table-head:         #e1e1e1;
+    --table-border:       #bbbbbb;
+    --table-head:         #cccccc;
     --table-streak:       #ededed;
 
     --color-white:        #ffffff;
@@ -76,7 +76,7 @@
     --color-light-sand:   #efd0a9;
     --color-light-orange: #ff944d;
     --color-light-brown:  #be745b;
-    
+
     --color-dark:         #bbbbbb;
     --color-dark-grey:    #404040;
     --color-dark-red:     #990000;
@@ -442,7 +442,7 @@ blockquote.quote-yellow {border-left: .3125rem solid #71631c !important}
 
 /**
  * ****************************************
- * * Formulario
+ * Formulario
  * ****************************************
  */
 .input-default,
@@ -605,19 +605,19 @@ input[disabled],    input[readonly] {
 
 /**
  * ****************************************
- * * Tabela
+ * Tabela
  * ****************************************
  */
-table.table {width:100%}
+table.table {width: 100%}
 
 table.table th,
-table.table td {padding:.625rem}
+table.table td {padding: .625rem; border: .0625rem solid var(--table-border)}
 
 table.table > thead,
-table.table > tfoot {background-color:var(--table-head)}
+table.table > tfoot {background-color: var(--table-head)}
 
 table.table.streak tr:nth-child(even) {
-    background-color:var(--table-streak)
+    background-color: var(--table-streak)
 }
 
 /**

@@ -695,7 +695,7 @@ table.table.streak tr:nth-child(even) {
 .border-right-hidden  {border-right-color:  transparent !important}
 .border-top-hidden    {border-top-color:    transparent !important}
 .border-bottom-hidden {border-bottom-color: transparent !important}
-.border-lr-hidden     {border-left-color:   transparent !important; border-right-color: transparent !important}
+.border-lr-hidden     {border-left-color:   transparent !important; border-right-color:  transparent !important}
 .border-tb-hidden     {border-top-color:    transparent !important; border-bottom-color: transparent !important}
 
 .border-all-none    {border:        none !important}
@@ -703,51 +703,51 @@ table.table.streak tr:nth-child(even) {
 .border-right-none  {border-right:  none !important}
 .border-top-none    {border-top:    none !important}
 .border-bottom-none {border-bottom: none !important}
-.border-lr-none     {border-left:   none !important; border-right: none !important}
+.border-lr-none     {border-left:   none !important; border-right:  none !important}
 .border-tb-none     {border-top:    none !important; border-bottom: none !important}
 
 /**
  * ****************************************
- * * Arredondamento
+ * Arredondamento
  * ****************************************
  */
-.radius-circle {border-radius:50%}
+.radius-circle {border-radius: 50%}
 
-.radius-all-min {border-radius:var(--spacing-min)}
-.radius-all     {border-radius:var(--spacing-medium)}
-.radius-all-max {border-radius:var(--spacing-max)}
+.radius-all-min {border-radius: var(--spacing-min)}
+.radius-all     {border-radius: var(--spacing-medium)}
+.radius-all-max {border-radius: var(--spacing-max)}
 
-.radius-left-min {border-top-left-radius:var(--spacing-min);    border-bottom-left-radius:var(--spacing-min)}
-.radius-left     {border-top-left-radius:var(--spacing-medium); border-bottom-left-radius:var(--spacing-medium)}
-.radius-left-max {border-top-left-radius:var(--spacing-max);    border-bottom-left-radius:var(--spacing-max)}
+.radius-left-min {border-top-left-radius: var(--spacing-min);    border-bottom-left-radius: var(--spacing-min)}
+.radius-left     {border-top-left-radius: var(--spacing-medium); border-bottom-left-radius: var(--spacing-medium)}
+.radius-left-max {border-top-left-radius: var(--spacing-max);    border-bottom-left-radius: var(--spacing-max)}
 
-.radius-right-min {border-top-right-radius:var(--spacing-min);    border-bottom-right-radius:var(--spacing-min)}
-.radius-right     {border-top-right-radius:var(--spacing-medium); border-bottom-right-radius:var(--spacing-medium)}
-.radius-right-max {border-top-right-radius:var(--spacing-max);    border-bottom-right-radius:var(--spacing-max)}
+.radius-right-min {border-top-right-radius: var(--spacing-min);    border-bottom-right-radius: var(--spacing-min)}
+.radius-right     {border-top-right-radius: var(--spacing-medium); border-bottom-right-radius: var(--spacing-medium)}
+.radius-right-max {border-top-right-radius: var(--spacing-max);    border-bottom-right-radius: var(--spacing-max)}
 
-.radius-top-left-min {border-top-left-radius:var(--spacing-min)}
-.radius-top-left     {border-top-left-radius:var(--spacing-medium)}
-.radius-top-left-max {border-top-left-radius:var(--spacing-max)}
+.radius-top-left-min {border-top-left-radius: var(--spacing-min)}
+.radius-top-left     {border-top-left-radius: var(--spacing-medium)}
+.radius-top-left-max {border-top-left-radius: var(--spacing-max)}
 
-.radius-top-min {border-top-left-radius:var(--spacing-min);    border-top-right-radius:var(--spacing-min)}
-.radius-top     {border-top-left-radius:var(--spacing-medium); border-top-right-radius:var(--spacing-medium)}
-.radius-top-max {border-top-left-radius:var(--spacing-max);    border-top-right-radius:var(--spacing-max)}
+.radius-top-min {border-top-left-radius: var(--spacing-min);    border-top-right-radius: var(--spacing-min)}
+.radius-top     {border-top-left-radius: var(--spacing-medium); border-top-right-radius: var(--spacing-medium)}
+.radius-top-max {border-top-left-radius: var(--spacing-max);    border-top-right-radius: var(--spacing-max)}
 
-.radius-top-right-min {border-top-right-radius:var(--spacing-min)}
-.radius-top-right     {border-top-right-radius:var(--spacing-medium)}
-.radius-top-right-max {border-top-right-radius:var(--spacing-max)}
+.radius-top-right-min {border-top-right-radius: var(--spacing-min)}
+.radius-top-right     {border-top-right-radius: var(--spacing-medium)}
+.radius-top-right-max {border-top-right-radius: var(--spacing-max)}
 
-.radius-bottom-min {border-bottom-left-radius:var(--spacing-min);    border-bottom-right-radius:var(--spacing-min)}
-.radius-bottom     {border-bottom-left-radius:var(--spacing-medium); border-bottom-right-radius:var(--spacing-medium)}
-.radius-bottom-max {border-bottom-left-radius:var(--spacing-max);    border-bottom-right-radius:var(--spacing-max)}
+.radius-bottom-min {border-bottom-left-radius: var(--spacing-min);    border-bottom-right-radius: var(--spacing-min)}
+.radius-bottom     {border-bottom-left-radius: var(--spacing-medium); border-bottom-right-radius: var(--spacing-medium)}
+.radius-bottom-max {border-bottom-left-radius: var(--spacing-max);    border-bottom-right-radius: var(--spacing-max)}
 
-.radius-bottom-left-min {border-bottom-left-radius:var(--spacing-min)}
-.radius-bottom-left     {border-bottom-left-radius:var(--spacing-medium)}
-.radius-bottom-left-max {border-bottom-left-radius:var(--spacing-max)}
+.radius-bottom-left-min {border-bottom-left-radius: var(--spacing-min)}
+.radius-bottom-left     {border-bottom-left-radius: var(--spacing-medium)}
+.radius-bottom-left-max {border-bottom-left-radius: var(--spacing-max)}
 
-.radius-bottom-right-min {border-bottom-right-radius:var(--spacing-min)}
-.radius-bottom-right     {border-bottom-right-radius:var(--spacing-medium)}
-.radius-bottom-right-max {border-bottom-right-radius:var(--spacing-max)}
+.radius-bottom-right-min {border-bottom-right-radius: var(--spacing-min)}
+.radius-bottom-right     {border-bottom-right-radius: var(--spacing-medium)}
+.radius-bottom-right-max {border-bottom-right-radius: var(--spacing-max)}
 
 /**
  * ****************************************

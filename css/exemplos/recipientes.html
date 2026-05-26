@@ -28,42 +28,54 @@
                     <li>container-min</li>
                     <li>container-medium</li>
                     <li>container-max</li>
+                    <li>container-sd</li>
+                    <li>container-hd</li>
+                    <li>container-2k</li>
+                    <li>container-4k</li>
                 </ul>
             </div>
         </div>
 
         <div class="container padding-all">
-            Propriedades que centralizam e adaptam o conteúdo interno, mesmo que resolução seja menor ou maior que o esperado
+            Centralizam e adaptam o conteúdo interno, mesmo que resolução seja menor ou maior que o esperado
+            <p>Caso a largura da tela seja menor que o definido pelo recipiente o mesmo se ajusta para que seu tamanho limite seja a quantidade de pixel
+            disponível</p>
         </div>
 
-
-        <div class="padding-tb">
-            <div class="margin-top"> 
-                <div class="container-min padding-all bg-light">
-                    <span class="bold">container-min</span> - Margens ajustadas até 480 pixels aproximadamente.
-                    <p>Ideal para smartphone</p>
-                </div>
+        <div class="padding-tb text-white">
+            <div class="container-min padding-all bg-red">
+                <span class="bold">container-min</span>
+                <p>Recipiente de margens ajustadas até 480 pixels</p>
             </div>
-            <div class="margin-top">
-                <div class="container-medium padding-all bg-dark">
-                    <span class="bold">container-medium</span> - Margens ajustadas até 1024 pixels aproximadamente.
-                    <p>Ideal para monitor genérico 24 polegadas</p>
-                </div>
+            <div class="container-sd padding-all bg-green">
+                <span class="bold">container-sd</span>
+                <p>Recipiente de margens ajustadas até 640px pixels</p>
             </div>
-            <div class="margin-top">
-                <div class="container-max padding-all bg-light">
-                    <span class="bold">container-max</span> - Margens ajustadas até 3840 pixels aproximadamente.
-                    <p>Ideal para 4k</p>
-                </div>
+            <div class="container-medium padding-all bg-blue">
+                <span class="bold">container-medium</span>
+                <p>Recipiente de margens ajustadas até 1024px pixels</p>
             </div>
-            <div class="margin-top">
-                <div class="container padding-all bg-dark">
-                    <span class="bold">container</span> - Margens ajustadas até 1920 pixels aproximadamente.
-                    <p>Ideal para full e telas de cumputadores em geral</p>
-                </div>
+            <div class="container-hd padding-all bg-red">
+                <span class="bold">container-hd</span>
+                <p>Recipiente de margens ajustadas até 1280px pixels</p>
+            </div>
+            <div class="container padding-all bg-green">
+                <span class="bold">container</span>
+                <p>Recipiente de margens ajustadas até 1920px pixels</p>
+            </div>
+            <div class="container-2k padding-all bg-blue">
+                <span class="bold">container-2k</span>
+                <p>Recipiente de margens ajustadas até 2560px pixels</p>
+            </div>
+            <div class="container-4k padding-all bg-red">
+                <span class="bold">container-4k</span>
+                <p>Recipiente de margens ajustadas até 3280px pixels</p>
+            </div>
+            <div class="container-max padding-all bg-green">
+                <span class="bold">container-max</span>
+                <p>Recipiente de margens ajustadas até 7680px pixels</p>
             </div>
         </div>
-        
         <div class="margin-top align-center">
             <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
         </div>
@@ -72,9 +84,18 @@
             <blockquote class="quote">
                 A melhor forma para você ver como funciona os container's sendo
                 aplicado é se você estiver visualizando essa página com um teclado
-                disponível é precionar as tecla <span class="h1 text-green">Ctrl</span>
-                com a tecla <span class="h1 text-green">-</span> (menos)
-                ou a tecla <span class="h1 text-green">+</span> (mais).
+                disponível é precionar as tecla <span class="h6 text-green">Ctrl</span>
+                com a tecla <span class="h6 text-green">-</span> (menos)
+                ou a tecla <span class="h6 text-green">+</span> (mais).
+            </blockquote>
+        </div>
+
+        <div class="container padding-all">
+            <blockquote class="quote-red">
+                <p class="bold">Atenção!</p>
+                <p>Não utilizar esses recursos diretamente em imagens, sujeito a resultados inesperados</p>
+                <p>Exemplo de erro:</p>
+                <pre><code class="language-html">&lt;img src="foto.png" alt="" class="container" /&gt;</code></pre></div>
             </blockquote>
         </div>
 

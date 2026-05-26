@@ -183,16 +183,25 @@ h6, .h6 {font-size: var(--text-size-h6); line-height: 116%}
 .container-min,
 .container-medium,
 .container-max,
-.container {
+.container,
+.container-sd,
+.container-hd,
+.container-2k,
+.container-4k {
     width: auto;
     margin: auto;
     position: relative;
     clear: both
 }
-.container-min    {max-width: 30rem}  /* 480px smartphone */
-.container-medium {max-width: 64rem}  /* 1024px monitor genérico 24 polegadas */
-.container-max    {max-width: 240rem} /* 3840px 4k */
-.container        {max-width: 120rem} /* 1920px full HD */
+
+.container-min    {max-width: 30rem}  /* 480px */
+.container-sd     {max-width: 40rem}  /* 640px */
+.container-medium {max-width: 64rem}  /* 1024px */
+.container-hd     {max-width: 80rem}  /* 1280px */
+.container        {max-width: 120rem} /* 1920px */
+.container-2k     {max-width: 160rem} /* 2560px */
+.container-4k     {max-width: 205rem} /* 3280px */
+.container-max    {max-width: 480rem} /* 7680px */
 
 /**
  * ****************************************

@@ -908,19 +908,17 @@ table.table.streak tr:nth-child(even) {
  */
 .row,
 .row-pad {
-    display:flex;
-    flex-wrap:wrap
-}
-.row > [class^="col-"],
-.row-pad > [class^="col-"] {
-    flex-shrink:0
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row
 }
 .row.no-warp,
 .row-pad.no-warp {
-    display:flex;
-    flex-wrap:nowrap
+    flex-wrap: nowrap
 }
-.row-pad > [class^="col-"] {padding:var(--spacing-medium)}
+.row-pad > [class^="col-"] {
+    padding: var(--spacing-medium)
+}
 
 .col-1,
 .col-2,  .col-2-min,  .col-2-max,
@@ -938,50 +936,47 @@ table.table.streak tr:nth-child(even) {
 .col-half,         .col-half-min,         .col-half-max,
 .col-third,        .col-third-min,        .col-third-max,
 .col-quarter,      .col-quarter-min,      .col-quarter-max {
-    width:100%;
-    max-width:100%
+    position: relative !important;
+    width: 100%;
+    max-width: 100%
 }
 
-[class^="col-"].col-fix {
-    flex:0 0 auto
-}
-.col-2.col-fix,     .col-2-min.col-fix,      .col-2-max.col-fix,
-.col-2.col-reverse, .col-2-min.col-reverse,  .col-2-max.col-reverse  {width:49.99999%}
-.col-3.col-fix,     .col-3-min.col-fix,      .col-3-max.col-fix,
-.col-3.col-reverse, .col-3-min.col-reverse,  .col-3-max.col-reverse  {width:33.33333%}
-.col-4.col-fix,     .col-4-min.col-fix,      .col-4-max.col-fix,
-.col-4.col-reverse, .col-4-min.col-fix,      .col-4-max.col-reverse  {width:24.99999%}
-.col-5.col-fix,     .col-5-min.col-fix,      .col-5-max.col-fix,
-.col-5.col-reverse, .col-5-min.col-reverse,  .col-5-max.col-reverse  {width:19.99999%}
-.col-6.col-fix,     .col-6-min.col-fix,      .col-6-max.col-fix,
-.col-6.col-reverse, .col-6-min.col-reverse,  .col-6-max.col-reverse  {width:16.66666%}
-.col-7.col-fix,     .col-7-min.col-fix,      .col-7-max.col-fix,
-.col-7.col-reverse, .col-7-min.col-reverse,  .col-7-max.col-reverse  {width:14.28571%}
-.col-8.col-fix,     .col-8-min.col-fix,      .col-8-max.col-fix,
-.col-8.col-reverse, .col-8-min.col-reverse,  .col-8-max.col-reverse  {width:12.5%}
-.col-9.col-fix,     .col-9-min.col-fix,      .col-9-max.col-fix,
-.col-9.col-reverse, .col-9-min.col-reverse,  .col-9-max.col-reverse  {width:11.11111%}
-.col-10.col-fix,    .col-10-min.col-fix,     .col-10-max.col-fix,
-.col-10.col-reverse,.col-10-min.col-reverse, .col-10-max.col-reverse {width:9.99999%}
+.col-2.col-fix,      .col-2-min.col-fix,      .col-2-max.col-fix,
+.col-2.col-reverse,  .col-2-min.col-reverse,  .col-2-max.col-reverse  {width: 49.99999%}
+.col-3.col-fix,      .col-3-min.col-fix,      .col-3-max.col-fix,
+.col-3.col-reverse,  .col-3-min.col-reverse,  .col-3-max.col-reverse  {width: 33.33333%}
+.col-4.col-fix,      .col-4-min.col-fix,      .col-4-max.col-fix,
+.col-4.col-reverse,  .col-4-min.col-fix,      .col-4-max.col-reverse  {width: 24.99999%}
+.col-5.col-fix,      .col-5-min.col-fix,      .col-5-max.col-fix,
+.col-5.col-reverse,  .col-5-min.col-reverse,  .col-5-max.col-reverse  {width: 19.99999%}
+.col-6.col-fix,      .col-6-min.col-fix,      .col-6-max.col-fix,
+.col-6.col-reverse,  .col-6-min.col-reverse,  .col-6-max.col-reverse  {width: 16.66666%}
+.col-7.col-fix,      .col-7-min.col-fix,      .col-7-max.col-fix,
+.col-7.col-reverse,  .col-7-min.col-reverse,  .col-7-max.col-reverse  {width: 14.28571%}
+.col-8.col-fix,      .col-8-min.col-fix,      .col-8-max.col-fix,
+.col-8.col-reverse,  .col-8-min.col-reverse,  .col-8-max.col-reverse  {width: 12.49999%}
+.col-9.col-fix,      .col-9-min.col-fix,      .col-9-max.col-fix,
+.col-9.col-reverse,  .col-9-min.col-reverse,  .col-9-max.col-reverse  {width: 11.11111%}
+.col-10.col-fix,     .col-10-min.col-fix,     .col-10-max.col-fix,
+.col-10.col-reverse, .col-10-min.col-reverse, .col-10-max.col-reverse {width: 9.99999%}
 
 .col-threequarter.col-fix,     .col-threequarter-min.col-fix,     .col-threequarter-max.col-fix,
-.col-threequarter.col-reverse, .col-threequarter-min.col-reverse, .col-threequarter-max.col-reverse {width:74.99999%}
+.col-threequarter.col-reverse, .col-threequarter-min.col-reverse, .col-threequarter-max.col-reverse {width: 74.99999%}
 .col-twothird.col-fix,         .col-twothird-min.col-fix,         .col-twothird-max.col-fix,
-.col-twothird.col-reverse,     .col-twothird-min.col-reverse,     .col-twothird-max.col-reverse     {width:66.66666%}
+.col-twothird.col-reverse,     .col-twothird-min.col-reverse,     .col-twothird-max.col-reverse     {width: 66.66666%}
 .col-half.col-fix,             .col-half-min.col-fix,             .col-half-max.col-fix,
-.col-half.col-reverse,         .col-half-min.col-reverse,         .col-half-max.col-reverse         {width:49.99999%}
+.col-half.col-reverse,         .col-half-min.col-reverse,         .col-half-max.col-reverse         {width: 49.99999%}
 .col-third.col-fix,            .col-third-min.col-fix,            .col-third-max.col-fix,
-.col-third.col-reverse,        .col-third-min.col-reverse,        .col-third-max.col-reverse        {width:33.33333%}
+.col-third.col-reverse,        .col-third-min.col-reverse,        .col-third-max.col-reverse        {width: 33.33333%}
 .col-quarter.col-fix,          .col-quarter-min.col-fix,          .col-quarter-max.col-fix,
-.col-quarter.col-reverse,      .col-quarter-min.col-reverse,      .col-quarter-max.col-reverse      {width:24.99999%}
+.col-quarter.col-reverse,      .col-quarter-min.col-reverse,      .col-quarter-max.col-reverse      {width: 24.99999%}
 
-.flex-row {
-    display:flex;
-    flex-wrap:nowrap;
-    height:100%;
-}
-.flex-column {
-    flex:1 1 auto
+.col-flex {
+    display: flex;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: auto;
+    flex-direction: column
 }
 
 /**
@@ -1229,35 +1224,21 @@ table.table.streak tr:nth-child(even) {
  * Outras Escalas
  * ****************************************
  */
-@media (max-width: 900px) {
-    .maximize-max {width:100% !important}
-}
-@media (max-width: 600px) {
-    .maximize-medium {width:100% !important}
-}
-@media (max-width: 480px) {
-    .maximize-min {width:100% !important}
-}
-
 @media (min-width: 900px) {
-    .col-2-max, .col-3-max, .col-4-max, .col-5-max, .col-6-max, .col-7-max, .col-8-max, .col-9-max, .col-10-max,
-    .col-threequarter-max, .col-twothird-max, .col-quarter-max, .col-third-max, .col-half-max {
-        flex:0 0 auto
-    }
-    .col-10-max           {width:9.99999%}
-    .col-9-max            {width:11.11111%}
-    .col-8-max            {width:12.5%}
-    .col-7-max            {width:14.28571%}
-    .col-6-max            {width:16.66666%}
-    .col-5-max            {width:19.99999%}
+    .col-10-max           {width: 9.99999%}
+    .col-9-max            {width: 11.11111%}
+    .col-8-max            {width: 12.49999%}
+    .col-7-max            {width: 14.28571%}
+    .col-6-max            {width: 16.66666%}
+    .col-5-max            {width: 19.99999%}
     .col-4-max,
-    .col-quarter-max      {width:24.99999%}
+    .col-quarter-max      {width: 24.99999%}
     .col-3-max,
-    .col-third-max        {width:33.33333%}
+    .col-third-max        {width: 33.33333%}
     .col-2-max,
-    .col-half-max         {width:49.99999%}
-    .col-threequarter-max {width:74.99999%}
-    .col-twothird-max     {width:66.66666%}
+    .col-half-max         {width: 49.99999%}
+    .col-threequarter-max {width: 74.99999%}
+    .col-twothird-max     {width: 66.66666%}
 
     .col-2-max.col-reverse,
     .col-3-max.col-reverse,
@@ -1273,29 +1254,26 @@ table.table.streak tr:nth-child(even) {
     .col-half-max.col-reverse,
     .col-third-max.col-reverse,
     .col-quarter-max.col-reverse {
-        width:100%
+        width: 100%
     }
 
-    .show-max {display:none !important}
-    .hide-max {display:block !important}
+    .show-max {display: none !important}
+    .hide-max {display: block !important}
 }
 
-@media (min-width: 600px) {
-    .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10,
-    .col-threequarter, .col-twothird, .col-quarter, .col-third, .col-half {
-        flex:0 0 auto
-    }
-    .col-10              {width:9.99999%}
-    .col-9               {width:11.11111%}
-    .col-8               {width:12.5%}
-    .col-7               {width:14.28571%}
-    .col-6               {width:16.66666%}
-    .col-5               {width:19.99999%}
-    .col-4, .col-quarter {width:24.99999%}
-    .col-3, .col-third   {width:33.33333%}
-    .col-2, .col-half    {width:49.99999%}
-    .col-threequarter    {width:74.99999%}
-    .col-twothird        {width:66.66666%}
+
+@media (min-width: 640px) {
+    .col-10              {width: 9.99999%}
+    .col-9               {width: 11.11111%}
+    .col-8               {width: 12.49999%}
+    .col-7               {width: 14.28571%}
+    .col-6               {width: 16.66666%}
+    .col-5               {width: 19.99999%}
+    .col-4, .col-quarter {width: 24.99999%}
+    .col-3, .col-third   {width: 33.33333%}
+    .col-2, .col-half    {width: 49.99999%}
+    .col-threequarter    {width: 74.99999%}
+    .col-twothird        {width: 66.66666%}
 
     .col-2.col-reverse,
     .col-3.col-reverse,
@@ -1311,31 +1289,27 @@ table.table.streak tr:nth-child(even) {
     .col-half.col-reverse,
     .col-third.col-reverse,
     .col-quarter.col-reverse {
-        width:100%
+        width: 100%
     }
 
-    .show-medium {display:none !important}
-    .hide-medium {display:block !important}
+    .show-medium {display: none !important}
+    .hide-medium {display: block !important}
 }
 @media (min-width: 480px) {
-    .col-2-min, .col-3-min, .col-4-min, .col-5-min, .col-6-min, .col-7-min, .col-8-min, .col-9-min, .col-10-min,
-    .col-threequarter-min, .col-twothird-min, .col-quarter-min, .col-third-min, .col-half-min {
-        flex:0 0 auto
-    }
-    .col-10-min           {width:9.99999%}
-    .col-9-min            {width:11.11111%}
-    .col-8-min            {width:12.5%}
-    .col-7-min            {width:14.28571%}
-    .col-6-min            {width:16.66666%}
-    .col-5-min            {width:19.99999%}
+    .col-10-min           {width: 9.99999%}
+    .col-9-min            {width: 11.11111%}
+    .col-8-min            {width: 12.49999%}
+    .col-7-min            {width: 14.28571%}
+    .col-6-min            {width: 16.66666%}
+    .col-5-min            {width: 19.99999%}
     .col-4-min,
-    .col-quarter-min      {width:24.99999%}
+    .col-quarter-min      {width: 24.99999%}
     .col-3-min,
-    .col-third-min        {width:33.33333%}
+    .col-third-min        {width: 33.33333%}
     .col-2-min,
-    .col-half-min         {width:49.99999%}
-    .col-threequarter-min {width:74.99999%}
-    .col-twothird-min     {width:66.66666%}
+    .col-half-min         {width: 49.99999%}
+    .col-threequarter-min {width: 74.99999%}
+    .col-twothird-min     {width: 66.66666%}
 
     .col-2-min.col-reverse,
     .col-3-min.col-reverse,
@@ -1351,11 +1325,21 @@ table.table.streak tr:nth-child(even) {
     .col-half-min.col-reverse,
     .col-third-min.col-reverse,
     .col-quarter-min.col-reverse {
-        width:100%
+        width: 100%
     }
 
-    .show-min {display:none !important}
-    .hide-min {display:block !important}
+    .show-min {display: none !important}
+    .hide-min {display: block !important}
+}
+
+@media (max-width: 900px) {
+    .maximize-max {width: 100% !important}
+}
+@media (max-width: 640px) {
+    .maximize-medium {width: 100% !important}
+}
+@media (max-width: 480px) {
+    .maximize-min {width: 100% !important}
 }
 
 @media print {

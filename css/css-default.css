@@ -763,143 +763,143 @@ table.table.streak tr:nth-child(even) {
  * Caixas
  * ****************************************
  */
-.box-x-1000, .box-xy-1000 {width:62.5rem}
-.box-x-950,  .box-xy-950  {width:59.375rem}
-.box-x-900,  .box-xy-900  {width:56.25rem}
-.box-x-850,  .box-xy-850  {width:53.125rem}
-.box-x-800,  .box-xy-800  {width:50rem}
-.box-x-750,  .box-xy-750  {width:46.875rem}
-.box-x-700,  .box-xy-700  {width:43.75rem}
-.box-x-650,  .box-xy-650  {width:40.625rem}
-.box-x-600,  .box-xy-600  {width:37.5rem}
-.box-x-550,  .box-xy-550  {width:34.375rem}
-.box-x-500,  .box-xy-500  {width:31.25rem}
-.box-x-450,  .box-xy-450  {width:28.125rem}
-.box-x-400,  .box-xy-400  {width:25rem}
-.box-x-350,  .box-xy-350  {width:21.875rem}
-.box-x-300,  .box-xy-300  {width:18.75rem}
-.box-x-250,  .box-xy-250  {width:15.625rem}
-.box-x-200,  .box-xy-200  {width:12.5rem}
-.box-x-150,  .box-xy-150  {width:9.375rem}
-.box-x-100,  .box-xy-100  {width:6.25rem}
-.box-x-50,   .box-xy-50   {width:3.125rem}
+.box-x-1000, .box-xy-1000 {width: 62.5rem}
+.box-x-950,  .box-xy-950  {width: 59.375rem}
+.box-x-900,  .box-xy-900  {width: 56.25rem}
+.box-x-850,  .box-xy-850  {width: 53.125rem}
+.box-x-800,  .box-xy-800  {width: 50rem}
+.box-x-750,  .box-xy-750  {width: 46.875rem}
+.box-x-700,  .box-xy-700  {width: 43.75rem}
+.box-x-650,  .box-xy-650  {width: 40.625rem}
+.box-x-600,  .box-xy-600  {width: 37.5rem}
+.box-x-550,  .box-xy-550  {width: 34.375rem}
+.box-x-500,  .box-xy-500  {width: 31.25rem}
+.box-x-450,  .box-xy-450  {width: 28.125rem}
+.box-x-400,  .box-xy-400  {width: 25rem}
+.box-x-350,  .box-xy-350  {width: 21.875rem}
+.box-x-300,  .box-xy-300  {width: 18.75rem}
+.box-x-250,  .box-xy-250  {width: 15.625rem}
+.box-x-200,  .box-xy-200  {width: 12.5rem}
+.box-x-150,  .box-xy-150  {width: 9.375rem}
+.box-x-100,  .box-xy-100  {width: 6.25rem}
+.box-x-50,   .box-xy-50   {width: 3.125rem}
 
-.box-y-1000, .box-xy-1000 {height:62.5rem}
-.box-y-950,  .box-xy-950  {height:59.375rem}
-.box-y-900,  .box-xy-900  {height:56.25rem}
-.box-y-850,  .box-xy-850  {height:53.125rem}
-.box-y-800,  .box-xy-800  {height:50rem}
-.box-y-750,  .box-xy-750  {height:46.875rem}
-.box-y-700,  .box-xy-700  {height:43.75rem}
-.box-y-650,  .box-xy-650  {height:40.625rem}
-.box-y-600,  .box-xy-600  {height:37.5rem}
-.box-y-550,  .box-xy-550  {height:34.375rem}
-.box-y-500,  .box-xy-500  {height:31.25rem}
-.box-y-450,  .box-xy-450  {height:28.125rem}
-.box-y-400,  .box-xy-400  {height:25rem}
-.box-y-350,  .box-xy-350  {height:21.875rem}
-.box-y-300,  .box-xy-300  {height:18.75rem}
-.box-y-250,  .box-xy-250  {height:15.625rem}
-.box-y-200,  .box-xy-200  {height:12.5rem}
-.box-y-150,  .box-xy-150  {height:9.375rem}
-.box-y-100,  .box-xy-100  {height:6.25rem}
-.box-y-50,   .box-xy-50   {height:3.125rem}
+.box-y-1000, .box-xy-1000 {height: 62.5rem}
+.box-y-950,  .box-xy-950  {height: 59.375rem}
+.box-y-900,  .box-xy-900  {height: 56.25rem}
+.box-y-850,  .box-xy-850  {height: 53.125rem}
+.box-y-800,  .box-xy-800  {height: 50rem}
+.box-y-750,  .box-xy-750  {height: 46.875rem}
+.box-y-700,  .box-xy-700  {height: 43.75rem}
+.box-y-650,  .box-xy-650  {height: 40.625rem}
+.box-y-600,  .box-xy-600  {height: 37.5rem}
+.box-y-550,  .box-xy-550  {height: 34.375rem}
+.box-y-500,  .box-xy-500  {height: 31.25rem}
+.box-y-450,  .box-xy-450  {height: 28.125rem}
+.box-y-400,  .box-xy-400  {height: 25rem}
+.box-y-350,  .box-xy-350  {height: 21.875rem}
+.box-y-300,  .box-xy-300  {height: 18.75rem}
+.box-y-250,  .box-xy-250  {height: 15.625rem}
+.box-y-200,  .box-xy-200  {height: 12.5rem}
+.box-y-150,  .box-xy-150  {height: 9.375rem}
+.box-y-100,  .box-xy-100  {height: 6.25rem}
+.box-y-50,   .box-xy-50   {height: 3.125rem}
 
-.box-max-x-1000, .box-max-xy-1000 {max-width:62.5rem}
-.box-max-x-950,  .box-max-xy-950  {max-width:59.375rem}
-.box-max-x-900,  .box-max-xy-900  {max-width:56.25rem}
-.box-max-x-850,  .box-max-xy-850  {max-width:53.125rem}
-.box-max-x-800,  .box-max-xy-800  {max-width:50rem}
-.box-max-x-750,  .box-max-xy-750  {max-width:46.875rem}
-.box-max-x-700,  .box-max-xy-700  {max-width:43.75rem}
-.box-max-x-650,  .box-max-xy-650  {max-width:40.625rem}
-.box-max-x-600,  .box-max-xy-600  {max-width:37.5rem}
-.box-max-x-550,  .box-max-xy-550  {max-width:34.375rem}
-.box-max-x-500,  .box-max-xy-500  {max-width:31.25rem}
-.box-max-x-450,  .box-max-xy-450  {max-width:28.125rem}
-.box-max-x-400,  .box-max-xy-400  {max-width:25rem}
-.box-max-x-350,  .box-max-xy-350  {max-width:21.875rem}
-.box-max-x-300,  .box-max-xy-300  {max-width:18.75rem}
-.box-max-x-250,  .box-max-xy-250  {max-width:15.625rem}
-.box-max-x-200,  .box-max-xy-200  {max-width:12.5rem}
-.box-max-x-150,  .box-max-xy-150  {max-width:9.375rem}
-.box-max-x-100,  .box-max-xy-100  {max-width:6.25rem}
-.box-max-x-50,   .box-max-xy-50   {max-width:3.125rem}
+.box-max-x-1000, .box-max-xy-1000 {max-width: 62.5rem}
+.box-max-x-950,  .box-max-xy-950  {max-width: 59.375rem}
+.box-max-x-900,  .box-max-xy-900  {max-width: 56.25rem}
+.box-max-x-850,  .box-max-xy-850  {max-width: 53.125rem}
+.box-max-x-800,  .box-max-xy-800  {max-width: 50rem}
+.box-max-x-750,  .box-max-xy-750  {max-width: 46.875rem}
+.box-max-x-700,  .box-max-xy-700  {max-width: 43.75rem}
+.box-max-x-650,  .box-max-xy-650  {max-width: 40.625rem}
+.box-max-x-600,  .box-max-xy-600  {max-width: 37.5rem}
+.box-max-x-550,  .box-max-xy-550  {max-width: 34.375rem}
+.box-max-x-500,  .box-max-xy-500  {max-width: 31.25rem}
+.box-max-x-450,  .box-max-xy-450  {max-width: 28.125rem}
+.box-max-x-400,  .box-max-xy-400  {max-width: 25rem}
+.box-max-x-350,  .box-max-xy-350  {max-width: 21.875rem}
+.box-max-x-300,  .box-max-xy-300  {max-width: 18.75rem}
+.box-max-x-250,  .box-max-xy-250  {max-width: 15.625rem}
+.box-max-x-200,  .box-max-xy-200  {max-width: 12.5rem}
+.box-max-x-150,  .box-max-xy-150  {max-width: 9.375rem}
+.box-max-x-100,  .box-max-xy-100  {max-width: 6.25rem}
+.box-max-x-50,   .box-max-xy-50   {max-width: 3.125rem}
 
-.box-max-y-1000, .box-max-xy-1000 {max-height:62.5rem}
-.box-max-y-950,  .box-max-xy-950  {max-height:59.375rem}
-.box-max-y-900,  .box-max-xy-900  {max-height:56.25rem}
-.box-max-y-850,  .box-max-xy-850  {max-height:53.125rem}
-.box-max-y-800,  .box-max-xy-800  {max-height:50rem}
-.box-max-y-750,  .box-max-xy-750  {max-height:46.875rem}
-.box-max-y-700,  .box-max-xy-700  {max-height:43.75rem}
-.box-max-y-650,  .box-max-xy-650  {max-height:40.625rem}
-.box-max-y-600,  .box-max-xy-600  {max-height:37.5rem}
-.box-max-y-550,  .box-max-xy-550  {max-height:34.375rem}
-.box-max-y-500,  .box-max-xy-500  {max-height:31.25rem}
-.box-max-y-450,  .box-max-xy-450  {max-height:28.125rem}
-.box-max-y-400,  .box-max-xy-400  {max-height:25rem}
-.box-max-y-350,  .box-max-xy-350  {max-height:21.875rem}
-.box-max-y-300,  .box-max-xy-300  {max-height:18.75rem}
-.box-max-y-250,  .box-max-xy-250  {max-height:15.625rem}
-.box-max-y-200,  .box-max-xy-200  {max-height:12.5rem}
-.box-max-y-150,  .box-max-xy-150  {max-height:9.375rem}
-.box-max-y-100,  .box-max-xy-100  {max-height:6.25rem}
-.box-max-y-50,   .box-max-xy-50   {max-height:3.125rem}
+.box-max-y-1000, .box-max-xy-1000 {max-height: 62.5rem}
+.box-max-y-950,  .box-max-xy-950  {max-height: 59.375rem}
+.box-max-y-900,  .box-max-xy-900  {max-height: 56.25rem}
+.box-max-y-850,  .box-max-xy-850  {max-height: 53.125rem}
+.box-max-y-800,  .box-max-xy-800  {max-height: 50rem}
+.box-max-y-750,  .box-max-xy-750  {max-height: 46.875rem}
+.box-max-y-700,  .box-max-xy-700  {max-height: 43.75rem}
+.box-max-y-650,  .box-max-xy-650  {max-height: 40.625rem}
+.box-max-y-600,  .box-max-xy-600  {max-height: 37.5rem}
+.box-max-y-550,  .box-max-xy-550  {max-height: 34.375rem}
+.box-max-y-500,  .box-max-xy-500  {max-height: 31.25rem}
+.box-max-y-450,  .box-max-xy-450  {max-height: 28.125rem}
+.box-max-y-400,  .box-max-xy-400  {max-height: 25rem}
+.box-max-y-350,  .box-max-xy-350  {max-height: 21.875rem}
+.box-max-y-300,  .box-max-xy-300  {max-height: 18.75rem}
+.box-max-y-250,  .box-max-xy-250  {max-height: 15.625rem}
+.box-max-y-200,  .box-max-xy-200  {max-height: 12.5rem}
+.box-max-y-150,  .box-max-xy-150  {max-height: 9.375rem}
+.box-max-y-100,  .box-max-xy-100  {max-height: 6.25rem}
+.box-max-y-50,   .box-max-xy-50   {max-height: 3.125rem}
 
-.box-min-x-1000, .box-min-xy-1000 {min-width:62.5rem}
-.box-min-x-950,  .box-min-xy-950  {min-width:59.375rem}
-.box-min-x-900,  .box-min-xy-900  {min-width:56.25rem}
-.box-min-x-850,  .box-min-xy-850  {min-width:53.125rem}
-.box-min-x-800,  .box-min-xy-800  {min-width:50rem}
-.box-min-x-750,  .box-min-xy-750  {min-width:46.875rem}
-.box-min-x-700,  .box-min-xy-700  {min-width:43.75rem}
-.box-min-x-650,  .box-min-xy-650  {min-width:40.625rem}
-.box-min-x-600,  .box-min-xy-600  {min-width:37.5rem}
-.box-min-x-550,  .box-min-xy-550  {min-width:34.375rem}
-.box-min-x-500,  .box-min-xy-500  {min-width:31.25rem}
-.box-min-x-450,  .box-min-xy-450  {min-width:28.125rem}
-.box-min-x-400,  .box-min-xy-400  {min-width:25rem}
-.box-min-x-350,  .box-min-xy-350  {min-width:21.875rem}
-.box-min-x-300,  .box-min-xy-300  {min-width:18.75rem}
-.box-min-x-250,  .box-min-xy-250  {min-width:15.625rem}
-.box-min-x-200,  .box-min-xy-200  {min-width:12.5rem}
-.box-min-x-150,  .box-min-xy-150  {min-width:9.375rem}
-.box-min-x-100,  .box-min-xy-100  {min-width:6.25rem}
-.box-min-x-50,   .box-min-xy-50   {min-width:3.125rem}
+.box-min-x-1000, .box-min-xy-1000 {min-width: 62.5rem}
+.box-min-x-950,  .box-min-xy-950  {min-width: 59.375rem}
+.box-min-x-900,  .box-min-xy-900  {min-width: 56.25rem}
+.box-min-x-850,  .box-min-xy-850  {min-width: 53.125rem}
+.box-min-x-800,  .box-min-xy-800  {min-width: 50rem}
+.box-min-x-750,  .box-min-xy-750  {min-width: 46.875rem}
+.box-min-x-700,  .box-min-xy-700  {min-width: 43.75rem}
+.box-min-x-650,  .box-min-xy-650  {min-width: 40.625rem}
+.box-min-x-600,  .box-min-xy-600  {min-width: 37.5rem}
+.box-min-x-550,  .box-min-xy-550  {min-width: 34.375rem}
+.box-min-x-500,  .box-min-xy-500  {min-width: 31.25rem}
+.box-min-x-450,  .box-min-xy-450  {min-width: 28.125rem}
+.box-min-x-400,  .box-min-xy-400  {min-width: 25rem}
+.box-min-x-350,  .box-min-xy-350  {min-width: 21.875rem}
+.box-min-x-300,  .box-min-xy-300  {min-width: 18.75rem}
+.box-min-x-250,  .box-min-xy-250  {min-width: 15.625rem}
+.box-min-x-200,  .box-min-xy-200  {min-width: 12.5rem}
+.box-min-x-150,  .box-min-xy-150  {min-width: 9.375rem}
+.box-min-x-100,  .box-min-xy-100  {min-width: 6.25rem}
+.box-min-x-50,   .box-min-xy-50   {min-width: 3.125rem}
 
-.box-min-y-1000, .box-min-xy-1000 {min-height:62.5rem}
-.box-min-y-950,  .box-min-xy-950  {min-height:59.375rem}
-.box-min-y-900,  .box-min-xy-900  {min-height:56.25rem}
-.box-min-y-850,  .box-min-xy-850  {min-height:53.125rem}
-.box-min-y-800,  .box-min-xy-800  {min-height:50rem}
-.box-min-y-750,  .box-min-xy-750  {min-height:46.875rem}
-.box-min-y-700,  .box-min-xy-700  {min-height:43.75rem}
-.box-min-y-650,  .box-min-xy-650  {min-height:40.625rem}
-.box-min-y-600,  .box-min-xy-600  {min-height:37.5rem}
-.box-min-y-550,  .box-min-xy-550  {min-height:34.375rem}
-.box-min-y-500,  .box-min-xy-500  {min-height:31.25rem}
-.box-min-y-450,  .box-min-xy-450  {min-height:28.125rem}
-.box-min-y-400,  .box-min-xy-400  {min-height:25rem}
-.box-min-y-350,  .box-min-xy-350  {min-height:21.875rem}
-.box-min-y-300,  .box-min-xy-300  {min-height:18.75rem}
-.box-min-y-250,  .box-min-xy-250  {min-height:15.625rem}
-.box-min-y-200,  .box-min-xy-200  {min-height:12.5rem}
-.box-min-y-150,  .box-min-xy-150  {min-height:9.375rem}
-.box-min-y-100,  .box-min-xy-100  {min-height:6.25rem}
-.box-min-y-50,   .box-min-xy-50   {min-height:3.125rem}
+.box-min-y-1000, .box-min-xy-1000 {min-height: 62.5rem}
+.box-min-y-950,  .box-min-xy-950  {min-height: 59.375rem}
+.box-min-y-900,  .box-min-xy-900  {min-height: 56.25rem}
+.box-min-y-850,  .box-min-xy-850  {min-height: 53.125rem}
+.box-min-y-800,  .box-min-xy-800  {min-height: 50rem}
+.box-min-y-750,  .box-min-xy-750  {min-height: 46.875rem}
+.box-min-y-700,  .box-min-xy-700  {min-height: 43.75rem}
+.box-min-y-650,  .box-min-xy-650  {min-height: 40.625rem}
+.box-min-y-600,  .box-min-xy-600  {min-height: 37.5rem}
+.box-min-y-550,  .box-min-xy-550  {min-height: 34.375rem}
+.box-min-y-500,  .box-min-xy-500  {min-height: 31.25rem}
+.box-min-y-450,  .box-min-xy-450  {min-height: 28.125rem}
+.box-min-y-400,  .box-min-xy-400  {min-height: 25rem}
+.box-min-y-350,  .box-min-xy-350  {min-height: 21.875rem}
+.box-min-y-300,  .box-min-xy-300  {min-height: 18.75rem}
+.box-min-y-250,  .box-min-xy-250  {min-height: 15.625rem}
+.box-min-y-200,  .box-min-xy-200  {min-height: 12.5rem}
+.box-min-y-150,  .box-min-xy-150  {min-height: 9.375rem}
+.box-min-y-100,  .box-min-xy-100  {min-height: 6.25rem}
+.box-min-y-50,   .box-min-xy-50   {min-height: 3.125rem}
 
-.box-max      {width:100% !important}
-.box-fluid-1  {width:100%}
-.box-fluid-2  {width:49.99999%}
-.box-fluid-3  {width:33.33333%}
-.box-fluid-4  {width:24.99999%}
-.box-fluid-5  {width:19.99999%}
-.box-fluid-6  {width:16.66666%}
-.box-fluid-7  {width:14.28571%}
-.box-fluid-8  {width:12.5%}
-.box-fluid-9  {width:11.11111%}
-.box-fluid-10 {width:9.99999%}
+.box-fluid,
+.box-fluid-1  {width: 100%}
+.box-fluid-2  {width: 49.99999%}
+.box-fluid-3  {width: 33.33333%}
+.box-fluid-4  {width: 24.99999%}
+.box-fluid-5  {width: 19.99999%}
+.box-fluid-6  {width: 16.66666%}
+.box-fluid-7  {width: 14.28571%}
+.box-fluid-8  {width: 12.49999%}
+.box-fluid-9  {width: 11.11111%}
+.box-fluid-10 {width: 9.99999%}
 
 /**
  * ****************************************

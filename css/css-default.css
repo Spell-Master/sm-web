@@ -999,24 +999,24 @@ table.table.streak tr:nth-child(even) {
  * Posições
  * ****************************************
  */
-.static   {position:static}
-.relative {position:relative}
-.fixed    {position:fixed}
-.sticky   {position:sticky}
+.static   {position: static}
+.relative {position: relative}
+.fixed    {position: fixed}
+.sticky   {position: sticky}
 .absolute,
-.relative > [class^="pos-"] {position:absolute}
+.relative > [class^="pos-"] {position: absolute}
 
-.pos-top-left,    .pos-bottom-left                        {left:0}
-.pos-top-left,    .pos-top-center,     .pos-top-right     {top:0}
-.pos-top-center,  .pos-center,         .pos-bottom-center {left:50%}
-.pos-top-right,   .pos-bottom-right                       {right:0}
-.pos-center-left, .pos-center-right,   .pos-center        {top:50%}
-.pos-center-left                                          {left:0%}
-.pos-center-right                                         {right:0%}
-.pos-bottom-left, .pos-bottom-center, .pos-bottom-right   {bottom:0}
-.pos-top-center,  .pos-bottom-center                      {transform:translate(-50%,0%)}
-.pos-center-left, .pos-center-right                       {transform:translate(0%,-50%)}
-.pos-center                                               {transform:translate(-50%,-50%)}
+.pos-top-left,    .pos-bottom-left                        {left: 0}
+.pos-top-left,    .pos-top-center,     .pos-top-right     {top: 0}
+.pos-top-center,  .pos-center,         .pos-bottom-center {left: 50%}
+.pos-top-right,   .pos-bottom-right                       {right: 0}
+.pos-center-left, .pos-center-right,   .pos-center        {top: 50%}
+.pos-center-left                                          {left: 0%}
+.pos-center-right                                         {right: 0%}
+.pos-bottom-left, .pos-bottom-center, .pos-bottom-right   {bottom: 0}
+.pos-top-center,  .pos-bottom-center                      {transform: translate(-50%,0%)}
+.pos-center-left, .pos-center-right                       {transform: translate(0%,-50%)}
+.pos-center                                               {transform: translate(-50%,-50%)}
 
 /**
  * ****************************************

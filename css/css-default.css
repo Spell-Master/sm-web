@@ -1045,60 +1045,96 @@ table.table.streak tr:nth-child(even) {
  * Margens
  * ****************************************
  */
-.margin-auto {margin:auto}
+.margin-auto {margin: auto !important}
 
-.margin-all    {margin:var(--spacing-medium)}
-.margin-left   {margin-left:var(--spacing-medium)}
-.margin-right  {margin-right:var(--spacing-medium)}
-.margin-top    {margin-top:var(--spacing-medium)}
-.margin-bottom {margin-bottom:var(--spacing-medium)}
-.margin-lr     {margin-left:var(--spacing-medium); margin-right:var(--spacing-medium)}
-.margin-tb     {margin-top:var(--spacing-medium);  margin-bottom:var(--spacing-medium)}
+.margin-all    {margin: var(--spacing-medium) !important}
+.margin-left   {margin-left: var(--spacing-medium) !important}
+.margin-right  {margin-right: var(--spacing-medium) !important}
+.margin-top    {margin-top: var(--spacing-medium) !important}
+.margin-bottom {margin-bottom: var(--spacing-medium) !important}
+.margin-lr {
+    margin-left:  var(--spacing-medium) !important;
+    margin-right: var(--spacing-medium) !important
+}
+.margin-tb {
+    margin-top:    var(--spacing-medium) !important;
+    margin-bottom: var(--spacing-medium) !important
+}
 
-.margin-all-min    {margin:var(--spacing-min)}
-.margin-left-min   {margin-left:var(--spacing-min)}
-.margin-right-min  {margin-right:var(--spacing-min)}
-.margin-top-min    {margin-top:var(--spacing-min)}
-.margin-bottom-min {margin-bottom:var(--spacing-min)}
-.margin-lr-min     {margin-left:var(--spacing-min); margin-right:var(--spacing-min)}
-.margin-tb-min     {margin-top:var(--spacing-min);  margin-bottom:var(--spacing-min)}
+.margin-all-min    {margin: var(--spacing-min) !important}
+.margin-left-min   {margin-left: var(--spacing-min) !important}
+.margin-right-min  {margin-right: var(--spacing-min) !important}
+.margin-top-min    {margin-top: var(--spacing-min) !important}
+.margin-bottom-min {margin-bottom: var(--spacing-min) !important}
+.margin-lr-min {
+    margin-left:  var(--spacing-min) !important;
+    margin-right: var(--spacing-min) !important
+}
+.margin-tb-min {
+    margin-top:    var(--spacing-min) !important;
+    margin-bottom: var(--spacing-min) !important
+}
 
-.margin-all-max    {margin:var(--spacing-max)}
-.margin-left-max   {margin-left:var(--spacing-max)}
-.margin-right-max  {margin-right:var(--spacing-max)}
-.margin-top-max    {margin-top:var(--spacing-max)}
-.margin-bottom-max {margin-bottom:var(--spacing-max)}
-.margin-lr-max     {margin-left:var(--spacing-max); margin-right:var(--spacing-max)}
-.margin-tb-max     {margin-top:var(--spacing-max);  margin-bottom:var(--spacing-max)}
+.margin-all-max    {margin: var(--spacing-max) !important}
+.margin-left-max   {margin-left: var(--spacing-max) !important}
+.margin-right-max  {margin-right: var(--spacing-max) !important}
+.margin-top-max    {margin-top: var(--spacing-max) !important}
+.margin-bottom-max {margin-bottom: var(--spacing-max) !important}
+.margin-lr-max {
+    margin-left:  var(--spacing-max) !important; 
+    margin-right: var(--spacing-max) !important
+}
+.margin-tb-max {
+    margin-top:    var(--spacing-max) !important;
+    margin-bottom: var(--spacing-max) !important
+}
 
 /**
  * ****************************************
  * Preenchimento
  * ****************************************
  */
-.padding-all    {padding:var(--spacing-medium)}
-.padding-left   {padding-left:var(--spacing-medium)}
-.padding-right  {padding-right:var(--spacing-medium)}
-.padding-top    {padding-top:var(--spacing-medium)}
-.padding-bottom {padding-bottom:var(--spacing-medium)}
-.padding-lr     {padding-left:var(--spacing-medium); padding-right:var(--spacing-medium)}
-.padding-tb     {padding-top:var(--spacing-medium);  padding-bottom:var(--spacing-medium)}
+.padding-all    {padding: var(--spacing-medium) !important}
+.padding-left   {padding-left: var(--spacing-medium) !important}
+.padding-right  {padding-right: var(--spacing-medium) !important}
+.padding-top    {padding-top: var(--spacing-medium) !important}
+.padding-bottom {padding-bottom: var(--spacing-medium) !important}
+.padding-lr {
+    padding-left:  var(--spacing-medium) !important;
+    padding-right: var(--spacing-medium) !important
+}
+.padding-tb {
+    padding-top:    var(--spacing-medium) !important;
+    padding-bottom: var(--spacing-medium) !important
+}
 
-.padding-all-min    {padding:var(--spacing-min)}
-.padding-left-min   {padding-left:var(--spacing-min)}
-.padding-right-min  {padding-right:var(--spacing-min)}
-.padding-top-min    {padding-top:var(--spacing-min)}
-.padding-bottom-min {padding-bottom:var(--spacing-min)}
-.padding-lr-min     {padding-left:var(--spacing-min); padding-right:var(--spacing-min)}
-.padding-tb-min     {padding-top:var(--spacing-min);  padding-bottom:var(--spacing-min)}
+.padding-all-min    {padding: var(--spacing-min) !important}
+.padding-left-min   {padding-left: var(--spacing-min) !important}
+.padding-right-min  {padding-right: var(--spacing-min) !important}
+.padding-top-min    {padding-top: var(--spacing-min) !important}
+.padding-bottom-min {padding-bottom: var(--spacing-min) !important}
+.padding-lr-min {
+    padding-left:  var(--spacing-min) !important;
+    padding-right: var(--spacing-min) !important
+}
+.padding-tb-min {
+    padding-top:    var(--spacing-min) !important;
+    padding-bottom: var(--spacing-min) !important
+}
 
-.padding-all-max    {padding:var(--spacing-max)}
-.padding-left-max   {padding-left:var(--spacing-max)}
-.padding-right-max  {padding-right:var(--spacing-max)}
-.padding-top-max    {padding-top:var(--spacing-max)}
-.padding-bottom-max {padding-bottom:var(--spacing-max)}
-.padding-lr-max     {padding-left:var(--spacing-max); padding-right:var(--spacing-max)}
-.padding-tb-max     {padding-top:var(--spacing-max);  padding-bottom:var(--spacing-max)}
+.padding-all-max    {padding: var(--spacing-max) !important}
+.padding-left-max   {padding-left: var(--spacing-max) !important}
+.padding-right-max  {padding-right: var(--spacing-max) !important}
+.padding-top-max    {padding-top: var(--spacing-max) !important}
+.padding-bottom-max {padding-bottom: var(--spacing-max) !important}
+.padding-lr-max {
+    padding-left:  var(--spacing-max) !important;
+    padding-right: var(--spacing-max) !important
+}
+.padding-tb-max {
+    padding-top:    var(--spacing-max) !important;
+    padding-bottom: var(--spacing-max) !important
+}
 
 /**
  * ****************************************

@@ -985,10 +985,14 @@ table.table.streak tr:nth-child(even) {
  * ****************************************
  */
 .floating:after,
-.floating:before {content:" "; display:table; clear:both}
-.float-left  {float:left !important}
-.float-right {float:right !important}
-.float-clear {clear:both}
+.floating:before {
+    content: " ";
+    display: table;
+    clear: both
+}
+.float-left  {float: left !important}
+.float-right {float: right !important}
+.float-clear {clear: both}
 
 /**
  * ****************************************
@@ -1260,7 +1264,6 @@ table.table.streak tr:nth-child(even) {
     .show-max {display: none !important}
     .hide-max {display: block !important}
 }
-
 
 @media (min-width: 640px) {
     .col-10              {width: 9.99999%}

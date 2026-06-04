@@ -1141,14 +1141,15 @@ table.table.streak tr:nth-child(even) {
  * Vazamento
  * ****************************************
  */
-.over-break {word-wrap:break-word}
-.over-line  {overflow:hidden; white-space:nowrap}
-.over-auto  {overflow:auto}
-.over-x     {overflow-x:auto; overflow-y:hidden}
-.over-y     {overflow-y:auto; overflow-x:hidden}
-.over-not   {overflow:hidden}
-.over-x-not {overflow-x:hidden}
-.over-y-not {overflow-y:hidden}
+.over-x    {overflow-x: auto; overflow-y: hidden}
+.over-y    {overflow-y: auto; overflow-x: hidden}
+.over-line {overflow: hidden; white-space: nowrap}
+
+.over-x-not {overflow-x: hidden}
+.over-y-not {overflow-y: hidden}
+.over-break {word-wrap: break-word}
+.over-auto  {overflow: auto}
+.over-not   {overflow: hidden}
 
 /**
  * ****************************************

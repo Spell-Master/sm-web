@@ -1023,15 +1023,22 @@ table.table.streak tr:nth-child(even) {
  * Alinhamento
  * ****************************************
  */
-.align-center {text-align:center}
-.align-left   {text-align:left}
-.align-right  {text-align:right}
+.align-center {text-align: center}
+.align-left   {text-align: left}
+.align-right  {text-align: right}
 
-.vertical-baseline {vertical-align:baseline}
-.vertical-middle   {vertical-align:middle}
-.vertical-top      {vertical-align:top}
-.vertical-bottom   {vertical-align:bottom}
-.vertical-wrap     {display:flex; flex-direction:row; flex-wrap:wrap; align-items:center; justify-content:center}
+.vertical-baseline {vertical-align: baseline}
+.vertical-middle   {vertical-align: middle}
+.vertical-top      {vertical-align: top}
+.vertical-bottom   {vertical-align: bottom}
+
+.center-content {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center
+}
 
 /**
  * ****************************************

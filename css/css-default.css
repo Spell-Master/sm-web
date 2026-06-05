@@ -1230,21 +1230,24 @@ table.table.streak tr:nth-child(even) {
  * Exibir
  * ****************************************
  */
-.line-block {display:inline-block}
-.line-table {display:inline-table}
-.table      {display:table; width:100%}
-.table-row  {display:table-row}
-.table-cell {display:table-cell}
-.list {
-    display: list-item;
-    margin-left: var(--spacing-medium)
-}
-.list-none  {list-style:none}
-.block      {display:block}
-.none       {display:none}
+.line-block {display: inline-block}
+.line-table {display: inline-table}
+.table      {display: table; width: 100%}
+.table-row  {display: table-row}
+.table-cell {display: table-cell}
 
-.show, .show-min, .show-medium, .show-max, [class="hide show"] {display:block !important}
-.hide, .hide-min, .hide-medium, .hide-max, [class="show hide"] {display:none !important}
+.list            {margin-left: var(--spacing-medium)}
+ol.list, ul.list {margin-left: var(--spacing-max)}
+.list:not(ol),
+.list:not(ul)    {display: list-item}
+
+.list-none {list-style: none}
+
+.block {display: block}
+.none  {display: none}
+
+.show, .show-min, .show-medium, .show-max, [class="hide show"] {display: block !important}
+.hide, .hide-min, .hide-medium, .hide-max, [class="show hide"] {display: none !important}
 
 /**
  * ****************************************

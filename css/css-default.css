@@ -1253,29 +1253,20 @@ ol.list, ul.list {margin-left: var(--spacing-max)}
 
 /**
  * ****************************************
- * Visuais de ocupação de espaço
+ * Quadros
  * ****************************************
  */
-.vp-threequarter {
-    padding-top: 18.25rem !important;
-    padding-bottom: 18.25rem !important
+.cover-screen {
+    width: 100vw !important;
+    height: auto !important;
+    max-width: 100% !important;
+    min-height: 100vh !important
 }
-.vp-twothird {
-    padding-top: 66.66666% !important;
-    padding-bottom: 66.66666% !important
-}
-.vp-half {
-    padding-top: 12.5rem !important;
-    padding-bottom: 12.5rem !important
-}
-.vp-third {
-    padding-top: 33.33333% !important;
-    padding-bottom: 33.33333% !important
-}
-.vp-quarter {
-    padding-top: 5.75rem !important;
-    padding-bottom: 5.75rem !important
-}
+
+.section-min    {padding: 6vh 0 !important;  margin: 0; width: 100%}
+.section,
+.section-medium {padding: 8vh 0 !important;  margin: 0; width: 100%}
+.section-max    {padding: 12vh 0 !important; margin: 0; width: 100%}
 
 /**
  * ****************************************

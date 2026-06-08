@@ -2,6 +2,7 @@
     Created on : 25/07/2022, 00:58:53
     Author     : Spell Master
 */
+@font-face {font-family: 'roboto'; src: url('../font/roboto.ttf')}
 
 html {
     -webkit-tap-highlight-color: transparent
@@ -9,17 +10,12 @@ html {
 body {
     color: #444444;
     background-color: #ffffff;
-    /*font-size: 16px*/
+    font-family: 'roboto'
 }
 
-.sm-line {
-    border-bottom: 1px solid #d1d1d1
+main > section.section:first-child {
+    padding-top: 24vh !important
 }
-
-.sm-margin-top {
-    margin-top: 90px
-}
-
 
 .spinner {animation:effect-spin 4s infinite linear}
 .rotate {animation:effect-spin .5s}

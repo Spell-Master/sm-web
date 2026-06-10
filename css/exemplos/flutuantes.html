@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
     <head>
         <title>Flutuantes</title>
         <meta charset="UTF-8" />
@@ -16,35 +16,39 @@
         <script src="../../lib/prism/prism.js" type="text/javascript"></script>
     </head>
     <body>
-        <div class="bg-dark-grey padding-all text-white">
-            <div class="container">
-                <h1>Flutuantes</h1>
+        <header>
+            <div class="bg-dark-grey padding-all text-white">
+                <div class="container">
+                    <h1 class="shadow-text-white margin-left-max">Flutuantes</h1>
+                </div>
             </div>
-        </div>
-        <div class="bg-light padding-all">
-            <div class="container">
-                <ul class="bold margin-left">
-                    <li>floating</li>
-                    <li>float-clear</li>
-                    <li>float-left</li>
-                    <li>float-right</li>
-                </ul>
+            <div class="bg-light padding-all shadow-box">
+                <div class="container">
+                    <ul class="bold margin-left">
+                        <li>float-left</li>
+                        <li>float-right</li>
+                        <li>floating</li>
+                        <li>float-clear</li>
+                    </ul>
+                </div>
             </div>
-        </div>
+        </header>
 
-        <div class="container padding-all">
-            <div class="margin-top-max">
+        <main class="container padding-all">
+            <section class="section" id="flutuador">
                 <h2>Flutuadores</h2>
-                <ul>
-                    <li>
-                        <span class="bold">float-left</span> &DoubleRightArrow;
-                        Flutua o elemento para esqueda ignorando o fluxo da linha do bloco
-                    </li>
-                    <li>
-                        <span class="bold">float-right</span> &DoubleRightArrow;
-                        Flutua o elemento para direita ignorando o fluxo da linha do bloco
-                    </li>
-                </ul>
+                <div class="margin-all-max">
+                    <ul>
+                        <li>
+                            <span class="bold">float-left</span> &DoubleRightArrow;
+                            Flutua o elemento para esqueda ignorando o fluxo da linha do bloco
+                        </li>
+                        <li>
+                            <span class="bold">float-right</span> &DoubleRightArrow;
+                            Flutua o elemento para direita ignorando o fluxo da linha do bloco
+                        </li>
+                    </ul>
+                </div>
                 <div class="text-white align-center">
                     <div class="floating">
                         <div class="float-left bg-red padding-all">float-left</div>
@@ -57,16 +61,18 @@
                     </div>
                 </div>
                 <div class="margin-top align-center">
-                    <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
+                    <button class="btn-default radius-all-min shadow-box" data-code="">CÓDIGO HTML</button>
                 </div>
-            </div>
+            </section>
 
-            <div class="margin-top-max">
-                <hr class="border-bottom-min border-light" />
+            <hr class="border-bottom-min border-dark" />
+            <section class="section" id="conter">
                 <h2>Correção de Fuxo</h2>
-                <p>Os flutuadores lançam o elemento para fora do fluxo da linha, ou seja eles ignoram a linha de conteúdo
-                    dos elementos posteriores.</p>
-                <p>Vejamos como se comporta:</p>
+                <div class="margin-all-prop">
+                    <p>Os flutuadores lançam o elemento para fora do fluxo da linha, ou seja eles ignoram a linha de conteúdo
+                        dos elementos posteriores.</p>
+                    <p>Vejamos como se comporta:</p>
+                </div>
                 <div class="row-pad">
                     <div class="col-half col-fix">
                         <div class="float-left box-xy-100 bg-red"></div>
@@ -86,24 +92,26 @@
 &lt;div class="box-y-50 box-fluid padding-all bg-blue bg-blue"&gt;&lt;/div&gt;</code></pre>
                     </div>
                 </div>
-                <p>Temos três blocos
-                    o <span class="text-red">vermelho</span> flutuando para a esquerda,
-                    o <span class="text-green">verde</span> flutuando para a direita
-                    então o <span class="text-blue">azul</span> estático ao fluxo do documento.</p>
-                <p>No primeiro exemplo quase não se percebe o fluxo desorintado, então no segundo exemplo
-                    aplicados efeitos opacos as caixas flutuantes e podemos obsevar que elas se sobrepõe
-                    a caixa azul não respeitando a orientação da caixa azul.</p>
-                <p>Para interromper a sobreposição usamos corretores de fluxo:</p>
-                <ul>
-                    <li>
-                        <span class="bold">floating</span> &DoubleRightArrow;
-                        Definine em todo bloco deve ser corrigido e alinhado com o fluxo do documento
-                    </li>
-                    <li>
-                        <span class="bold">float-clear</span> &DoubleRightArrow;
-                        Faz a correção e alinhamento a partir do seu posicionamento no fluxo
-                    </li>
-                </ul>
+                <div class="margin-all-prop">
+                    <p>Temos três blocos
+                        o <span class="text-red">vermelho</span> flutuando para a esquerda,
+                        o <span class="text-green">verde</span> flutuando para a direita
+                        então o <span class="text-blue">azul</span> estático ao fluxo do documento.</p>
+                    <p>No primeiro exemplo quase não se percebe o fluxo desorintado, então no segundo exemplo
+                        aplicados efeitos opacos as caixas flutuantes e podemos obsevar que elas se sobrepõe
+                        a caixa azul não respeitando a orientação da caixa azul.</p>
+                    <p>Para interromper a sobreposição usamos corretores de fluxo:</p>
+                    <ul class="list margin-top">
+                        <li>
+                            <span class="bold">floating</span> &DoubleRightArrow;
+                            Definine em todo bloco deve ser corrigido e alinhado com o fluxo do documento
+                        </li>
+                        <li>
+                            <span class="bold">float-clear</span> &DoubleRightArrow;
+                            Faz a correção e alinhamento a partir do seu posicionamento no fluxo
+                        </li>
+                    </ul>
+                </div>
                 <div class="row-pad">
                     <div class="col-half">
                         <p class="bold italic">floating</p>
@@ -115,7 +123,7 @@
                             <div class="box-y-50 box-fluid padding-all bg-blue bg-blue"></div>
                         </div>
                         <div class="margin-top align-center">
-                            <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
+                            <button class="btn-default radius-all-min shadow-box" data-code="">CÓDIGO HTML</button>
                         </div>
                     </div>
                     <div class="col-half">
@@ -127,24 +135,25 @@
                             <div class="box-y-50 box-fluid padding-all bg-blue bg-blue"></div>
                         </div>
                         <div class="margin-top align-center">
-                            <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
+                            <button class="btn-default radius-all-min shadow-box" data-code="">CÓDIGO HTML</button>
                         </div>
                     </div>
                 </div>
+                <div class="margin-all-max">
+                    <blockquote class="quote-yellow">
+                        <span class="bold">IMPORTANTE!</span>
+                        <p>Não adicionar outras propriedades ou conteúdo de
+                            de um elemento que recebe o
+                            <span class="bold">float-clear</span>.</p>
+                        <p>Para esse tipo de situação delimite usando o
+                            <span class="bold">floating</span></p>
+                        <p>Do contrário incoerências podem acontecer.</p>
+                    </blockquote>
+                </div>
+            </section>
 
-                <blockquote class="quote-yellow">
-                    <span class="bold">IMPORTANTE!</span>
-                    <p>Não adicionar outras propriedades ou conteúdo de
-                        de um elemento que recebe o
-                        <span class="bold">float-clear</span>.</p>
-                    <p>Para esse tipo de situação delimite usando o
-                        <span class="bold">floating</span></p>
-                    <p>Do contrário incoerências podem acontecer.</p>
-                </blockquote>
-            </div>
-
-            <div class="margin-top-max">
-                <hr class="border-bottom-min border-light" />
+            <hr class="border-bottom-min border-dark" />
+            <section class="section">
                 <h2>Conceito Prático</h2>
                 <div class="row-pad">
                     <div class="col-half-max">
@@ -160,7 +169,7 @@
                             </div>
                         </div>
                         <div class="margin-top align-center">
-                            <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
+                            <button class="btn-default radius-all-min shadow-box" data-code="">CÓDIGO HTML</button>
                         </div>
                     </div>
                     <div class="col-half-max">
@@ -176,16 +185,16 @@
                             </div>
                         </div>
                         <div class="margin-top align-center">
-                            <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
+                            <button class="btn-default radius-all-min shadow-box" data-code="">CÓDIGO HTML</button>
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
 
-            <div class="margin-top-max">
-                <hr class="border-bottom-min border-light" />
+            <hr class="border-bottom-min border-dark" />
+            <section class="section">
                 <h2>Usando colunas flutuantes</h2>
-                <div class="static text-white">
+                <div class="margin-top-max text-white">
                     <div class="floating align-center">
                         <div class="float-left col-third padding-all bg-red">float-left col-third</div>
                         <div class="float-left col-third padding-all bg-green">float-left col-third</div>
@@ -193,33 +202,43 @@
                     </div>
                 </div>
                 <div class="margin-top align-center">
-                    <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
+                    <button class="btn-default radius-all-min shadow-box" data-code="">CÓDIGO HTML</button>
                 </div>
 
-                <div class="margin-top">
+                <div class="margin-all-prop">
                     <blockquote class="quote">
                         <p>Digamos que eu tenha uma coluna à esquerda (COLUNA A) e outra à direita (COLUNA B)</p>
                         <p>Mas quando elas se re-escalarem quero que a (COLUNA B) fique por cima da (COLUNA A)</p>
                     </blockquote>
-                    <div class="static align-center">
-                        <div class="floating">
-                            <div class="float-right col-half padding-all bg-light">Coluna B</div>
-                            <div class="float-left col-half padding-all bg-dark">Coluna A</div>
-                        </div>
-                    </div>
-                    <div class="margin-top align-center">
-                        <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
+                </div>
+                <div class="align-center">
+                    <div class="floating">
+                        <div class="float-right col-half padding-all bg-light">Coluna B</div>
+                        <div class="float-left col-half padding-all bg-dark">Coluna A</div>
                     </div>
                 </div>
-            </div>
-        </div>
+                <div class="margin-top align-center">
+                    <button class="btn-default radius-all-min shadow-box" data-code="">CÓDIGO HTML</button>
+                </div>
+            </section>
+        </main>
 
-        <div class="modal" id="show-code">
-            <div class="modal-box">
-                <div class="modal-header"><span class="font-max">Código Fonte</span></div>
-                <div class="modal-content"><pre><code class="language-html"></code></pre></div>
+        <footer class="section bg-dark-grey">
+            <div class="container center-content">
+                <div class="align-center text-light font-min">
+                    <p>Demonstração: <span class="italic bold">css-default.css</span></p>
+                    <p><a href="https://github.com/Spell-Master/sm-web/" target="_blank" class="href">
+                            https:&sol;&sol;github.com&sol;Spell-Master&sol;sm-web&sol;
+                        </a></p>
+                </div>
             </div>
-        </div>
+            <div class="modal" id="show-code">
+                <div class="modal-box">
+                    <div class="modal-header"><span class="font-max">Código Fonte</span></div>
+                    <div class="modal-content"><pre><code class="language-html"></code></pre></div>
+                </div>
+            </div>
+        </footer>
         
         <script>showCode.init();</script>
     </body>

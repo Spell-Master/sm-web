@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
     <head>
         <title>Recipientes</title>
         <meta charset="UTF-8" />
@@ -16,95 +16,174 @@
         <script src="../../lib/prism/prism.js" type="text/javascript"></script>
     </head>
     <body>
-        <div class="bg-dark-grey padding-all text-white">
-            <div class="container">
-                <h1>Recipientes</h1>
+        <header>
+            <div class="bg-dark-grey padding-all text-white">
+                <div class="container">
+                    <h1 class="shadow-text-white margin-left-max">Recipientes</h1>
+                </div>
             </div>
-        </div>
-        <div class="bg-light padding-all">
-            <div class="container">
-                <ul class="margin-left bold">
-                    <li>container</li>
-                    <li>container-min</li>
-                    <li>container-medium</li>
-                    <li>container-max</li>
-                    <li>container-sd</li>
-                    <li>container-hd</li>
-                    <li>container-2k</li>
-                    <li>container-4k</li>
-                </ul>
+            <div class="bg-light padding-all shadow-box">
+                <div class="container">
+                    <div class="row-pad">
+                        <div class="col-half">
+                            <ul class="bold">
+                                <li>container</li>
+                                <li>container-min</li>
+                                <li>container-medium</li>
+                                <li>container-max</li>
+                            </ul>
+                        </div>
+                        <div class="col-half">
+                            <ul class="bold">
+                                <li>container-sd</li>
+                                <li>container-hd</li>
+                                <li>container-2k</li>
+                                <li>container-8k</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
+        </header>
 
-        <div class="container padding-all">
-            Centralizam e adaptam o conteúdo interno, mesmo que resolução seja menor ou maior que o esperado
-            <p>Caso a largura da tela seja menor que o definido pelo recipiente o mesmo se ajusta para que seu tamanho limite seja a quantidade de pixel
-            disponível</p>
-        </div>
+        <main>
+            <div class="container padding-all">
+                <section class="section">
+                    <div class="margin-all-prop">
+                        <p>O objetivo dos recipientes é conter as margens laterais do elemento para melhor adaptar o conteúdo em diferentes
+                            tamanhos de tela.</p>
+                        <p>Caso a largura da tela seja maior que a definida pelo <q class="quote-yellow">container*</q>
+                            o elemento continua com a mesma largura, no entanto suas margens laterais são ajustadas de forma ao
+                            qual esse elemento vei ficar centralizado na tela maior que ele.</p>
+                        <p>Em caso de telas menores o recipiente assume que seu limite é a largura da tela atual,
+                            mesmo que ela seja mais estreita do que ele realmente é.</p>
 
-        <div class="padding-tb text-white">
-            <div class="container-min padding-all bg-red">
-                <span class="bold">container-min</span>
-                <p>Recipiente de margens ajustadas até 480 pixels</p>
+                        <blockquote class="quote">
+                            <p>A melhor forma para você ver como funciona os container&apos;s sendo
+                                aplicado é se você estiver visualizando essa página com um teclado
+                                disponível é precionar as tecla <span class="h6 text-green">Ctrl</span>
+                                com a tecla <span class="h6 text-green">-</span> (menos)
+                                ou a tecla <span class="h6 text-green">+</span> (mais).</p>
+                        </blockquote>
+                    </div>
+                </section>
             </div>
-            <div class="container-sd padding-all bg-green">
-                <span class="bold">container-sd</span>
-                <p>Recipiente de margens ajustadas até 640px pixels</p>
-            </div>
-            <div class="container-medium padding-all bg-blue">
-                <span class="bold">container-medium</span>
-                <p>Recipiente de margens ajustadas até 1024px pixels</p>
-            </div>
-            <div class="container-hd padding-all bg-red">
-                <span class="bold">container-hd</span>
-                <p>Recipiente de margens ajustadas até 1280px pixels</p>
-            </div>
-            <div class="container padding-all bg-green">
-                <span class="bold">container</span>
-                <p>Recipiente de margens ajustadas até 1920px pixels</p>
-            </div>
-            <div class="container-2k padding-all bg-blue">
-                <span class="bold">container-2k</span>
-                <p>Recipiente de margens ajustadas até 2560px pixels</p>
-            </div>
-            <div class="container-4k padding-all bg-red">
-                <span class="bold">container-4k</span>
-                <p>Recipiente de margens ajustadas até 3280px pixels</p>
-            </div>
-            <div class="container-max padding-all bg-green">
-                <span class="bold">container-max</span>
-                <p>Recipiente de margens ajustadas até 7680px pixels</p>
-            </div>
-        </div>
-        <div class="margin-top align-center">
-            <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
-        </div>
 
-        <div class="container padding-all">
-            <blockquote class="quote">
-                A melhor forma para você ver como funciona os container's sendo
-                aplicado é se você estiver visualizando essa página com um teclado
-                disponível é precionar as tecla <span class="h6 text-green">Ctrl</span>
-                com a tecla <span class="h6 text-green">-</span> (menos)
-                ou a tecla <span class="h6 text-green">+</span> (mais).
-            </blockquote>
-        </div>
-
-        <div class="container padding-all">
-            <blockquote class="quote-red">
-                <p class="bold">Atenção!</p>
-                <p>Não utilizar esses recursos diretamente em imagens, sujeito a resultados inesperados</p>
-                <p>Exemplo de erro:</p>
-                <pre><code class="language-html">&lt;img src="foto.png" alt="" class="container" /&gt;</code></pre></div>
-            </blockquote>
-        </div>
-
-        <div class="modal" id="show-code">
-            <div class="modal-box">
-                <div class="modal-header"><span class="font-max">Código Fonte</span></div>
-                <div class="modal-content"><pre><code class="language-html"></code></pre></div>
+            <div class="container padding-lr">
+                <hr class="border-bottom-min border-dark" />
             </div>
-        </div>
+            <section class="section" id="comum">
+                <div class="container padding-left">
+                    <h2>Recipientes Padrão</h2>
+                </div>
+
+                <div class="static">
+                    <div class="container-max padding-all bg-light">
+                        <p class="list bold">container-max</p>
+                        <p>Recipiente de margens ajustadas até 2560 pixel&apos;s</p>
+                        <div class="padding-all font-min">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        </div>
+                    </div>
+                    <div class="container padding-all bg-dark">
+                        <p class="list bold">container</p>
+                        <p>Recipiente de margens ajustadas até 1920 pixel&apos;s</p>
+                        <div class="padding-all font-min">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        </div>
+                    </div>
+                    <div class="container-medium padding-all bg-light">
+                        <p class="list bold">container-medium</p>
+                        <p>Recipiente de margens ajustadas até 1024 pixel&apos;s</p>
+                        <div class="padding-all font-min">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        </div>
+                    </div>
+                    <div class="container-min padding-all bg-dark">
+                        <p class="list bold">container-min</p>
+                        <p>Recipiente de margens ajustadas até 480 pixel&apos;s</p>
+                        <div class="padding-all font-min">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="margin-top align-center">
+                    <button class="btn-default radius-all-min shadow-box" data-code="">CÓDIGO HTML</button>
+                </div>
+            </section>
+
+            <div class="container padding-lr">
+                <hr class="border-bottom-min border-dark" />
+            </div>
+            <section class="section" id="adicional">
+                <div class="container padding-lr">
+                    <h2>Recipientes Adicionais</h2>
+                </div>
+
+                <div class="container-8k padding-all bg-light">
+                    <p class="list bold">container-8k</p>
+                    <p>Recipiente de margens ajustadas até 7680 pixel&apos;s</p>
+                    <div class="padding-all font-min">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    </div>
+                </div>
+                <div class="container-4k padding-all bg-dark">
+                    <p class="list bold">container-4k</p>
+                    <p>Recipiente de margens ajustadas até 3280 pixel&apos;s</p>
+                    <div class="padding-all font-min">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    </div>
+                </div>
+                <div class="container-hd padding-all bg-light">
+                    <p class="list bold">container-hd</p>
+                    <p>Recipiente de margens ajustadas até 1280 pixel&apos;s</p>
+                    <div class="padding-all font-min">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    </div>
+                </div>
+                <div class="container-sd padding-all bg-dark">
+                    <p class="list bold">container-sd</p>
+                    <p>Recipiente de margens ajustadas até 640 pixel&apos;s</p>
+                    <div class="padding-all font-min">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <blockquote class="quote-red">
+                    <p>Não utilizar esses recursos diretamente em imagens, sujeito a resultados inesperados</p>
+                    <p>Exemplo de erro:</p>
+                    <pre><code class="language-html">&lt;img src=&quot;foto.png&quot; alt=&quot;&quot; class=&quot;container&quot; /&gt;</code></pre>
+                </blockquote>
+            </section>
+        </main>
+
+        <footer class="section bg-dark-grey">
+            <div class="container center-content">
+                <div class="align-center text-light font-min">
+                    <p>Demonstração: <span class="italic bold">css-default.css</span></p>
+                    <p><a href="https://github.com/Spell-Master/sm-web/" target="_blank" class="href">
+                            https:&sol;&sol;github.com&sol;Spell-Master&sol;sm-web&sol;
+                        </a></p>
+                </div>
+            </div>
+            <div class="modal" id="show-code">
+                <div class="modal-box">
+                    <div class="modal-header"><span class="font-max">Código Fonte</span></div>
+                    <div class="modal-content"><pre><code class="language-html"></code></pre></div>
+                </div>
+            </div>
+        </footer>
+
         <script>showCode.init();</script>
     </body>
 </html>

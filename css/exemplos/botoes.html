@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
     <head>
         <title>Botões</title>
         <meta charset="UTF-8" />
@@ -16,112 +16,138 @@
         <script src="../../lib/prism/prism.js" type="text/javascript"></script>
     </head>
     <body>
-        <div class="bg-dark-grey padding-all text-white">
-            <div class="container">
-                <h1>Botões de Ações</h1>
+        <header>
+            <div class="bg-dark-grey padding-all text-white">
+                <div class="container">
+                    <h1 class="shadow-text-white margin-left-max">Botões de Ações</h1>
+                </div>
             </div>
-        </div>
-        <div class="bg-light padding-all">
-            <div class="container">
-                <div class="row-pad">
-                    <div class="col-half">
-                        <ul class="bold">
-                            <li>btn / btn-empty</li>
-                            <li>btn-default</li>
-                            <li>btn-success</li>
-                            <li>btn-info</li>
-                            <li>btn-warning</li>
-                            <li>btn-danger</li>
-                            <li>button-min</li>
-                            <li>button-max</li>
-                            <li>button-block</li>
-                            <li>disabled</li>
-                        </ul>
-                    </div>
-                    <div class="col-half">
-                        <ul class="bold">
-                            <li>href</li>
-                            <li>href-info</li>
-                            <li>href-success</li>
-                            <li>href-warning</li>
-                            <li>href-danger</li>
-                        </ul>
+            <div class="bg-light padding-all shadow-box">
+                <div class="container">
+                    <div class="row-pad">
+                        <div class="col-third">
+                            <ul class="bold">
+                                <li>btn</li>
+                                <li>btn-empty</li>
+                                <li>btn-default</li>
+                                <li>btn-success</li>
+                                <li>btn-info</li>
+                                <li>btn-warning</li>
+                                <li>btn-danger</li>
+                            </ul>
+                        </div>
+                        <div class="col-third">
+                            <ul class="bold">
+                                <li>button-min</li>
+                                <li>button-max</li>
+                                <li>button-block</li>
+                            </ul>
+                        </div>
+                        <div class="col-third">
+                            <ul class="bold">
+                                <li>href</li>
+                                <li>href-info</li>
+                                <li>href-success</li>
+                                <li>href-warning</li>
+                                <li>href-danger</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
-            <blockquote class="quote-yellow">
-                <p class="bold">Nota:</p>
-                Ambas propiedades
-                <span class="bold">btn</span> ou <span class="bold">btn-empty</span>
-                apenas definem o molde dos demais botões sem planos de fundo ou efeitos adicionais
-            </blockquote>
-        </div>
+        </header>
 
-        <div class="container padding-all margin-top">
-            <h2>Tamanho Padrão</h2>
-            <div class="align-center">
-                <button class="btn-empty margin-top-min">btn-empty</button>
-                <button class="btn-default margin-top-min">btn-default</button>
-                <button class="btn-success margin-top-min">btn-success</button>
-                <button class="btn-info margin-top-min">btn-info</button>
-                <button class="btn-warning margin-top-min">btn-warning</button>
-                <button class="btn-danger margin-top-min">btn-danger</button>
-            </div>
-            <div class="margin-top align-center">
-                <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
-            </div>
-        </div>
+        <main class="container padding-all">
+            <section class="section" id="tipo">
+                <h2>Tipos</h2>
+                <div class="margin-prop">
+                    <blockquote class="quote">
+                        <p class="bold">Nota:</p>
+                        <p>Ambas propiedades
+                            <span class="bold">btn</span> ou <span class="bold">btn-empty</span>
+                            apenas definem o estilo botão, mas sem plano de fundo ou efeitos adicionais.</p>
+                    </blockquote>
+                </div>
+                <div class="static">
+                    <div class="row-pad">
+                        <div class="col-flex">
+                            <button class="btn">btn</button>
+                            <button class="btn-empty">btn-empty</button>
+                        </div>
+                        <div class="col-flex">
+                            <button class="btn-default">btn-default</button>
+                        </div>
+                        <div class="col-flex">
+                            <button class="btn-success">btn-success</button>
+                        </div>
+                        <div class="col-flex">
+                            <button class="btn-info">btn-info</button>
+                        </div>
+                        <div class="col-flex">
+                            <button class="btn-warning">btn-warning</button>
+                        </div>
+                        <div class="col-flex">
+                            <button class="btn-danger">btn-danger</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="margin-top align-center">
+                    <button class="btn-default radius-all-min shadow-box" data-code="">CÓDIGO HTML</button>
+                </div>
+            </section>
 
-        <div class="container padding-all margin-top">
-            <h2>Tamanho Menor</h2>
-            <div class="align-center">
-                <button class="btn-empty button-min margin-top-min">btn-empty button-min</button>
-                <button class="btn-default button-min margin-top-min">btn-default button-min</button>
-                <button class="btn-success button-min margin-top-min">btn-success button-min</button>
-                <button class="btn-info button-min margin-top-min">btn-info button-min</button>
-                <button class="btn-warning button-min margin-top-min">btn-warning button-min</button>
-                <button class="btn-danger button-min margin-top-min">btn-danger button-min</button>
-            </div>
-            <div class="margin-top align-center">
-                <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
-            </div>
-        </div>
+            <hr class="border-bottom-min border-dark" />
+            <section class="section" id="tamanho">
+                <h2>Tamanhos</h2>
+                <div class="row-pad">
+                    <div class="col-third">
+                        <p class="list bold margin-top">button-min</p>
+                        <div class="static align-center">
+                            <button class="btn-empty button-min margin-top-min">button-min</button>
+                            <button class="btn-default button-min margin-top-min">button-min</button>
+                            <button class="btn-success button-min margin-top-min">button-min</button>
+                            <button class="btn-info button-min margin-top-min">button-min</button>
+                            <button class="btn-warning button-min margin-top-min">button-min</button>
+                            <button class="btn-danger button-min margin-top-min">button-min</button>
+                        </div>
+                        <div class="margin-top align-center">
+                            <button class="btn-default radius-all-min shadow-box" data-code="">CÓDIGO HTML</button>
+                        </div>
+                    </div>
+                    <div class="col-third margin-top">
+                        <p class="list bold">button-max</p>
+                        <div class="static align-center">
+                            <button class="btn-empty button-max margin-top-min">button-max</button>
+                            <button class="btn-default button-max margin-top-min">button-max</button>
+                            <button class="btn-success button-max margin-top-min">button-max</button>
+                            <button class="btn-info button-max margin-top-min">button-max</button>
+                            <button class="btn-warning button-max margin-top-min">button-max</button>
+                            <button class="btn-danger button-max margin-top-min">button-max</button>
+                        </div>
+                        <div class="margin-top align-center">
+                            <button class="btn-default radius-all-min shadow-box" data-code="">CÓDIGO HTML</button>
+                        </div>
+                    </div>
+                    <div class="col-third">
+                        <p class="list bold margin-top">button-full</p>
+                        <div class="static">
+                            <button class="btn-empty button-full margin-top-min">button-full</button>
+                            <button class="btn-default button-full margin-top-min">button-full</button>
+                            <button class="btn-success button-full margin-top-min">button-full</button>
+                            <button class="btn-info button-full margin-top-min">button-full</button>
+                            <button class="btn-warning button-full margin-top-min">btn-warning button-full</button>
+                            <button class="btn-danger button-full margin-top-min">button-full</button>
+                        </div>
+                        <div class="margin-top align-center">
+                            <button class="btn-default radius-all-min shadow-box" data-code="">CÓDIGO HTML</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-        <div class="container padding-all margin-top">
-            <h2>Tamanho Maior</h2>
-            <div class="align-center">
-                <button class="btn-empty button-max margin-top-min">btn-empty button-max</button>
-                <button class="btn-default button-max margin-top-min">btn-default button-max</button>
-                <button class="btn-success button-max margin-top-min">btn-success button-max</button>
-                <button class="btn-info button-max margin-top-min">btn-info button-max</button>
-                <button class="btn-warning button-max margin-top-min">btn-warning button-max</button>
-                <button class="btn-danger button-max margin-top-min">btn-danger button-max</button>
-            </div>
-            <div class="margin-top align-center">
-                <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
-            </div>
-        </div>
-
-        <div class="container padding-all margin-top">
-            <h2>Tamanho Completo</h2>
-            <div class="align-center">
-                <button class="btn-empty button-full margin-top-min">btn-empty button-full</button>
-                <button class="btn-default button-full margin-top-min">btn-default button-full</button>
-                <button class="btn-success button-full margin-top-min">btn-success button-full</button>
-                <button class="btn-info button-full margin-top-min">btn-info button-full</button>
-                <button class="btn-warning button-full margin-top-min">btn-warning button-full</button>
-                <button class="btn-danger button-full margin-top-min">btn-danger button-full</button>
-            </div>
-            <div class="margin-top align-center">
-                <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
-            </div>
-        </div>
-
-
-        <div class="margin-top-max">
-            <div class="container padding-all">
-                <hr class="border-bottom border-dark" />
-                <h2>Hiperligações</h2>
+            <hr class="border-bottom-min border-dark" />
+            <section class="section" id="ligar">
+                <h2>Ligações</h2>
                 <div class="margin-top">
                     <div class="row-pad align-center">
                         <div class="col-5">
@@ -142,20 +168,19 @@
                     </div>
                 </div>
                 <div class="margin-top align-center">
-                    <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
+                    <button class="btn-default radius-all-min shadow-box" data-code="">CÓDIGO HTML</button>
                 </div>
-            </div>
-        </div>
+            </section>
 
-        <div class="margin-top-max">
-            <div class="container padding-all">
-                <hr class="border-bottom border-dark" />
+            <hr class="border-bottom-min border-dark" />
+            <section class="section-max">
                 <h3>Aplicando a outras tags</h3>
-                <p>Indepedente no uso das tag&apos;s
-                    <span class="bold">&lt;button&gt;</span> ou <span class="bold">&lt;a&gt;</span>
-                    o efeito será aplicado indiferente, portanto qualquer tag pode receber esses padrões.</p>
-
-                <div class="margin-top align-center">
+                <div class="margin-prop">
+                    <p>Indepedente no uso das tag&apos;s
+                        <span class="bold">&lt;button&gt;</span> ou <span class="bold">&lt;a&gt;</span>
+                        o efeito será aplicado indiferente, portanto qualquer tag pode receber esses padrões.</p>
+                </div>
+                <div class="align-center">
                     <div class="row-pad">
                         <div class="col-half">
                             <p class="btn-danger">p.btn-danger</p>
@@ -170,18 +195,16 @@
                     </div>
                 </div>
                 <div class="margin-top margin-bottom-max align-center">
-                    <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
+                    <button class="btn-default radius-all-min shadow-box" data-code="">CÓDIGO HTML</button>
                 </div>
-            </div>
-        </div>
+            </section>
 
-        <div class="margin-top-max">
-            <div class="container padding-all">
-                <hr class="border-bottom-min border-dark" />
+            <hr class="border-bottom-min border-dark" />
+            <section class="section-max">
                 <h3>Customizando</h3>
                 <div class="margin-top align-center">
                     <button
-                        class="btn bg-pink bg-aqua-hover text-white text-pink-hover box-shadow-on-hover">
+                        class="btn bg-pink bg-aqua-hover text-white text-pink-hover shadow-box-aqua-on-hover">
                         Exemplo
                     </button>
                     <button
@@ -193,15 +216,26 @@
                 <div class="margin-top align-center">
                     <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
                 </div>
-            </div>
-        </div>
+            </section>
+        </main>
 
-        <div class="modal" id="show-code">
-            <div class="modal-box">
-                <div class="modal-header"><span class="font-max">Código Fonte</span></div>
-                <div class="modal-content"><pre><code class="language-html"></code></pre></div>
+        <footer class="section bg-dark-grey">
+            <div class="container center-content">
+                <div class="align-center text-light font-min">
+                    <p>Demonstração: <span class="italic bold">css-default.css</span></p>
+                    <p><a href="https://github.com/Spell-Master/sm-web/" target="_blank" class="href">
+                            https:&sol;&sol;github.com&sol;Spell-Master&sol;sm-web&sol;
+                        </a></p>
+                </div>
             </div>
-        </div>
+            <div class="modal" id="show-code">
+                <div class="modal-box">
+                    <div class="modal-header"><span class="font-max">Código Fonte</span></div>
+                    <div class="modal-content"><pre><code class="language-html"></code></pre></div>
+                </div>
+            </div>
+        </footer>
+
         <script>showCode.init();</script>
     </body>
 </html>

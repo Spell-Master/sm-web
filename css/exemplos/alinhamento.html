@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
     <head>
         <title>Alinhamento</title>
         <meta charset="UTF-8" />
@@ -16,145 +16,156 @@
         <script src="../../lib/prism/prism.js" type="text/javascript"></script>
     </head>
     <body>
-        <div class="bg-dark-grey padding-all text-white">
-            <div class="container">
-                <h1>Alinhamento</h1>
+        <header>
+            <div class="bg-dark-grey padding-all-max text-white">
+                <div class="container">
+                    <h1 class="shadow-text-white margin-left-max">Alinhamento</h1>
+                </div>
             </div>
-        </div>
-        <div class="bg-light padding-all">
-            <div class="container">
-                <div class="row-pad">
-                    <div class="col-third">
-                        <ul class="bold">
-                            <li>align-left</li>
-                            <li>align-center</li>
-                            <li>align-right</li>
-                        </ul>
-                    </div>
-                    <div class="col-third">
-                        <ul class="bold">
-                            <li>vertical-baseline</li>
-                            <li>vertical-middle</li>
-                            <li>vertical-top</li>
-                            <li>vertical-bottom</li>
-                        </ul>
-                    </div>
-                    <div class="col-third">
-                        <ul class="bold">
-                            <li>center-content</li>
-                        </ul>
+            <div class="bg-light padding-all shadow-box">
+                <div class="container">
+                    <div class="row-pad">
+                        <div class="col-third">
+                            <ul class="bold">
+                                <li>align-left</li>
+                                <li>align-center</li>
+                                <li>align-right</li>
+                            </ul>
+                        </div>
+                        <div class="col-third">
+                            <ul class="bold">
+                                <li>vertical-baseline</li>
+                                <li>vertical-middle</li>
+                                <li>vertical-top</li>
+                                <li>vertical-bottom</li>
+                            </ul>
+                        </div>
+                        <div class="col-third">
+                            <ul class="bold">
+                                <li>center-content</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </header>
 
-        <div class="container padding-all">
-            <h2>Alinhamento Horizontal</h2>
-            <div class="text-white">
-                <div class="row-pad">
-                    <div class="col-third">
-                        <div class="static">
-                            <div class="align-left bg-red padding-all">
-                                <p class="bold">align-left</p>
-                                <p>Texto posicionado à esqueda</p>
+        <main class="container padding-all">
+            <section class="section">
+                <h2>Alinhamento Horizontal</h2>
+                <div class="margin-all-prop">
+                    Orienta onde textos devem se posicionar.
+                    <blockquote class="quote">
+                        Pode também ser usado sobre elementos, desde que haja alguma largura de referência.
+                    </blockquote>
+                </div>
+                <div class="text-white">
+                    <div class="row-pad">
+                        <div class="col-third">
+                            <div class="static">
+                                <div class="align-left bg-red padding-all">
+                                    <p class="bold">align-left</p>
+                                    <p>Texto posicionado à esqueda</p>
+                                </div>
+                            </div>
+                            <div class="margin-top align-center">
+                                <button class="btn-default radius-all-min shadow-box" data-code="">CÓDIGO HTML</button>
                             </div>
                         </div>
-                        <div class="margin-top align-center">
-                            <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
-                        </div>
-                    </div>
-                    <div class="col-third">
-                        <div class="static">
-                            <div class="align-center bg-green padding-all">
-                                <p class="bold">align-center</p>
-                                <p>Texto posicionado ao centro</p>
+                        <div class="col-third">
+                            <div class="static">
+                                <div class="align-center bg-green padding-all">
+                                    <p class="bold">align-center</p>
+                                    <p>Texto posicionado ao centro</p>
+                                </div>
+                            </div>
+                            <div class="margin-top align-center">
+                                <button class="btn-default radius-all-min shadow-box" data-code="">CÓDIGO HTML</button>
                             </div>
                         </div>
-                        <div class="margin-top align-center">
-                            <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
-                        </div>
-                    </div>
-                    <div class="col-third">
-                        <div class="static">
-                            <div class="align-right bg-blue padding-all">
-                                <p class="bold">align-right</p>
-                                <p>Texto posicionado à direita</p>
+                        <div class="col-third">
+                            <div class="static">
+                                <div class="align-right bg-blue padding-all">
+                                    <p class="bold">align-right</p>
+                                    <p>Texto posicionado à direita</p>
+                                </div>
+                            </div>
+                            <div class="margin-top align-center">
+                                <button class="btn-default radius-all-min shadow-box" data-code="">CÓDIGO HTML</button>
                             </div>
                         </div>
-                        <div class="margin-top align-center">
-                            <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
+                    </div>
+                </div>
+
+                <div class="margin-top-max">
+                    <h3>Alinhando Elementos</h3>
+                    <div class="static">
+                        <div class="align-center bg-black">
+                            <div class="box-x-200 bg-light padding-all margin-all line-block">align-center</div>
+                            <div class="box-x-200 bg-dark padding-all margin-all line-block">align-center</div>
                         </div>
                     </div>
-                </div>
-            </div>
-
-            <div class="margin-top-max">
-                <blockquote class="quote">
-                    Além de alinhar textos é possível também aplicar o conceito sobre
-                    elementos, desde que haja alguma largura de referência.
-                </blockquote>
-                <div class="static text-white">
-                    <div class="align-center bg-black">
-                        <div class="box-x-200 bg-red padding-all margin-all line-block">align-center</div>
-                        <div class="box-x-200 bg-red padding-all margin-all line-block">align-center</div>
+                    <div class="margin-top align-center">
+                        <button class="btn-default radius-all-min shadow-box" data-code="">CÓDIGO HTML</button>
                     </div>
                 </div>
-                <div class="margin-top align-center">
-                    <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
-                </div>
-            </div>
+            </section>
 
-            <div class="margin-top-max">
-                <hr class="border-bottom-min border-light" />
+            <hr class="border-bottom-min border-dark" />
+            <section class="section">
                 <h2>Alinhamento Vertical</h2>
-                <blockquote class="quote-yellow">
-                    Requer uso da propriedade <span class="bold">table-cell</span>
-                    para elementos <span class="italic">não em linha</span> como imagens.
-                </blockquote>
-                <div class="static">
+                <div class="margin-all-prop">
+                    <blockquote class="quote-yellow">
+                        Requer uso da propriedade <span class="bold">table-cell</span>
+                        para elementos <span class="italic">não em linha</span> como imagens.
+                    </blockquote>
+                </div>
+                <div class="static text-white">
                     <div class="row no-warp">
-                        <div class="col-quarter bg-red">
+                        <div class="col-quarter bg-light">
                             <div class="vertical-baseline table-cell box-y-200">
-                                <div class="bg-dark padding-all">vertical-baseline</div>
+                                <div class="bg-black padding-all">vertical-baseline</div>
                             </div>
                         </div>
-                        <div class="col-quarter bg-green">
+                        <div class="col-quarter bg-dark">
                             <div class="vertical-middle table-cell box-y-200">
-                                <div class="bg-dark padding-all">vertical-middle</div>
+                                <div class="bg-black padding-all">vertical-middle</div>
                             </div>
                         </div>
-                        <div class="col-quarter bg-blue">
+                        <div class="col-quarter bg-light">
                             <div class="vertical-top table-cell box-y-200">
-                                <div class="bg-dark padding-all">vertical-top</div>
+                                <div class="bg-black padding-all">vertical-top</div>
                             </div>
                         </div>
-                        <div class="col-quarter bg-red">
+                        <div class="col-quarter bg-dark">
                             <div class="vertical-bottom table-cell box-y-200">
-                                <div class="bg-dark padding-all">vertical-bottom</div>
+                                <div class="bg-black padding-all">vertical-bottom</div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="margin-top align-center">
-                    <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
+                    <button class="btn-default radius-all-min shadow-box" data-code="">CÓDIGO HTML</button>
                 </div>
-            </div>
+            </section>
 
-            <div class="margin-top-max">
-                <hr class="border-bottom-min border-light" />
+            <hr class="border-bottom-min border-dark" />
+            <section class="section">
                 <h2>Alinhamento Horizontal e Vertical</h2>
-                <p>A propriedade <q class="quote-green bold">center-content</q>
-                    alinha na horizontal e vertical no centro os filhos do elemento alvo.</p>
-                <p>Mas é necessário que o mesmo possua uma altura de referência.</p>
-                <blockquote class="quote-yellow margin-top-max">
-                    <p>Todo e qualquer elemento perde sua orientação de margens,
-                        tudo será centralizado colocando cada elemento ao lado do outro e ao centro,
-                        mesmo que sejam quebras de linhas como &lt;br /&gt;, &lt;p&gt;, &lt;div&gt; etc...</p>
-                    <p>Esse é um recuso ideal para se usado somente em texto,
-                        mas caso necessite que os elementos respeitem sua orientação considere usar posições.</p>
-                </blockquote>
-
-                <div class="margin-top">
+                <div class="margin-all-prop">
+                    <p>A propriedade <q class="quote-green bold">center-content</q>
+                        alinha na horizontal e vertical no centro os filhos do elemento alvo.</p>
+                    <p>Mas é necessário que o mesmo possua uma altura de referência.</p>
+                    <blockquote class="quote-yellow">
+                        <p>Todo e qualquer elemento perde sua orientação de margens,
+                            tudo será centralizado colocando cada elemento ao lado do outro e ao centro,
+                            mesmo que sejam quebras de linhas como &lt;br /&gt;, &lt;p&gt;, &lt;div&gt; etc...</p>
+                        <p>Esse é um recuso ideal para se usado somente em texto,
+                            mas caso necessite que os elementos respeitem sua orientação em totalidade considere usar 
+                            <a href="posicionar.html#pos" target="_blank" class="href">posições fixas</a>.</p>
+                    </blockquote>
+                </div>
+                <div class="static">
                     <div class="center-content box-y-200 bg-black text-white">
                         <div class="bg-red padding-all margin-all-min">center-content</div>
                         <div class="bg-green padding-all margin-all-min">center-content</div>
@@ -162,17 +173,27 @@
                     </div>
                 </div>
                 <div class="margin-top align-center">
-                    <button class="btn-default radius-all-min bold" data-code="">Ver HTML</button>
+                    <button class="btn-default radius-all-min shadow-box" data-code="">CÓDIGO HTML</button>
+                </div>
+            </section>
+        </main>
+
+        <footer class="section bg-dark-grey">
+            <div class="container center-content">
+                <div class="align-center text-light font-min">
+                    <p>Demonstração: <span class="italic bold">css-default.css</span></p>
+                    <p><a href="https://github.com/Spell-Master/sm-web/" target="_blank" class="href">
+                            https:&sol;&sol;github.com&sol;Spell-Master&sol;sm-web&sol;
+                        </a></p>
                 </div>
             </div>
-        </div>
-
-        <div class="modal" id="show-code">
-            <div class="modal-box">
-                <div class="modal-header"><span class="font-max">Código Fonte</span></div>
-                <div class="modal-content"><pre><code class="language-html"></code></pre></div>
+            <div class="modal" id="show-code">
+                <div class="modal-box">
+                    <div class="modal-header"><span class="font-max">Código Fonte</span></div>
+                    <div class="modal-content"><pre><code class="language-html"></code></pre></div>
+                </div>
             </div>
-        </div>
+        </footer>
 
         <script>showCode.init();</script>
     </body>

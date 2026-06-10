@@ -1,7 +1,7 @@
 /**
  * ****************************************
  * @Copyright (c) 2017, Spell Master.
- * @Version: 5.0 (BETA)
+ * @Version: 5.1 (BETA)
  * @Requisitos: Navegador compatível com
  * HTML 5 e CSS 3
  * ****************************************
@@ -31,6 +31,7 @@
     --spacing-min:    .375rem;  /* 6px */
     --spacing-medium: .75rem;   /* 12px */
     --spacing-max:    1.5rem;   /* 24px */
+    --spacing-prop:   calc(1vw + 1vh);
 
     --border-min:     .0625rem; /* 1px */
     --border-medium:  .125rem;  /* 2px */
@@ -114,7 +115,7 @@ mark {background: #ff0000; color: #000000}
 code, kbd, pre, samp {font-family: monospace; font-size: .75rem}
 pre {white-space: pre; white-space: pre-wrap; overflow: auto}
 q {quotes: none}
-q:after, q:before {content: " "}
+q:after, q:before {content: ""}
 small {font-size: .5625rem}
 sub, sup {font-size: .4375rem; line-height: 0; position: relative; vertical-align: baseline}
 sup {top: -.5rem}
@@ -164,6 +165,9 @@ h6, .h6 {font-size: var(--text-size-h6); line-height: 118%}
  h1,  h2,  h3,  h4,  h5,  h6 {
     font-family: inherit; font-weight: lighter; color: inherit; word-wrap: break-word; font-size-adjust: .7
 }
+h1,  h2,  h3,  h4,  h5,  h6 {
+    margin: 2.5vh 0
+}
 
 .font-min    {font-size: var(--text-size-min)}
 .font-medium {font-size: var(--text-size-medium)}
@@ -182,12 +186,12 @@ h6, .h6 {font-size: var(--text-size-h6); line-height: 118%}
  */
 .container-min,
 .container-medium,
-.container-max,
 .container,
+.container-max,
 .container-sd,
 .container-hd,
-.container-2k,
-.container-4k {
+.container-4k,
+.container-8k {
     width: auto;
     margin: auto;
     position: relative;
@@ -195,13 +199,14 @@ h6, .h6 {font-size: var(--text-size-h6); line-height: 118%}
 }
 
 .container-min    {max-width: 30rem}  /* 480px */
-.container-sd     {max-width: 40rem}  /* 640px */
 .container-medium {max-width: 64rem}  /* 1024px */
-.container-hd     {max-width: 80rem}  /* 1280px */
 .container        {max-width: 120rem} /* 1920px */
-.container-2k     {max-width: 160rem} /* 2560px */
+.container-max    {max-width: 160rem} /* 2560px */
+
+.container-sd     {max-width: 40rem}  /* 640px */
+.container-hd     {max-width: 80rem}  /* 1280px */
 .container-4k     {max-width: 205rem} /* 3280px */
-.container-max    {max-width: 480rem} /* 7680px */
+.container-8k     {max-width: 480rem} /* 7680px */
 
 /**
  * ****************************************
@@ -247,7 +252,7 @@ h6, .h6 {font-size: var(--text-size-h6); line-height: 118%}
     cursor: pointer;
     overflow: hidden;
     white-space: nowrap;
-    transition: .5s
+    transition: all .5s
 }
 
 .button-min   {padding: .375rem .75rem; min-height: 1.75rem}
@@ -296,14 +301,14 @@ h6, .h6 {font-size: var(--text-size-h6); line-height: 118%}
     filter: brightness(50%)
 }
 
-.href,
-.href-info    {color: #149ee5 !important}
+.href         {color: #14a0e6 !important}
+.href-info    {color: #195ae6 !important}
 .href-success {color: #0c8c25 !important}
 .href-warning {color: #8c560c !important}
 .href-danger  {color: #e51313 !important}
 
-.href:hover,         .href:focus,
-.href-info:hover,    .href-info:focus    {text-shadow: 0 0 .625rem rgba(0,100,210,.5)}
+.href:hover,         .href:focus         {text-shadow: 0 0 .625rem rgba(20,160,230,.5)}
+.href-info:hover,    .href-info:focus    {text-shadow: 0 0 .625rem rgba(25,90,230,.5)}
 .href-success:hover, .href-success:focus {text-shadow: 0 0 .625rem rgba(10,140,40,.5)}
 .href-warning:hover, .href-warning:focus {text-shadow: 0 0 .625rem rgba(140,90,12,.5)}
 .href-danger:hover,  .href-danger:focus  {text-shadow: 0 0 .625rem rgba(170,15,0,.5)}
@@ -318,13 +323,8 @@ h6, .h6 {font-size: var(--text-size-h6); line-height: 118%}
     padding: .625rem
 }
 
-q[class^="quote"] {
-    padding: 0 .125rem
-}
-q[class^="quote"]:before {
-    padding-left: .25rem;
-    margin-left: .125rem
-}
+q[class^="quote"]:before {padding-left: .25rem;  margin-left: .125rem}
+q[class^="quote"]:after  {padding-right: .25rem; margin-left: .125rem}
 
 [class^="card"] {
     position: relative;
@@ -345,9 +345,9 @@ q[class^="quote"]:before {
 .card-blue   {border: .0625rem solid rgba(0,80,180,.1)}
 .card-yellow {border: .0625rem solid rgba(110,100,30,.1)}
 
-.card,        .quote        {color: #4c4c4c; background-color: #e5e5e5 !important}
-.card-light                 {color: #444444; background-color: #d8d8d8 !important}
-.card-dark                  {color: #4c4c4c; background-color: #bfbfbf !important}
+.card,        .quote        {color: #4c4c4c; background-color: #f2f2f2 !important}
+.card-light                 {color: #444444; background-color: #e5e5e5 !important}
+.card-dark                  {color: #4c4c4c; background-color: #d8d8d8 !important}
 .card-red,    .quote-red    {color: #990500; background-color: #f7d9d9 !important}
 .card-green,  .quote-green  {color: #1d4c00; background-color: #d9f7d9 !important}
 .card-blue,   .quote-blue   {color: #0051b4; background-color: #d9e9f7 !important}
@@ -460,74 +460,74 @@ blockquote.quote-yellow {border-left: .3125rem solid #71631c !important}
  * Sombra de Fundo
  * ****************************************
  */
-.box-shadow,             .box-shadow-on-hover       {box-shadow: 0 0 .25rem .125rem rgba(0,0,0,.4)}
-.box-shadow-hover:hover, .box-shadow-on-hover:hover {box-shadow: 0 0 .3125rem .1875rem rgba(0,0,0,.4)}
+.shadow-box,             .shadow-box-on-hover       {box-shadow: 0 0 .25rem .125rem rgba(0,0,0,.3)}
+.shadow-box-hover:hover, .shadow-box-on-hover:hover {box-shadow: 0 0 .3125rem .1875rem rgba(0,0,0,.3)}
 
-.box-shadow-white,              .box-shadow-white-on-hover        {box-shadow: 0 0 .25rem .125rem var(--color-white)}
-.box-shadow-white-hover:hover,  .box-shadow-white-on-hover:hover  {box-shadow: 0 0 .3125rem .1875rem var(--color-white)}
-.box-shadow-black,              .box-shadow-black-on-hover        {box-shadow: 0 0 .25rem .125rem var(--color-black)}
-.box-shadow-black-hover:hover,  .box-shadow-black-on-hover:hover  {box-shadow: 0 0 .3125rem .1875rem var(--color-black)}
-.box-shadow-grey,               .box-shadow-grey-on-hover         {box-shadow: 0 0 .25rem .125rem var(--color-grey)}
-.box-shadow-grey-hover:hover,   .box-shadow-grey-on-hover:hover   {box-shadow: 0 0 .3125rem .1875rem var(--color-grey)}
-.box-shadow-red,                .box-shadow-red-on-hover          {box-shadow: 0 0 .25rem .125rem var(--color-red)}
-.box-shadow-red-hover:hover,    .box-shadow-red-on-hover:hover    {box-shadow: 0 0 .3125rem .1875rem var(--color-red)}
-.box-shadow-green,              .box-shadow-green-on-hover        {box-shadow: 0 0 .25rem .125rem var(--color-green)}
-.box-shadow-green-hover:hover,  .box-shadow-green-on-hover:hover  {box-shadow: 0 0 .3125rem .1875rem var(--color-green)}
-.box-shadow-blue,               .box-shadow-blue-on-hover         {box-shadow: 0 0 .25rem .125rem var(--color-blue)}
-.box-shadow-blue-hover:hover,   .box-shadow-blue-on-hover:hover   {box-shadow: 0 0 .3125rem .1875rem var(--color-blue)}
-.box-shadow-yellow,             .box-shadow-yellow-on-hover       {box-shadow: 0 0 .25rem .125rem var(--color-yellow)}
-.box-shadow-yellow-hover:hover, .box-shadow-yellow-on-hover:hover {box-shadow: 0 0 .3125rem .1875rem var(--color-yellow)}
-.box-shadow-pink,               .box-shadow-pink-on-hover         {box-shadow: 0 0 .25rem .125rem var(--color-pink)}
-.box-shadow-pink-hover:hover,   .box-shadow-pink-on-hover:hover   {box-shadow: 0 0 .3125rem .1875rem var(--color-pink)}
-.box-shadow-purple,             .box-shadow-purple-on-hover       {box-shadow: 0 0 .25rem .125rem var(--color-purple)}
-.box-shadow-purple-hover:hover, .box-shadow-purple-on-hover:hover {box-shadow: 0 0 .3125rem .1875rem var(--color-purple)}
-.box-shadow-indigo,             .box-shadow-indigo-on-hover       {box-shadow: 0 0 .25rem .125rem var(--color-indigo)}
-.box-shadow-indigo-hover:hover, .box-shadow-indigo-on-hover:hover {box-shadow: 0 0 .3125rem .1875rem var(--color-indigo)}
-.box-shadow-aqua,               .box-shadow-aqua-on-hover         {box-shadow: 0 0 .25rem .125rem var(--color-aqua)}
-.box-shadow-aqua-hover:hover,   .box-shadow-aqua-on-hover:hover   {box-shadow: 0 0 .3125rem .1875rem var(--color-aqua)}
-.box-shadow-sand,               .box-shadow-sand-on-hover         {box-shadow: 0 0 .25rem .125rem var(--color-sand)}
-.box-shadow-sand-hover:hover,   .box-shadow-sand-on-hover:hover   {box-shadow: 0 0 .3125rem .1875rem var(--color-sand)}
-.box-shadow-orange,             .box-shadow-orange-on-hover       {box-shadow: 0 0 .25rem .125rem var(--color-orange)}
-.box-shadow-orange-hover:hover, .box-shadow-orange-on-hover:hover {box-shadow: 0 0 .3125rem .1875rem var(--color-orange)}
-.box-shadow-brown,              .box-shadow-brown-on-hover        {box-shadow: 0 0 .25rem .125rem var(--color-brown)}
-.box-shadow-brown-hover:hover,  .box-shadow-brown-on-hover:hover  {box-shadow: 0 0 .3125rem .1875rem var(--color-brown)}
+.shadow-box-white,              .shadow-box-white-on-hover        {box-shadow: 0 0 .25rem .125rem var(--color-white)}
+.shadow-box-white-hover:hover,  .shadow-box-white-on-hover:hover  {box-shadow: 0 0 .3125rem .1875rem var(--color-white)}
+.shadow-box-black,              .shadow-box-black-on-hover        {box-shadow: 0 0 .25rem .125rem var(--color-black)}
+.shadow-box-black-hover:hover,  .shadow-box-black-on-hover:hover  {box-shadow: 0 0 .3125rem .1875rem var(--color-black)}
+.shadow-box-grey,               .shadow-box-grey-on-hover         {box-shadow: 0 0 .25rem .125rem var(--color-grey)}
+.shadow-box-grey-hover:hover,   .shadow-box-grey-on-hover:hover   {box-shadow: 0 0 .3125rem .1875rem var(--color-grey)}
+.shadow-box-red,                .shadow-box-red-on-hover          {box-shadow: 0 0 .25rem .125rem var(--color-red)}
+.shadow-box-red-hover:hover,    .shadow-box-red-on-hover:hover    {box-shadow: 0 0 .3125rem .1875rem var(--color-red)}
+.shadow-box-green,              .shadow-box-green-on-hover        {box-shadow: 0 0 .25rem .125rem var(--color-green)}
+.shadow-box-green-hover:hover,  .shadow-box-green-on-hover:hover  {box-shadow: 0 0 .3125rem .1875rem var(--color-green)}
+.shadow-box-blue,               .shadow-box-blue-on-hover         {box-shadow: 0 0 .25rem .125rem var(--color-blue)}
+.shadow-box-blue-hover:hover,   .shadow-box-blue-on-hover:hover   {box-shadow: 0 0 .3125rem .1875rem var(--color-blue)}
+.shadow-box-yellow,             .shadow-box-yellow-on-hover       {box-shadow: 0 0 .25rem .125rem var(--color-yellow)}
+.shadow-box-yellow-hover:hover, .shadow-box-yellow-on-hover:hover {box-shadow: 0 0 .3125rem .1875rem var(--color-yellow)}
+.shadow-box-pink,               .shadow-box-pink-on-hover         {box-shadow: 0 0 .25rem .125rem var(--color-pink)}
+.shadow-box-pink-hover:hover,   .shadow-box-pink-on-hover:hover   {box-shadow: 0 0 .3125rem .1875rem var(--color-pink)}
+.shadow-box-purple,             .shadow-box-purple-on-hover       {box-shadow: 0 0 .25rem .125rem var(--color-purple)}
+.shadow-box-purple-hover:hover, .shadow-box-purple-on-hover:hover {box-shadow: 0 0 .3125rem .1875rem var(--color-purple)}
+.shadow-box-indigo,             .shadow-box-indigo-on-hover       {box-shadow: 0 0 .25rem .125rem var(--color-indigo)}
+.shadow-box-indigo-hover:hover, .shadow-box-indigo-on-hover:hover {box-shadow: 0 0 .3125rem .1875rem var(--color-indigo)}
+.shadow-box-aqua,               .shadow-box-aqua-on-hover         {box-shadow: 0 0 .25rem .125rem var(--color-aqua)}
+.shadow-box-aqua-hover:hover,   .shadow-box-aqua-on-hover:hover   {box-shadow: 0 0 .3125rem .1875rem var(--color-aqua)}
+.shadow-box-sand,               .shadow-box-sand-on-hover         {box-shadow: 0 0 .25rem .125rem var(--color-sand)}
+.shadow-box-sand-hover:hover,   .shadow-box-sand-on-hover:hover   {box-shadow: 0 0 .3125rem .1875rem var(--color-sand)}
+.shadow-box-orange,             .shadow-box-orange-on-hover       {box-shadow: 0 0 .25rem .125rem var(--color-orange)}
+.shadow-box-orange-hover:hover, .shadow-box-orange-on-hover:hover {box-shadow: 0 0 .3125rem .1875rem var(--color-orange)}
+.shadow-box-brown,              .shadow-box-brown-on-hover        {box-shadow: 0 0 .25rem .125rem var(--color-brown)}
+.shadow-box-brown-hover:hover,  .shadow-box-brown-on-hover:hover  {box-shadow: 0 0 .3125rem .1875rem var(--color-brown)}
 
 /**
  * ****************************************
  * Sombra de texto
  * ****************************************
  */
-.text-shadow,             .text-shadow-on-hover       {text-shadow: 0 0 .125rem rgba(0,0,0,.4)}
-.text-shadow-hover:hover, .text-shadow-on-hover:hover {text-shadow: 0 0 .3125rem rgba(0,0,0,.4)}
+.shadow-text,             .shadow-text-on-hover       {text-shadow: 0 0 .125rem rgba(0,0,0,.4)}
+.shadow-text-hover:hover, .shadow-text-on-hover:hover {text-shadow: 0 0 .3125rem rgba(0,0,0,.4)}
 
-.text-shadow-white,              .text-shadow-white-on-hover        {text-shadow: 0 0 .125rem var(--color-white)}
-.text-shadow-white-hover:hover,  .text-shadow-white-on-hover:hover  {text-shadow: 0 0 .3125rem var(--color-white)}
-.text-shadow-black,              .text-shadow-black-on-hover        {text-shadow: 0 0 .125rem var(--color-black)}
-.text-shadow-black-hover:hover,  .text-shadow-black-on-hover:hover  {text-shadow: 0 0 .3125rem var(--color-black)}
-.text-shadow-grey,               .text-shadow-grey-on-hover         {text-shadow: 0 0 .125rem var(--color-grey)}
-.text-shadow-grey-hover:hover,   .text-shadow-grey-on-hover:hover   {text-shadow: 0 0 .3125rem var(--color-grey)}
-.text-shadow-red,                .text-shadow-red-on-hover          {text-shadow: 0 0 .125rem var(--color-red)}
-.text-shadow-red-hover:hover,    .text-shadow-red-on-hover:hover    {text-shadow: 0 0 .3125rem var(--color-red)}
-.text-shadow-green,              .text-shadow-green-on-hover        {text-shadow: 0 0 .125rem var(--color-green)}
-.text-shadow-green-hover:hover,  .text-shadow-green-on-hover:hover  {text-shadow: 0 0 .3125rem var(--color-green)}
-.text-shadow-blue,               .text-shadow-blue-on-hover         {text-shadow: 0 0 .125rem var(--color-blue)}
-.text-shadow-blue-hover:hover,   .text-shadow-blue-on-hover:hover   {text-shadow: 0 0 .3125rem var(--color-blue)}
-.text-shadow-yellow,             .text-shadow-yellow-on-hover       {text-shadow: 0 0 .125rem var(--color-yellow)}
-.text-shadow-yellow-hover:hover, .text-shadow-yellow-on-hover:hover {text-shadow: 0 0 .3125rem var(--color-yellow)}
-.text-shadow-pink,               .text-shadow-pink-on-hover         {text-shadow: 0 0 .125rem var(--color-pink)}
-.text-shadow-pink-hover:hover,   .text-shadow-pink-on-hover:hover   {text-shadow: 0 0 .3125rem var(--color-pink)}
-.text-shadow-purple,             .text-shadow-purple-on-hover       {text-shadow: 0 0 .125rem var(--color-purple)}
-.text-shadow-purple-hover:hover, .text-shadow-purple-on-hover:hover {text-shadow: 0 0 .3125rem var(--color-purple)}
-.text-shadow-indigo,             .text-shadow-indigo-on-hover       {text-shadow: 0 0 .125rem var(--color-indigo)}
-.text-shadow-indigo-hover:hover, .text-shadow-indigo-on-hover:hover {text-shadow: 0 0 .3125rem var(--color-indigo)}
-.text-shadow-aqua,               .text-shadow-aqua-on-hover         {text-shadow: 0 0 .125rem var(--color-aqua)}
-.text-shadow-aqua-hover:hover,   .text-shadow-aqua-on-hover:hover   {text-shadow: 0 0 .3125rem var(--color-aqua)}
-.text-shadow-sand,               .text-shadow-sand-on-hover         {text-shadow: 0 0 .125rem var(--color-sand)}
-.text-shadow-sand-hover:hover,   .text-shadow-sand-on-hover:hover   {text-shadow: 0 0 .3125rem var(--color-sand)}
-.text-shadow-orange,             .text-shadow-orange-on-hover       {text-shadow: 0 0 .125rem var(--color-orange)}
-.text-shadow-orange-hover:hover, .text-shadow-orange-on-hover:hover {text-shadow: 0 0 .3125rem var(--color-orange)}
-.text-shadow-brown,              .text-shadow-brown-on-hover        {text-shadow: 0 0 .125rem var(--color-brown)}
-.text-shadow-brown-hover:hover,  .text-shadow-brown-on-hover:hover  {text-shadow: 0 0 .3125rem var(--color-brown)}
+.shadow-text-white,              .shadow-text-white-on-hover        {text-shadow: 0 0 .125rem var(--color-white)}
+.shadow-text-white-hover:hover,  .shadow-text-white-on-hover:hover  {text-shadow: 0 0 .3125rem var(--color-white)}
+.shadow-text-black,              .shadow-text-black-on-hover        {text-shadow: 0 0 .125rem var(--color-black)}
+.shadow-text-black-hover:hover,  .shadow-text-black-on-hover:hover  {text-shadow: 0 0 .3125rem var(--color-black)}
+.shadow-text-grey,               .shadow-text-grey-on-hover         {text-shadow: 0 0 .125rem var(--color-grey)}
+.shadow-text-grey-hover:hover,   .shadow-text-grey-on-hover:hover   {text-shadow: 0 0 .3125rem var(--color-grey)}
+.shadow-text-red,                .shadow-text-red-on-hover          {text-shadow: 0 0 .125rem var(--color-red)}
+.shadow-text-red-hover:hover,    .shadow-text-red-on-hover:hover    {text-shadow: 0 0 .3125rem var(--color-red)}
+.shadow-text-green,              .shadow-text-green-on-hover        {text-shadow: 0 0 .125rem var(--color-green)}
+.shadow-text-green-hover:hover,  .shadow-text-green-on-hover:hover  {text-shadow: 0 0 .3125rem var(--color-green)}
+.shadow-text-blue,               .shadow-text-blue-on-hover         {text-shadow: 0 0 .125rem var(--color-blue)}
+.shadow-text-blue-hover:hover,   .shadow-text-blue-on-hover:hover   {text-shadow: 0 0 .3125rem var(--color-blue)}
+.shadow-text-yellow,             .shadow-text-yellow-on-hover       {text-shadow: 0 0 .125rem var(--color-yellow)}
+.shadow-text-yellow-hover:hover, .shadow-text-yellow-on-hover:hover {text-shadow: 0 0 .3125rem var(--color-yellow)}
+.shadow-text-pink,               .shadow-text-pink-on-hover         {text-shadow: 0 0 .125rem var(--color-pink)}
+.shadow-text-pink-hover:hover,   .shadow-text-pink-on-hover:hover   {text-shadow: 0 0 .3125rem var(--color-pink)}
+.shadow-text-purple,             .shadow-text-purple-on-hover       {text-shadow: 0 0 .125rem var(--color-purple)}
+.shadow-text-purple-hover:hover, .shadow-text-purple-on-hover:hover {text-shadow: 0 0 .3125rem var(--color-purple)}
+.shadow-text-indigo,             .shadow-text-indigo-on-hover       {text-shadow: 0 0 .125rem var(--color-indigo)}
+.shadow-text-indigo-hover:hover, .shadow-text-indigo-on-hover:hover {text-shadow: 0 0 .3125rem var(--color-indigo)}
+.shadow-text-aqua,               .shadow-text-aqua-on-hover         {text-shadow: 0 0 .125rem var(--color-aqua)}
+.shadow-text-aqua-hover:hover,   .shadow-text-aqua-on-hover:hover   {text-shadow: 0 0 .3125rem var(--color-aqua)}
+.shadow-text-sand,               .shadow-text-sand-on-hover         {text-shadow: 0 0 .125rem var(--color-sand)}
+.shadow-text-sand-hover:hover,   .shadow-text-sand-on-hover:hover   {text-shadow: 0 0 .3125rem var(--color-sand)}
+.shadow-text-orange,             .shadow-text-orange-on-hover       {text-shadow: 0 0 .125rem var(--color-orange)}
+.shadow-text-orange-hover:hover, .shadow-text-orange-on-hover:hover {text-shadow: 0 0 .3125rem var(--color-orange)}
+.shadow-text-brown,              .shadow-text-brown-on-hover        {text-shadow: 0 0 .125rem var(--color-brown)}
+.shadow-text-brown-hover:hover,  .shadow-text-brown-on-hover:hover  {text-shadow: 0 0 .3125rem var(--color-brown)}
 
 /**
  * ****************************************
@@ -542,14 +542,14 @@ blockquote.quote-yellow {border-left: .3125rem solid #71631c !important}
     width: 100%;
     min-height: 3.125rem;
     font-size: 1rem;
-    transition:color .5s ease-in-out
+    transition: color .5s ease-in-out
 }
 .input-default {
     background-color: var(--input-bg);
-    border:           .0625rem solid var(--input-border)
+    border: .0625rem solid var(--input-border)
 }
 .input-line {
-    border:        .0625rem solid transparent;
+    border: .0625rem solid transparent;
     border-bottom: .0625rem solid var(--input-border)
 }
 
@@ -743,14 +743,6 @@ table.table.streak tr:nth-child(even) {
 .border-bottom-none {border-bottom: none !important}
 .border-lr-none     {border-left:   none !important; border-right:  none !important}
 .border-tb-none     {border-top:    none !important; border-bottom: none !important}
-
-.border-all-hidden    {border-color:        transparent !important}
-.border-left-hidden   {border-left-color:   transparent !important}
-.border-right-hidden  {border-right-color:  transparent !important}
-.border-top-hidden    {border-top-color:    transparent !important}
-.border-bottom-hidden {border-bottom-color: transparent !important}
-.border-lr-hidden     {border-left-color:   transparent !important; border-right-color:  transparent !important}
-.border-tb-hidden     {border-top-color:    transparent !important; border-bottom-color: transparent !important}
 
 .border-light,  .border-light-hover:hover  {border-color: var(--color-light)}
 .border-dark,   .border-dark-hover:hover   {border-color: var(--color-dark)}
@@ -1172,6 +1164,20 @@ table.table.streak tr:nth-child(even) {
     margin-bottom: var(--spacing-max) !important
 }
 
+.margin-all-prop    {margin: var(--spacing-prop) !important}
+.margin-left-prop   {margin-left: var(--spacing-prop) !important}
+.margin-right-prop  {margin-right: var(--spacing-prop) !important}
+.margin-top-prop    {margin-top: var(--spacing-prop) !important}
+.margin-bottom-prop {margin-bottom: var(--spacing-prop) !important}
+.margin-lr-prop {
+    margin-left:  var(--spacing-prop) !important;
+    margin-right: var(--spacing-prop) !important
+}
+.margin-tb-prop {
+    margin-top:    var(--spacing-prop) !important;
+    margin-bottom: var(--spacing-prop) !important
+}
+
 /**
  * ****************************************
  * Preenchimento
@@ -1217,6 +1223,20 @@ table.table.streak tr:nth-child(even) {
 .padding-tb-max {
     padding-top:    var(--spacing-max) !important;
     padding-bottom: var(--spacing-max) !important
+}
+
+.padding-all-prop    {padding: var(--spacing-prop) !important}
+.padding-left-prop   {padding-left: var(--spacing-prop) !important}
+.padding-right-prop  {padding-right: var(--spacing-prop) !important}
+.padding-top-prop    {padding-top: var(--spacing-prop) !important}
+.padding-bottom-prop {padding-bottom: var(--spacing-prop) !important}
+.padding-lr-prop {
+    padding-left:  var(--spacing-prop) !important;
+    padding-right: var(--spacing-prop) !important
+}
+.padding-tb-prop {
+    padding-top:    var(--spacing-prop) !important;
+    padding-bottom: var(--spacing-prop) !important
 }
 
 /**
@@ -1270,10 +1290,9 @@ ol.list, ul.list {margin-left: var(--spacing-max)}
     min-height: 100vh !important
 }
 
-.section-min    {padding: 6vh 0 !important;  margin: 0; width: 100%}
-.section,
-.section-medium {padding: 8vh 0 !important;  margin: 0; width: 100%}
-.section-max    {padding: 12vh 0 !important; margin: 0; width: 100%}
+.section-min {padding: 6vh 0 !important;  margin: 0; width: 100%}
+.section     {padding: 8vh 0 !important;  margin: 0; width: 100%}
+.section-max {padding: 12vh 0 !important; margin: 0; width: 100%}
 
 /**
  * ****************************************

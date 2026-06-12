@@ -8,223 +8,385 @@
         <link href="../../lib/stylesheet/core.css" rel="stylesheet" type="text/css"/>
         <link href="../../lib/prism/prism.css" rel="stylesheet" type="text/css"/>
         <script src="../../lib/prism/prism.js" type="text/javascript"></script>
-
+        <script src="../jsd/js-default.js" type="text/javascript"></script>
         <script src="FileLoad.js" type="text/javascript"></script>
     </head>
     <body>
-        <article class="container padding-all">
-            <h1 class="bold italic">FileLoad.js</h1>
-            <hr class="sm-line" />
-            <p>O FileLoad ler qualquer arquivo que um usuário selecionar em sua
-                máquina.</p>
-            <p>Sua principal utilidade é adicionar o arquivo ao contexto da
-                página, assim podemos trabalhar com o ele sem que seja necessário
-                um upload para o servidor.</p>
-            <p>Vamos supor arquivo de texto ou imagem etc que pode ser editado entes
-                de salvar ele no servidor...</p>
+        <header>
+            <div class="bg-dark-grey padding-all-max text-white">
+                <div class="container">
+                    <h1 class="shadow-text-white margin-left-max">FileLoad</h1>
+                </div>
+            </div>
+            <div class="bg-light padding-all-prop shadow-box">
+                <p>Faz a leitura de arquivos para manipulação desses ainda na máquina do usuário.</p>
+                <p class="font-min">Utiliza recuros da API
+                    <a href="https://developer.mozilla.org/en-US/docs/Web/API/FileReader" target="_blank" class="href">FileReader</a>
+                </p>
+            </div>
+        </header>
 
-            <div class="margin-top-max">
-                <hr class="sm-line" />
-                <h2>Apresentação:</h2>
-
-                <div class="row-pad">
-                    <div class="col-twothird-max padding-all-min">
-                        <input type="file" id="exemplo" class="input-default" />
-                    </div>
-                    <div class="col-third-max padding-all-min">
-                        <div class="row">
-                            <div class="col-half col-fix">
-                                <button onclick="enviar()" class="btn-info button-block">Enviar</button>
+        <main class="container padding-all">
+            <section class="section">
+                <h2>Apresentação</h2>
+                <div class="margin-top-max">
+                    <div class="container-medium">
+                        <div class="row-pad no-warp">
+                            <div class="col-flex align-center">
+                                <p class="font-min">onStart</p>
+                                <div class="box-xy-50 bg-light radius-circle shadow-box margin-auto"></div>
                             </div>
-                            <div class="col-half col-fix">
-                                <button onclick="ler.cancel()" class="btn-warning button-block">Cancelar</button>
+                            <div class="col-flex align-center">
+                                <p class="font-min">onError</p>
+                                <div class="box-xy-50 bg-light radius-circle shadow-box margin-auto"></div>
+                            </div>
+                            <div class="col-flex align-center">
+                                <p class="font-min">onProgress</p>
+                                <div class="box-xy-50 bg-light radius-circle shadow-box margin-auto"></div>
+                            </div>
+                            <div class="col-flex align-center">
+                                <p class="font-min">onResult</p>
+                                <div class="box-xy-50 bg-light radius-circle shadow-box margin-auto"></div>
+                            </div>
+                        </div>
+                        <div class="row-pad">
+                            <div class="col-single align-center hide">
+                                <div class="alert-success">
+                                    <p class="bold">Processo de leitura terminado</p>
+                                    <p>Consulte o log no console</p>
+                                </div>
+                            </div>
+                            <div class="col-single align-center hide">
+                                <div class="alert-danger">
+                                    <p class="bold">Erro de leitura</p>
+                                    <p>Consulte o log no console</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row no-warp">
+                            <div class="col-flex">
+                                <label for="selecionar" class="input-default border-right-none">Selecionar Arquivo</label>
+                                <input type="file" name="arq" id="selecionar" class="hide" />
+                            </div>
+                            <div class="col-flex box-max-x-100">
+                                <button class="btn-info">Enviar</button>
                             </div>
                         </div>
                     </div>
                 </div>
-
                 <blockquote class="quote-yellow">
-                    <p class="bold">Observação:</p>
-                    <p>Para ver o resultado abra o console do navegador,
-                        todas as informações do processo serão mostradas lá.</p>
-                    <p>Não dar para eu apresentar um exemplo para cada coisa,
-                        pois cada tipo de arquivo enviado requer um tratamento
-                        expecífico para ele.</p>
+                    <p>Selecione apenas aquivos menores que 200mb&apos;s</p>
+                    <p>Resultados serão exibidos no console do navegador</p>
                 </blockquote>
-            </div>
+            </section>
 
-            <div class="sm-margin-top">
-                <hr class="sm-line" />
+            <hr class="border-bottom-min border-dark" />
+            <section class="section">
                 <h2>Utilização</h2>
-                <p>Adicione o arquivo necessário</p>
-                <pre><code class="language-html">&lt;script src="FileLoad.js" type="text/javascript"&gt;&lt;/script&gt;</code></pre>
+                <div class="margin-all-prop">
+                    <p>Adicione o arquivo necessário.</p>
+                    <pre><code class="language-html">&lt;script src=&quot;FileLoad.js&quot;&gt;&lt;/script&gt;</code></pre>
+                </div>
 
-                <p>Inicie declarado em um javascript ao final do documento</p>
-                <pre><code class="language-javascript">var ler = new FileLoad();</code></pre>
+                <div class="margin-all-prop">
+                    <p>Declare um objeto para FileLoad ao final do documento.</p>
+                    <pre><code class="language-html">&lt;script&gt;
+    var ler = new FileLoad();
+&lt;/script&gt;</code></pre>
+                </div>
 
-                <p>Então crie uma caixa de "input file" para que o usuário possa
-                    selecionar o arquivo na sua máquina.</p>
-                <p>Crie um botão que aciona uma função de para envio.</p>
-                <p>Exemplo:</p>
-                <pre><code class="language-html">&lt;input type="file" /&gt;
-&lt;button onclick="lerArquivo()"&gt;Ler Arquivo&lt;/button&gt;
+                <div class="margin-all-prop">
+                    <p>Para inicar deve-se chamar o método <q class="quote-blue bold">load</q>
+                        especificando como parâmetro o arquivo para ser lido e as opções/callback&apos;s.</p>
+                    <p>As opções e callback&apos;s é de livre escolha, ou seja pode-se usar ou não,
+                        mas o arquivo é necessário.</p>
+                    <p>O arquivo é obtido através de um <q class="quote italic">&lt;input type=&quot;file&quot; /&gt;</q>.</p>
+                    <p>Exemplo:</p>
+                    <pre><code class="language-html">&lt;input type=&quot;file&quot; id=&quot;exemplo&quot; /&gt;
 &lt;script&gt;
-    function lerArquivo() {
-        // Identifique o input file
-        var input = document.getElementsByTagName('input')[0];
+    var ler = new FileLoad(); // Instância do FileLoad
+    var input = document.getElementById(&apos;exemplo&apos;); // Identificar o input
+    var arquivo = null;
+
+    input.addEventListener(&apos;change&apos;, iniciarLeitura, false); // Quando algo é selecionado
+
+    // Função de execução
+    function iniciarLeitura(evento) {
+        arquivo = evento.target.files[0]; // Arquivo anexo ao input[&apos;file&apos;]
 
         // ler é o nome da instância do FileLoad
-        ler.load(input, {
+        ler.load(arquivo, {readType: &apos;data&apos;});
+    }
+&lt;/script&gt;</code></pre>
+                </div>
+
+                <div class="margin-all-prop">
+                    <p>A função <q class="quote-green">load()</q> que consiste em dois parâmetros:</p>
+                    <p class="bold italic">load(A, B)</p>
+                    <p><span class="bold">A)</span> -&gt; Informar um arquivo selecionado pelo
+                        usuário.</p>
+                    <p><span class="bold">B)</span> -&gt; Informar a opção e os métodos callback&apos;s dentro de um objeto.</p>
+                    <blockquote class="quote-yellow">
+                        <p>Qualquer método é opcional!</p>
+                        <p>Use somente aqueles que achar necessário.</p>
+                    </blockquote>
+                </div>
+            </section>
+
+            <hr class="border-bottom-min border-dark" />
+            <section class="section">
+                <h2>Opção</h2>
+                <div class="margin-all-prop">
+                    <p class="list bold font-max">readType</p>
+                    <p>Deve ser informado como string para dizer como o arquivo deve ser lido.</p>
+                    <p>Os tipos disponíves são:</p>
+                    <ul>
+                        <li><span class="bold">data</span> &DoubleRightArrow;
+                            Resultado será um data URL
+                            representando os dados do arquivo.
+                        </li>
+                        <li><span class="bold">binary</span> &DoubleRightArrow;
+                            Resultado será os dados binários.
+                        </li>
+                        <li><span class="bold">text</span> &DoubleRightArrow;
+                            Resultado será o conteúdo do arquivo como texto.
+                        </li>
+                    </ul>
+                    <blockquote class="quote-yellow">
+                        <p>NOTA:</p>
+                        <p>Se não informado ou o valor não seja
+                            &apos;<span class="bold">data</span>&apos;,
+                            &apos;<span class="bold">binary</span>&apos; ou
+                            &apos;<span class="bold">text</span>&apos; o valor padrão será
+                            <span class="bold text-red">data</span></p>
+                        <p>Mesmo que não seja necessário aconselho especificar qual tipo de leitura deve ser feita.</p>
+                    </blockquote>
+                </div>
+            </section>
+
+            <hr class="border-bottom-min border-dark" />
+            <section class="section">
+                <h2>Opções (Métodos/Callback&apos;s)</h2>
+                <div class="margin-all-prop">
+                    <blockquote class="quote-yellow">
+                        <p>Todos métodos a seguir são opcionais, use se achar necessário</p>
+                    </blockquote>
+                </div>
+
+                <div class="margin-all-prop">
+                    <h6 class="list bold">onStart</h6>
+                    <p>Deve informado uma função que será executada quando o quando o processo de leitura iniciar.</p>
+                    <p>Você poderá adicionar um parâmetro de retorno, exemplo:</p>
+                    <pre><code class="language-javascript">onStart: function (param) {}</code></pre>
+                    <p>Dentro da função <span class="bold">param</span> será
+                        os dados pré processados do arquivo.</p>
+                    <p>Então nesse método você pode avaliar o arquivo, digamos que
+                        somente queira arquivos PDF e o usuário selecinou qualquer
+                        outro tipo.</p>
+                    <p>Nesse caso você poderá negar todo processo restante, interrompendo
+                        o FileLoad de prosseguir retornando <span class="bold">false</span>
+                        dentro do escopo do método.</p>
+                    <p>Exemplo:</p>
+                    <pre><code class="language-javascript">onStart: function (param) {
+    if (param.type !== &apos;application/pdf&apos;) { // Se não for um arquivo PDF
+        return (false);  // O FileLoad só executará esse método e vai parar aqui devido ao retorno falso
+    }
+}</code></pre>
+                </div>
+
+                <div class="margin-all-prop">
+                    <h6 class="list bold">onError</h6>
+                    <p>Deve informado uma função que será executada sempre que ocorrer algum erro na leitura do arquivo.</p>
+                    <p>Assim como o método <span class="bold">onStart</span>
+                        você também pode adicionar algum parâmetro que lhe informará qual erro ocorreu.</p>
+                    <pre><code class="language-javascript">onError: function (param) {}</code></pre>
+                    <blockquote class="quote">
+                        <p>Este é um recurso da API <span class="bold">FileReader</span>, mas não consegui de forma alguma
+                            simular ou disparar algum erro.</p>
+                        <p>Portanto francamente não sei se de fato vai funcionar quando preciso.</p>
+                        <p>De qualquer forma achei necessário, caso aconteça um eventual erro imprevisto.</p>
+                    </blockquote>
+                </div>
+
+                <div class="margin-all-prop">
+                    <h6 class="list bold">onProgress</h6>
+                    <p>Deve ser informado uma função que será executada repetitivamente até que o processo de leitura
+                        termine ou aconteça algum erro.</p>
+                    <p class="text-red">Sim! Essa função vai ficar se repetindo, portanto cuidado.</p>
+                    <p>Você também poderá adicionar um parâmetro que lhe informará
+                        um objeto com o tamanho original do arquivo e o quanto dele já foi lido.</p>
+                    <ul>
+                        <li><span class="bold">total</span> &DoubleRightArrow; O tamanho em bit&apos;s do arquivo.</li>
+                        <li><span class="bold">loaded</span> &DoubleRightArrow; O quanto em bit&apos;s já foi lido.</li>
+                    </ul>
+                    <p>Exemplo:</p>
+                    <pre><code class="language-javascript">onProgress: function (ev) {
+    console.log(&apos;Completado: &apos; + ev.loaded + &apos; | Tamanho total: &apos; + ev.total);
+}</code></pre>
+                </div>
+
+                <div class="margin-all-prop">
+                    <h6 class="list bold">onResult</h6>
+                    <p>Deve ser informado uma função que será executada quando todo o processo de leitura é terminado.<p>
+                    <p>Assim como nos métodos anteriores você adiciona um parâmetro que lhe informará o resultado
+                        da leitura, de acordo com o tipo que você definiu em <span class="bold">readType</span>.</p>
+                    <pre><code class="language-javascript">onResult: function (resultado) {}</code></pre>
+                </div>
+            </section>
+
+            <hr class="border-bottom-min border-dark" />
+            <section class="section">
+                <h2>Método Extra</h2>
+                <div class="margin-all-prop">
+                    <p>Para parar a leitura, basta utilizar a função 
+                        <span class="bold text-red">cancel()</span>,
+                        pode ser ativada a qualquer momento para abortar a operação.</p>
+                    <p>Exemplo:</p>
+                    <pre><code class="language-html">&lt;input type=&quot;file&quot; id=&quot;exemplo&quot; /&gt;
+&lt;button id=&quot;parar&quot;&gt;Abortar Leitura&lt;/button&gt;
+&lt;script&gt;
+    var ler = new FileLoad();
+    var arquivo = document.getElementById(&apos;exemplo&apos;);
+    
+    document.getElementById(&apos;parar&apos;).addEventListener(&apos;click&apos;, function () {
+        ler.cancel(); // Para a leitura
+    }, false);
+    
+    ler.load(arquivo.files[0], {readType: &apos;data&apos;});
+&lt;/script&gt;</code></pre>
+                </div>
+            </section>
+
+            <hr class="border-bottom-min border-dark" />
+            <section class="section">
+                <h2>Exemplo Prático</h2>
+                <div class="margin-all-prop">
+                    <pre><code class="language-html">&lt;input type="file" /&gt;
+&lt;button onclick="lerArquivo()"&gt;Ler Arquivo&lt;/button&gt;
+&lt;script&gt;
+    var ler = new FileLoad(); // Instância do FileLoad
+
+    // Identifique o input file
+    var input = document.getElementsByTagName('input')[0];
+
+    function lerArquivo() {
+        // ler é o nome da instância do FileLoad
+        ler.load(input.files[0], {
             readType: 'text',
             onStart: function (arquivo) {
-                console.log(arquivo);
+                // O que fazer quando é iniciado
             },
             onError: function (erro) {
-                console.log(erro);
+                // O que fazer se acontecer erro
             },
             onProgress: function (progresso) {
-                console.log(progresso);
+                // O que fazer enquanto o arquivo está sendo processado
             },
             onResult: function (resultado) {
-                console.log(resultado);
+                // O que fazer quando terminar
             }
         });
     }
 &lt;/script&gt;</code></pre>
-                <p>No caso a função <span class="bold">lerArquivo()</span>
-                    será acionada ao clicar no botão de envio.</p>
-                <p>Essa função por sua vez usa a instância do FileLoad para acionar
-                    seu método.
-                    <q class="quote-green">load()</q> que consiste em dois parâmetros:</p>
-                <p class="bold italic">load(A, B)</p>
-                <p><span class="bold">A)</span> -&gt; Você deve informar o input file
-                    que o usuário seleciona o arquivo.</p>
-                <p><span class="bold">B)</span> -&gt; Você deve informar os métodos
-                    de execução dentro de um objeto.</p>
-                <blockquote class="quote-yellow">
-                    Qualquer método de execução é opcional!
-                    <p>Use somente aqueles que achar necessário.</p>
-                </blockquote>
-            </div>
+                </div>
+            </section>
 
-            <div class="margin-top-max">
-                <hr class="sm-line" />
-                <h3>Métodos de Execução</h3>
-                <p class="list margin-left bold font-max">readType</p>
-                <p>Nesse método você informa como string qual é o tipo de resultado
-                    que a leitura deve apresentar.</p>
-                <p>Os tipos disponíves são:</p>
-                <p><span class="bold">binary</span>: Resultado será os dados binários
-                    do arquivo.</p>
-                <p><span class="bold">text</span>: Resultado será o conteúdo do arquivo
-                    como string de texto.</p>
-                <p><span class="bold">data</span>: Resultado será um data URL
-                    representando os dados do arquivo.</p>
-                <p>O padrão será <span class="bold">data</span> se não informado
-                    o <span class="bold">readType</span>.</p>
-
-                <p class="list margin-left bold font-max">onStart</p>
-                <p>Nesse método você informa uma função
-                    que deve ser executada quando o quando o processo de
-                    leitura iniciar.</p>
-                <p>Você poderá adicionar um parâmetro de retorno, exemplo:</p>
-                <pre><code class="language-javascript">onStart: function (param) {
-}</code></pre>
-                <p>Dentro da função <span class="bold">param</span> será
-                    os dados pré processados do arquivo.</p>
-                <p>Então nesse método você pode avaliar o arquivo, digamos que
-                    somente queira arquivos PDF e o usuário selecinou qualquer
-                    outro tipo.</p>
-                <p>Nesse caso você poderá negar todo processo restante, interrompendo
-                    o FileLoad de prosseguir retornando <span class="bold">false</span>
-                    dentro do escopo do método.</p>
-                <p>Exemplo:</p>
-                <pre><code class="language-javascript">onStart: function (param) {
-    if (param.type !== 'application/pdf') {
-        return false;  // O FileLoad só executará esse método e vai parar aqui já que o tipo não é um PDF
-    }
-}</code></pre>
-                <p class="list margin-left bold font-max">onError</p>
-                <p>Nesse método você informa uma função que será executada
-                    sempre que ocorrer algum erro na leitura do arquivo.</p>
-                <p>Assim como o método <span class="bold">onStart</span>
-                    você também pode adicionar algum parâmetro que lhe informará
-                    qual erro ocorreu.</p>
-                <p class="list margin-left bold font-max">onProgress</p>
-                <p>Nesse método você informa uma função que será executada
-                    repetitivamente até que o processo de leitura termine ou aconteça algum
-                    erro.
-                <p class="text-red">Sim! Essa função vai ficar se repetindo,
-                    portanto cuidado.</p>
-                <p>Você também poderá adicionar um parâmetro que lhe informará
-                    um objeto com o tamanho original do arquivo e o quanto dele já foi
-                    lido.</p>
-                <p>Exemplo:</p>
-                <pre><code class="language-javascript">onProgress: function (e) {
-    console.log('Completado: ' + e.loaded + '| Tamanho total'+ e.total);
-}</code></pre>
-                <p>Use para o caso de queira criar animações de progresso.</p>
-                <blockquote class="quote-yellow">
-                    Tenha em mente que o FileLoad não faz upload, todo o processo
-                    é executado na máquina do usuário.
-                    <p>Dependendo da capacidade de processamento da máquina
-                        do usuário arquivos pequenos/medianos serão lidos quase que 
-                        instantaneamente.</p>
-                    <p>E arquivos grandes demais, maior que a memória da máquina
-                        resultará em "OUT_OF_MEMORY".</p>
-                    <p>Então você pode está limitando o tamanho do arquivo no
-                        método <span class="bold">onStart</span>, enfim fica a seu
-                        critério, afinal de contas não dar para saber qual é a
-                        capacidade da máquina do usuário, para prever eventuais
+            <hr class="border-bottom-min border-dark" />
+            <section class="section">
+                <h2>Ponderação</h2>
+                <div class="margin-all-prop">
+                    <p>Tenha em mente que o FileLoad não faz upload, todo o processo é executado na máquina do usuário.</p>
+                    <p>Dependendo da capacidade de processamento da máquina  do usuário arquivos pequenos/medianos
+                        serão lidos quase que instantaneamente.</p>
+                    <p>E arquivos grandes demais, maior que a memória da máquina disponível resultará em
+                        <q class="quote-red bold">OUT_OF_MEMORY</q>.</p>
+                    <p>Então você pode está limitando o tamanho do arquivo no método <span class="bold">onStart</span>, enfim fica a seu
+                        critério, afinal de contas não dar para saber qual é a capacidade da máquina do usuário, para prever eventuais
                         problemas relacionados a memória.</p>
-                </blockquote>
-                <p class="list margin-left bold font-max">onResult</p>
-                <p>Nesse método você informa uma função que será executada
-                    quando todo o processo de leitura é terminado.<p>
-                <p>Assim como nos métodos anteriores você adiciona um
-                    parâmetro que lhe informará o resultado da leitura,
-                    de acordo com o tipo que você definiu em
-                    <span class="bold">readType</span>.</p>
-            </div>
+                    <p>Mas avalie cenários:</p>
+                    <ul class="list italic">
+                        <li>Arquivos grandes que podem &quot;travar&quot; a máquina.</li>
+                        <li>Log da má execução da sua página enviada para equipe de desenvolvimento do navegador.</li>
+                        <li>Bloqueio da sua página devido a danos que o mau uso do script pode causar na máquina do usuário.</li>
+                    </ul>
+                </div>
+            </section>
+        </main>
 
-            <div class="sm-margin-top">
-                <hr class="sm-line" />
-                <h2>Método extra</h2>
-                Você poderá interromper o processo de leitura através
-                da função <span class="bold text-red">cancel()</span>,
-                pode ser ativada a qualquer momento para abortar a operação.
-                <p>Exemplo:</p>
-                <pre><code class="language-javascript">// ler é o nome da instância do FileLoad
-ler.cancel();</code></pre>
+        <footer class="section bg-dark-grey">
+            <div class="container center-content">
+                <div class="align-center text-light font-min">
+                    <p>Demonstração: <span class="italic bold">FileLoad.js</span></p>
+                    <p><a href="https://github.com/Spell-Master/sm-web/" target="_blank" class="href">
+                            https:&sol;&sol;github.com&sol;Spell-Master&sol;sm-web&sol;
+                        </a></p>
+                </div>
             </div>
-        </article>
+        </footer>
 
         <script>
-            var ler = new FileLoad();
-            var exemplo = document.getElementById('exemplo');
+            var ler = new FileLoad(),
+                input = jsd('#selecionar'),
+                label = input.prev(),
+                arquivo = undefined,
+                enviar = jsd('button'),
+                box = jsd('.box-xy-50'),
+                success = jsd('.alert-success'),
+                danger = jsd('.alert-danger'),
+                successHide = success.parent(),
+                dangerHide = danger.parent();
 
-            function enviar() {
-                ler.load(exemplo, {
-                    readType: 'text',
-                    onStart: function (e) {
-                        console.log(e);
-                        console.log('onStart:() disparado');
-                    },
-                    onError: function (e) {
-                        console.log(e);
-                        console.log('onError() disparado');
-                        alert('Ops! erro na leitura, verifique o console');
-                    },
-                    onProgress: function (e) {
-                        console.log(e.loaded, e.total);
-                        console.log('onProgress() disparado');
-                    },
-                    onResult: function (e) {
-                        alert('Processo de leitura terminado');
-                        console.log(e);
-                        console.log('onResult() disparado');
-                    }
-                });
+            var pcs = {
+                start: box.index(0),
+                error: box.index(1),
+                progress: box.index(2),
+                result: box.index(3)
+            };
+
+            input.change(function (e) {
+                arquivo = e.target.files[0];
+                label.text(arquivo.name);
+            });
+
+            enviar.click(function () {
+                if (arquivo) {
+                    ler.load(arquivo, {
+                        readType: 'data',
+                        onStart: function (e) {
+                            box.index(0).addClass('bg-green');
+                            if (e.size > 200000000) {
+                                danger.text('Arquivo muito grande, selecione um menor');
+                                dangerHide.removeClass('hide');
+                                return (false);
+                            }
+                        }, onError: function (e) {
+                            pcs.error.toggleClass('bg-green');
+                            danger.text('Consulte o log no console');
+                            dangerHide.removeClass('hide');
+                            console.log(e);
+                        }, onProgress: function (e) {
+                            pcs.progress.addClass('bg-green');
+                            console.log(e);
+                        }, onResult: function (e) {
+                            pcs.result.addClass('bg-green');
+                            successHide.removeClass('hide');
+                            console.log(e);
+                        }
+                    });
+                    resetar();
+                }
+            });
+
+            function resetar() {
+                setTimeout(function () {
+                    arquivo = undefined;
+                    box.each(function (bx) {
+                        bx.removeClass('bg-green');
+                    });
+                    dangerHide.addClass('hide');
+                    successHide.addClass('hide');
+                }, 3000);
             }
         </script>
     </body>

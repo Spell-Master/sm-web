@@ -1,152 +1,201 @@
 /**
  * **************************************************
- * FileLoad
+ * * FileLoad
  * @author Spell-Master (Omar Pautz)
  * @copyright 2022
+ * @version 2.0 (12/06/2026)
  * 
- * Carrega arquivos através de input[file]
- * Para processamento e gerenciamento de arquivos
- *  antes de enviar para o servidor.
+ * Leitura de arquivos do usuário para processamento
+ *  e gerenciamento antes de enviar para o servidor.
+ *  
+ * **************************************************
+ * * Opções
+ * 
+ * - readType: (opcional) informar string para o
+ *  tipo de resultado da leitura;
+ * 'binary' = Resultado será os dados binários
+ *  do arquivo.
+ * 'text' = Resultado será o conteúdo do arquivo
+ *  como texto.
+ * 'data' = Resultado será um data URL representando
+ *  os dados do arquivo.
+ * - onStart: (opcional) função que será
+ *  executada assim que a leitura começar;
+ * Retorna o arquivo selecionado.
+ * - onError: (opcional) função que será executada
+ *  caso houver erro na leitura;
+ * Retorna as causas do erro.
+ * - onProgress: (opcional) função que será
+ *  executada repetitivamente enquanto o
+ *  processamento da leitura não terminar;
+ * Retorna os bit's do tamanho original do
+ * arquivo e os bit's que já foram processados.
+ * - onResult: (opcional) função que será
+ *  executada quando a leitura terminar;
+ * Retorna os dados conforme o valor de "readType".
  * **************************************************
  */
 
 var FileLoad = function () {
-    var $reader = new FileReader(),
-        $file = null,
-        $options = {};
+    var $reader = undefined, $file = undefined, $options = {};
 
     /**
-     * **********************************************
-     * Obtem objeto/arquivo alvo da leitura.
+     * *********************************************
+     * * Obtem os dados para leitura
+     * 
      * @param {OBJ} file
-     * Informar o input type file de seleção de
-     *  arquivo.
-     *  
+     * Informar o arquivo para ler.
      * @param {OBJ} options
-     * * metodos de execução
-     * - readType: (opcional) informar string para
-     *  o tipo de resultado da leitura;
-     *  o padrão é 'data'.
-     * 'binary' = Resultado será os dados binários
-     *  do arquivo.
-     * 'text' = Resultado será o conteúdo do arquivo
-     *  como string de texto.
-     * 'data' = Resultado será um data 
-     * URL representando os dados do arquivo.
-     * - onStart: (opcional) função que será
-     * executada assim que a leitura começar;
-     *  Retorna o arquivo selecionado.
-     * - onError: (opcional) função que será
-     * executada caso houver erro na leitura;
-     * Retorna as causas do erro.
-     * - onProgress: (opcional) função que será
-     *  executada repetitivamente enquanto o
-     *  processamento da leitura não terminar;
-     * Retorna os bit's do tamanho original do
-     * arquivo e os bit's que já foram processados.
-     * - onResult: (opcional) função que será
-     *  executada quando a leitura terminar;
-     * Retorna os dados conforme o valor de
-     *  "readType".
-     * **********************************************
+     * Opções de execução.
+     * *********************************************
      */
-    function readStart(file, options = {}) {
-        if (typeof file.nodeType === 'number' && typeof file.nodeName === 'string') {
-            $file = file.files[0];
-            $options = {
-                readType: options.readType || 'data',
-                onStart: options.onStart || undefined,
-                onError: options.onError || undefined,
-                onProgress: options.onProgress || undefined,
-                onResult: options.onResult || undefined
-            };
-            if (typeof $options.onStart === 'function') {
-                if ($options.onStart($file) !== false) {
-                    readListener();
-                }
-            } else {
-                readListener();
-            }
-        }
+    function readData(file, options = {}) {
+        $reader = new FileReader();
+        $file = file;
+        $options = {
+            readType: options.readType,
+            onStart: options.onStart,
+            onError: options.onError,
+            onProgress: options.onProgress,
+            onResult: options.onResult
+        };
+        readStart();
     }
 
     /**
-     * **********************************************
-     * * Inicia o processos de carregamento e define
-     *  o modo de leitura.
-     * **********************************************
-     */
-    function readListener() {
-        if ($file) {
-            $reader.addEventListener('progress', readProgress, true);
-            $reader.addEventListener('load', readResult, true);
-            switch ($options.readType) {
-                case 'binary':
-                    $reader.readAsBinaryString($file);
-                    break;
-                case 'text':
-                    $reader.readAsText($file);
-                    break;
-                case 'data':
-                default:
-                    $reader.readAsDataURL($file);
-                    break;
-            }
-        }
-    }
-
-    /**
-     * **********************************************
-     * * Retorna o tamanho de bit's original do
-     *  arquivo e a quantidade de bit's que foi lida
-     *  enquanto ainda houver bit's para ler.
-     *
-     * * Em caso de erro antes da finalização do
-     *  processo retorna o erro acontecido.
-     * @param {OBJ} e
-     * **********************************************
-     */
-    function readProgress(e) {
-        if ($reader.error && (typeof $options.onError === 'function')) {
-            $options.onError($reader.error);
-        } else if (e.lengthComputable && (typeof $options.onProgress === 'function')) {
-            $options.onProgress({loaded: e.loaded, total: e.total});
-        }
-    }
-
-    /**
-     * **********************************************
-     * * Retorna os dados da leitura quando
-     *  finalizado.
-     *
-     * * Em caso de erro antes da finalização do
-     *  processo retorna o erro acontecido.
-     * **********************************************
-     */
-    function readResult(e) {
-        if ($reader.error && (typeof $options.onError === 'function')) {
-            $options.onError($reader.error);
-        } else if ($reader.readyState === 2 && (typeof $options.onResult === 'function')) {
-            $options.onResult($reader.result);
-        }
-    }
-
-    /**
-     * **********************************************
-     * * Para o processo de leitura do arquivo.
-     * **********************************************
+     * *********************************************
+     * * Cancela a leitura em andamento.
+     * *********************************************
      */
     function readAbort() {
-        $reader.abort();
+        if ($reader instanceof FileReader) {
+            $reader.abort();
+            readReset();
+        }
     }
 
     /**
-     * **********************************************
-     * * Métodos públicos.
-     * readStart() = Inicar
-     * readAbort() = Parar
-     * **********************************************
+     * *********************************************
+     * * Chama função de eventos.
+     * 
+     * @callback {FNC} onStart
+     * Retorna os dados do arquivo selecionado.
+     * Se defindo com retorno falso executa função
+     *  para cancelar a leitura
+     * *********************************************
      */
-    this.load = readStart;
+    function readStart() {
+        if (typeof $options.onStart === 'function') {
+            if ($options.onStart($file) !== false) {
+                readListener();
+            } else {
+                readAbort();
+            }
+        } else {
+            readListener();
+        }
+    }
+
+    /**
+     * *********************************************
+     * * Define o tipo de leitura e inicia os 
+     * eventos para erro, progresso e leitura.
+     * *********************************************
+     */
+    function readListener() {
+        switch ($options.readType) {
+            case 'binary':
+                $reader.readAsBinaryString($file);
+                break;
+            case 'text':
+                $reader.readAsText($file);
+                break;
+            case 'data':
+            default:
+                $reader.readAsDataURL($file);
+                break;
+        }
+        $reader.addEventListener('error', readyError, false);
+        $reader.addEventListener('progress', readProgress, true);
+        $reader.addEventListener('load', readResult, true);
+    }
+
+    /**
+     * *********************************************
+     * * Monitora supostos erros na leitura.
+     * 
+     * @param {OBJ} e
+     * Dados do evento
+     * 
+     * @callback {FNC} onError
+     * Retorna os dados do erro disparado.
+     * *********************************************
+     */
+    function readyError(e) {
+        if (typeof $options.onError === 'function') {
+            $options.onError(e);
+        }
+        readAbort();
+    }
+
+    /**
+     * *********************************************
+     * * Monitora o progresso de leitura.
+     * 
+     * @param {OBJ} e
+     * Dados do evento
+     * 
+     * @callback {FNC} onProgress
+     * Retorna os bit's total do arquivo (total).
+     * Retorna os bit's processados (loaded).
+     * *********************************************
+     */
+    function readProgress(e) {
+        if (e.lengthComputable) {
+            if (typeof $options.onProgress === 'function') {
+                $options.onProgress({total: e.total, loaded: e.loaded});
+            }
+        }
+    }
+
+    /**
+     * *********************************************
+     * * Finaliza a leitura.
+     * 
+     * @param {OBJ} e
+     * Dados do evento
+     * 
+     * @callback {FNC} onResult
+     * Retorna os dados do arquivo lido
+     * *********************************************
+     */
+    function readResult(e) {
+        if ($reader.readyState === 2) {
+            if (typeof $options.onResult === 'function') {
+                $options.onResult($reader.result);
+            }
+            readReset();
+        }
+    }
+
+    /**
+     * *********************************************
+     * * Reinicia as variáveis.
+     * *********************************************
+     */
+    function readReset() {
+        $reader = undefined;
+        $file = undefined;
+        $options = {};
+    }
+
+    /**
+     * *********************************************
+     * * Métodos públicos.
+     * load() = Inicar
+     * cancel() = Parar
+     * *********************************************
+     */
+    this.load = readData;
     this.cancel = readAbort;
 };

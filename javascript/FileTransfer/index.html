@@ -1,275 +1,431 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
     <head>
         <title>File Transfer</title>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="../../css/css-default.css" rel="stylesheet" type="text/css"/>
-        <link href="../../lib/stylesheet/core.css" rel="stylesheet" type="text/css"/>
-        <link href="../../lib/prism/prism.css" rel="stylesheet" type="text/css"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href="../../css/css-default.css" rel="stylesheet" type="text/css" />
+        <link href="../../lib/stylesheet/core.css" rel="stylesheet" type="text/css" />
+        <link href="../../lib/prism/prism.css" rel="stylesheet" type="text/css" />
         <script src="../../lib/prism/prism.js" type="text/javascript"></script>
         <script src="../jsd/js-default.js" type="text/javascript"></script>
 
         <link href="FileTransfer.css" rel="stylesheet" type="text/css" />
         <script src="FileTransfer.js" type="text/javascript"></script>
+        <script src="../jsd/js-default.js" type="text/javascript"></script>
     </head>
     <body>
-        <article class="container padding-all">
-            <h1 class="bold italic">FileTransfer.js</h1>
-            <hr class="sm-line" />
-            <p>O FileTransfer usa métodos de transferência de arquivos de forma
-                sícrona entre o usuário e o servidor.</p>
-            <p>Resumindo faz download e upload.</p>
-
-            <div class="alert-danger align-center margin-top">
-                <p class="bold">!!! IMPORTANTE !!!</p>
-                <p>O upload só funcionará se estiver executando esse arquivo em um
-                    servidor com o PHP instalado.</p>
-                <p>Seja um servidor local ou seja em um em nuvem.</p>
-                <p>Mas você não precisará necessáriamente somente do PHP,
-                    aqui apenas o utilizo para mostrar qual arquivo foi recebido.</p>
-                <p>Pois o salvamento do arquivo em nuvem depende do servidor,
-                    e aqui apenas utilizei o php.</p>
+        <header>
+            <div class="bg-dark-grey padding-all-max text-white">
+                <div class="container">
+                    <h1 class="shadow-text-white margin-left-max">FileTransfer</h1>
+                </div>
             </div>
-
-            <div class="margin-top-max">
-                <hr class="sm-line" />
-                <h2>Apresentação:</h2>
-
-                <div class="row-pad">
-                    <div class="col-quarter">
-                        <button class="btn-default button-block" onclick="download()">Download</button>
-                    </div>
-                    <div class="col-threequarter">
-                        <div class="floating">
-                            <div class="float-right">
-                                <button class="btn-default button-block" onclick="upload()">Upload</button>
-                            </div>
-                            <div class="over-not">
-                                <input class="input-default" type="file" name="enviar" />
-                            </div>
+            <div class="bg-light padding-all-prop shadow-box">
+                <p>Realiza transferências de arquivos entre utilizador e o servidor.</p>
+                <p class="font-min">Utiliza recuros das API&apos;s
+                    <a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest" target="_blank" class="href">XMLHttpRequest</a> e
+                    <a href="https://developer.mozilla.org/en-US/docs/Web/API/FormData" target="_blank" class="href">FormData</a>
+                </p>
+            </div>
+        </header>
+        <main class="container padding-all">
+            <section class="section">
+                <h2>Apresentação</h2>
+                <div class="margin-top-max">
+                    <blockquote class="quote-yellow">
+                        <p>NOTA:</p>
+                        <p>O teste a seguir requer interpretador de linguagem PHP para funcionar.</p>
+                        <p>Para informações adicionais dos processos veja o console do navegador.</p>
+                    </blockquote>
+                    <div class="row-pad">
+                        <div class="col-third">
+                            <h6>Download</h6>
+                            <button class="btn-default button-block" id="button-receber">Receber Arquivo</button>
+                        </div>
+                        <div class="col-twothird">
+                            <h6>Upload</h6>
+                            <form action="" method="post" enctype="multipart/form-data" id="form-enviar">
+                                <div class="row no-warp">
+                                    <div class="col-flex">
+                                        <input class="input-default box-y-50" type="file" name="enviar[]" multiple />
+                                    </div>
+                                    <div class="col-flex box-max-x-200">
+                                        <button class="btn-default button-block border-left-none">Enviar Arquivo</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-single">
+                            <div id="div-progresso"></div>
+                        </div>
+                        <div class="col-single">
+                            <div id="div-resultado"></div>
                         </div>
                     </div>
                 </div>
+            </section>
 
-                <pre><code id="upload-resultado" class="language-php"></code></pre>
-
-                <blockquote class="quote-yellow">
-                    <p class="bold">Observação:</p>
-                    <p>Abra o console do navegador,
-                        para informações adicionais dos processos.</p>
-                </blockquote>
-            </div>
-
-            <div class="sm-margin-top">
-                <hr class="sm-line" />
+            <hr class="border-bottom-min border-dark" />
+            <section class="section">
                 <h2>Utilização</h2>
-                <p>Adicione o arquivos necessários</p>
-                <pre><code class="language-html">&lt;script src="FileTransfer.js" type="text/javascript"&gt;&lt;/script&gt;
-&lt;link href="FileTransfer.css" rel="stylesheet" type="text/css" /&gt;</code></pre>
+                <div class="margin-all-prop">
+                    <p>Adicione o arquivo necessário.</p>
+                    <pre><code class="language-html">&lt;script src=&quot;FileTransfer.js&quot;&gt;&lt;/script&gt;</code></pre>
 
-                <div class="row-pad">
-                    <div class="col-half-max">
-                        <p class="bold list margin-left">Download</p>
-
-                        <pre><code class="language-html">&lt;button onclick="download()"&gt;Fazer download&lt;/button&gt;
+                    <div class="row-pad">
+                        <div class="col-half-max">
+                            <h6>Download</h6>
+                            <pre><code class="language-html">&lt;button id=&quot;download&quot;>DOWNLOAD&lt;/button&gt;
 &lt;script&gt;
-    function download() {
-        new FileTransfer({
-            method: 'download',
-            url: 'arquivo_para_enviar_ao_usuario.zip',
-            onStart: function (inicio) { // o que fazer antes dos processos começarem
-                console.log(inicio);
+    const transferir = new FileTransfer();
+    const botao = document.getElementById(&apos;download&apos;);
+    botao.addEventListener(&apos;click&apos;, funcaoExemplo, false);
+    function funcaoExemplo(e) {
+        transferir.download({
+            url: &apos;https:&sol;&sol;local&sol;arquivo.tipo&apos;,
+            file: &apos;nome-para-salvar&apos;,
+            onStart: function (e) {
+                console.log(e);
             },
-            onError: function (erro) { // o que fazer acontecer erros (de comuniação não do servidor)
-                console.log(erro);
+            onProgress: function (e) {
+                progresso.text(e);
             },
-            onResult: function (resultado) { // o que fazer depois dos processos terminarem
-                console.log(resultado);
+            onResult: function (e) {
+                resultado.html(e);
+            },
+            onCancel: function (e) {
+                console.log(e);
+            },
+            onError: function (e) {
+                console.log(e);
             }
         });
     }
 &lt;/script&gt;</code></pre>
-                    </div>
-                    <div class="col-half-max">
-                        <p class="bold list margin-left">Upload</p>
 
-                        <pre><code class="language-html">&lt;input type="file" name="envio" /&gt;
-&lt;button onclick="upload()"&gt;Fazer upload&lt;/button&gt;
+
+                        </div>
+                        <div class="col-half-max">
+                            <h6>Upload</h6>
+                            <pre><code class="language-html">&lt;form action=&quot;&quot; method=&quot;POST&quot; enctype=&quot;multipart/form-data&quot; id=&quot;upload&quot;&gt;
+    &lt;input type=&quot;file&quot; name=&quot;enviar&quot; /&gt;
+    &lt;button type=&quot;submit&quot;>UPLOAD&lt;/button&gt;
+&lt;/form&gt;
 &lt;script&gt;
-    function upload() {
-        new FileTransfer({
-            method: 'upload',
-            url: 'arquivo_que_vai_salvar_os_dados_recebidos.php',
-            input: document.querySelector('input'),
-            onStart: function (inicio) { // o que fazer antes dos processos começarem
-                console.log(inicio);
+    const transferir = new FileTransfer();
+    const formulario = document.getElementById(&apos;upload&apos;);
+    formulario.addEventListener(&apos;submit&apos;, funcaoExemplo, false);
+    function funcaoExemplo(evento) {
+        evento.preventDefault();
+        transferir.upload({
+            url: &apos;https:&sol;&sol;local&sol;&apos;,
+            file: formulario.elements[0], &sol;&sol; input[file] no formulário
+            onStart: function () {
             },
-            onError: function (erro) { // o que fazer acontecer erros (de comuniação não do servidor)
-                console.log(erro);
+            onProgress: function (e) {
+                console.log(e);
             },
-            onResult: function (resultado) { // o que fazer depois dos processos terminarem
-                console.log(resultado);
+            onResult: function (e) {
+                console.log(e);
+                                        },
+            onCancel: function (e) {
+                console.log(e);
+            },
+            onError: function (e) {
+                console.log(e);
             }
         });
     }
-&lt;/script&gt;</code></pre>
+&lt;/script&gt;</code></pre>    
+                        </div>
                     </div>
                 </div>
-            </div>
+            </section>
 
-            <div class="margin-top-max">
-                <hr class="sm-line" />
-                <h3>Parâmetros Obrigatórios</h3>
-                <p><span class="bold font-max">method</span>: Informe qual será o método de
-                    execução. Somente string <i>download</i> ou <i>upload</i></p>
-                <p>O método designado vai influenciar como os demais parâmetros
-                    vão se comportar.</p>
-                <p><span class="bold font-max">url</span>: Informe uma string com o destino
-                    da requisição.</p>
-                <p>- Se informado em <span class="text-red">method</span>
-                    <span class="text-blue">download</span> você deve informar o
-                    endereço do arquivo que será baixado, pode ser qualquer tipo
-                    de arquivo com qualquer tipo de extensão que o FileTransfer
-                    vai transferir indiscriminavelmente.</p>
-                <blockquote class="quote-yellow">
-                    Arquivos com extensões usadas pelo servidor serão enviados como
-                    páginas e não como arquivos brutos.
-                </blockquote>
-                <p>- Se informado em <span class="text-red">method</span>
-                    <span class="text-blue">upload</span> você deve informar o
-                    endereço para onde o(s) arquivo(s) devem ser enviados.</p>
-                <p>Nesse local por intermédio do servidor é que você os salva.</p>
-                <p><span class="bold font-max">input</span>: Informe um elemento
-                    <span class="text-green">&lt;input type="file"&gt;</span>
-                </p>
-                <p>Este parâmetro é obrigatório somente quando o método usado for
-                    <span class="text-red">upload</span>,
-                    caso o método designado for download ele será ignorado.</p>
-                <p>Para envio de multiplos arquivos simultâneamente seu atributo
-                    <span class="bold">name</span> de ser um array, exemplo:</p>
-                <pre><code class="language-html">&lt;input type="file" name="multipos[]" multiple="" /&gt;</code></pre>
-            </div>
-
-            <div class="margin-top-max">
-                <hr class="sm-line" />
-                <h3>Métodos de Execução</h3>
-                <p>Quaisquer desses métodos são opcionais,
-                    use somente aqueles que achar necessário.</p>
-                <p>De qualquer forma eles serão mais úteis para o método de upload.</p>
-
-                <p class="list margin-left bold font-max">onStart</p>
-                <p>Nesse método você informa uma função que será executada
-                    antes dos processos iniciarem.</p>
-                <p>Use para filtrar entradas e interrromper caso algo não esteja
-                    nos conformes necessários para o restante dos processos.</p>
-                <p>Se dentro do escopo do método retornar falso os demais processos
-                    não serão executados, exemplo:</p>
-                <pre><code class="language-javascript">onStart: function (param) {
-    if (alguma_coisa) {
-        return false; // o FileTransfer termina aqui e não executará o restante de seus processos
-    }
-}</code></pre>
-                <p class="list margin-left bold font-max">onError:</p>
-                <p>Nesse método você informa uma função que será executada
-                    quando algum erro de comunicação ou perda de dados ocorrer.</p>
-                <p>Ele não informará erros ocorrentes depois que os dados foram
-                    enviados para o servidor.</p>
-                <p>Você pode adicinar um parâmetro para obter as informações
-                    desses eventuais erros de comuniação.</p>
-                <p class="list margin-left bold font-max">onResult:</p>
-                <p>Nesse método você informa uma função que será executada
-                    quando todo o processo for concluído.</p>
-                <p>Ele não informará o resultado do processo.</p>
-                <p>Quando o método usado for o upload ele informará a resposta
-                    do servidor, salvando ou não o arquivo 
-                    (quem decide se salva é sempre o servidor).</p>
-                <p>Assim como nos métodos anteriores você pode está adicionando
-                    um parâmetro para obter esse resultado.</p>
-            </div>
-
-            <div class="margin-top-max">
-                <hr class="sm-line" />
-                <h3>Restrições do Servidor</h3>
-                <p>Tanto um download quanto um upload normalmente um servidor
-                    irá impedir o acesso ou aquisição de arquivos.</p>
-                <p>Se o local onde se encontra o arquivo ou o próprio arquivo
-                    estiver bloqueado seu acesso, o download do mesmo não poderá
-                    ser realizado.</p>
-                <p>Em certos casos conforme for a extensão do arquivo até a quantidade
-                    de dados desses arquivo não poderá ser efetuado o download.</p>
-                <p>No caso de upload/download o destino final também estiver bloqueado
-                    de acesso resultará em erro 404.</p>
-                <p>Na maioria das vezes um servidor já está configurado para limitar
-                    qual o limite máximo de dados que ele pode receber.</p>
-                <p>Você sempre poderá está modificando esses acessos ou configurações
-                    conforme desejar.</p>
-                <p>Vejamos o caso de um servidor onde sua linguagem é o PHP,
-                    bastando apenas alterar o <span class="bold">PHP.INI</span></p>
-                <blockquote class="quote">
+            <hr class="border-bottom-min border-dark" />
+            <section class="section">
+                <h2>Opções</h2>
+                <div class="margin-all-prop">
+                    <p class="list bold font-max">url</p>
                     <ul>
-                        <li>
-                            <span class="bold">post_max_size</span>
-                            limita o tamanho máximo de caracteres (também meta-dados)
-                            que que ele aceitará.
+                        <li><span class="bold">download</span> &DoubleRightArrow;
+                            (Obrigatório) Deve ser informado o local/arquivo onde está o arquivo para receber.
                         </li>
-                        <li>
-                            <span class="bold">upload_max_filesize</span>
-                            limita o tamanho máximo que o servidor aceitará quando um
-                            arquivo for enviado para ele.
+                        <li><span class="bold">upload</span> &DoubleRightArrow;
+                            (Obrigatório) Deve ser informado o local/arquivo para onde deve ser enviado o(s) arquivo(s).
                         </li>
                     </ul>
-                </blockquote>
-            </div>
+                </div>
+                <div class="margin-all-prop">
+                    <p class="list bold font-max">file</p>
+                    <ul>
+                        <li><span class="bold">download</span> &DoubleRightArrow;
+                            (Opcional) Informe o nome para o arquivo ao final da transferência, caso não informado o
+                            nome será uma texto numério de acordo com a data e hora do utilizador.
+                        </li>
+                        <li><span class="bold">upload</span> &DoubleRightArrow;
+                            (Obrigatório) Deve ser informado o elemento <q class="quote-blue">input do tipo file</q>
+                            ao qual os arquivos podem ser anexos.
+                        </li>
+                    </ul>
+                </div>
+            </section>
 
-            <div class="margin-top-max text-red">
-                <hr class="sm-line" />
-                <h3 class="bold">Boas Práticas!</h3>
-                <p class="bold">NUNCA! JAMAIS! DE FORMA ALGUMA!</p>
-                <p>Você nunca deve enviar ou requisitar arquivos de um usuário
-                    sem que ele realmente saiba que está a fazer um download ou upload,
-                    qualquer uma dessas ações devem ficar bem claras antes de
-                    se iniciar.</p>
-                <p>Ou seja coloque alí um botão dizendo que se ele clicar alí
-                    vai fazer o que se espera.</p>
+            <hr class="border-bottom-min border-dark" />
+            <section class="section">
+                <h2>Opções (Métodos/Callback&apos;s)</h2>
+                <div class="margin-all-prop">
+                    <blockquote class="quote-yellow">
+                        <p>Todos métodos a seguir são opcionais, use se achar necessário</p>
+                    </blockquote>
+                </div>
+
+                <div class="padding-all-prop">
+                    <h4 class="list bold">onStart</h4>
+                    <p>Deve informado uma função que será executada quando o script iniciar e
+                        antes da transferência começar a ser executada.</p>
+                    <p>Você poderá adicionar um parâmetro de retorno, exemplo:</p>
+                    <pre><code class="language-javascript">onStart: function (param) {}</code></pre>
+                    <div class="padding-tb">
+                        <p>Este parametro é nulo quando o processo usado for download sendo assim desnecessário,
+                            ou seja inútil para quaisquer usos.</p>
+                    </div>
+                    <div class="padding-tb">
+                        <p>Entretanto quando o processo for upload o parâmetro irá retornar um objeto com
+                            os dados do arquivo selecionado no <span class="bold">elemento[input]</span>.</p>
+                        <pre><code class="language-javascript">onStart: function (retorno) {
+    console.log(retorno);
+    &sol;* Assim retornando um objeto com as seguintes informações:
+    {
+        name: &apos;Nome do arquivo selecionado&apos;,
+        size: &apos;Tamanho do arquivo selecionado&apos;,
+        type: &apos;MimeType do arquivo selecionado&apos;
+    }
+    *&sol;
+}</code></pre>
+                        <p>Em condição quando o <span class="bold">elemento[input]</span> tenha o atributo
+                            <span class="bold">multiple</span> significa que ele aceita vários arquivos.</p>
+                        <p>Nesse caso o retorno será um objeto multiplo com todos os dados listados
+                            acima de acordo com cada arquivo selecionado.</p>
+                    </div>
+
+                    <div class="padding-tb">
+                        <p>Considere usar como preparação e validação, onde qualquer requisito não esteja como
+                            esperado pode ser validado durante essa etapa.</p>
+                    </div>
+
+                    <div class="padding-tb">
+                        <p>Essa função pode negar o acionamento de todos os demais processos caso a mesma retorne falso,
+                            assim parando a execução impedindo todo resto de prosseguir.</p>
+                        <p>Exemplo:</p>
+                        <pre><code class="language-javascript">onStart: function (param) {
+    if (condicional !== 'requisito') {
+        return (false);  // O FileTransfer só executará esse método e vai parar aqui devido ao retorno falso
+    }
+}</code></pre>
+                    </div>
+                </div>
+
+                <div class="padding-all-prop">
+                    <h4 class="list bold">onProgress</h4>
+                    <p>Deve ser informado uma função que será executada repetitivamente até que o processo de transferência
+                        termine ou seja interrompida por algum motivo.</p>
+                    <p class="text-red">Sim! Essa função vai ficar se repetindo, portanto cuidado.</p>
+                    <p>Você também poderá adicionar um parâmetro ao qual retorna a porcentagem do progresso executado.</p>
+                    <p>Exemplo:</p>
+                    <pre><code class="language-javascript">onProgress: function (percentual) {
+    console.log(percentual); &sol;&sol; (%) porcentagem completado da tranferência
+}</code></pre>
+                </div>
+
+                <div class="padding-all-prop">
+                    <h4 class="list bold">onError</h4>
+                    <p>Deve ser informado uma função que será executada caso aconteça algum erro na transferência.</p>
+                    <p>Você também poderá adicionar um parâmetro ao qual normalmente retorna a o código http de estado.</p>
+                    <p>Para detalhes sobre o identificação do código http 
+                        <a href="https://www.w3.org/Protocols/HTTP/HTRESP.html" target="_blank" title="www.w3.org/Protocols/HTTP/HTRESP" class="href">leia esse artigo</a>.</p>
+                    <p>Exemplo:</p>
+                    <pre><code class="language-javascript">onError: function (err) {
+    console.log(err);
+}</code></pre>
+                </div>
+
+                <div class="padding-all-prop">
+                    <h4 class="list bold">onCancel</h4>
+                    <p>Deve ser informado uma função que será executada caso a transferência seja abortada.</p>
+                    <q class="quote-yellow italic">Veremos mais adiante o método extra para essa finalidade.</q>
+                    <p>Exemplo:</p>
+                    <pre><code class="language-javascript">onCancel: function () {
+    &sol;&sol; O que fazer quando for abortada a tranferência
+}</code></pre>
+                </div>
+
+                <div class="padding-all-prop">
+                    <h4 class="list bold">onResult</h4>
+                    <p>Deve ser informado uma função que será executada quando a transferência for concluída com sucesso.</p>
+                    <p>Somente quando for utilizado o recurso de <span class="bold">upload</span> pode-se adicionar um
+                        parâmentro que retorna a resposta do servidor medianteos arquivos recebidos,
+                        <span class="italic">isso se o servidor dizer algo como resposta</span>.</p>
+                    <p>Exemplo:</p>
+                    <pre><code class="language-javascript">onResult: function (resposta) {
+    console.log(resposta); &sol;&sol; Resposta do servidor quando recebeu/manipulou o(s) arquivo(s)
+}</code></pre>
+                    <div class="margin-top">
+                        <pre><code class="language-php">&lt;?php
+var_dump($_FILES); &sol;&sol; Resposta do servidor PHP</code></pre>
+                    </div>
+
+                    <div class="margin-top">
+                        <p>Considere usar essa função para finalizar qualquer adicional que esteja ainda em funcionamento dentros das funções
+                            <span class="bold">onStart</span> e <span class="bold">onProgress</span></p>
+                        <blockquote class="quote-yellow">
+                            <p>NOTA:</p>
+                            <p>Seja no recuso upload ou no download, o recebimento ou a resposta do servidor só estará disponível
+                                um segundo depois de terminado.</p>
+                            <p>Ou seja mesmo completado a tranferência o arquivo só é enviado no download ou a resposta no upload
+                                são acionados apenas um segundo após a conclusão.</p>
+                        </blockquote>
+                    </div>
+                </div>
+            </section>
+
+            <hr class="border-bottom-min border-dark" />
+            <section class="section">
+                <h2>Método Extra</h2>
+                <div class="margin-all-prop">
+                    <p>Para parar a transferência, basta utilizar a função 
+                        <span class="bold text-red">cancel()</span>,
+                        pode ser ativada a qualquer momento para abortar a operação, mas seu funcionamento só é ativo enquanto houver alguma
+                        transferência em andameto, caso contrário nada acontecerá.</p>
+                    <p>Exemplo:</p>
+
+                    <pre><code class="language-html">&lt;button id=&quot;parar&quot;>Abortar Transferência&lt;/button&gt;
+&lt;script&gt;
+    const transferir = new FileTransfer();
+    document.getElementById(&apos;parar&apos;).addEventListener(&apos;click&apos;, function () {
+        transferir.cancel();
+    }, false);
+
+    transferir.download({
+        url: &apos;https:&sol;&sol;local&sol;arquivo.tipo&apos;,
+        onCancel: function () {
+            console.log(&apos;Transfernecia de arquivo cancelada&apos;);
+        }
+    });
+&lt;/script&gt;</code></pre>
+                </div>
+            </section>
+
+            <hr class="border-bottom-min border-dark" />
+            <section class="section">
+                <h2>Restrições do Servidor</h2>
+                <div class="margin-all-prop">
+                    <p>Tanto um download quanto um upload normalmente um servidor
+                        irá impedir o acesso ou aquisição de arquivos.</p>
+                    <p>Em certos casos conforme for a extensão do arquivo até a quantidade
+                        de dados desses arquivo não poderá ser efetuado o download.</p>
+                    <p>No caso de upload/download o destino final também estiver bloqueado
+                        de acesso resultará em erro 404.</p>
+                    <p>Na maioria das vezes um servidor já está configurado para limitar
+                        qual o limite máximo de dados que ele pode receber.</p>
+                    <p>Você sempre poderá está modificando esses acessos ou configurações
+                        conforme desejar.</p>
+                    <p>Vejamos o caso de um servidor onde sua linguagem é o PHP,
+                        bastando apenas alterar o <span class="bold">PHP.INI</span></p>
+                    <blockquote class="quote">
+                        <ul>
+                            <li>
+                                <span class="bold">post_max_size</span> &DoubleRightArrow;
+                                limita o tamanho máximo de caracteres (também meta-dados)
+                                que que ele aceitará.
+                            </li>
+                            <li>
+                                <span class="bold">upload_max_filesize</span> &DoubleRightArrow;
+                                limita o tamanho máximo que o servidor aceitará quando um
+                                arquivo for enviado para ele.
+                            </li>
+                        </ul>
+                    </blockquote>
+                </div>
+            </section>
+
+            <hr class="border-bottom-min border-dark" />
+            <section class="section">
+                <h2>Boas Práticas e questão de legislação</h2>
+                <div class="margin-all-prop">
+                    <p class="font-max bold text-red">NUNCA! JAMAIS! DE FORMA ALGUMA!</p>
+                    <p>Você não pode <span class="bold text-red">enviar ou requisitar arquivos de um usuário</span>
+                        sem que ele realmente saiba que está prestes a fazer um download ou upload iminente,
+                        ambas ações devem ficar bem claras antes de serem inicidas.</p>
+                </div>
+            </section>
+        </main>
+
+        <footer class="section bg-black">
+            <div class="container center-content">
+                <div class="align-center text-light font-min">
+                    <p>Demonstração: <span class="italic bold">FileTransfer.js</span></p>
+                    <p><a href="https://github.com/Spell-Master/sm-web/" target="_blank" class="href">
+                            https:&sol;&sol;github.com&sol;Spell-Master&sol;sm-web&sol;
+                        </a></p>
+                </div>
             </div>
-        </article>
+        </footer>
 
         <script>
-            function download() {
-                return new FileTransfer({
-                    method: 'download',
-                    url: 'transferecia/arquivo.zip',
-                    onStart: function (inicio) {
-                        console.log(inicio);
-                    },
-                    onError: function (erro) {
-                        console.log(erro);
-                    },
-                    onResult: function (resultado) {
-                        console.log(resultado);
-                    }
-                });
-            }
+            const transferir = new FileTransfer();
+            var enviar = jsd('#form-enviar');
+            var receber = jsd('#button-receber');
+            var progresso = jsd('#div-progresso');
+            var resultado = jsd('#div-resultado');
+            var inputFile = enviar.formElements().index(0);
+            var dateTime = new Date().getTime().toString();
 
-            function upload() {
-                return new FileTransfer({
-                    method: 'upload',
-                    url: 'enviar.php',
-                    input: document.querySelector('input'),
-                    onStart: function (inicio) {
-                        console.log(inicio);
-                    },
-                    onError: function (erro) {
-                        console.log(erro);
-                    },
-                    onResult: function (resultado) {
-                        console.log(resultado);
-                        jsd('#upload-resultado').html(resultado);
-                        Prism.highlightAll();
+            // download
+            receber.click(function () {
+                transferir.download({
+                    url: 'transferecia/arquivo.zip?' + dateTime + '=' + dateTime,
+                    file: 'exemplo-' + dateTime,
+                    onStart: function (e) {
+                        console.log('Iniciado Download');
+                    }, onProgress: function (e) {
+                        progresso.text('Progresso: (' + e + '%)');
+                    }, onResult: function (e) {
+                        transferir.cancel();
+                        resultado.html('<div class="alert-success">Arquivo Recebido</div>');
+                    }, onCancel: function (e) {
+                        console.log('Cancelado');
+                    }, onError: function (e) {
+                        console.log(e);
                     }
                 });
-            }
+            });
+
+            // Upload
+            enviar.submit(function (evt) {
+                evt.preventDefault();
+                transferir.upload({
+                    url: 'upload.php',
+                    file: inputFile[0],
+                    onStart: function (e) {
+                        if (!e) {
+                            resultado.html('<div class="alert-warning">Selecione um ou mais arquivos para enviar</div>');
+                            return false;
+                        } else {
+                            console.log(e);
+                        }
+                    }, onProgress: function (e) {
+                        progresso.text('Progresso: (' + e + '%)');
+                    }, onResult: function (e) {
+                        resultado.html('<div class="alert-success">Arquivo(s) Enviado(s)</div>' + e);
+                    }, onCancel: function () {
+                        console.log('Cancelado');
+                    }, onError: function (e) {
+                        console.log(e);
+                    }
+                });
+            });
         </script>
     </body>
 </html>

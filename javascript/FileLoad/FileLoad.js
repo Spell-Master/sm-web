@@ -37,7 +37,7 @@
  */
 
 var FileLoad = function () {
-    var $reader = undefined, $file = undefined, $options = {};
+    var $reader = undefined, $file = undefined, $options = {}, $progress = 0;
 
     /**
      * *********************************************
@@ -153,7 +153,8 @@ var FileLoad = function () {
     function readProgress(e) {
         if (e.lengthComputable) {
             if (typeof $options.onProgress === 'function') {
-                $options.onProgress({total: e.total, loaded: e.loaded});
+                $progress = Math.round((e.loaded / e.total) * 100);
+                $options.onProgress($progress);
             }
         }
     }

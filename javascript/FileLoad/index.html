@@ -3,10 +3,10 @@
     <head>
         <title>FileLoad</title>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="../../css/css-default.css" rel="stylesheet" type="text/css"/>
-        <link href="../../lib/stylesheet/core.css" rel="stylesheet" type="text/css"/>
-        <link href="../../lib/prism/prism.css" rel="stylesheet" type="text/css"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href="../../css/css-default.css" rel="stylesheet" type="text/css" />
+        <link href="../../lib/stylesheet/core.css" rel="stylesheet" type="text/css" />
+        <link href="../../lib/prism/prism.css" rel="stylesheet" type="text/css" />
         <script src="../../lib/prism/prism.js" type="text/javascript"></script>
         <script src="../jsd/js-default.js" type="text/javascript"></script>
         <script src="FileLoad.js" type="text/javascript"></script>
@@ -176,7 +176,7 @@
 
                 <div class="margin-all-prop">
                     <h6 class="list bold">onStart</h6>
-                    <p>Deve informado uma função que será executada quando o quando o processo de leitura iniciar.</p>
+                    <p>Deve informado uma função que será executada quando o processo de leitura iniciar.</p>
                     <p>Você poderá adicionar um parâmetro de retorno, exemplo:</p>
                     <pre><code class="language-javascript">onStart: function (param) {}</code></pre>
                     <p>Dentro da função <span class="bold">param</span> será
@@ -214,15 +214,10 @@
                     <p>Deve ser informado uma função que será executada repetitivamente até que o processo de leitura
                         termine ou aconteça algum erro.</p>
                     <p class="text-red">Sim! Essa função vai ficar se repetindo, portanto cuidado.</p>
-                    <p>Você também poderá adicionar um parâmetro que lhe informará
-                        um objeto com o tamanho original do arquivo e o quanto dele já foi lido.</p>
-                    <ul>
-                        <li><span class="bold">total</span> &DoubleRightArrow; O tamanho em bit&apos;s do arquivo.</li>
-                        <li><span class="bold">loaded</span> &DoubleRightArrow; O quanto em bit&apos;s já foi lido.</li>
-                    </ul>
+                    <p>Você também poderá adicionar um parâmetro que lhe mostra o percentual do quanto dele já foi lido.</p>
                     <p>Exemplo:</p>
                     <pre><code class="language-javascript">onProgress: function (ev) {
-    console.log(&apos;Completado: &apos; + ev.loaded + &apos; | Tamanho total: &apos; + ev.total);
+    console.log(ev); &sol;&sol; (%) Porcentagem já lida
 }</code></pre>
                 </div>
 
@@ -314,7 +309,7 @@
             </section>
         </main>
 
-        <footer class="section bg-dark-grey">
+        <footer class="section bg-black">
             <div class="container center-content">
                 <div class="align-center text-light font-min">
                     <p>Demonstração: <span class="italic bold">FileLoad.js</span></p>

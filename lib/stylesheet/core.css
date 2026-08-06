@@ -14,7 +14,7 @@ body {
 }
 
 main > section.section:first-child {
-    padding-top: 24vh !important
+    padding-top: 16vh !important
 }
 
 .spinner {animation:effect-spin 4s infinite linear}

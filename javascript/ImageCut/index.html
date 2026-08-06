@@ -1,168 +1,208 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
     <head>
         <title>ImageCut</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link href="../../css/css-default.css" rel="stylesheet" type="text/css"/>
-        <link href="../../lib/stylesheet/core.css" rel="stylesheet" type="text/css"/>
-        <link href="../../lib/prism/prism.css" rel="stylesheet" type="text/css"/>
+        <link href="../../css/css-default.css" rel="stylesheet" type="text/css" />
+        <link href="../../lib/stylesheet/core.css" rel="stylesheet" type="text/css" />
+        <link href="../../lib/prism/prism.css" rel="stylesheet" type="text/css" />
+        <link href="ImageCut.css" rel="stylesheet" type="text/css" />
         <script src="../../lib/prism/prism.js" type="text/javascript"></script>
         <script src="../jsd/js-default.js" type="text/javascript"></script>
-
-        <link href="ImageCut.css" rel="stylesheet" type="text/css" />
         <script src="ImageCut.js" type="text/javascript"></script>
     </head>
     <body>
-        <article class="container padding-all">
-            <h1 class="bold italic">ImageCut.js</h1>
-            <hr class="sm-line" />
-
-            <div class="margin-top-max">
-                <h2>Apresentação:</h2>
-
-                <div class="row-pad">
-                    <div class="col-half align-center">
-                        <div id="adicionar-imagem"></div>
-                    </div>
-                    <div class="col-half">
-                        <div id="adicionar-texto" class="over-auto" style="max-height: 400px"></div>
+        <header>
+            <header>
+                <div class="bg-dark-grey padding-all-max text-white">
+                    <div class="container">
+                        <h1 class="shadow-text-white margin-left-max">ImageCut</h1>
                     </div>
                 </div>
+                <div class="bg-light padding-all-prop shadow-box">
+                    <p>Realiza corte em imagem.</p>
+                    <p class="font-min">Utiliza recuro da API
+                        <a href="https://developer.mozilla.org/en-US/docs/Web/API/Image" target="_blank" class="href">Image</a>
+                    </p>
+                </div>
+            </header>
+        </header>
 
-                <div class="row-pad">
-                    <div class="col-single">
-                        <img src="../../lib/img/bmw-m8-gte.jpg" id="alvo-do-corte" alt="cortar imagem" class="image-auto box-max-y-500" />
-                    </div>
-                    <div class="col-third">
-                        <button data-size="plus" class="btn-info button-block">Ampliar Zoom</button>
-                    </div>
-                    <div class="col-third">
-                        <button data-size="minus" class="btn-info button-block">Reduzir Zoom</button>
-                    </div>
-                    <div class="col-third">
-                        <button onclick="definirCorte()" class="btn-success button-block">CORTAR</button>
+        <main class="container padding-all">
+            <section class="section">
+                <h2>Apresentação</h2>
+                <div class="margin-top-prop">
+                    <div class="row">
+                        <div class="col-threequarter">
+                            <img src="../../lib/img/uracan.jpg" alt="cortar imagem" id="exemplo" class="image-auto" />
+                        </div>
+                        <div class="col-quarter padding-lr">
+                            <button data-size="plus" class="btn-info button-block">Ampliar Zoom</button>
+                            <button data-size="minus" class="btn-info button-block">Reduzir Zoom</button>
+                            <button data-cut="x" class="btn-success button-block margin-top">CORTAR</button>
+                        </div>
                     </div>
                 </div>
-            </div>
+                <div class="margin-top-prop">
+                    <div class="row-pad" id="resultado">
+                        <div class="col-half"></div>
+                        <div class="col-half box-max-y-200 over-auto"></div>
+                    </div>
+                </div>
+            </section>
 
-            <div class="sm-margin-top">
-                <hr class="sm-line" />
-                <h2>Exemplo Prático</h2>
-
-                <pre><code class="language-html">&lt;img src="imagem.jpg" id="alvo" alt="" /&gt;
-&lt;button onclick="cortar.sizePlus()"&gt;Ampliar Zoom&lt;/button&gt;
-&lt;button onclick="cortar.sizeMinus()"&gt;Reduzir Zoom&lt;/button&gt;
-&lt;button onclick="definirCorte()"&gt;CORTAR&lt;/button&gt;
-&lt;script&gt;
-    var cortar = new ImageCut( document.getElementById('alvo') );
-    
-    function definirCorte() {
-        cortar.setCut(); // Corta a imagem
-        var imagemCortada = cortar.getImage(); // Obtem a imagem cortada
-        /* Com os dados de "imagemCortada" você faz o que tem de fazer
-         * Exemplo criano uma nova imagem */ 
-        var novaImagem = document.createElement('img');
-        novaImagem.src = imagemCortada;
-        console.log( novaImagem );
-    }
-&lt;/script&gt;</code></pre>
-            </div>
-
-            <div class="sm-margin-top">
-                <hr class="sm-line" />
+            <hr class="border-bottom-min border-dark" />
+            <section class="section">
                 <h2>Utilização</h2>
-                <p>Adicione o arquivos necessários</p>
-                <pre><code class="language-html">&lt;script src="ImageCut.js" type="text/javascript"&gt;&lt;/script&gt;
-&lt;link href="ImageCut.css" rel="stylesheet" type="text/css" /&gt;</code></pre>
+                <div class="padding-all-prop">
+                    <p>Adicione os arquivos necessários.</p>
+                    <pre><code class="language-html">&lt;script src=&quot;ImageCut.js&quot; type=&quot;text&sol;javascript&quot;&gt;&lt;&sol;script&gt;
+&lt;link href=&quot;ImageCut.css&quot; rel=&quot;stylesheet&quot; type=&quot;text&sol;css&quot; &sol;&gt;</code></pre>
+                </div>
 
-                <p>O próximo passo é ter uma imagem, e essa imagem deve possuir
-                    alguma forma de identificação aqui eu vou usar o atrinuto
-                    #ID para informar que ela será alvo das funções, exemplo:</p>
-                <pre><code class="language-html">&lt;img src="imagem.jpg" id="alvo" alt="" /&gt;</code></pre>
+                <div class="padding-all-prop">
+                    <p>Adicione alguma tag IMG</p>
+                    <pre><code class="language-html">&lt;img src=&quot;imagem.jpg&quot; id=&quot;alvo-do-corte&quot; alt=&quot;&quot; &sol;&gt;</code></pre>
+                    <blockquote class="quote-red">
+                        <p>ATENÇÃO</p>
+                        <p>Tenha certeza que a imagem renderizada possua 250 pixe&apos;s ou mais de altura e largura.</p>
+                    </blockquote>
+                </div>
 
-                <p>Com a imagem identificada criamos um objeto do ImageCut,
-                    fornecendo a imagem como parâmetro.</p>
-                <pre><code class="language-javascript">var imagem = document.getElementById('alvo');
-var cortar = new ImageCut(imagem);</code></pre>
-                <p>Quando o ImageCut carregar irá substiutir a imagem por uma cópia
-                    que será usada nos demais processos.</p>
-                <p>Para o corte e os demais métodos usamos o objeto da instância,
-                    no caso como demostrado acima é
-                    "<span class="bold text-red">cortar</span>".</p>
-                <p>Assim como transcrito
-                    <q class="quote-green">var cortar = new ....</q></p>
-                <p>A partir de então com outras funções axiliares usa-se esse objeto
-                    para acionar os demais métodos.</p>
+                <div class="padding-all-prop">
+                    Com a imagem identifica inicie o script
+                    <pre><code class="language-html">&lt;img src=&quot;imagem.jpg&quot; id=&quot;alvo-do-corte&quot; alt=&quot;exemplo&quot; &sol;&gt;
+&lt;script&gt;
+    var cortar = new ImageCut( document.getElementById(&apos;alvo-do-corte&apos;) );
+&lt;&sol;script&gt;</code></pre>
+                </div>
+            </section>
+
+            <hr class="border-bottom-min border-dark" />
+            <section class="section">
+                <h2>Funções Extras</h2>
+
+                <div class="padding-all-prop">
+                    <h4 class="list">setCut</h4>
+                    <p class="italic bold">Realiza o corte da área selecionada.</p>
+                    <p>Deve ser acionada por ação externa como por exemplo um botão alocando na memória em base-64 os dados do corte.</p>
+                    <pre><code class="language-html">&lt;img src=&quot;imagem.jpg&quot; id=&quot;alvo-do-corte&quot; alt=&quot;exemplo&quot; &sol;&gt;
+&lt;button id=&quot;cortar&quot;&gt;Cortar Imagem&lt;&sol;button&gt;
+&lt;script&gt;
+    var cortar = new ImageCut( document.getElementById(&apos;alvo-do-corte&apos;) );
+    document.getElementById(&apos;cortar&apos;).click(function (e) {
+        cortar.setCut();
+    }, false);
+&lt;&sol;script&gt;</code></pre>
+                </div>
+
+                <div class="padding-all-prop">
+                    <h4 class="list">getImage</h4>
+                    <p class="italic bold">Obtem os dados da area cortada.</p>
+                    <p>Pode ser acionada por ação externa logo após a função <q class="quote-blue">setCut</q> for executada.</p>
+                    <pre><code class="language-html">&lt;img src=&quot;imagem.jpg&quot; id=&quot;alvo-do-corte&quot; alt=&quot;exemplo&quot; &sol;&gt;
+&lt;button id=&quot;cortar&quot;&gt;Cortar Imagem&lt;&sol;button&gt;
+&lt;script&gt;
+    var cortar = new ImageCut( document.getElementById(&apos;alvo-do-corte&apos;) );
+    var dados = '';
+    document.getElementById(&apos;cortar&apos;).click(function (e) {
+        cortar.setCut();
+        dados = cortar.getImage();
+    }, false);
+&lt;&sol;script&gt;</code></pre>
+                </div>
+
+                <div class="padding-all-prop">
+                    <h4 class="list">sizePlus</h4>
+                    <p class="italic bold">Almenta em 10 pixel&apos;s o tamanho da área de corte.</p>
+                    <p>Pode ser acionada diversas vezes ampliando cada mais a área.</p>
+                    <pre><code class="language-html">&lt;img src=&quot;imagem.jpg&quot; id=&quot;alvo-do-corte&quot; alt=&quot;exemplo&quot; &sol;&gt;
+&lt;button id=&quot;ampliar&quot;&gt;Ampliar&lt;&sol;button&gt;
+&lt;script&gt;
+    var cortar = new ImageCut( document.getElementById(&apos;alvo-do-corte&apos;) );
+    document.getElementById(&apos;ampliar&apos;).click(function (e) {
+        cortar.sizePlus();
+    }, false);
+&lt;&sol;script&gt;</code></pre>
+                </div>
+
+                <div class="padding-all-prop">
+                    <h4 class="list">sizeMinus</h4>
+                    <p class="italic bold">Almenta em 10 pixel&apos;s o tamanho da área de corte.</p>
+                    <p>Pode ser acionada diversas vezes reduzindo cada mais a área.</p>
+                    <pre><code class="language-html">&lt;img src=&quot;imagem.jpg&quot; id=&quot;alvo-do-corte&quot; alt=&quot;exemplo&quot; &sol;&gt;
+&lt;button id=&quot;reduzir&quot;&gt;Reduzir&lt;&sol;button&gt;
+&lt;script&gt;
+    var cortar = new ImageCut( document.getElementById(&apos;alvo-do-corte&apos;) );
+    document.getElementById(&apos;reduzir&apos;).click(function (e) {
+        cortar.sizeMinus();
+    }, false);
+&lt;&sol;script&gt;</code></pre>
+                </div>
+
+                <div class="padding-all-prop">
+                    <blockquote class="quote-green">
+                        <p>Lembre-se que o corte não passa de uma representação em base64
+                            da imagem no local onde está a caixa de corte, portanto esse valor
+                            pode ser utilizado por uma infinidade de situações, conforme
+                            for necessário um corte de imagem.</p>
+
+                        <p class="margin-top">ImageCut não se iniciará enquanto a imagem não estiver completamente
+                            carregada, portanto para images grandes dependendo da velocidade
+                            de conexão e capacidade de processamento da máquina do usuário,
+                            o script pode demorar a está operacional.</p>
+                </div>
+
+            </section>
+        </main>
+
+        <footer class="section bg-black">
+            <div class="container center-content">
+                <div class="align-center text-light font-min">
+                    <p>Demonstração: <span class="italic bold">ImageCut.js</span></p>
+                    <p><a href="https://github.com/Spell-Master/sm-web/" target="_blank" class="href">
+                            https:&sol;&sol;github.com&sol;Spell-Master&sol;sm-web&sol;
+                        </a></p>
+                </div>
             </div>
-
-            <div class="sm-margin-top">
-                <hr class="sm-line" />
-                <h2>Métodos</h2>
-
-                <p><span class="bold font-max">sizePlus</span>:
-                    Este método irá almentar o tamanho da caixa de corte.
-                </p>
-                <p><span class="bold font-max">sizeMinus</span>:
-                    Este método irá diminuir o tamanho da caixa de corte.
-                </p>
-                <blockquote class="quote">
-                    <p>Girando a "roda" do mouse dentro da caixa de corte o tamanho também
-                        será alterado, o mesmo acontece pressionando as teclas "+" e "-"
-                        do teclado.</p>
-                    <p>Essa funcionabilidade não precisa de intervenção
-                        ela estará ativa a todo momento.</p>
-                </blockquote>
-                <p><span class="bold font-max">setCut</span>:
-                    Este método irá cortar a imagem no local e com as delimitações
-                    da caixa de corte.
-                </p>
-                <p><span class="bold font-max">getImage</span>:
-                    Este método irá obter um base64 da imagem no local e com as delimitações
-                    da caixa de corte.
-                </p>
-            </div>
-
-            <div class="sm-margin-top">
-                <blockquote class="quote-green">
-                    <p>Lembre-se que o corte não passa de uma representação em base64
-                        da imagem no local onde está a caixa de corte, portanto esse valor
-                        pode ser utilizado por uma infinidade de situações, conforme
-                        for necessário um corte de imagem.</p>
-
-                    <p class="margin-top">ImageCut não se iniciará enquanto a imagem não estiver completamente
-                        carregada, portanto para images grandes dependendo da velocidade
-                        de conexão e capacidade de processamento da máquina do usuário,
-                        o script pode demorar a está operacional.</p>
-                </blockquote>
-            </div>
-        </article>
+        </footer>
 
         <script>
-            var cortar = new ImageCut(jsd('#alvo-do-corte')[0]),
-                addImg = jsd('#adicionar-imagem'),
-                addText = jsd('#adicionar-texto'),
-                novaImagem = null,
-                b64 = null,
-                sizeBtn = jsd('[data-size]'),
-                intervalo = 0;
+            var cortar = new ImageCut(jsd.getID('exemplo')[0]);
+            var cutBtn = jsd('button[data-cut]');
+            var sizeBtn = jsd('button[data-size]');
+            var resultado = jsd('#resultado').childAll();
+            var b64 = '';
+            var novaImagem = null;
+            var intervalo = 0;
 
-            function definirCorte() {
-                novaImagem = document.createElement('img');
+            cutBtn.click(function () {
                 cortar.setCut();
+
                 b64 = cortar.getImage();
-                novaImagem.alt = '';
-                novaImagem.src = b64;
-                addImg.html('');
-                addImg.append(novaImagem);
-                addText.text(b64);
-                window.scrollTo({top: 0, behavior: 'smooth'});
-            }
+                novaImagem = jsd.create({
+                    tagName: 'img',
+                    classList: 'image-auto margin-auto',
+                    src: b64,
+                    alt: 'copia da imagem alvo'
+                });
+                resultado.index(0).html('');
+                resultado.index(0).append(novaImagem);
+
+                resultado.index(1).text(b64);
+
+                window.scrollTo({
+                    top: resultado.index(0).parent()[0].offsetTop,
+                    left: 0,
+                    behavior: 'smooth'
+                });
+            });
 
             sizeBtn.mousedown(function (e) {
                 intervalo = setInterval(function () {
                     if (e.target.dataset.size === 'plus') {
-                        cortar.sizePlus();
+                        cortar.sizePlus('aaa');
                     } else {
                         cortar.sizeMinus();
                     }

@@ -3,7 +3,7 @@
  * ImageCut
  * @author Spell-Master (Omar Pautz)
  * @copyright 2019
- * @version 2.3 (2023)
+ * @version 3.0 (06/08/2026)
  * 
  * NÃO MODIFICAR NADA NESSE ARQUIVO!!!
  * Para correto funcionamento da ferramenta de corte
@@ -17,23 +17,28 @@ img {
     max-height: 100%;
     border: none
 }
-.cut-focus {
-    filter: blur(.1875rem) brightness(50%)
+.imagecut-targert {
+    filter: blur(.1875rem) brightness(70%)
 }
-.cut-limiter::selection,
-.cut-box::selection {
+.imagecut-limiter::selection,
+.imagecut-box::selection {
     background: transparent
 }
-.cut-limiter {
+.imagecut-limiter {
+    display: inline-block;
     z-index: 1;
     position: relative;
     margin: auto;
     width: auto;
     height: auto;
     overflow: hidden;
-    border: .0625rem solid #e5e5e5
+    border: .0625rem solid rgba(0, 0, 0, .5)
 }
-.cut-box {
+.imagecut-limiter {
+    min-width: 15.625rem;
+    min-height: 15.625rem
+}
+.imagecut-box {
     z-index: 2;
     position: absolute;
     left: 50%;
@@ -43,14 +48,30 @@ img {
     width: 12.5rem;
     height: 12.5rem;
     overflow: hidden;
-    border: .0625rem solid #e5e5e5;
-    box-sizing: content-box
-}
-.cut-box:hover,
-.cut-box:active {
+    border: .0625rem solid rgba(255, 255, 255, .5);
+    box-sizing: content-box;
     cursor: move
 }
-.cut-box > img {
+.imagecut-box > img {
     position: absolute;
-    display: block
+    display: block;
+    width: auto;
+    height: auto;
+    min-width: 15.625rem;
+    min-height: 15.625rem;
+    max-width: max-content;
+    max-height: max-content
+}
+.imagecut-resize {
+    width: 1.5625rem;
+    height: 1.5625rem;
+    position: absolute;
+    bottom: .0625rem;
+    right: .0625rem;
+    z-index: 3;
+    cursor: se-resize;
+    border-style: solid;
+    border-width: 0rem 0rem 1.5625rem 1.5625rem;
+    border-color: transparent transparent rgba(0, 0, 0, .8) transparent;
+    transform: rotate(0deg)
 }

@@ -2,13 +2,14 @@
 <html lang="pt-BR">
     <head>
         <title>FileLoad</title>
-        <meta charset="UTF-8">
+        <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link href="../../css/css-default.css" rel="stylesheet" type="text/css" />
         <link href="../../lib/stylesheet/core.css" rel="stylesheet" type="text/css" />
         <link href="../../lib/prism/prism.css" rel="stylesheet" type="text/css" />
         <script src="../../lib/prism/prism.js" type="text/javascript"></script>
         <script src="../jsd/js-default.js" type="text/javascript"></script>
+
         <script src="FileLoad.js" type="text/javascript"></script>
     </head>
     <body>
@@ -18,11 +19,13 @@
                     <h1 class="shadow-text-white margin-left-max">FileLoad</h1>
                 </div>
             </div>
-            <div class="bg-light padding-all-prop shadow-box">
-                <p>Faz a leitura de arquivos para manipulação desses ainda na máquina do usuário.</p>
-                <p class="font-min">Utiliza recuros da API
-                    <a href="https://developer.mozilla.org/en-US/docs/Web/API/FileReader" target="_blank" class="href">FileReader</a>
-                </p>
+            <div class="bg-light shadow-box">
+                <div class="container padding-all-prop">
+                    <p>Faz a leitura de arquivos para manipulação desses ainda na máquina do usuário.</p>
+                    <p class="font-min">Utiliza recuros da API
+                        <a href="https://developer.mozilla.org/en-US/docs/Web/API/FileReader" target="_blank" class="href">FileReader</a>
+                    </p>
+                </div>
             </div>
         </header>
 
@@ -86,39 +89,39 @@
                 <h2>Utilização</h2>
                 <div class="margin-all-prop">
                     <p>Adicione o arquivo necessário.</p>
-                    <pre><code class="language-html">&lt;script src=&quot;FileLoad.js&quot;&gt;&lt;/script&gt;</code></pre>
+                    <pre><code class="language-html">&lt;script src=&quot;FileLoad.js&quot;&gt;&lt;&sol;script&gt;</code></pre>
                 </div>
 
                 <div class="margin-all-prop">
                     <p>Declare um objeto para FileLoad ao final do documento.</p>
                     <pre><code class="language-html">&lt;script&gt;
     var ler = new FileLoad();
-&lt;/script&gt;</code></pre>
+&lt;&sol;script&gt;</code></pre>
                 </div>
 
                 <div class="margin-all-prop">
                     <p>Para inicar deve-se chamar o método <q class="quote-blue bold">load</q>
-                        especificando como parâmetro o arquivo para ser lido e as opções/callback&apos;s.</p>
+                        especificando como parâmetro o arquivo para ser lido e as opções&sol;/callback&apos;s.</p>
                     <p>As opções e callback&apos;s é de livre escolha, ou seja pode-se usar ou não,
                         mas o arquivo é necessário.</p>
                     <p>O arquivo é obtido através de um <q class="quote italic">&lt;input type=&quot;file&quot; /&gt;</q>.</p>
                     <p>Exemplo:</p>
                     <pre><code class="language-html">&lt;input type=&quot;file&quot; id=&quot;exemplo&quot; /&gt;
 &lt;script&gt;
-    var ler = new FileLoad(); // Instância do FileLoad
-    var input = document.getElementById(&apos;exemplo&apos;); // Identificar o input
+    var ler = new FileLoad(); &sol;&sol; Instância do FileLoad
+    var input = document.getElementById(&apos;exemplo&apos;); &sol;&sol; Identificar o input
     var arquivo = null;
 
-    input.addEventListener(&apos;change&apos;, iniciarLeitura, false); // Quando algo é selecionado
+    input.addEventListener(&apos;change&apos;, iniciarLeitura, false); &sol;&sol; Quando algo é selecionado
 
-    // Função de execução
+    &sol;&sol; Função de execução
     function iniciarLeitura(evento) {
-        arquivo = evento.target.files[0]; // Arquivo anexo ao input[&apos;file&apos;]
+        arquivo = evento.target.files[0]; &sol;&sol; Arquivo anexo ao input[&apos;file&apos;]
 
-        // ler é o nome da instância do FileLoad
+        &sol;&sol; ler é o nome da instância do FileLoad
         ler.load(arquivo, {readType: &apos;data&apos;});
     }
-&lt;/script&gt;</code></pre>
+&lt;&sol;script&gt;</code></pre>
                 </div>
 
                 <div class="margin-all-prop">
@@ -167,7 +170,7 @@
 
             <hr class="border-bottom-min border-dark" />
             <section class="section">
-                <h2>Opções (Métodos/Callback&apos;s)</h2>
+                <h2>Opções (Métodos&sol;Callback&apos;s)</h2>
                 <div class="margin-all-prop">
                     <blockquote class="quote-yellow">
                         <p>Todos métodos a seguir são opcionais, use se achar necessário</p>
@@ -189,8 +192,8 @@
                         dentro do escopo do método.</p>
                     <p>Exemplo:</p>
                     <pre><code class="language-javascript">onStart: function (param) {
-    if (param.type !== &apos;application/pdf&apos;) { // Se não for um arquivo PDF
-        return (false);  // O FileLoad só executará esse método e vai parar aqui devido ao retorno falso
+    if (param.type !== &apos;application/pdf&apos;) { &sol;&sol; Se não for um arquivo PDF
+        return (false); &sol;&sol; O FileLoad só executará esse método e vai parar aqui devido ao retorno falso
     }
 }</code></pre>
                 </div>
@@ -238,18 +241,18 @@
                         <span class="bold text-red">cancel()</span>,
                         pode ser ativada a qualquer momento para abortar a operação.</p>
                     <p>Exemplo:</p>
-                    <pre><code class="language-html">&lt;input type=&quot;file&quot; id=&quot;exemplo&quot; /&gt;
-&lt;button id=&quot;parar&quot;&gt;Abortar Leitura&lt;/button&gt;
+                    <pre><code class="language-html">&lt;input type=&quot;file&quot; id=&quot;exemplo&quot; &sol;&gt;
+&lt;button id=&quot;parar&quot;&gt;Abortar Leitura&lt;&sol;button&gt;
 &lt;script&gt;
     var ler = new FileLoad();
     var arquivo = document.getElementById(&apos;exemplo&apos;);
     
     document.getElementById(&apos;parar&apos;).addEventListener(&apos;click&apos;, function () {
-        ler.cancel(); // Para a leitura
+        ler.cancel(); &sol;&sol; Para a leitura
     }, false);
     
     ler.load(arquivo.files[0], {readType: &apos;data&apos;});
-&lt;/script&gt;</code></pre>
+&lt;&sol;script&gt;</code></pre>
                 </div>
             </section>
 
@@ -260,30 +263,30 @@
                     <pre><code class="language-html">&lt;input type="file" /&gt;
 &lt;button onclick="lerArquivo()"&gt;Ler Arquivo&lt;/button&gt;
 &lt;script&gt;
-    var ler = new FileLoad(); // Instância do FileLoad
+    var ler = new FileLoad(); &sol;&sol; Instância do FileLoad
 
-    // Identifique o input file
+    &sol;&sol; Identifique o input file
     var input = document.getElementsByTagName('input')[0];
 
     function lerArquivo() {
-        // ler é o nome da instância do FileLoad
+        &sol;&sol; ler é o nome da instância do FileLoad
         ler.load(input.files[0], {
             readType: 'text',
             onStart: function (arquivo) {
-                // O que fazer quando é iniciado
+                &sol;&sol; O que fazer quando é iniciado
             },
             onError: function (erro) {
-                // O que fazer se acontecer erro
+                &sol;&sol; O que fazer se acontecer erro
             },
             onProgress: function (progresso) {
-                // O que fazer enquanto o arquivo está sendo processado
+                &sol;&sol; O que fazer enquanto o arquivo está sendo processado
             },
             onResult: function (resultado) {
-                // O que fazer quando terminar
+                &sol;&sol; O que fazer quando terminar
             }
         });
     }
-&lt;/script&gt;</code></pre>
+&lt;&sol;script&gt;</code></pre>
                 </div>
             </section>
 
@@ -322,15 +325,15 @@
 
         <script>
             var ler = new FileLoad(),
-                input = jsd('#selecionar'),
-                label = input.prev(),
-                arquivo = undefined,
-                enviar = jsd('button'),
-                box = jsd('.box-xy-50'),
-                success = jsd('.alert-success'),
-                danger = jsd('.alert-danger'),
-                successHide = success.parent(),
-                dangerHide = danger.parent();
+                    input = jsd('#selecionar'),
+                    label = input.prev(),
+                    arquivo = undefined,
+                    enviar = jsd('button'),
+                    box = jsd('.box-xy-50'),
+                    success = jsd('.alert-success'),
+                    danger = jsd('.alert-danger'),
+                    successHide = success.parent(),
+                    dangerHide = danger.parent();
 
             var pcs = {
                 start: box.index(0),

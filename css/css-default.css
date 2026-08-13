@@ -1,7 +1,7 @@
 /**
  * ****************************************
  * @Copyright (c) 2017, Spell Master.
- * @Version: 5.0 (BETA)
+ * @Version: 5.1 (BETA)
  * @Requisitos: Navegador compatível com
  * HTML 5 e CSS 3
  * ****************************************
@@ -359,6 +359,23 @@ blockquote.quote-red    {border-left: .3125rem solid #990500 !important}
 blockquote.quote-green  {border-left: .3125rem solid #1d4c00 !important}
 blockquote.quote-blue   {border-left: .3125rem solid #0051b4 !important}
 blockquote.quote-yellow {border-left: .3125rem solid #71631c !important}
+
+/**
+ * ****************************************
+ * Vidros
+ * ****************************************
+ */
+[class^="glass"] {
+    background-clip: border-box;
+    backdrop-filter: blur(.25rem)
+}
+.glass        {background-color: rgba(100, 100, 100, .2)}
+.glass-light  {background-color: rgba(255, 255, 255, .2)}
+.glass-dark   {background-color: rgba(0,   0,   0,   .2)}
+.glass-red    {background-color: rgba(255, 0,   0,   .2)}
+.glass-green  {background-color: rgba(0,   255, 50,  .2)}
+.glass-blue   {background-color: rgba(0,   100, 255, .2)}
+.glass-yellow {background-color: rgba(255, 255, 0,   .2)}
 
 /**
  * ****************************************

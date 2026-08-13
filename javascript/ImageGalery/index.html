@@ -1,146 +1,263 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
     <head>
         <title>ImageGalery</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="../../css/css-default.css" rel="stylesheet" type="text/css"/>
-        <link href="../../lib/stylesheet/core.css" rel="stylesheet" type="text/css"/>
-        <link href="../../lib/prism/prism.css" rel="stylesheet" type="text/css"/>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href="../../css/css-default.css" rel="stylesheet" type="text/css" />
+        <link href="../../lib/stylesheet/core.css" rel="stylesheet" type="text/css" />
+        <link href="../../lib/prism/prism.css" rel="stylesheet" type="text/css" />
         <script src="../../lib/prism/prism.js" type="text/javascript"></script>
+        <script src="../jsd/js-default.js" type="text/javascript"></script>
 
-        <link href="ImageGalery.css" rel="stylesheet" type="text/css"/>
+        <link href="ImageGalery.css" rel="stylesheet" type="text/css" />
         <script src="ImageGalery.js" type="text/javascript"></script>
 
         <style>
             .col-third > img {
                 max-height: 180px;
-                width: 100%;
-                cursor: pointer
+                width: 100%
             }
         </style>
     </head>
     <body>
-        <article class="container padding-all">
-            <h1 class="bold italic">ImageGalery.js</h1>
-            <hr class="sm-line" />
-            <p>O ImageGalery exibe as imagens fora do contexto da página como
-                demonstração individual de cada imagem.</p>
-            <p>Adicionando assim uma galeria sobre quais imagens serão mostradas,
-                na parte inferior da tela, quando clicado sobre alguma altera a
-                imagem principal de exibição.</p>
-            <p>Clique sobre alguma imagem para iniciar.</p>
-
-            <div class="margin-top-max">
-                <hr class="sm-line" />
-                <h2>Apresentação:</h2>
-
-                <div class="row-pad">
-                    <div class="col-third">
-                        <img src="../../lib/img/paisagem_01.jpg" alt="" data-galery="" />
-                    </div>
-                    <div class="col-third">
-                        <img src="../../lib/img/paisagem_02.jpg" alt="" data-galery="" />
-                    </div>
-                    <div class="col-third">
-                        <img src="../../lib/img/paisagem_03.jpg" alt="" data-galery="" />
-                    </div>
-                    <div class="col-third">
-                        <img src="../../lib/img/paisagem_04.jpg" alt="" data-galery="" />
-                    </div>
-                    <div class="col-third">
-                        <img src="../../lib/img/paisagem_05.jpg" alt="" data-galery="" />
-                    </div>
-                    <div class="col-third">
-                        <img src="../../lib/img/paisagem_06.jpg" alt="" data-galery="" />
-                    </div>
-                    <div class="col-third">
-                        <img src="../../lib/img/paisagem_07.jpg" alt="" data-galery="" />
-                    </div>
-                    <div class="col-third">
-                        <img src="../../lib/img/paisagem_08.jpg" alt="" data-galery="" />
-                    </div>
-                    <div class="col-third">
-                        <img src="../../lib/img/paisagem_09.jpg" alt="" data-galery="" />
-                    </div>
+        <header>
+            <div class="bg-dark-grey text-white">
+                <div class="container padding-all-prop">
+                    <h1 class="shadow-text-white margin-left-prop">ImageGalery</h1>
                 </div>
             </div>
-
-            <div class="sm-margin-top">
-                <hr class="sm-line" />
-                <h2>Exemplo Prático</h2>
-                <pre><code class="language-html">&lt;img src="imagem_a.jpg" alt="" data-galery="" /&gt;
-&lt;img src="imagem_b.jpg" alt="" data-galery="" /&gt;
-&lt;img src="imagem_c.jpg" alt="" data-galery="" /&gt;
-&lt;script&gt;
-    var exemplo = new ImageGalery();
-&lt;/script&gt;</code></pre>
+            <div class="bg-light shadow-box">
+                <div class="container padding-all-prop">
+                    <p>Exibe imagens como galeria.</p>
+                    <p class="font-min">Utiliza recuro da API
+                        <a href="https://developer.mozilla.org/en-US/docs/Web/API/Image" target="_blank" class="href">Image</a>
+                    </p>
+                </div>
             </div>
+        </header>
 
-            <div class="sm-margin-top">
-                <hr class="sm-line" />
+        <main class="container padding-all">
+            <section class="section">
+                <h2>Apresentação</h2>
+                <div class="margin-tb-max">
+                    <div class="row-pad">
+                        <div class="col-third">
+                            <img src="../../lib/img/paisagem_01.jpg" class="image-auto" alt="" />
+                        </div>
+                        <div class="col-third">
+                            <img src="../../lib/img/paisagem_02.jpg" class="image-auto" alt="" />
+                        </div>
+                        <div class="col-third">
+                            <img src="../../lib/img/paisagem_03.jpg" class="image-auto" alt="" />
+                        </div>
+                        <div class="col-third">
+                            <img src="../../lib/img/paisagem_04.jpg" class="image-auto" alt="" />
+                        </div>
+                        <div class="col-third">
+                            <img src="../../lib/img/paisagem_05.jpg" class="image-auto" alt="" />
+                        </div>
+                        <div class="col-third">
+                            <img src="../../lib/img/paisagem_06.jpg" class="image-auto" alt="" />
+                        </div>
+                        <div class="col-third">
+                            <img src="../../lib/img/paisagem_07.jpg" class="image-auto" alt="" />
+                        </div>
+                        <div class="col-third">
+                            <img src="../../lib/img/paisagem_08.jpg" class="image-auto" alt="" />
+                        </div>
+                        <div class="col-third">
+                            <img src="../../lib/img/paisagem_09.jpg" class="image-auto" alt="" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="margin-tb-max">
+                    <div class="row-pad">
+                        <div class="col-third-min">
+                            <button class="btn-default button-block" id="checar">Verificar</button>
+                        </div>
+                        <div class="col-third-min">
+                            <button class="btn-default button-block" id="remover">Remover</button>
+                        </div>
+                        <div class="col-third-min">
+                            <button class="btn-default button-block" id="adicionar">Adicionar</button>
+                        </div>
+                    </div>
+                    <div class="col-single">
+                        <blockquote class="quote-yellow">
+                            Ao verificar veja a resposta no console do navegador.
+                        </blockquote>
+                    </div>
+                </div>
+            </section>
+
+            <hr class="border-bottom-min border-dark" />
+            <section class="section">
                 <h2>Utilização</h2>
-                <p>Adicione o arquivos necessários:</p>
-                <pre><code class="language-html">&lt;script src="ImageGalery.js" type="text/javascript"&gt;&lt;/script&gt;
-&lt;link href="ImageGalery.css" rel="stylesheet" type="text/css" /&gt;</code></pre>
+                <div class="margin-tb-max">
+                    <div class="padding-all-prop">
+                        <p>Adicione os arquivos necessários</p>
+                        <pre><code class="language-html">&lt;link href=&quot;ImageGalery.css&quot; rel=&quot;stylesheet&quot; type=&quot;text&sol;css&quot;&sol;&gt;
+&lt;script src=&quot;ImageGalery.js&quot; type=&quot;text&sol;javascript&quot;&gt;&lt;&sol;script&gt;</code></pre>
+                    </div>
+                    <div class="padding-all-prop">
+                        <p>Declare a instância ao final do documento:</p>
+                        <pre><code class="language-html">&lt;script&gt;galeria = new ImageGalery();&lt;&sol;script&gt;</code></pre>
+                    </div>
+                </div>
+            </section>
 
-                <p>Adicione os arquivos de imagens necessários, exemplo:</p>
-                <pre><code class="language-html">&lt;img src="imagem_a.jpg" alt="" data-galery="" /&gt;
-&lt;img src="imagem_b.jpg" alt="" data-galery="" /&gt;
-&lt;img src="imagem_c.jpg" alt="" data-galery="" /&gt;</code></pre>
-                <p>Perceba o uso do atributo
-                    <span class="bold text-red">data-galery</span>. Este atributo
-                    é o gatilho de dispara a iniciação do script, qualquer
-                    imagem que o possua será alvo das funções.</p>
-                <p>Caso alguma não tenha esse etributo não será carregada pelo
-                    ImageGalery.js</p>
-                <p>O próximo passo é instanciar o ImageGalery, essa etapa é adequada
-                    ser iniciado no final do documento html antes do fechamento
-                    da tag &lt;/body&gt;</p>
-                <p>No entanto também pode-se iniciar logo após a renderização dos
-                    elementos.</p>
-                <pre><code class="language-html">&lt;script&gt;
-    var exemplo = new ImageGalery();
-&lt;/script&gt;</code></pre>
-                <blockquote class="quote-yellow">
-                    <p class="bold">*NOTA:</p>
-                    <p>Para reduzir o custo do desempenho, o ImageGalery
-                        não irá verificar se todas as imagens estão devidamente
-                        carregadas, portanto incoerências aleatórias podem ocorrer
-                        devido a falhas de carregamento, imagens muito pesadas
-                        ou ataque cross-script.</p>
-                    <p>O processo de checagem pode ser realizado antes de criar
-                        a instância se achar que seja necessário.</p>
-                </blockquote>
-            </div>
+            <hr class="border-bottom-min border-dark" />
+            <section class="section">
+                <h2>Opções de Iniciação</h2>
+                <div class="margin-tb-max">
+                    <div class="padding-all-prop">
+                        <ul>
+                            <li><span class="bold">zIndex</span> &DoubleRightArrow; (opcional) Informar um valor inteiro para definir para definir
+                                o valor da propriedade de estilo &quot;z-index&quot; para a galeria, caso não informado a galeria vai possuir o
+                                seguinte valor... <q class="quote-blue">z-index:1</q></li>
+                            <li><span class="bold">images</span> &DoubleRightArrow; (opcional) Informar uma ou mais imagens presentes no
+                                documento para serem anexadas a galeria.</li>
+                        </ul>
+                        <blockquote class="quote-yellow">
+                            <p>NOTA:</p>
+                            <p>Imagens podem ser adicionadas ou removidas posteriormente depois na iniciação da ImageGalery</p>
+                        </blockquote>
+                    </div>
+                    <div class="padding-all-prop">
+                        <p class="bold">Exemplo de iniciação com as opções:</p>
+                        <pre><code class="language-html">&lt;img src=&quot;exemplo-a&quot; alt=&quot;&quot; height=&quot;200&quot; width=&quot;200&quot; &sol;&gt;
+&lt;img src=&quot;exemplo-b&quot; alt=&quot;&quot; height=&quot;200&quot; width=&quot;200&quot; &sol;&gt;
+&lt;img src=&quot;exemplo-c&quot; alt=&quot;&quot; height=&quot;200&quot; width=&quot;200&quot; &sol;&gt;
+&lt;script&gt;
+    var exemplo = document.querySelectorAll(&apos;img&apos;);
+    var galeria = new ImageGalery({
+        zIndex: 999,
+        images: exemplo
+    });
+&lt;&sol;script&gt;</code></pre>
+                    </div>
+                </div>
+            </section>
 
-            <div class="margin-top-max">
-                <hr class="sm-line" />
-                <h3>Métodos Extras</h3>
-                <p class="list margin-left font-max bold">
-                    reload
-                </p>
-                <p>Este método irá recarregar as imagens pertecentes as funções,
-                    caso venha a remover ou adicionar imagens você poderá usar-lo
-                    para redefinir o ImageGalery a condição atual.</p>
-                <pre><code class="language-html">&lt;script&gt;
-    var exemplo = new ImageGalery();
-    exemplo.reload(); // Recarrega tudo.
-&lt;/script&gt;</code></pre>
-                <h3>Métodos de Extras</h3>
-                <p class="list margin-left font-max bold">
-                    elements
-                </p>
-                <p>Este método irá retonar todas imagens pertecentes as funções.</p>
-                <pre><code class="language-html">&lt;script&gt;
-    var exemplo = new ImageGalery();
-    exemplo.elements(); // NodeList das imagens.
-&lt;/script&gt;</code></pre>
+            <hr class="border-bottom-min border-dark" />
+            <section class="section">
+                <h2>Funções Extras</h2>
+                <div class="margin-tb-max">
+                    <div class="padding-all-prop">
+                        <h3 class="list">add</h3>
+                        <p>Adiciona imagens a galeria.</p>
+                        <pre><code class="language-html">&lt;img src=&quot;imagem-a.png&quot; alt=&quot;&quot; height=&quot;200&quot; width=&quot;200&quot; id=&quot;exemplo-id&quot; &sol;&gt;
+&lt;img src=&quot;imagem-b.png&quot; alt=&quot;&quot; height=&quot;200&quot; width=&quot;200&quot; class=&quot;exemplo-class&quot; &sol;&gt;
+&lt;img src=&quot;imagem-c.png&quot; alt=&quot;&quot; height=&quot;200&quot; width=&quot;200&quot; class=&quot;exemplo-class&quot; &sol;&gt;
+&lt;script&gt;
+    var galeria = new ImageGalery();
+                            
+    var adionarMultiplas = document.getElementsByClassName(&apos;exemplo-class&apos;);
+    var adionarUnica = document.getElementById(&apos;exemplo-id&apos;);
+                            
+    galeria.add(adionarMultiplas);
+    galeria.add(adionarUnica);
+&lt;&sol;script&gt;</code></pre>
+                    </div>
+
+                    <div class="padding-all-prop">
+                        <h3 class="list">remove</h3>
+                        <p>Remove imagens a galeria.</p>
+                        <pre><code class="language-html">&lt;img src=&quot;imagem-a.png&quot; alt=&quot;&quot; height=&quot;200&quot; width=&quot;200&quot; &sol;&gt;
+&lt;img src=&quot;imagem-b.png&quot; alt=&quot;&quot; height=&quot;200&quot; width=&quot;200&quot; &sol;&gt;
+&lt;img src=&quot;imagem-c.png&quot; alt=&quot;&quot; height=&quot;200&quot; width=&quot;200&quot; &sol;&gt;
+&lt;script&gt;
+    var exemplo = document.querySelectorAll(&apos;img&apos;);
+    var galeria = new ImageGalery({images: exemplo});
+                
+    galeria.remove(exemplo[1]); &sol;&sol; Remove a segunda imagem
+&lt;&sol;script&gt;</code></pre>
+                    </div>
+
+                    <div class="padding-all-prop">
+                        <h3 class="list">check</h3>
+                        <p>Informa um array com todas imagens anexas a galeria.</p>
+                        <pre><code class="language-html">&lt;img src=&quot;imagem-a.png&quot; alt=&quot;&quot; height=&quot;200&quot; width=&quot;200&quot; &sol;&gt;
+&lt;img src=&quot;imagem-b.png&quot; alt=&quot;&quot; height=&quot;200&quot; width=&quot;200&quot; &sol;&gt;
+&lt;img src=&quot;imagem-c.png&quot; alt=&quot;&quot; height=&quot;200&quot; width=&quot;200&quot; &sol;&gt;
+&lt;script&gt;
+    var exemplo = document.querySelectorAll(&apos;img&apos;);
+    var galeria = new ImageGalery({images: exemplo});
+                
+    galeria.check();
+&lt;&sol;script&gt;</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <hr class="border-bottom-min border-dark" />
+            <section class="section">
+                <h2>Dica de uso</h2>
+                <div class="margin-tb-max">
+                    <div class="padding-all-prop">
+                        <p>Antes de inicar a ImageGalery já com imagens ou anexa-las posteriormente, faça uma verificação se cada imagem
+                            já está completamente carregada.</p>
+                        <p>Assim pode-se evitar transtornos com falhas já que a imagem é anexa antes mesmo que ela esteja pronto para uso.</p>
+                        <pre><code class="language-javascript">var contar = 0;
+var imagens = document.querySelectorAll(&apos;img&apos;);
+for (var i = 0; i &lt; imagens.length; i++) {
+    imagens[i].addEventListener(&apos;load&apos;, contarCarregadas, false);
+}
+
+function contarCarregadas(e) {
+    contar++;
+    if (contar === imagens.length) { &sol;&sol; A quantidade carregada é igual a quantidade requisitada
+        &sol;&sol; Pode-se inicar a ImageGalery sem problemas
+    }
+}</code></pre>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <footer class="section bg-black">
+            <div class="container center-content">
+                <div class="align-center text-light font-min">
+                    <p>Demonstração: <span class="italic bold">ImageGalery.js</span></p>
+                    <p><a href="https://github.com/Spell-Master/sm-web/" target="_blank" class="href">
+                            https:&sol;&sol;github.com&sol;Spell-Master&sol;sm-web&sol;
+                        </a></p>
+                </div>
             </div>
-        </article>
+        </footer>
 
         <script>
-            var galery = new ImageGalery();
+            var galeria = null;
+            var carregadas = 0;
+            var imagens = document.querySelectorAll('div.col-third > img');
+            var impar = document.querySelectorAll('div.col-third:nth-child(odd) > img');
+            var botoes = jsd('button');
+
+            for (var i = 0; i < imagens.length; i++) {
+                imagens[i].addEventListener('load', carregar, false);
+            }
+
+            function carregar(e) {
+                carregadas++;
+                if (carregadas === imagens.length) {
+                    galeria = new ImageGalery({
+                        zIndex: 2,
+                        images: imagens
+                    });
+                    botoes.index(0).click(function () {
+                        console.log(galeria.check());
+                    });
+                    botoes.index(1).click(function () {
+                        galeria.add(impar);
+                    });
+                    botoes.index(2).click(function () {
+                        galeria.remove(impar);
+                    });
+                }
+            }
         </script>
     </body>
 </html>

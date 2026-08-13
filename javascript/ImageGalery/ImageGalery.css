@@ -3,83 +3,96 @@
  * ImageGalery
  * @author Spell-Master (Omar Pautz)
  * @copyright 2019
- * @version 2.0 (2022)
+ * @version 3.0 (13/08/2026)
+ *
+ * Exibe imagens como forma de galeria.
  * **************************************************
  */
-#galery-bg.hidden,
-#galery-center.hidden,
-#galery-bottom.hidden,
-#galery-close.hidden {
-    display: none
+.image-galery-container * {
+    margin: 0;
+    box-sizing: border-box
 }
-#galery-bg,
-#galery-center,
-#galery-bottom,
-#galery-close {
-    z-index: 1;
-    position: fixed
+.image-galery-point {
+    cursor: pointer
 }
-#galery-bg {
+.image-galery-container {
+    position: fixed;
     top: 0;
     left: 0;
-    height: 100vh;
-    width: 100vw;
-    max-width: 100%;
-    min-height: 15.625rem;
-    background: rgba(0, 0, 0, 1);
-    filter: blur(.3125rem);
-    opacity: .9;
-    animation: galery-fade-in .5s
-}
-#galery-center {
-    top: calc(50% - 3.75rem);
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: auto;
-    height: auto;
-    max-height: calc(100vh - 15.625rem);
-    max-width: 100%;
-    box-shadow: 0 0 .3125rem .25rem rgba(0,0,0,.5);
-    animation: galery-fade-in .5s
-}
-#galery-bottom {
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 6.25rem;
-    background: rgba(0, 0, 0, .5);
-    overflow: auto;
-    overflow-x: scroll;
-    overflow-y: hidden;
-    white-space: nowrap;
-    text-align: center;
+    height: 100dvh;
+    width: 100dvw;
+    z-index: 1;
+    overflow: hidden;
+    display: none;
+    flex-wrap: wrap;
+    flex-direction: row;
     align-items: center;
-    justify-content: center;
-    padding: .625rem;
-    animation: galery-fade-in .5s
+    justify-content: center
 }
-#galery-bottom > img {
-    margin: 0 .3125rem
-}
-#galery-bottom > img:last-child {
-    border-right: 1.25rem solid transparent
-}
-#galery-close {
-    top: .625rem;
-    right: 1.25rem;
-    font-size: 2.5em;
+.image-galery-container.image-galery-open {display: flex}
+.image-galery-close {
+    position: absolute;
+    top: -.625rem;
+    right: 0;
+    z-index: 3;
+    font-size: 2.25rem;
+    font-weight: bolder;
     color: #ffffff;
     cursor: pointer;
-    text-shadow: 0 0 .25rem rgba(0, 0, 0, .4);
+    text-shadow: 0 0 .25rem rgba(0,0,0,.4);
     border: 0;
     background: transparent;
-    padding: .5rem 1.625rem;
-    animation: galery-fade-in .5s
+    padding: .5rem 1.625rem
 }
-#galery-close:before {
-    content: 'X'
+.image-galery-close:before {content: 'X'}
+.image-galery-close:hover {text-shadow: 0 0 .3125rem rgba(0,0,0,.8)}
+.image-galery-background {
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    filter: blur(.125rem);
+    opacity: .8;
+    background-color: rgba(0,0,0,.5)
 }
-#galery-close:hover {
-    text-shadow: 0 0 .3125rem rgba(255, 255, 255, .8)
+.image-galery-center {
+    z-index: 2;
+    position: absolute;
+    height: 70dvh;
+    width: auto;
+    inset: 0;
+    margin: auto;
+    box-shadow: 0 0 .3125rem .25rem rgba(0,0,0,.5);
+    background-color: rgba(0,0,0,.5)
 }
-@keyframes galery-fade-in {from {opacity:0} to {opacity:1}}
+.image-galery-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 3;
+    width: 100dvw;
+    padding: .3125rem 1.25rem;
+    background: rgba(0,0,0,.5);
+    overflow-y: hidden;
+    overflow-x: auto;
+    white-space: nowrap;
+    text-align: center
+}
+.image-galery-bottom > img {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 .3125rem;
+    height: 3.125rem;
+    width: 3.125rem;
+    aspect-ratio: 1 / 1;
+    object-fit: cover
+}
+.image-galery-bottom > img:first-child {margin-left: .625rem}
+.image-galery-bottom > img:last-child {margin-right: .625rem}
+@media (max-width: 640px) {
+    .image-galery-center {
+        height: 64dvh
+    }
+}

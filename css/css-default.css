@@ -1196,6 +1196,20 @@ table.table.streak tr:nth-child(even) {
     margin-bottom: var(--spacing-prop) !important
 }
 
+.margin-all-none    {margin: 0 !important}
+.margin-left-none   {margin-left: 0 !important}
+.margin-right-none  {margin-right: 0 !important}
+.margin-top-none    {margin-top: 0 !important}
+.margin-bottom-none {margin-bottom: 0 !important}
+.margin-lr-none {
+    margin-left:  0 !important;
+    margin-right: 0 !important
+}
+.margin-tb-none {
+    margin-top:    0 !important;
+    margin-bottom: 0 !important
+}
+
 /**
  * ****************************************
  * Preenchimento
@@ -1257,6 +1271,20 @@ table.table.streak tr:nth-child(even) {
     padding-bottom: var(--spacing-prop) !important
 }
 
+.padding-all-none    {padding: 0 !important}
+.padding-left-none   {padding-left: 0 !important}
+.padding-right-none  {padding-right: 0 !important}
+.padding-top-none    {padding-top: 0 !important}
+.padding-bottom-none {padding-bottom: 0 !important}
+.padding-lr-none {
+    padding-left:  0 !important;
+    padding-right: 0 !important
+}
+.padding-tb-none {
+    padding-top:    0 !important;
+    padding-bottom: 0 !important
+}
+
 /**
  * ****************************************
  * Vazamento
@@ -1302,15 +1330,15 @@ ol.list, ul.list {margin-left: var(--spacing-max)}
  * ****************************************
  */
 .cover-screen {
-    width: 100vw !important;
+    width: 100dvw !important;
     height: auto !important;
     max-width: 100% !important;
-    min-height: 100vh !important
+    min-height: 100dvh !important
 }
 
-.section-min {padding: 6vh 0 !important;  margin: 0; width: 100%}
-.section     {padding: 8vh 0 !important;  margin: 0; width: 100%}
-.section-max {padding: 12vh 0 !important; margin: 0; width: 100%}
+.section-min {padding: 6dvh 0 !important;  margin: 0; width: 100%}
+.section     {padding: 8dvh 0 !important;  margin: 0; width: 100%}
+.section-max {padding: 12dvh 0 !important; margin: 0; width: 100%}
 
 /**
  * ****************************************

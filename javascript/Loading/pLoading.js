@@ -3,7 +3,7 @@
  * pLoading
  * @author Spell-Master (Omar Pautz)
  * @copyright 2018
- * @version 1.0 (2022)
+ * @version 1.1 (14/08/2026)
  * 
  * Animações para espera de progressos.
  * **************************************************
@@ -21,14 +21,13 @@ var pLoading = pLoading || {};
         img: null,
         svg: null,
         circle: null,
-        bar: null,
+        line: null,
         width: null
     }, $options = {
         tgt: undefined,
         color: undefined,
         size: undefined,
         bg: undefined,
-        vetor: undefined,
         img: undefined
     };
 
@@ -75,9 +74,9 @@ var pLoading = pLoading || {};
     function defaults(opt) {
         $options.tgt = (typeof opt.target !== 'undefined' && opt.target.nodeType === 1 ? opt.target : document.body);
         $options.size = (typeof opt.size === 'number' ? opt.size : 50);
-        $options.color = (typeof opt.color === 'string' && colorCheck(opt.color) ? opt.color : '#555555');
+        $options.color = (typeof opt.color === 'string' && colorCheck(opt.color) ? opt.color : '#000000');
         $options.bg = (typeof opt.bg === 'string' && colorCheck(opt.bg) ? rgba(opt.bg) : null);
-        $options.img = opt.img;
+        $options.img = opt.img || undefined;
         $this.init = true;
     }
 
@@ -91,7 +90,8 @@ var pLoading = pLoading || {};
         $this.loading = document.createElement('div');
         $this.img = document.createElement('img');
         $this.img.src = $options.img;
-        $this.img.setAttribute('width', $options.size);
+        $this.img.alt = '';
+        $this.img.setAttribute('style', 'width: ' + $options.size + 'px; height:' + $options.size + 'px;');
         $this.loading.classList.add('p-loading-bg');
         $this.loading.appendChild($this.img);
     }
@@ -106,10 +106,9 @@ var pLoading = pLoading || {};
         $this.loading = document.createElement('div');
         $this.svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
         $this.circle = '<circle cx="50" cy="50" r="20" fill="none" stroke="' + $options.color + '" stroke-width="3" stroke-miterlimit="10" />';
-
         $this.svg.innerHTML = $this.circle;
         $this.svg.setAttribute('viewBox', '25 25 50 50');
-        $this.svg.setAttribute('width', $options.size);
+        $this.svg.setAttribute('style', 'width: ' + $options.size + 'px; height:' + $options.size + 'px;');
         $this.loading.classList.add('p-loading-bg');
         $this.loading.appendChild($this.svg);
     }
@@ -124,18 +123,18 @@ var pLoading = pLoading || {};
         $this.loading = document.createElement('div');
         $this.loading.classList.add('p-loading-bg');
 
-        $this.bar = document.createElement('div');
-        $this.bar.classList.add('p-loading-bar');
+        $this.line = document.createElement('div');
+        $this.line.classList.add('p-loading-bar');
 
         if ($options.tgt.tagName.toLowerCase() === 'body') {
-            $this.bar.style.position = 'fixed';
+            $this.line.style.position = 'fixed';
         } else {
             $options.tgt.classList.add('p-loading-conter');
-            $this.bar.style.position = 'absolute';
+            $this.line.style.position = 'absolute';
         }
-        $this.bar.style.backgroundColor = $options.color;
+        $this.line.style.backgroundColor = $options.color;
 
-        $this.loading.appendChild($this.bar);
+        $this.loading.appendChild($this.line);
     }
 
     /**
@@ -186,8 +185,10 @@ var pLoading = pLoading || {};
         add: function (options) {
             if (typeof options === 'object' && $this.init === null) {
                 defaults(options);
-                imgCreate();
-                addLoading();
+                if ($options.img) {
+                    imgCreate();
+                    addLoading();
+                }
             }
         }, remove: function () {
             if ($this.init === true) {
@@ -257,14 +258,12 @@ var pLoading = pLoading || {};
                 } else {
                     $this.width = width;
                 }
-                $this.bar.style.width = $this.width + '%';
+                $this.line.style.width = $this.width + '%';
             }
         }, remove: function () {
             if ($this.init === true) {
-                $this.bar.classList.add('hide');
-                setTimeout(function () {
-                    removeLoading();
-                }, 1000);
+                $this.line.classList.add('hide');
+                removeLoading();
             }
         }
     };

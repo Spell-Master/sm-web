@@ -1,283 +1,298 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
     <head>
-        <title>Animação de Progresso</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-        <link href="../../css/css-default.css" rel="stylesheet" type="text/css"/>
-        <link href="../../lib/stylesheet/core.css" rel="stylesheet" type="text/css"/>
-        <link href="../../lib/prism/prism.css" rel="stylesheet" type="text/css"/>
-        <link href="../SelectOption/SelectOption.css" rel="stylesheet" type="text/css"/>
-        <script src="../../lib/prism/prism.js" type="text/javascript"></script>
+        <title>pLoading</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href="../../css/css-default.css" rel="stylesheet" type="text/css" />
+        <link href="../../lib/stylesheet/core.css" rel="stylesheet" type="text/css" />
+        <link href="../SelectOption/SelectOption.css" rel="stylesheet" type="text/css" />
+        <link href="../../lib/prism/prism.css" rel="stylesheet" type="text/css" />
         <script src="../SelectOption/SelectOption.js" type="text/javascript"></script>
         <script src="../jsd/js-default.js" type="text/javascript"></script>
+        <script src="../../lib/prism/prism.js" type="text/javascript"></script>
 
         <script src="pLoading.js" type="text/javascript"></script>
-        <link href="pLoading.css" rel="stylesheet" type="text/css"/>
+        <link href="pLoading.css" rel="stylesheet" type="text/css" />
     </head>
     <body>
-        <article class="container padding-all">
-            <h1 class="bold italic">pLoading.js</h1>
-            <hr class="sm-line" />
-            O pLoading contém métodos para execução de animações de progresso.
-            <p>Usado para quando uma espera de alguma resposta deve acontecer,
-                enquanto algo não termina como por exemplo protocolos, formulários,
-                posts/gets, requisições/ajax, uploads/downloads etc...</p>
-
-            <div class="margin-top-max">
-                <hr class="sm-line" />
-                <h2>Apresentação:</h2>
-                <div class="bg-dark padding-all-max">
-                    <div id="exemplo">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                    </div>
-                </div>
-
-                <div class="row-pad">
-                    <div class="col-third col-fix">
-                        <p class="h6">Usando uma imagem</p>
-                    </div>
-                    <div class="col-third col-fix">
-                        <p class="h6">Criando a animação</p>
-                    </div>
-                    <div class="col-third col-fix">
-                        <p class="h6">Criar uma barra percentual</p>
-                    </div>
-                    <div class="col-third col-fix">
-                        <select data-select="">
-                            <option value="1">loading-1.svg</option>
-                            <option value="2">loading-2.svg</option>
-                            <option value="3">loading-3.svg</option>
-                            <option value="4">loading-4.svg</option>
-                            <option value="5">loading-5.svg</option>
-                            <option value="6">loading-6.svg</option>
-                            <option value="7">loading-7.svg</option>
-                            <option value="8">loading-8.svg</option>
-                            <option value="9">loading-9.svg</option>
-                            <option value="10">loading-10.svg</option>
-                        </select>
-                        <button data-btn="0" class="btn-default button-block">Somente adicionar</button>
-                        <button data-btn="1" class="btn-default button-block">Adicionar e cobrir</button>
-                    </div>
-                    <div class="col-third col-fix">
-                        <button data-btn="2" class="btn-default button-block">Somente criar</button>
-                        <button data-btn="3" class="btn-default button-block">Criar e cobrir</button>
-                    </div>
-                    <div class="col-third col-fix">
-                        <button data-btn="4" class="btn-default button-block">Somente criar</button>
-                        <button data-btn="5" class="btn-default button-block">Criar e cobrir</button>
-                    </div>
+        <header>
+            <div class="bg-dark-grey text-white">
+                <div class="container padding-all-prop">
+                    <h1 class="shadow-text-white margin-left-prop">pLoading</h1>
                 </div>
             </div>
-
-            <div class="sm-margin-top">
-                <hr class="sm-line" />
-                <h3>Parâmetros</h3>
-                Primeiro vou falar sobre os parâmentros/opções da execução
-                pois as funções compartilham os quase mesmos dados, só alterando mesmo
-                qual é o tipo de animação a ser utilizada.
-                <p class="list margin-left">
-                    <span class="bold font-max">target</span>: Você pode informar qual elemento
-                    vai receber a animação. Esse parâmetro é opcional, se você não o informar
-                    o alvo da animação será a tag <q class="quote-green">&lt;body&gt;</q>
-                    do documento.
-                </p>
-                <p class="list margin-left">
-                    <span class="bold font-max">size</span>: Você informa um número, esse número
-                    será a altura e a largura em pixel da animação usada.
-                    Também é opcional, caso não informado as dimensões da imagem
-                    serão 50X50 pixels.
-                </p>
-                <blockquote class="quote-yellow">
-                    O parâmetro <span class="bold">size</span> não será utilizado quando a função
-                    de animação for a barra de progresso.
-                </blockquote>
-                <p class="list margin-left">
-                    <span class="bold font-max">img</span>: Você informa o endereço da imagem
-                    para ser usada como animação.
-                </p>
-                <blockquote class="quote-yellow">
-                    O parâmetro <span class="bold">img</span> somente será usado quando a função
-                    de animação for a de imagem.
-                </blockquote>
-                <p class="list margin-left">
-                    <span class="bold font-max">color</span>: Você informa um #hex code RGB para
-                    definir qual a cor da animação usada.
-                </p>
-                <blockquote class="quote-yellow">
-                    O parâmetro <span class="bold">color</span> somente não será usado quando
-                    a função de animação for a de imagem.
-                </blockquote>
-                <p class="list margin-left">
-                    <span class="bold font-max">bg</span>: Você informa um #hex code RGB para
-                    definir qual a cor de fundo na animação usada.
-                </p>
-                <p>É um parâmetro opcional, que quando usado irá criar uma capa da cor definida
-                    em alfa por cima do alvo. Ideal para o uso em formulários</p>
-                <blockquote class="quote-yellow">
-                    Quando usado parâmetro <span class="bold">bg</span>
-                    certifique-se que o alvo da animação não possua a propriedade
-                    <q class="quote-red">&lt;position&gt;</q> com os valores:
-                    <ul class="margin-left bold">
-                        <li>static</li>
-                        <li>absolute</li>
-                        <li>fixed</li>
-                    </ul>
-                    Caso contrário as funções do pLoading podem comprometer a arquitetura
-                    original do seu HTML.
-                </blockquote>
-
+            <div class="bg-light shadow-box">
+                <div class="container padding-all-prop">
+                    <p>Animações de progresso.</p>
+                </div>
             </div>
+        </header>
 
-            <div class="sm-margin-top">
-                <hr class="sm-line" />
+        <main class="container padding-all">
+            <section class="section">
+                <h2>Apresentação</h2>
+                <div class="padding-all-prop">
+                    <div class="row-pad">
+                        <div class="col-third">
+                            <p class="bold font-max">Usando uma imagem</p>
+                            <select data-select="">
+                                <option value="">Selecione uma imagem</option>
+                                <option value="1">loading-1.svg</option>
+                                <option value="2">loading-2.svg</option>
+                                <option value="3">loading-3.svg</option>
+                                <option value="4">loading-4.svg</option>
+                                <option value="5">loading-5.svg</option>
+                                <option value="6">loading-6.svg</option>
+                                <option value="7">loading-7.svg</option>
+                                <option value="8">loading-8.svg</option>
+                                <option value="9">loading-9.svg</option>
+                                <option value="10">loading-10.svg</option>
+                            </select>
+                            <button data-btn="0" class="btn-default button-block margin-top-min">Somente usar</button>
+                            <button data-btn="1" class="btn-default button-block">Usar e cobrir</button>
+                        </div>
+                        <div class="col-third">
+                            <p class="bold font-max">Criando a circulo</p>
+                            <button data-btn="2" class="btn-default button-block">Somente criar</button>
+                            <button data-btn="3" class="btn-default button-block">Criar e cobrir</button>
+                        </div>
+                        <div class="col-third">
+                            <p class="bold font-max">Criar uma barra percentual</p>
+                            <button data-btn="4" class="btn-default button-block">Somente criar</button>
+                            <button data-btn="5" class="btn-default button-block">Criar e cobrir</button>
+                        </div>
+                        <div class="col-single">
+                            <div class="card" id="exemplo">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <hr class="border-bottom-min border-dark" />
+            <section class="section">
                 <h2>Utilização</h2>
-                <p>Adicione o arquivos necessários</p>
-                <pre><code class="language-html">&lt;script src="pLoading.js" type="text/javascript"&gt;&lt;/script&gt;
-&lt;link href="pLoading.css" rel="stylesheet" type="text/css" /&gt;</code></pre>
-            </div>
+                <div class="padding-all-prop">
+                    <p>Adicione os arquivos necessários</p>
+                    <pre><code class="language-html">&lt;link href=&quot;pLoading.css&quot; rel=&quot;stylesheet&quot; type=&quot;text&sol;css&quot;&sol;&gt;
+&lt;script src=&quot;pLoading.js&quot; type=&quot;text&sol;javascript&quot;&gt;&lt;&sol;script&gt;</code></pre>
+                    <blockquote class="quote margin-left-none">
+                        <p>Antes de prosseguir com o uso temos de conhecer as opções pois elas vão determinar o uso geral,
+                            pois as funções compartilham os quase mesmos dados, só alterando mesmo qual é o tipo de animação a ser utilizada.</p>
+                    </blockquote>
+                </div>
+            </section>
 
-            <div class="sm-margin-top">
-                <hr class="sm-line" />
+            <hr class="border-bottom-min border-dark" />
+            <section class="section">
+                <h2>Opções</h2>
+                <div class="padding-all-prop">
+                    <ul>
+                        <li><span class="bold">target</span> &DoubleRightArrow; (opcional) deve-se informar um elemento no documento
+                            onde a animação deve acontecer <q class="quote-blue">Caso não informado o alvo será o corpo do documento</q>.</li>
+                        <li><span class="bold">size</span> &DoubleRightArrow; (opcional) Informe um numero para corresponder a altura e
+                            largura da animação <q class="quote-blue">Caso não informado o tamanho será de 50 pixel&apos;s</q>.</li></li>
+                        <li><span class="bold">color</span> &DoubleRightArrow; (opcional) Você informa um #hex code RGB para
+                            definir qual a cor da animação usada <q class="quote-blue">Caso não informado a cor será
+                                <span style="color:#000000">#000000</span></q>.</li>
+                        <li><span class="bold">bg</span> &DoubleRightArrow; (opcional) Você informa um #hex code RGB para
+                            definir qual a cor de fundo na animação será usada para cobrir o alvo.
+                            <q class="quote-blue">Caso não informado o elemento alvo não sofre cobertura</q></li>
+                        <li><span class="bold">img</span> &DoubleRightArrow; (brigatório&sol;para animação de imagem) Você informa
+                            o endereço de uma imagem para ser usada como animação.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <hr class="border-bottom-min border-dark" />
+            <section class="section">
+                <h2>Variações das opções</h2>
+                <div class="padding-all-prop">
+                    <ul>
+                        <li><span class="bold">size</span> &DoubleRightArrow;
+                            Esta opção não tem uso quando a animação usada for a barra de progresso.</li>
+                        <li><span class="bold">bg</span> &DoubleRightArrow;
+                            Esta opção sempre que usada vai cobrir o elemento alvo.</li>
+                        <li><span class="bold">img</span> &DoubleRightArrow;
+                            Esta opção somente é usada e obrigatória se usar a função de animação por imagem,
+                            para as demais funções não tem uso.</li>
+                    </ul>
+                </div>
+
+                <div class="padding-all-prop">
+                    <blockquote class="quote-yellow">
+                        <p class="bold">ATENÇÃO!</p>
+                        <p class="list">Tenha certeza que o elemento ao qual a animação será adicionada não possua propriedade
+                            <span class="bold">inline</span> <span class="bold text-red">style</span>.</p>
+                        <p class="list">Quando usar a opção <span class="bold">bg</span> para cobrir o alvo da animação
+                            tenha certeza que esse elemento alvo não tenha <span class="bold">propriedades de posição</span>
+                            (<span class="bold text-red">position</span>) no css.</p>
+                    </blockquote>
+                </div>
+            </section>
+
+            <hr class="border-bottom-min border-dark" />
+            <section class="section">
                 <h2>Funções</h2>
-
-                <p class="bold font-max">Usando uma imagem</p>
-                <div class="row-pad">
-                    <div class="col-half">
-                        <pre><code class="language-javascript">pLoading.image.add({
-    // informar o elemento alvo da animação
-    target: document.getElementById('#elemento_alvo_da_animação'),
-    // informar a altura e largura em pixels para a imagem
+                <div class="padding-all-prop">
+                    <h6>Usando Imagens</h6>
+                    <div class="row-pad">
+                        <div class="col-half">
+                            <pre><code class="language-javascript">pLoading.image.add({
+    &sol;&sol; elemento alvo da animação
+    target: document.getElementById(&apos;#elemento_alvo&apos;),
+    &sol;&sol; altura e largura em pixels para a imagem
     size: 100,
-    // informar o local onde está a imagem que será usada
-    img: 'endereco_para_imagem/diretorio/arquivo.gif'
+    &sol;&sol; local e imagem que será usada
+    img: &apos;endereco&sol;diretorio&sol;arquivo.gif&apos;
 });
 </code></pre>
-                    </div>
-                    <div class="col-half">
-                        <pre><code class="language-javascript">// A mesma coisa, mas adicionando uma capa por cima do alvo
+                        </div>
+                        <div class="col-half">
+                            <pre><code class="language-javascript">&sol;&sol; A mesma coisa, mas adicionando uma capa por cima do alvo
 pLoading.image.add({
-    target: document.getElementById('#elemento_alvo_da_animação'),
+    &sol;&sol; elemento alvo da animação
+    target: document.getElementById(&apos;#elemento_alvo&apos;),
+    &sol;&sol; altura e largura em pixels para a imagem
     size: 100,
-    img: 'endereco_para_imagem/diretorio/arquivo.gif'
-    // Informar a cor de fundo na animação que cobre o alvo
-    bg: '#cccccc'
+    &sol;&sol; local e imagem que será usada
+    img: &apos;endereco&sol;diretorio&sol;arquivo.gif&apos;,
+    &sol;&sol; cor de fundo na animação que cobre o alvo
+    bg: &apos;#cccccc&apos;
 });</code></pre>
+                        </div>
                     </div>
+                    <blockquote class="quote-yellow">
+                        <p>Através dessa função você adiciona imagens, mas tenha consiência que
+                            essa imagem terá que ser baixada pelo navegador utilizado pelo usuário.</p>
+                        <p>Portanto imagens muito grande&sol;pesadas poderão demorar muito
+                            até de fato aparecerem, o mesmo vale caso use um endereço http para
+                            buscar (nesse caso se torna mais lento ainda).</p>
+                        <p>Prefira usar imagens bem simples e leves e jamais importe elas de outra
+                            url, somente use imagens que esteja dentro de algum diretório do seu website.</p>
+                    </blockquote>
                 </div>
-                <p>Uma vez adicionada a imagem ela permanecerá no local até ser removida,
-                o que terá de ser feito posteriormente através de outra função:</p>
-                <pre><code class="language-javascript">pLoading.image.remove();</code></pre>
-                <blockquote class="quote-yellow">
-                    Através dessa função você adiciona imagens, mas tenha consiência que
-                    essa imagem terá que ser baixada pelo navegador utilizado pelo usuário.
-                    <p>Portanto imagens muito grande/pesadas poderão demorar muito
-                        até de fato aparecerem, o mesmo vale caso use um endereço http para
-                        buscar (nesse caso se torna mais lento ainda).</p>
-                    <p>Prefira usar imagens bem simples e leves e jamais importe elas de outra
-                        url, somente use imagens que esteja dentro de algum diretório
-                        do seu website.</p>
-                </blockquote>
-            </div>
 
-            <div class="margin-top-max">
-                <p class="bold font-max">Criando a animação</p>
-                <div class="row-pad">
-                    <div class="col-half">
-                        <pre><code class="language-javascript">pLoading.circle.add({
-    // informar o elemento alvo da animação
-    target: document.getElementById('#elemento_alvo_da_animação'),
-    // informar a altura e largura em pixels para a imagem
+                <div class="padding-all-prop"> 
+                    <h6>Usando Progresso Circular</h6>
+                    <div class="row-pad">
+                        <div class="col-half">
+                            <pre><code class="language-javascript">pLoading.circle.add({
+    &sol;&sol; elemento alvo da animação
+    target: document.getElementById(&apos;#elemento_alvo&apos;),
+    &sol;&sol; altura e largura em pixels da animação
     size: 100,
-    // informar a cor da animação
-    color: '#4285f4'
+    &sol;&sol; cor da animação
+    color: &apos;#4285f4&apos;
 });</code></pre>
-                    </div>
-                    <div class="col-half">
-<pre><code class="language-javascript">// A mesma coisa, mas adicionando uma capa por cima do alvo
+                        </div>
+                        <div class="col-half">
+                            <pre><code class="language-javascript">&sol;&sol; A mesma coisa, mas adicionando uma capa por cima do alvo
 pLoading.circle.add({
-    target: document.getElementById('#elemento_alvo_da_animação'),
+    &sol;&sol; elemento alvo da animação
+    target: document.getElementById(&apos;#elemento_alvo&apos;),
+    &sol;&sol; altura e largura em pixels da animação
     size: 100,
-    color: '#4285f4',
-    // Informar a cor de fundo na animação que cobre o alvo
-    bg: '#cccccc'
+    &sol;&sol; cor da animação
+    color: &apos;#4285f4&apos;,
+    &sol;&sol; cor de fundo na animação que cobre o alvo
+    bg: &apos;#cccccc&apos;
 });</code></pre>
+                        </div>
                     </div>
                 </div>
-                <p>Uma vez adicionada a animação ela permanecerá no local até ser removida,
-                    o que terá de ser feito posteriormente através de outra função:</p>
-                <pre><code class="language-javascript">pLoading.circle.remove();</code></pre>
-                <blockquote class="quote-yellow">
-                    Diferente a função que adiciona uma imagem essa cria uma animação ao
-                    qual o navegador do usuário não fará o download, assim sendo será processada
-                    e usada quase que instantaneamente.
-                    <p>Vai depender da capacidade de processamento
-                        do hardware dele. (Mas o tanto exigirá é quase zero)</p>
-                </blockquote>
-            </div>
 
-            <div class="margin-top-max">
-                <p class="bold font-max">Criar uma barra percentual</p>
-                <div class="row-pad">
-                    <div class="col-half">
-                        <pre><code class="language-javascript">pLoading.bar.add({
-    // informar o elemento alvo da barra de progresso
-    target: exemplo,
-    // informar a cor da barra de progresso
-    color: '#ff0000'
+                <div class="padding-all-prop">
+                    <h6>Usando Barra Percentual</h6>
+                    <div class="row-pad">
+                        <div class="col-half">
+                            <pre><code class="language-javascript">pLoading.bar.add({
+    &sol;&sol; elemento alvo da barra de progresso
+    target: document.getElementById(&apos;#elemento_alvo&apos;),
+    &sol;&sol; cor da barra de progresso
+    color: &apos;#ff0000&apos;
 });</code></pre>
-                    </div>
-                    <div class="col-half">
-                        <pre><code class="language-javascript">// A mesma coisa, mas adicionando uma capa por cima do alvo
+                        </div>
+                        <div class="col-half">
+                            <pre><code class="language-javascript">// A mesma coisa, mas adicionando uma capa por cima do alvo
 pLoading.bar.add({
-    target: exemplo,
-    color: '#ff0000',
-    // Informar a cor de fundo na barra de progresso que cobre o alvo
-    bg: '#cccccc'
+    &sol;&sol; elemento alvo da barra de progresso
+    target: document.getElementById(&apos;#elemento_alvo&apos;),
+    &sol;&sol; cor da barra de progresso
+    color: &apos;#ff0000&apos;,
+    &sol;&sol; cor de fundo na animação que cobre o alvo
+    bg: &apos;#cccccc&apos;
 });</code></pre>
+                        </div>
                     </div>
                 </div>
-                Diferente das demais funções a barra de progresso apesar de adicionada
-                terá que ser atualizada para definir sua largura.
-                <p>O que pode ser feito com sua função de atualização informando o
-                    percentual dessa largura, sendo o valor mínimo 0 "zero" e o valor máximo
-                    100 "cem", ou seja em quantos % porcento a barra deve ser alterada.</p>
-                <p>Essa função pode ser chamada quantas vezes for necessário.</p>
-                <pre><code class="language-javascript">// Barra de progresso com 0% de sua largura (estado inicial e menor valor possível)
-pLoading.bar.update(0);
-// Barra de progresso com 10% de sua largura
-pLoading.bar.update(10);
-// Barra de progresso com 33% de sua largura
-pLoading.bar.update(33);
-// Barra de progresso com 90% de sua largura
-pLoading.bar.update(90);
-// Barra de progresso com 100% de sua largura (maior valor possível)
-pLoading.bar.update(100);
+
+                <div class="padding-all-prop">
+                    <h6>Atualizar Barra Percentual</h6>
+                    <p>Diferente das demais funções a barra de progresso apesar de adicionada terá que ser atualizada para definir sua largura.</p>
+                    <p>O que pode ser feito com sua função de atualização informando o percentual dessa largura, sendo o valor
+                        mínimo 0 &quot;zero&quot; e o valor máximo 100 &quot;cem&quot;,
+                        ou seja em quantos % porcento a barra deve ser alterada.</p>
+                    <p>Essa função pode ser chamada quantas vezes for necessário.</p>
+                    <pre><code class="language-javascript">pLoading.bar.update(0); &sol;&sol; 0% de sua largura (estado inicial e menor valor possível)
+pLoading.bar.update(10); &sol;&sol; Barra de progresso com 10% de sua largura
+pLoading.bar.update(35); &sol;&sol; Barra de progresso com 35% de sua largura
+pLoading.bar.update(90); &sol;&sol; Barra de progresso com 90% de sua largura
+pLoading.bar.update(100); &sol;&sol; Barra de progresso com 100% de sua largura (maior valor possível)</code></pre>
+                </div>
+            </section>
+
+            <hr class="border-bottom-min border-dark" />
+            <section class="section">
+                <h2>Remover Animação</h2>
+                <div class="padding-all-prop">
+                    <p>Todas animações uma vez adicionadas permanecerão no local até serem removidas.</p>
+                    <p>Cada função de animação possui sua forma própria para remover.</p>
+                    <pre><code class="language-javascript">pLoading.image.remove(); &sol;&sol; Remove a animação criada por imagem
+pLoading.circle.remove(); &sol;&sol; Remove a animação circular
+pLoading.bar.remove(); &sol;&sol; Remove a animação da barra de progresso
 </code></pre>
-                <p>Uma vez adicionada a barra de progresso, atualizada ou não sua largura
-                    ela permanecerá no local até ser removida,
-                    o que terá de ser feito posteriormente através de outra função:</p>
-                <pre><code class="language-javascript">pLoading.bar.remove();</code></pre>
+                </div>
+            </section>
+        </main>
+
+        <footer class="section bg-black">
+            <div class="container center-content">
+                <div class="align-center text-light font-min">
+                    <p>Demonstração: <span class="italic bold">pLoading.js</span></p>
+                    <p><a href="https://github.com/Spell-Master/sm-web/" target="_blank" class="href">
+                            https:&sol;&sol;github.com&sol;Spell-Master&sol;sm-web&sol;
+                        </a></p>
+                </div>
             </div>
-        </article>
+        </footer>
 
         <script>
             var sel = new SelectOption(),
                 exemplo = jsd('#exemplo')[0],
-                imgID = 1;
+                imgID = 1,
+                ativado = false;
 
             jsd('[data-select]').change(function (e) {
                 imgID = e.target.value;
             });
             jsd('button').click(function (e) {
-                switch (e.target.dataset.btn) {
-                    case '0': imagemLocal(); break;
-                    case '1': imagemCobrir(); break;
-                    case '2': criarLocal(); break;
-                    case '3': criarCobrir(); break;
-                    case '4': barraLocal(); break;
-                    case '5': barraCobrir(); break;
+                if (!ativado) {
+                    ativado = true;
+                    switch (e.target.dataset.btn) {
+                        case '0': imagemLocal(); break;
+                        case '1': imagemCobrir(); break;
+                        case '2': criarLocal(); break;
+                        case '3': criarCobrir(); break;
+                        case '4': barraLocal(); break;
+                        case '5': barraCobrir(); break;
+                    }
                 }
             });
 
@@ -285,24 +300,28 @@ pLoading.bar.update(100);
                 pLoading.image.add({target: exemplo, size: 60, img: 'svg/loading-' + imgID + '.svg'});
                 setTimeout(function () {
                     pLoading.image.remove();
+                    ativado = false;
                 }, 3000);
             }
             function imagemCobrir() {
-                pLoading.image.add({target: exemplo, size: 80, img: 'svg/loading-' + imgID + '.svg', bg: '#cccccc'});
+                pLoading.image.add({target: exemplo, size: 70, img: 'svg/loading-' + imgID + '.svg', bg: '#cccccc'});
                 setTimeout(function () {
                     pLoading.circle.remove();
+                    ativado = false;
                 }, 3000);
             }
             function criarLocal() {
-                pLoading.circle.add({target: exemplo, color: '#4285f4', size: 60});
+                pLoading.circle.add({target: exemplo, color: '#4285f4', size: 80});
                 setTimeout(function () {
                     pLoading.circle.remove();
+                    ativado = false;
                 }, 3000);
             }
             function criarCobrir() {
-                pLoading.circle.add({target: exemplo, color: '#3b9900', size: 80, bg: '#cccccc'});
+                pLoading.circle.add({target: exemplo, color: '#3b9900', size: 90, bg: '#cccccc'});
                 setTimeout(function () {
                     pLoading.circle.remove();
+                    ativado = false;
                 }, 3000);
             }
             function barraLocal() {
@@ -315,6 +334,7 @@ pLoading.bar.update(100);
                     } else {
                         pLoading.bar.remove();
                         clearInterval(time);
+                        ativado = false;
                     }
                 }, 100);
             }
@@ -328,6 +348,7 @@ pLoading.bar.update(100);
                     } else {
                         pLoading.bar.remove();
                         clearInterval(time);
+                        ativado = false;
                     }
                 }, 100);
             }

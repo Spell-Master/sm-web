@@ -3,7 +3,7 @@
  * ModalShow
  * @author Spell-Master (Omar Pautz)
  * @copyright 2018
- * @version 3.1 (2022)
+ * @version 4.0 (18/08/2026)
  * **************************************************
  */
 
@@ -13,65 +13,64 @@
     position: fixed;
     top: 0;
     left: 0;
-    height: 100vh;
-    width: 100vw;
-    background-color: rgba(0, 0, 0, .6)
+    height: 100dvh;
+    width: 100%;
+    background-color: rgba(0,0,0,.6);
+    font-size: 1em;
+    line-height: 1.5;
+    padding: calc(5dvh + 5dvw) 3dvw;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif
 }
 .modal-box {
     position: relative;
-    margin: 3.125rem auto;
     height: auto;
-    max-width: 95vw;
+    max-width: 95dvw;
     padding: .625rem;
-    background-color: #ffffff;
-    word-wrap: break-word
+    margin: auto;
+    background-color: #ffffff
 }
 .modal-header {
     height: 3.125rem;
-    margin: 0 1rem;
     border-bottom: .0625rem solid #dddddd;
-    line-height: 3.125rem
-}
-.modal-header:after,
-.modal-header:before {
-    content: " ";
-    display: table;
-    clear: both
+    margin: 0 1rem;
+    display: flex;
+    flex-direction: row;
+    line-height: 3.125rem;
+    font-size: 2rem
 }
 .modal-title {
+    flex: auto;
     overflow: hidden;
     white-space: nowrap;
-    font-size: 2em;
-    margin-right: 3.75rem
+    margin-right: 10px
 }
 .modal-close {
     display: none;
-    float: right;
     width: 2.5rem;
-    padding: 0 1.25rem;
-    font-size: 2em;
     border: none;
     cursor: pointer;
-    text-align: center;
     background: transparent;
-    margin: 0 .625rem
+    text-align: center;
+    font-weight: 600;
 }
 .modal-close:before {
+    font-size: 2rem;
     content: "X"
 }
 .modal-close:hover {
-    color: #c40700 
+    color: #ff0000
 }
 .modal-content {
-    padding: 1rem;
+    margin-top: 20px;
+    padding: 0 24px;
     height: auto;
-    max-height: calc(100vh - 10rem);
-    overflow-y: auto
+    max-height: 60dvh;
+    overflow-y: auto;
 }
-.modal.active, .modal-close.active {
+.modal.modal-active,
+.modal-close.modal-active {
     display: block !important
 }
-
 .modal-box[data-modal-effect="fade"] {animation: effect-modal-fade .5s}
 .modal-box[data-modal-effect="zoom"] {animation: effect-modal-zoom .5s}
 .modal-box[data-modal-effect="top"] {animation: effect-modal-top .5s}

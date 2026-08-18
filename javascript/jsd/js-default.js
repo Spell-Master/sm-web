@@ -10,6 +10,8 @@
  * ****************************************************
  */
 
+// criar função para dados de extrair arquivos em inputFile único ou multiplos
+
 var jsd = jsd || {};
 
 (function () {
@@ -253,7 +255,7 @@ var jsd = jsd || {};
                     }
                 }
             }
-            return ($create);
+            return (new objectHTML([$create]));
         }
         return (undefined);
     };
@@ -1344,16 +1346,22 @@ var jsd = jsd || {};
              * *************************************
              */
             value: function (str) {
-                if ($_.isDefined(str)) {
-                    for (var $i = 0; $i < this.length; $i++) {
-                        this[$i].value = str;
-                    }
-                } else if (this[0].tagName.toLowerCase() === 'form') {
-                    var $elements = this[0].elements, $i = 0, $arr = [];
+                var $i = 0, $elements = undefined, $arr = [];
+                if (this[0].tagName.toLowerCase() === 'form') {
+                    $elements = this[0].elements;
                     for (; $i < $elements.length; $i++) {
                         $arr.push({name: $elements[$i].name, value: getValue($elements[$i])});
                     }
                     return ($arr);
+                } else if (this[0].tagName.toLowerCase() === 'input' && this[0].type === 'file') {
+                    for (; $i < this.length; $i++) {
+                        $arr.push(this[$i].files);
+                    }
+                    return ($arr);
+                } else if ($_.isDefined(str)) {
+                    for (; $i < this.length; $i++) {
+                        this[$i].value = str;
+                    }
                 } else {
                     return (getValue(this[0]));
                 }

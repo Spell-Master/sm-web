@@ -130,7 +130,7 @@
 
                 <div class="padding-all-prop">
                     <h4 class="list">sizeMinus</h4>
-                    <p class="italic bold">Almenta em 10 pixel&apos;s o tamanho da área de corte.</p>
+                    <p class="italic bold">Reduz em 10 pixel&apos;s o tamanho da área de corte.</p>
                     <p>Pode ser acionada diversas vezes reduzindo cada mais a área.</p>
                     <pre><code class="language-html">&lt;img src=&quot;imagem.jpg&quot; id=&quot;alvo-do-corte&quot; alt=&quot;exemplo&quot; &sol;&gt;
 &lt;button id=&quot;reduzir&quot;&gt;Reduzir&lt;&sol;button&gt;
@@ -203,7 +203,7 @@
             sizeBtn.mousedown(function (e) {
                 intervalo = setInterval(function () {
                     if (e.target.dataset.size === 'plus') {
-                        cortar.sizePlus('aaa');
+                        cortar.sizePlus();
                     } else {
                         cortar.sizeMinus();
                     }

@@ -1,7 +1,7 @@
 /**
  * ****************************************
  * @Copyright (c) 2017, Spell Master.
- * @Version: 5.1 (BETA)
+ * @Version: 5.2 (BETA)
  * @Requisitos: Navegador compatível com
  * HTML 5 e CSS 3
  * ****************************************
@@ -17,37 +17,14 @@
 
 /* Configurações */
 :root {
-    --text-size-h1: 1.875rem; /* 30px */
-    --text-size-h2: 1.75rem;  /* 28px */
-    --text-size-h3: 1.625rem; /* 26px */
-    --text-size-h4: 1.375rem; /* 22px */
-    --text-size-h5: 1.25rem;  /* 20px */
-    --text-size-h6: 1.125rem; /* 18px */
+    --spacing-min: .5rem; /* 8 */
+    --spacing-med: 1rem;  /* 16 */
+    --spacing-max: 2rem;  /* 32 */
+    --spacing-prp: calc(1dvw + 1dvh);
 
-    --text-size-min:    .75rem; /* 12px */
-    --text-size-medium: 1rem;   /* 16px */
-    --text-size-max:    1.5rem; /* 24px */
-
-    --spacing-min:    .375rem;  /* 6px */
-    --spacing-medium: .75rem;   /* 12px */
-    --spacing-max:    1.5rem;   /* 24px */
-    --spacing-prop:   calc(1vw + 1vh);
-
-    --border-min:     .0625rem; /* 1px */
-    --border-medium:  .125rem;  /* 2px */
-    --border-max:     .3125rem; /* 5px */
-
-    --input-bg:           #ebebeb;
-    --input-border:       #bbbbbb;
-    --input-color:        #757575;
-    --input-placeholder:  #808080;
-    --input-focus:        #444444;
-    --input-valid:        #00a651;
-    --input-invalid:      #cc2424;
-
-    --table-border:       #bbbbbb;
-    --table-head:         #cccccc;
-    --table-streak:       #ededed;
+    --border-min: .0625rem; /* 1 */
+    --border-med: .125rem;  /* 2 */
+    --border-max: .25rem;   /* 4 */
 
     --color-white:        #ffffff;
     --color-black:        #1a1a1a;
@@ -90,7 +67,19 @@
     --color-dark-aqua:    #008080;
     --color-dark-sand:    #d78828;
     --color-dark-orange:  #b34700;
-    --color-dark-brown:   #5b3224
+    --color-dark-brown:   #5b3224;
+        
+    --input-bg:           #ebebeb;
+    --input-border:       #bbbbbb;
+    --input-color:        #757575;
+    --input-placeholder:  #808080;
+    --input-focus:        #444444;
+    --input-valid:        #00a651;
+    --input-invalid:      #cc2424;
+
+    --table-border:       #bbbbbb;
+    --table-head:         #cccccc;
+    --table-streak:       #ededed;
 }
 
 /**
@@ -100,54 +89,51 @@
  */
 *, :after, :before {margin: 0; padding: 0; box-sizing: border-box}
 html {overflow-x: hidden}
-body {font-size: 1em; line-height: 1.5; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; color: #444444}
+body {font-size: 1rem; line-height: 1.5; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; color: #444444}
 body, html {height: 100%}
-footer, header, main {width: auto}
-article, aside, details, figcaption, figure, footer, header, main, menu, nav, section, summary {display: block}
+header, main, footer {width: auto}
+article, aside, details, figcaption, figure, header, main, footer, menu, nav, section, summary {display: block}
 audio, canvas, progress, video {display: inline-block; vertical-align: baseline}
-audio:not([controls]) {display: none; height: 0}
-[hidden], template {display: none}
-abbr[title] {border-bottom: .0625rem dotted}
-b, optgroup, strong {font-weight: bold}
+audio:not([controls]), [hidden], template {display: none; height: 0}
+abbr[title] {-webkit-text-decoration-skip-ink: none; text-decoration: underline dotted; cursor: help}
+b, optgroup {font-weight: bold}
 dfn, i {font-style: italic}
-blockquote {margin: .5rem 1rem}
-mark {background: #ff0000; color: #000000}
-code, kbd, pre, samp {font-family: monospace; font-size: .75rem}
+blockquote {margin: var(--spacing-min) var(--spacing-max)}
+mark {padding: .0625em .5em; margin: 0 .25em; font-style: italic; background-color: rgba(255, 255, 0, .7)}
+code, kbd, pre, samp {font-family: "Lucida Console", "Courier New", monospace, Consolas; font-size: .75em}
 pre {white-space: pre; white-space: pre-wrap; overflow: auto}
 q {quotes: none}
 q:after, q:before {content: ""}
-small {font-size: .5625rem}
-sub, sup {font-size: .4375rem; line-height: 0; position: relative; vertical-align: baseline}
-sup {top: -.5rem}
-sub {bottom: -.25rem}
-img {-ms-interpolation-mode: bicubic}
+sub, sup {font-size: .75em; line-height: 0; position: relative; vertical-align: baseline}
+sup {top: -.5em}
+sub {bottom: -.5em}
+img, svg {-ms-interpolation-mode: bicubic; vertical-align: middle}
 embed, img, picture, video {max-width: 100%; max-height: 100%; border: none}
 figure {margin: 1rem 2.5rem}
 svg:not(:root) {overflow: hidden}
-fieldset {border: .0625rem solid #c0c0c0; margin: .125rem; padding: .35rem .625rem .75rem}
-legend {color: inherit; display: table; max-width: 100%; white-space: normal; border: 0; padding: 0}
-textarea {overflow: auto}
-button, input, optgroup, select, textarea, *[contenteditable] {margin: 0; font: inherit}
-button, input, textarea, *[contenteditable="true"] {border: none}
+fieldset {border: var(--border-min) solid currentColor; padding: 0 var(--spacing-med) var(--spacing-med)}
+legend {color: currentColor; display: table; max-width: 100%; white-space: normal; border: 0; padding: 0 var(--spacing-min)}
+textarea {overflow: auto; resize: vertical}
+button, input, optgroup, select, textarea, *[contenteditable="true"] {margin: 0; border: none}
 button, select {text-transform: none}
 button, [type="button"], [type="reset"], [type="submit"] {-webkit-appearance: button; cursor: pointer}
 button[disabled],
 input[disabled], textarea[disabled] {cursor: default}
 input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-outer-spin-button {height: auto}
 input[type=checkbox], input[type=radio] {padding: 0}
-input[type=search] {outline-offset: -1rem}
+input[type=search] {outline-offset: -125rem}
 input:focus, select:focus, textarea:focus, *[contenteditable]:focus {outline: 0}
 a, button, select, textarea {outline: 0; font: inherit; color: inherit; background: none}
-a {text-decoration: none; background-color: transparent}
+a {text-decoration: underline}
+a:not([href]), a:not([href]):hover {color: inherit; text-decoration: none}
 a:active, a:hover, button:hover {outline: 0}
 table {border-collapse: collapse; border-spacing: 0; max-width: 100%; background-color: transparent}
 th {font-weight: 600}
 th, td {text-align: left}
 b {font-weight: bold}
-hr {box-sizing: content-box; height: 0; overflow: visible; border: 0; margin: 1rem 0}
-p {padding: .125rem 0; margin: 0}
-ul, ol {padding: 0; margin: 0}
-ul:not([class]), ol:not([class]) {margin-left: .75rem}
+hr {box-sizing: content-box; background-color: currentColor; border: 0; height: .0625rem; opacity: .3; margin: 1em 0}
+p {padding: .125em 0; margin: 0}
+ul, ol {padding-inline-start: 2.5em}
 
 /**
  * ****************************************

@@ -140,30 +140,45 @@ ul, ol {padding-inline-start: 2.5em}
  * Tipografia
  * ****************************************
  */
-h1, .h1 {font-size: var(--text-size-h1); line-height: 138%}
-h2, .h2 {font-size: var(--text-size-h2); line-height: 130%}
-h3, .h3 {font-size: var(--text-size-h3); line-height: 126%}
-h4, .h4 {font-size: var(--text-size-h4); line-height: 122%}
-h5, .h5 {font-size: var(--text-size-h5); line-height: 120%}
-h6, .h6 {font-size: var(--text-size-h6); line-height: 118%}
+.font-sm {font-size: .75em}   /* 12 */
+.font-md {font-size: 1.125em} /* 18 */
+.font-lg {font-size: 1.5em}   /* 24 */
 
-.h1, .h2, .h3, .h4, .h5, .h6,
- h1,  h2,  h3,  h4,  h5,  h6 {
-    font-family: inherit; font-weight: bold; color: inherit; word-wrap: break-word; font-size-adjust: .7
+.font-sm.fix {font-size: .75rem}   /* 12 */
+.font-md.fix {font-size: 1.125rem} /* 18 */
+.font-lg.fix {font-size: 1.5rem}   /* 24 */
+
+h1, .h1, h2, .h2, h3, .h3,
+h4, .h4, h5, .h5, h6, .h6 {
+    font-weight: bold;
+    word-wrap: break-word
 }
-h1,  h2,  h3,  h4,  h5,  h6 {
-    margin: 2.5vh 0
-}
 
-.font-min    {font-size: var(--text-size-min)}
-.font-medium {font-size: var(--text-size-medium)}
-.font-max    {font-size: var(--text-size-max)}
+h1, .h1 {font-size: clamp(2.5rem,  calc(3.33vw + 1rem), 3rem)}     /* 40-48 */
+h2, .h2 {font-size: clamp(2.25rem, calc(2.92vw + 1rem), 2.75rem)}  /* 36-44 */
+h3, .h3 {font-size: clamp(2rem,    calc(2.5vw  + 1rem), 2.5rem)}   /* 32-40 */
+h4, .h4 {font-size: clamp(1.75rem, calc(2.09vw + 1rem), 2.25rem)}  /* 28-36 */
+h5, .h5 {font-size: clamp(1.5rem,  calc(1.88vw + 1rem), 2.125rem)} /* 24-34 */
+h6, .h6 {font-size: clamp(1.25rem, calc(1.25vw + 1rem), 1.75rem)}  /* 20-28 */
 
-.italic    {font-style: italic !important}
-.bold      {font-weight: bold !important}
-.overline  {text-decoration: overline !important}
-.underline {text-decoration: underline !important}
-.through   {text-decoration: line-through !important}
+.xtitle-sm {font-size: clamp(3rem,   calc(4.09vw + 1rem), 3.5rem)} /* 48-56 */
+.xtitle-md {font-size: clamp(3.5rem, calc(5vw    + 1rem), 4rem)}   /* 56-64 */
+.xtitle-lg {font-size: clamp(4rem,   calc(5.72vw + 1rem), 4.5rem)} /* 64-72 */
+
+h1.fix, .h1.fix {font-size: 2.5rem}  /* 40 */
+h2.fix, .h2.fix {font-size: 2.25rem} /* 36 */
+h3.fix, .h3.fix {font-size: 2rem}    /* 32 */
+h4.fix, .h4.fix {font-size: 1.75rem} /* 28 */
+h5.fix, .h5.fix {font-size: 1.5rem}  /* 24 */
+h6.fix, .h6.fix {font-size: 1.25rem} /* 20 */
+
+.font-base {font-size: 1rem !important} /* 16 */
+
+.italic    {font-style:      italic}
+.bold      {font-weight:     bold}
+.overline  {text-decoration: overline}
+.underline {text-decoration: underline}
+.through   {text-decoration: line-through}
 
 /**
  * ****************************************

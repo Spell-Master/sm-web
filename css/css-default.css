@@ -185,12 +185,12 @@ h6.fix, .h6.fix {font-size: 1.25rem} /* 20 */
  * Recipientes
  * ****************************************
  */
-.container-min,
-.container-medium,
-.container,
-.container-max,
+.container-sm,
 .container-sd,
+.container-md,
 .container-hd,
+.container,
+.container-lg,
 .container-4k,
 .container-8k {
     width: auto;
@@ -199,15 +199,14 @@ h6.fix, .h6.fix {font-size: 1.25rem} /* 20 */
     clear: both
 }
 
-.container-min    {max-width: 30rem}  /* 480px */
-.container-medium {max-width: 64rem}  /* 1024px */
-.container        {max-width: 120rem} /* 1920px */
-.container-max    {max-width: 160rem} /* 2560px */
-
-.container-sd     {max-width: 40rem}  /* 640px */
-.container-hd     {max-width: 80rem}  /* 1280px */
-.container-4k     {max-width: 205rem} /* 3280px */
-.container-8k     {max-width: 480rem} /* 7680px */
+.container-sm {max-width: 480px}
+.container-sd {max-width: 640px}
+.container-md {max-width: 960px}
+.container-hd {max-width: 1280px}
+.container    {max-width: 1920px}
+.container-lg {max-width: 2560px}
+.container-4k {max-width: 3200px}
+.container-8k {max-width: 7680px}
 
 /**
  * ****************************************

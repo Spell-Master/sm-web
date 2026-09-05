@@ -213,18 +213,24 @@ h6.fix, .h6.fix {font-size: 1.25rem} /* 20 */
  * Cursor
  * ****************************************
  */
-.cursor-auto      {cursor: auto}
-.cursor-copy      {cursor: copy}
-.cursor-crosshair {cursor: crosshair}
-.cursor-default   {cursor: default}
-.cursor-grab      {cursor: grab}
-.cursor-help      {cursor: help}
-.cursor-none      {cursor: none}
-.cursor-text      {cursor: text}
-.cursor-pointer   {cursor: pointer}
-.cursor-progress  {cursor: progress}
-.cursor-zoomi     {cursor: zoom-in}
-.cursor-zoomo     {cursor: zoom-out}
+.cursor-default       {cursor: default}
+.cursor-none          {cursor: none}
+.cursor-pointer       {cursor: pointer}
+.cursor-text          {cursor: text}
+.cursor-vertical-text {cursor: vertical-text}
+.cursor-not-allowed   {cursor: not-allowed}
+.cursor-grab          {cursor: grab}
+.cursor-grabbing      {cursor: grabbing}
+.cursor-progress      {cursor: progress}
+.cursor-zoomi         {cursor: zoom-in}
+.cursor-zoomo         {cursor: zoom-out}
+.cursor-copy          {cursor: copy}
+.cursor-move          {cursor: move}
+.cursor-help          {cursor: help}
+.cursor-crosshair     {cursor: crosshair}
+.cursor-col-resize    {cursor: col-resize}
+.cursor-row-resize    {cursor: row-resize}
+.cursor-alias         {cursor: alias}
 
 /**
  * ****************************************

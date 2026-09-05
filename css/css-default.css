@@ -239,6 +239,21 @@ h6.fix, .h6.fix {font-size: 1.25rem} /* 20 */
  */
 .image-auto {display: block; max-width: 100%; height: auto}
 
+.aspect-1x1  {aspect-ratio: 1/1}
+.aspect-3x2  {aspect-ratio: 3/2}
+.aspect-4x3  {aspect-ratio: 4/3}
+.aspect-4x5  {aspect-ratio: 4/5}
+.aspect-5x4  {aspect-ratio: 5/4}
+.aspect-9x16 {aspect-ratio: 9/16}
+.aspect-16x9 {aspect-ratio: 16/9}
+.aspect-21x9 {aspect-ratio: 21/9}
+
+.fit-contain {object-fit: contain}
+.fit-cover   {object-fit: cover}
+.fit-fill    {object-fit: fill}
+.fit-down    {object-fit: scale-down}
+.fit-none    {object-fit: none}
+
 /**
  * ****************************************
  * Botões

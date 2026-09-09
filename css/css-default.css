@@ -81,7 +81,7 @@
  */
 *, :after, :before {margin: 0; padding: 0; box-sizing: border-box}
 html {overflow-x: hidden}
-body {font-size: 1rem; line-height: 1.5; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; color: #444444}
+body {font-size: 1rem; line-height: 1.5; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; color: #3b3b3b}
 body, html {height: 100%}
 header, main, footer {width: auto}
 article, aside, details, figcaption, figure, header, main, footer, menu, nav, section, summary {display: block}
@@ -118,7 +118,6 @@ input:focus, select:focus, textarea:focus, *[contenteditable]:focus {outline: 0}
 a, button, select, textarea {outline: 0; font: inherit; color: inherit; background: none}
 a {text-decoration: underline}
 a:not([href]), a:not([href]):hover {color: inherit; text-decoration: none}
-a:active, a:hover, button:hover {outline: 0}
 table {border-collapse: collapse; border-spacing: 0; max-width: 100%; background-color: transparent}
 th {font-weight: 600}
 th, td {text-align: left}
@@ -252,80 +251,97 @@ h6.fix, .h6.fix {font-size: 1.25rem} /* 20 */
  * ****************************************
  */
 [class^="btn"] {
-    outline: 0;
-    border: .0625rem solid;
-    padding: .75rem 1.5rem;
-    margin-bottom: 0;
+    outline: .0625rem solid transparent;
+    outline-offset: -.0625rem;
+    border: .125rem solid transparent;
+    padding: 10px 12px;
+    margin: 0;
+    margin-inline: -.125rem;
     display: inline-block;
     vertical-align: middle;
-    min-height: 3rem;
     text-decoration: none;
     text-align: center;
     font-weight: 400;
     cursor: pointer;
     overflow: hidden;
     white-space: nowrap;
-    transition: all .5s
+    transition: background-color .5s linear
 }
 
-.button-min   {padding: .375rem .75rem; min-height: 1.75rem}
-.button-max   {padding: 1.125rem 2rem;  min-height: 3.3125rem}
-.button-block,
-.button-block {width: 100%}
+.button-sm, .button-sm-block {padding: 6px 8px}
+.button-md, .button-md-block {padding: 14px 16px}
+.button-lg, .button-lg-block {padding: 18px 20px}
 
-.btn-default  {color: #4d4d4d}
+.button-block,
+.button-sm-block,
+.button-md-block,
+.button-lg-block {
+    width: 100%
+}
+
+.btn-default  {color: #000000}
 .btn-success,
 .btn-info,
 .btn-warning,
-.btn-danger  {color: #fafafa}
+.btn-danger  {color: #ffffff}
 
 .btn,
-.btn-empty   {background-color: inherit;            border-color: transparent}
-.btn-default {background-color: #cecece !important; border-color: #bbbbbb !important}
-.btn-success {background-color: #0b7f32 !important; border-color: #086728 !important}
-.btn-info    {background-color: #0e6a99 !important; border-color: #0b5a82 !important}
-.btn-warning {background-color: #cc7e12 !important; border-color: #b26d0f !important}
-.btn-danger  {background-color: #cc1222 !important; border-color: #b20f1d !important}
+.btn-empty   {background-color: inherit}
+.btn-default {background-color: #d4d4d4; outline-color: #b9b9b9}
+.btn-success {background-color: #0c7b2c; outline-color: #006213}
+.btn-info    {background-color: #006699; outline-color: #004d7d}
+.btn-warning {background-color: #ae6309; outline-color: #914b00}
+.btn-danger  {background-color: #cd1423; outline-color: #af0010}
 
-.btn-default:hover {background-color: #bfbfbf !important}
-.btn-success:hover {background-color: #0a6629 !important}
-.btn-info:hover    {background-color: #0b5072 !important}
-.btn-warning:hover {background-color: #a56710 !important}
-.btn-danger:hover  {background-color: #a50f1c !important}
+.btn-default:hover, .btn-default:focus, .btn-default:focus-visible {background-color: #b9b9b9; outline-color: #d4d4d4}
+.btn-success:hover, .btn-success:focus, .btn-success:focus-visible {background-color: #006213; outline-color: #0c7b2c}
+.btn-info:hover,    .btn-info:focus,    .btn-info:focus-visible    {background-color: #004d7d; outline-color: #006699}
+.btn-warning:hover, .btn-warning:focus, .btn-warning:focus-visible {background-color: #914b00; outline-color: #ae6309}
+.btn-danger:hover,  .btn-danger:focus,  .btn-danger:focus-visible  {background-color: #af0010; outline-color: #cd1423}
+.btn-default:hover, .btn-default:focus, .btn-default:focus-visible {background-color: #b9b9b9; outline-color: #d4d4d4}
+.btn-success:hover, .btn-success:focus, .btn-success:focus-visible {background-color: #006213; outline-color: #0c7b2c}
+.btn-info:hover,    .btn-info:focus,    .btn-info:focus-visible    {background-color: #004d7d; outline-color: #006699}
+.btn-warning:hover, .btn-warning:focus, .btn-warning:focus-visible {background-color: #914b00; outline-color: #ae6309}
+.btn-danger:hover,  .btn-danger:focus,  .btn-danger:focus-visible  {background-color: #af0010; outline-color: #cd1423}
 
 .btn-default:active,
 .btn-success:active,
 .btn-info:active,
 .btn-warning:active,
 .btn-danger:active {
-    filter: brightness(50%)
+    filter: brightness(120%)
 }
 
 [class^="href"] {
     cursor: pointer;
+    text-decoration: none;
     margin: 0 .0625rem;
     font-weight: 600;
     display: inline-block;
-    text-decoration: none;
     text-align: center;
     white-space: nowrap;
-    transition: .5s
+    transition: filter .5s linear
 }
-[class^="href"]:active {
-    filter: brightness(50%)
+[class^="href"]:active {filter: brightness(50%)}
+
+.href         {color: #0764f2}
+.href-light   {color: #c6c6c6}
+.href-dark    {color: #303030}
+.href-success {color: #0c7b2c}
+.href-info    {color: #2371a5}
+.href-warning {color: #ae6309}
+.href-danger  {color: #df2d30}
+
+.href:hover,         .href:focus,
+.href-light:hover,   .href-light:focus,
+.href-dark:hover,    .href-dark:focus,
+.href-success:hover, .href-success:focus,
+.href-info:hover,    .href-info:focus,
+.href-warning:hover, .href-warning:focus,
+.href-danger:hover,  .href-danger:focus {
+    filter: brightness(150%);
+    text-decoration: underline
 }
-
-.href         {color: #2962ff !important}
-.href-info    {color: #195ae6 !important}
-.href-success {color: #0c8c25 !important}
-.href-warning {color: #8c560c !important}
-.href-danger  {color: #e51313 !important}
-
-.href:hover,         .href:focus         {text-shadow: 0 0 .625rem rgba(20,160,230,.5)}
-.href-info:hover,    .href-info:focus    {text-shadow: 0 0 .625rem rgba(25,90,230,.5)}
-.href-success:hover, .href-success:focus {text-shadow: 0 0 .625rem rgba(10,140,40,.5)}
-.href-warning:hover, .href-warning:focus {text-shadow: 0 0 .625rem rgba(140,90,12,.5)}
-.href-danger:hover,  .href-danger:focus  {text-shadow: 0 0 .625rem rgba(170,15,0,.5)}
 
 /**
  * ****************************************

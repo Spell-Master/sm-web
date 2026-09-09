@@ -254,7 +254,7 @@ h6.fix, .h6.fix {font-size: 1.25rem} /* 20 */
     outline: .0625rem solid transparent;
     outline-offset: -.0625rem;
     border: .125rem solid transparent;
-    padding: 10px 12px;
+    padding: .625rem .75rem;
     margin: 0;
     margin-inline: -.125rem;
     display: inline-block;
@@ -268,16 +268,9 @@ h6.fix, .h6.fix {font-size: 1.25rem} /* 20 */
     transition: background-color .5s linear
 }
 
-.button-sm, .button-sm-block {padding: 6px 8px}
-.button-md, .button-md-block {padding: 14px 16px}
-.button-lg, .button-lg-block {padding: 18px 20px}
-
-.button-block,
-.button-sm-block,
-.button-md-block,
-.button-lg-block {
-    width: 100%
-}
+.button-sm, .button-sm-block {padding: .375rem .5rem}
+.button-md, .button-md-block {padding: .875rem 1rem}
+.button-lg, .button-lg-block {padding: 1.125rem 1.25rem}
 
 .btn-default  {color: #000000}
 .btn-success,
@@ -322,7 +315,6 @@ h6.fix, .h6.fix {font-size: 1.25rem} /* 20 */
     white-space: nowrap;
     transition: filter .5s linear
 }
-[class^="href"]:active {filter: brightness(50%)}
 
 .href         {color: #0764f2}
 .href-light   {color: #c6c6c6}

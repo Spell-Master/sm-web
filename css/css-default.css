@@ -81,7 +81,7 @@
  */
 *, :after, :before {margin: 0; padding: 0; box-sizing: border-box}
 html {overflow-x: hidden}
-body {font-size: 1rem; line-height: 1.5; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; color: #3b3b3b}
+body {font-size: 1rem; line-height: 1.5; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; color: #5e5e5e}
 body, html {height: 100%}
 header, main, footer {width: auto}
 article, aside, details, figcaption, figure, header, main, footer, menu, nav, section, summary {display: block}
@@ -166,6 +166,8 @@ h6.fix, .h6.fix {font-size: 1.25rem} /* 20 */
 .font-base {font-size: 1rem !important} /* 16 */
 
 .italic    {font-style:      italic}
+.oblique   {font-style:      oblique}
+.lighter   {font-weight:     lighter}
 .bold      {font-weight:     bold}
 .overline  {text-decoration: overline}
 .underline {text-decoration: underline}
@@ -272,21 +274,21 @@ h6.fix, .h6.fix {font-size: 1.25rem} /* 20 */
 .button-md, .button-md-block {padding: .875rem 1rem}
 .button-lg, .button-lg-block {padding: 1.125rem 1.25rem}
 
-.btn-default  {color: #000000}
+.btn-default  {color: #5b5b5b}
 .btn-success,
 .btn-info,
 .btn-warning,
-.btn-danger  {color: #ffffff}
+.btn-danger  {color: #eeeeee}
 
 .btn,
 .btn-empty   {background-color: inherit}
-.btn-default {background-color: #d4d4d4; outline-color: #b9b9b9}
+.btn-default {background-color: #d4d4d4; outline-color: #c6c6c6}
 .btn-success {background-color: #0c7b2c; outline-color: #006213}
 .btn-info    {background-color: #006699; outline-color: #004d7d}
-.btn-warning {background-color: #ae6309; outline-color: #914b00}
+.btn-warning {background-color: #b14816; outline-color: #823f00}
 .btn-danger  {background-color: #cd1423; outline-color: #af0010}
 
-.btn-default:hover, .btn-default:focus, .btn-default:focus-visible {background-color: #b9b9b9; outline-color: #d4d4d4}
+.btn-default:hover, .btn-default:focus, .btn-default:focus-visible {background-color: #c6c6c6; outline-color: #d4d4d4}
 .btn-success:hover, .btn-success:focus, .btn-success:focus-visible {background-color: #006213; outline-color: #0c7b2c}
 .btn-info:hover,    .btn-info:focus,    .btn-info:focus-visible    {background-color: #004d7d; outline-color: #006699}
 .btn-warning:hover, .btn-warning:focus, .btn-warning:focus-visible {background-color: #914b00; outline-color: #ae6309}
@@ -294,7 +296,7 @@ h6.fix, .h6.fix {font-size: 1.25rem} /* 20 */
 .btn-default:hover, .btn-default:focus, .btn-default:focus-visible {background-color: #b9b9b9; outline-color: #d4d4d4}
 .btn-success:hover, .btn-success:focus, .btn-success:focus-visible {background-color: #006213; outline-color: #0c7b2c}
 .btn-info:hover,    .btn-info:focus,    .btn-info:focus-visible    {background-color: #004d7d; outline-color: #006699}
-.btn-warning:hover, .btn-warning:focus, .btn-warning:focus-visible {background-color: #914b00; outline-color: #ae6309}
+.btn-warning:hover, .btn-warning:focus, .btn-warning:focus-visible {background-color: #823f00; outline-color: #b14816}
 .btn-danger:hover,  .btn-danger:focus,  .btn-danger:focus-visible  {background-color: #af0010; outline-color: #cd1423}
 
 .btn-default:active,

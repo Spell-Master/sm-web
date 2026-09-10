@@ -1030,7 +1030,7 @@ table.table.streak tr:nth-child(even) {
 }
 
 .row-pad > [class^="col-"] {
-    padding: var(--spacing-medium)
+    padding: var(--spacing-med)
 }
 
 .col-1,
@@ -1161,18 +1161,18 @@ table.table.streak tr:nth-child(even) {
  */
 .margin-auto {margin: auto !important}
 
-.margin-all    {margin: var(--spacing-medium) !important}
-.margin-left   {margin-left: var(--spacing-medium) !important}
-.margin-right  {margin-right: var(--spacing-medium) !important}
-.margin-top    {margin-top: var(--spacing-medium) !important}
-.margin-bottom {margin-bottom: var(--spacing-medium) !important}
+.margin-all    {margin: var(--spacing-med) !important}
+.margin-left   {margin-left: var(--spacing-med) !important}
+.margin-right  {margin-right: var(--spacing-med) !important}
+.margin-top    {margin-top: var(--spacing-med) !important}
+.margin-bottom {margin-bottom: var(--spacing-med) !important}
 .margin-lr {
-    margin-left:  var(--spacing-medium) !important;
-    margin-right: var(--spacing-medium) !important
+    margin-left:  var(--spacing-med) !important;
+    margin-right: var(--spacing-med) !important
 }
 .margin-tb {
-    margin-top:    var(--spacing-medium) !important;
-    margin-bottom: var(--spacing-medium) !important
+    margin-top:    var(--spacing-med) !important;
+    margin-bottom: var(--spacing-med) !important
 }
 
 .margin-all-min    {margin: var(--spacing-min) !important}
@@ -1203,18 +1203,18 @@ table.table.streak tr:nth-child(even) {
     margin-bottom: var(--spacing-max) !important
 }
 
-.margin-all-prop    {margin: var(--spacing-prop) !important}
-.margin-left-prop   {margin-left: var(--spacing-prop) !important}
-.margin-right-prop  {margin-right: var(--spacing-prop) !important}
-.margin-top-prop    {margin-top: var(--spacing-prop) !important}
-.margin-bottom-prop {margin-bottom: var(--spacing-prop) !important}
+.margin-all-prop    {margin: var(--spacing-prp) !important}
+.margin-left-prop   {margin-left: var(--spacing-prp) !important}
+.margin-right-prop  {margin-right: var(--spacing-prp) !important}
+.margin-top-prop    {margin-top: var(--spacing-prp) !important}
+.margin-bottom-prop {margin-bottom: var(--spacing-prp) !important}
 .margin-lr-prop {
-    margin-left:  var(--spacing-prop) !important;
-    margin-right: var(--spacing-prop) !important
+    margin-left:  var(--spacing-prp) !important;
+    margin-right: var(--spacing-prp) !important
 }
 .margin-tb-prop {
-    margin-top:    var(--spacing-prop) !important;
-    margin-bottom: var(--spacing-prop) !important
+    margin-top:    var(--spacing-prp) !important;
+    margin-bottom: var(--spacing-prp) !important
 }
 
 .margin-all-none    {margin: 0 !important}
@@ -1236,18 +1236,18 @@ table.table.streak tr:nth-child(even) {
  * Preenchimento
  * ****************************************
  */
-.padding-all    {padding: var(--spacing-medium) !important}
-.padding-left   {padding-left: var(--spacing-medium) !important}
-.padding-right  {padding-right: var(--spacing-medium) !important}
-.padding-top    {padding-top: var(--spacing-medium) !important}
-.padding-bottom {padding-bottom: var(--spacing-medium) !important}
+.padding-all    {padding: var(--spacing-med) !important}
+.padding-left   {padding-left: var(--spacing-med) !important}
+.padding-right  {padding-right: var(--spacing-med) !important}
+.padding-top    {padding-top: var(--spacing-med) !important}
+.padding-bottom {padding-bottom: var(--spacing-med) !important}
 .padding-lr {
-    padding-left:  var(--spacing-medium) !important;
-    padding-right: var(--spacing-medium) !important
+    padding-left:  var(--spacing-med) !important;
+    padding-right: var(--spacing-med) !important
 }
 .padding-tb {
-    padding-top:    var(--spacing-medium) !important;
-    padding-bottom: var(--spacing-medium) !important
+    padding-top:    var(--spacing-med) !important;
+    padding-bottom: var(--spacing-med) !important
 }
 
 .padding-all-min    {padding: var(--spacing-min) !important}
@@ -1278,18 +1278,18 @@ table.table.streak tr:nth-child(even) {
     padding-bottom: var(--spacing-max) !important
 }
 
-.padding-all-prop    {padding: var(--spacing-prop) !important}
-.padding-left-prop   {padding-left: var(--spacing-prop) !important}
-.padding-right-prop  {padding-right: var(--spacing-prop) !important}
-.padding-top-prop    {padding-top: var(--spacing-prop) !important}
-.padding-bottom-prop {padding-bottom: var(--spacing-prop) !important}
+.padding-all-prop    {padding: var(--spacing-prp) !important}
+.padding-left-prop   {padding-left: var(--spacing-prp) !important}
+.padding-right-prop  {padding-right: var(--spacing-prp) !important}
+.padding-top-prop    {padding-top: var(--spacing-prp) !important}
+.padding-bottom-prop {padding-bottom: var(--spacing-prp) !important}
 .padding-lr-prop {
-    padding-left:  var(--spacing-prop) !important;
-    padding-right: var(--spacing-prop) !important
+    padding-left:  var(--spacing-prp) !important;
+    padding-right: var(--spacing-prp) !important
 }
 .padding-tb-prop {
-    padding-top:    var(--spacing-prop) !important;
-    padding-bottom: var(--spacing-prop) !important
+    padding-top:    var(--spacing-prp) !important;
+    padding-bottom: var(--spacing-prp) !important
 }
 
 .padding-all-none    {padding: 0 !important}
@@ -1332,7 +1332,7 @@ table.table.streak tr:nth-child(even) {
 .table-row  {display: table-row}
 .table-cell {display: table-cell}
 
-.list            {margin-left: var(--spacing-medium)}
+.list            {margin-left: var(--spacing-med)}
 ol.list, ul.list {margin-left: var(--spacing-max)}
 .list:not(ol),
 .list:not(ul)    {display: list-item}

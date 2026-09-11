@@ -707,86 +707,86 @@ table.table.streak tr:nth-child(even) {background-color: #f3f3f3}
  * Sombra de texto
  * ****************************************
  */
-.shadow-text,        .shadow-text-on-hover,        .shadow-text-hover:hover        {text-shadow: 0 0 1em rgba(0, 0, 0, .8)}
-.shadow-text-white,  .shadow-text-white-on-hover,  .shadow-text-white-hover:hover  {text-shadow: 0 0 1em var(--color-white)}
-.shadow-text-black,  .shadow-text-black-on-hover,  .shadow-text-black-hover:hover  {text-shadow: 0 0 1em var(--color-black)}
-.shadow-text-red,    .shadow-text-red-on-hover,    .shadow-text-red-hover:hover    {text-shadow: 0 0 1em var(--color-light-red)}
-.shadow-text-green,  .shadow-text-green-on-hover,  .shadow-text-green-hover:hover  {text-shadow: 0 0 1em var(--color-light-green)}
-.shadow-text-blue,   .shadow-text-blue-on-hover,   .shadow-text-blue-hover:hover   {text-shadow: 0 0 1em var(--color-light-blue)}
-.shadow-text-aqua,   .shadow-text-aqua-on-hover,   .shadow-text-aqua-hover:hover   {text-shadow: 0 0 1em var(--color-light-aqua)}
-.shadow-text-brown,  .shadow-text-brown-on-hover,  .shadow-text-brown-hover:hover  {text-shadow: 0 0 1em var(--color-light-brown)}
-.shadow-text-gray,   .shadow-text-gray-on-hover,   .shadow-text-gray-hover:hover   {text-shadow: 0 0 1em var(--color-light-gray)}
-.shadow-text-royal,  .shadow-text-royal-on-hover,  .shadow-text-royal-hover:hover  {text-shadow: 0 0 1em var(--color-light-royal)}
-.shadow-text-lime,   .shadow-text-lime-on-hover,   .shadow-text-lime-hover:hover   {text-shadow: 0 0 1em var(--color-light-lime)}
-.shadow-text-orange, .shadow-text-orange-on-hover, .shadow-text-orange-hover:hover {text-shadow: 0 0 1em var(--color-light-orange)}
-.shadow-text-pink,   .shadow-text-pink-on-hover,   .shadow-text-pink-hover:hover   {text-shadow: 0 0 1em var(--color-light-pink)}
-.shadow-text-purple, .shadow-text-purple-on-hover, .shadow-text-purple-hover:hover {text-shadow: 0 0 1em var(--color-light-purple)}
-.shadow-text-salmon, .shadow-text-salmon-on-hover, .shadow-text-salmon-hover:hover {text-shadow: 0 0 1em var(--color-light-salmon)}
-.shadow-text-sand,   .shadow-text-sand-on-hover,   .shadow-text-sand-hover:hover   {text-shadow: 0 0 1em var(--color-light-sand)}
-.shadow-text-teal,   .shadow-text-teal-on-hover,   .shadow-text-teal-hover:hover   {text-shadow: 0 0 1em var(--color-light-teal)}
-.shadow-text-yellow, .shadow-text-yellow-on-hover, .shadow-text-yellow-hover:hover {text-shadow: 0 0 1em var(--color-light-yellow)}
+.shadow-text,        .shadow-text-hover-off,        .shadow-text-hover:hover        {text-shadow: 0 0 .25em rgba(0, 0, 0, .5)}
+.shadow-text-white,  .shadow-text-white-hover-off,  .shadow-text-white-hover:hover  {text-shadow: 0 0 .25em var(--color-white)}
+.shadow-text-black,  .shadow-text-black-hover-off,  .shadow-text-black-hover:hover  {text-shadow: 0 0 .25em var(--color-black)}
+.shadow-text-red,    .shadow-text-red-hover-off,    .shadow-text-red-hover:hover    {text-shadow: 0 0 .25em var(--color-light-red)}
+.shadow-text-green,  .shadow-text-green-hover-off,  .shadow-text-green-hover:hover  {text-shadow: 0 0 .25em var(--color-light-green)}
+.shadow-text-blue,   .shadow-text-blue-hover-off,   .shadow-text-blue-hover:hover   {text-shadow: 0 0 .25em var(--color-light-blue)}
+.shadow-text-aqua,   .shadow-text-aqua-hover-off,   .shadow-text-aqua-hover:hover   {text-shadow: 0 0 .25em var(--color-light-aqua)}
+.shadow-text-brown,  .shadow-text-brown-hover-off,  .shadow-text-brown-hover:hover  {text-shadow: 0 0 .25em var(--color-light-brown)}
+.shadow-text-gray,   .shadow-text-gray-hover-off,   .shadow-text-gray-hover:hover   {text-shadow: 0 0 .25em var(--color-light-gray)}
+.shadow-text-royal,  .shadow-text-royal-hover-off,  .shadow-text-royal-hover:hover  {text-shadow: 0 0 .25em var(--color-light-royal)}
+.shadow-text-lime,   .shadow-text-lime-hover-off,   .shadow-text-lime-hover:hover   {text-shadow: 0 0 .25em var(--color-light-lime)}
+.shadow-text-orange, .shadow-text-orange-hover-off, .shadow-text-orange-hover:hover {text-shadow: 0 0 .25em var(--color-light-orange)}
+.shadow-text-pink,   .shadow-text-pink-hover-off,   .shadow-text-pink-hover:hover   {text-shadow: 0 0 .25em var(--color-light-pink)}
+.shadow-text-purple, .shadow-text-purple-hover-off, .shadow-text-purple-hover:hover {text-shadow: 0 0 .25em var(--color-light-purple)}
+.shadow-text-salmon, .shadow-text-salmon-hover-off, .shadow-text-salmon-hover:hover {text-shadow: 0 0 .25em var(--color-light-salmon)}
+.shadow-text-sand,   .shadow-text-sand-hover-off,   .shadow-text-sand-hover:hover   {text-shadow: 0 0 .25em var(--color-light-sand)}
+.shadow-text-teal,   .shadow-text-teal-hover-off,   .shadow-text-teal-hover:hover   {text-shadow: 0 0 .25em var(--color-light-teal)}
+.shadow-text-yellow, .shadow-text-yellow-hover-off, .shadow-text-yellow-hover:hover {text-shadow: 0 0 .25em var(--color-light-yellow)}
 
-.shadow-text-on-hover:hover        {text-shadow: 0 0 .5em rgba(0, 0, 0, .8)}
-.shadow-text-white-on-hover:hover  {text-shadow: 0 0 .5em var(--color-white)}
-.shadow-text-black-on-hover:hover  {text-shadow: 0 0 .5em var(--color-black)}
-.shadow-text-red-on-hover:hover    {text-shadow: 0 0 .5em var(--color-red)}
-.shadow-text-green-on-hover:hover  {text-shadow: 0 0 .5em var(--color-green)}
-.shadow-text-blue-on-hover:hover   {text-shadow: 0 0 .5em var(--color-blue)}
-.shadow-text-aqua-on-hover:hover   {text-shadow: 0 0 .5em var(--color-aqua)}
-.shadow-text-brown-on-hover:hover  {text-shadow: 0 0 .5em var(--color-brown)}
-.shadow-text-gray-on-hover:hover   {text-shadow: 0 0 .5em var(--color-gray)}
-.shadow-text-royal-on-hover:hover  {text-shadow: 0 0 .5em var(--color-royal)}
-.shadow-text-lime-on-hover:hover   {text-shadow: 0 0 .5em var(--color-lime)}
-.shadow-text-orange-on-hover:hover {text-shadow: 0 0 .5em var(--color-orange)}
-.shadow-text-pink-on-hover:hover   {text-shadow: 0 0 .5em var(--color-pink)}
-.shadow-text-purple-on-hover:hover {text-shadow: 0 0 .5em var(--color-purple)}
-.shadow-text-salmon-on-hover:hover {text-shadow: 0 0 .5em var(--color-salmon)}
-.shadow-text-sand-on-hover:hover   {text-shadow: 0 0 .5em var(--color-sand)}
-.shadow-text-teal-on-hover:hover   {text-shadow: 0 0 .5em var(--color-teal)}
-.shadow-text-yellow-on-hover:hover {text-shadow: 0 0 .5em var(--color-yellow)}
+.shadow-text-hover-off:hover        {text-shadow: 0 0}
+.shadow-text-white-hover-off:hover  {text-shadow: 0 0}
+.shadow-text-black-hover-off:hover  {text-shadow: 0 0}
+.shadow-text-red-hover-off:hover    {text-shadow: 0 0}
+.shadow-text-green-hover-off:hover  {text-shadow: 0 0}
+.shadow-text-blue-hover-off:hover   {text-shadow: 0 0}
+.shadow-text-aqua-hover-off:hover   {text-shadow: 0 0}
+.shadow-text-brown-hover-off:hover  {text-shadow: 0 0}
+.shadow-text-gray-hover-off:hover   {text-shadow: 0 0}
+.shadow-text-royal-hover-off:hover  {text-shadow: 0 0}
+.shadow-text-lime-hover-off:hover   {text-shadow: 0 0}
+.shadow-text-orange-hover-off:hover {text-shadow: 0 0}
+.shadow-text-pink-hover-off:hover   {text-shadow: 0 0}
+.shadow-text-purple-hover-off:hover {text-shadow: 0 0}
+.shadow-text-salmon-hover-off:hover {text-shadow: 0 0}
+.shadow-text-sand-hover-off:hover   {text-shadow: 0 0}
+.shadow-text-teal-hover-off:hover   {text-shadow: 0 0}
+.shadow-text-yellow-hover-off:hover {text-shadow: 0 0}
 
 /**
  * ****************************************
  * Sombra de Fundo
  * ****************************************
  */
-.shadow-box,             .shadow-box-on-hover       {box-shadow: 0 0 .25rem .125rem rgba(0, 0, 0, .3)}
-.shadow-box-hover:hover, .shadow-box-on-hover:hover {box-shadow: 0 0 .3125rem .1875rem rgba(0, 0, 0, .3)}
+.shadow-box,        .shadow-box-hover-off,        .shadow-box-hover:hover        {box-shadow: 0 0 .5em rgba(0, 0, 0, .5)}
+.shadow-box-white,  .shadow-box-white-hover-off,  .shadow-box-white-hover:hover  {box-shadow: 0 0 .5em var(--color-white)}
+.shadow-box-black,  .shadow-box-black-hover-off,  .shadow-box-black-hover:hover  {box-shadow: 0 0 .5em var(--color-black)}
+.shadow-box-red,    .shadow-box-red-hover-off,    .shadow-box-red-hover:hover    {box-shadow: 0 0 .5em var(--color-red)}
+.shadow-box-green,  .shadow-box-green-hover-off,  .shadow-box-green-hover:hover  {box-shadow: 0 0 .5em var(--color-green)}
+.shadow-box-blue,   .shadow-box-blue-hover-off,   .shadow-box-blue-hover:hover   {box-shadow: 0 0 .5em var(--color-blue)}
+.shadow-box-aqua,   .shadow-box-aqua-hover-off,   .shadow-box-aqua-hover:hover   {box-shadow: 0 0 .5em var(--color-aqua)}
+.shadow-box-brown,  .shadow-box-brown-hover-off,  .shadow-box-brown-hover:hover  {box-shadow: 0 0 .5em var(--color-brown)}
+.shadow-box-gray,   .shadow-box-gray-hover-off,   .shadow-box-gray-hover:hover   {box-shadow: 0 0 .5em var(--color-gray)}
+.shadow-box-royal,  .shadow-box-royal-hover-off,  .shadow-box-royal-hover:hover  {box-shadow: 0 0 .5em var(--color-royal)}
+.shadow-box-lime,   .shadow-box-lime-hover-off,   .shadow-box-lime-hover:hover   {box-shadow: 0 0 .5em var(--color-lime)}
+.shadow-box-orange, .shadow-box-orange-hover-off, .shadow-box-orange-hover:hover {box-shadow: 0 0 .5em var(--color-orange)}
+.shadow-box-pink,   .shadow-box-pink-hover-off,   .shadow-box-pink-hover:hover   {box-shadow: 0 0 .5em var(--color-pink)}
+.shadow-box-purple, .shadow-box-purple-hover-off, .shadow-box-purple-hover:hover {box-shadow: 0 0 .5em var(--color-purple)}
+.shadow-box-salmon, .shadow-box-salmon-hover-off, .shadow-box-salmon-hover:hover {box-shadow: 0 0 .5em var(--color-salmon)}
+.shadow-box-sand,   .shadow-box-sand-hover-off,   .shadow-box-sand-hover:hover   {box-shadow: 0 0 .5em var(--color-sand)}
+.shadow-box-teal,   .shadow-box-teal-hover-off,   .shadow-box-teal-hover:hover   {box-shadow: 0 0 .5em var(--color-teal)}
+.shadow-box-yellow, .shadow-box-yellow-hover-off, .shadow-box-yellow-hover:hover {box-shadow: 0 0 .5em var(--color-yellow)}
 
-.shadow-box-white,              .shadow-box-white-on-hover        {box-shadow: 0 0 .25rem .125rem var(--color-white)}
-.shadow-box-white-hover:hover,  .shadow-box-white-on-hover:hover  {box-shadow: 0 0 .3125rem .1875rem var(--color-white)}
-.shadow-box-black,              .shadow-box-black-on-hover        {box-shadow: 0 0 .25rem .125rem var(--color-black)}
-.shadow-box-black-hover:hover,  .shadow-box-black-on-hover:hover  {box-shadow: 0 0 .3125rem .1875rem var(--color-black)}
-.shadow-box-gray,               .shadow-box-gray-on-hover         {box-shadow: 0 0 .25rem .125rem var(--color-gray)}
-.shadow-box-gray-hover:hover,   .shadow-box-gray-on-hover:hover   {box-shadow: 0 0 .3125rem .1875rem var(--color-gray)}
-.shadow-box-red,                .shadow-box-red-on-hover          {box-shadow: 0 0 .25rem .125rem var(--color-red)}
-.shadow-box-red-hover:hover,    .shadow-box-red-on-hover:hover    {box-shadow: 0 0 .3125rem .1875rem var(--color-red)}
-.shadow-box-green,              .shadow-box-green-on-hover        {box-shadow: 0 0 .25rem .125rem var(--color-green)}
-.shadow-box-green-hover:hover,  .shadow-box-green-on-hover:hover  {box-shadow: 0 0 .3125rem .1875rem var(--color-green)}
-.shadow-box-blue,               .shadow-box-blue-on-hover         {box-shadow: 0 0 .25rem .125rem var(--color-blue)}
-.shadow-box-blue-hover:hover,   .shadow-box-blue-on-hover:hover   {box-shadow: 0 0 .3125rem .1875rem var(--color-blue)}
-.shadow-box-yellow,             .shadow-box-yellow-on-hover       {box-shadow: 0 0 .25rem .125rem var(--color-yellow)}
-.shadow-box-yellow-hover:hover, .shadow-box-yellow-on-hover:hover {box-shadow: 0 0 .3125rem .1875rem var(--color-yellow)}
-.shadow-box-pink,               .shadow-box-pink-on-hover         {box-shadow: 0 0 .25rem .125rem var(--color-pink)}
-.shadow-box-pink-hover:hover,   .shadow-box-pink-on-hover:hover   {box-shadow: 0 0 .3125rem .1875rem var(--color-pink)}
-.shadow-box-purple,             .shadow-box-purple-on-hover       {box-shadow: 0 0 .25rem .125rem var(--color-purple)}
-.shadow-box-purple-hover:hover, .shadow-box-purple-on-hover:hover {box-shadow: 0 0 .3125rem .1875rem var(--color-purple)}
-.shadow-box-royal,             .shadow-box-royal-on-hover       {box-shadow: 0 0 .25rem .125rem var(--color-royal)}
-.shadow-box-royal-hover:hover, .shadow-box-royal-on-hover:hover {box-shadow: 0 0 .3125rem .1875rem var(--color-royal)}
-.shadow-box-aqua,               .shadow-box-aqua-on-hover         {box-shadow: 0 0 .25rem .125rem var(--color-aqua)}
-.shadow-box-aqua-hover:hover,   .shadow-box-aqua-on-hover:hover   {box-shadow: 0 0 .3125rem .1875rem var(--color-aqua)}
-.shadow-box-sand,               .shadow-box-sand-on-hover         {box-shadow: 0 0 .25rem .125rem var(--color-sand)} 
-.shadow-box-sand-hover:hover,   .shadow-box-sand-on-hover:hover   {box-shadow: 0 0 .3125rem .1875rem var(--color-sand)}
-.shadow-box-orange,             .shadow-box-orange-on-hover       {box-shadow: 0 0 .25rem .125rem var(--color-orange)}
-.shadow-box-orange-hover:hover, .shadow-box-orange-on-hover:hover {box-shadow: 0 0 .3125rem .1875rem var(--color-orange)}
-.shadow-box-brown,              .shadow-box-brown-on-hover        {box-shadow: 0 0 .25rem .125rem var(--color-brown)}
-.shadow-box-brown-hover:hover,  .shadow-box-brown-on-hover:hover  {box-shadow: 0 0 .3125rem .1875rem var(--color-brown)}
-
-
-
-
-
-
+.shadow-box-hover-off:hover        {box-shadow: 0 0}
+.shadow-box-white-hover-off:hover  {box-shadow: 0 0}
+.shadow-box-black-hover-off:hover  {box-shadow: 0 0}
+.shadow-box-red-hover-off:hover    {box-shadow: 0 0}
+.shadow-box-green-hover-off:hover  {box-shadow: 0 0}
+.shadow-box-blue-hover-off:hover   {box-shadow: 0 0}
+.shadow-box-aqua-hover-off:hover   {box-shadow: 0 0}
+.shadow-box-brown-hover-off:hover  {box-shadow: 0 0}
+.shadow-box-gray-hover-off:hover   {box-shadow: 0 0}
+.shadow-box-royal-hover-off:hover  {box-shadow: 0 0}
+.shadow-box-lime-hover-off:hover   {box-shadow: 0 0}
+.shadow-box-orange-hover-off:hover {box-shadow: 0 0}
+.shadow-box-pink-hover-off:hover   {box-shadow: 0 0}
+.shadow-box-purple-hover-off:hover {box-shadow: 0 0}
+.shadow-box-salmon-hover-off:hover {box-shadow: 0 0}
+.shadow-box-sand-hover-off:hover   {box-shadow: 0 0}
+.shadow-box-teal-hover-off:hover   {box-shadow: 0 0}
+.shadow-box-yellow-hover-off:hover {box-shadow: 0 0}
 
 /**
  * ****************************************

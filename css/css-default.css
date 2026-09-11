@@ -21,7 +21,6 @@
     --spacing-med: 1rem;  /* 16 */
     --spacing-max: 2rem;  /* 32 */
     --spacing-prp: calc(1dvw + 1dvh);
-    --spacing-end: calc(1dvw + 1dvh * 2);
 
     --border-min: .0625rem; /* 1 */
     --border-med: .125rem;  /* 2 */
@@ -66,10 +65,6 @@
     --input-bg:     #f3f3f3; --input-bg-focus:     #f6f6f6;
     --input-border: #c6c6c6; --input-border-focus: #ababab;
     --input-valid:  #007e2d; --input-invalid:      #cc2424;
-
-    --table-border: #bbbbbb;
-    --table-head:   #cccccc;
-    --table-streak: #ededed;
 }
 
 /**
@@ -521,10 +516,8 @@ input[disabled],            input[readonly],
 
 blockquote[class^="quote"] {
     display: block;
-    margin-block: var(--spacing-end);
-    margin-inline: var(--spacing-end);
-    margin-inline-start: var(--spacing-end);
-    margin-inline-end: var(--spacing-end);
+    margin-block: var(--spacing-prp);
+    margin-inline: var(--spacing-prp)
 }
 
 q[class^="quote"]:before, mark[class^="quote"]:before {padding-left:  .25rem; margin-left: .125rem}
@@ -565,7 +558,6 @@ blockquote.quote-blue   {border-left: .25rem solid #0051b4}
 blockquote.quote-yellow {border-left: .25rem solid #71631c}
 
 [class^="glass"] {
-    color: #eeeeee;
     background-clip: border-box;
     backdrop-filter: blur(.3125rem)
 }
@@ -576,6 +568,21 @@ blockquote.quote-yellow {border-left: .25rem solid #71631c}
 .glass-green  {background-color: rgba(0,   255, 50,  .2)}
 .glass-blue   {background-color: rgba(0,   100, 255, .2)}
 .glass-yellow {background-color: rgba(255, 255, 0,   .2)}
+
+/**
+ * ****************************************
+ * Tabela
+ * ****************************************
+ */
+table.table {width: 100%}
+
+table.table th,
+table.table td {padding: .625rem; border: .0625rem solid rgba(0, 0, 0, .2)}
+
+table.table > thead,
+table.table > tfoot {background-color: #e5e5e5}
+
+table.table.streak tr:nth-child(even) {background-color: #f3f3f3}
 
 /**
  * ****************************************
@@ -760,22 +767,7 @@ blockquote.quote-yellow {border-left: .25rem solid #71631c}
 
 
 
-/**
- * ****************************************
- * Tabela
- * ****************************************
- */
-table.table {width: 100%}
 
-table.table th,
-table.table td {padding: .625rem; border: .0625rem solid var(--table-border)}
-
-table.table > thead,
-table.table > tfoot {background-color: var(--table-head)}
-
-table.table.streak tr:nth-child(even) {
-    background-color: var(--table-streak)
-}
 
 /**
  * ****************************************
@@ -1201,14 +1193,6 @@ table.table.streak tr:nth-child(even) {
 .margin-lr-prop     {margin-left:   var(--spacing-prp) !important; margin-right:  var(--spacing-prp) !important}
 .margin-tb-prop     {margin-top:    var(--spacing-prp) !important; margin-bottom: var(--spacing-prp) !important}
 
-.margin-all-end    {margin:        var(--spacing-end) !important}
-.margin-left-end   {margin-left:   var(--spacing-end) !important}
-.margin-right-end  {margin-right:  var(--spacing-end) !important}
-.margin-top-end    {margin-top:    var(--spacing-end) !important}
-.margin-bottom-end {margin-bottom: var(--spacing-end) !important}
-.margin-lr-end     {margin-left:   var(--spacing-end) !important; margin-right:  var(--spacing-end) !important}
-.margin-tb-end     {margin-top:    var(--spacing-end) !important; margin-bottom: var(--spacing-end) !important}
-
 .margin-all-none    {margin:        0 !important}
 .margin-left-none   {margin-left:   0 !important}
 .margin-right-none  {margin-right:  0 !important}
@@ -1254,14 +1238,6 @@ table.table.streak tr:nth-child(even) {
 .padding-lr-prop     {padding-left:   var(--spacing-prp) !important; padding-right:  var(--spacing-prp) !important}
 .padding-tb-prop     {padding-top:    var(--spacing-prp) !important; padding-bottom: var(--spacing-prp) !important}
 
-.padding-all-end    {padding:        var(--spacing-end) !important}
-.padding-left-end   {padding-left:   var(--spacing-end) !important}
-.padding-right-end  {padding-right:  var(--spacing-end) !important}
-.padding-top-end    {padding-top:    var(--spacing-end) !important}
-.padding-bottom-end {padding-bottom: var(--spacing-end) !important}
-.padding-lr-end     {padding-left:   var(--spacing-end) !important; padding-right:  var(--spacing-end) !important}
-.padding-tb-end     {padding-top:    var(--spacing-end) !important; padding-bottom: var(--spacing-end) !important}
-
 .padding-all-none    {padding:        0 !important}
 .padding-left-none   {padding-left:   0 !important}
 .padding-right-none  {padding-right:  0 !important}
@@ -1304,10 +1280,10 @@ table.table.streak tr:nth-child(even) {
     display: list-item;
     list-style-type: disc;
     counter-reset: none;
-    margin-left: var(--spacing-end)
+    margin-left: var(--spacing-prp)
 }
             
-ul.list, ol.list {margin-block-start: 1em; margin-block-end: 1em}
+ul.list, ol.list {margin-block: 0; margin-inline: 0}
 ul.list,
 ol.list,
 ul > li.list,

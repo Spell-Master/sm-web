@@ -27,39 +27,39 @@
     --border-max: .25rem;   /* 4 */
 
     --color-white:  #f1f1f1;
-    --color-black:  #1e1e1e;
-    --color-red:    #d41111;
-    --color-green:  #064706;
-    --color-blue:   #2161a9;
-    --color-aqua:   #33b8b8;
-    --color-brown:  #6b4d42;
-    --color-gray:   #848484; 
-    --color-indigo: #3a4373;
-    --color-lime:   #539c53;
-    --color-orange: #ea6813;
-    --color-pink:   #d4187e;
-    --color-purple: #560956;
-    --color-salmon: #d8766a;
-    --color-sand:   #b67844;
-    --color-teal:   #2a5454;
-    --color-yellow: #d2b411;
+    --color-black:  #262626;
+    --color-red:    #cf1717;
+    --color-green:  #148514;
+    --color-blue:   #2573c1;
+    --color-aqua:   #35b1af;
+    --color-brown:  #834a2f;
+    --color-gray:   #8d8d8c;
+    --color-royal:  #3b5998;
+    --color-lime:   #37c837;
+    --color-orange: #e67300;
+    --color-pink:   #e34fa0;
+    --color-purple: #91218e;
+    --color-salmon: #da7c72;
+    --color-sand:   #9a714c;
+    --color-teal:   #158482;
+    --color-yellow: #e6bf00;
 
     --color-light:        #dadada; --color-dark:        #adadad;
-    --color-light-red:    #ee2b2b; --color-dark-red:    #990c0c;
-    --color-light-green:  #096b09; --color-dark-green:  #032403;
-    --color-light-blue:   #2a7bd6; --color-dark-blue:   #194682;
-    --color-light-aqua:   #39e2e3; --color-dark-aqua:   #237f7e;
-    --color-light-brown:  #8b6456; --color-dark-brown:  #4d3730;
-    --color-light-gray:   #9e9e9e; --color-dark-gray:   #6a6a6a;
-    --color-light-indigo: #4c5797; --color-dark-indigo: #2a3053;
-    --color-light-lime:   #6eb76d; --color-dark-lime:   #417a40;
-    --color-light-orange: #f08743; --color-dark-orange: #bd540f;
-    --color-light-pink:   #e14198; --color-dark-pink:   #ab1365;
-    --color-light-purple: #841084; --color-dark-purple: #2c052c;
-    --color-light-salmon: #e4a097; --color-dark-salmon: #ce5041;
-    --color-light-sand:   #bc8f69; --color-dark-sand:   #b16422;
-    --color-light-teal:   #418282; --color-dark-teal:   #162b2b;
-    --color-light-yellow: #eecf2b; --color-dark-yellow: #8b7500;
+    --color-light-red:    #e83030; --color-dark-red:    #a11212;
+    --color-light-green:  #1bb11b; --color-dark-green:  #0d590d;
+    --color-light-blue:   #3e8cda; --color-dark-blue:   #1d5996;
+    --color-light-aqua:   #62d0ce; --color-dark-aqua:   #237674;
+    --color-light-brown:  #a95f3d; --color-dark-brown:  #5e3522;
+    --color-light-gray:   #a6a6a6; --color-dark-gray:   #737373;
+    --color-light-royal:  #476bb8; --color-dark-royal:  #324b81;
+    --color-light-lime:   #5fd35f; --color-dark-lime:   #2ca02c;
+    --color-light-orange: #ff8c1a; --color-dark-orange: #b35900;
+    --color-light-pink:   #ea7bb8; --color-dark-pink:   #dd2289;
+    --color-light-purple: #bb2ab6; --color-dark-purple: #681865;
+    --color-light-salmon: #e4a29a; --color-dark-salmon: #cf574a;
+    --color-light-sand:   #b38a65; --color-dark-sand:   #78573b;
+    --color-light-teal:   #1cb0ae; --color-dark-teal:   #0e5857;
+    --color-light-yellow: #ffd91a; --color-dark-yellow: #b39500;
 
     --input-color:  #6c6c6c; --input-color-focus:  #5b5b5b;
     --input-bg:     #f3f3f3; --input-bg-focus:     #f6f6f6;
@@ -589,48 +589,59 @@ table.table.streak tr:nth-child(even) {background-color: #f3f3f3}
  * Cores de Texto
  * ****************************************
  */
-.text-light,  .text-light-hover:hover  {color: var(--color-light)}
-.text-dark,   .text-dark-hover:hover   {color: var(--color-dark)}
 .text-white,  .text-white-hover:hover  {color: var(--color-white)}
 .text-black,  .text-black-hover:hover  {color: var(--color-black)}
-.text-gray,   .text-gray-hover:hover   {color: var(--color-gray)}
 .text-red,    .text-red-hover:hover    {color: var(--color-red)}
 .text-green,  .text-green-hover:hover  {color: var(--color-green)}
 .text-blue,   .text-blue-hover:hover   {color: var(--color-blue)}
-.text-yellow, .text-yellow-hover:hover {color: var(--color-yellow)}
+.text-aqua,   .text-aqua-hover:hover   {color: var(--color-aqua)}
+.text-brown,  .text-brown-hover:hover  {color: var(--color-brown)}
+.text-gray,   .text-gray-hover:hover   {color: var(--color-gray)}
+.text-royal,  .text-royal-hover:hover  {color: var(--color-royal)}
+.text-lime,   .text-lime-hover:hover   {color: var(--color-lime)}
+.text-orange, .text-orange-hover:hover {color: var(--color-orange)}
 .text-pink,   .text-pink-hover:hover   {color: var(--color-pink)}
 .text-purple, .text-purple-hover:hover {color: var(--color-purple)}
-.text-indigo, .text-indigo-hover:hover {color: var(--color-indigo)}
-.text-aqua,   .text-aqua-hover:hover   {color: var(--color-aqua)}
+.text-salmon, .text-salmon-hover:hover {color: var(--color-salmon)}
 .text-sand,   .text-sand-hover:hover   {color: var(--color-sand)}
-.text-orange, .text-orange-hover:hover {color: var(--color-orange)}
-.text-brown,  .text-brown-hover:hover  {color: var(--color-brown)}
+.text-teal,   .text-teal-hover:hover   {color: var(--color-teal)}
+.text-yellow, .text-yellow-hover:hover {color: var(--color-yellow)}
 
-.text-light-gray,   .text-light-gray-hover:hover   {color: var(--color-light-gray)}
+.text-light,        .text-light-hover:hover        {color: var(--color-light)}
+.text-light-black,  .text-light-black-hover:hover  {color: var(--color-light-black)}
 .text-light-red,    .text-light-red-hover:hover    {color: var(--color-light-red)}
 .text-light-green,  .text-light-green-hover:hover  {color: var(--color-light-green)}
 .text-light-blue,   .text-light-blue-hover:hover   {color: var(--color-light-blue)}
-.text-light-yellow, .text-light-yellow-hover:hover {color: var(--color-light-yellow)}
+.text-light-aqua,   .text-light-aqua-hover:hover   {color: var(--color-light-aqua)}
+.text-light-brown,  .text-light-brown-hover:hover  {color: var(--color-light-brown)}
+.text-light-gray,   .text-light-gray-hover:hover   {color: var(--color-light-gray)}
+.text-light-royal,  .text-light-royal-hover:hover  {color: var(--color-light-royal)}
+.text-light-lime,   .text-light-lime-hover:hover   {color: var(--color-light-lime)}
+.text-light-orange, .text-light-orange-hover:hover {color: var(--color-light-orange)}
 .text-light-pink,   .text-light-pink-hover:hover   {color: var(--color-light-pink)}
 .text-light-purple, .text-light-purple-hover:hover {color: var(--color-light-purple)}
-.text-light-indigo, .text-light-indigo-hover:hover {color: var(--color-light-indigo)}
-.text-light-aqua,   .text-light-aqua-hover:hover   {color: var(--color-light-aqua)}
+.text-light-salmon, .text-light-salmon-hover:hover {color: var(--color-light-salmon)}
 .text-light-sand,   .text-light-sand-hover:hover   {color: var(--color-light-sand)}
-.text-light-orange, .text-light-orange-hover:hover {color: var(--color-light-orange)}
-.text-light-brown,  .text-light-brown-hover:hover  {color: var(--color-light-brown)}
+.text-light-teal,   .text-light-teal-hover:hover   {color: var(--color-light-teal)}
+.text-light-yellow, .text-light-yellow-hover:hover {color: var(--color-light-yellow)}
 
-.text-dark-gray,   .text-dark-gray-hover:hover   {color: var(--color-dark-gray)}
+.text-dark,        .text-dark-hover:hover        {color: var(--color-dark)}
+.text-dark-black,  .text-dark-black-hover:hover  {color: var(--color-dark-black)}
 .text-dark-red,    .text-dark-red-hover:hover    {color: var(--color-dark-red)}
 .text-dark-green,  .text-dark-green-hover:hover  {color: var(--color-dark-green)}
 .text-dark-blue,   .text-dark-blue-hover:hover   {color: var(--color-dark-blue)}
-.text-dark-yellow, .text-dark-yellow-hover:hover {color: var(--color-dark-yellow)}
+.text-dark-aqua,   .text-dark-aqua-hover:hover   {color: var(--color-dark-aqua)}
+.text-dark-brown,  .text-dark-brown-hover:hover  {color: var(--color-dark-brown)}
+.text-dark-gray,   .text-dark-gray-hover:hover   {color: var(--color-dark-gray)}
+.text-dark-royal,  .text-dark-royal-hover:hover  {color: var(--color-dark-royal)}
+.text-dark-lime,   .text-dark-lime-hover:hover   {color: var(--color-dark-lime)}
+.text-dark-orange, .text-dark-orange-hover:hover {color: var(--color-dark-orange)}
 .text-dark-pink,   .text-dark-pink-hover:hover   {color: var(--color-dark-pink)}
 .text-dark-purple, .text-dark-purple-hover:hover {color: var(--color-dark-purple)}
-.text-dark-indigo, .text-dark-indigo-hover:hover {color: var(--color-dark-indigo)}
-.text-dark-aqua,   .text-dark-aqua-hover:hover   {color: var(--color-dark-aqua)}
+.text-dark-salmon, .text-dark-salmon-hover:hover {color: var(--color-dark-salmon)}
 .text-dark-sand,   .text-dark-sand-hover:hover   {color: var(--color-dark-sand)}
-.text-dark-orange, .text-dark-orange-hover:hover {color: var(--color-dark-orange)}
-.text-dark-brown,  .text-dark-brown-hover:hover  {color: var(--color-dark-brown)}
+.text-dark-teal,   .text-dark-teal-hover:hover   {color: var(--color-dark-teal)}
+.text-dark-yellow, .text-dark-yellow-hover:hover {color: var(--color-dark-yellow)}
 
 /**
  * ****************************************
@@ -645,7 +656,7 @@ table.table.streak tr:nth-child(even) {background-color: #f3f3f3}
 .bg-aqua,   .bg-aqua-hover:hover   {background-color: var(--color-aqua)}
 .bg-brown,  .bg-brown-hover:hover  {background-color: var(--color-brown)}
 .bg-gray,   .bg-gray-hover:hover   {background-color: var(--color-gray)}
-.bg-indigo, .bg-indigo-hover:hover {background-color: var(--color-indigo)}
+.bg-royal,  .bg-royal-hover:hover  {background-color: var(--color-royal)}
 .bg-lime,   .bg-lime-hover:hover   {background-color: var(--color-lime)}
 .bg-orange, .bg-orange-hover:hover {background-color: var(--color-orange)}
 .bg-pink,   .bg-pink-hover:hover   {background-color: var(--color-pink)}
@@ -663,7 +674,7 @@ table.table.streak tr:nth-child(even) {background-color: #f3f3f3}
 .bg-light-aqua,   .bg-light-aqua-hover:hover   {background-color: var(--color-light-aqua)}
 .bg-light-brown,  .bg-light-brown-hover:hover  {background-color: var(--color-light-brown)}
 .bg-light-gray,   .bg-light-gray-hover:hover   {background-color: var(--color-light-gray)}
-.bg-light-indigo, .bg-light-indigo-hover:hover {background-color: var(--color-light-indigo)}
+.bg-light-royal,  .bg-light-royal-hover:hover  {background-color: var(--color-light-royal)}
 .bg-light-lime,   .bg-light-lime-hover:hover   {background-color: var(--color-light-lime)}
 .bg-light-orange, .bg-light-orange-hover:hover {background-color: var(--color-light-orange)}
 .bg-light-pink,   .bg-light-pink-hover:hover   {background-color: var(--color-light-pink)}
@@ -681,7 +692,7 @@ table.table.streak tr:nth-child(even) {background-color: #f3f3f3}
 .bg-dark-aqua,   .bg-dark-aqua-hover:hover   {background-color: var(--color-dark-aqua)}
 .bg-dark-brown,  .bg-dark-brown-hover:hover  {background-color: var(--color-dark-brown)}
 .bg-dark-gray,   .bg-dark-gray-hover:hover   {background-color: var(--color-dark-gray)}
-.bg-dark-indigo, .bg-dark-indigo-hover:hover {background-color: var(--color-dark-indigo)}
+.bg-dark-royal,  .bg-dark-royal-hover:hover  {background-color: var(--color-dark-royal)}
 .bg-dark-lime,   .bg-dark-lime-hover:hover   {background-color: var(--color-dark-lime)}
 .bg-dark-orange, .bg-dark-orange-hover:hover {background-color: var(--color-dark-orange)}
 .bg-dark-pink,   .bg-dark-pink-hover:hover   {background-color: var(--color-dark-pink)}
@@ -717,8 +728,8 @@ table.table.streak tr:nth-child(even) {background-color: #f3f3f3}
 .shadow-box-pink-hover:hover,   .shadow-box-pink-on-hover:hover   {box-shadow: 0 0 .3125rem .1875rem var(--color-pink)}
 .shadow-box-purple,             .shadow-box-purple-on-hover       {box-shadow: 0 0 .25rem .125rem var(--color-purple)}
 .shadow-box-purple-hover:hover, .shadow-box-purple-on-hover:hover {box-shadow: 0 0 .3125rem .1875rem var(--color-purple)}
-.shadow-box-indigo,             .shadow-box-indigo-on-hover       {box-shadow: 0 0 .25rem .125rem var(--color-indigo)}
-.shadow-box-indigo-hover:hover, .shadow-box-indigo-on-hover:hover {box-shadow: 0 0 .3125rem .1875rem var(--color-indigo)}
+.shadow-box-royal,             .shadow-box-royal-on-hover       {box-shadow: 0 0 .25rem .125rem var(--color-royal)}
+.shadow-box-royal-hover:hover, .shadow-box-royal-on-hover:hover {box-shadow: 0 0 .3125rem .1875rem var(--color-royal)}
 .shadow-box-aqua,               .shadow-box-aqua-on-hover         {box-shadow: 0 0 .25rem .125rem var(--color-aqua)}
 .shadow-box-aqua-hover:hover,   .shadow-box-aqua-on-hover:hover   {box-shadow: 0 0 .3125rem .1875rem var(--color-aqua)}
 .shadow-box-sand,               .shadow-box-sand-on-hover         {box-shadow: 0 0 .25rem .125rem var(--color-sand)} 
@@ -754,8 +765,8 @@ table.table.streak tr:nth-child(even) {background-color: #f3f3f3}
 .shadow-text-pink-hover:hover,   .shadow-text-pink-on-hover:hover   {text-shadow: 0 0 .3125rem var(--color-pink)}
 .shadow-text-purple,             .shadow-text-purple-on-hover       {text-shadow: 0 0 .125rem var(--color-purple)}
 .shadow-text-purple-hover:hover, .shadow-text-purple-on-hover:hover {text-shadow: 0 0 .3125rem var(--color-purple)}
-.shadow-text-indigo,             .shadow-text-indigo-on-hover       {text-shadow: 0 0 .125rem var(--color-indigo)}
-.shadow-text-indigo-hover:hover, .shadow-text-indigo-on-hover:hover {text-shadow: 0 0 .3125rem var(--color-indigo)}
+.shadow-text-royal,             .shadow-text-royal-on-hover       {text-shadow: 0 0 .125rem var(--color-royal)}
+.shadow-text-royal-hover:hover, .shadow-text-royal-on-hover:hover {text-shadow: 0 0 .3125rem var(--color-royal)}
 .shadow-text-aqua,               .shadow-text-aqua-on-hover         {text-shadow: 0 0 .125rem var(--color-aqua)}
 .shadow-text-aqua-hover:hover,   .shadow-text-aqua-on-hover:hover   {text-shadow: 0 0 .3125rem var(--color-aqua)}
 .shadow-text-sand,               .shadow-text-sand-on-hover         {text-shadow: 0 0 .125rem var(--color-sand)}
@@ -837,7 +848,7 @@ table.table.streak tr:nth-child(even) {background-color: #f3f3f3}
 .border-yellow, .border-yellow-hover:hover {border-color: var(--color-yellow)}
 .border-pink,   .border-pink-hover:hover   {border-color: var(--color-pink)}
 .border-purple, .border-purple-hover:hover {border-color: var(--color-purple)}
-.border-indigo, .border-indigo-hover:hover {border-color: var(--color-indigo)}
+.border-royal, .border-royal-hover:hover {border-color: var(--color-royal)}
 .border-aqua,   .border-aqua-hover:hover   {border-color: var(--color-aqua)}
 .border-sand,   .border-sand-hover:hover   {border-color: var(--color-sand)}
 .border-orange, .border-orange-hover:hover {border-color: var(--color-orange)}
@@ -850,7 +861,7 @@ table.table.streak tr:nth-child(even) {background-color: #f3f3f3}
 .border-light-yellow, .border-light-yellow-hover:hover {border-color: var(--color-light-yellow)}
 .border-light-pink,   .border-light-pink-hover:hover   {border-color: var(--color-light-pink)}
 .border-light-purple, .border-light-purple-hover:hover {border-color: var(--color-light-purple)}
-.border-light-indigo, .border-light-indigo-hover:hover {border-color: var(--color-light-indigo)}
+.border-light-royal, .border-light-royal-hover:hover {border-color: var(--color-light-royal)}
 .border-light-aqua,   .border-light-aqua-hover:hover   {border-color: var(--color-light-aqua)}
 .border-light-sand,   .border-light-sand-hover:hover   {border-color: var(--color-light-sand)}
 .border-light-orange, .border-light-orange-hover:hover {border-color: var(--color-light-orange)}
@@ -863,7 +874,7 @@ table.table.streak tr:nth-child(even) {background-color: #f3f3f3}
 .border-dark-yellow, .border-dark-yellow-hover:hover {border-color: var(--color-dark-yellow)}
 .border-dark-pink,   .border-dark-pink-hover:hover   {border-color: var(--color-dark-pink)}
 .border-dark-purple, .border-dark-purple-hover:hover {border-color: var(--color-dark-purple)}
-.border-dark-indigo, .border-dark-indigo-hover:hover {border-color: var(--color-dark-indigo)}
+.border-dark-royal, .border-dark-royal-hover:hover {border-color: var(--color-dark-royal)}
 .border-dark-aqua,   .border-dark-aqua-hover:hover   {border-color: var(--color-dark-aqua)}
 .border-dark-sand,   .border-dark-sand-hover:hover   {border-color: var(--color-dark-sand)}
 .border-dark-orange, .border-dark-orange-hover:hover {border-color: var(--color-dark-orange)}

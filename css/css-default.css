@@ -21,6 +21,7 @@
     --spacing-med: 1rem;  /* 16 */
     --spacing-max: 2rem;  /* 32 */
     --spacing-prp: calc(1dvw + 1dvh);
+    --spacing-end: calc(1dvw + 1dvh * 2);
 
     --border-min: .0625rem; /* 1 */
     --border-med: .125rem;  /* 2 */
@@ -88,7 +89,7 @@ abbr[title] {-webkit-text-decoration-skip-ink: none; text-decoration: underline 
 b, optgroup {font-weight: bold}
 dfn, i {font-style: italic}
 blockquote {margin: var(--spacing-min) var(--spacing-max)}
-mark {padding: .0625em .5em; margin: 0 .25em; font-style: italic; background-color: rgba(255, 255, 0, .7)}
+mark {padding: .0625em .5em; margin: 0 .25em; font-style: oblique; background-color: rgba(255, 255, 0, .5)}
 code, kbd, pre, samp {font-family: "Lucida Console", "Courier New", monospace, Consolas; font-size: .75em}
 pre {white-space: pre; white-space: pre-wrap; overflow: auto}
 q {quotes: none}
@@ -520,10 +521,10 @@ input[disabled],            input[readonly],
 
 blockquote[class^="quote"] {
     display: block;
-    margin-block: calc(var(--spacing-prp) * 2);
-    margin-inline: calc(var(--spacing-prp) * 2);
-    margin-inline-start:  calc(var(--spacing-prp) * 2);
-    margin-inline-end:  calc(var(--spacing-prp) * 2);
+    margin-block: var(--spacing-end);
+    margin-inline: var(--spacing-end);
+    margin-inline-start: var(--spacing-end);
+    margin-inline-end: var(--spacing-end);
 }
 
 q[class^="quote"]:before, mark[class^="quote"]:before {padding-left:  .25rem; margin-left: .125rem}
@@ -535,39 +536,36 @@ q[class^="quote"]:after,  mark[class^="quote"]:after  {padding-right: .25rem; ma
     background-clip: border-box
 }
 
-.alert-success {color: #045702; background-color: #bdedbc !important}
-.alert-info    {color: #004d6f; background-color: #c5e8f7 !important}
-.alert-warning {color: #574802; background-color: #ffefa4 !important}
-.alert-danger  {color: #ac1818; background-color: #eababa !important}
+.alert         {color: #444444; background-color: #e5e5e5}
+.alert-success {color: #045702; background-color: #bdedbc}
+.alert-info    {color: #004d6f; background-color: #c5e8f7}
+.alert-warning {color: #574802; background-color: #ffefa4}
+.alert-danger  {color: #a40a13; background-color: #eababa}
 
 .card,
 .card-light,
-.card-dark   {border: .0625rem solid rgba(0,0,0,.1)}
-.card-red    {border: .0625rem solid rgba(200,10,0,.1)}
-.card-green  {border: .0625rem solid rgba(50,120,0,.1)}
-.card-blue   {border: .0625rem solid rgba(0,80,180,.1)}
-.card-yellow {border: .0625rem solid rgba(110,100,30,.1)}
+.card-dark,   q.quote        {border: .0625rem solid rgba(0,   0,   0,   .1)}
+.card-red,    q.quote-red    {border: .0625rem solid rgba(200, 10,  0,   .1)}
+.card-green,  q.quote-green  {border: .0625rem solid rgba(50,  120, 0,   .1)}
+.card-blue,   q.quote-blu    {border: .0625rem solid rgba(0,   80,  180, .1)}
+.card-yellow, q.quote-yellow {border: .0625rem solid rgba(110, 100, 30,  .1)}
 
-.card,        .quote        {color: #4c4c4c; background-color: #f2f2f2 !important}
-.card-light                 {color: #444444; background-color: #e5e5e5 !important}
-.card-dark                  {color: #4c4c4c; background-color: #d8d8d8 !important}
-.card-red,    .quote-red    {color: #990500; background-color: #f7d9d9 !important}
-.card-green,  .quote-green  {color: #1d4c00; background-color: #d9f7d9 !important}
-.card-blue,   .quote-blue   {color: #0051b4; background-color: #d9e9f7 !important}
-.card-yellow, .quote-yellow {color: #71631c; background-color: #f5f0b2 !important}
+.card                       {color: #4c4c4c; background-color: #f2f2f2}
+.card-light,  .quote        {color: #444444; background-color: #e5e5e5}
+.card-dark                  {color: #4c4c4c; background-color: #d8d8d8}
+.card-red,    .quote-red    {color: #990500; background-color: #f7d9d9}
+.card-green,  .quote-green  {color: #1d4c00; background-color: #d9f7d9}
+.card-blue,   .quote-blue   {color: #0051b4; background-color: #d9e9f7}
+.card-yellow, .quote-yellow {color: #71631c; background-color: #f5f0b2}
 
-blockquote.quote        {border-left: .25rem solid #333333 !important}
-blockquote.quote-red    {border-left: .25rem solid #990500 !important}
-blockquote.quote-green  {border-left: .25rem solid #1d4c00 !important}
-blockquote.quote-blue   {border-left: .25rem solid #0051b4 !important}
-blockquote.quote-yellow {border-left: .25rem solid #71631c !important}
+blockquote.quote        {border-left: .25rem solid #333333}
+blockquote.quote-red    {border-left: .25rem solid #990500}
+blockquote.quote-green  {border-left: .25rem solid #1d4c00}
+blockquote.quote-blue   {border-left: .25rem solid #0051b4}
+blockquote.quote-yellow {border-left: .25rem solid #71631c}
 
-/**
- * ****************************************
- * Vidros
- * ****************************************
- */
 [class^="glass"] {
+    color: #eeeeee;
     background-clip: border-box;
     backdrop-filter: blur(.3125rem)
 }
@@ -1203,6 +1201,14 @@ table.table.streak tr:nth-child(even) {
 .margin-lr-prop     {margin-left:   var(--spacing-prp) !important; margin-right:  var(--spacing-prp) !important}
 .margin-tb-prop     {margin-top:    var(--spacing-prp) !important; margin-bottom: var(--spacing-prp) !important}
 
+.margin-all-end    {margin:        var(--spacing-end) !important}
+.margin-left-end   {margin-left:   var(--spacing-end) !important}
+.margin-right-end  {margin-right:  var(--spacing-end) !important}
+.margin-top-end    {margin-top:    var(--spacing-end) !important}
+.margin-bottom-end {margin-bottom: var(--spacing-end) !important}
+.margin-lr-end     {margin-left:   var(--spacing-end) !important; margin-right:  var(--spacing-end) !important}
+.margin-tb-end     {margin-top:    var(--spacing-end) !important; margin-bottom: var(--spacing-end) !important}
+
 .margin-all-none    {margin:        0 !important}
 .margin-left-none   {margin-left:   0 !important}
 .margin-right-none  {margin-right:  0 !important}
@@ -1248,6 +1254,14 @@ table.table.streak tr:nth-child(even) {
 .padding-lr-prop     {padding-left:   var(--spacing-prp) !important; padding-right:  var(--spacing-prp) !important}
 .padding-tb-prop     {padding-top:    var(--spacing-prp) !important; padding-bottom: var(--spacing-prp) !important}
 
+.padding-all-end    {padding:        var(--spacing-end) !important}
+.padding-left-end   {padding-left:   var(--spacing-end) !important}
+.padding-right-end  {padding-right:  var(--spacing-end) !important}
+.padding-top-end    {padding-top:    var(--spacing-end) !important}
+.padding-bottom-end {padding-bottom: var(--spacing-end) !important}
+.padding-lr-end     {padding-left:   var(--spacing-end) !important; padding-right:  var(--spacing-end) !important}
+.padding-tb-end     {padding-top:    var(--spacing-end) !important; padding-bottom: var(--spacing-end) !important}
+
 .padding-all-none    {padding:        0 !important}
 .padding-left-none   {padding-left:   0 !important}
 .padding-right-none  {padding-right:  0 !important}
@@ -1290,7 +1304,7 @@ table.table.streak tr:nth-child(even) {
     display: list-item;
     list-style-type: disc;
     counter-reset: none;
-    margin-left: calc(1rem * 2)
+    margin-left: var(--spacing-end)
 }
             
 ul.list, ol.list {margin-block-start: 1em; margin-block-end: 1em}

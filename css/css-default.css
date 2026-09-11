@@ -704,6 +704,49 @@ table.table.streak tr:nth-child(even) {background-color: #f3f3f3}
 
 /**
  * ****************************************
+ * Sombra de texto
+ * ****************************************
+ */
+.shadow-text,        .shadow-text-on-hover,        .shadow-text-hover:hover        {text-shadow: 0 0 1em rgba(0, 0, 0, .8)}
+.shadow-text-white,  .shadow-text-white-on-hover,  .shadow-text-white-hover:hover  {text-shadow: 0 0 1em var(--color-white)}
+.shadow-text-black,  .shadow-text-black-on-hover,  .shadow-text-black-hover:hover  {text-shadow: 0 0 1em var(--color-black)}
+.shadow-text-red,    .shadow-text-red-on-hover,    .shadow-text-red-hover:hover    {text-shadow: 0 0 1em var(--color-light-red)}
+.shadow-text-green,  .shadow-text-green-on-hover,  .shadow-text-green-hover:hover  {text-shadow: 0 0 1em var(--color-light-green)}
+.shadow-text-blue,   .shadow-text-blue-on-hover,   .shadow-text-blue-hover:hover   {text-shadow: 0 0 1em var(--color-light-blue)}
+.shadow-text-aqua,   .shadow-text-aqua-on-hover,   .shadow-text-aqua-hover:hover   {text-shadow: 0 0 1em var(--color-light-aqua)}
+.shadow-text-brown,  .shadow-text-brown-on-hover,  .shadow-text-brown-hover:hover  {text-shadow: 0 0 1em var(--color-light-brown)}
+.shadow-text-gray,   .shadow-text-gray-on-hover,   .shadow-text-gray-hover:hover   {text-shadow: 0 0 1em var(--color-light-gray)}
+.shadow-text-royal,  .shadow-text-royal-on-hover,  .shadow-text-royal-hover:hover  {text-shadow: 0 0 1em var(--color-light-royal)}
+.shadow-text-lime,   .shadow-text-lime-on-hover,   .shadow-text-lime-hover:hover   {text-shadow: 0 0 1em var(--color-light-lime)}
+.shadow-text-orange, .shadow-text-orange-on-hover, .shadow-text-orange-hover:hover {text-shadow: 0 0 1em var(--color-light-orange)}
+.shadow-text-pink,   .shadow-text-pink-on-hover,   .shadow-text-pink-hover:hover   {text-shadow: 0 0 1em var(--color-light-pink)}
+.shadow-text-purple, .shadow-text-purple-on-hover, .shadow-text-purple-hover:hover {text-shadow: 0 0 1em var(--color-light-purple)}
+.shadow-text-salmon, .shadow-text-salmon-on-hover, .shadow-text-salmon-hover:hover {text-shadow: 0 0 1em var(--color-light-salmon)}
+.shadow-text-sand,   .shadow-text-sand-on-hover,   .shadow-text-sand-hover:hover   {text-shadow: 0 0 1em var(--color-light-sand)}
+.shadow-text-teal,   .shadow-text-teal-on-hover,   .shadow-text-teal-hover:hover   {text-shadow: 0 0 1em var(--color-light-teal)}
+.shadow-text-yellow, .shadow-text-yellow-on-hover, .shadow-text-yellow-hover:hover {text-shadow: 0 0 1em var(--color-light-yellow)}
+
+.shadow-text-on-hover:hover        {text-shadow: 0 0 .5em rgba(0, 0, 0, .8)}
+.shadow-text-white-on-hover:hover  {text-shadow: 0 0 .5em var(--color-white)}
+.shadow-text-black-on-hover:hover  {text-shadow: 0 0 .5em var(--color-black)}
+.shadow-text-red-on-hover:hover    {text-shadow: 0 0 .5em var(--color-red)}
+.shadow-text-green-on-hover:hover  {text-shadow: 0 0 .5em var(--color-green)}
+.shadow-text-blue-on-hover:hover   {text-shadow: 0 0 .5em var(--color-blue)}
+.shadow-text-aqua-on-hover:hover   {text-shadow: 0 0 .5em var(--color-aqua)}
+.shadow-text-brown-on-hover:hover  {text-shadow: 0 0 .5em var(--color-brown)}
+.shadow-text-gray-on-hover:hover   {text-shadow: 0 0 .5em var(--color-gray)}
+.shadow-text-royal-on-hover:hover  {text-shadow: 0 0 .5em var(--color-royal)}
+.shadow-text-lime-on-hover:hover   {text-shadow: 0 0 .5em var(--color-lime)}
+.shadow-text-orange-on-hover:hover {text-shadow: 0 0 .5em var(--color-orange)}
+.shadow-text-pink-on-hover:hover   {text-shadow: 0 0 .5em var(--color-pink)}
+.shadow-text-purple-on-hover:hover {text-shadow: 0 0 .5em var(--color-purple)}
+.shadow-text-salmon-on-hover:hover {text-shadow: 0 0 .5em var(--color-salmon)}
+.shadow-text-sand-on-hover:hover   {text-shadow: 0 0 .5em var(--color-sand)}
+.shadow-text-teal-on-hover:hover   {text-shadow: 0 0 .5em var(--color-teal)}
+.shadow-text-yellow-on-hover:hover {text-shadow: 0 0 .5em var(--color-yellow)}
+
+/**
+ * ****************************************
  * Sombra de Fundo
  * ****************************************
  */
@@ -739,42 +782,7 @@ table.table.streak tr:nth-child(even) {background-color: #f3f3f3}
 .shadow-box-brown,              .shadow-box-brown-on-hover        {box-shadow: 0 0 .25rem .125rem var(--color-brown)}
 .shadow-box-brown-hover:hover,  .shadow-box-brown-on-hover:hover  {box-shadow: 0 0 .3125rem .1875rem var(--color-brown)}
 
-/**
- * ****************************************
- * Sombra de texto
- * ****************************************
- */
-.shadow-text,             .shadow-text-on-hover       {text-shadow: 0 0 .125rem rgba(0,0,0,.4)}
-.shadow-text-hover:hover, .shadow-text-on-hover:hover {text-shadow: 0 0 .3125rem rgba(0,0,0,.4)}
 
-.shadow-text-white,              .shadow-text-white-on-hover        {text-shadow: 0 0 .125rem var(--color-white)}
-.shadow-text-white-hover:hover,  .shadow-text-white-on-hover:hover  {text-shadow: 0 0 .3125rem var(--color-white)}
-.shadow-text-black,              .shadow-text-black-on-hover        {text-shadow: 0 0 .125rem var(--color-black)}
-.shadow-text-black-hover:hover,  .shadow-text-black-on-hover:hover  {text-shadow: 0 0 .3125rem var(--color-black)}
-.shadow-text-gray,               .shadow-text-gray-on-hover         {text-shadow: 0 0 .125rem var(--color-gray)}
-.shadow-text-gray-hover:hover,   .shadow-text-gray-on-hover:hover   {text-shadow: 0 0 .3125rem var(--color-gray)}
-.shadow-text-red,                .shadow-text-red-on-hover          {text-shadow: 0 0 .125rem var(--color-red)}
-.shadow-text-red-hover:hover,    .shadow-text-red-on-hover:hover    {text-shadow: 0 0 .3125rem var(--color-red)}
-.shadow-text-green,              .shadow-text-green-on-hover        {text-shadow: 0 0 .125rem var(--color-green)}
-.shadow-text-green-hover:hover,  .shadow-text-green-on-hover:hover  {text-shadow: 0 0 .3125rem var(--color-green)}
-.shadow-text-blue,               .shadow-text-blue-on-hover         {text-shadow: 0 0 .125rem var(--color-blue)}
-.shadow-text-blue-hover:hover,   .shadow-text-blue-on-hover:hover   {text-shadow: 0 0 .3125rem var(--color-blue)}
-.shadow-text-yellow,             .shadow-text-yellow-on-hover       {text-shadow: 0 0 .125rem var(--color-yellow)}
-.shadow-text-yellow-hover:hover, .shadow-text-yellow-on-hover:hover {text-shadow: 0 0 .3125rem var(--color-yellow)}
-.shadow-text-pink,               .shadow-text-pink-on-hover         {text-shadow: 0 0 .125rem var(--color-pink)}
-.shadow-text-pink-hover:hover,   .shadow-text-pink-on-hover:hover   {text-shadow: 0 0 .3125rem var(--color-pink)}
-.shadow-text-purple,             .shadow-text-purple-on-hover       {text-shadow: 0 0 .125rem var(--color-purple)}
-.shadow-text-purple-hover:hover, .shadow-text-purple-on-hover:hover {text-shadow: 0 0 .3125rem var(--color-purple)}
-.shadow-text-royal,             .shadow-text-royal-on-hover       {text-shadow: 0 0 .125rem var(--color-royal)}
-.shadow-text-royal-hover:hover, .shadow-text-royal-on-hover:hover {text-shadow: 0 0 .3125rem var(--color-royal)}
-.shadow-text-aqua,               .shadow-text-aqua-on-hover         {text-shadow: 0 0 .125rem var(--color-aqua)}
-.shadow-text-aqua-hover:hover,   .shadow-text-aqua-on-hover:hover   {text-shadow: 0 0 .3125rem var(--color-aqua)}
-.shadow-text-sand,               .shadow-text-sand-on-hover         {text-shadow: 0 0 .125rem var(--color-sand)}
-.shadow-text-sand-hover:hover,   .shadow-text-sand-on-hover:hover   {text-shadow: 0 0 .3125rem var(--color-sand)}
-.shadow-text-orange,             .shadow-text-orange-on-hover       {text-shadow: 0 0 .125rem var(--color-orange)}
-.shadow-text-orange-hover:hover, .shadow-text-orange-on-hover:hover {text-shadow: 0 0 .3125rem var(--color-orange)}
-.shadow-text-brown,              .shadow-text-brown-on-hover        {text-shadow: 0 0 .125rem var(--color-brown)}
-.shadow-text-brown-hover:hover,  .shadow-text-brown-on-hover:hover  {text-shadow: 0 0 .3125rem var(--color-brown)}
 
 
 

@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <title>Formulario</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="Aplicação em formulário do css-default.css" />
+        <meta name="author" content="Omar Pautz (Spell-master)" />
+        <link href="../css-default.css" rel="stylesheet" type="text/css" />
+        <link href="../../lib/prism/prism.css" rel="stylesheet" type="text/css" />
+        <link href="../../javascript/ModalShow/ModalShow.css" rel="stylesheet" type="text/css" />
+        <link href="../../lib/stylesheet/core.css" rel="stylesheet" type="text/css" />
+        <script src="../../lib/prism/prism.js"></script>
+        <script src="../../javascript/ModalShow/ModalShow.js"></script>
+        <script src="../../javascript/jsd/js-default.js"></script>
+        <script src="../../lib/js/mostar-codigo.js"></script>
+    </head>
+    <body>
+        <header>
+            <div class="bg-black">
+                <div class="container padding-all">
+                    <h1 class="text-white shadow-text-white">Formulário</h1>
+                </div>
+            </div>
+            <div class="bg-light shadow-box">
+                <div class="container padding-all">
+                    <p>Propriedades para elementos de formulário</p>
+                </div>
+            </div>
+        </header>
+
+        <main class="container padding-all">
+            <section class="section">
+                <h2 class="lighter">Caixa de Texto (Geral)</h2>
+                <div class="padding-tb-prop">
+                    <div class="static">
+                        <div class="row-pad">
+                            <div class="col-half">
+                                <label for="input-1a" class="bold list">type&equals;&quot;text&quot;</label>
+                                <input class="input-default" id="input-1a" type="text" placeholder="input-default" />
+                            </div>
+                            <div class="col-half">
+                                <label for="input-1b" class="bold list">type&equals;&quot;password&quot;</label>
+                                <input class="input-default" id="input-1b" type="password" placeholder="input-default" />
+                            </div>
+                            <div class="col-single">
+                                <label for="input-1c" class="bold list">textarea</label>
+                                <textarea class="input-default" id="input-1c">textarea</textarea>
+                            </div>
+                            <div class="col-single">
+                                <p class="bold list">Editável</p>
+                                <div class="input-default" contenteditable="true">contenteditable</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="align-center margin-tb">
+                        <button class="btn-default radius-all-sm shadow-box" data-code="">CÓDIGO HTML</button>
+                    </div>
+                </div>
+            </section>
+
+            <hr />
+            <section class="section">
+                <h2 class="lighter">Caixa de Texto (Linha)</h2>
+                <div class="padding-tb-prop">
+                    <div class="static">
+                        <div class="row-pad">
+                            <div class="col-half">
+                                <label for="input-2a" class="bold list">type&equals;&quot;text&quot;</label>
+                                <input class="input-line" id="input-2a" type="text" placeholder="input-line" />
+                            </div>
+                            <div class="col-half">
+                                <label for="input-2b" class="bold list">type&equals;&quot;password&quot;</label>
+                                <input class="input-line" id="input-2b" type="password" placeholder="input-line" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="align-center margin-tb">
+                        <button class="btn-default radius-all-sm shadow-box" data-code="">CÓDIGO HTML</button>
+                    </div>
+                    <div class="margin-tb">
+                        <blockquote class="quote-yellow">
+                            <p class="bold">NOTA!</p>
+                            <p>A propriedade <span class="bold">input-line</span>
+                                não tem efeito em elementos <span class="bold">textarea</span> ou de conteúdo editável.</p>
+                        </blockquote>
+                    </div>
+                </div>
+            </section>
+
+            <hr />
+            <section class="section">
+                <h2 class="lighter">Validar</h2>
+                <div class="padding-tb-prop">
+                    <blockquote class="quote">
+                        <p>Usando o <span class="bold">input-default</span>
+                            ou <span class="bold">input-line</span>
+                            será aplicado a validação sempre que o atributo
+                            <span class="bold text-red">pattern</span> estiver presente.</p>
+                        <p>A cor <span class="text-green">válida</span> somente é visível
+                            quando o elemento está em foco&sol;ativo.</p>
+                    </blockquote>
+                    <div class="static">
+                        <div class="row-pad">
+                            <div class="col-half">
+                                <label for="input-3a" class="bold">Somente Letras (Válido)</label>
+                                <input class="input-default" pattern="([a-zA-Z]+)" type="text"  value="AeIoU" id="input-3a" />
+                            </div>
+                            <div class="col-half">
+                                <label for="input-3b" class="bold">Somente Letras (Inválido)</label>
+                                <input class="input-default" pattern="([a-zA-Z]+)" type="text" value="12345" id="input-3b" />
+                            </div>
+                            <div class="col-half">
+                                <label for="input-3c" class="bold">Somente Letras (Válido)</label>
+                                <input class="input-line" pattern="([a-zA-Z]+)" type="text" value="AeIoU" id="input-3c" />
+                            </div>
+                            <div class="col-half">
+                                <label for="input-3d" class="bold">Somente Letras (Inválido)</label>
+                                <input class="input-line" pattern="([a-zA-Z]+)" type="text" value="12345" id="input-3d" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="align-center margin-tb">
+                        <button class="btn-default radius-all-sm shadow-box" data-code="">CÓDIGO HTML</button>
+                    </div>
+                </div>
+            </section>
+
+            <hr />
+            <section class="section">
+                <h2 class="lighter">Validar Forçado</h2>
+                <div class="padding-tb-prop">
+                    <blockquote class="quote margin-bottom-lg">
+                        <p>Assume válido ou inválido indepente do <span class="bold text-red">pattern</span>.</p>
+                    </blockquote>
+                    <div class="static">
+                        <div class="row-pad">
+                            <div class="col-half">
+                                <label for="input-4a" class="bold">
+                                    <span class="italic">valid</span> &DoubleRightArrow; Somente Letras (Válido)
+                                </label>
+                                <input class="input-default valid" pattern="([a-zA-Z]+)" type="text"  value="AeIoU" id="input-4a" />
+                            </div>
+                            <div class="col-half">
+                                <label for="input-4b" class="bold">
+                                    <span class="italic">invalid</span> &DoubleRightArrow; Somente Letras (Inválido)
+                                </label>
+                                <input class="input-default invalid" pattern="([a-zA-Z]+)" type="text" value="AeIoU" id="input-4b" />
+                            </div>
+                            <div class="col-half">
+                                <label for="input-4c" class="bold">
+                                    <span class="italic">valid</span> &DoubleRightArrow; Somente Letras (Válido)
+                                </label>
+                                <input class="input-line valid" pattern="([a-zA-Z]+)" type="text"  value="AeIoU" id="input-4c" />
+                            </div>
+                            <div class="col-half">
+                                <label for="input-4d" class="bold">
+                                    <span class="italic">invalid</span> &DoubleRightArrow; Somente Letras (Inválido)
+                                </label>
+                                <input class="input-line invalid" pattern="([a-zA-Z]+)" type="text" value="AeIoU" id="input-4d" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="align-center margin-tb">
+                        <button class="btn-default radius-all-sm shadow-box" data-code="">CÓDIGO HTML</button>
+                    </div>
+                </div>
+            </section>
+
+            <hr />
+            <section class="section">
+                <h2 class="lighter">Checagem</h2>
+                <div class="padding-tb-prop">
+                    <div class="row-pad">
+                        <div class="col-half">
+                            <div class="align-center">
+                                <div class="row-pad">
+                                    <div class="col-auto">
+                                        <label for="input-5a" class="block bold">input-check</label>
+                                        <input class="input-check" type="checkbox" id="input-5a" />
+                                    </div>
+                                    <div class="col-auto">
+                                        <label for="input-5b" class="block bold">input-check-x</label>
+                                        <input class="input-check-x" type="checkbox" id="input-5b" />
+                                    </div>
+                                    <div class="col-auto">
+                                        <label for="input-5c" class="block bold">input-check-cube</label>
+                                        <input class="input-check-cube" type="checkbox" id="input-5c" />
+                                    </div>
+                                    <div class="col-auto">
+                                        <label for="input-5d" class="block bold">input-check-circle</label>
+                                        <input class="input-check-circle" type="checkbox" id="input-5d" />
+                                    </div>
+                                </div>
+                                <div class="align-center margin-tb">
+                                    <button class="btn-default radius-all-sm shadow-box" data-code="">CÓDIGO HTML</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-half">
+                            <div class="align-center">
+                                <div class="row-pad">
+                                    <div class="col-auto">
+                                        <label for="input-6a" class="block bold">input-toggle</label>
+                                        <input class="input-toggle" type="checkbox" id="input-6a" />
+                                    </div>
+                                    <div class="col-auto">
+                                        <label for="input-6b" class="block bold">input-toggle-circle</label>
+                                        <input class="input-toggle-circle" type="checkbox" id="input-6b" />
+                                    </div>
+                                </div>
+                                <div class="align-center margin-tb">
+                                    <button class="btn-default radius-all-sm shadow-box" data-code="">CÓDIGO HTML</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <hr />
+            <section class="section">
+                <h2 class="lighter">Seletora</h2>
+                <div class="padding-tb-prop">
+                    <div class="w-max-900 margin-auto">
+                        <label for="input-7" class="bold">input-range</label>
+                        <input class="input-range" type="range" min="0" max="100" step="10" value="0" id="input-7" />
+                    </div>
+                    <div class="align-center margin-tb">
+                        <button class="btn-default radius-all-sm shadow-box" data-code="">CÓDIGO HTML</button>
+                    </div>
+                </div>
+            </section>
+
+            <hr />
+            <section class="section">
+                <h2 class="lighter">Desabilitado</h2>
+                <div class="padding-tb-prop">
+                    <blockquote class="quote">
+                        <p>Será aplicado sempre que o atributo <span class="bold">disabled</span> ou <span class="bold">readonly</span>
+                            estiver presente.</p>
+                    </blockquote>
+
+                    <div class="row-pad">
+                        <div class="col-half">
+                            <label for="input-8a" class="bold">input-default</label>
+                            <input disabled class="input-default" type="text" id="input-8a" value="input text" />
+                        </div>
+                        <div class="col-half">
+                            <label for="input-8b" class="bold">input-line</label>
+                            <input disabled class="input-line" type="text" id="input-8b" value="input text" />
+                        </div>
+                        <div class="col-half">
+                            <label for="input-8c" class="bold">input-default</label>
+                            <textarea disabled class="input-default" id="input-8c">textarea</textarea>
+                        </div>
+                        <div class="col-half align-center">
+                            <div class="row-pad">
+                                <div class="col-auto">
+                                    <label for="input-8d" class="bold block">input-check</label>
+                                    <input disabled class="input-check" type="checkbox" id="input-8d" />
+                                </div>
+                                <div class="col-auto">
+                                    <label for="input-8e" class="bold block">input-check-x</label>
+                                    <input disabled class="input-check-x" type="checkbox" id="input-8e" />
+                                </div>
+                                <div class="col-auto">
+                                    <label for="input-8f" class="bold block">input-check-cube</label>
+                                    <input disabled class="input-check-cube" type="checkbox" id="input-8f" />
+                                </div>
+                                <div class="col-auto">
+                                    <label for="input-8g" class="bold block">input-check-circle</label>
+                                    <input disabled class="input-check-circle" type="checkbox" id="input-8g" />
+                                </div>
+                                <div class="col-auto">
+                                    <label for="input-8h" class="bold block">input-toggle</label>
+                                    <input disabled class="input-toggle" type="checkbox" id="input-8h">
+                                </div>
+                                <div class="col-auto">
+                                    <label for="input-8i" class="bold block">input-toggle-circle</label>
+                                    <input disabled class="input-toggle-circle" type="checkbox" id="input-8i" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </section>
+
+            <hr />
+            <section class="section">
+                <h2 class="lighter">Desabilitado Forçado</h2>
+                <div class="padding-tb-prop">
+                    <blockquote class="quote">
+                        <p class="font-lg">.disabled</p>
+                        <p>Pode ser aplicado a qualquer elemento assumindo as características de
+                            <span class="bold">disabled</span> ou <span class="bold">readonly</span>.</p>
+                    </blockquote>
+                    <div class="row-pad">
+                        <div class="col-half">
+                            <div class="floating">
+                                <div class="float-left">
+                                    <button class="btn-info disabled">disabled</button>
+                                </div>
+                                <div class="float-left">
+                                    <input class="input-check disabled" type="checkbox" />
+                                </div>
+                                <div class="over-not">
+                                    <input class="input-default disabled" type="text" value="disabled" />
+                                </div>
+                            </div>
+                            <div class="margin-top">
+                                <textarea class="input-default disabled">disabled</textarea>
+                            </div>
+                        </div>
+                        <div class="col-half">
+                            <div class="card disabled">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                            </div>
+                            <div class="margin-top">
+                                <img src="../../lib/img/uracan.jpg" class="image-auto disabled" alt="" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer class="section bg-black">
+            <div class="container base-center">
+                <div class="align-center text-light font-sm">
+                    <p>Aplicação das propriedade com <span class="italic bold">css-default.css</span></p>
+                    <a href="https://github.com/Spell-Master/sm-web/"
+                       target="_blank"
+                       class="href"
+                       title="Abre uma nova aba do navegador indo até o repositório no git-hub">
+                        https:&sol;&sol;github.com&sol;Spell-Master&sol;sm-web&sol;</a>
+                </div>
+            </div>
+        </footer>
+
+        <div class="modal" id="show-code">
+            <div class="modal-box">
+                <div class="modal-header">Código Fonte</div>
+                <div class="modal-content">
+                    <pre><code class="language-html"></code></pre>
+                </div>
+            </div>
+        </div>
+
+        <script>showCode.init();</script>
+    </body>
+</html>

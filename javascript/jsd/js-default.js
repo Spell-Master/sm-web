@@ -3,14 +3,11 @@
  * * @Class objectHTML
  * * @author Spell-Master (Omar Pautz)
  * * @copyright 2022
- * * @version 1.0 "BETA"
+ * * @version "BETA"
  * ****************************************************
- * Simplifica o acesso a funções corriqueiras do
- *  javascript.
+ * Controla e simplifica acesso recursos do javascript.
  * ****************************************************
  */
-
-// criar função para dados de extrair arquivos em inputFile único ou multiplos
 
 var jsd = jsd || {};
 
@@ -120,6 +117,28 @@ var jsd = jsd || {};
             $arr.push($_.create(strObj));
         }
         return ($arr);
+    }
+
+    /**
+     * *************************************
+     * @private
+     * Função auxiliar para o método
+     *  "ready" quando o alvo é o documento
+     * @param {NODE} docObj
+     * window.document.
+     * 
+     * @param {FUNCTION} callback
+     * Função de Retorno.
+     * *************************************
+     */
+    function docActiveReady(docObj, callback) {
+        docObj.on('readystatechange', function (e) {
+            if (document.readyState === 'complete') {
+                callback(document.readyState);
+                docObj.off('readystatechange');
+                return (true);
+            }
+        });
     }
 
     /**
@@ -515,7 +534,7 @@ var jsd = jsd || {};
          */
         index: function (int) {
             if (!$_.isDefined(int)) {
-                return (undefined);
+                return (this.length);
             } else if (int > this.length) {
                 return (undefined);
             } else {
@@ -566,6 +585,66 @@ var jsd = jsd || {};
                 }
             }
             return (false);
+        },
+        /**
+         * *****************************************
+         * Verifica se o elemento está conectado e
+         * pronto para uso.
+         *  
+         * @param {FUNCTION} callback
+         * Função de saída
+         * *****************************************
+         */
+        ready: function (callback) {
+            var $this = this, $i = 0, $length = this.index(), $count = 0, $state = null;
+            if ($this[0] instanceof HTMLDocument) {
+                docActiveReady($this, ($_.isFunction(callback) ? callback : function () {}));
+            } else {
+                for (; $i < $length; $i++) {
+                    if ($this[$i].isConnected) {
+                        $count++;
+                    }
+                }
+                if ($count === $length) {
+                    if ($_.isFunction(callback)) {
+                        callback($this);
+                    }
+                    return (true);
+                } else {
+                    return (false);
+                }
+            }
+        },
+        /**
+         * *****************************************
+         * Retorna os elementos fora da instancia
+         *  do objectHTML.
+         *  
+         * @param {INTERGER} idx
+         * Índice do NodeList
+         * *****************************************
+         */
+        root: function (idx) {
+            var $this = this, $length = this.index(), $i = 0, $arr = [];
+            if ($_.isDefined(idx) && $_.isInt(idx) === false) {
+                return (undefined);
+            } else if ($length === 1) {
+                return ($this[0]);
+            } else {
+                for (; $i < $length; $i++) {
+                    if (idx === $i) {
+                        return ($this[$i]);
+                    }
+                    $arr.push($this[$i]);
+                }
+            }
+            if ($arr.length === 1) {
+                return ($this[0]);
+            } else if ($arr.length > 1) {
+                return ($arr);
+            } else {
+                return (undefined);
+            }
         },
 
         /* Elementos relacionados */
@@ -1513,22 +1592,27 @@ var jsd = jsd || {};
      * **********************************************
      */
     $_.each([
-        // Mouse
-        'click', 'dblclick', 'auxclick', 'mousedown', 'mouseenter', 'mouseleave', 'mousemove', 'mouseout', 'mouseover', 'mouseup', 'contextmenu',
+        // Ponteiro
+        'click', 'dblclick', 'mouseup',
+        'mousedown', 'mouseenter', 'mouseleave',
+        'mousemove', 'mouseout', 'mouseover',
+        'contextmenu', 'mousewheel', 'selectstart',
         // Teclado
-        'keydown', 'keypress', 'keyup',
+        'keypress', 'keyup',
         // Foco
-        'blur', 'focus', 'focusin', 'focusout',
+        'focus', 'blur', 'focusin', 'focusout',
         // Form
-        'change', 'reset', 'select', 'submit',
+        'submit', 'reset', 'select', 'change', 'keydown',
         // Toque
         'touchstart', 'touchend', 'touchcancel', 'touchmove',
+        // Ponteiro e toque
+        'pointerup', 'pointerdown', 'pointermove', 'pointerenter', 'pointerleave', 'pointercancel',
         // Tela cheia
         'fullscreenchange', 'fullscreenerror',
         // Área de transferencia
         'copy', 'cut', 'paste',
         // Outros
-        'load', 'unload', 'cancel', 'error', 'scroll', 'resize'
+        'load', 'unload', 'abort', 'error', 'resize', 'move', 'scroll', 'readystatechange'
     ], function (value) {
         $_.objectMethods[value] = function (fnc) {
             this.on(value, fnc);
@@ -1537,3 +1621,14 @@ var jsd = jsd || {};
 
     window.jsd = $_;
 }());
+
+// ----------------------------------------------------
+// Atualizações, correções planejadas
+// ----------------------------------------------------
+// - Aparentimente existe um bug no método append ao adicionar multiplos elementos por string
+// - Adicionar método outerHTML
+// - Otimizar a função evalSrc
+// - Remover acesso imediato a evalSrc nos métodos, mas criar método adicional para invocar a função
+// - Otimizar a serialização de valores de formulários
+// - Reduzir a chamada da função $_ "objectHTML" nos métodos e funções usando somente quando realmente for necessário
+// - Remover funções e métodos dispensáveis para aquivos separados, então usar as funções addFunction e addMethod para incorpara-las

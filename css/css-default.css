@@ -24,8 +24,7 @@
 
     --border-width:     .125rem;  /* 2 */
     --border-width-mim: .0625rem; /* 1 */
-    --border-width-med: .25rem;   /* 4 */
-    --border-width-max: .375rem;  /* 4 */
+    --border-width-max: .25rem;   /* 4 */
     --border-color:     rgba(0, 0, 0, .3);
 
     --color-white:  #f1f1f1;
@@ -802,31 +801,18 @@ table.table.streak tr:nth-child(even) {background-color: #f3f3f3}
     border-color: var(--border-color)
 }
 
-.border-all    {border-width:        var(--border-width)}
-.border-left   {border-left-width:   var(--border-width)}
-.border-right  {border-right-width:  var(--border-width)}
-.border-top    {border-top-width:    var(--border-width)}
-.border-bottom {border-bottom-width: var(--border-width)}
+.border-all,    .border-all-md    {border-width:        var(--border-width)}
+.border-left,   .border-left-md   {border-left-width:   var(--border-width)}
+.border-right,  .border-right-md  {border-right-width:  var(--border-width)}
+.border-top,    .border-top-md    {border-top-width:    var(--border-width)}
+.border-bottom, .border-bottom-md {border-bottom-width: var(--border-width)}
 
-.border-lr {border-left-width:  var(--border-width); border-right-width:  var(--border-width)}
-.border-tb {border-top-width:   var(--border-width); border-bottom-width: var(--border-width)}
-.border-lt {border-left-width:  var(--border-width); border-top-width:    var(--border-width)}
-.border-lb {border-left-width:  var(--border-width); border-bottom-width: var(--border-width)}
-.border-rt {border-right-width: var(--border-width); border-top-width:    var(--border-width)}
-.border-rb {border-right-width: var(--border-width); border-bottom-width: var(--border-width)}
-
-.border-all-md    {border-width:        var(--border-width-med)}
-.border-left-md   {border-left-width:   var(--border-width-med)}
-.border-right-md  {border-right-width:  var(--border-width-med)}
-.border-top-md    {border-top-width:    var(--border-width-med)}
-.border-bottom-md {border-bottom-width: var(--border-width-med)}
-
-.border-lr-md {border-left-width:  var(--border-width-med); border-right-width:  var(--border-width-med)}
-.border-tb-md {border-top-width:   var(--border-width-med); border-bottom-width: var(--border-width-med)}
-.border-lt-md {border-left-width:  var(--border-width-med); border-top-width:    var(--border-width-med)}
-.border-lb-md {border-left-width:  var(--border-width-med); border-bottom-width: var(--border-width-med)}
-.border-rt-md {border-right-width: var(--border-width-med); border-top-width:    var(--border-width-med)}
-.border-rb-md {border-right-width: var(--border-width-med); border-bottom-width: var(--border-width-med)}
+.border-lr, .border-lr-md {border-left-width:  var(--border-width); border-right-width:  var(--border-width)}
+.border-tb, .border-tb-md {border-top-width:   var(--border-width); border-bottom-width: var(--border-width)}
+.border-lt, .border-lt-md {border-left-width:  var(--border-width); border-top-width:    var(--border-width)}
+.border-lb, .border-lb-md {border-left-width:  var(--border-width); border-bottom-width: var(--border-width)}
+.border-rt, .border-rt-md {border-right-width: var(--border-width); border-top-width:    var(--border-width)}
+.border-rb, .border-rb-md {border-right-width: var(--border-width); border-bottom-width: var(--border-width)}
 
 .border-all-sm    {border-width:        var(--border-width-mim)}
 .border-left-sm   {border-left-width:   var(--border-width-mim)}
@@ -894,41 +880,35 @@ table.table.streak tr:nth-child(even) {background-color: #f3f3f3}
  */
 .radius-circle {border-radius: 50%}
 
-.radius-all-sm {border-radius: .25rem}
-.radius-all    {border-radius: .5rem}
-.radius-all-lg {border-radius: .75rem}
+.radius-all,          .radius-all-md          {border-radius:              var(--spacing-med)}
+.radius-left,         .radius-left-md         {border-top-left-radius:     var(--spacing-med); border-bottom-left-radius:  var(--spacing-med)}
+.radius-right,        .radius-right-md        {border-top-right-radius:    var(--spacing-med); border-bottom-right-radius: var(--spacing-med)}
+.radius-top,          .radius-top-md          {border-top-left-radius:     var(--spacing-med); border-top-right-radius:    var(--spacing-med)}
+.radius-bottom,       .radius-bottom-md       {border-bottom-left-radius:  var(--spacing-med); border-bottom-right-radius: var(--spacing-med)}
+.radius-top-left,     .radius-top-left-md     {border-top-left-radius:     var(--spacing-med)}
+.radius-top-right,    .radius-top-right-md    {border-top-right-radius:    var(--spacing-med)}
+.radius-bottom-left,  .radius-bottom-left-md  {border-bottom-left-radius:  var(--spacing-med)}
+.radius-bottom-right, .radius-bottom-right-md {border-bottom-right-radius: var(--spacing-med)}
 
-.radius-left-sm {border-top-left-radius: .25rem; border-bottom-left-radius: .25rem}
-.radius-left    {border-top-left-radius: .5rem;  border-bottom-left-radius: .5rem}
-.radius-left-lg {border-top-left-radius: .75rem; border-bottom-left-radius: .75rem}
+.radius-all-sm          {border-radius:              var(--spacing-min)}
+.radius-left-sm         {border-top-left-radius:     var(--spacing-min); border-bottom-left-radius:  var(--spacing-min)}
+.radius-right-sm        {border-top-right-radius:    var(--spacing-min); border-bottom-right-radius: var(--spacing-min)}
+.radius-top-sm          {border-top-left-radius:     var(--spacing-min); border-top-right-radius:    var(--spacing-min)}
+.radius-bottom-sm       {border-bottom-left-radius:  var(--spacing-min); border-bottom-right-radius: var(--spacing-min)}
+.radius-top-left-sm     {border-top-left-radius:     var(--spacing-min)}
+.radius-top-right-sm    {border-top-right-radius:    var(--spacing-min)}
+.radius-bottom-left-sm  {border-bottom-left-radius:  var(--spacing-min)}
+.radius-bottom-right-sm {border-bottom-right-radius: var(--spacing-min)}
 
-.radius-right-sm {border-top-right-radius: .25rem; border-bottom-right-radius: .25rem}
-.radius-right    {border-top-right-radius: .5rem;  border-bottom-right-radius: .5rem}
-.radius-right-lg {border-top-right-radius: .75rem; border-bottom-right-radius: .75rem}
-
-.radius-top-left-sm {border-top-left-radius: .25rem}
-.radius-top-left    {border-top-left-radius: .5rem}
-.radius-top-left-lg {border-top-left-radius: .75rem}
-
-.radius-top-sm {border-top-left-radius: .25rem; border-top-right-radius: .25rem}
-.radius-top    {border-top-left-radius: .5rem;  border-top-right-radius: .5rem}
-.radius-top-lg {border-top-left-radius: .75rem; border-top-right-radius: .75rem}
-
-.radius-top-right-sm {border-top-right-radius: .25rem}
-.radius-top-right    {border-top-right-radius: .5rem}
-.radius-top-right-lg {border-top-right-radius: .75rem}
-
-.radius-bottom-sm {border-bottom-left-radius: .25rem; border-bottom-right-radius: .25rem}
-.radius-bottom    {border-bottom-left-radius: .5rem;  border-bottom-right-radius: .5rem}
-.radius-bottom-lg {border-bottom-left-radius: .75rem; border-bottom-right-radius: .75rem}
-
-.radius-bottom-left-sm {border-bottom-left-radius: .25rem}
-.radius-bottom-left    {border-bottom-left-radius: .5rem}
-.radius-bottom-left-lg {border-bottom-left-radius: .75rem}
-
-.radius-bottom-right-sm {border-bottom-right-radius: .25rem}
-.radius-bottom-right    {border-bottom-right-radius: .5rem}
-.radius-bottom-right-lg {border-bottom-right-radius: .75rem}
+.radius-all-lg          {border-radius:              var(--spacing-max)}
+.radius-left-lg         {border-top-left-radius:     var(--spacing-max); border-bottom-left-radius:  var(--spacing-max)}
+.radius-right-lg        {border-top-right-radius:    var(--spacing-max); border-bottom-right-radius: var(--spacing-max)}
+.radius-top-lg          {border-top-left-radius:     var(--spacing-max); border-top-right-radius:    var(--spacing-max)}
+.radius-bottom-lg       {border-bottom-left-radius:  var(--spacing-max); border-bottom-right-radius: var(--spacing-max)}
+.radius-top-left-lg     {border-top-left-radius:     var(--spacing-max)}
+.radius-top-right-lg    {border-top-right-radius:    var(--spacing-max)}
+.radius-bottom-left-lg  {border-bottom-left-radius:  var(--spacing-max)}
+.radius-bottom-right-lg {border-bottom-right-radius: var(--spacing-max)}
 
 /**
  * ****************************************

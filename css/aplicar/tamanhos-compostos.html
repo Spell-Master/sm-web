@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <title>Tamanhos Compostos</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="Aplicação de tamanhos do css-default.css" />
+        <meta name="author" content="Omar Pautz (Spell-master)" />
+        <link href="../css-default.css" rel="stylesheet" type="text/css" />
+        <link href="../../lib/prism/prism.css" rel="stylesheet" type="text/css" />
+        <link href="../../javascript/ModalShow/ModalShow.css" rel="stylesheet" type="text/css" />
+        <link href="../../lib/stylesheet/core.css" rel="stylesheet" type="text/css" />
+        <script src="../../lib/prism/prism.js"></script>
+        <script src="../../javascript/ModalShow/ModalShow.js"></script>
+        <script src="../../javascript/jsd/js-default.js"></script>
+        <script src="../../lib/js/mostar-codigo.js"></script>
+        <style>
+            .width-min-200.height,
+            .height-min-200.width,
+            .width-max-200.height,
+            .height-max-200.width,
+            .width-prop-2.height,
+            .height-prop-2.width {
+                overflow: auto;
+                resize: both;
+                padding: 32px;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <div class="bg-black">
+                <div class="container padding-all">
+                    <h1 class="text-white shadow-text-white">Tamanhos Compostos</h1>
+                </div>
+            </div>
+            <div class="bg-light shadow-box">
+                <div class="container padding-all">
+                    <p>Propriedades de Tamanhos hoizontal e verical</p>
+                </div>
+            </div>
+            <blockquote class="quote">
+                <p>Ao usar alguma propriedade de largura junto com a propridade
+                    <span class="bold text-red">height</span>, o elemento além da largura também assume a altura
+                    na medida da largura definida.</p>
+                <p>O mesmo acontece se usar alguma propriedade de altura junto com a propriedade
+                    <span class="bold text-red">width</span>.</p>
+                <div class="font-sm">
+                    <p>Neste documento não vou abordar todas as propriedades,
+                        apenas apresentarei o necessário.</p>
+                    <p>Para saber quais são todas propriedades de tamanhos consulte os documentos de tamanhos
+                        de largura e altura.</p>
+                </div>
+            </blockquote>
+            <blockquote class="quote-red">
+                <p>Ambas propriedades <span class="bold">width</span> ou <span class="bold text-red">height</span>
+                    usadas sozinhas não possuem nenhuma ação sobre o elemento.</p>
+            </blockquote>
+        </header>
+
+        <main class="container padding-all">
+            <section class="section">
+                <h2 class="lighter">Tamanho Estático</h2>
+                <div class="padding-tb-prop">
+                    <div class="static">
+                        <div class="row-pad">
+                            <div class="col-third align-center">
+                                <p class="bold">.width-50.height</p>
+                                <div class="margin-auto bg-red width-50 height"></div>
+                                <p class="bold">.height-50.width</p>
+                                <div class="margin-auto bg-red height-50 width"></div>
+                            </div>
+                            <div class="col-third align-center">
+                                <p class="bold">.width-100.height</p>
+                                <div class="margin-auto bg-green width-100 height"></div>
+                                <p class="bold">.height-100.width</p>
+                                <div class="margin-auto bg-green height-100 width"></div>
+                            </div>
+                            <div class="col-third align-center">
+                                <p class="bold">.width-200.height</p>
+                                <div class="margin-auto bg-blue width-200 height"></div>
+                                <p class="bold">.height-200.width</p>
+                                <div class="margin-auto bg-blue height-200 width"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="align-center margin-top">
+                        <button class="btn-default radius-all-sm shadow-box" data-code="">CÓDIGO HTML</button>
+                    </div>
+                </div>
+            </section>
+
+            <hr />
+            <section class="section">
+                <h2 class="lighter">Tamanho Mínimo</h2>
+                <blockquote class="quote-blue">
+                    <p>Você pode clicar e arrasta o elemento para alterar seu tamanho!</p>
+                </blockquote>
+                <div class="padding-tb-prop">
+                    <div class="static">
+                        <div class="row-pad">
+                            <div class="col-half">
+                                <p class="bold">width-min-200 height</p>
+                                <div class="bg-light width-min-200 height">
+                                    <p class="italic font-sm">
+                                        Sua largura e altura mínimas não podem ser menor a 200 pixel&apos;s,
+                                        mas essas medidas máximas não possuem essa limitação.</p>
+                                </div>
+                            </div>
+                            <div class="col-half">
+                                <p class="bold">height-min-200 width</p>
+                                <div class="bg-dark height-min-200 width">
+                                    <p class="italic font-sm">
+                                        Sua largura e altura mínimas não podem ser menor a 200 pixel&apos;s,
+                                        mas essas medidas máximas não possuem essa limitação.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="align-center margin-top">
+                        <button class="btn-default radius-all-sm shadow-box" data-code="">CÓDIGO HTML</button>
+                    </div>
+                </div>
+            </section>
+
+            <hr />
+            <section class="section">
+                <h2 class="lighter">Tamanho Máximo</h2>
+                <blockquote class="quote-blue">
+                    <p>Você pode clicar e arrasta o elemento para alterar seu tamanho!</p>
+                </blockquote>
+                <div class="padding-tb-prop">
+                    <div class="static">
+                        <div class="row-pad">
+                            <div class="col-half">
+                                <p class="bold">width-max-200 height</p>
+                                <div class="bg-light width-max-200 height">
+                                    <p class="italic font-sm">
+                                        Sua largura e altura máximas não podem ser maior a 200 pixel&apos;s,
+                                        mas essas medidas mínimas não possuem essa limitação.</p>
+                                </div>
+                            </div>
+                            <div class="col-half">
+                                <p class="bold">height-max-200 width</p>
+                                <div class="bg-dark height-max-200 width">
+                                    <p class="italic font-sm">
+                                        Sua largura e altura máximas não podem ser maior a 200 pixel&apos;s,
+                                        mas essas medidas mínimas não possuem essa limitação.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="align-center margin-top">
+                        <button class="btn-default radius-all-sm shadow-box" data-code="">CÓDIGO HTML</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="section bg-black">
+            <div class="container base-center">
+                <div class="align-center text-light font-sm">
+                    <p>Aplicação das propriedade com <span class="italic bold">css-default.css</span></p>
+                    <a href="https://github.com/Spell-Master/sm-web/"
+                       target="_blank"
+                       class="href"
+                       title="Abre uma nova aba do navegador indo até o repositório no git-hub">
+                        https:&sol;&sol;github.com&sol;Spell-Master&sol;sm-web&sol;</a>
+                </div>
+            </div>
+        </footer>
+
+        <div class="modal" id="show-code">
+            <div class="modal-box">
+                <div class="modal-header">Código Fonte</div>
+                <div class="modal-content">
+                    <pre><code class="language-html"></code></pre>
+                </div>
+            </div>
+        </div>
+
+        <script>showCode.init();</script>
+    </body>
+</html>

@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <title>Largura</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="Aplicação de tamanhos do css-default.css" />
+        <meta name="author" content="Omar Pautz (Spell-master)" />
+        <link href="../css-default.css" rel="stylesheet" type="text/css" />
+        <link href="../../lib/prism/prism.css" rel="stylesheet" type="text/css" />
+        <link href="../../javascript/ModalShow/ModalShow.css" rel="stylesheet" type="text/css" />
+        <link href="../../lib/stylesheet/core.css" rel="stylesheet" type="text/css" />
+        <script src="../../lib/prism/prism.js"></script>
+        <script src="../../javascript/ModalShow/ModalShow.js"></script>
+        <script src="../../javascript/jsd/js-default.js"></script>
+        <script src="../../lib/js/mostar-codigo.js"></script>
+        <style>
+            .maximize,
+            .maximize-min,
+            .maximize-med,
+            .maximize-max {
+                display: inline-block;
+                min-width: 200px;
+                padding: 20px
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <div class="bg-black">
+                <div class="container padding-all">
+                    <h1 class="text-white shadow-text-white">Largura</h1>
+                </div>
+            </div>
+            <div class="bg-light shadow-box">
+                <div class="container padding-all">
+                    <p>Propriedades de tamanho horizontal</p>
+                </div>
+            </div>
+        </header>
+
+        <main class="container padding-all">
+            <section class="section">
+                <h2 class="lighter">Largura Automática</h2>
+                <div class="padding-tb-prop">
+                    <div class="static">
+                        <div class="card width-auto">width-auto</div>
+                    </div>
+                    <div class="align-center margin-top">
+                        <button class="btn-default radius-all-sm shadow-box" data-code="">CÓDIGO HTML</button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="lighter">Largura Forçada</h2>
+                <blockquote class="quote">
+                    Força o elemento possuir largura máxima disponível.
+                </blockquote>
+                <div class="padding-tb-prop">
+                    <div class="static">
+                        <p class="list">
+                            <span class="bold">maximize</span> &DoubleRightArrow;
+                            100&percnt; da largura disponível.</p>
+                        <div class="bg-black text-white maximize">maximize</div>
+                        <p class="list"><span class="bold">maximize-min</span> &DoubleRightArrow;
+                            100&percnt; da largura disponível quando a tela possuir 480 pixel&apos;s de largura ou menos.</p>
+                        <div class="bg-red text-white maximize-min">maximize-min</div>
+                        <p class="list"><span class="bold">maximize-med</span> &DoubleRightArrow;
+                            100&percnt; da largura disponível quando a tela possuir 640 pixel&apos;s de largura ou menos.</p>
+                        <div class="bg-green text-white maximize-med">maximize-med</div>
+                        <p class="list"><span class="bold">maximize-max</span> &DoubleRightArrow;
+                            100&percnt; da largura disponível quando a tela possuir 960 pixel&apos;s de largura ou menos.</p>
+                        <div class="bg-blue text-white maximize-max">maximize-max</div>
+                    </div>
+                    <div class="align-center margin-top">
+                        <button class="btn-default radius-all-sm shadow-box" data-code="">CÓDIGO HTML</button>
+                    </div>
+                </div>
+            </section>
+
+            <hr />
+            <section class="section">
+                <h2 class="lighter">Largura Estática</h2>
+                <blockquote class="quote">
+                    <p>Propriedades de largura estáticas fazem o elemento sempre possuir um tamanho fixado.</p>
+                </blockquote>
+                <div class="padding-tb-prop">
+                    <div class="static over-x">
+                        <p class="list bold">width-1000</p>
+                        <div class="bg-light padding-all width-1000"></div>
+                        <p class="list bold">width-950</p>
+                        <div class="bg-dark padding-all width-950"></div>
+                        <p class="list bold">width-900</p>
+                        <div class="bg-light padding-all width-900"></div>
+                        <p class="list bold">width-850</p>
+                        <div class="bg-dark padding-all width-850"></div>
+                        <p class="list bold">width-800</p>
+                        <div class="bg-light padding-all width-800"></div>
+                        <p class="list bold">width-750</p>
+                        <div class="bg-dark padding-all width-750"></div>
+                        <p class="list bold">width-700</p>
+                        <div class="bg-light padding-all width-700"></div>
+                        <p class="list bold">width-650</p>
+                        <div class="bg-dark padding-all width-650"></div>
+                        <p class="list bold">width-600</p>
+                        <div class="bg-light padding-all width-600"></div>
+                        <p class="list bold">width-550</p>
+                        <div class="bg-dark padding-all width-550"></div>
+                        <p class="list bold">width-500</p>
+                        <div class="bg-light padding-all width-500"></div>
+                        <p class="list bold">width-450</p>
+                        <div class="bg-dark padding-all width-450"></div>
+                        <p class="list bold">width-400</p>
+                        <div class="bg-light padding-all width-400"></div>
+                        <p class="list bold">width-350</p>
+                        <div class="bg-dark padding-all width-350"></div>
+                        <p class="list bold">width-300</p>
+                        <div class="bg-light padding-all width-300"></div>
+                        <p class="list bold">width-250</p>
+                        <div class="bg-dark padding-all width-250"></div>
+                        <p class="list bold">width-200</p>
+                        <div class="bg-light padding-all width-200"></div>
+                        <p class="list bold">width-150</p>
+                        <div class="bg-dark padding-all width-150"></div>
+                        <p class="list bold">width-100</p>
+                        <div class="bg-light padding-all width-100"></div>
+                        <p class="list bold">width-50</p>
+                        <div class="bg-dark padding-all width-50"></div>
+                    </div>
+                    <div class="align-center margin-top">
+                        <button class="btn-default radius-all-sm shadow-box" data-code="">CÓDIGO HTML</button>
+                    </div>
+                </div>
+            </section>
+
+            <hr />
+            <section class="section">
+                <h2 class="lighter">Largura Mínima</h2>
+                <blockquote class="quote">
+                    <p>Propriedades de largura mínimas fazem o elemento nunca ser reduzido ao tamanho mínimo definido.</p>
+                </blockquote>
+                <div class="padding-tb-prop">
+                    <div class="static over-x">
+                        <p class="list bold">width-min-1000</p>
+                        <div class="bg-light padding-all width-min-1000"></div>
+                        <p class="list bold">width-min-950</p>
+                        <div class="bg-dark padding-all width-min-950"></div>
+                        <p class="list bold">width-min-900</p>
+                        <div class="bg-light padding-all width-min-900"></div>
+                        <p class="list bold">width-min-850</p>
+                        <div class="bg-dark padding-all width-min-850"></div>
+                        <p class="list bold">width-min-800</p>
+                        <div class="bg-light padding-all width-min-800"></div>
+                        <p class="list bold">width-min-750</p>
+                        <div class="bg-dark padding-all width-min-750"></div>
+                        <p class="list bold">width-min-700</p>
+                        <div class="bg-light padding-all width-min-700"></div>
+                        <p class="list bold">width-min-650</p>
+                        <div class="bg-dark padding-all width-min-650"></div>
+                        <p class="list bold">width-min-600</p>
+                        <div class="bg-light padding-all width-min-600"></div>
+                        <p class="list bold">width-min-550</p>
+                        <div class="bg-dark padding-all width-min-550"></div>
+                        <p class="list bold">width-min-500</p>
+                        <div class="bg-light padding-all width-min-500"></div>
+                        <p class="list bold">width-min-450</p>
+                        <div class="bg-dark padding-all width-min-450"></div>
+                        <p class="list bold">width-min-400</p>
+                        <div class="bg-light padding-all width-min-400"></div>
+                        <p class="list bold">width-min-350</p>
+                        <div class="bg-dark padding-all width-min-350"></div>
+                        <p class="list bold">width-min-300</p>
+                        <div class="bg-light padding-all width-min-300"></div>
+                        <p class="list bold">width-min-250</p>
+                        <div class="bg-dark padding-all width-min-250"></div>
+                        <p class="list bold">width-min-200</p>
+                        <div class="bg-light padding-all width-min-200"></div>
+                        <p class="list bold">width-min-150</p>
+                        <div class="bg-dark padding-all width-min-150"></div>
+                        <p class="list bold">width-min-100</p>
+                        <div class="bg-light padding-all width-min-100"></div>
+                        <p class="list bold">width-min-50</p>
+                        <div class="bg-dark padding-all width-min-50"></div>
+                    </div>
+                    <div class="align-center margin-top">
+                        <button class="btn-default radius-all-sm shadow-box" data-code="">CÓDIGO HTML</button>
+                    </div>
+                </div>
+            </section>
+
+            <hr />
+            <section class="section">
+                <h2 class="lighter">Largura Máxima</h2>
+                <blockquote class="quote">
+                    <p>Propriedades de largura máximas fazem o elemento nunca ser almentado ao tamanho máximo definido.</p>
+                </blockquote>
+                <div class="padding-tb-prop">
+                    <div class="static over-x">
+                        <p class="list bold">width-max-1000</p>
+                        <div class="bg-light padding-all width-max-1000"></div>
+                        <p class="list bold">width-max-950</p>
+                        <div class="bg-dark padding-all width-max-950"></div>
+                        <p class="list bold">width-max-900</p>
+                        <div class="bg-light padding-all width-max-900"></div>
+                        <p class="list bold">width-max-850</p>
+                        <div class="bg-dark padding-all width-max-850"></div>
+                        <p class="list bold">width-max-800</p>
+                        <div class="bg-light padding-all width-max-800"></div>
+                        <p class="list bold">width-max-750</p>
+                        <div class="bg-dark padding-all width-max-750"></div>
+                        <p class="list bold">width-max-700</p>
+                        <div class="bg-light padding-all width-max-700"></div>
+                        <p class="list bold">width-max-650</p>
+                        <div class="bg-dark padding-all width-max-650"></div>
+                        <p class="list bold">width-max-600</p>
+                        <div class="bg-light padding-all width-max-600"></div>
+                        <p class="list bold">width-max-550</p>
+                        <div class="bg-dark padding-all width-max-550"></div>
+                        <p class="list bold">width-max-500</p>
+                        <div class="bg-light padding-all width-max-500"></div>
+                        <p class="list bold">width-max-450</p>
+                        <div class="bg-dark padding-all width-max-450"></div>
+                        <p class="list bold">width-max-400</p>
+                        <div class="bg-light padding-all width-max-400"></div>
+                        <p class="list bold">width-max-350</p>
+                        <div class="bg-dark padding-all width-max-350"></div>
+                        <p class="list bold">width-max-300</p>
+                        <div class="bg-light padding-all width-max-300"></div>
+                        <p class="list bold">width-max-250</p>
+                        <div class="bg-dark padding-all width-max-250"></div>
+                        <p class="list bold">width-max-200</p>
+                        <div class="bg-light padding-all width-max-200"></div>
+                        <p class="list bold">width-max-150</p>
+                        <div class="bg-dark padding-all width-max-150"></div>
+                        <p class="list bold">width-max-100</p>
+                        <div class="bg-light padding-all width-max-100"></div>
+                        <p class="list bold">width-max-50</p>
+                        <div class="bg-dark padding-all width-max-50"></div>
+                    </div>
+                    <div class="align-center margin-top">
+                        <button class="btn-default radius-all-sm shadow-box" data-code="">CÓDIGO HTML</button>
+                    </div>
+                </div>
+            </section>
+
+            <hr />
+            <section class="section">
+                <h2 class="lighter">Largura Proporcional</h2>
+                <blockquote class="quote">
+                    <p>Propriedades de largura proporcional definem o tamanho da largura independente a tela de visualização.</p>
+                </blockquote>
+                <div class="padding-tb-prop">
+                    <div class="border-all padding-all over-x width-min-400 width-max-900 margin-auto" style="resize: horizontal">
+                        <p class="list">
+                            <span class="bold">width-prop-1</span> &DoubleRightArrow;
+                            100&percnt; da largura disponível.</p>
+                        <div class="bg-red padding-all width-prop-1"></div>
+                        <p class="list">
+                            <span class="bold">width-prop-2</span> &DoubleRightArrow;
+                            50&percnt; aproximado da largura disponível.</p>
+                        <div class="bg-green padding-all width-prop-2"></div>
+                        <p class="list">
+                            <span class="bold">width-prop-3</span> &DoubleRightArrow;
+                            33&percnt; aproximado da largura disponível.</p>
+                        <div class="bg-blue padding-all width-prop-3"></div>
+                        <p class="list">
+                            <span class="bold">width-prop-4</span> &DoubleRightArrow;
+                            25&percnt; aproximado da largura disponível.</p>
+                        <div class="bg-red padding-all width-prop-4"></div>
+                        <p class="list">
+                            <span class="bold">width-prop-5</span> &DoubleRightArrow;
+                            20&percnt; aproximado da largura disponível.</p>
+                        <div class="bg-green padding-all width-prop-5"></div>
+                        <p class="list">
+                            <span class="bold">width-prop-6</span> &DoubleRightArrow;
+                            15&percnt; aproximado da largura disponível.</p>
+                        <div class="bg-blue padding-all width-prop-6"></div>
+                        <p class="list">
+                            <span class="bold">width-prop-7</span> &DoubleRightArrow;
+                            14&percnt; aproximado da largura disponível.</p>
+                        <div class="bg-red padding-all width-prop-7"></div>
+                        <p class="list">
+                            <span class="bold">width-prop-8</span> &DoubleRightArrow;
+                            12&percnt; aproximado da largura disponível.</p>
+                        <div class="bg-green padding-all width-prop-8"></div>
+                        <p class="list">
+                            <span class="bold">width-prop-9</span> &DoubleRightArrow;
+                            10&percnt; aproximado da largura disponível.</p>
+                        <div class="bg-blue padding-all width-prop-9"></div>
+                        <p class="list">
+                            <span class="bold">width-prop-10</span> &DoubleRightArrow;
+                            10&percnt; aproximado da largura disponível.</p>
+                        <div class="bg-blue padding-all width-prop-10"></div>
+                    </div>
+                    <div class="align-center margin-top">
+                        <button class="btn-default radius-all-sm shadow-box" data-code="">CÓDIGO HTML</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="section bg-black">
+            <div class="container base-center">
+                <div class="align-center text-light font-sm">
+                    <p>Aplicação das propriedade com <span class="italic bold">css-default.css</span></p>
+                    <a href="https://github.com/Spell-Master/sm-web/"
+                       target="_blank"
+                       class="href"
+                       title="Abre uma nova aba do navegador indo até o repositório no git-hub">
+                        https:&sol;&sol;github.com&sol;Spell-Master&sol;sm-web&sol;</a>
+                </div>
+            </div>
+        </footer>
+
+        <div class="modal" id="show-code">
+            <div class="modal-box">
+                <div class="modal-header">Código Fonte</div>
+                <div class="modal-content">
+                    <pre><code class="language-html"></code></pre>
+                </div>
+            </div>
+        </div>
+
+        <script>showCode.init();</script>
+    </body>
+</html>

@@ -1401,26 +1401,32 @@ ul.list::marker, ol.list::marker {
  * ****************************************
  */
 @media (min-width: 960px) {
-    .col-10-max                  {width: 9.99999%}
-    .col-9-max                   {width: 11.11111%}
-    .col-8-max                   {width: 12.49999%}
-    .col-7-max                   {width: 14.28571%}
-    .col-6-max                   {width: 16.66666%}
-    .col-5-max                   {width: 19.99999%}
-    .col-4-max, .col-quarter-max {width: 24.99999%}
-    .col-3-max, .col-third-max   {width: 33.33333%}
-    .col-2-max, .col-half-max    {width: 49.99999%}
-    .col-twothird-max            {width: 66.66666%}
     .col-threequarter-max        {width: 74.99999%}
+    .col-twothird-max            {width: 66.66666%}
+    .col-half-max,    .col-2-max {width: 49.99999%}
+    .col-third-max,   .col-3-max {width: 33.33333%}
+    .col-quarter-max, .col-4-max {width: 24.99999%}
+    .col-5-max                   {width: 19.99999%}
+    .col-6-max                   {width: 16.66666%}
+    .col-7-max                   {width: 14.28571%}
+    .col-8-max                   {width: 12.49999%}
+    .col-9-max                   {width: 11.11111%}
+    .col-10-max                  {width: 9.99999%}
 
-    .col-2-max.reverse, .col-3-max.reverse, .col-4-max.reverse,
-    .col-5-max.reverse, .col-6-max.reverse, .col-7-max.reverse,
-    .col-8-max.reverse, .col-9-max.reverse, .col-10-max.reverse,
-    .col-quarter-max.reverse,
-    .col-third-max.reverse,
-    .col-half-max.reverse,
-    .col-twothird-max.reverse,
-    .col-threequarter-max.reverse {
+    .col-threequarter-max.reverse, .row.reverse > .col-threequarter-max, .row-pad.reverse > .col-threequarter-max,
+    .col-twothird-max.reverse,     .row.reverse > .col-twothird-max,     .row-pad.reverse > .col-twothird-max,
+    .col-half-max.reverse,         .row.reverse > .col-half-max,         .row-pad.reverse > .col-half-max,
+    .col-third-max.reverse,        .row.reverse > .col-third-max,        .row-pad.reverse > .col-third-max,
+    .col-quarter-max.reverse,      .row.reverse > .col-quarter-max,      .row-pad.reverse > .col-quarter-max,
+    .col-2-max.reverse,  .row.reverse > .col-2-max,  .row-pad.reverse > .col-2-max,
+    .col-3-max.reverse,  .row.reverse > .col-3-max,  .row-pad.reverse > .col-3-max,
+    .col-4-max.reverse,  .row.reverse > .col-4-max,  .row-pad.reverse > .col-4-max,
+    .col-5-max.reverse,  .row.reverse > .col-5-max,  .row-pad.reverse > .col-5-max,
+    .col-6-max.reverse,  .row.reverse > .col-6-max,  .row-pad.reverse > .col-6-max,
+    .col-7-max.reverse,  .row.reverse > .col-7-max,  .row-pad.reverse > .col-7-max,
+    .col-8-max.reverse,  .row.reverse > .col-8-max,  .row-pad.reverse > .col-8-max,
+    .col-9-max.reverse,  .row.reverse > .col-9-max,  .row-pad.reverse > .col-9-max,
+    .col-10-max.reverse, .row.reverse > .col-10-max, .row-pad.reverse > .col-10-max {
         width: 100%
     }
 
@@ -1429,26 +1435,32 @@ ul.list::marker, ol.list::marker {
 }
 
 @media (min-width: 640px) {
-    .col-10              {width: 9.99999%}
-    .col-9               {width: 11.11111%}
-    .col-8               {width: 12.49999%}
-    .col-7               {width: 14.28571%}
-    .col-6               {width: 16.66666%}
-    .col-5               {width: 19.99999%}
-    .col-4, .col-quarter {width: 24.99999%}
-    .col-3, .col-third   {width: 33.33333%}
-    .col-2, .col-half    {width: 49.99999%}
-    .col-twothird        {width: 66.66666%}
     .col-threequarter    {width: 74.99999%}
+    .col-twothird        {width: 66.66666%}
+    .col-half,    .col-2 {width: 49.99999%}
+    .col-third,   .col-3 {width: 33.33333%}
+    .col-quarter, .col-4 {width: 24.99999%}
+    .col-5               {width: 19.99999%}
+    .col-6               {width: 16.66666%}
+    .col-7               {width: 14.28571%}
+    .col-8               {width: 12.49999%}
+    .col-9               {width: 11.11111%}
+    .col-10              {width: 9.99999%}
 
-    .col-2.reverse, .col-3.reverse, .col-4.reverse,
-    .col-5.reverse, .col-6.reverse, .col-7.reverse,
-    .col-8.reverse, .col-9.reverse, .col-10.reverse,
-    .col-quarter.reverse,
-    .col-third.reverse,
-    .col-half.reverse,
-    .col-twothird.reverse,
-    .col-threequarter.reverse {
+    .col-threequarter.reverse, .row.reverse > .col-threequarter, .row-pad.reverse > .col-threequarter,
+    .col-twothird.reverse,     .row.reverse > .col-twothird,     .row-pad.reverse > .col-twothird,
+    .col-half.reverse,         .row.reverse > .col-half,         .row-pad.reverse > .col-half,
+    .col-third.reverse,        .row.reverse > .col-third,        .row-pad.reverse > .col-third,
+    .col-quarter.reverse,      .row.reverse > .col-quarter,      .row-pad.reverse > .col-quarter,
+    .col-2.reverse,  .row.reverse > .col-2,  .row-pad.reverse > .col-2,
+    .col-3.reverse,  .row.reverse > .col-3,  .row-pad.reverse > .col-3,
+    .col-4.reverse,  .row.reverse > .col-4,  .row-pad.reverse > .col-4,
+    .col-5.reverse,  .row.reverse > .col-5,  .row-pad.reverse > .col-5,
+    .col-6.reverse,  .row.reverse > .col-6,  .row-pad.reverse > .col-6,
+    .col-7.reverse,  .row.reverse > .col-7,  .row-pad.reverse > .col-7,
+    .col-8.reverse,  .row.reverse > .col-8,  .row-pad.reverse > .col-8,
+    .col-9.reverse,  .row.reverse > .col-9,  .row-pad.reverse > .col-9,
+    .col-10.reverse, .row.reverse > .col-10, .row-pad.reverse > .col-10 {
         width: 100%
     }
 
@@ -1457,26 +1469,32 @@ ul.list::marker, ol.list::marker {
 }
 
 @media (min-width: 480px) {
-    .col-10-min                  {width: 9.99999%}
-    .col-9-min                   {width: 11.11111%}
-    .col-8-min                   {width: 12.49999%}
-    .col-7-min                   {width: 14.28571%}
-    .col-6-min                   {width: 16.66666%}
-    .col-5-min                   {width: 19.99999%}
-    .col-4-min, .col-quarter-min {width: 24.99999%}
-    .col-3-min, .col-third-min   {width: 33.33333%}
-    .col-2-min, .col-half-min    {width: 49.99999%}
-    .col-twothird-min            {width: 66.66666%}
     .col-threequarter-min        {width: 74.99999%}
+    .col-twothird-min            {width: 66.66666%}
+    .col-half-min,    .col-2-min {width: 49.99999%}
+    .col-third-min,   .col-3-min {width: 33.33333%}
+    .col-quarter-min, .col-4-min {width: 24.99999%}
+    .col-5-min                   {width: 19.99999%}
+    .col-6-min                   {width: 16.66666%}
+    .col-7-min                   {width: 14.28571%}
+    .col-8-min                   {width: 12.49999%}
+    .col-9-min                   {width: 11.11111%}
+    .col-10-min                  {width: 9.99999%}
 
-    .col-2-min.reverse, .col-3-min.reverse, .col-4-min.reverse,
-    .col-5-min.reverse, .col-6-min.reverse, .col-7-min.reverse,
-    .col-8-min.reverse, .col-9-min.reverse, .col-10-min.reverse,
-    .col-quarter-min.reverse,
-    .col-third-min.reverse,
-    .col-half-min.reverse,
-    .col-twothird-min.reverse,
-    .col-threequarter-min.reverse {
+    .col-threequarter-min.reverse, .row.reverse > .col-threequarter-min, .row-pad.reverse > .col-threequarter-min,
+    .col-twothird-min.reverse,     .row.reverse > .col-twothird-min,     .row-pad.reverse > .col-twothird-min,
+    .col-half-min.reverse,         .row.reverse > .col-half-min,         .row-pad.reverse > .col-half-min,
+    .col-third-min.reverse,        .row.reverse > .col-third-min,        .row-pad.reverse > .col-third-min,
+    .col-quarter-min.reverse,      .row.reverse > .col-quarter-min,      .row-pad.reverse > .col-quarter-min,
+    .col-2-min.reverse,  .row.reverse > .col-2-min,  .row-pad.reverse > .col-2-min,
+    .col-3-min.reverse,  .row.reverse > .col-3-min,  .row-pad.reverse > .col-3-min,
+    .col-4-min.reverse,  .row.reverse > .col-4-min,  .row-pad.reverse > .col-4-min,
+    .col-5-min.reverse,  .row.reverse > .col-5-min,  .row-pad.reverse > .col-5-min,
+    .col-6-min.reverse,  .row.reverse > .col-6-min,  .row-pad.reverse > .col-6-min,
+    .col-7-min.reverse,  .row.reverse > .col-7-min,  .row-pad.reverse > .col-7-min,
+    .col-8-min.reverse,  .row.reverse > .col-8-min,  .row-pad.reverse > .col-8-min,
+    .col-9-min.reverse,  .row.reverse > .col-9-min,  .row-pad.reverse > .col-9-min,
+    .col-10-min.reverse, .row.reverse > .col-10-min, .row-pad.reverse > .col-10-min {
         width: 100%
     }
 

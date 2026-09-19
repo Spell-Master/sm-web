@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <title>Estrutura de Coluna</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="Colunas do css-default.css" />
+        <meta name="author" content="Omar Pautz (Spell-master)" />
+        <link href="../css-default.css" rel="stylesheet" type="text/css" />
+        <link href="../../lib/prism/prism.css" rel="stylesheet" type="text/css" />
+        <link href="../../javascript/ModalShow/ModalShow.css" rel="stylesheet" type="text/css" />
+        <link href="../../lib/stylesheet/core.css" rel="stylesheet" type="text/css" />
+        <script src="../../lib/prism/prism.js"></script>
+        <script src="../../javascript/ModalShow/ModalShow.js"></script>
+        <script src="../../javascript/jsd/js-default.js"></script>
+        <script src="../../lib/js/mostar-codigo.js"></script>
+    </head>
+    <body>
+        <header>
+            <div class="bg-black">
+                <div class="container padding-all">
+                    <h1 class="text-white shadow-text-white">Colunas de Orientação Mínima</h1>
+                </div>
+            </div>
+            <div class="bg-light shadow-box">
+                <div class="container padding-all">
+                    <p>Propriedades para colunas de orientação mínima</p>
+                </div>
+            </div>
+            <div class="container padding-all">
+                <div class="alert-warning">
+                    <p>Estas propriedades podem ser usadas independentemente.</p>
+                    <p>No entanto é aconselhável suar propriedades de linha também,
+                        assim foram projetas para trabalharem em conjunto.</p>
+                    <ul class="list-none">
+                        <li><a href="linha-estrutural.html" target="_blank" class="href">Ir para as estruturas de linha</a></li>
+                        <li><a href="coluna-base.html" target="_blank" class="href">Veja as propriedades de colunas base</a></li>
+                        <li><a href="coluna-maxima.html" target="_blank" class="href">Veja as propriedades de colunas máximas</a></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+
+        <main class="container padding-all">
+            <section class="section">
+                <h2 class="lighter">Colunas Gerais</h2>
+                <blockquote class="quote">
+                    <p>Quando a disponibilidade da largura da tela for de 
+                        480 pixel&apos;s ou menos, as colunas mínimas
+                        se empilham e expandem ocupando todo tamanho do bloco</p>
+                </blockquote>
+                <div class="padding-tb-prop">
+                    <div class="row flex-column">
+                        <div class="col-single">
+                            <p class="list"><span class="bold">col-half-min</span>
+                                &DoubleRightArrow; Equivale a metade da linha.</p>
+                        </div>
+                        <div class="col-half-min">
+                            <div class="card-dark">col-half-min</div>
+                        </div>
+                        <div class="col-single">
+                            <p class="list"><span class="bold">col-third-min</span>
+                                &DoubleRightArrow; Equivale a um terço da linha.</p>
+                        </div>
+                        <div class="col-third-min">
+                            <div class="card-dark">col-third-min</div>
+                        </div>
+                        <div class="col-single">
+                            <p class="list"><span class="bold">col-quarter-min</span>
+                                &DoubleRightArrow; Equivale a um quarto da linha.</p>
+                        </div>
+                        <div class="col-quarter-min">
+                            <div class="card-dark">col-quarter-min</div>
+                        </div>
+                        <div class="col-single">
+                            <p class="list"><span class="bold">col-quarter-min</span>
+                                &DoubleRightArrow; Equivale a um quarto da linha.</p>
+                        </div>
+                        <div class="col-quarter-min">
+                            <div class="card-dark">col-quarter-min</div>
+                        </div>
+                        <div class="col-single">
+                            <p class="list"><span class="bold">col-threequarter-min</span>
+                                &DoubleRightArrow; Equivale a três quartos da linha.</p>
+                        </div>
+                        <div class="col-threequarter-min">
+                            <div class="card-dark">col-threequarter-min</div>
+                        </div>
+                        <div class="col-single">
+                            <p class="list"><span class="bold">col-twothird-min</span>
+                                &DoubleRightArrow; Equivale a dois terços da linha.</p>
+                        </div>
+                        <div class="col-twothird-min">
+                            <div class="card-dark">col-twothird-min</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <hr />
+            <section class="section">
+                <h2 class="lighter">Colunas Adicionais</h2>
+                <blockquote class="quote-yellow">
+                    <p>NOTA!</p>
+                    <p>Nessa demostração adicional a expansão das colunas foi negada para melhor compreendimento
+                        como é feita a divisão da linha por cada tipo de propriedade de coluna.</p>
+                </blockquote>
+                <div class="padding-tb-prop">
+                    <div class="row-pad">
+                        <div class="col-third">
+                            <p class="list">
+                                <span class="bold">col-2-min</span> &DoubleRightArrow;
+                                Divide a linha em 2 colunas.</p>
+                            <div class="row fix font-md align-center">
+                                <div class="col-2"><div class="card-dark">1</div></div>
+                                <div class="col-2"><div class="card-dark">2</div></div>
+                            </div>
+                        </div>
+                        <div class="col-third">
+                            <p class="list">
+                                <span class="bold">col-3-min</span> &DoubleRightArrow;
+                                Divide a linha em 3 colunas.</p>
+                            <div class="row fix font-md align-center">
+                                <div class="col-3"><div class="card-dark">1</div></div>
+                                <div class="col-3"><div class="card-dark">2</div></div>
+                                <div class="col-3"><div class="card-dark">3</div></div>
+                            </div>
+                        </div>
+                        <div class="col-third">
+                            <p class="list">
+                                <span class="bold">col-4-min</span> &DoubleRightArrow;
+                                Divide a linha em 4 colunas.</p>
+                            <div class="row fix font-md align-center">
+                                <div class="col-4"><div class="card-dark">1</div></div>
+                                <div class="col-4"><div class="card-dark">2</div></div>
+                                <div class="col-4"><div class="card-dark">3</div></div>
+                                <div class="col-4"><div class="card-dark">4</div></div>
+                            </div>
+                        </div>
+                        <div class="col-third">
+                            <p class="list">
+                                <span class="bold">col-5-min</span> &DoubleRightArrow;
+                                Divide a linha em 5 colunas.</p>
+                            <div class="row fix font-md align-center">
+                                <div class="col-5"><div class="card-dark">1</div></div>
+                                <div class="col-5"><div class="card-dark">2</div></div>
+                                <div class="col-5"><div class="card-dark">3</div></div>
+                                <div class="col-5"><div class="card-dark">4</div></div>
+                                <div class="col-5"><div class="card-dark">5</div></div>
+                            </div>
+                        </div>
+                        <div class="col-third">
+                            <p class="list">
+                                <span class="bold">col-6-min</span> &DoubleRightArrow;
+                                Divide a linha em 6 colunas.</p>
+                            <div class="row fix font-md align-center">
+                                <div class="col-6"><div class="card-dark">1</div></div>
+                                <div class="col-6"><div class="card-dark">2</div></div>
+                                <div class="col-6"><div class="card-dark">3</div></div>
+                                <div class="col-6"><div class="card-dark">4</div></div>
+                                <div class="col-6"><div class="card-dark">5</div></div>
+                                <div class="col-6"><div class="card-dark">6</div></div>
+                            </div>
+                        </div>
+                        <div class="col-third">
+                            <p class="list">
+                                <span class="bold">col-7-min</span> &DoubleRightArrow;
+                                Divide a linha em 7 colunas.</p>
+                            <div class="row fix font-md align-center">
+                                <div class="col-7"><div class="card-dark">1</div></div>
+                                <div class="col-7"><div class="card-dark">2</div></div>
+                                <div class="col-7"><div class="card-dark">3</div></div>
+                                <div class="col-7"><div class="card-dark">4</div></div>
+                                <div class="col-7"><div class="card-dark">5</div></div>
+                                <div class="col-7"><div class="card-dark">6</div></div>
+                                <div class="col-7"><div class="card-dark">7</div></div>
+                            </div>
+                        </div>
+                        <div class="col-third">
+                            <p class="list">
+                                <span class="bold">col-8-min</span> &DoubleRightArrow;
+                                Divide a linha em 8 colunas.</p>
+                            <div class="row fix font-md align-center">
+                                <div class="col-8"><div class="card-dark">1</div></div>
+                                <div class="col-8"><div class="card-dark">2</div></div>
+                                <div class="col-8"><div class="card-dark">3</div></div>
+                                <div class="col-8"><div class="card-dark">4</div></div>
+                                <div class="col-8"><div class="card-dark">5</div></div>
+                                <div class="col-8"><div class="card-dark">6</div></div>
+                                <div class="col-8"><div class="card-dark">7</div></div>
+                                <div class="col-8"><div class="card-dark">8</div></div>
+                            </div>
+                        </div>
+                        <div class="col-third">
+                            <p class="list">
+                                <span class="bold">col-9-min</span> &DoubleRightArrow;
+                                Divide a linha em 9 colunas.</p>
+                            <div class="row fix font-md align-center">
+                                <div class="col-9"><div class="card-dark">1</div></div>
+                                <div class="col-9"><div class="card-dark">2</div></div>
+                                <div class="col-9"><div class="card-dark">3</div></div>
+                                <div class="col-9"><div class="card-dark">4</div></div>
+                                <div class="col-9"><div class="card-dark">5</div></div>
+                                <div class="col-9"><div class="card-dark">6</div></div>
+                                <div class="col-9"><div class="card-dark">7</div></div>
+                                <div class="col-9"><div class="card-dark">8</div></div>
+                                <div class="col-9"><div class="card-dark">9</div></div>
+                            </div>
+                        </div>
+                        <div class="col-third">
+                            <p class="list">
+                                <span class="bold">col-10-min</span> &DoubleRightArrow;
+                                Divide a linha em 10 colunas.</p>
+                            <div class="row fix font-md align-center">
+                                <div class="col-10"><div class="card-dark">1</div></div>
+                                <div class="col-10"><div class="card-dark">2</div></div>
+                                <div class="col-10"><div class="card-dark">3</div></div>
+                                <div class="col-10"><div class="card-dark">4</div></div>
+                                <div class="col-10"><div class="card-dark">5</div></div>
+                                <div class="col-10"><div class="card-dark">6</div></div>
+                                <div class="col-10"><div class="card-dark">7</div></div>
+                                <div class="col-10"><div class="card-dark">8</div></div>
+                                <div class="col-10"><div class="card-dark">9</div></div>
+                                <div class="col-10"><div class="card-dark">10</div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <hr />
+            <section class="section">
+                <h2 class="lighter">Aplicando Colunas</h2>
+                <blockquote class="quote">
+                    <p>Sem preenchimento, usando a linha de propriedade
+                        <span class="bold text-green">row</span></p>
+                    <p class="italic bold">Qualquer coluna pode ser usada!</p>
+                </blockquote>
+                <div class="padding-tb-prop">
+                    <div class="static font-lg align-center">
+                        <div class="row text-white">
+                            <div class="col-third-min">
+                                <div class="bg-red">1</div>
+                            </div>
+                            <div class="col-third-min">
+                                <div class="bg-green">2</div>
+                            </div>
+                            <div class="col-third-min">
+                                <div class="bg-blue">3</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="align-center margin-top">
+                        <button class="btn-default radius-all-sm shadow-box" data-code="">CÓDIGO HTML</button>
+                    </div>
+                </div>
+            </section>
+
+            <hr />
+            <section class="section">
+                <h2 class="lighter">Aplicando Colunas Espaçadas</h2>
+                <blockquote class="quote">
+                    <p>Espaçadas nada mais é o preenchimento,
+                        usando a linha de propriedade
+                        <span class="bold text-green">row-pad</span></p>
+                    <p class="italic bold">Qualquer coluna pode ser usada!</p>
+                </blockquote>
+                <div class="padding-tb-prop">
+                    <div class="static font-lg align-center">
+                        <div class="row-pad text-white">
+                            <div class="col-third-min">
+                                <div class="bg-red">1</div>
+                            </div>
+                            <div class="col-third-min">
+                                <div class="bg-green">2</div>
+                            </div>
+                            <div class="col-third-min">
+                                <div class="bg-blue">3</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="align-center margin-top">
+                        <button class="btn-default radius-all-sm shadow-box" data-code="">CÓDIGO HTML</button>
+                    </div>
+                </div>
+            </section>
+
+            <hr />
+            <section class="section">
+                <h2 class="lighter">Reversão Adaptativa</h2>
+                <blockquote class="quote-red">
+                    <p class="bold">Atenção:</p>
+                    <p>Esta é uma propriedade de uso limitado, ela pode causar
+                        vazamento de bloco com muita facilidade.</p>
+                </blockquote>
+                <div class="padding-tb-prop">
+                    <p class="list"><span class="bold">reverse</span> &DoubleRightArrow;
+                        Pode ser aplicada a linha quanto a uma coluna específica.</p>
+                    <p>Mas quando definido a uma coluna interage apenas com ela.</p>
+                    <p>Altera o comportamento da coluna ao inverso do normal.</p>
+                    <p>Ou seja a coluna permacem expandida e empilhada na linha,
+                        no entanto quando a largura de tela combinar com suas
+                        definições de escala se retrae ao tamanho de prefixo.</p>
+                </div>
+            </section>
+
+            <hr />
+            <section class="section">
+                <h2 class="lighter">Coluna Reversa</h2>
+                <blockquote class="quote-yellow">
+                    <p class="bold">NOTA!</p>
+                    <p>Colunas adaptáveis quando a disponibilidade de tela
+                        seja de 480 pixel&apos;s ou mais de largura.</p>
+                </blockquote>
+                <div class="padding-tb-prop">
+                    <div class="static">
+                        <div class="row flex-column">
+                            <div class="col-half-min reverse">
+                                <div class="card-dark">col-half-min reverse</div>
+                            </div>
+                            <div class="col-third-min reverse">
+                                <div class="card-dark">col-third-min reverse</div>
+                            </div>
+                            <div class="col-quarter-min reverse">
+                                <div class="card-dark">col-quarter-min reverse</div>
+                            </div>
+                            <div class="col-threequarter-min reverse">
+                                <div class="card-dark">col-threequarter-min reverse</div>
+                            </div>
+                            <div class="col-twothird-min reverse">
+                                <div class="card-dark">col-twothird-min reverse</div>
+                            </div>
+                            <div class="col-2-min reverse">
+                                <div class="card-dark">col-2-min reverse</div>
+                            </div>
+                            <div class="col-3-min reverse">
+                                <div class="card-dark">col-3-min reverse</div>
+                            </div>
+                            <div class="col-4-min reverse">
+                                <div class="card-dark">col-4-min reverse</div>
+                            </div>
+                            <div class="col-5-min reverse">
+                                <div class="card-dark">col-5-min reverse</div>
+                            </div>
+                            <div class="col-6-min reverse">
+                                <div class="card-dark">col-6-min reverse</div>
+                            </div>
+                            <div class="col-7-min reverse">
+                                <div class="card-dark">col-7-min reverse</div>
+                            </div>
+                            <div class="col-8-min reverse">
+                                <div class="card-dark">col-8-min reverse</div>
+                            </div>
+                            <div class="col-9-min reverse">
+                                <div class="card-dark">col-9-min reverse</div>
+                            </div>
+                            <div class="col-10-min reverse">
+                                <div class="card-dark">col-10-min reverse</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="align-center margin-top">
+                        <button class="btn-default radius-all-sm shadow-box" data-code="">CÓDIGO HTML</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="section bg-black">
+            <div class="container base-center">
+                <div class="align-center text-light font-sm">
+                    <p>Aplicação das propriedade com <span class="italic bold">css-default.css</span></p>
+                    <a href="https://github.com/Spell-Master/sm-web/"
+                       target="_blank"
+                       class="href"
+                       title="Abre uma nova aba do navegador indo até o repositório no git-hub">
+                        https:&sol;&sol;github.com&sol;Spell-Master&sol;sm-web&sol;</a>
+                </div>
+            </div>
+        </footer>
+
+        <div class="modal" id="show-code">
+            <div class="modal-box">
+                <div class="modal-header">Código Fonte</div>
+                <div class="modal-content">
+                    <pre><code class="language-html"></code></pre>
+                </div>
+            </div>
+        </div>
+
+        <script>showCode.init();</script>
+    </body>
+</html>

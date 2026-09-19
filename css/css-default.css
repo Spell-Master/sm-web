@@ -17,10 +17,16 @@
 
 /* Configurações */
 :root {
+    --font-body-size: 12pt;
+    --font-core-size: 1rem; /* 16 */
+
     --spacing-min: .5rem; /* 8 */
     --spacing-med: 1rem;  /* 16 */
     --spacing-max: 2rem;  /* 32 */
     --spacing-prp: calc(1dvw + 1dvh);
+
+    --margin-row:  0 -.5rem; /* 8 */
+    --padding-col: .5rem;    /* 8 */
 
     --border-width:     .125rem;  /* 2 */
     --border-width-min: .0625rem; /* 1 */
@@ -75,7 +81,7 @@
  */
 *, :after, :before {margin: 0; padding: 0; box-sizing: border-box}
 html {overflow-x: hidden}
-body {font-size: 16px; line-height: 1.5; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; color: #5e5e5e}
+body {font-size: var(--font-body-size); line-height: 1.5; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; color: #5e5e5e}
 body, html {height: 100%}
 header, main, footer {width: auto}
 article, aside, details, figcaption, figure, header, main, footer, menu, nav, section, summary {display: block}
@@ -125,13 +131,13 @@ ul, ol {padding-inline-start: 2.5em}
  * Tipografia
  * ****************************************
  */
-.font-sm {font-size: .75em}   /* 12 */
-.font-md {font-size: 1.125em} /* 18 */
-.font-lg {font-size: 1.5em}   /* 24 */
+.font-min {font-size: .75em   !important} /* 12 */
+.font-med {font-size: 1.125em !important} /* 18 */
+.font-max {font-size: 1.5em   !important} /* 24 */
 
-.font-sm.fix {font-size: .75rem}   /* 12 */
-.font-md.fix {font-size: 1.125rem} /* 18 */
-.font-lg.fix {font-size: 1.5rem}   /* 24 */
+.font-min.fix {font-size: .75rem   !important} /* 12 */
+.font-med.fix {font-size: 1.125rem !important} /* 18 */
+.font-max.fix {font-size: 1.5rem   !important} /* 24 */
 
 h1, .h1, h2, .h2, h3, .h3,
 h4, .h4, h5, .h5, h6, .h6 {
@@ -146,9 +152,9 @@ h4, .h4 {font-size: clamp(1.75rem, calc(2.09vw + 1rem), 2.25rem)}  /* 28-36 */
 h5, .h5 {font-size: clamp(1.5rem,  calc(1.88vw + 1rem), 2.125rem)} /* 24-34 */
 h6, .h6 {font-size: clamp(1.25rem, calc(1.25vw + 1rem), 1.75rem)}  /* 20-28 */
 
-.xtitle-sm {font-size: clamp(3rem,   calc(4.09vw + 1rem), 3.5rem)} /* 48-56 */
-.xtitle-md {font-size: clamp(3.5rem, calc(5vw    + 1rem), 4rem)}   /* 56-64 */
-.xtitle-lg {font-size: clamp(4rem,   calc(5.72vw + 1rem), 4.5rem)} /* 64-72 */
+.xtitle-min {font-size: clamp(3rem,   calc(4.09vw + 1rem), 3.5rem)} /* 48-56 */
+.xtitle-med {font-size: clamp(3.5rem, calc(5vw    + 1rem), 4rem)}   /* 56-64 */
+.xtitle-max {font-size: clamp(4rem,   calc(5.72vw + 1rem), 4.5rem)} /* 64-72 */
 
 h1.fix, .h1.fix {font-size: 2.5rem}  /* 40 */
 h2.fix, .h2.fix {font-size: 2.25rem} /* 36 */
@@ -157,7 +163,7 @@ h4.fix, .h4.fix {font-size: 1.75rem} /* 28 */
 h5.fix, .h5.fix {font-size: 1.5rem}  /* 24 */
 h6.fix, .h6.fix {font-size: 1.25rem} /* 20 */
 
-.font-base {font-size: 1rem !important} /* 16 */
+.font-base {font-size: var(--font-core-size) !important} /* 16 */
 
 .italic    {font-style:      italic}
 .oblique   {font-style:      oblique}
@@ -172,12 +178,12 @@ h6.fix, .h6.fix {font-size: 1.25rem} /* 20 */
  * Recipientes
  * ****************************************
  */
-.container-sm,
-.container-sd,
-.container-md,
-.container-hd,
 .container,
-.container-lg,
+.container-min,
+.container-sd,
+.container-med,
+.container-hd,
+.container-max,
 .container-4k,
 .container-8k {
     width: auto;
@@ -186,14 +192,14 @@ h6.fix, .h6.fix {font-size: 1.25rem} /* 20 */
     clear: both
 }
 
-.container-sm {max-width: 480px}
-.container-sd {max-width: 640px}
-.container-md {max-width: 960px}
-.container-hd {max-width: 1280px}
-.container    {max-width: 1920px}
-.container-lg {max-width: 2560px}
-.container-4k {max-width: 3200px}
-.container-8k {max-width: 7680px}
+.container-min {max-width: 480px}
+.container-sd  {max-width: 640px}
+.container-med {max-width: 960px}
+.container-hd  {max-width: 1280px}
+.container     {max-width: 1920px}
+.container-max {max-width: 2560px}
+.container-4k  {max-width: 3200px}
+.container-8k  {max-width: 7680px}
 
 /**
  * ****************************************
@@ -264,9 +270,9 @@ h6.fix, .h6.fix {font-size: 1.25rem} /* 20 */
     transition: background-color .5s linear
 }
 
-.button-sm, .button-sm-block {padding: .375rem .5rem}
-.button-md, .button-md-block {padding: .875rem 1rem}
-.button-lg, .button-lg-block {padding: 1.125rem 1.25rem}
+.button-min, .button-min-block {padding: .375rem  .5rem}
+.button-med, .button-med-block {padding: .875rem  1rem}
+.button-max, .button-max-block {padding: 1.125rem 1.25rem}
 
 .btn-default  {color: #5b5b5b}
 .btn-success,
@@ -303,16 +309,16 @@ h6.fix, .h6.fix {font-size: 1.25rem} /* 20 */
 
 [class^="href"] {
     cursor: pointer;
-    text-decoration: none;
     margin: 0 .0625rem;
-    font-weight: 600;
-    display: inline-block;
+    text-decoration: underline;
+    font-weight: 400;
     text-align: center;
+    letter-spacing: .0625em;
     white-space: nowrap;
-    transition: filter .5s linear
+    display: inline-block;
 }
 
-.href         {color: #0764f2}
+.href         {color: #0a66c1}
 .href-light   {color: #c6c6c6}
 .href-dark    {color: #303030}
 .href-success {color: #0c7b2c}
@@ -327,8 +333,7 @@ h6.fix, .h6.fix {font-size: 1.25rem} /* 20 */
 .href-info:hover,    .href-info:focus,
 .href-warning:hover, .href-warning:focus,
 .href-danger:hover,  .href-danger:focus {
-    filter: brightness(150%);
-    text-decoration: underline
+    text-decoration: none
 }
 
 /**
@@ -344,7 +349,7 @@ h6.fix, .h6.fix {font-size: 1.25rem} /* 20 */
     display: block;
     width: 100%;
     min-height: 3.125rem;
-    font-size: 1rem;
+    font-size: var(--font-core-size);
     font-weight: 400;
     transition: color .5s linear
 }
@@ -433,7 +438,7 @@ textarea.input-default,
     background-color: var(--input-color-focus)
 }
 .input-check:before {width: 2rem; height: .375rem; bottom: 1.25rem; left: .875rem; transform: rotate(-50deg)}
-.input-check:after  {width: 1rem; height: .375rem; bottom: 1rem; left: .375rem;  transform: rotate(40deg)}
+.input-check:after  {width: 1rem; height: .375rem; bottom: 1rem;    left: .375rem; transform: rotate(40deg)}
 
 .input-check-x:before,
 .input-check-x:after  {width: 2rem; height: .375rem; bottom: 1.3125rem; left: .5rem}
@@ -450,7 +455,7 @@ textarea.input-default,
 .input-toggle:checked:before,
 .input-toggle-circle:checked:before {transform: translateX(3.75rem)}
 .input-toggle-circle                {width:     6.875rem; border-radius: 3.125rem}
-.input-toggle-circle:before         {width:     2.5rem; height: 2.5rem; bottom: .25rem; left: .3125rem; border-radius: 50%}
+.input-toggle-circle:before         {width:     2.5rem;   height:        2.5rem; bottom: .25rem; left: .3125rem; border-radius: 50%}
 
 .input-range[type="range"] {
     -webkit-appearance: none;
@@ -494,13 +499,14 @@ textarea.input-default,
 [class^="input"]:focus {border-color: var(--input-border-focus)}
 
 .disabled,
-button[disabled],           button[readonly],
-select[disabled],           select[readonly],
-option[disabled],           option[readonly],
-optgroup[disabled],         optgroup[readonly],
-textarea[disabled],         textarea[readonly],
-input[disabled],            input[readonly],
-[class^="input"][disabled], [class^="input"][readonly] {
+button[disabled],   button[readonly],
+select[disabled],   select[readonly],
+option[disabled],   option[readonly],
+optgroup[disabled], optgroup[readonly],
+textarea[disabled], textarea[readonly],
+input[disabled],    input[readonly],
+[class^="input"][disabled],
+[class^="input"][readonly] {
     opacity: .5 !important;
     pointer-events: none !important
 }
@@ -510,24 +516,27 @@ input[disabled],            input[readonly],
  * Informativos
  * ****************************************
  */
-[class^="alert"], [class^="card"], blockquote[class^="quote"] {
-    font-size: 1rem;
+[class^="alert"], blockquote[class^="quote"] {
+    font-size: var(--font-core-size);
     padding: .625rem
 }
 
 blockquote[class^="quote"] {
+    --quote-margin: calc(var(--spacing-prp) / 2);
     display: block;
-    margin-block: var(--spacing-prp);
-    margin-inline: var(--spacing-prp)
+    margin-block: var(--quote-margin);
+    margin-inline: var(--quote-margin)
 }
 
 q[class^="quote"]:before, mark[class^="quote"]:before {padding-left:  .25rem; margin-left: .125rem}
 q[class^="quote"]:after,  mark[class^="quote"]:after  {padding-right: .25rem; margin-left: .125rem}
 
-[class^="card"] {
+[class*="card"] {
     position: relative;
     word-wrap: break-word;
-    background-clip: border-box
+    background-clip: border-box;
+    font-size: var(--font-core-size);
+    padding: .625rem
 }
 
 .alert         {color: #444444; background-color: #e5e5e5}
@@ -537,11 +546,11 @@ q[class^="quote"]:after,  mark[class^="quote"]:after  {padding-right: .25rem; ma
 .alert-danger  {color: #a40a13; background-color: #eababa}
 
 .card,
-.card-light,
-.card-dark,   q.quote        {border: .0625rem solid rgba(0,   0,   0,   .1)}
+.card-light                  {border: .0625rem solid rgba(4,   4,   4,   .1)}
+.card-dark,   q.quote        {border: .0625rem solid rgba(10,  10,  10,  .1)}
 .card-red,    q.quote-red    {border: .0625rem solid rgba(200, 10,  0,   .1)}
 .card-green,  q.quote-green  {border: .0625rem solid rgba(50,  120, 0,   .1)}
-.card-blue,   q.quote-blu    {border: .0625rem solid rgba(0,   80,  180, .1)}
+.card-blue,   q.quote-blue   {border: .0625rem solid rgba(0,   80,  180, .1)}
 .card-yellow, q.quote-yellow {border: .0625rem solid rgba(110, 100, 30,  .1)}
 
 .card                       {color: #4c4c4c; background-color: #f2f2f2}
@@ -578,7 +587,7 @@ blockquote.quote-yellow {border-left: .25rem solid #71631c}
 table.table {width: 100%}
 
 table.table th,
-table.table td {padding: .625rem; border: .0625rem solid rgba(0, 0, 0, .2)}
+table.table td {padding: .625rem; border: .0625rem solid rgba(4, 4, 4, .2)}
 
 table.table > thead,
 table.table > tfoot {background-color: #e5e5e5}
@@ -794,50 +803,41 @@ table.table.streak tr:nth-child(even) {background-color: #f3f3f3}
  * Bordas
  * ****************************************
  */
-[class^="border"] {
+.border-all,    .border-all-min,    .border-all-max,
+.border-left,   .border-left-min,   .border-left-max,
+.border-right,  .border-right-min,  .border-right-max,
+.border-top,    .border-top-min,    .border-top-max,
+.border-bottom, .border-bottom-min, .border-bottom-max,
+.border-lr,     .border-lr-min,     .border-lr-max,
+.border-tb,     .border-tb-min,     .border-tb-max {
     border-width: 0;
     border-style: solid;
     border-color: var(--border-color)
 }
 
-.border-all,    .border-all-md    {border-width:        var(--border-width)}
-.border-left,   .border-left-md   {border-left-width:   var(--border-width)}
-.border-right,  .border-right-md  {border-right-width:  var(--border-width)}
-.border-top,    .border-top-md    {border-top-width:    var(--border-width)}
-.border-bottom, .border-bottom-md {border-bottom-width: var(--border-width)}
+.border-all    {border-width:        var(--border-width)}
+.border-left   {border-left-width:   var(--border-width)}
+.border-right  {border-right-width:  var(--border-width)}
+.border-top    {border-top-width:    var(--border-width)}
+.border-bottom {border-bottom-width: var(--border-width)}
+.border-lr     {border-left-width:   var(--border-width); border-right-width:  var(--border-width)}
+.border-tb     {border-top-width:    var(--border-width); border-bottom-width: var(--border-width)}
 
-.border-lr, .border-lr-md {border-left-width:  var(--border-width); border-right-width:  var(--border-width)}
-.border-tb, .border-tb-md {border-top-width:   var(--border-width); border-bottom-width: var(--border-width)}
-.border-lt, .border-lt-md {border-left-width:  var(--border-width); border-top-width:    var(--border-width)}
-.border-lb, .border-lb-md {border-left-width:  var(--border-width); border-bottom-width: var(--border-width)}
-.border-rt, .border-rt-md {border-right-width: var(--border-width); border-top-width:    var(--border-width)}
-.border-rb, .border-rb-md {border-right-width: var(--border-width); border-bottom-width: var(--border-width)}
+.border-all-min    {border-width:        var(--border-width-min)}
+.border-left-min   {border-left-width:   var(--border-width-min)}
+.border-right-min  {border-right-width:  var(--border-width-min)}
+.border-top-min    {border-top-width:    var(--border-width-min)}
+.border-bottom-min {border-bottom-width: var(--border-width-min)}
+.border-lr-min     {border-left-width:   var(--border-width-min); border-right-width:  var(--border-width-min)}
+.border-tb-min     {border-top-width:    var(--border-width-min); border-bottom-width: var(--border-width-min)}
 
-.border-all-sm    {border-width:        var(--border-width-min)}
-.border-left-sm   {border-left-width:   var(--border-width-min)}
-.border-right-sm  {border-right-width:  var(--border-width-min)}
-.border-top-sm    {border-top-width:    var(--border-width-min)}
-.border-bottom-sm {border-bottom-width: var(--border-width-min)}
-
-.border-lr-sm {border-left-width:  var(--border-width-min); border-right-width:  var(--border-width-min)}
-.border-tb-sm {border-top-width:   var(--border-width-min); border-bottom-width: var(--border-width-min)}
-.border-lt-sm {border-left-width:  var(--border-width-min); border-top-width:    var(--border-width-min)}
-.border-lb-sm {border-left-width:  var(--border-width-min); border-bottom-width: var(--border-width-min)}
-.border-rt-sm {border-right-width: var(--border-width-min); border-top-width:    var(--border-width-min)}
-.border-rb-sm {border-right-width: var(--border-width-min); border-bottom-width: var(--border-width-min)}
-
-.border-all-lg    {border-width:        var(--border-width-max)}
-.border-left-lg   {border-left-width:   var(--border-width-max)}
-.border-right-lg  {border-right-width:  var(--border-width-max)}
-.border-top-lg    {border-top-width:    var(--border-width-max)}
-.border-bottom-lg {border-bottom-width: var(--border-width-max)}
-
-.border-lr-lg {border-left-width:  var(--border-width-max); border-right-width:  var(--border-width-max)}
-.border-tb-lg {border-top-width:   var(--border-width-max); border-bottom-width: var(--border-width-max)}
-.border-lt-lg {border-left-width:  var(--border-width-max); border-top-width:    var(--border-width-max)}
-.border-lb-lg {border-left-width:  var(--border-width-max); border-bottom-width: var(--border-width-max)}
-.border-rt-lg {border-right-width: var(--border-width-max); border-top-width:    var(--border-width-max)}
-.border-rb-lg {border-right-width: var(--border-width-max); border-bottom-width: var(--border-width-max)}
+.border-all-max    {border-width:        var(--border-width-max)}
+.border-left-max   {border-left-width:   var(--border-width-max)}
+.border-right-max  {border-right-width:  var(--border-width-max)}
+.border-top-max    {border-top-width:    var(--border-width-max)}
+.border-bottom-max {border-bottom-width: var(--border-width-max)}
+.border-lr-max     {border-left-width:   var(--border-width-max); border-right-width:  var(--border-width-max)}
+.border-tb-max     {border-top-width:    var(--border-width-max); border-bottom-width: var(--border-width-max)}
 
 .border-light,  .border-light-hover:hover  {border-color: var(--color-light)  !important}
 .border-dark,   .border-dark-hover:hover   {border-color: var(--color-dark)   !important}
@@ -864,13 +864,8 @@ table.table.streak tr:nth-child(even) {background-color: #f3f3f3}
 .border-right-none  {border-right-style:  none !important}
 .border-top-none    {border-top-style:    none !important}
 .border-bottom-none {border-bottom-style: none !important}
-
-.border-lr-none {border-left-style:  none !important; border-right-style:  none !important}
-.border-tb-none {border-top-style:   none !important; border-bottom-style: none !important}
-.border-lt-none {border-left-style:  none !important; border-top-style:    none !important}
-.border-lb-none {border-left-style:  none !important; border-bottom-style: none !important}
-.border-rt-none {border-right-style: none !important; border-top-style:    none !important}
-.border-rb-none {border-right-style: none !important; border-bottom-style: none !important}
+.border-lr-none     {border-left-style:   none !important; border-right-style:  none !important}
+.border-tb-none     {border-top-style:    none !important; border-bottom-style: none !important}
 
 /**
  * ****************************************
@@ -879,35 +874,35 @@ table.table.streak tr:nth-child(even) {background-color: #f3f3f3}
  */
 .radius-circle {border-radius: 50%}
 
-.radius-all,          .radius-all-md          {border-radius:              var(--spacing-med)}
-.radius-left,         .radius-left-md         {border-top-left-radius:     var(--spacing-med); border-bottom-left-radius:  var(--spacing-med)}
-.radius-right,        .radius-right-md        {border-top-right-radius:    var(--spacing-med); border-bottom-right-radius: var(--spacing-med)}
-.radius-top,          .radius-top-md          {border-top-left-radius:     var(--spacing-med); border-top-right-radius:    var(--spacing-med)}
-.radius-bottom,       .radius-bottom-md       {border-bottom-left-radius:  var(--spacing-med); border-bottom-right-radius: var(--spacing-med)}
-.radius-top-left,     .radius-top-left-md     {border-top-left-radius:     var(--spacing-med)}
-.radius-top-right,    .radius-top-right-md    {border-top-right-radius:    var(--spacing-med)}
-.radius-bottom-left,  .radius-bottom-left-md  {border-bottom-left-radius:  var(--spacing-med)}
-.radius-bottom-right, .radius-bottom-right-md {border-bottom-right-radius: var(--spacing-med)}
+.radius-all          {border-radius:              var(--spacing-med)}
+.radius-left         {border-top-left-radius:     var(--spacing-med); border-bottom-left-radius:  var(--spacing-med)}
+.radius-right        {border-top-right-radius:    var(--spacing-med); border-bottom-right-radius: var(--spacing-med)}
+.radius-top          {border-top-left-radius:     var(--spacing-med); border-top-right-radius:    var(--spacing-med)}
+.radius-bottom       {border-bottom-left-radius:  var(--spacing-med); border-bottom-right-radius: var(--spacing-med)}
+.radius-top-left     {border-top-left-radius:     var(--spacing-med)}
+.radius-top-right    {border-top-right-radius:    var(--spacing-med)}
+.radius-bottom-left  {border-bottom-left-radius:  var(--spacing-med)}
+.radius-bottom-right {border-bottom-right-radius: var(--spacing-med)}
 
-.radius-all-sm          {border-radius:              var(--spacing-min)}
-.radius-left-sm         {border-top-left-radius:     var(--spacing-min); border-bottom-left-radius:  var(--spacing-min)}
-.radius-right-sm        {border-top-right-radius:    var(--spacing-min); border-bottom-right-radius: var(--spacing-min)}
-.radius-top-sm          {border-top-left-radius:     var(--spacing-min); border-top-right-radius:    var(--spacing-min)}
-.radius-bottom-sm       {border-bottom-left-radius:  var(--spacing-min); border-bottom-right-radius: var(--spacing-min)}
-.radius-top-left-sm     {border-top-left-radius:     var(--spacing-min)}
-.radius-top-right-sm    {border-top-right-radius:    var(--spacing-min)}
-.radius-bottom-left-sm  {border-bottom-left-radius:  var(--spacing-min)}
-.radius-bottom-right-sm {border-bottom-right-radius: var(--spacing-min)}
+.radius-all-min          {border-radius:              var(--spacing-min)}
+.radius-left-min         {border-top-left-radius:     var(--spacing-min); border-bottom-left-radius:  var(--spacing-min)}
+.radius-right-min        {border-top-right-radius:    var(--spacing-min); border-bottom-right-radius: var(--spacing-min)}
+.radius-top-min          {border-top-left-radius:     var(--spacing-min); border-top-right-radius:    var(--spacing-min)}
+.radius-bottom-min       {border-bottom-left-radius:  var(--spacing-min); border-bottom-right-radius: var(--spacing-min)}
+.radius-top-left-min     {border-top-left-radius:     var(--spacing-min)}
+.radius-top-right-min    {border-top-right-radius:    var(--spacing-min)}
+.radius-bottom-left-min  {border-bottom-left-radius:  var(--spacing-min)}
+.radius-bottom-right-min {border-bottom-right-radius: var(--spacing-min)}
 
-.radius-all-lg          {border-radius:              var(--spacing-max)}
-.radius-left-lg         {border-top-left-radius:     var(--spacing-max); border-bottom-left-radius:  var(--spacing-max)}
-.radius-right-lg        {border-top-right-radius:    var(--spacing-max); border-bottom-right-radius: var(--spacing-max)}
-.radius-top-lg          {border-top-left-radius:     var(--spacing-max); border-top-right-radius:    var(--spacing-max)}
-.radius-bottom-lg       {border-bottom-left-radius:  var(--spacing-max); border-bottom-right-radius: var(--spacing-max)}
-.radius-top-left-lg     {border-top-left-radius:     var(--spacing-max)}
-.radius-top-right-lg    {border-top-right-radius:    var(--spacing-max)}
-.radius-bottom-left-lg  {border-bottom-left-radius:  var(--spacing-max)}
-.radius-bottom-right-lg {border-bottom-right-radius: var(--spacing-max)}
+.radius-all-max          {border-radius:              var(--spacing-max)}
+.radius-left-max         {border-top-left-radius:     var(--spacing-max); border-bottom-left-radius:  var(--spacing-max)}
+.radius-right-max        {border-top-right-radius:    var(--spacing-max); border-bottom-right-radius: var(--spacing-max)}
+.radius-top-max          {border-top-left-radius:     var(--spacing-max); border-top-right-radius:    var(--spacing-max)}
+.radius-bottom-max       {border-bottom-left-radius:  var(--spacing-max); border-bottom-right-radius: var(--spacing-max)}
+.radius-top-left-max     {border-top-left-radius:     var(--spacing-max)}
+.radius-top-right-max    {border-top-right-radius:    var(--spacing-max)}
+.radius-bottom-left-max  {border-bottom-left-radius:  var(--spacing-max)}
+.radius-bottom-right-max {border-bottom-right-radius: var(--spacing-max)}
 
 /**
  * ****************************************
@@ -1076,14 +1071,16 @@ table.table.streak tr:nth-child(even) {background-color: #f3f3f3}
     flex-wrap: wrap;
     flex-direction: row
 }
-.row.no-warp,
-.row-pad.no-warp {
-    flex-wrap: nowrap
-}
 
-.row-pad                   {margin: 0 -.5rem}
-.row-pad > [class^="col-"] {padding: .5rem}
+.row-pad                   {margin:  var(--margin-row)}
+.row-pad > [class^="col-"] {padding: var(--padding-col)}
 
+.col-single,
+.col-threequarter, .col-threequarter-min, .col-threequarter-max,
+.col-twothird,     .col-twothird-min,     .col-twothird-max,
+.col-half,         .col-half-min,         .col-half-max,
+.col-third,        .col-third-min,        .col-third-max,
+.col-quarter,      .col-quarter-min,      .col-quarter-max,
 .col-1,
 .col-2,  .col-2-min,  .col-2-max,
 .col-3,  .col-3-min,  .col-3-max,
@@ -1093,70 +1090,101 @@ table.table.streak tr:nth-child(even) {background-color: #f3f3f3}
 .col-7,  .col-7-min,  .col-7-max,
 .col-8,  .col-8-min,  .col-8-max,
 .col-9,  .col-9-min,  .col-9-max,
-.col-10, .col-10-min, .col-10-max,
-.col-single,
-.col-threequarter, .col-threequarter-min, .col-threequarter-max,
-.col-twothird,     .col-twothird-min,     .col-twothird-max,
-.col-half,         .col-half-min,         .col-half-max,
-.col-third,        .col-third-min,        .col-third-max,
-.col-quarter,      .col-quarter-min,      .col-quarter-max {
+.col-10, .col-10-min, .col-10-max {
     position: relative;
     width: 100%;
     max-width: 100%;
-    flex: 0 0 auto
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: auto
 }
 .col-auto {
     position: relative;
     width: auto;
-    flex: 1 0 auto;
+    max-width: 100%;
+    flex-grow: 1;
+    flex-shrink: 0;
+    flex-basis: auto
 }
 
-.col-2.fix,      .col-2-min.fix,      .col-2-max.fix,
-.col-2.reverse,  .col-2-min.reverse,  .col-2-max.reverse  {width: 49.99999%}
-.col-3.fix,      .col-3-min.fix,      .col-3-max.fix,
-.col-3.reverse,  .col-3-min.reverse,  .col-3-max.reverse  {width: 33.33333%}
-.col-4.fix,      .col-4-min.fix,      .col-4-max.fix,
-.col-4.reverse,  .col-4-min.fix,      .col-4-max.reverse  {width: 24.99999%}
-.col-5.fix,      .col-5-min.fix,      .col-5-max.fix,
-.col-5.reverse,  .col-5-min.reverse,  .col-5-max.reverse  {width: 19.99999%}
-.col-6.fix,      .col-6-min.fix,      .col-6-max.fix,
-.col-6.reverse,  .col-6-min.reverse,  .col-6-max.reverse  {width: 16.66666%}
-.col-7.fix,      .col-7-min.fix,      .col-7-max.fix,
-.col-7.reverse,  .col-7-min.reverse,  .col-7-max.reverse  {width: 14.28571%}
-.col-8.fix,      .col-8-min.fix,      .col-8-max.fix,
-.col-8.reverse,  .col-8-min.reverse,  .col-8-max.reverse  {width: 12.49999%}
-.col-9.fix,      .col-9-min.fix,      .col-9-max.fix,
-.col-9.reverse,  .col-9-min.reverse,  .col-9-max.reverse  {width: 11.11111%}
-.col-10.fix,     .col-10-min.fix,     .col-10-max.fix,
-.col-10.reverse, .col-10-min.reverse, .col-10-max.reverse {width: 9.99999%}
-
-.col-threequarter.fix,     .col-threequarter-min.fix,     .col-threequarter-max.fix,
-.col-threequarter.reverse, .col-threequarter-min.reverse, .col-threequarter-max.reverse {width: 74.99999%}
-.col-twothird.fix,         .col-twothird-min.fix,         .col-twothird-max.fix,
-.col-twothird.reverse,     .col-twothird-min.reverse,     .col-twothird-max.reverse     {width: 66.66666%}
-.col-half.fix,             .col-half-min.fix,             .col-half-max.fix,
-.col-half.reverse,         .col-half-min.reverse,         .col-half-max.reverse         {width: 49.99999%}
-.col-third.fix,            .col-third-min.fix,            .col-third-max.fix,
-.col-third.reverse,        .col-third-min.reverse,        .col-third-max.reverse        {width: 33.33333%}
-.col-quarter.fix,          .col-quarter-min.fix,          .col-quarter-max.fix,
-.col-quarter.reverse,      .col-quarter-min.reverse,      .col-quarter-max.reverse      {width: 24.99999%}
-
-/**
- * ****************************************
- * Flexiveis
- * ****************************************
- */
-.flex-row,
-.flex-column,
-.flex-revert,
-.flex-row-reverse,
-.flex-column-reverse {display: flex}
-
-.flex-row            {flex-direction: row}
-.flex-column         {flex-direction: column}
-.flex-revert         {flex-direction: revert}
-.flex-row-reverse    {flex-direction: row-reverse}
-.flex-column-reverse {flex-direction: column-reverse}
+.col-threequarter.fix,         .row.fix     > .col-threequarter,     .row-pad.fix     > .col-threequarter,
+.col-threequarter.reverse,     .row.reverse > .col-threequarter,     .row-pad.reverse > .col-threequarter,
+.col-threequarter-min.reverse, .row.reverse > .col-threequarter-min, .row-pad.reverse > .col-threequarter-min, 
+.col-threequarter-max.reverse, .row.reverse > .col-threequarter-max, .row-pad.reverse > .col-threequarter-max {
+    width: 74.99999%
+}
+.col-twothird.fix,         .row.fix     > .col-twothird,     .row-pad.fix         > .col-twothird,
+.col-twothird.reverse,     .row.reverse > .col-twothird,     .row-pad.reverse     > .col-twothird,
+.col-twothird-min.reverse, .row.reverse > .col-twothird-min, .row-pad.reverse     > .col-twothird-min,
+.col-twothird-max.reverse, .row.reverse > .col-twothird-max, .row-pad-max.reverse > .col-twothird-max {
+    width: 66.66666%
+}
+.col-half.fix,         .row.fix     > .col-half,     .row-pad.fix     > .col-half,
+.col-half.reverse,     .row.reverse > .col-half,     .row-pad.reverse > .col-half,
+.col-half-min.reverse, .row.reverse > .col-half-min, .row-pad.reverse > .col-half-min,
+.col-half-max.reverse, .row.reverse > .col-half-max, .row-pad.reverse > .col-half-max,
+.col-2.fix,            .row.fix     > .col-2,        .row-pad.fix     > .col-2,
+.col-2.reverse,        .row.reverse > .col-2,        .row-pad.reverse > .col-2,
+.col-2-min.reverse,    .row.reverse > .col-2-min,    .row-pad.reverse > .col-2-min,
+.col-2-max.reverse,    .row.reverse > .col-2-max,    .row-pad.reverse > .col-2-max {
+    width: 49.99999%
+}
+.col-third.fix,         .row.fix     > .col-third,     .row-pad.fix     > .col-third,
+.col-third.reverse,     .row.reverse > .col-third,     .row-pad.reverse > .col-third,
+.col-third-min.reverse, .row.reverse > .col-third-min, .row-pad.reverse > .col-third-min,
+.col-third-max.reverse, .row.reverse > .col-third-max, .row-pad.reverse > .col-third-max,
+.col-3.fix,             .row.fix     > .col-3,         .row-pad.fix     > .col-3,
+.col-3.reverse,         .row.reverse > .col-3,         .row-pad.reverse > .col-3,
+.col-3-min.reverse,     .row.reverse > .col-3-min,     .row-pad.reverse > .col-3-min,
+.col-3-max.reverse,     .row.reverse > .col-3-max,     .row-pad.reverse > .col-3-max {
+    width: 33.33333%
+}
+.col-quarter.fix,         .row.fix     > .col-quarter,     .row-pad.fix     > .col-quarter,
+.col-quarter.reverse,     .row.reverse > .col-quarter,     .row-pad.reverse > .col-quarter,
+.col-quarter-min.reverse, .row.reverse > .col-quarter-min, .row-pad.reverse > .col-quarter-min,
+.col-quarter-max.reverse, .row.reverse > .col-quarter-max, .row-pad.reverse > .col-quarter-max,
+.col-4.fix,               .row.fix     > .col-4,           .row-pad.fix     > .col-4,
+.col-4.reverse,           .row.reverse > .col-4,           .row-pad.reverse > .col-4,
+.col-4-min.reverse,       .row.reverse > .col-4-min,       .row-pad.reverse > .col-4-min,
+.col-4-max.reverse,       .row.reverse > .col-4-max,       .row-pad.reverse > .col-4-max {
+    width: 24.99999%
+}
+.col-5.fix,         .row.fix     > .col-5,     .row-pad.fix     > .col-5,
+.col-5.reverse,     .row.reverse > .col-5,     .row-pad.reverse > .col-5,
+.col-5-min.reverse, .row.reverse > .col-5-min, .row-pad.reverse > .col-5-min,
+.col-5-max.reverse, .row.reverse > .col-5-max, .row-pad.reverse > .col-5-max {
+    width: 19.99999%
+}
+.col-6.fix,         .row.fix     > .col-6,     .row-pad.fix     > .col-6,
+.col-6.reverse,     .row.reverse > .col-6,     .row-pad.reverse > .col-6,
+.col-6-min.reverse, .row.reverse > .col-6-min, .row-pad.reverse > .col-6-min,
+.col-6-max.reverse, .row.reverse > .col-6-max, .row-pad.reverse > .col-6-max {
+    width: 16.66666%
+}
+.col-7.fix,         .row.fix     > .col-7,     .row-pad.fix     > .col-7,
+.col-7.reverse,     .row.reverse > .col-7,     .row-pad.reverse > .col-7,
+.col-7-min.reverse, .row.reverse > .col-7-min, .row-pad.reverse > .col-7-min,
+.col-7-max.reverse, .row.reverse > .col-7-max, .row-pad.reverse > .col-7-max {
+    width: 14.28571%
+}
+.col-8.fix,         .row.fix     > .col-8,     .row-pad.fix     > .col-8,
+.col-8.reverse,     .row.reverse > .col-8,     .row-pad.reverse > .col-8,
+.col-8-min.reverse, .row.reverse > .col-8-min, .row-pad.reverse > .col-8-min,
+.col-8-max.reverse, .row.reverse > .col-8-max, .row-pad.reverse > .col-8-max {
+    width: 12.49999%
+}
+.col-9.fix,         .row.fix     > .col-9,      .row-pad.fix     > .col-9,
+.col-9.reverse,     .row.reverse > .col-9,      .row-pad.reverse > .col-9,
+.col-9-min.reverse, .row.reverse > .col-9-min,  .row-pad.reverse > .col-9-min,
+.col-9-max.reverse, .row.reverse > .col-9-max,  .row-pad.reverse > .col-9-max {
+    width: 11.11111%
+}
+.col-10.fix,         .row.fix     > .col-10,     .row-pad.fix     > .col-10,
+.col-10.reverse,     .row.reverse > .col-10,     .row-pad.reverse > .col-10,
+.col-10-min.reverse, .row.reverse > .col-10-min, .row-pad.reverse > .col-10-min,
+.col-10-max.reverse, .row.reverse > .col-10-max, .row-pad.reverse > .col-10-max {
+    width: 9.99999%
+}
             
 /**
  * ****************************************
@@ -1178,7 +1206,7 @@ table.table.streak tr:nth-child(even) {background-color: #f3f3f3}
  * Posições
  * ****************************************
  */
-.absolute, .relative > [class^="pos-"] {position: absolute}
+.absolute {position: absolute}
 .static   {position: static}
 .relative {position: relative}
 .fixed    {position: fixed}
@@ -1224,6 +1252,9 @@ table.table.streak tr:nth-child(even) {background-color: #f3f3f3}
  * ****************************************
  * Margens
  * ****************************************
+.offset-half {
+    margin: 0 49.99999%
+}
  */
 .margin-auto {margin: auto !important}
 
@@ -1235,21 +1266,21 @@ table.table.streak tr:nth-child(even) {background-color: #f3f3f3}
 .margin-lr     {margin-left:   var(--spacing-med) !important; margin-right:  var(--spacing-med) !important}
 .margin-tb     {margin-top:    var(--spacing-med) !important; margin-bottom: var(--spacing-med) !important}
 
-.margin-all-sm    {margin:        var(--spacing-min) !important}
-.margin-left-sm   {margin-left:   var(--spacing-min) !important}
-.margin-right-sm  {margin-right:  var(--spacing-min) !important}
-.margin-top-sm    {margin-top:    var(--spacing-min) !important}
-.margin-bottom-sm {margin-bottom: var(--spacing-min) !important}
-.margin-lr-sm     {margin-left:   var(--spacing-min) !important; margin-right:  var(--spacing-min) !important}
-.margin-tb-sm     {margin-top:    var(--spacing-min) !important; margin-bottom: var(--spacing-min) !important}
+.margin-all-min    {margin:        var(--spacing-min) !important}
+.margin-left-min   {margin-left:   var(--spacing-min) !important}
+.margin-right-min  {margin-right:  var(--spacing-min) !important}
+.margin-top-min    {margin-top:    var(--spacing-min) !important}
+.margin-bottom-min {margin-bottom: var(--spacing-min) !important}
+.margin-lr-min     {margin-left:   var(--spacing-min) !important; margin-right:  var(--spacing-min) !important}
+.margin-tb-min     {margin-top:    var(--spacing-min) !important; margin-bottom: var(--spacing-min) !important}
 
-.margin-all-lg    {margin:        var(--spacing-max) !important}
-.margin-left-lg   {margin-left:   var(--spacing-max) !important}
-.margin-right-lg  {margin-right:  var(--spacing-max) !important}
-.margin-top-lg    {margin-top:    var(--spacing-max) !important}
-.margin-bottom-lg {margin-bottom: var(--spacing-max) !important}
-.margin-lr-lg     {margin-left:   var(--spacing-max) !important; margin-right:  var(--spacing-max) !important}
-.margin-tb-lg     {margin-top:    var(--spacing-max) !important; margin-bottom: var(--spacing-max) !important}
+.margin-all-max    {margin:        var(--spacing-max) !important}
+.margin-left-max   {margin-left:   var(--spacing-max) !important}
+.margin-right-max  {margin-right:  var(--spacing-max) !important}
+.margin-top-max    {margin-top:    var(--spacing-max) !important}
+.margin-bottom-max {margin-bottom: var(--spacing-max) !important}
+.margin-lr-max     {margin-left:   var(--spacing-max) !important; margin-right:  var(--spacing-max) !important}
+.margin-tb-max     {margin-top:    var(--spacing-max) !important; margin-bottom: var(--spacing-max) !important}
 
 .margin-all-prop    {margin:        var(--spacing-prp) !important}
 .margin-left-prop   {margin-left:   var(--spacing-prp) !important}
@@ -1280,21 +1311,21 @@ table.table.streak tr:nth-child(even) {background-color: #f3f3f3}
 .padding-lr     {padding-left:   var(--spacing-med) !important; padding-right:  var(--spacing-med) !important}
 .padding-tb     {padding-top:    var(--spacing-med) !important; padding-bottom: var(--spacing-med) !important}
 
-.padding-all-sm    {padding:        var(--spacing-min) !important}
-.padding-left-sm   {padding-left:   var(--spacing-min) !important}
-.padding-right-sm  {padding-right:  var(--spacing-min) !important}
-.padding-top-sm    {padding-top:    var(--spacing-min) !important}
-.padding-bottom-sm {padding-bottom: var(--spacing-min) !important}
-.padding-lr-sm     {padding-left:   var(--spacing-min) !important; padding-right:  var(--spacing-min) !important}
-.padding-tb-sm     {padding-top:    var(--spacing-min) !important; padding-bottom: var(--spacing-min) !important}
+.padding-all-min    {padding:        var(--spacing-min) !important}
+.padding-left-min   {padding-left:   var(--spacing-min) !important}
+.padding-right-min  {padding-right:  var(--spacing-min) !important}
+.padding-top-min    {padding-top:    var(--spacing-min) !important}
+.padding-bottom-min {padding-bottom: var(--spacing-min) !important}
+.padding-lr-min     {padding-left:   var(--spacing-min) !important; padding-right:  var(--spacing-min) !important}
+.padding-tb-min     {padding-top:    var(--spacing-min) !important; padding-bottom: var(--spacing-min) !important}
 
-.padding-all-lg    {padding:        var(--spacing-max) !important}
-.padding-left-lg   {padding-left:   var(--spacing-max) !important}
-.padding-right-lg  {padding-right:  var(--spacing-max) !important}
-.padding-top-lg    {padding-top:    var(--spacing-max) !important}
-.padding-bottom-lg {padding-bottom: var(--spacing-max) !important}
-.padding-lr-lg     {padding-left:   var(--spacing-max) !important; padding-right:  var(--spacing-max) !important}
-.padding-tb-lg     {padding-top:    var(--spacing-max) !important; padding-bottom: var(--spacing-max) !important}
+.padding-all-max    {padding:        var(--spacing-max) !important}
+.padding-left-max   {padding-left:   var(--spacing-max) !important}
+.padding-right-max  {padding-right:  var(--spacing-max) !important}
+.padding-top-max    {padding-top:    var(--spacing-max) !important}
+.padding-bottom-max {padding-bottom: var(--spacing-max) !important}
+.padding-lr-max     {padding-left:   var(--spacing-max) !important; padding-right:  var(--spacing-max) !important}
+.padding-tb-max     {padding-top:    var(--spacing-max) !important; padding-bottom: var(--spacing-max) !important}
 
 .padding-all-prop    {padding:        var(--spacing-prp) !important}
 .padding-left-prop   {padding-left:   var(--spacing-prp) !important}
@@ -1363,7 +1394,7 @@ ul.list > li::marker,
 ol.list > li::marker {
     content: "\2022 \00A0";
     font-family: inherit;
-    font-size: 1rem;
+    font-size: inherit;
     font-weight: bold
 }
 ul.list::marker, ol.list::marker {
@@ -1381,6 +1412,43 @@ ul.list::marker, ol.list::marker {
 
 /**
  * ****************************************
+ * Flexiveis
+ * ****************************************
+ */
+.flex-box,
+.flex-row,
+.flex-column,
+.flex-revert,
+.flex-row-reverse,
+.flex-column-reverse {display: flex}
+
+.flex-row            {flex-direction: row}
+.flex-column         {flex-direction: column}
+.flex-revert         {flex-direction: revert}
+.flex-row-reverse    {flex-direction: row-reverse}
+.flex-column-reverse {flex-direction: column-reverse}
+
+.justify-center  {justify-content: center}
+.justify-start   {justify-content: start}
+.justify-end     {justify-content: end}
+.justify-left    {justify-content: left}
+.justify-right   {justify-content: right}
+.justify-normal  {justify-content: normal}
+.justify-revert  {justify-content: revert}
+.justify-around  {justify-content: space-around}
+.justify-between {justify-content: space-between}
+.justify-evenly  {justify-content: space-evenly}
+
+.items-baseline {align-items: baseline}
+.items-center   {align-items: center}
+.items-start    {align-items: flex-start}
+.items-end      {align-items: flex-end}
+.items-normal   {align-items: normal}
+.items-revert   {align-items: revert}
+.items-stretch  {align-items: stretch}
+
+/**
+ * ****************************************
  * Quadros
  * ****************************************
  */
@@ -1391,9 +1459,9 @@ ul.list::marker, ol.list::marker {
     min-height: 100dvh !important
 }
 
-.section-sm {padding: 6dvh 0  !important; margin: 0; width: 100%}
-.section    {padding: 8dvh 0  !important; margin: 0; width: 100%}
-.section-lg {padding: 12dvh 0 !important; margin: 0; width: 100%}
+.section-min {padding: 5dvh 0  !important; margin: 0; width: 100%}
+.section    {padding: 10dvh 0  !important; margin: 0; width: 100%}
+.section-max {padding: 15dvh 0 !important; margin: 0; width: 100%}
 
 /**
  * ****************************************
@@ -1504,14 +1572,26 @@ ul.list::marker, ol.list::marker {
 
 @media (max-width: 960px) {
     .maximize-max {width: 100% !important}
+
+    .section-min {padding: 2dvh   0 !important}
+    .section     {padding: 3.2dvh 0 !important}
+    .section-max {padding: 6dvh   0 !important}
 }
 
 @media (max-width: 640px) {
     .maximize-med {width: 100% !important}
+    
+    .section-min {padding: 1.2dvh  0 !important}
+    .section     {padding: 1.92dvh 0 !important}
+    .section-max {padding: 3.6dvh  0 !important}
 }
 
 @media (max-width: 480px) {
     .maximize-min {width: 100% !important}
+
+    .section-min {padding: .24dvh  0 !important}
+    .section     {padding: .384dvh 0 !important}
+    .section-max {padding: .720dvh 0 !important}
 }
 
 @media print {

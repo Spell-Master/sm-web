@@ -504,6 +504,23 @@ var jsd = jsd || {};
     /**
      * **********************************************
      * @public
+     * Verifica se um objeto pertence a alguma
+     * instância de função.
+     * 
+     * @param {OBJECT} obj
+     * Informar o objeto de verificação.
+     * 
+     * @param {FUNCTION} fnc
+     * Informar a função/classe.
+     * **********************************************
+     */
+    $_.asInstance = function (obj, fnc) {
+        return (typeof fnc === 'function' ? obj instanceof fnc || false : false);
+    };
+
+    /**
+     * **********************************************
+     * @public
      * Une dois objetos em um.
      * 
      * @param {OBJECT} objA
@@ -1625,6 +1642,7 @@ var jsd = jsd || {};
 // ----------------------------------------------------
 // Atualizações, correções planejadas
 // ----------------------------------------------------
+// - Usar o conceito do método index no método root
 // - Aparentimente existe um bug no método append ao adicionar multiplos elementos por string
 // - Adicionar método outerHTML
 // - Otimizar a função evalSrc

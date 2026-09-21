@@ -17,8 +17,17 @@
 
 /* Configurações */
 :root {
-    --font-body-size: 12pt;
-    --font-core-size: 1rem; /* 16 */
+    --body-font-size: 1rem; /* 16 */
+    --body-font-color: #4d4d4d;
+    --body-back-color: #ffffff;
+    --body-font-family: -apple-system,
+                        BlinkMacSystemFont,
+                        "avenir next",
+                        avenir,
+                        "helvetica neue",
+                        helvetica,
+                        "sans-serif";
+    --body-font-height: 1.5;
 
     --spacing-min: .5rem; /* 8 */
     --spacing-med: 1rem;  /* 16 */
@@ -33,40 +42,43 @@
     --border-width-max: .25rem;   /* 4 */
     --border-color:     rgba(0, 0, 0, .3);
 
-    --color-white:  #f1f1f1;
-    --color-black:  #262626;
-    --color-red:    #cf1717;
-    --color-green:  #148514;
-    --color-blue:   #2573c1;
-    --color-aqua:   #35b1af;
-    --color-brown:  #834a2f;
-    --color-gray:   #8d8d8c;
-    --color-royal:  #3b5998;
-    --color-lime:   #37c837;
-    --color-orange: #e67300;
-    --color-pink:   #e34fa0;
-    --color-purple: #91218e;
-    --color-salmon: #da7c72;
-    --color-sand:   #9a714c;
-    --color-teal:   #158482;
-    --color-yellow: #e6bf00;
+    --color-white:  #f0f0f0; --color-black:        #282828;
+    --color-light:  #e1e1e1; --color-dark:         #c8c8c8;
+    --color-red:    #cd1919; --color-light-red:    #e63232; --color-dark-red:    #a01414;
+    --color-green:  #148714; --color-light-green:  #1eb41e; --color-dark-green:  #0f5a0f;
+    --color-blue:   #2873c3; --color-light-blue:   #3c8cdc; --color-dark-blue:   #1e5a96;
+    --color-aqua:   #37b4af; --color-light-aqua:   #64d2cd; --color-dark-aqua:   #237873;
+    --color-brown:  #824b32; --color-light-brown:  #aa5f3c; --color-dark-brown:  #5f3723;
+    --color-gray:   #8c8c8c; --color-light-gray:   #a5a5a5; --color-dark-gray:   #737373;
+    --color-royal:  #3c5a96; --color-light-royal:  #466eb9; --color-dark-royal:  #324b82;
+    --color-lime:   #37c837; --color-light-lime:   #5fd25f; --color-dark-lime:   #2da02d;
+    --color-orange: #e67300; --color-light-orange: #ff8c19; --color-dark-orange: #b45a00;
+    --color-pink:   #e650a0; --color-light-pink:   #eb7db9; --color-dark-pink:   #dc238c;
+    --color-purple: #64329e; --color-light-purple: #8750be; --color-dark-purple: #4b1982;
+    --color-salmon: #dc7d73; --color-light-salmon: #e6a09b; --color-dark-salmon: #d25a4b;
+    --color-sand:   #9b7350; --color-light-sand:   #b48c64; --color-dark-sand:   #785a3c;
+    --color-teal:   #148282; --color-light-teal:   #1eafaf; --color-dark-teal:   #0f5a5a;
+    --color-yellow: #e6be00; --color-light-yellow: #ffdc19; --color-dark-yellow: #b49600;
 
-    --color-light:        #e2e2e2; --color-dark:        #c6c6c6;
-    --color-light-red:    #e83030; --color-dark-red:    #a11212;
-    --color-light-green:  #1bb11b; --color-dark-green:  #0d590d;
-    --color-light-blue:   #3e8cda; --color-dark-blue:   #1d5996;
-    --color-light-aqua:   #62d0ce; --color-dark-aqua:   #237674;
-    --color-light-brown:  #a95f3d; --color-dark-brown:  #5e3522;
-    --color-light-gray:   #a6a6a6; --color-dark-gray:   #737373;
-    --color-light-royal:  #476bb8; --color-dark-royal:  #324b81;
-    --color-light-lime:   #5fd35f; --color-dark-lime:   #2ca02c;
-    --color-light-orange: #ff8c1a; --color-dark-orange: #b35900;
-    --color-light-pink:   #ea7bb8; --color-dark-pink:   #dd2289;
-    --color-light-purple: #bb2ab6; --color-dark-purple: #681865;
-    --color-light-salmon: #e4a29a; --color-dark-salmon: #cf574a;
-    --color-light-sand:   #b38a65; --color-dark-sand:   #78573b;
-    --color-light-teal:   #1cb0ae; --color-dark-teal:   #0e5857;
-    --color-light-yellow: #ffd91a; --color-dark-yellow: #b39500;
+    --alpha-light:  rgba(225, 225, 225, .5);
+    --alpha-dark:   rgba(200, 220, 220, .5);
+    --alpha-white:  rgba(240, 240, 240, .5);
+    --alpha-black:  rgba(40,  40,  40,  .5);
+    --alpha-red:    rgba(205, 25,  25,  .5);
+    --alpha-green:  rgba(20,  135, 20,  .5);
+    --alpha-blue:   rgba(40,  115, 195, .5);
+    --alpha-aqua:   rgba(55,  180, 175, .5);
+    --alpha-brown:  rgba(130, 75,  50,  .5);
+    --alpha-gray:   rgba(140, 140, 140, .5);
+    --alpha-royal:  rgba(60,  90,  150, .5);
+    --alpha-lime:   rgba(55,  200, 55,  .5);
+    --alpha-orange: rgba(230, 115, 0,   .5);
+    --alpha-pink:   rgba(230, 80,  160, .5);
+    --alpha-purple: rgba(100, 50,  155, .5);
+    --alpha-salmon: rgba(220, 125, 115, .5);
+    --alpha-sand:   rgba(155, 115, 80,  .5);
+    --alpha-teal:   rgba(20,  130, 130, .5);
+    --alpha-yellow: rgba(230, 190, 0,   .5);
 
     --input-color:  #6c6c6c; --input-color-focus:  #5b5b5b;
     --input-bg:     #f3f3f3; --input-bg-focus:     #f6f6f6;
@@ -79,9 +91,19 @@
  * Ajustes Globais
  * ****************************************
  */
-*, :after, :before {margin: 0; padding: 0; box-sizing: border-box}
+*, :after, :before {
+    box-sizing: border-box;
+    margin:  0; margin-block:  0; margin-inline:  0;
+    padding: 0; padding-block: 0; padding-inline: 0
+}
 html {overflow-x: hidden}
-body {font-size: var(--font-body-size); line-height: 1.5; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; color: #5e5e5e}
+body {
+    font-size: var(--body-font-size) !important;
+    font-family: var(--body-font-family);
+    line-height: var(--body-font-height);
+    color: var(--body-font-color);
+    background-color: var(--body-back-color)
+}
 body, html {height: 100%}
 header, main, footer {width: auto}
 article, aside, details, figcaption, figure, header, main, footer, menu, nav, section, summary {display: block}
@@ -112,8 +134,8 @@ button, [type="button"], [type="reset"], [type="submit"] {-webkit-appearance: bu
 button[disabled],
 input[disabled], textarea[disabled] {cursor: default}
 input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-outer-spin-button {height: auto}
-input[type=checkbox], input[type=radio] {padding: 0}
-input[type=search] {outline-offset: -125rem}
+input[type="checkbox"], input[type="radio"] {padding: 0}
+input[type="search"] {outline-offset: -125rem}
 input:focus, select:focus, textarea:focus, *[contenteditable]:focus {outline: 0}
 a, button, select, textarea {outline: 0; font: inherit; color: inherit; background: none}
 a {text-decoration: underline}

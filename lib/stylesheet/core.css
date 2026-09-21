@@ -8,13 +8,11 @@ html {
     -webkit-tap-highlight-color: transparent
 }
 body {
-    color: #444444;
-    background-color: #ffffff;
     font-family: 'roboto'
 }
 
 main > section.section:first-child {
-    padding-top: 16vh !important
+    padding-top: 5dvh !important
 }
 
 .spinner {animation:effect-spin 4s infinite linear}

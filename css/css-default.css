@@ -18,16 +18,12 @@
 /* Configurações */
 :root {
     --body-font-size: 1rem; /* 16 */
-    --body-font-color: #4d4d4d;
-    --body-back-color: #ffffff;
-    --body-font-family: -apple-system,
-                        BlinkMacSystemFont,
-                        "avenir next",
-                        avenir,
-                        "helvetica neue",
-                        helvetica,
-                        "sans-serif";
     --body-font-height: 1.5;
+    --body-font-color: #4D4D4D;
+    --body-back-color: #FAFAFA;
+
+    --font-family-control: -apple-system, BlinkMacSystemFont, "avenir next", avenir, "helvetica neue", helvetica, sans-serif;
+    --font-family-console: SFMono-Regular, Menlo, Monaco, "Liberation Mono", "Courier New", monospace, "Lucida Console", Consolas;
 
     --spacing-min: .5rem; /* 8 */
     --spacing-med: 1rem;  /* 16 */
@@ -91,19 +87,15 @@
  * Ajustes Globais
  * ****************************************
  */
-*, :after, :before {
-    box-sizing: border-box;
-    margin:  0; margin-block:  0; margin-inline:  0;
-    padding: 0; padding-block: 0; padding-inline: 0
-}
-html {overflow-x: hidden}
 body {
     font-size: var(--body-font-size) !important;
-    font-family: var(--body-font-family);
+    font-family: var(--font-faminly-serif);
     line-height: var(--body-font-height);
     color: var(--body-font-color);
     background-color: var(--body-back-color)
 }
+*, :after, :before {box-sizing: border-box; margin: 0; padding: 0}
+html {overflow-x: hidden}
 body, html {height: 100%}
 header, main, footer {width: auto}
 article, aside, details, figcaption, figure, header, main, footer, menu, nav, section, summary {display: block}
@@ -174,10 +166,6 @@ h4, .h4 {font-size: clamp(1.75rem, calc(2.09vw + 1rem), 2.25rem)}  /* 28-36 */
 h5, .h5 {font-size: clamp(1.5rem,  calc(1.88vw + 1rem), 2.125rem)} /* 24-34 */
 h6, .h6 {font-size: clamp(1.25rem, calc(1.25vw + 1rem), 1.75rem)}  /* 20-28 */
 
-.xtitle-min {font-size: clamp(3rem,   calc(4.09vw + 1rem), 3.5rem)} /* 48-56 */
-.xtitle-med {font-size: clamp(3.5rem, calc(5vw    + 1rem), 4rem)}   /* 56-64 */
-.xtitle-max {font-size: clamp(4rem,   calc(5.72vw + 1rem), 4.5rem)} /* 64-72 */
-
 h1.fix, .h1.fix {font-size: 2.5rem}  /* 40 */
 h2.fix, .h2.fix {font-size: 2.25rem} /* 36 */
 h3.fix, .h3.fix {font-size: 2rem}    /* 32 */
@@ -185,7 +173,7 @@ h4.fix, .h4.fix {font-size: 1.75rem} /* 28 */
 h5.fix, .h5.fix {font-size: 1.5rem}  /* 24 */
 h6.fix, .h6.fix {font-size: 1.25rem} /* 20 */
 
-.font-base {font-size: var(--font-core-size) !important} /* 16 */
+.font-basic {font-size: var(--body-font-size) !important} /* 16 */
 
 .italic    {font-style:      italic}
 .oblique   {font-style:      oblique}
@@ -194,6 +182,9 @@ h6.fix, .h6.fix {font-size: 1.25rem} /* 20 */
 .overline  {text-decoration: overline}
 .underline {text-decoration: underline}
 .through   {text-decoration: line-through}
+
+.str-control {font-family: var(--font-family-control) !important}
+.str-console {font-family: var(--font-family-console) !important}
 
 /**
  * ****************************************

@@ -16,9 +16,11 @@
         <script src="../../lib/js/mostar-codigo.js"></script>
         <style>
             #resize-img {
+                position: relative;
                 display: inline-block;
                 resize: horizontal;
-                max-width: 100%
+                max-width: 100%;
+                overflow: hidden
             }
         </style>
     </head>
@@ -38,30 +40,26 @@
 
         <main class="container padding-all">
             <section class="section">
-                <h2 class="lighter">Ajuste Automático</h2>
+                <h2 class="lighter text-dim">&mdash; Ajuste Automático &mdash;</h2>
                 <div class="padding-tb-prop">
-                    <div class="row-pad">
-                        <div class="col-twothird">
-                            <div id="resize-img" class="over-x padding-all border-all-max border-black">
-                                <p class="bold">image-auto</p>
-                                <img src="../../lib/img/uracan.jpg" alt="" class="image-auto" />
-                            </div>
-                            <div class="align-center margin-tb">
-                                <button class="btn-default radius-all-min shadow-box" data-code="">CÓDIGO HTML</button>
-                            </div>
+                    <div class="width-max-600 margin-auto">
+                        <p class="bold">image-auto</p>
+                        <div class="alert-info">
+                            <p>Redimensione o bloco e veja como a imagem se adapta dentro dele.</p>
                         </div>
-                        <div class="col-third">
-                            <div class="alert-info">
-                                <p>Redimensione o bloco e veja como a imagem se adapta dentro dele.</p>
-                            </div>
+                        <div id="resize-img" class="over-x border-all-max border-black">
+                            <img src="../../lib/img/uracan.jpg" alt="" class="image-auto" />
                         </div>
-                    </div>
+                        <div class="align-center margin-tb">
+                            <button class="btn-default radius-all-min shadow-box" data-code="">CÓDIGO HTML</button>
+                        </div>
+                    </div> 
                 </div>
             </section>
 
             <hr />
             <section class="section">
-                <h2 class="lighter">Proporções de Aspecto</h2>
+                <h2 class="lighter text-dim">&mdash; Proporções de Aspecto &mdash;</h2>
                 <div class="padding-tb-prop">
                     <div class="row-pad">
                         <div class="col-quarter">
@@ -142,7 +140,7 @@
 
             <hr />
             <section class="section">
-                <h2 class="lighter">Proporções de Aspecto em blocos</h2>
+                <h2 class="lighter text-dim">&mdash; Proporções de Aspecto em blocos &mdash;</h2>
                 <blockquote class="quote">
                     <p>Os aspectos também podem ser definidos em outros elementos que não sejam imagens.</p>
                 </blockquote>
@@ -191,7 +189,7 @@
 
             <hr />
             <section class="section">
-                <h2 class="lighter">Ajuste de Objeto</h2>
+                <h2 class="lighter text-dim">&mdash; Ajuste de Objeto &mdash;</h2>
                 <div class="padding-tb-prop">
                     <div class="row-pad">
                         <div class="col-5">
@@ -233,7 +231,7 @@
                         <div class="col-5">
                             <div class="card padding-all align-center">
                                 <p class="bold">fit-none</p>
-                                <img src="../../lib/img/model.jpg" alt="" class="width-200 height fit-none" />
+                                <img src="../../lib/img/model.jpg" alt="" class="width-200 height fit-center" />
                             </div>
                             <div class="align-center margin-tb">
                                 <button class="btn-default radius-all-min shadow-box" data-code="">CÓDIGO HTML</button>
@@ -250,21 +248,23 @@
                     <p>Aplicação das propriedade com <span class="italic bold">css-default.css</span></p>
                     <a href="https://github.com/Spell-Master/sm-web/"
                        target="_blank"
-                       class="href"
+                       class="href-light"
                        title="Abre uma nova aba do navegador indo até o repositório no git-hub">
                         https:&sol;&sol;github.com&sol;Spell-Master&sol;sm-web&sol;</a>
                 </div>
             </div>
         </footer>
 
-        <div class="modal" id="show-code">
-            <div class="modal-box">
-                <div class="modal-header">Código Fonte</div>
-                <div class="modal-content">
-                    <pre><code class="language-html"></code></pre>
+        <aside aria-hidden="true">
+            <div class="modal" id="show-code">
+                <div class="modal-box">
+                    <div class="modal-header">Código Fonte</div>
+                    <div class="modal-content">
+                        <pre><code class="language-html"></code></pre>
+                    </div>
                 </div>
             </div>
-        </div>
+        </aside>
 
         <script>showCode.init();</script>
     </body>

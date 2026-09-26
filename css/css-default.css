@@ -550,12 +550,12 @@ input[disabled],    input[readonly],
  * ****************************************
  */
 [class^="alert"], blockquote[class^="quote"] {
-    font-size: var(--font-core-size);
+    font-size: var(--body-font-size);
     padding: .625rem
 }
 
 blockquote[class^="quote"] {
-    --quote-margin: calc(var(--spacing-prp) / 2);
+    --quote-margin: calc(var(--spacing-prp) * 2);
     display: block;
     margin-block: var(--quote-margin);
     margin-inline: var(--quote-margin)
@@ -568,15 +568,15 @@ q[class^="quote"]:after,  mark[class^="quote"]:after  {padding-right: .25rem; ma
     position: relative;
     word-wrap: break-word;
     background-clip: border-box;
-    font-size: var(--font-core-size);
+    font-size: var(--body-font-size);
     padding: .625rem
 }
 
-.alert         {color: #444444; background-color: #e5e5e5}
-.alert-success {color: #045702; background-color: #bdedbc}
-.alert-info    {color: #004d6f; background-color: #c5e8f7}
-.alert-warning {color: #574802; background-color: #ffefa4}
-.alert-danger  {color: #a40a13; background-color: #eababa}
+.alert         {color: #464646; background-color: #e6e6e6}
+.alert-info    {color: #004180; background-color: #c8e6f5}
+.alert-success {color: #006400; background-color: #beebbe}
+.alert-warning {color: #824100; background-color: #fff0a5}
+.alert-danger  {color: #960000; background-color: #ebb9b9}
 
 .card,
 .card-light                  {border: .0625rem solid rgba(4,   4,   4,   .1)}
@@ -586,31 +586,31 @@ q[class^="quote"]:after,  mark[class^="quote"]:after  {padding-right: .25rem; ma
 .card-blue,   q.quote-blue   {border: .0625rem solid rgba(0,   80,  180, .1)}
 .card-yellow, q.quote-yellow {border: .0625rem solid rgba(110, 100, 30,  .1)}
 
-.card                       {color: #4c4c4c; background-color: #f2f2f2}
-.card-light,  .quote        {color: #444444; background-color: #e5e5e5}
-.card-dark                  {color: #4c4c4c; background-color: #d8d8d8}
-.card-red,    .quote-red    {color: #990500; background-color: #f7d9d9}
-.card-green,  .quote-green  {color: #1d4c00; background-color: #d9f7d9}
-.card-blue,   .quote-blue   {color: #0051b4; background-color: #d9e9f7}
-.card-yellow, .quote-yellow {color: #71631c; background-color: #f5f0b2}
+.card                       {color: #4b4b4b; background-color: #f0f0f0}
+.card-light,  .quote        {color: #464646; background-color: #e6e6e6}
+.card-dark                  {color: #414141; background-color: #d7d7d7}
+.card-red,    .quote-red    {color: #9b0500; background-color: #f5d7d7}
+.card-green,  .quote-green  {color: #1e4b00; background-color: #d7f5d7}
+.card-blue,   .quote-blue   {color: #0050b4; background-color: #d7ebf5}
+.card-yellow, .quote-yellow {color: #6e641e; background-color: #f5f0b4}
 
-blockquote.quote        {border-left: .25rem solid #333333}
-blockquote.quote-red    {border-left: .25rem solid #990500}
-blockquote.quote-green  {border-left: .25rem solid #1d4c00}
-blockquote.quote-blue   {border-left: .25rem solid #0051b4}
-blockquote.quote-yellow {border-left: .25rem solid #71631c}
+blockquote.quote        {border-left: .25rem solid #323232}
+blockquote.quote-red    {border-left: .25rem solid #9b0500}
+blockquote.quote-green  {border-left: .25rem solid #1e4b00}
+blockquote.quote-blue   {border-left: .25rem solid #0050b4}
+blockquote.quote-yellow {border-left: .25rem solid #73641e}
 
 [class^="glass"] {
     background-clip: border-box;
     backdrop-filter: blur(.3125rem)
 }
-.glass        {background-color: rgba(100, 100, 100, .2)}
-.glass-light  {background-color: rgba(255, 255, 255, .2)}
-.glass-dark   {background-color: rgba(0,   0,   0,   .2)}
-.glass-red    {background-color: rgba(255, 0,   0,   .2)}
-.glass-green  {background-color: rgba(0,   255, 50,  .2)}
-.glass-blue   {background-color: rgba(0,   100, 255, .2)}
-.glass-yellow {background-color: rgba(255, 255, 0,   .2)}
+.glass        {background-color: rgba(100, 100, 100, .3)}
+.glass-light  {background-color: rgba(190, 190, 190, .3)}
+.glass-dark   {background-color: rgba(10,  10,  10,  .3)}
+.glass-red    {background-color: rgba(130, 0,   10,  .3)}
+.glass-green  {background-color: rgba(10,  130, 0,   .3)}
+.glass-blue   {background-color: rgba(0,   50,  130, .3)}
+.glass-yellow {background-color: rgba(130, 130, 0,   .3)}
 
 /**
  * ****************************************

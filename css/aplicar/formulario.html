@@ -31,7 +31,7 @@
 
         <main class="container padding-all">
             <section class="section">
-                <h2 class="lighter">Caixa de Texto (Geral)</h2>
+                <h2 class="lighter text-dim">&mdash; Caixa de Texto (Geral) &mdash;</h2>
                 <div class="padding-tb-prop">
                     <div class="static">
                         <div class="row-pad">
@@ -61,7 +61,7 @@
 
             <hr />
             <section class="section">
-                <h2 class="lighter">Caixa de Texto (Linha)</h2>
+                <h2 class="lighter text-dim">&mdash; Caixa de Texto (Linha) &mdash;</h2>
                 <div class="padding-tb-prop">
                     <div class="static">
                         <div class="row-pad">
@@ -88,7 +88,7 @@
 
             <hr />
             <section class="section">
-                <h2 class="lighter">Validar</h2>
+                <h2 class="lighter text-dim">&mdash; Validar &mdash;</h2>
                 <blockquote class="quote">
                     <p>Usando o <span class="bold">input-default</span>
                         ou <span class="bold">input-line</span>
@@ -126,7 +126,7 @@
 
             <hr />
             <section class="section">
-                <h2 class="lighter">Validar Forçado</h2>
+                <h2 class="lighter text-dim">&mdash; Validar Forçado &mdash;</h2>
                 <blockquote class="quote">
                     <p>Assume válido ou inválido indepente do <span class="bold text-red">pattern</span>.</p>
                 </blockquote>
@@ -167,7 +167,7 @@
 
             <hr />
             <section class="section">
-                <h2 class="lighter">Checagem</h2>
+                <h2 class="lighter text-dim">&mdash; Checagem &mdash;</h2>
                 <div class="padding-tb-prop">
                     <div class="row-pad">
                         <div class="col-half">
@@ -218,9 +218,9 @@
 
             <hr />
             <section class="section">
-                <h2 class="lighter">Seletora</h2>
+                <h2 class="lighter text-dim">&mdash; Seletora &mdash;</h2>
                 <div class="padding-tb-prop">
-                    <div class="w-max-900 margin-auto">
+                    <div class="width-max-900 margin-auto">
                         <label for="input-7" class="bold">input-range</label>
                         <input class="input-range" type="range" min="0" max="100" step="10" value="0" id="input-7" />
                     </div>
@@ -232,7 +232,7 @@
 
             <hr />
             <section class="section">
-                <h2 class="lighter">Desabilitado</h2>
+                <h2 class="lighter text-dim">&mdash; Desabilitado &mdash;</h2>
                 <blockquote class="quote">
                     <p>Será aplicado sempre que o atributo <span class="bold">disabled</span> ou <span class="bold">readonly</span>
                         estiver presente.</p>
@@ -285,9 +285,9 @@
 
             <hr />
             <section class="section">
-                <h2 class="lighter">Desabilitado Forçado</h2>
+                <h2 class="lighter text-dim">&mdash; Desabilitado Forçado &mdash;</h2>
                 <blockquote class="quote">
-                    <p class="font-max">.disabled</p>
+                    <p class="font-max bold">disabled</p>
                     <p>Pode ser aplicado a qualquer elemento assumindo as características de
                         <span class="bold">disabled</span> ou <span class="bold">readonly</span>.</p>
                 </blockquote>
@@ -322,27 +322,30 @@
                 </div>
             </section>
         </main>
+
         <footer class="section bg-black">
             <div class="container base-center">
                 <div class="align-center text-light font-min">
                     <p>Aplicação das propriedade com <span class="italic bold">css-default.css</span></p>
                     <a href="https://github.com/Spell-Master/sm-web/"
                        target="_blank"
-                       class="href"
+                       class="href-light"
                        title="Abre uma nova aba do navegador indo até o repositório no git-hub">
                         https:&sol;&sol;github.com&sol;Spell-Master&sol;sm-web&sol;</a>
                 </div>
             </div>
         </footer>
 
-        <div class="modal" id="show-code">
-            <div class="modal-box">
-                <div class="modal-header">Código Fonte</div>
-                <div class="modal-content">
-                    <pre><code class="language-html"></code></pre>
+        <aside aria-hidden="true">
+            <div class="modal" id="show-code">
+                <div class="modal-box">
+                    <div class="modal-header">Código Fonte</div>
+                    <div class="modal-content">
+                        <pre><code class="language-html"></code></pre>
+                    </div>
                 </div>
             </div>
-        </div>
+        </aside>
 
         <script>showCode.init();</script>
     </body>

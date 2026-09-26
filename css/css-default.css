@@ -19,12 +19,12 @@
 :root {
     --body-font-size: 1rem; /* 16 */
     --body-font-height: 1.5;
-    --body-font-color: #4D4D4D;
-    --body-back-color: #FAFAFA;
+    --body-font-color: #4d4d4d;
+    --body-back-color: #fafafa;
 
     --font-family-control: -apple-system, BlinkMacSystemFont, "avenir next", avenir, "helvetica neue", helvetica, sans-serif;
     --font-family-console: SFMono-Regular, Menlo, Monaco, "Liberation Mono", "Courier New", monospace, "Lucida Console", Consolas;
-
+ 
     --spacing-min: .5rem; /* 8 */
     --spacing-med: 1rem;  /* 16 */
     --spacing-max: 2rem;  /* 32 */
@@ -38,48 +38,67 @@
     --border-width-max: .25rem;   /* 4 */
     --border-color:     rgba(0, 0, 0, .3);
 
-    --color-white:  #f0f0f0; --color-black:        #282828;
-    --color-light:  #e1e1e1; --color-dark:         #c8c8c8;
-    --color-red:    #cd1919; --color-light-red:    #e63232; --color-dark-red:    #a01414;
-    --color-green:  #148714; --color-light-green:  #1eb41e; --color-dark-green:  #0f5a0f;
-    --color-blue:   #2873c3; --color-light-blue:   #3c8cdc; --color-dark-blue:   #1e5a96;
-    --color-aqua:   #37b4af; --color-light-aqua:   #64d2cd; --color-dark-aqua:   #237873;
-    --color-brown:  #824b32; --color-light-brown:  #aa5f3c; --color-dark-brown:  #5f3723;
-    --color-gray:   #8c8c8c; --color-light-gray:   #a5a5a5; --color-dark-gray:   #737373;
-    --color-royal:  #3c5a96; --color-light-royal:  #466eb9; --color-dark-royal:  #324b82;
-    --color-lime:   #37c837; --color-light-lime:   #5fd25f; --color-dark-lime:   #2da02d;
-    --color-orange: #e67300; --color-light-orange: #ff8c19; --color-dark-orange: #b45a00;
-    --color-pink:   #e650a0; --color-light-pink:   #eb7db9; --color-dark-pink:   #dc238c;
-    --color-purple: #64329e; --color-light-purple: #8750be; --color-dark-purple: #4b1982;
-    --color-salmon: #dc7d73; --color-light-salmon: #e6a09b; --color-dark-salmon: #d25a4b;
-    --color-sand:   #9b7350; --color-light-sand:   #b48c64; --color-dark-sand:   #785a3c;
-    --color-teal:   #148282; --color-light-teal:   #1eafaf; --color-dark-teal:   #0f5a5a;
-    --color-yellow: #e6be00; --color-light-yellow: #ffdc19; --color-dark-yellow: #b49600;
+    --color-white:  #f0f0f0;
+    --color-black:  #282828;
+    --color-red:    #cd1919;
+    --color-green:  #148714;
+    --color-blue:   #2873c3;
+    --color-aqua:   #37b4af;
+    --color-brown:  #824b32;
+    --color-dim:    #828282;
+    --color-gray:   #8c8c8c;
+    --color-royal:  #3c5a96;
+    --color-lime:   #37c837;
+    --color-orange: #e67300;
+    --color-pink:   #e650a0;
+    --color-purple: #64329e;
+    --color-salmon: #dc7d73;
+    --color-sand:   #9b7350;
+    --color-teal:   #148282;
+    --color-yellow: #e6be00;
+    
+    --color-light:        #e1e1e1; --color-dark:        #c8c8c8;
+    --color-light-red:    #e63232; --color-dark-red:    #a01414;
+    --color-light-green:  #1eb41e; --color-dark-green:  #0f5a0f;
+    --color-light-blue:   #3c8cdc; --color-dark-blue:   #1e5a96;
+    --color-light-aqua:   #64d2cd; --color-dark-aqua:   #237873;
+    --color-light-brown:  #aa5f3c; --color-dark-brown:  #5f3723;
+    --color-light-din:    #b4b4b4; --color-dark-din:    #696969;
+    --color-light-gray:   #a5a5a5; --color-dark-gray:   #737373;
+    --color-light-royal:  #466eb9; --color-dark-royal:  #324b82;
+    --color-light-lime:   #5fd25f; --color-dark-lime:   #2da02d;
+    --color-light-orange: #ff8c19; --color-dark-orange: #b45a00;
+    --color-light-pink:   #eb7db9; --color-dark-pink:   #dc238c;
+    --color-light-purple: #8750be; --color-dark-purple: #4b1982;
+    --color-light-salmon: #e6a09b; --color-dark-salmon: #d25a4b;
+    --color-light-sand:   #b48c64; --color-dark-sand:   #785a3c;
+    --color-light-teal:   #1eafaf; --color-dark-teal:   #0f5a5a;
+    --color-light-yellow: #ffdc19; --color-dark-yellow: #b49600;
 
-    --alpha-light:  rgba(225, 225, 225, .5);
-    --alpha-dark:   rgba(200, 220, 220, .5);
-    --alpha-white:  rgba(240, 240, 240, .5);
-    --alpha-black:  rgba(40,  40,  40,  .5);
-    --alpha-red:    rgba(205, 25,  25,  .5);
-    --alpha-green:  rgba(20,  135, 20,  .5);
-    --alpha-blue:   rgba(40,  115, 195, .5);
-    --alpha-aqua:   rgba(55,  180, 175, .5);
-    --alpha-brown:  rgba(130, 75,  50,  .5);
-    --alpha-gray:   rgba(140, 140, 140, .5);
-    --alpha-royal:  rgba(60,  90,  150, .5);
-    --alpha-lime:   rgba(55,  200, 55,  .5);
-    --alpha-orange: rgba(230, 115, 0,   .5);
-    --alpha-pink:   rgba(230, 80,  160, .5);
-    --alpha-purple: rgba(100, 50,  155, .5);
-    --alpha-salmon: rgba(220, 125, 115, .5);
-    --alpha-sand:   rgba(155, 115, 80,  .5);
-    --alpha-teal:   rgba(20,  130, 130, .5);
-    --alpha-yellow: rgba(230, 190, 0,   .5);
+    --alpha-light:  rgba(225, 225, 225, .65);
+    --alpha-dark:   rgba(200, 220, 220, .65);
+    --alpha-white:  rgba(240, 240, 240, .65);
+    --alpha-black:  rgba(40,  40,  40,  .65);
+    --alpha-red:    rgba(205, 25,  25,  .65);
+    --alpha-green:  rgba(20,  135, 20,  .65);
+    --alpha-blue:   rgba(40,  115, 195, .65);
+    --alpha-aqua:   rgba(55,  180, 175, .65);
+    --alpha-brown:  rgba(130, 75,  50,  .65);
+    --alpha-gray:   rgba(140, 140, 140, .65);
+    --alpha-royal:  rgba(60,  90,  150, .65);
+    --alpha-lime:   rgba(55,  200, 55,  .65);
+    --alpha-orange: rgba(230, 115, 0,   .65);
+    --alpha-pink:   rgba(230, 80,  160, .65);
+    --alpha-purple: rgba(100, 50,  155, .65);
+    --alpha-salmon: rgba(220, 125, 115, .65);
+    --alpha-sand:   rgba(155, 115, 80,  .65);
+    --alpha-teal:   rgba(20,  130, 130, .65);
+    --alpha-yellow: rgba(230, 190, 0,   .65);
 
-    --input-color:  #6c6c6c; --input-color-focus:  #5b5b5b;
-    --input-bg:     #f3f3f3; --input-bg-focus:     #f6f6f6;
-    --input-border: #c6c6c6; --input-border-focus: #ababab;
-    --input-valid:  #007e2d; --input-invalid:      #cc2424;
+    --input-color:  #646464; --input-color-focus:  #414141;
+    --input-bg:     #ebebeb; --input-bg-focus:     #fafafa;
+    --input-border: #c8c8c8; --input-border-focus: #aaaaaa;
+    --input-valid:  #007d2d; --input-invalid:      #cd2323;
 }
 
 /**
@@ -106,7 +125,7 @@ b, optgroup {font-weight: bold}
 dfn, i {font-style: italic}
 blockquote {margin: var(--spacing-min) var(--spacing-max)}
 mark {padding: .0625em .5em; margin: 0 .25em; font-style: oblique; background-color: rgba(255, 255, 0, .5)}
-code, kbd, pre, samp {font-family: "Lucida Console", "Courier New", monospace, Consolas; font-size: .75em}
+code, kbd, pre, samp {font-family: var(--font-family-console); font-size: .75em}
 pre {white-space: pre; white-space: pre-wrap; overflow: auto}
 q {quotes: none}
 q:after, q:before {content: ""}
@@ -363,7 +382,7 @@ h6.fix, .h6.fix {font-size: 1.25rem} /* 20 */
     display: block;
     width: 100%;
     min-height: 3.125rem;
-    font-size: var(--font-core-size);
+    font-size: var(--body-font-size) !important;
     font-weight: 400;
     transition: color .5s linear
 }

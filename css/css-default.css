@@ -258,7 +258,7 @@ h6.fix, .h6.fix {font-size: 1.25rem} /* 20 */
 .fit-cover   {object-fit: cover}
 .fit-fill    {object-fit: fill}
 .fit-down    {object-fit: scale-down}
-.fit-none    {object-fit: none}
+.fit-center  {object-fit: none}
 
 /**
  * ****************************************
@@ -283,38 +283,35 @@ h6.fix, .h6.fix {font-size: 1.25rem} /* 20 */
     transition: background-color .5s linear
 }
 
-.button-min, .button-min-block {padding: .375rem  .5rem}
-.button-med, .button-med-block {padding: .875rem  1rem}
-.button-max, .button-max-block {padding: 1.125rem 1.25rem}
+[class*="btn"].button-block {
+    width: 100%;
+    height: 100%;
+    display: inline-block
+}
 
-.btn-default  {color: #5b5b5b}
-.btn-success,
+.btn-default  {color: #505050}
 .btn-info,
+.btn-success,
 .btn-warning,
-.btn-danger  {color: #eeeeee}
+.btn-danger  {color: #f0f0f0}
 
 .btn,
 .btn-empty   {background-color: inherit}
-.btn-default {background-color: #d4d4d4; outline-color: #c6c6c6}
-.btn-success {background-color: #0c7b2c; outline-color: #006213}
-.btn-info    {background-color: #006699; outline-color: #004d7d}
-.btn-warning {background-color: #b14816; outline-color: #823f00}
-.btn-danger  {background-color: #cd1423; outline-color: #af0010}
+.btn-default {background-color: #d2d2d2; outline-color: #b9b9b9}
+.btn-info    {background-color: #00649b; outline-color: #004b82}
+.btn-success {background-color: #196e2d; outline-color: #005519}
+.btn-warning {background-color: #a55000; outline-color: #873700}
+.btn-danger  {background-color: #b41e28; outline-color: #960014}
 
-.btn-default:hover, .btn-default:focus, .btn-default:focus-visible {background-color: #c6c6c6; outline-color: #d4d4d4}
-.btn-success:hover, .btn-success:focus, .btn-success:focus-visible {background-color: #006213; outline-color: #0c7b2c}
-.btn-info:hover,    .btn-info:focus,    .btn-info:focus-visible    {background-color: #004d7d; outline-color: #006699}
-.btn-warning:hover, .btn-warning:focus, .btn-warning:focus-visible {background-color: #914b00; outline-color: #ae6309}
-.btn-danger:hover,  .btn-danger:focus,  .btn-danger:focus-visible  {background-color: #af0010; outline-color: #cd1423}
-.btn-default:hover, .btn-default:focus, .btn-default:focus-visible {background-color: #b9b9b9; outline-color: #d4d4d4}
-.btn-success:hover, .btn-success:focus, .btn-success:focus-visible {background-color: #006213; outline-color: #0c7b2c}
-.btn-info:hover,    .btn-info:focus,    .btn-info:focus-visible    {background-color: #004d7d; outline-color: #006699}
-.btn-warning:hover, .btn-warning:focus, .btn-warning:focus-visible {background-color: #823f00; outline-color: #b14816}
-.btn-danger:hover,  .btn-danger:focus,  .btn-danger:focus-visible  {background-color: #af0010; outline-color: #cd1423}
+.btn-default:hover, .btn-default:focus, .btn-default:focus-visible {background-color: #b9b9b9; outline-color: #d2d2d2}
+.btn-info:hover,    .btn-info:focus,    .btn-info:focus-visible    {background-color: #004b82; outline-color: #00649b}
+.btn-success:hover, .btn-success:focus, .btn-success:focus-visible {background-color: #005519; outline-color: #196e2d}
+.btn-warning:hover, .btn-warning:focus, .btn-warning:focus-visible {background-color: #873700; outline-color: #a55000}
+.btn-danger:hover,  .btn-danger:focus,  .btn-danger:focus-visible  {background-color: #960014; outline-color: #b41e28}
 
 .btn-default:active,
-.btn-success:active,
 .btn-info:active,
+.btn-success:active,
 .btn-warning:active,
 .btn-danger:active {
     filter: brightness(120%)
@@ -323,31 +320,35 @@ h6.fix, .h6.fix {font-size: 1.25rem} /* 20 */
 [class^="href"] {
     cursor: pointer;
     margin: 0 .0625rem;
-    text-decoration: underline;
-    font-weight: 400;
+    font-weight: 500;
     text-align: center;
     letter-spacing: .0625em;
     white-space: nowrap;
     display: inline-block;
+    text-decoration: underline
 }
 
-.href         {color: #0a66c1}
-.href-light   {color: #c6c6c6}
-.href-dark    {color: #303030}
-.href-success {color: #0c7b2c}
-.href-info    {color: #2371a5}
-.href-warning {color: #ae6309}
-.href-danger  {color: #df2d30}
-
-.href:hover,         .href:focus,
-.href-light:hover,   .href-light:focus,
-.href-dark:hover,    .href-dark:focus,
-.href-success:hover, .href-success:focus,
-.href-info:hover,    .href-info:focus,
-.href-warning:hover, .href-warning:focus,
-.href-danger:hover,  .href-danger:focus {
+[class^="href"]:hover, [class^="href"]:focus {
     text-decoration: none
 }
+
+.href,
+.href-info    {color: #006ed7}
+.href-success {color: #007d00}
+.href-warning {color: #aa5500}
+.href-danger  {color: #d70000}
+
+.href-light,
+.href-info-light    {color: #46a5ff}
+.href-success-light {color: #00b900}
+.href-warning-light {color: #ff8714}
+.href-danger-light  {color: #ff7d78}
+
+.href-dark,
+.href-info-dark    {color: #004180}
+.href-success-dark {color: #006400}
+.href-warning-dark {color: #824100}
+.href-danger-dark  {color: #960000}
 
 /**
  * ****************************************

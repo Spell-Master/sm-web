@@ -28,24 +28,26 @@
                 </div>
             </div>
             <div class="container">
-                <blockquote class="quote">
-                    <p>Os resultados aqui apresentados usando a propriedade
-                        <span class="bold">table</span> só tem efeito em tag&apos;s
-                        <span class="bold">&lt;table&gt;</span>.
-                    </p>
-                    <p>Qualquer outro elemento que receber essa propriedade terá um resultado de exibibição
-                        que simula a tag <span class="bold">&lt;table&gt;</span>.</p>
+                <blockquote class="quote-yellow">
+                    <p>ATENÇÃO!</p>
+                    <p>A propriedade <span class="bold">table</span> aqui apresentada,
+                        só é funcional em elementos de tabela (<span class="bold">&lt;table&gt;</span>).</p>
+                    <p>Em qualquer outro elemento quando aplicada, seu resultado é de exibição e não
+                        estrutura de arquitetura visual da tabela como nos usos deste documento.</p>
                 </blockquote>
             </div>
         </header>
 
         <main class="container padding-all">
             <section class="section">
-                <h2 class="lighter">Básica</h2>
+                <h2 class="lighter text-dim">&mdash; Básica &mdash;</h2>
                 <div class="padding-tb-prop">
                     <p class="bold">table.table</p>
                     <div class="static">
                         <table class="table">
+                            <caption>
+                                table &gt; caption
+                            </caption>
                             <thead>
                                 <tr>
                                     <th>table &gt; thead &gt; tr &gt; th</th>
@@ -90,11 +92,14 @@
 
             <hr />
             <section class="section">
-                <h2 class="lighter">Listrada</h2>
+                <h2 class="lighter text-dim">&mdash; Listrada &mdash;</h2>
                 <div class="padding-tb-prop">
                     <p class="bold">table.table.streak</p>
                     <div class="static">
                         <table class="table streak">
+                            <caption>
+                                table &gt; caption
+                            </caption>
                             <thead>
                                 <tr>
                                     <th>table &gt; thead &gt; tr &gt; th</th>
@@ -136,6 +141,49 @@
                     </div>
                 </div>
             </section>
+
+            <hr />
+            <section class="section">
+                <h2 class="lighter text-dim">&mdash; Vazamento &mdash;</h2>
+                <div class="padding-tb-prop">
+                    <p>Tag&apos;s <span class="bold">table</span>
+                        junto a propriedade também chamada
+                        <span class="bold">table</span>
+                        tenta se adaptar a largura do elemento.</p>
+                    <p>No entanto a tabela é um elemento problemático quanto a responsabilidade na compatibilidade
+                        com telas de visualização menor.</p>
+                    <p>Se não for mais possível retrair a largura um vazamento vai acontecer.</p>
+                    <p>Como sugestão aconselho quando necessário usar propriedades de vazamento em algum elemento,
+                        então a tabela é adicionada internamente.</p>
+                </div>
+                <div class="padding-tb-prop">
+                    <div class="static">
+                        <div class="over-x">
+                            <table class="table streak">
+                                <tr>
+                                    <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</td>
+                                    <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</td>
+                                </tr>
+                                <tr>
+                                    <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</td>
+                                    <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</td>
+                                </tr>
+                                <tr>
+                                    <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</td>
+                                    <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</td>
+                                </tr>
+                                <tr>
+                                    <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</td>
+                                    <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="align-center margin-top">
+                        <button class="btn-default radius-all-min shadow-box" data-code="">CÓDIGO HTML</button>
+                    </div>
+                </div>
+            </section>
         </main>
 
         <footer class="section bg-black">
@@ -144,21 +192,23 @@
                     <p>Aplicação das propriedade com <span class="italic bold">css-default.css</span></p>
                     <a href="https://github.com/Spell-Master/sm-web/"
                        target="_blank"
-                       class="href"
+                       class="href-light"
                        title="Abre uma nova aba do navegador indo até o repositório no git-hub">
                         https:&sol;&sol;github.com&sol;Spell-Master&sol;sm-web&sol;</a>
                 </div>
             </div>
         </footer>
 
-        <div class="modal" id="show-code">
-            <div class="modal-box">
-                <div class="modal-header">Código Fonte</div>
-                <div class="modal-content">
-                    <pre><code class="language-html"></code></pre>
+        <aside aria-hidden="true">
+            <div class="modal" id="show-code">
+                <div class="modal-box">
+                    <div class="modal-header">Código Fonte</div>
+                    <div class="modal-content">
+                        <pre><code class="language-html"></code></pre>
+                    </div>
                 </div>
             </div>
-        </div>
+        </aside>
 
         <script>showCode.init();</script>
     </body>

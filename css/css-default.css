@@ -52,7 +52,6 @@
     --color-orange: #e67300;
     --color-pink:   #e650a0;
     --color-purple: #64329e;
-    --color-salmon: #dc7d73;
     --color-sand:   #9b7350;
     --color-teal:   #148282;
     --color-yellow: #e6be00;
@@ -63,37 +62,16 @@
     --color-light-blue:   #3c8cdc; --color-dark-blue:   #1e5a96;
     --color-light-aqua:   #64d2cd; --color-dark-aqua:   #237873;
     --color-light-brown:  #aa5f3c; --color-dark-brown:  #5f3723;
-    --color-light-din:    #b4b4b4; --color-dark-din:    #696969;
+    --color-light-dim:    #b4b4b4; --color-dark-dim:    #696969;
     --color-light-gray:   #a5a5a5; --color-dark-gray:   #737373;
     --color-light-royal:  #466eb9; --color-dark-royal:  #324b82;
     --color-light-lime:   #5fd25f; --color-dark-lime:   #2da02d;
     --color-light-orange: #ff8c19; --color-dark-orange: #b45a00;
     --color-light-pink:   #eb7db9; --color-dark-pink:   #dc238c;
     --color-light-purple: #8750be; --color-dark-purple: #4b1982;
-    --color-light-salmon: #e6a09b; --color-dark-salmon: #d25a4b;
     --color-light-sand:   #b48c64; --color-dark-sand:   #785a3c;
     --color-light-teal:   #1eafaf; --color-dark-teal:   #0f5a5a;
     --color-light-yellow: #ffdc19; --color-dark-yellow: #b49600;
-
-    --alpha-light:  rgba(225, 225, 225, .65);
-    --alpha-dark:   rgba(200, 220, 220, .65);
-    --alpha-white:  rgba(240, 240, 240, .65);
-    --alpha-black:  rgba(40,  40,  40,  .65);
-    --alpha-red:    rgba(205, 25,  25,  .65);
-    --alpha-green:  rgba(20,  135, 20,  .65);
-    --alpha-blue:   rgba(40,  115, 195, .65);
-    --alpha-aqua:   rgba(55,  180, 175, .65);
-    --alpha-brown:  rgba(130, 75,  50,  .65);
-    --alpha-gray:   rgba(140, 140, 140, .65);
-    --alpha-royal:  rgba(60,  90,  150, .65);
-    --alpha-lime:   rgba(55,  200, 55,  .65);
-    --alpha-orange: rgba(230, 115, 0,   .65);
-    --alpha-pink:   rgba(230, 80,  160, .65);
-    --alpha-purple: rgba(100, 50,  155, .65);
-    --alpha-salmon: rgba(220, 125, 115, .65);
-    --alpha-sand:   rgba(155, 115, 80,  .65);
-    --alpha-teal:   rgba(20,  130, 130, .65);
-    --alpha-yellow: rgba(230, 190, 0,   .65);
 
     --input-color:  #646464; --input-color-focus:  #414141;
     --input-bg:     #ebebeb; --input-bg-focus:     #fafafa;
@@ -151,7 +129,7 @@ input:focus, select:focus, textarea:focus, *[contenteditable]:focus {outline: 0}
 a, button, select, textarea {outline: 0; font: inherit; color: inherit; background: none}
 a {text-decoration: underline}
 a:not([href]), a:not([href]):hover {color: inherit; text-decoration: none}
-table {border-collapse: collapse; border-spacing: 0; max-width: 100%; background-color: transparent}
+table {border-collapse: collapse; max-width: 100%; background-color: transparent}
 th {font-weight: 600}
 th, td {text-align: left}
 b {font-weight: bold}
@@ -617,15 +595,41 @@ blockquote.quote-yellow {border-left: .25rem solid #73641e}
  * Tabela
  * ****************************************
  */
-table.table {width: 100%}
+table.table {
+    width: 100%;
+    margin-bottom: var(--spacing-min)
+}
+
+table.table tbody {vertical-align: middle}
+table.table thead,
+table.table tfoot {vertical-align: middle}
+
+table.table thead,
+table.table tfoot {background-color: #dcdcdc}
 
 table.table th,
-table.table td {padding: .625rem; border: .0625rem solid rgba(4, 4, 4, .2)}
+table.table td {overflow: hidden; white-space: nowrap}
 
-table.table > thead,
-table.table > tfoot {background-color: #e5e5e5}
+table.table caption,
+table.table th,
+table.table td {
+    padding: .625rem .75rem;
+    min-height: 3.125rem;
+    border: .0625rem solid rgba(150, 150, 150, .5)
+}
 
-table.table.streak tr:nth-child(even) {background-color: #f3f3f3}
+table.table caption {
+    background-color: #f5f5f5;
+    caption-side: top;
+    font-style: oblique;
+    text-align: center;
+    text-decoration: underline dotted;
+    overflow-wrap: break-word;
+    border-bottom-style: none;
+    opacity: .8
+}
+
+table.table.streak tr:nth-child(even) {background-color: #e6e6e6}
 
 /**
  * ****************************************

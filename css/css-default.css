@@ -45,16 +45,14 @@
     --color-blue:   #2873c3;
     --color-aqua:   #37b4af;
     --color-brown:  #824b32;
-    --color-dim:    #828282;
-    --color-gray:   #8c8c8c;
+    --color-gray:   #828282;
     --color-royal:  #3c5a96;
-    --color-lime:   #37c837;
     --color-orange: #e67300;
     --color-pink:   #e650a0;
     --color-purple: #64329e;
     --color-sand:   #9b7350;
     --color-teal:   #148282;
-    --color-yellow: #e6be00;
+    --color-yellow: #cda500;
     
     --color-light:        #e1e1e1; --color-dark:        #c8c8c8;
     --color-light-red:    #e63232; --color-dark-red:    #a01414;
@@ -62,16 +60,14 @@
     --color-light-blue:   #3c8cdc; --color-dark-blue:   #1e5a96;
     --color-light-aqua:   #64d2cd; --color-dark-aqua:   #237873;
     --color-light-brown:  #aa5f3c; --color-dark-brown:  #5f3723;
-    --color-light-dim:    #b4b4b4; --color-dark-dim:    #696969;
-    --color-light-gray:   #a5a5a5; --color-dark-gray:   #737373;
+    --color-light-gray:   #9b9b9b; --color-dark-gray:   #696969;
     --color-light-royal:  #466eb9; --color-dark-royal:  #324b82;
-    --color-light-lime:   #5fd25f; --color-dark-lime:   #2da02d;
     --color-light-orange: #ff8c19; --color-dark-orange: #b45a00;
     --color-light-pink:   #eb7db9; --color-dark-pink:   #dc238c;
     --color-light-purple: #8750be; --color-dark-purple: #4b1982;
     --color-light-sand:   #b48c64; --color-dark-sand:   #785a3c;
     --color-light-teal:   #1eafaf; --color-dark-teal:   #0f5a5a;
-    --color-light-yellow: #ffdc19; --color-dark-yellow: #b49600;
+    --color-light-yellow: #e6c332; --color-dark-yellow: #967d00;
 
     --input-color:  #646464; --input-color-focus:  #414141;
     --input-bg:     #ebebeb; --input-bg-focus:     #fafafa;
@@ -170,7 +166,7 @@ h4.fix, .h4.fix {font-size: 1.75rem} /* 28 */
 h5.fix, .h5.fix {font-size: 1.5rem}  /* 24 */
 h6.fix, .h6.fix {font-size: 1.25rem} /* 20 */
 
-.font-basic {font-size: var(--body-font-size) !important} /* 16 */
+.font-base, .font-basic {font-size: var(--body-font-size) !important} /* 16 */
 
 .italic    {font-style:      italic}
 .oblique   {font-style:      oblique}
@@ -645,50 +641,42 @@ table.table.streak tr:nth-child(even) {background-color: #e6e6e6}
 .text-brown,  .text-brown-hover:hover  {color: var(--color-brown)}
 .text-gray,   .text-gray-hover:hover   {color: var(--color-gray)}
 .text-royal,  .text-royal-hover:hover  {color: var(--color-royal)}
-.text-lime,   .text-lime-hover:hover   {color: var(--color-lime)}
 .text-orange, .text-orange-hover:hover {color: var(--color-orange)}
 .text-pink,   .text-pink-hover:hover   {color: var(--color-pink)}
 .text-purple, .text-purple-hover:hover {color: var(--color-purple)}
-.text-salmon, .text-salmon-hover:hover {color: var(--color-salmon)}
 .text-sand,   .text-sand-hover:hover   {color: var(--color-sand)}
 .text-teal,   .text-teal-hover:hover   {color: var(--color-teal)}
 .text-yellow, .text-yellow-hover:hover {color: var(--color-yellow)}
 
 .text-light,        .text-light-hover:hover        {color: var(--color-light)}
-.text-light-black,  .text-light-black-hover:hover  {color: var(--color-light-black)}
-.text-light-red,    .text-light-red-hover:hover    {color: var(--color-light-red)}
-.text-light-green,  .text-light-green-hover:hover  {color: var(--color-light-green)}
-.text-light-blue,   .text-light-blue-hover:hover   {color: var(--color-light-blue)}
-.text-light-aqua,   .text-light-aqua-hover:hover   {color: var(--color-light-aqua)}
-.text-light-brown,  .text-light-brown-hover:hover  {color: var(--color-light-brown)}
-.text-light-gray,   .text-light-gray-hover:hover   {color: var(--color-light-gray)}
-.text-light-royal,  .text-light-royal-hover:hover  {color: var(--color-light-royal)}
-.text-light-lime,   .text-light-lime-hover:hover   {color: var(--color-light-lime)}
-.text-light-orange, .text-light-orange-hover:hover {color: var(--color-light-orange)}
-.text-light-pink,   .text-light-pink-hover:hover   {color: var(--color-light-pink)}
-.text-light-purple, .text-light-purple-hover:hover {color: var(--color-light-purple)}
-.text-light-salmon, .text-light-salmon-hover:hover {color: var(--color-light-salmon)}
-.text-light-sand,   .text-light-sand-hover:hover   {color: var(--color-light-sand)}
-.text-light-teal,   .text-light-teal-hover:hover   {color: var(--color-light-teal)}
-.text-light-yellow, .text-light-yellow-hover:hover {color: var(--color-light-yellow)}
+.text-red-light,    .text-red-light-hover:hover    {color: var(--color-light-red)}
+.text-green-light,  .text-green-light-hover:hover  {color: var(--color-light-green)}
+.text-blue-light,   .text-blue-light-hover:hover   {color: var(--color-light-blue)}
+.text-aqua-light,   .text-aqua-light-hover:hover   {color: var(--color-light-aqua)}
+.text-brown-light,  .text-brown-light-hover:hover  {color: var(--color-light-brown)}
+.text-gray-light,   .text-gray-light-hover:hover   {color: var(--color-light-gray)}
+.text-royal-light,  .text-royal-light-hover:hover  {color: var(--color-light-royal)}
+.text-orange-light, .text-orange-light-hover:hover {color: var(--color-light-orange)}
+.text-pink-light,   .text-pink-light-hover:hover   {color: var(--color-light-pink)}
+.text-purple-light, .text-purple-light-hover:hover {color: var(--color-light-purple)}
+.text-sand-light,   .text-sand-light-hover:hover   {color: var(--color-light-sand)}
+.text-teal-light,   .text-teal-light-hover:hover   {color: var(--color-light-teal)}
+.text-yellow-light, .text-yellow-light-hover:hover {color: var(--color-light-yellow)}
 
 .text-dark,        .text-dark-hover:hover        {color: var(--color-dark)}
-.text-dark-black,  .text-dark-black-hover:hover  {color: var(--color-dark-black)}
-.text-dark-red,    .text-dark-red-hover:hover    {color: var(--color-dark-red)}
-.text-dark-green,  .text-dark-green-hover:hover  {color: var(--color-dark-green)}
-.text-dark-blue,   .text-dark-blue-hover:hover   {color: var(--color-dark-blue)}
-.text-dark-aqua,   .text-dark-aqua-hover:hover   {color: var(--color-dark-aqua)}
-.text-dark-brown,  .text-dark-brown-hover:hover  {color: var(--color-dark-brown)}
-.text-dark-gray,   .text-dark-gray-hover:hover   {color: var(--color-dark-gray)}
-.text-dark-royal,  .text-dark-royal-hover:hover  {color: var(--color-dark-royal)}
-.text-dark-lime,   .text-dark-lime-hover:hover   {color: var(--color-dark-lime)}
-.text-dark-orange, .text-dark-orange-hover:hover {color: var(--color-dark-orange)}
-.text-dark-pink,   .text-dark-pink-hover:hover   {color: var(--color-dark-pink)}
-.text-dark-purple, .text-dark-purple-hover:hover {color: var(--color-dark-purple)}
-.text-dark-salmon, .text-dark-salmon-hover:hover {color: var(--color-dark-salmon)}
-.text-dark-sand,   .text-dark-sand-hover:hover   {color: var(--color-dark-sand)}
-.text-dark-teal,   .text-dark-teal-hover:hover   {color: var(--color-dark-teal)}
-.text-dark-yellow, .text-dark-yellow-hover:hover {color: var(--color-dark-yellow)}
+.text-red-dark,    .text-red-dark-hover:hover    {color: var(--color-dark-red)}
+.text-green-dark,  .text-green-dark-hover:hover  {color: var(--color-dark-green)}
+.text-blue-dark,   .text-blue-dark-hover:hover   {color: var(--color-dark-blue)}
+.text-aqua-dark,   .text-aqua-dark-hover:hover   {color: var(--color-dark-aqua)}
+.text-brown-dark,  .text-brown-dark-hover:hover  {color: var(--color-dark-brown)}
+.text-gray-dark,   .text-gray-dark-hover:hover   {color: var(--color-dark-gray)}
+.text-royal-dark,  .text-royal-dark-hover:hover  {color: var(--color-dark-royal)}
+.text-orange-dark, .text-orange-dark-hover:hover {color: var(--color-dark-orange)}
+.text-pink-dark,   .text-pink-dark-hover:hover   {color: var(--color-dark-pink)}
+.text-purple-dark, .text-purple-dark-hover:hover {color: var(--color-dark-purple)}
+.text-sand-dark,   .text-sand-dark-hover:hover   {color: var(--color-dark-sand)}
+.text-teal-dark,   .text-teal-dark-hover:hover   {color: var(--color-dark-teal)}
+.text-yellow-dark, .text-yellow-dark-hover:hover {color: var(--color-dark-yellow)}
 
 /**
  * ****************************************
@@ -704,50 +692,42 @@ table.table.streak tr:nth-child(even) {background-color: #e6e6e6}
 .bg-brown,  .bg-brown-hover:hover  {background-color: var(--color-brown)}
 .bg-gray,   .bg-gray-hover:hover   {background-color: var(--color-gray)}
 .bg-royal,  .bg-royal-hover:hover  {background-color: var(--color-royal)}
-.bg-lime,   .bg-lime-hover:hover   {background-color: var(--color-lime)}
 .bg-orange, .bg-orange-hover:hover {background-color: var(--color-orange)}
 .bg-pink,   .bg-pink-hover:hover   {background-color: var(--color-pink)}
 .bg-purple, .bg-purple-hover:hover {background-color: var(--color-purple)}
-.bg-salmon, .bg-salmon-hover:hover {background-color: var(--color-salmon)}
 .bg-sand,   .bg-sand-hover:hover   {background-color: var(--color-sand)}
 .bg-teal,   .bg-teal-hover:hover   {background-color: var(--color-teal)}
 .bg-yellow, .bg-yellow-hover:hover {background-color: var(--color-yellow)}
 
 .bg-light,        .bg-light-hover:hover        {background-color: var(--color-light)}
-.bg-light-black,  .bg-light-black-hover:hover  {background-color: var(--color-light-black)}
-.bg-light-red,    .bg-light-red-hover:hover    {background-color: var(--color-light-red)}
-.bg-light-green,  .bg-light-green-hover:hover  {background-color: var(--color-light-green)}
-.bg-light-blue,   .bg-light-blue-hover:hover   {background-color: var(--color-light-blue)}
-.bg-light-aqua,   .bg-light-aqua-hover:hover   {background-color: var(--color-light-aqua)}
-.bg-light-brown,  .bg-light-brown-hover:hover  {background-color: var(--color-light-brown)}
-.bg-light-gray,   .bg-light-gray-hover:hover   {background-color: var(--color-light-gray)}
-.bg-light-royal,  .bg-light-royal-hover:hover  {background-color: var(--color-light-royal)}
-.bg-light-lime,   .bg-light-lime-hover:hover   {background-color: var(--color-light-lime)}
-.bg-light-orange, .bg-light-orange-hover:hover {background-color: var(--color-light-orange)}
-.bg-light-pink,   .bg-light-pink-hover:hover   {background-color: var(--color-light-pink)}
-.bg-light-purple, .bg-light-purple-hover:hover {background-color: var(--color-light-purple)}
-.bg-light-salmon, .bg-light-salmon-hover:hover {background-color: var(--color-light-salmon)}
-.bg-light-sand,   .bg-light-sand-hover:hover   {background-color: var(--color-light-sand)}
-.bg-light-teal,   .bg-light-teal-hover:hover   {background-color: var(--color-light-teal)}
-.bg-light-yellow, .bg-light-yellow-hover:hover {background-color: var(--color-light-yellow)}
+.bg-red-light,    .bg-red-light-hover:hover    {background-color: var(--color-light-red)}
+.bg-green-light,  .bg-green-light-hover:hover  {background-color: var(--color-light-green)}
+.bg-blue-light,   .bg-blue-light-hover:hover   {background-color: var(--color-light-blue)}
+.bg-aqua-light,   .bg-aqua-light-hover:hover   {background-color: var(--color-light-aqua)}
+.bg-brown-light,  .bg-brown-light-hover:hover  {background-color: var(--color-light-brown)}
+.bg-gray-light,   .bg-gray-light-hover:hover   {background-color: var(--color-light-gray)}
+.bg-royal-light,  .bg-royal-light-hover:hover  {background-color: var(--color-light-royal)}
+.bg-orange-light, .bg-orange-light-hover:hover {background-color: var(--color-light-orange)}
+.bg-pink-light,   .bg-pink-light-hover:hover   {background-color: var(--color-light-pink)}
+.bg-purple-light, .bg-purple-light-hover:hover {background-color: var(--color-light-purple)}
+.bg-sand-light,   .bg-sand-light-hover:hover   {background-color: var(--color-light-sand)}
+.bg-teal-light,   .bg-teal-light-hover:hover   {background-color: var(--color-light-teal)}
+.bg-yellow-light, .bg-yellow-light-hover:hover {background-color: var(--color-light-yellow)}
 
 .bg-dark,        .bg-dark-hover:hover        {background-color: var(--color-dark)}
-.bg-dark-black,  .bg-dark-black-hover:hover  {background-color: var(--color-dark-black)}
-.bg-dark-red,    .bg-dark-red-hover:hover    {background-color: var(--color-dark-red)}
-.bg-dark-green,  .bg-dark-green-hover:hover  {background-color: var(--color-dark-green)}
-.bg-dark-blue,   .bg-dark-blue-hover:hover   {background-color: var(--color-dark-blue)}
-.bg-dark-aqua,   .bg-dark-aqua-hover:hover   {background-color: var(--color-dark-aqua)}
-.bg-dark-brown,  .bg-dark-brown-hover:hover  {background-color: var(--color-dark-brown)}
-.bg-dark-gray,   .bg-dark-gray-hover:hover   {background-color: var(--color-dark-gray)}
-.bg-dark-royal,  .bg-dark-royal-hover:hover  {background-color: var(--color-dark-royal)}
-.bg-dark-lime,   .bg-dark-lime-hover:hover   {background-color: var(--color-dark-lime)}
-.bg-dark-orange, .bg-dark-orange-hover:hover {background-color: var(--color-dark-orange)}
-.bg-dark-pink,   .bg-dark-pink-hover:hover   {background-color: var(--color-dark-pink)}
-.bg-dark-purple, .bg-dark-purple-hover:hover {background-color: var(--color-dark-purple)}
-.bg-dark-salmon, .bg-dark-salmon-hover:hover {background-color: var(--color-dark-salmon)}
-.bg-dark-sand,   .bg-dark-sand-hover:hover   {background-color: var(--color-dark-sand)}
-.bg-dark-teal,   .bg-dark-teal-hover:hover   {background-color: var(--color-dark-teal)}
-.bg-dark-yellow, .bg-dark-yellow-hover:hover {background-color: var(--color-dark-yellow)}
+.bg-red-dark,    .bg-red-dark-hover:hover    {background-color: var(--color-dark-red)}
+.bg-green-dark,  .bg-green-dark-hover:hover  {background-color: var(--color-dark-green)}
+.bg-blue-dark,   .bg-blue-dark-hover:hover   {background-color: var(--color-dark-blue)}
+.bg-aqua-dark,   .bg-aqua-dark-hover:hover   {background-color: var(--color-dark-aqua)}
+.bg-brown-dark,  .bg-brown-dark-hover:hover  {background-color: var(--color-dark-brown)}
+.bg-gray-dark,   .bg-gray-dark-hover:hover   {background-color: var(--color-dark-gray)}
+.bg-royal-dark,  .bg-royal-dark-hover:hover  {background-color: var(--color-dark-royal)}
+.bg-orange-dark, .bg-orange-dark-hover:hover {background-color: var(--color-dark-orange)}
+.bg-pink-dark,   .bg-pink-dark-hover:hover   {background-color: var(--color-dark-pink)}
+.bg-purple-dark, .bg-purple-dark-hover:hover {background-color: var(--color-dark-purple)}
+.bg-sand-dark,   .bg-sand-dark-hover:hover   {background-color: var(--color-dark-sand)}
+.bg-teal-dark,   .bg-teal-dark-hover:hover   {background-color: var(--color-dark-teal)}
+.bg-yellow-dark, .bg-yellow-dark-hover:hover {background-color: var(--color-dark-yellow)}
 
 /**
  * ****************************************

@@ -744,11 +744,9 @@ table.table.streak tr:nth-child(even) {background-color: #e6e6e6}
 .shadow-text-brown,  .shadow-text-brown-hover-off,  .shadow-text-brown-hover:hover  {text-shadow: 0 0 .25em var(--color-light-brown)}
 .shadow-text-gray,   .shadow-text-gray-hover-off,   .shadow-text-gray-hover:hover   {text-shadow: 0 0 .25em var(--color-light-gray)}
 .shadow-text-royal,  .shadow-text-royal-hover-off,  .shadow-text-royal-hover:hover  {text-shadow: 0 0 .25em var(--color-light-royal)}
-.shadow-text-lime,   .shadow-text-lime-hover-off,   .shadow-text-lime-hover:hover   {text-shadow: 0 0 .25em var(--color-light-lime)}
 .shadow-text-orange, .shadow-text-orange-hover-off, .shadow-text-orange-hover:hover {text-shadow: 0 0 .25em var(--color-light-orange)}
 .shadow-text-pink,   .shadow-text-pink-hover-off,   .shadow-text-pink-hover:hover   {text-shadow: 0 0 .25em var(--color-light-pink)}
 .shadow-text-purple, .shadow-text-purple-hover-off, .shadow-text-purple-hover:hover {text-shadow: 0 0 .25em var(--color-light-purple)}
-.shadow-text-salmon, .shadow-text-salmon-hover-off, .shadow-text-salmon-hover:hover {text-shadow: 0 0 .25em var(--color-light-salmon)}
 .shadow-text-sand,   .shadow-text-sand-hover-off,   .shadow-text-sand-hover:hover   {text-shadow: 0 0 .25em var(--color-light-sand)}
 .shadow-text-teal,   .shadow-text-teal-hover-off,   .shadow-text-teal-hover:hover   {text-shadow: 0 0 .25em var(--color-light-teal)}
 .shadow-text-yellow, .shadow-text-yellow-hover-off, .shadow-text-yellow-hover:hover {text-shadow: 0 0 .25em var(--color-light-yellow)}
@@ -763,11 +761,9 @@ table.table.streak tr:nth-child(even) {background-color: #e6e6e6}
 .shadow-text-brown-hover-off:hover  {text-shadow: 0 0}
 .shadow-text-gray-hover-off:hover   {text-shadow: 0 0}
 .shadow-text-royal-hover-off:hover  {text-shadow: 0 0}
-.shadow-text-lime-hover-off:hover   {text-shadow: 0 0}
 .shadow-text-orange-hover-off:hover {text-shadow: 0 0}
 .shadow-text-pink-hover-off:hover   {text-shadow: 0 0}
 .shadow-text-purple-hover-off:hover {text-shadow: 0 0}
-.shadow-text-salmon-hover-off:hover {text-shadow: 0 0}
 .shadow-text-sand-hover-off:hover   {text-shadow: 0 0}
 .shadow-text-teal-hover-off:hover   {text-shadow: 0 0}
 .shadow-text-yellow-hover-off:hover {text-shadow: 0 0}
@@ -787,11 +783,9 @@ table.table.streak tr:nth-child(even) {background-color: #e6e6e6}
 .shadow-box-brown,  .shadow-box-brown-hover-off,  .shadow-box-brown-hover:hover  {box-shadow: 0 0 .5em var(--color-brown)}
 .shadow-box-gray,   .shadow-box-gray-hover-off,   .shadow-box-gray-hover:hover   {box-shadow: 0 0 .5em var(--color-gray)}
 .shadow-box-royal,  .shadow-box-royal-hover-off,  .shadow-box-royal-hover:hover  {box-shadow: 0 0 .5em var(--color-royal)}
-.shadow-box-lime,   .shadow-box-lime-hover-off,   .shadow-box-lime-hover:hover   {box-shadow: 0 0 .5em var(--color-lime)}
 .shadow-box-orange, .shadow-box-orange-hover-off, .shadow-box-orange-hover:hover {box-shadow: 0 0 .5em var(--color-orange)}
 .shadow-box-pink,   .shadow-box-pink-hover-off,   .shadow-box-pink-hover:hover   {box-shadow: 0 0 .5em var(--color-pink)}
 .shadow-box-purple, .shadow-box-purple-hover-off, .shadow-box-purple-hover:hover {box-shadow: 0 0 .5em var(--color-purple)}
-.shadow-box-salmon, .shadow-box-salmon-hover-off, .shadow-box-salmon-hover:hover {box-shadow: 0 0 .5em var(--color-salmon)}
 .shadow-box-sand,   .shadow-box-sand-hover-off,   .shadow-box-sand-hover:hover   {box-shadow: 0 0 .5em var(--color-sand)}
 .shadow-box-teal,   .shadow-box-teal-hover-off,   .shadow-box-teal-hover:hover   {box-shadow: 0 0 .5em var(--color-teal)}
 .shadow-box-yellow, .shadow-box-yellow-hover-off, .shadow-box-yellow-hover:hover {box-shadow: 0 0 .5em var(--color-yellow)}
@@ -806,11 +800,9 @@ table.table.streak tr:nth-child(even) {background-color: #e6e6e6}
 .shadow-box-brown-hover-off:hover  {box-shadow: 0 0}
 .shadow-box-gray-hover-off:hover   {box-shadow: 0 0}
 .shadow-box-royal-hover-off:hover  {box-shadow: 0 0}
-.shadow-box-lime-hover-off:hover   {box-shadow: 0 0}
 .shadow-box-orange-hover-off:hover {box-shadow: 0 0}
 .shadow-box-pink-hover-off:hover   {box-shadow: 0 0}
 .shadow-box-purple-hover-off:hover {box-shadow: 0 0}
-.shadow-box-salmon-hover-off:hover {box-shadow: 0 0}
 .shadow-box-sand-hover-off:hover   {box-shadow: 0 0}
 .shadow-box-teal-hover-off:hover   {box-shadow: 0 0}
 .shadow-box-yellow-hover-off:hover {box-shadow: 0 0}

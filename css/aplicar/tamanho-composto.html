@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <title>Tamanho Composto</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="Aplicação de tamanhos do css-default.css" />
+        <meta name="author" content="Omar Pautz (Spell-master)" />
+        <link href="../css-default.css" rel="stylesheet" type="text/css" />
+        <link href="../../lib/prism/prism.css" rel="stylesheet" type="text/css" />
+        <link href="../../lib/stylesheet/core.css" rel="stylesheet" type="text/css" />
+        <script src="../../lib/prism/prism.js"></script>
+    </head>
+    <body>
+        <header>
+            <div class="bg-black">
+                <div class="container padding-all">
+                    <h1 class="text-white shadow-text-white">Largura e Altura</h1>
+                </div>
+            </div>
+            <div class="bg-light shadow-box">
+                <div class="container padding-all">
+                    <p>Propriedades de tamanho horizontal e vertical combinadas</p>
+                </div>
+            </div>
+        </header>
+
+        <main class="container padding-all">
+            <section class="section">
+                <h3 class="lighter text-gray">&mdash; Largura e Altura &mdash;</h3>
+                <p>Propriedades de largura podem ser combinas com altura idêntica,
+                    apenas adicionando a propriedade <span class="bold">height</span>
+                    em conjunto.</p>
+                <p>O mesmo resultado é obtido com propriedades de altura junto com
+                    a propriedade <span class="bold">width</span>.</p>
+                <p class="italic">Exemplo:</p>
+                <div class="padding-tb-prop">
+                    <div class="row-pad">
+                        <div class="col-half">
+                            <div class="width-200 height bg-black margin-auto"></div>
+                            <div class="card margin-top">
+                                <p class="list"><span class="bold">width-200</span> &DoubleRightArrow; Adiciona a largura.</p>
+                                <p class="list"><span class="bold">height</span> &DoubleRightArrow; Adiciona a altura igual a largura.</p>
+                                <pre><code class="language-html">&lt;div class=&quot;width-200 height&quot;&gt;&lt;&sol;div&gt;</code></pre>
+                            </div>
+                        </div>
+                        <div class="col-half">
+                            <div class="height-200 width bg-black margin-auto"></div>
+                            <div class="card margin-top">
+                                <p class="list"><span class="bold">height-200</span> &DoubleRightArrow; Adiciona a altura.</p>
+                                <p class="list"><span class="bold">width</span> &DoubleRightArrow; Adiciona a largura igual a altura.</p>
+                                <pre><code class="language-html">&lt;div class=&quot;height-200 width&quot;&gt;&lt;&sol;div&gt;</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <hr />
+            <section class="section">
+                <h2 class="lighter text-gray">&mdash; Complemento &mdash;</h2>
+                <div class="padding-tb-prop">
+                    <div class="alert-info">
+                        <p class="list">Qualquer propriedade de largura pode ser combinada com a propriedade
+                            <span class="bold">height</span>.</p>
+                        <p class="list">Qualquer propriedade de altura pode ser combinada com a propriedade
+                            <span class="bold">width</span>.</p>
+                        <p>Ambas expecificações são para unir as propriedades de medidas para uma só composição.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="section bg-black">
+            <div class="container base-center">
+                <div class="align-center text-light font-min">
+                    <p>Aplicação das propriedade com <span class="italic bold">css-default.css</span></p>
+                    <a href="https://github.com/Spell-Master/sm-web/"
+                       target="_blank"
+                       class="href-light"
+                       title="Abre uma nova aba do navegador indo até o repositório no git-hub">
+                        https:&sol;&sol;github.com&sol;Spell-Master&sol;sm-web&sol;</a>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>

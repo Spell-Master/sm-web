@@ -918,156 +918,86 @@ table.table.streak tr:nth-child(even) {background-color: #e6e6e6}
  * Tamanhos
  * ****************************************
  */
-.width-auto  {width: auto}
 .maximize    {width: 100% !important}
 
-.width-1000, .height-1000.width {width: 62.5rem}
-.width-950,  .height-950.width  {width: 59.375rem}
-.width-900,  .height-900.width  {width: 56.25rem}
-.width-850,  .height-850.width  {width: 53.125rem}
-.width-800,  .height-800.width  {width: 50rem}
-.width-750,  .height-750.width  {width: 46.875rem}
-.width-700,  .height-700.width  {width: 43.75rem}
-.width-650,  .height-650.width  {width: 40.625rem}
-.width-600,  .height-600.width  {width: 37.5rem}
-.width-550,  .height-550.width  {width: 34.375rem}
-.width-500,  .height-500.width  {width: 31.25rem}
-.width-450,  .height-450.width  {width: 28.125rem}
-.width-400,  .height-400.width  {width: 25rem}
-.width-350,  .height-350.width  {width: 21.875rem}
-.width-300,  .height-300.width  {width: 18.75rem}
-.width-250,  .height-250.width  {width: 15.625rem}
-.width-200,  .height-200.width  {width: 12.5rem}
-.width-150,  .height-150.width  {width: 9.375rem}
-.width-100,  .height-100.width  {width: 6.25rem}
-.width-50,   .height-50.width   {width: 3.125rem}
+.width-full,  .height-full.width {width:  100%}
+.height-full, .width-full.height {height: 100%}
 
-.height-1000, .width-1000.height {height: 62.5rem}
-.height-950,  .width-950.height  {height: 59.375rem}
-.height-900,  .width-900.height  {height: 56.25rem}
-.height-850,  .width-850.height  {height: 53.125rem}
-.height-800,  .width-800.height  {height: 50rem}
-.height-750,  .width-750.height  {height: 46.875rem}
-.height-700,  .width-700.height  {height: 43.75rem}
-.height-650,  .width-650.height  {height: 40.625rem}
-.height-600,  .width-600.height  {height: 37.5rem}
-.height-550,  .width-550.height  {height: 34.375rem}
-.height-500,  .width-500.height  {height: 31.25rem}
-.height-450,  .width-450.height  {height: 28.125rem}
-.height-400,  .width-400.height  {height: 25rem}
-.height-350,  .width-350.height  {height: 21.875rem}
-.height-300,  .width-300.height  {height: 18.75rem}
-.height-250,  .width-250.height  {height: 15.625rem}
-.height-200,  .width-200.height  {height: 12.5rem}
-.height-150,  .width-150.height  {height: 9.375rem}
-.height-100,  .width-100.height  {height: 6.25rem}
-.height-50,   .width-50.height   {height: 3.125rem}
+.width-auto,  .height-auto.width {width:  auto}
+.height-auto, .width-auto.height {height: auto}
 
-.width-min-1000, .height-min-1000.width {min-width: 62.5rem}
-.width-min-950,  .height-min-950.width  {min-width: 59.375rem}
-.width-min-900,  .height-min-900.width  {min-width: 56.25rem}
-.width-min-850,  .height-min-850.width  {min-width: 53.125rem}
-.width-min-800,  .height-min-800.width  {min-width: 50rem}
-.width-min-750,  .height-min-750.width  {min-width: 46.875rem}
-.width-min-700,  .height-min-700.width  {min-width: 43.75rem}
-.width-min-650,  .height-min-650.width  {min-width: 40.625rem}
-.width-min-600,  .height-min-600.width  {min-width: 37.5rem}
-.width-min-550,  .height-min-550.width  {min-width: 34.375rem}
-.width-min-500,  .height-min-500.width  {min-width: 31.25rem}
-.width-min-450,  .height-min-450.width  {min-width: 28.125rem}
-.width-min-400,  .height-min-400.width  {min-width: 25rem}
-.width-min-350,  .height-min-350.width  {min-width: 21.875rem}
-.width-min-300,  .height-min-300.width  {min-width: 18.75rem}
-.width-min-250,  .height-min-250.width  {min-width: 15.625rem}
-.width-min-200,  .height-min-200.width  {min-width: 12.5rem}
-.width-min-150,  .height-min-150.width  {min-width: 9.375rem}
-.width-min-100,  .height-min-100.width  {min-width: 6.25rem}
-.width-min-50,   .height-min-50.width   {min-width: 3.125rem}
+.width-1000, .height-1000.width {width: 62.5rem}   .height-1000, .width-1000.height {height: 62.5rem}
+.width-950,  .height-950.width  {width: 59.375rem} .height-950,  .width-950.height  {height: 59.375rem}
+.width-900,  .height-900.width  {width: 56.25rem}  .height-900,  .width-900.height  {height: 56.25rem}
+.width-850,  .height-850.width  {width: 53.125rem} .height-850,  .width-850.height  {height: 53.125rem}
+.width-800,  .height-800.width  {width: 50rem}     .height-800,  .width-800.height  {height: 50rem}
+.width-750,  .height-750.width  {width: 46.875rem} .height-750,  .width-750.height  {height: 46.875rem}
+.width-700,  .height-700.width  {width: 43.75rem}  .height-700,  .width-700.height  {height: 43.75rem}
+.width-650,  .height-650.width  {width: 40.625rem} .height-650,  .width-650.height  {height: 40.625rem}
+.width-600,  .height-600.width  {width: 37.5rem}   .height-600,  .width-600.height  {height: 37.5rem}
+.width-550,  .height-550.width  {width: 34.375rem} .height-550,  .width-550.height  {height: 34.375rem}
+.width-500,  .height-500.width  {width: 31.25rem}  .height-500,  .width-500.height  {height: 31.25rem}
+.width-450,  .height-450.width  {width: 28.125rem} .height-450,  .width-450.height  {height: 28.125rem}
+.width-400,  .height-400.width  {width: 25rem}     .height-400,  .width-400.height  {height: 25rem}
+.width-350,  .height-350.width  {width: 21.875rem} .height-350,  .width-350.height  {height: 21.875rem}
+.width-300,  .height-300.width  {width: 18.75rem}  .height-300,  .width-300.height  {height: 18.75rem}
+.width-250,  .height-250.width  {width: 15.625rem} .height-250,  .width-250.height  {height: 15.625rem}
+.width-200,  .height-200.width  {width: 12.5rem}   .height-200,  .width-200.height  {height: 12.5rem}
+.width-150,  .height-150.width  {width: 9.375rem}  .height-150,  .width-150.height  {height: 9.375rem}
+.width-100,  .height-100.width  {width: 6.25rem}   .height-100,  .width-100.height  {height: 6.25rem}
+.width-50,   .height-50.width   {width: 3.125rem}  .height-50,   .width-50.height   {height: 3.125rem}
 
-.height-min-1000, .width-min-1000.height {min-height: 62.5rem}
-.height-min-950,  .width-min-950.height  {min-height: 59.375rem}
-.height-min-900,  .width-min-900.height  {min-height: 56.25rem}
-.height-min-850,  .width-min-850.height  {min-height: 53.125rem}
-.height-min-800,  .width-min-800.height  {min-height: 50rem}
-.height-min-750,  .width-min-750.height  {min-height: 46.875rem}
-.height-min-700,  .width-min-700.height  {min-height: 43.75rem}
-.height-min-650,  .width-min-650.height  {min-height: 40.625rem}
-.height-min-600,  .width-min-600.height  {min-height: 37.5rem}
-.height-min-550,  .width-min-550.height  {min-height: 34.375rem}
-.height-min-500,  .width-min-500.height  {min-height: 31.25rem}
-.height-min-450,  .width-min-450.height  {min-height: 28.125rem}
-.height-min-400,  .width-min-400.height  {min-height: 25rem}
-.height-min-350,  .width-min-350.height  {min-height: 21.875rem}
-.height-min-300,  .width-min-300.height  {min-height: 18.75rem}
-.height-min-250,  .width-min-250.height  {min-height: 15.625rem}
-.height-min-200,  .width-min-200.height  {min-height: 12.5rem}
-.height-min-150,  .width-min-150.height  {min-height: 9.375rem}
-.height-min-100,  .width-min-100.height  {min-height: 6.25rem}
-.height-min-50,   .width-min-50.height   {min-height: 3.125rem}
+.width-min-1000, .height-min-1000.width {min-width: 62.5rem}   .height-min-1000, .width-min-1000.height {min-height: 62.5rem}
+.width-min-950,  .height-min-950.width  {min-width: 59.375rem} .height-min-950,  .width-min-950.height  {min-height: 59.375rem}
+.width-min-900,  .height-min-900.width  {min-width: 56.25rem}  .height-min-900,  .width-min-900.height  {min-height: 56.25rem}
+.width-min-850,  .height-min-850.width  {min-width: 53.125rem} .height-min-850,  .width-min-850.height  {min-height: 53.125rem}
+.width-min-800,  .height-min-800.width  {min-width: 50rem}     .height-min-800,  .width-min-800.height  {min-height: 50rem}
+.width-min-750,  .height-min-750.width  {min-width: 46.875rem} .height-min-750,  .width-min-750.height  {min-height: 46.875rem}
+.width-min-700,  .height-min-700.width  {min-width: 43.75rem}  .height-min-700,  .width-min-700.height  {min-height: 43.75rem}
+.width-min-650,  .height-min-650.width  {min-width: 40.625rem} .height-min-650,  .width-min-650.height  {min-height: 40.625rem}
+.width-min-600,  .height-min-600.width  {min-width: 37.5rem}   .height-min-600,  .width-min-600.height  {min-height: 37.5rem}
+.width-min-550,  .height-min-550.width  {min-width: 34.375rem} .height-min-550,  .width-min-550.height  {min-height: 34.375rem}
+.width-min-500,  .height-min-500.width  {min-width: 31.25rem}  .height-min-500,  .width-min-500.height  {min-height: 31.25rem}
+.width-min-450,  .height-min-450.width  {min-width: 28.125rem} .height-min-450,  .width-min-450.height  {min-height: 28.125rem}
+.width-min-400,  .height-min-400.width  {min-width: 25rem}     .height-min-400,  .width-min-400.height  {min-height: 25rem}
+.width-min-350,  .height-min-350.width  {min-width: 21.875rem} .height-min-350,  .width-min-350.height  {min-height: 21.875rem}
+.width-min-300,  .height-min-300.width  {min-width: 18.75rem}  .height-min-300,  .width-min-300.height  {min-height: 18.75rem}
+.width-min-250,  .height-min-250.width  {min-width: 15.625rem} .height-min-250,  .width-min-250.height  {min-height: 15.625rem}
+.width-min-200,  .height-min-200.width  {min-width: 12.5rem}   .height-min-200,  .width-min-200.height  {min-height: 12.5rem}
+.width-min-150,  .height-min-150.width  {min-width: 9.375rem}  .height-min-150,  .width-min-150.height  {min-height: 9.375rem}
+.width-min-100,  .height-min-100.width  {min-width: 6.25rem}   .height-min-100,  .width-min-100.height  {min-height: 6.25rem}
+.width-min-50,   .height-min-50.width   {min-width: 3.125rem}  .height-min-50,   .width-min-50.height   {min-height: 3.125rem}
 
-.width-max-1000, .height-max-1000.width {max-width: 62.5rem}
-.width-max-950,  .height-max-950.width  {max-width: 59.375rem}
-.width-max-900,  .height-max-900.width  {max-width: 56.25rem}
-.width-max-850,  .height-max-850.width  {max-width: 53.125rem}
-.width-max-800,  .height-max-800.width  {max-width: 50rem}
-.width-max-750,  .height-max-750.width  {max-width: 46.875rem}
-.width-max-700,  .height-max-700.width  {max-width: 43.75rem}
-.width-max-650,  .height-max-650.width  {max-width: 40.625rem}
-.width-max-600,  .height-max-600.width  {max-width: 37.5rem}
-.width-max-550,  .height-max-550.width  {max-width: 34.375rem}
-.width-max-500,  .height-max-500.width  {max-width: 31.25rem}
-.width-max-450,  .height-max-450.width  {max-width: 28.125rem}
-.width-max-400,  .height-max-400.width  {max-width: 25rem}
-.width-max-350,  .height-max-350.width  {max-width: 21.875rem}
-.width-max-300,  .height-max-300.width  {max-width: 18.75rem}
-.width-max-250,  .height-max-250.width  {max-width: 15.625rem}
-.width-max-200,  .height-max-200.width  {max-width: 12.5rem}
-.width-max-150,  .height-max-150.width  {max-width: 9.375rem}
-.width-max-100,  .height-max-100.width  {max-width: 6.25rem}
-.width-max-50,   .height-max-50.width   {max-width: 3.125rem}
+.width-max-1000, .height-max-1000.width {max-width: 62.5rem}   .height-max-1000, .width-max-1000.height {max-height: 62.5rem}
+.width-max-950,  .height-max-950.width  {max-width: 59.375rem} .height-max-950,  .width-max-950.height  {max-height: 59.375rem}
+.width-max-900,  .height-max-900.width  {max-width: 56.25rem}  .height-max-900,  .width-max-900.height  {max-height: 56.25rem}
+.width-max-850,  .height-max-850.width  {max-width: 53.125rem} .height-max-850,  .width-max-850.height  {max-height: 53.125rem}
+.width-max-800,  .height-max-800.width  {max-width: 50rem}     .height-max-800,  .width-max-800.height  {max-height: 50rem}
+.width-max-750,  .height-max-750.width  {max-width: 46.875rem} .height-max-750,  .width-max-750.height  {max-height: 46.875rem}
+.width-max-700,  .height-max-700.width  {max-width: 43.75rem}  .height-max-700,  .width-max-700.height  {max-height: 43.75rem}
+.width-max-650,  .height-max-650.width  {max-width: 40.625rem} .height-max-650,  .width-max-650.height  {max-height: 40.625rem}
+.width-max-600,  .height-max-600.width  {max-width: 37.5rem}   .height-max-600,  .width-max-600.height  {max-height: 37.5rem}
+.width-max-550,  .height-max-550.width  {max-width: 34.375rem} .height-max-550,  .width-max-550.height  {max-height: 34.375rem}
+.width-max-500,  .height-max-500.width  {max-width: 31.25rem}  .height-max-500,  .width-max-500.height  {max-height: 31.25rem}
+.width-max-450,  .height-max-450.width  {max-width: 28.125rem} .height-max-450,  .width-max-450.height  {max-height: 28.125rem}
+.width-max-400,  .height-max-400.width  {max-width: 25rem}     .height-max-400,  .width-max-400.height  {max-height: 25rem}
+.width-max-350,  .height-max-350.width  {max-width: 21.875rem} .height-max-350,  .width-max-350.height  {max-height: 21.875rem}
+.width-max-300,  .height-max-300.width  {max-width: 18.75rem}  .height-max-300,  .width-max-300.height  {max-height: 18.75rem}
+.width-max-250,  .height-max-250.width  {max-width: 15.625rem} .height-max-250,  .width-max-250.height  {max-height: 15.625rem}
+.width-max-200,  .height-max-200.width  {max-width: 12.5rem}   .height-max-200,  .width-max-200.height  {max-height: 12.5rem}
+.width-max-150,  .height-max-150.width  {max-width: 9.375rem}  .height-max-150,  .width-max-150.height  {max-height: 9.375rem}
+.width-max-100,  .height-max-100.width  {max-width: 6.25rem}   .height-max-100,  .width-max-100.height  {max-height: 6.25rem}
+.width-max-50,   .height-max-50.width   {max-width: 3.125rem}  .height-max-50,   .width-max-50.height   {max-height: 3.125rem}
 
-.height-max-1000, .width-max-1000.height {max-height: 62.5rem}
-.height-max-950,  .width-max-950.height  {max-height: 59.375rem}
-.height-max-900,  .width-max-900.height  {max-height: 56.25rem}
-.height-max-850,  .width-max-850.height  {max-height: 53.125rem}
-.height-max-800,  .width-max-800.height  {max-height: 50rem}
-.height-max-750,  .width-max-750.height  {max-height: 46.875rem}
-.height-max-700,  .width-max-700.height  {max-height: 43.75rem}
-.height-max-650,  .width-max-650.height  {max-height: 40.625rem}
-.height-max-600,  .width-max-600.height  {max-height: 37.5rem}
-.height-max-550,  .width-max-550.height  {max-height: 34.375rem}
-.height-max-500,  .width-max-500.height  {max-height: 31.25rem}
-.height-max-450,  .width-max-450.height  {max-height: 28.125rem}
-.height-max-400,  .width-max-400.height  {max-height: 25rem}
-.height-max-350,  .width-max-350.height  {max-height: 21.875rem}
-.height-max-300,  .width-max-300.height  {max-height: 18.75rem}
-.height-max-250,  .width-max-250.height  {max-height: 15.625rem}
-.height-max-200,  .width-max-200.height  {max-height: 12.5rem}
-.height-max-150,  .width-max-150.height  {max-height: 9.375rem}
-.height-max-100,  .width-max-100.height  {max-height: 6.25rem}
-.height-max-50,   .width-max-50.height   {max-height: 3.125rem}
-
-.width-prop-1  {width: 100%}
-.width-prop-2  {width: 49.99999%}
-.width-prop-3  {width: 33.33333%}
-.width-prop-4  {width: 24.99999%}
-.width-prop-5  {width: 19.99999%}
-.width-prop-6  {width: 16.66666%}
-.width-prop-7  {width: 14.28571%}
-.width-prop-8  {width: 12.49999%}
-.width-prop-9  {width: 11.11111%}
-.width-prop-10 {width: 9.99999%}
-
-.height-prop-1  {height: 100%}
-.height-prop-2  {height: 49.99999%}
-.height-prop-3  {height: 33.33333%}
-.height-prop-4  {height: 24.99999%}
-.height-prop-5  {height: 19.99999%}
-.height-prop-6  {height: 16.66666%}
-.height-prop-7  {height: 14.28571%}
-.height-prop-8  {height: 12.49999%}
-.height-prop-9  {height: 11.11111%}
-.height-prop-10 {height: 9.99999%}
+.width-prop-2,  .height-prop-2.width  {width: 49.99999%} .height-prop-2,  .width-prop-2.height  {height: 49.99999%}
+.width-prop-3,  .height-prop-3.width  {width: 33.33333%} .height-prop-3,  .width-prop-3.height  {height: 33.33333%}
+.width-prop-4,  .height-prop-4.width  {width: 24.99999%} .height-prop-4,  .width-prop-4.height  {height: 24.99999%}
+.width-prop-5,  .height-prop-5.width  {width: 19.99999%} .height-prop-5,  .width-prop-5.height  {height: 19.99999%}
+.width-prop-6,  .height-prop-6.width  {width: 16.66666%} .height-prop-6,  .width-prop-6.height  {height: 16.66666%}
+.width-prop-7,  .height-prop-7.width  {width: 14.28571%} .height-prop-7,  .width-prop-7.height  {height: 14.28571%}
+.width-prop-8,  .height-prop-8.width  {width: 12.49999%} .height-prop-8,  .width-prop-8.height  {height: 12.49999%}
+.width-prop-9,  .height-prop-9.width  {width: 11.11111%} .height-prop-9,  .width-prop-9.height  {height: 11.11111%}
+.width-prop-10, .height-prop-10.width {width: 9.99999%}  .height-prop-10, .width-prop-10.height {height: 9.99999%}
 
 /**
  * ****************************************

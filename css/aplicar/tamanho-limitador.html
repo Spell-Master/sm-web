@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <title>Tamanhos Limitados</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="Aplicação de tamanhos do css-default.css" />
+        <meta name="author" content="Omar Pautz (Spell-master)" />
+        <link href="../css-default.css" rel="stylesheet" type="text/css" />
+        <link href="../../lib/prism/prism.css" rel="stylesheet" type="text/css" />
+        <link href="../../javascript/ModalShow/ModalShow.css" rel="stylesheet" type="text/css" />
+        <link href="../../lib/stylesheet/core.css" rel="stylesheet" type="text/css" />
+        <script src="../../lib/prism/prism.js"></script>
+        <script src="../../javascript/ModalShow/ModalShow.js"></script>
+        <script src="../../javascript/jsd/js-default.js"></script>
+        <script src="../../lib/js/mostar-codigo.js"></script>
+    </head>
+    <body>
+        <header>
+            <div class="bg-black">
+                <div class="container padding-all">
+                    <h1 class="text-white shadow-text-white">Tamanho Limitado</h1>
+                </div>
+            </div>
+            <div class="bg-light shadow-box">
+                <div class="container padding-all">
+                    <p>Propriedades de tamanhos de limitação</p>
+                </div>
+            </div>
+            <div class="container">
+                <blockquote class="quote-yellow">
+                    <p>NOTA!</p>
+                    <p>Neste documento será apenas algumas propriedades na prática,
+                        ao final teremos uma lista com todas propriedades para categoria de tamanho iimitado.</p>
+                </blockquote>
+            </div>
+        </header>
+
+        <main class="container padding-all">
+            <section class="section">
+                <h2 class="lighter text-gray">&mdash; Largura Mínima &mdash;</h2>
+                <blockquote class="quote">
+                    <p>Propriedades que extendem horizontalmente para uma largura mínima.</p>
+                    <p>Quer dizer que o elemento pode possuir largura maior que o definido, mas nunca menor.</p>
+                </blockquote>
+                <div class="padding-tb-prop">
+                    <div class="row-pad">
+                        <div class="col-third">
+                            <p class="list bold">width-min-200</p>
+                            <div class="static text-white">
+                                <div class="over-x-on">
+                                    <div class="width-min-200 bg-red padding-all">200 pixels de largura mínima</div>
+                                </div>
+                            </div>
+                            <div class="align-center margin-tb">
+                                <button class="btn-default radius-all-min shadow-box" data-code="">CÓDIGO HTML</button>
+                            </div>
+                        </div>
+                        <div class="col-third">
+                            <p class="list bold">width-min-400</p>
+                            <div class="static text-white">
+                                <div class="over-x-on">
+                                    <div class="width-min-400 bg-green padding-all">400 pixels de largura mínima</div>
+                                </div>
+                            </div>
+                            <div class="align-center margin-tb">
+                                <button class="btn-default radius-all-min shadow-box" data-code="">CÓDIGO HTML</button>
+                            </div>
+                        </div>
+                        <div class="col-third">
+                            <p class="list bold">width-min-600</p>
+                            <div class="static text-white">
+                                <div class="over-x-on">
+                                    <div class="width-min-600 bg-blue padding-all">600 pixels de largura mínima</div>
+                                </div>
+                            </div>
+                            <div class="align-center margin-tb">
+                                <button class="btn-default radius-all-min shadow-box" data-code="">CÓDIGO HTML</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <hr />
+            <section class="section">
+                <h2 class="lighter text-gray">&mdash; Largura Máxima &mdash;</h2>
+                <blockquote class="quote">
+                    <p>Propriedades que extendem horizontalmente para uma largura máxima.</p>
+                    <p>Quer dizer que o elemento pode possuir largura menor que o definido, mas nunca maior.</p>
+                </blockquote>
+                <div class="padding-tb-prop">
+                    <div class="row-pad">
+                        <div class="col-third flex-column">
+                            <p class="list bold">width-max-200</p>
+                            <div class="base-vertical text-white">
+                                <div class="static">
+                                    <div class="width-max-200 bg-red padding-all">200 pixels de largura máxima</div>
+                                </div>
+                            </div>
+                            <div class="align-center margin-tb">
+                                <button class="btn-default radius-all-min shadow-box" data-code="">CÓDIGO HTML</button>
+                            </div>
+                        </div>
+                        <div class="col-third flex-column">
+                            <p class="list bold">width-max-400</p>
+                            <div class="base-vertical text-white">
+                                <div class="static">
+                                    <div class="width-max-400 bg-green padding-all">400 pixels de largura máxima</div>
+                                </div>
+                            </div>
+                            <div class="align-center margin-tb">
+                                <button class="btn-default radius-all-min shadow-box" data-code="">CÓDIGO HTML</button>
+                            </div>
+                        </div>
+                        <div class="col-third flex-column">
+                            <p class="list bold">width-max-600</p>
+                            <div class="base-vertical text-white">
+                                <div class="static">
+                                    <div class="width-max-600 bg-blue padding-all">600 pixels de largura máxima</div>
+                                </div>
+                            </div>
+                            <div class="align-center margin-tb">
+                                <button class="btn-default radius-all-min shadow-box" data-code="">CÓDIGO HTML</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <hr />
+            <section class="section">
+                <h2 class="lighter text-gray">&mdash; Altura Mínima &mdash;</h2>
+                <blockquote class="quote">
+                    <p>Propriedades que extendem verticalmente para uma altura mínima.</p>
+                    <p>Quer dizer que o elemento pode possuir altura maior que o definido, mas nunca menor.</p>
+                </blockquote>
+                <div class="padding-tb-prop">
+                    <div class="row-pad fix">
+                        <div class="col-third">
+                            <p class="list bold">height-min-100</p>
+                            <div class="height-min-100 bg-red text-white padding-all">100 pixels de altura mínima</div>
+                        </div>
+                        <div class="col-third">
+                            <p class="list bold">height-min-150</p>
+                            <div class="height-min-150 bg-green text-white padding-all">150 pixels de altura mínima</div>
+                        </div>
+                        <div class="col-third">
+                            <p class="list bold">height-min-200</p>
+                            <div class="height-min-200 bg-blue text-white padding-all">200 pixels de altura mínima</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <hr />
+            <section class="section">
+                <h2 class="lighter text-gray">&mdash; Altura Máxima &mdash;</h2>
+                <blockquote class="quote">
+                    <p>Propriedades que extendem verticalmente para uma altura máxima.</p>
+                    <p>Quer dizer que o elemento pode possuir altura menor que o definido, mas nunca maior.</p>
+                </blockquote>
+                <div class="padding-tb-prop">
+                    <div class="row-pad fix">
+                        <div class="col-third">
+                            <p class="list bold">height-max-100</p>
+                            <div class="height-max-100 bg-red text-white padding-all over-y">
+                                <p>100 pixels de altura máxima</p>
+                                <div class="font-min">
+                                    <p>Lorem ipsum dolor sit amet,
+                                        consectetur adipisicing elit,
+                                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                    <p>Ut enim ad minim veniam,
+                                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                                        fugiat nulla pariatur.</p>
+                                    <p>Excepteur sint occaecat cupidatat non proident,
+                                        sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-third">
+                            <p class="list bold">height-max-150</p>
+                            <div class="height-max-150 bg-green text-white padding-all over-y">
+                                <p>150 pixels de altura máxima</p>
+                                <div class="font-min">
+                                    <p>Lorem ipsum dolor sit amet,
+                                        consectetur adipisicing elit,
+                                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                    <p>Ut enim ad minim veniam,
+                                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                                        fugiat nulla pariatur.</p>
+                                    <p>Excepteur sint occaecat cupidatat non proident,
+                                        sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-third">
+                            <p class="list bold">height-max-200</p>
+                            <div class="height-max-200 bg-blue text-white padding-all over-y">
+                                <p>200 pixels de altura máxima</p>
+                                <div class="font-min">
+                                    <p>Lorem ipsum dolor sit amet,
+                                        consectetur adipisicing elit,
+                                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                    <p>Ut enim ad minim veniam,
+                                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                                        fugiat nulla pariatur.</p>
+                                    <p>Excepteur sint occaecat cupidatat non proident,
+                                        sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <hr />
+            <section class="section">
+                <h2 class="lighter text-gray">&mdash; Tamanhos Mínimos &mdash;</h2>
+                <div class="padding-tb-prop">
+                    <div class="row-pad">
+                        <div class="col-quarter">
+                            <ul>
+                                <li>width-min-1000</li>
+                                <li>width-min-950</li>
+                                <li>width-min-900</li>
+                                <li>width-min-850</li>
+                                <li>width-min-800</li>
+                            </ul>
+                        </div>
+                        <div class="col-quarter">
+                            <ul>
+                                <li>width-min-750</li>
+                                <li>width-min-700</li>
+                                <li>width-min-650</li>
+                                <li>width-min-600</li>
+                                <li>width-min-550</li>
+                            </ul>
+                        </div>
+                        <div class="col-quarter">
+                            <ul>
+                                <li>width-min-500</li>
+                                <li>width-min-450</li>
+                                <li>width-min-400</li>
+                                <li>width-min-350</li>
+                                <li>width-min-300</li>
+                            </ul>
+                        </div>
+                        <div class="col-quarter">
+                            <ul>
+                                <li>width-min-250</li>
+                                <li>width-min-200</li>
+                                <li>width-min-150</li>
+                                <li>width-min-100</li>
+                                <li>width-min-50</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="padding-tb-prop">
+                    <div class="row-pad">
+                        <div class="col-quarter">
+                            <ul>
+                                <li>height-min-1000</li>
+                                <li>height-min-950</li>
+                                <li>height-min-900</li>
+                                <li>height-min-850</li>
+                                <li>height-min-800</li>
+                            </ul>
+                        </div>
+                        <div class="col-quarter">
+                            <ul>
+                                <li>height-min-750</li>
+                                <li>height-min-700</li>
+                                <li>height-min-650</li>
+                                <li>height-min-600</li>
+                                <li>height-min-550</li>
+                            </ul>
+                        </div>
+                        <div class="col-quarter">
+                            <ul>
+                                <li>height-min-500</li>
+                                <li>height-min-450</li>
+                                <li>height-min-400</li>
+                                <li>height-min-350</li>
+                                <li>height-min-300</li>
+                            </ul>
+                        </div>
+                        <div class="col-quarter">
+                            <ul>
+                                <li>height-min-250</li>
+                                <li>height-min-200</li>
+                                <li>height-min-150</li>
+                                <li>height-min-100</li>
+                                <li>height-min-50</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <hr />
+            <section class="section">
+                <h2 class="lighter text-gray">&mdash; Tamanhos Máximos &mdash;</h2>
+                <div class="padding-tb-prop">
+                    <div class="row-pad">
+                        <div class="col-quarter">
+                            <ul>
+                                <li>width-max-1000</li>
+                                <li>width-max-950</li>
+                                <li>width-max-900</li>
+                                <li>width-max-850</li>
+                                <li>width-max-800</li>
+                            </ul>
+                        </div>
+                        <div class="col-quarter">
+                            <ul>
+                                <li>width-max-750</li>
+                                <li>width-max-700</li>
+                                <li>width-max-650</li>
+                                <li>width-max-600</li>
+                                <li>width-max-550</li>
+                            </ul>
+                        </div>
+                        <div class="col-quarter">
+                            <ul>
+                                <li>width-max-500</li>
+                                <li>width-max-450</li>
+                                <li>width-max-400</li>
+                                <li>width-max-350</li>
+                                <li>width-max-300</li>
+                            </ul>
+                        </div>
+                        <div class="col-quarter">
+                            <ul>
+                                <li>width-max-250</li>
+                                <li>width-max-200</li>
+                                <li>width-max-150</li>
+                                <li>width-max-100</li>
+                                <li>width-max-50</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="padding-tb-prop">
+                    <div class="row-pad">
+                        <div class="col-quarter">
+                            <ul>
+                                <li>height-max-1000</li>
+                                <li>height-max-950</li>
+                                <li>height-max-900</li>
+                                <li>height-max-850</li>
+                                <li>height-max-800</li>
+                            </ul>
+                        </div>
+                        <div class="col-quarter">
+                            <ul>
+                                <li>height-max-750</li>
+                                <li>height-max-700</li>
+                                <li>height-max-650</li>
+                                <li>height-max-600</li>
+                                <li>height-max-550</li>
+                            </ul>
+                        </div>
+                        <div class="col-quarter">
+                            <ul>
+                                <li>height-max-500</li>
+                                <li>height-max-450</li>
+                                <li>height-max-400</li>
+                                <li>height-max-350</li>
+                                <li>height-max-300</li>
+                            </ul>
+                        </div>
+                        <div class="col-quarter">
+                            <ul>
+                                <li>height-max-250</li>
+                                <li>height-max-200</li>
+                                <li>height-max-150</li>
+                                <li>height-max-100</li>
+                                <li>height-max-50</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="section bg-black">
+            <div class="container base-center">
+                <div class="align-center text-light font-min">
+                    <p>Aplicação das propriedade com <span class="italic bold">css-default.css</span></p>
+                    <a href="https://github.com/Spell-Master/sm-web/"
+                       target="_blank"
+                       class="href-light"
+                       title="Abre uma nova aba do navegador indo até o repositório no git-hub">
+                        https:&sol;&sol;github.com&sol;Spell-Master&sol;sm-web&sol;</a>
+                </div>
+            </div>
+        </footer>
+
+        <aside aria-hidden="true">
+            <div class="modal" id="show-code">
+                <div class="modal-box">
+                    <div class="modal-header">Código Fonte</div>
+                    <div class="modal-content">
+                        <pre><code class="language-html"></code></pre>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <script>showCode.init();</script>
+    </body>
+</html>

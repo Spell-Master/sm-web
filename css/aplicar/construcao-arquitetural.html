@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <title>Arquitetura</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="Linhas e colunas do css-default.css" />
+        <meta name="author" content="Omar Pautz (Spell-master)" />
+        <link href="../css-default.css" rel="stylesheet" type="text/css" />
+        <link href="../../lib/prism/prism.css" rel="stylesheet" type="text/css" />
+        <link href="../../javascript/ModalShow/ModalShow.css" rel="stylesheet" type="text/css" />
+        <link href="../../lib/stylesheet/core.css" rel="stylesheet" type="text/css" />
+        <script src="../../lib/prism/prism.js"></script>
+        <script src="../../javascript/ModalShow/ModalShow.js"></script>
+        <script src="../../javascript/jsd/js-default.js"></script>
+        <script src="../../lib/js/mostar-codigo.js"></script>
+    </head>
+    <body>
+        <header>
+            <div class="bg-black">
+                <div class="container padding-all">
+                    <h1 class="text-white shadow-text-white">Construção Arquitetural</h1>
+                </div>
+            </div>
+            <div class="bg-light shadow-box">
+                <div class="container padding-all">
+                    <p>Propriedades de construção da arquitetura</p>
+                </div>
+            </div>
+        </header>
+
+        <main class="container padding-all">
+            <section class="section">
+                <h2 class="lighter text-gray">&mdash; Conceito &mdash;</h2>
+                <div class="padding-tb-prop">
+                    <div class="row-pad">
+                        <div class="col-third">
+                            <img src="../../lib/img/col-row.jpg" class="image-auto height-max-300 margin-auto" alt="" />
+                        </div>
+                        <div class="col-twothird">
+                            <p>As propriedades de linhas e colunas trabalham juntas 
+                                para construir a arquitetura dos componentes no documento.</p>
+                            <p>São as principais propriedades e recurso projetado apenas
+                                para essa finalidade no css-default.css com objetivo de compor
+                                o desenho da página.</p>
+                            <hr />
+                            <p>Linhas servem para agrupar as colunas na horizontal, assim manipulam cada coluna interna.</p>
+                            <p>As colunas se expanedem ou se retraem de acordo com a disponibilidades de espaço
+                                onde estão, possuem larguras pré estipuladas.</p>
+                            <p>Quando a tela de visualização possuir mínimo de 640 pixel&apos;s cada coluna se
+                                expande até a largura da linha em que se encontra ocupando assim
+                                todo espaço disponível se empilhando uma em cima da outra para se adaptar as
+                                diferentes resoluções de telas.</p>
+                            <p>Combinando cada elemento em diferentes usos pode-se construir toda arquitetura da página.</p>
+                        </div>
+                        <div class="col-single">
+                            <blockquote class="quote-yellow">
+                                <p>NOTA*</p>
+                                <p>Aqui apenas será mostrado o uso na prática.</p>
+                            </blockquote>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <hr />
+            <section class="section">
+                <h2 class="lighter text-gray">&mdash; Aplicando na Prática &mdash;</h2>
+                <blockquote class="quote">
+                    <p>Abaixo temos o uso na prática...</p>
+                    <p>Imagine que seja um documento, uma página onde cada bloco colorido seja uma área da estrutura html,
+                        então teremos uma página construída com as propriedades de linha junto com as propriedades de colunas.</p>
+                    <p>Você pode mudar a largura da tela e ver como cada elemento se adapta a visualização.</p>
+                </blockquote>
+                <div class="padding-tb-prop">
+                    <div class="static">
+                        <div class="row">
+                            <div class="col-single">
+                                <div class="row fix">
+                                    <div class="col-auto bg-gray-dark height-50"></div>
+                                    <div class="col-auto bg-gray-light width-max-100"></div>
+                                </div>
+                            </div>
+                            <div class="col-single bg-black">
+                                <div class="padding-all height-200"></div>
+                            </div>
+                        </div>
+                        <div class="row-pad">
+                            <div class="col-twothird bg-gray">
+                                <div class="row-pad">
+                                    <div class="col-3"><div class="bg-red height-100"></div></div>
+                                    <div class="col-3"><div class="bg-green height-100"></div></div>
+                                    <div class="col-3"><div class="bg-blue height-100"></div></div>
+                                    <div class="col-3"><div class="bg-yellow height-100"></div></div>
+                                    <div class="col-3"><div class="bg-pink height-100"></div></div>
+                                    <div class="col-3"><div class="bg-purple height-100"></div></div>
+                                    <div class="col-1">
+                                        <div class="row">
+                                            <div class="col-2"><div class="bg-royal height-100"></div></div>
+                                            <div class="col-2"><div class="bg-aqua height-100"></div></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-third bg-sand">
+                                <div class="row-pad">
+                                    <div class="col-single"><div class="bg-orange height-100"></div></div>
+                                    <div class="col-single"><div class="bg-brown height-100"></div></div>
+                                    <div class="col-single"><div class="bg-blue-dark height-100"></div></div>
+                                </div>
+                            </div>
+                            <div class="col-single bg-gray-dark"><div class="height-50"></div></div>
+                        </div>
+                    </div>
+                    <div class="margin-top align-center">
+                        <button class="btn-default radius-all-min shadow-box" data-code="">CÓDIGO HTML</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="section bg-black">
+            <div class="container base-center">
+                <div class="align-center text-light font-min">
+                    <p>Aplicação das propriedade com <span class="italic bold">css-default.css</span></p>
+                    <a href="https://github.com/Spell-Master/sm-web/"
+                       target="_blank"
+                       class="href-light"
+                       title="Abre uma nova aba do navegador indo até o repositório no git-hub">
+                        https:&sol;&sol;github.com&sol;Spell-Master&sol;sm-web&sol;</a>
+                </div>
+            </div>
+        </footer>
+
+        <aside aria-hidden="true">
+            <div class="modal" id="show-code">
+                <div class="modal-box">
+                    <div class="modal-header">Código Fonte</div>
+                    <div class="modal-content">
+                        <pre><code class="language-html"></code></pre>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <script>showCode.init();</script>
+    </body>
+</html>

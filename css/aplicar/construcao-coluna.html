@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <title>Arquitetura de Colunas</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="Linhas e colunas do css-default.css" />
+        <meta name="author" content="Omar Pautz (Spell-master)" />
+        <link href="../css-default.css" rel="stylesheet" type="text/css" />
+        <link href="../../lib/prism/prism.css" rel="stylesheet" type="text/css" />
+        <link href="../../javascript/ModalShow/ModalShow.css" rel="stylesheet" type="text/css" />
+        <link href="../../lib/stylesheet/core.css" rel="stylesheet" type="text/css" />
+        <script src="../../lib/prism/prism.js"></script>
+        <script src="../../javascript/ModalShow/ModalShow.js"></script>
+        <script src="../../javascript/jsd/js-default.js"></script>
+        <script src="../../lib/js/mostar-codigo.js"></script>
+    </head>
+    <body>
+        <header>
+            <div class="bg-black">
+                <div class="container padding-all">
+                    <h1 class="text-white shadow-text-white">Colunas</h1>
+                </div>
+            </div>
+            <div class="bg-light shadow-box">
+                <div class="container padding-all">
+                    <p>Propriedades de colunas</p>
+                </div>
+            </div>
+            <div class="container padding-all">
+                <p>As propriedades de colunas foram projetadas para serem usadas em conjunto com
+                    as propriedades de linhas.</p>
+                <p>No entanto podem ser utilizadas independente conforme for necessário.</p>
+            </div>
+        </header>
+
+        <main class="container padding-all">
+            <section class="section">
+                <h2 class="lighter text-gray">&mdash; Colunas Gerais &mdash;</h2>
+                <div class="padding-tb-prop">
+                    <p class="list"><span class="bold">col-single</span>
+                        &DoubleRightArrow; Equivale a toda lina.</p>
+                    <div class="col-single">
+                        <div class="card-dark">col-single</div>
+                    </div>
+                    <p class="list"><span class="bold">col-half</span>
+                        &DoubleRightArrow; Equivale a metade da linha.</p>
+                    <div class="col-half fix">
+                        <div class="card-dark">col-half</div>
+                    </div>
+                    <p class="list"><span class="bold">col-third</span>
+                        &DoubleRightArrow; Equivale a um terço da linha.</p>
+                    <div class="col-third fix">
+                        <div class="card-dark">col-third</div>
+                    </div>
+                    <p class="list"><span class="bold">col-quarter</span>
+                        &DoubleRightArrow; Equivale a um quarto da linha.</p>
+                    <div class="col-quarter fix">
+                        <div class="card-dark">col-quarter</div>
+                    </div>
+                    <p class="list"><span class="bold">col-threequarter</span>
+                        &DoubleRightArrow; Equivale a três quartos da linha.</p>
+                    <div class="col-threequarter fix">
+                        <div class="card-dark">col-threequarter</div>
+                    </div>
+                    <p class="list"><span class="bold">col-twothird</span>
+                        &DoubleRightArrow; Equivale a dois terços da linha.</p>
+                    <div class="col-twothird fix">
+                        <div class="card-dark">col-twothird</div>
+                    </div>
+                </div>
+            </section>
+
+            <hr />
+            <section class="section">
+                <h2 class="lighter text-gray">&mdash; Colunas Adicionais &mdash;</h2>
+                <div class="padding-tb-prop">
+                    <div class="row-pad">
+                        <div class="col-half">
+                            <p class="list">
+                                <span class="bold">col-1</span> &DoubleRightArrow;
+                                A coluna abrange toda linha.</p>
+                            <div class="row font-med align-center">
+                                <div class="col-1"><div class="card-dark">1</div></div>
+                            </div> 
+                        </div>
+                        <div class="col-half">
+                            <p class="list">
+                                <span class="bold">col-2</span> &DoubleRightArrow;
+                                Divide a linha em 2 colunas.</p>
+                            <div class="row fix font-med align-center">
+                                <div class="col-2"><div class="card-dark">1</div></div>
+                                <div class="col-2"><div class="card-dark">2</div></div>
+                            </div>
+                        </div>
+                        <div class="col-half">
+                            <p class="list">
+                                <span class="bold">col-3</span> &DoubleRightArrow;
+                                Divide a linha em 3 colunas.</p>
+                            <div class="row fix font-med align-center">
+                                <div class="col-3"><div class="card-dark">1</div></div>
+                                <div class="col-3"><div class="card-dark">2</div></div>
+                                <div class="col-3"><div class="card-dark">3</div></div>
+                            </div>
+                        </div>
+                        <div class="col-half">
+                            <p class="list">
+                                <span class="bold">col-4</span> &DoubleRightArrow;
+                                Divide a linha em 4 colunas.</p>
+                            <div class="row fix font-med align-center">
+                                <div class="col-4"><div class="card-dark">1</div></div>
+                                <div class="col-4"><div class="card-dark">2</div></div>
+                                <div class="col-4"><div class="card-dark">3</div></div>
+                                <div class="col-4"><div class="card-dark">4</div></div>
+                            </div>
+                        </div>
+                        <div class="col-half">
+                            <p class="list">
+                                <span class="bold">col-5</span> &DoubleRightArrow;
+                                Divide a linha em 5 colunas.</p>
+                            <div class="row fix font-med align-center">
+                                <div class="col-5"><div class="card-dark">1</div></div>
+                                <div class="col-5"><div class="card-dark">2</div></div>
+                                <div class="col-5"><div class="card-dark">3</div></div>
+                                <div class="col-5"><div class="card-dark">4</div></div>
+                                <div class="col-5"><div class="card-dark">5</div></div>
+                            </div>
+                        </div>
+                        <div class="col-half">
+                            <p class="list">
+                                <span class="bold">col-6</span> &DoubleRightArrow;
+                                Divide a linha em 6 colunas.</p>
+                            <div class="row fix font-med align-center">
+                                <div class="col-6"><div class="card-dark">1</div></div>
+                                <div class="col-6"><div class="card-dark">2</div></div>
+                                <div class="col-6"><div class="card-dark">3</div></div>
+                                <div class="col-6"><div class="card-dark">4</div></div>
+                                <div class="col-6"><div class="card-dark">5</div></div>
+                                <div class="col-6"><div class="card-dark">6</div></div>
+                            </div>
+                        </div>
+                        <div class="col-half">
+                            <p class="list">
+                                <span class="bold">col-7</span> &DoubleRightArrow;
+                                Divide a linha em 7 colunas.</p>
+                            <div class="row fix font-med align-center">
+                                <div class="col-7"><div class="card-dark">1</div></div>
+                                <div class="col-7"><div class="card-dark">2</div></div>
+                                <div class="col-7"><div class="card-dark">3</div></div>
+                                <div class="col-7"><div class="card-dark">4</div></div>
+                                <div class="col-7"><div class="card-dark">5</div></div>
+                                <div class="col-7"><div class="card-dark">6</div></div>
+                                <div class="col-7"><div class="card-dark">7</div></div>
+                            </div>
+                        </div>
+                        <div class="col-half">
+                            <p class="list">
+                                <span class="bold">col-8</span> &DoubleRightArrow;
+                                Divide a linha em 8 colunas.</p>
+                            <div class="row fix font-med align-center">
+                                <div class="col-8"><div class="card-dark">1</div></div>
+                                <div class="col-8"><div class="card-dark">2</div></div>
+                                <div class="col-8"><div class="card-dark">3</div></div>
+                                <div class="col-8"><div class="card-dark">4</div></div>
+                                <div class="col-8"><div class="card-dark">5</div></div>
+                                <div class="col-8"><div class="card-dark">6</div></div>
+                                <div class="col-8"><div class="card-dark">7</div></div>
+                                <div class="col-8"><div class="card-dark">8</div></div>
+                            </div>
+                        </div>
+                        <div class="col-half">
+                            <p class="list">
+                                <span class="bold">col-9</span> &DoubleRightArrow;
+                                Divide a linha em 9 colunas.</p>
+                            <div class="row fix font-med align-center">
+                                <div class="col-9"><div class="card-dark">1</div></div>
+                                <div class="col-9"><div class="card-dark">2</div></div>
+                                <div class="col-9"><div class="card-dark">3</div></div>
+                                <div class="col-9"><div class="card-dark">4</div></div>
+                                <div class="col-9"><div class="card-dark">5</div></div>
+                                <div class="col-9"><div class="card-dark">6</div></div>
+                                <div class="col-9"><div class="card-dark">7</div></div>
+                                <div class="col-9"><div class="card-dark">8</div></div>
+                                <div class="col-9"><div class="card-dark">9</div></div>
+                            </div>
+                        </div>
+                        <div class="col-half">
+                            <p class="list">
+                                <span class="bold">col-10</span> &DoubleRightArrow;
+                                Divide a linha em 10 colunas.</p>
+                            <div class="row fix font-med align-center">
+                                <div class="col-10"><div class="card-dark">1</div></div>
+                                <div class="col-10"><div class="card-dark">2</div></div>
+                                <div class="col-10"><div class="card-dark">3</div></div>
+                                <div class="col-10"><div class="card-dark">4</div></div>
+                                <div class="col-10"><div class="card-dark">5</div></div>
+                                <div class="col-10"><div class="card-dark">6</div></div>
+                                <div class="col-10"><div class="card-dark">7</div></div>
+                                <div class="col-10"><div class="card-dark">8</div></div>
+                                <div class="col-10"><div class="card-dark">9</div></div>
+                                <div class="col-10"><div class="card-dark">10</div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <hr />
+            <section class="section">
+                <h2 class="lighter text-gray">&mdash; Colunas Automáticas &mdash;</h2>
+                <blockquote class="quote">
+                    <p class="list"><span class="bold">col-auto</span> &DoubleRightArrow;
+                        É uma coluna coringa pois tem seu comportamento distinto.</p>
+                    <p>Diferente das demais colunas ela não possui nenhuma marcação
+                        de quantas podem exisitr em uma única linha,
+                        as colunas defindas como tal se divididem entre elas na linha,
+                        ou seja as colunas vão se dividirem até o limite possível para
+                        que todas possam ocupar a mesma linha.</p>
+                    <p>Uma coluna altomática quando não pode mais oculpar seu espaço na linha,
+                        ela salta para baixo se empilhando.</p>
+                    <hr />
+                    <p>Colunas dessa propriedade requerem observações:</p>
+                    <ul class="list">
+                        <li>Não possuem uma largura determinada.</li>
+                        <li>Podem se expandir levianamente sem controle algum.</li>
+                        <li>Podem saltar a linha de forma inesperada.</li>
+                        <li>Quem determina o quanto de espaço vai opupar é seu conteúdo.</li>
+                        <li>A propriedade <span class="bold">fix</span> não funciona.</li>
+                        <li>A propriedade <span class="bold">reverse</span> não funciona.</li>
+                    </ul>
+                </blockquote>
+                <div class="padding-tb-prop">
+                    <div class="row-pad align-center">
+                        <div class="col-auto">
+                            <div class="card-dark">col-auto</div>
+                        </div>
+                        <div class="col-auto">
+                            <div class="card-dark">col-auto</div>
+                        </div>
+                        <div class="col-auto">
+                            <div class="card-dark">col-auto</div>
+                        </div>
+                        <div class="col-auto">
+                            <div class="card-dark">col-auto</div>
+                        </div>
+                        <div class="col-auto">
+                            <div class="card-dark">col-auto</div>
+                        </div>
+                        <div class="col-auto">
+                            <div class="card-dark">col-auto</div>
+                        </div>
+                        <div class="col-auto">
+                            <div class="card-dark">col-auto</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <hr />
+            <section class="section">
+                <h2 class="lighter text-gray">&mdash; Ponto de Expansão &mdash;</h2>
+                <blockquote class="quote">
+                    <p>Colunas se expandem quando a disponibilidade de tela for menor a 640 pixel&apos;s.</p>
+                    <p>Essa regra é aplicada em todas propriedades de colunas exceto a <span class="bold">col-auto</span>.</p>
+                </blockquote>
+                <div class="padding-tb-prop">
+                    <div class="row-pad">
+                        <div class="col-half">
+                            <div class="align-center">
+                                <div class="row-pad">
+                                    <div class="col-half">
+                                        <div class="card">1</div>
+                                    </div>
+                                    <div class="col-half">
+                                        <div class="card">1</div>
+                                    </div>
+                                    <div class="col-2">
+                                        <div class="card">1</div>
+                                    </div>
+                                    <div class="col-2">
+                                        <div class="card">1</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="margin-top align-center">
+                                <button class="btn-default radius-all-min shadow-box" data-code="">CÓDIGO HTML</button>
+                            </div>
+                        </div>
+                        <div class="col-half">
+                            <div class="align-center">
+                                <div class="row-pad">
+                                    <div class="col-third">
+                                        <div class="card">1</div>
+                                    </div>
+                                    <div class="col-third">
+                                        <div class="card">2</div>
+                                    </div>
+                                    <div class="col-third">
+                                        <div class="card">3</div>
+                                    </div>
+                                    <div class="col-3">
+                                        <div class="card">1</div>
+                                    </div>
+                                    <div class="col-3">
+                                        <div class="card">2</div>
+                                    </div>
+                                    <div class="col-3">
+                                        <div class="card">3</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="margin-top align-center">
+                                <button class="btn-default radius-all-min shadow-box" data-code="">CÓDIGO HTML</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <hr />
+            <section class="section">
+                <h2 class="lighter text-gray">&mdash; Ponto de Expansão Mínimo &mdash;</h2>
+                <blockquote class="quote">
+                    <p>Adicionando o prefixo <span class="quote-blue">-min</span> a propriedade da coluna.</p>
+                    <p>Colunas se expandem quando a disponibilidade de tela for menor a 480 pixel&apos;s.</p>
+                    <p>Essa regra é aplicada em todas propriedades de colunas exceto a <span class="bold">col-auto</span>
+                        e colunas que já ocupam toda a linha.</p>
+                </blockquote>
+                <div class="padding-tb-prop">
+                    <div class="row-pad">
+                        <div class="col-half">
+                            <div class="align-center">
+                                <div class="row-pad">
+                                    <div class="col-half-min">
+                                        <div class="card">1</div>
+                                    </div>
+                                    <div class="col-half-min">
+                                        <div class="card">1</div>
+                                    </div>
+                                    <div class="col-2-min">
+                                        <div class="card">1</div>
+                                    </div>
+                                    <div class="col-2-min">
+                                        <div class="card">1</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="margin-top align-center">
+                                <button class="btn-default radius-all-min shadow-box" data-code="">CÓDIGO HTML</button>
+                            </div>
+                        </div>
+                        <div class="col-half">
+                            <div class="align-center">
+                                <div class="row-pad">
+                                    <div class="col-third-min">
+                                        <div class="card">1</div>
+                                    </div>
+                                    <div class="col-third-min">
+                                        <div class="card">2</div>
+                                    </div>
+                                    <div class="col-third-min">
+                                        <div class="card">3</div>
+                                    </div>
+                                    <div class="col-3-min">
+                                        <div class="card">1</div>
+                                    </div>
+                                    <div class="col-3-min">
+                                        <div class="card">2</div>
+                                    </div>
+                                    <div class="col-3-min">
+                                        <div class="card">3</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="margin-top align-center">
+                                <button class="btn-default radius-all-min shadow-box" data-code="">CÓDIGO HTML</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <hr />
+            <section class="section">
+                <h2 class="lighter text-gray">&mdash; Ponto de Expansão Máximo &mdash;</h2>
+                <blockquote class="quote">
+                    <p>Adicionando o prefixo <span class="quote-blue">-max</span> a propriedade da coluna.</p>
+                    <p>Colunas se expandem quando a disponibilidade de tela for menor a 960 pixel&apos;s.</p>
+                    <p>Essa regra é aplicada em todas propriedades de colunas exceto a <span class="bold">col-auto</span>
+                        e colunas que já ocupam toda a linha.</p>
+                </blockquote>
+                <div class="padding-tb-prop">
+                    <div class="row-pad">
+                        <div class="col-half">
+                            <div class="align-center">
+                                <div class="row-pad">
+                                    <div class="col-half-max">
+                                        <div class="card">1</div>
+                                    </div>
+                                    <div class="col-half-max">
+                                        <div class="card">1</div>
+                                    </div>
+                                    <div class="col-2-max">
+                                        <div class="card">1</div>
+                                    </div>
+                                    <div class="col-2-max">
+                                        <div class="card">1</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="margin-top align-center">
+                                <button class="btn-default radius-all-max shadow-box" data-code="">CÓDIGO HTML</button>
+                            </div>
+                        </div>
+                        <div class="col-half">
+                            <div class="align-center">
+                                <div class="row-pad">
+                                    <div class="col-third-max">
+                                        <div class="card">1</div>
+                                    </div>
+                                    <div class="col-third-max">
+                                        <div class="card">2</div>
+                                    </div>
+                                    <div class="col-third-max">
+                                        <div class="card">3</div>
+                                    </div>
+                                    <div class="col-3-max">
+                                        <div class="card">1</div>
+                                    </div>
+                                    <div class="col-3-max">
+                                        <div class="card">2</div>
+                                    </div>
+                                    <div class="col-3-max">
+                                        <div class="card">3</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="margin-top align-center">
+                                <button class="btn-default radius-all-min shadow-box" data-code="">CÓDIGO HTML</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <hr />
+            <section class="section">
+                <h2 class="lighter text-gray">&mdash; Coluna Fixa &mdash;</h2>
+                <blockquote class="quote">
+                    <p class="list"><span class="bold">fix</span> &DoubleRightArrow;
+                        Pode ser aplicada a linha quanto a uma coluna específica.</p>
+                    <p>Mas quando definido a uma coluna interage apenas com ela.</p>
+                    <p>Essa coluna por sua vez é impedida de se expandir conforme a
+                        disponibilidade de tela.</p>
+                </blockquote>
+                <div class="padding-tb-prop">
+                    <div class="row-pad">
+                        <div class="col-half">
+                            <div class="align-center text-white margin-top">
+                                <div class="row">
+                                    <div class="col-third fix bg-red">1</div>
+                                    <div class="col-third fix bg-green">2</div>
+                                    <div class="col-third fix bg-blue">3</div>
+                                </div>
+                            </div>
+                            <div class="margin-top align-center">
+                                <button class="btn-default radius-all-min shadow-box" data-code="">CÓDIGO HTML</button>
+                            </div>
+                        </div>
+                        <div class="col-half">
+                            <div class="align-center text-white">
+                                <div class="row-pad">
+                                    <div class="col-third fix">
+                                        <div class="bg-red">1</div>
+                                    </div>
+                                    <div class="col-third fix">
+                                        <div class="bg-green">2</div>
+                                    </div>
+                                    <div class="col-third fix">
+                                        <div class="bg-blue">3</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="align-center">
+                                <button class="btn-default radius-all-min shadow-box" data-code="">CÓDIGO HTML</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <hr />
+            <section class="section">
+                <h2 class="lighter text-gray">&mdash; Coluna Reversa &mdash;</h2>
+                <blockquote class="quote-red">
+                    <p class="bold">Atenção:</p>
+                    <p>Esta é uma propriedade de uso limitado, ela pode causar
+                        vazamento de bloco com muita facilidade.</p>
+                </blockquote>
+                <blockquote class="quote">
+                    <p class="list"><span class="bold">reverse</span> &DoubleRightArrow;
+                        Pode ser aplicada a linha quanto a uma coluna específica.</p>
+                    <p>Mas quando definido a uma coluna interage apenas com ela.</p>
+                    <p>A coluna se comporta ao inverso do normal.</p>
+                    <p>Ou seja ela permace expandida e empilhada na linha,
+                        no entanto quando a largura de tela combinar com suas definições
+                        de escala se retraem ao tamanho de prefixo.</p>
+                </blockquote>
+                <div class="padding-tb-prop">
+                    <div class="align-center text-white margin-top">
+                        <div class="row-pad">
+                            <div class="col-third reverse bg-red">col-third reverse</div>
+                            <div class="col-third-min reverse bg-green">col-third-min reverse</div>
+                            <div class="col-third-max reverse bg-blue">col-third-max reverse</div>
+                        </div>
+                    </div>
+                    <div class="margin-top align-center">
+                        <button class="btn-default radius-all-min shadow-box" data-code="">CÓDIGO HTML</button>
+                    </div>
+                </div>
+            </section>
+
+            <hr />
+            <section class="section">
+                <h2 class="lighter text-gray">&mdash; Entendimento &mdash;</h2>
+                <div class="padding-tb-prop">
+                    <ul>
+                        <li>Colunas podem ser usadas fora de uma linha se assim for necessário.</li>
+                        <li>Prefixos <span class="quote-blue">-min</span> e <span class="quote-blue">-max</span> 
+                            podem ser usados em qualquer coluna, mas não existem para colunas automáticas
+                            e colunas que já ocupam toda linha.</li>
+                        <li>As propriedades <span class="bold">fix</span> e <span class="bold">reverse</span> não
+                            funcionam em conjunto com colunas automáticas e colunas que já ocupam toda linha.</li>
+                    </ul>
+                </div>
+            </section>
+        </main>
+
+        <footer class="section bg-black">
+            <div class="container base-center">
+                <div class="align-center text-light font-min">
+                    <p>Aplicação das propriedade com <span class="italic bold">css-default.css</span></p>
+                    <a href="https://github.com/Spell-Master/sm-web/"
+                       target="_blank"
+                       class="href-light"
+                       title="Abre uma nova aba do navegador indo até o repositório no git-hub">
+                        https:&sol;&sol;github.com&sol;Spell-Master&sol;sm-web&sol;</a>
+                </div>
+            </div>
+        </footer>
+
+        <aside aria-hidden="true">
+            <div class="modal" id="show-code">
+                <div class="modal-box">
+                    <div class="modal-header">Código Fonte</div>
+                    <div class="modal-content">
+                        <pre><code class="language-html"></code></pre>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <script>showCode.init();</script>
+    </body>
+</html>

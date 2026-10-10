@@ -1175,43 +1175,40 @@ table.table.streak tr:nth-child(even) {background-color: #ebebeb}
  * ****************************************
  * Margens
  * ****************************************
-.offset-half {
-    margin: 0 49.99999%
-}
  */
-.margin-auto {margin: auto !important}
+.margin-auto {margin: auto}
 
-.margin-all    {margin:        var(--spacing-med) !important}
-.margin-left   {margin-left:   var(--spacing-med) !important}
-.margin-right  {margin-right:  var(--spacing-med) !important}
-.margin-top    {margin-top:    var(--spacing-med) !important}
-.margin-bottom {margin-bottom: var(--spacing-med) !important}
-.margin-lr     {margin-left:   var(--spacing-med) !important; margin-right:  var(--spacing-med) !important}
-.margin-tb     {margin-top:    var(--spacing-med) !important; margin-bottom: var(--spacing-med) !important}
+.margin-all    {margin:        var(--spacing-med)}
+.margin-left   {margin-left:   var(--spacing-med)}
+.margin-right  {margin-right:  var(--spacing-med)}
+.margin-top    {margin-top:    var(--spacing-med)}
+.margin-bottom {margin-bottom: var(--spacing-med)}
+.margin-lr     {margin-left:   var(--spacing-med); margin-right:  var(--spacing-med)}
+.margin-tb     {margin-top:    var(--spacing-med); margin-bottom: var(--spacing-med)}
 
-.margin-all-min    {margin:        var(--spacing-min) !important}
-.margin-left-min   {margin-left:   var(--spacing-min) !important}
-.margin-right-min  {margin-right:  var(--spacing-min) !important}
-.margin-top-min    {margin-top:    var(--spacing-min) !important}
-.margin-bottom-min {margin-bottom: var(--spacing-min) !important}
-.margin-lr-min     {margin-left:   var(--spacing-min) !important; margin-right:  var(--spacing-min) !important}
-.margin-tb-min     {margin-top:    var(--spacing-min) !important; margin-bottom: var(--spacing-min) !important}
+.margin-all-min    {margin:        var(--spacing-min)}
+.margin-left-min   {margin-left:   var(--spacing-min)}
+.margin-right-min  {margin-right:  var(--spacing-min)}
+.margin-top-min    {margin-top:    var(--spacing-min)}
+.margin-bottom-min {margin-bottom: var(--spacing-min)}
+.margin-lr-min     {margin-left:   var(--spacing-min); margin-right:  var(--spacing-min)}
+.margin-tb-min     {margin-top:    var(--spacing-min); margin-bottom: var(--spacing-min)}
 
-.margin-all-max    {margin:        var(--spacing-max) !important}
-.margin-left-max   {margin-left:   var(--spacing-max) !important}
-.margin-right-max  {margin-right:  var(--spacing-max) !important}
-.margin-top-max    {margin-top:    var(--spacing-max) !important}
-.margin-bottom-max {margin-bottom: var(--spacing-max) !important}
-.margin-lr-max     {margin-left:   var(--spacing-max) !important; margin-right:  var(--spacing-max) !important}
-.margin-tb-max     {margin-top:    var(--spacing-max) !important; margin-bottom: var(--spacing-max) !important}
+.margin-all-max    {margin:        var(--spacing-max)}
+.margin-left-max   {margin-left:   var(--spacing-max)}
+.margin-right-max  {margin-right:  var(--spacing-max)}
+.margin-top-max    {margin-top:    var(--spacing-max)}
+.margin-bottom-max {margin-bottom: var(--spacing-max)}
+.margin-lr-max     {margin-left:   var(--spacing-max); margin-right:  var(--spacing-max)}
+.margin-tb-max     {margin-top:    var(--spacing-max); margin-bottom: var(--spacing-max)}
 
-.margin-all-prop    {margin:        var(--spacing-prp) !important}
-.margin-left-prop   {margin-left:   var(--spacing-prp) !important}
-.margin-right-prop  {margin-right:  var(--spacing-prp) !important}
-.margin-top-prop    {margin-top:    var(--spacing-prp) !important}
-.margin-bottom-prop {margin-bottom: var(--spacing-prp) !important}
-.margin-lr-prop     {margin-left:   var(--spacing-prp) !important; margin-right:  var(--spacing-prp) !important}
-.margin-tb-prop     {margin-top:    var(--spacing-prp) !important; margin-bottom: var(--spacing-prp) !important}
+.margin-all-prop    {margin:        var(--spacing-prp)}
+.margin-left-prop   {margin-left:   var(--spacing-prp)}
+.margin-right-prop  {margin-right:  var(--spacing-prp)}
+.margin-top-prop    {margin-top:    var(--spacing-prp)}
+.margin-bottom-prop {margin-bottom: var(--spacing-prp)}
+.margin-lr-prop     {margin-left:   var(--spacing-prp); margin-right:  var(--spacing-prp)}
+.margin-tb-prop     {margin-top:    var(--spacing-prp); margin-bottom: var(--spacing-prp)}
 
 .margin-all-none    {margin:        0 !important}
 .margin-left-none   {margin-left:   0 !important}

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <title>Posições Atípicas</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="Aplicação de posições do css-default.css" />
+        <meta name="author" content="Omar Pautz (Spell-master)" />
+        <link href="../css-default.css" rel="stylesheet" type="text/css" />
+        <link href="../../lib/prism/prism.css" rel="stylesheet" type="text/css" />
+        <link href="../../javascript/ModalShow/ModalShow.css" rel="stylesheet" type="text/css" />
+        <link href="../../lib/stylesheet/core.css" rel="stylesheet" type="text/css" />
+        <script src="../../lib/prism/prism.js"></script>
+        <script src="../../javascript/ModalShow/ModalShow.js"></script>
+        <script src="../../javascript/jsd/js-default.js"></script>
+        <script src="../../lib/js/mostar-codigo.js"></script>
+    </head>
+    <body>
+        <header>
+            <div class="bg-black">
+                <div class="container padding-all">
+                    <h1 class="text-white shadow-text-white">Posição</h1>
+                </div>
+            </div>
+            <div class="bg-light shadow-box">
+                <div class="container padding-all">
+                    <p>Propriedades de posicionamento</p>
+                </div>
+            </div>
+        </header>
+
+        <main class="container padding-all">
+            <section class="section">
+                <h2 class="lighter text-gray">&mdash; Tipo de Posições &mdash;</h2>
+                <div class="padding-tb-prop">
+                    <ul>
+                        <li>
+                            <span class="bold">static</span> &DoubleRightArrow;
+                            Trata o bloco como estático e sua posição segue o fluxo normal.
+                            <p>Qualquer elemento quando não posicionado é considerado estático.</p>
+                        </li>
+                        <li>
+                            <span class="bold">relative</span> &DoubleRightArrow;
+                            A posição da caixa é calculada de acordo com o fluxo normal.
+                            <p>Em seguida, a caixa é deslocada em relação à sua posição normal.</p>
+                            <p>Quando uma caixa é posicionada relativamente, a posição da caixa
+                                a seguir é calculada como se não fosse compensada.</p>
+                        </li>
+                        <li>
+                            <span class="bold">absolute</span> &DoubleRightArrow;
+                            Caixas absolutamente posicionadas são retiradas do fluxo normal.
+                            <p>Isso significa que elas não afetam o layout dos irmãos posteriores.</p>
+                            <p>Além disso, embora as caixas absolutamente posicionadas tenham margens,
+                                elas não colapsam com nenhuma outra margem.</p>
+                        </li>
+                        <li>
+                            <span class="bold">fixed</span> &DoubleRightArrow;
+                            A posição da caixa é calculada de acordo como o modelo &quot;absoluto&quot;,
+                            mas além disso, a caixa é fixada em relação a alguma referência.
+                            <p>Assim como no modelo &quot;absoluto&quot;, as margens da caixa não colapsam
+                                com nenhuma outra margem.</p>
+                            <p>Seu efeito em diferença ao absolute é que o elemento fixa as margens
+                                do documento e não no parente mais próximo.</p>
+                        </li>
+                        <li>
+                            <span class="bold">sticky</span> &DoubleRightArrow;
+                            A caixa é considerada como relativa dentro do elemento pai
+                            e se desloca quando há uma ralagem sobre o pai.
+                            <p>A caixa por sua vez ficará presa até encontrar-se com os limites
+                                do elemento pai.</p>
+                            <p>Similar ao modelo &quot;fixed&quot;, no entanto suas margens da caixa colapsam
+                                com as demais margens.</p>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <hr />
+            <section class="section">
+                <h2 class="lighter text-gray">&mdash; Aplicando &mdash;</h2>
+                <blockquote class="quote">
+                    <p>Perceba que o único ao qual não interage com o elemento pai é o <span class="bold">fixed</span>.</p>
+                </blockquote>
+                <div class="padding-tb-prop">
+                    <div class="row">
+                        <div class="col-5">
+                            <button data-pos="" class="btn-info button-block">static</button>
+                        </div>
+                        <div class="col-5">
+                            <button data-pos="" class="btn-info button-block">relative</button>
+                        </div>
+                        <div class="col-5">
+                            <button data-pos="" class="btn-info button-block">absolute</button>
+                        </div>
+                        <div class="col-5">
+                            <button data-pos="" class="btn-info button-block">fixed</button>
+                        </div>
+                        <div class="col-5">
+                            <button data-pos="" class="btn-info button-block">sticky</button>
+                        </div>
+                        <div class="col-single">
+                            <div class="alert-info">
+                                Clique nos botões para alterar a propriedade da caixa abaixo de
+                                acordo com o texto do botão.
+                            </div>
+                        </div>
+                    </div>
+                    <pre><code class="language-html">&lt;div class=&quot;static pos-top-left text-white padding-all box-fluid bg-black&quot; style=&quot;z-index:1&quot;&gt;static&lt;/div&gt;</code></pre>
+                    <div class="height-200 over-y relative bg-light margin-top border-all border-black">
+                        <div class="padding-all width-full bg-dark italic">Caixa anterior</div>
+                        <div id="posicao" class="static pos-top-left text-white padding-all width-full bg-black" style="z-index:1">static</div>
+                        <div class="padding-all">
+                            <p class="italic">Caixa posterior</p>
+                            <div class="font-min">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                <p>Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin mauris. Integer in mauris eu nibh euismod gravida. Duis ac tellus et risus vulputate vehicula. Donec lobortis risus a elit. Etiam tempor. Ut ullamcorper, ligula eu tempor congue, eros est euismod turpis, id tincidunt sapien risus a quam. Maecenas fermentum consequat mi. Donec fermentum. Pellentesque malesuada nulla a mi. Duis sapien sem, aliquet nec, commodo eget, consequat quis, neque. Aliquam faucibus, elit ut dictum aliquet, felis nisl adipiscing sapien, sed malesuada diam lacus eget erat. Cras mollis scelerisque nunc. Nullam arcu. Aliquam consequat. Curabitur augue lorem, dapibus quis, laoreet et, pretium ac, nisi. Aenean magna nisl, mollis quis, molestie eu, feugiat in, orci. In hac habitasse platea dictumst.</p>
+                                <p>Fusce convallis, mauris imperdiet gravida bibendum, nisl turpis suscipit mauris, sed placerat ipsum urna sed risus. In convallis tellus a mauris. Curabitur non elit ut libero tristique sodales. Mauris a lacus. Donec mattis semper leo. In hac habitasse platea dictumst. Vivamus facilisis diam at odio. Mauris dictum, nisi eget consequat elementum, lacus ligula molestie metus, non feugiat orci magna ac sem. Donec turpis. Donec vitae metus. Morbi tristique neque eu mauris. Quisque gravida ipsum non sapien. Proin turpis lacus, scelerisque vitae, elementum at, lobortis ac, quam. Aliquam dictum eleifend risus. In hac habitasse platea dictumst. Etiam sit amet diam. Suspendisse odio. Suspendisse nunc. In semper bibendum libero.</p>
+                                <p>Proin nonummy, lacus eget pulvinar lacinia, pede felis dignissim leo, vitae tristique magna lacus sit amet eros. Nullam ornare. Praesent odio ligula, dapibus sed, tincidunt eget, dictum ac, nibh. Nam quis lacus. Nunc eleifend molestie velit. Morbi lobortis quam eu velit. Donec euismod vestibulum massa. Donec non lectus. Aliquam commodo lacus sit amet nulla. Cras dignissim elit et augue. Nullam non diam. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In hac habitasse platea dictumst. Aenean vestibulum. Sed lobortis elit quis lectus. Nunc sed lacus at augue bibendum dapibus.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <hr />
+            <section class="section">
+                <h2 class="lighter text-gray">&mdash; Direção da Posição &mdash;</h2>
+                <div class="padding-tb-prop">
+                    <div class="text-white font-med">
+                        <div class="relative width-max-900 margin-auto">
+                            <img src="../../lib/img/uracan.jpg" alt="" class="height-max-400 maximize" style="opacity: .5" />
+
+                            <div class="absolute pos-top-left padding-all-min bg-red">pos-top-left</div>
+                            <div class="absolute pos-top-center padding-all-min bg-green">pos-top-center</div>
+                            <div class="absolute pos-top-right padding-all-min bg-blue">pos-top-right</div>
+
+                            <div class="absolute pos-center-left padding-all-min bg-red">pos-center-left</div>
+                            <div class="absolute pos-center padding-all-min bg-green">pos-center</div>
+                            <div class="absolute pos-center-right padding-all-min bg-blue">pos-center-right</div>
+
+                            <div class="absolute pos-bottom-left padding-all-min bg-red">pos-bottom-left</div>
+                            <div class="absolute pos-bottom-center padding-all-min bg-green">pos-bottom-bottom</div>
+                            <div class="absolute pos-bottom-right padding-all-min bg-blue">pos-bottom-right</div>
+                        </div>
+                    </div>
+                    <div class="align-center margin-tb">
+                        <button class="btn-default radius-all-min shadow-box" data-code="">CÓDIGO HTML</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="section bg-black">
+            <div class="container base-center">
+                <div class="align-center text-light font-min">
+                    <p>Aplicação das propriedade com <span class="italic bold">css-default.css</span></p>
+                    <a href="https://github.com/Spell-Master/sm-web/"
+                       target="_blank"
+                       class="href-light"
+                       title="Abre uma nova aba do navegador indo até o repositório no git-hub">
+                        https:&sol;&sol;github.com&sol;Spell-Master&sol;sm-web&sol;</a>
+                </div>
+            </div>
+        </footer>
+
+        <aside aria-hidden="true">
+            <div class="modal" id="show-code">
+                <div class="modal-box">
+                    <div class="modal-header">Código Fonte</div>
+                    <div class="modal-content">
+                        <pre><code class="language-html"></code></pre>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <script>
+            var $posDiv = jsd('#posicao'), $posText = '', $posClass = '', $preCode = '', $pretag = null;
+            jsd('[data-pos]').click(function (e) {
+                $posText = this.innerText;
+                $posClass = $posText + ' pos-top-left text-white padding-all width-full bg-black';
+                $preCode = '<code class="language-html">&lt;div class=&quot;'
+                        + $posClass
+                        + '&quot; style=&quot;z-index:1&quot;&gt;'
+                        + $posText
+                        + '&lt;/div&gt;</code>';
+                $pretag = $posDiv.parent().prev();
+                $posDiv.text($posText);
+                $pretag.html($preCode);
+                $posDiv.className($posClass);
+                Prism.highlightElement($pretag.root(0));
+            });
+            showCode.init();
+        </script>
+    </body>
+</html>

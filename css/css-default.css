@@ -1162,24 +1162,14 @@ table.table.streak tr:nth-child(even) {background-color: #ebebeb}
  * Alinhamento
  * ****************************************
  */
-.align-center {text-align: center}
-.align-left   {text-align: left}
-.align-right  {text-align: right}
+.align-center   {text-align: center}
+.align-left     {text-align: left}
+.align-right    {text-align: right}
 
 .vertical-baseline {vertical-align: baseline}
 .vertical-middle   {vertical-align: middle}
 .vertical-top      {vertical-align: top}
 .vertical-bottom   {vertical-align: bottom}
-
-.base-center {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center
-}
-.base-inline   {flex: 0 0 auto}
-.base-vertical {flex: 1 1 auto}
 
 /**
  * ****************************************
@@ -1379,6 +1369,16 @@ ul.list::marker, ol.list::marker {
 .items-normal   {align-items: normal}
 .items-revert   {align-items: revert}
 .items-stretch  {align-items: stretch}
+
+.base-center {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center
+}
+.base-inline   {flex: 0 0 auto}
+.base-vertical {flex: 1 1 auto}
 
 /**
  * ****************************************

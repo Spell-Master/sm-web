@@ -1223,37 +1223,37 @@ table.table.streak tr:nth-child(even) {background-color: #ebebeb}
  * Preenchimento
  * ****************************************
  */
-.padding-all    {padding:        var(--spacing-med) !important}
-.padding-left   {padding-left:   var(--spacing-med) !important}
-.padding-right  {padding-right:  var(--spacing-med) !important}
-.padding-top    {padding-top:    var(--spacing-med) !important}
-.padding-bottom {padding-bottom: var(--spacing-med) !important}
-.padding-lr     {padding-left:   var(--spacing-med) !important; padding-right:  var(--spacing-med) !important}
-.padding-tb     {padding-top:    var(--spacing-med) !important; padding-bottom: var(--spacing-med) !important}
+.padding-all    {padding:        var(--spacing-med)}
+.padding-left   {padding-left:   var(--spacing-med)}
+.padding-right  {padding-right:  var(--spacing-med)}
+.padding-top    {padding-top:    var(--spacing-med)}
+.padding-bottom {padding-bottom: var(--spacing-med)}
+.padding-lr     {padding-left:   var(--spacing-med); padding-right:  var(--spacing-med)}
+.padding-tb     {padding-top:    var(--spacing-med); padding-bottom: var(--spacing-med)}
 
-.padding-all-min    {padding:        var(--spacing-min) !important}
-.padding-left-min   {padding-left:   var(--spacing-min) !important}
-.padding-right-min  {padding-right:  var(--spacing-min) !important}
-.padding-top-min    {padding-top:    var(--spacing-min) !important}
-.padding-bottom-min {padding-bottom: var(--spacing-min) !important}
-.padding-lr-min     {padding-left:   var(--spacing-min) !important; padding-right:  var(--spacing-min) !important}
-.padding-tb-min     {padding-top:    var(--spacing-min) !important; padding-bottom: var(--spacing-min) !important}
+.padding-all-min    {padding:        var(--spacing-min)}
+.padding-left-min   {padding-left:   var(--spacing-min)}
+.padding-right-min  {padding-right:  var(--spacing-min)}
+.padding-top-min    {padding-top:    var(--spacing-min)}
+.padding-bottom-min {padding-bottom: var(--spacing-min)}
+.padding-lr-min     {padding-left:   var(--spacing-min); padding-right:  var(--spacing-min)}
+.padding-tb-min     {padding-top:    var(--spacing-min); padding-bottom: var(--spacing-min)}
 
-.padding-all-max    {padding:        var(--spacing-max) !important}
-.padding-left-max   {padding-left:   var(--spacing-max) !important}
-.padding-right-max  {padding-right:  var(--spacing-max) !important}
-.padding-top-max    {padding-top:    var(--spacing-max) !important}
-.padding-bottom-max {padding-bottom: var(--spacing-max) !important}
-.padding-lr-max     {padding-left:   var(--spacing-max) !important; padding-right:  var(--spacing-max) !important}
-.padding-tb-max     {padding-top:    var(--spacing-max) !important; padding-bottom: var(--spacing-max) !important}
+.padding-all-max    {padding:        var(--spacing-max)}
+.padding-left-max   {padding-left:   var(--spacing-max)}
+.padding-right-max  {padding-right:  var(--spacing-max)}
+.padding-top-max    {padding-top:    var(--spacing-max)}
+.padding-bottom-max {padding-bottom: var(--spacing-max)}
+.padding-lr-max     {padding-left:   var(--spacing-max); padding-right:  var(--spacing-max)}
+.padding-tb-max     {padding-top:    var(--spacing-max); padding-bottom: var(--spacing-max)}
 
-.padding-all-prop    {padding:        var(--spacing-prp) !important}
-.padding-left-prop   {padding-left:   var(--spacing-prp) !important}
-.padding-right-prop  {padding-right:  var(--spacing-prp) !important}
-.padding-top-prop    {padding-top:    var(--spacing-prp) !important}
-.padding-bottom-prop {padding-bottom: var(--spacing-prp) !important}
-.padding-lr-prop     {padding-left:   var(--spacing-prp) !important; padding-right:  var(--spacing-prp) !important}
-.padding-tb-prop     {padding-top:    var(--spacing-prp) !important; padding-bottom: var(--spacing-prp) !important}
+.padding-all-prop    {padding:        var(--spacing-prp)}
+.padding-left-prop   {padding-left:   var(--spacing-prp)}
+.padding-right-prop  {padding-right:  var(--spacing-prp)}
+.padding-top-prop    {padding-top:    var(--spacing-prp)}
+.padding-bottom-prop {padding-bottom: var(--spacing-prp)}
+.padding-lr-prop     {padding-left:   var(--spacing-prp); padding-right:  var(--spacing-prp)}
+.padding-tb-prop     {padding-top:    var(--spacing-prp); padding-bottom: var(--spacing-prp)}
 
 .padding-all-none    {padding:        0 !important}
 .padding-left-none   {padding-left:   0 !important}

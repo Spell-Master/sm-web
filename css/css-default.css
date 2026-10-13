@@ -1268,15 +1268,25 @@ table.table.streak tr:nth-child(even) {background-color: #ebebeb}
  * Vazamento
  * ****************************************
  */
-.over-x    {overflow-x: auto;   overflow-y: hidden}
-.over-y    {overflow-y: auto;   overflow-x: hidden}
-.over-line {overflow:   hidden; white-space: nowrap}
+.over-auto {overflow:   auto}
+.over-x    {overflow-x: auto; overflow-y: hidden}
+.over-y    {overflow-y: auto; overflow-x: hidden}
 
-.over-x-not {overflow-x: hidden}
-.over-y-not {overflow-y: hidden}
-.over-break {word-wrap:  break-word}
-.over-auto  {overflow:   auto}
-.over-not   {overflow:   hidden}
+.over-on   {overflow:   scroll}
+.over-x-on {overflow-x: scroll; overflow-y: hidden}
+.over-y-on {overflow-y: scroll; overflow-x: hidden}
+
+.over-off   {overflow:   hidden}
+.over-x-off {overflow-x: hidden}
+.over-y-off {overflow-y: hidden}
+
+.over-line,
+.over-text {
+    overflow: hidden;
+    white-space: nowrap
+}
+.over-text  {text-overflow: " \002e \002e \002e"}
+.over-break {word-wrap:     break-word}
 
 /**
  * ****************************************

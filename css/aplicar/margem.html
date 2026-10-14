@@ -7,7 +7,18 @@
         <meta name="description" content="Aplicação de margem do css-default.css" />
         <meta name="author" content="Omar Pautz (Spell-master)" />
         <link href="../css-default.css" rel="stylesheet" type="text/css" />
+        <link href="../../lib/prism/prism.css" rel="stylesheet" type="text/css" />
+        <link href="../../javascript/ModalShow/ModalShow.css" rel="stylesheet" type="text/css" />
         <link href="../../lib/stylesheet/core.css" rel="stylesheet" type="text/css" />
+        <script src="../../lib/prism/prism.js"></script>
+        <script src="../../javascript/ModalShow/ModalShow.js"></script>
+        <script src="../../javascript/jsd/js-default.js"></script>
+        <script src="../../lib/js/mostar-codigo.js"></script>
+        <style>
+            .row-pad > [class^="col-"] {
+                padding: 8px
+            }
+        </style>
     </head>
     <body>
         <header>
@@ -35,8 +46,13 @@
                 </blockquote>
                 <div class="padding-tb-prop">
                     <div class="align-center text-white">
-                        <div class="bg-light padding-all">
-                            <div class="margin-auto bg-black width-200 padding-all">margin-auto</div>
+                        <div class="static">
+                            <div class="bg-light padding-all">
+                                <div class="margin-auto bg-black width-200 padding-all">margin-auto</div>
+                            </div>
+                        </div>
+                        <div class="align-center margin-tb">
+                            <button class="btn-default radius-all-min shadow-box" data-code="">CÓDIGO HTML</button>
                         </div>
                     </div>
                 </div>
@@ -46,132 +62,249 @@
             <section class="section">
                 <h2 class="lighter text-gray">&mdash; Margens Direcionadas &mdash;</h2>
                 <div class="padding-tb-prop">
-                    <div class="row-pad align-center text-white">
-                        <div class="col-third">
-                            <div class="maximize float-left bg-red">
-                                <div class="margin-all bg-black">margin-all</div>
+                    <div class="static">
+                        <div class="row-pad">
+                            <div class="col-third">
+                                <p class="list bold">margin-all</p>
+                                <div class="bg-dark maximize line-block">
+                                    <div class="margin-all height-50 bg-black"></div>
+                                </div>
                             </div>
-                            <div class="float-clear"></div>
+                            <div class="col-third">
+                                <p class="list bold">margin-all-min</p>
+                                <div class="bg-dark maximize line-block">
+                                    <div class="margin-all-min height-50 bg-black"></div>
+                                </div>
+                            </div>
+                            <div class="col-third">
+                                <p class="list bold">margin-all-max</p>
+                                <div class="bg-dark maximize line-block">
+                                    <div class="margin-all-max height-50 bg-black"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="align-center margin-tb">
+                        <button class="btn-default radius-all-min shadow-box" data-code="">CÓDIGO HTML</button>
+                    </div>
+                </div>
+                <div class="padding-tb-prop">
+                    <div class="row-pad">
+                        <div class="col-third">
+                            <p class="list bold">margin-left</p>
+                            <div class="bg-dark maximize line-block">
+                                <div class="margin-left height-50 bg-black"></div>
+                            </div>
                         </div>
                         <div class="col-third">
-                            <div class="maximize float-left bg-green">
-                                <div class="margin-all-min bg-black">margin-all-min</div>
+                            <p class="list bold">margin-left-min</p>
+                            <div class="bg-dark maximize line-block">
+                                <div class="margin-left-min height-50 bg-black"></div>
                             </div>
-                            <div class="float-clear"></div>
                         </div>
                         <div class="col-third">
-                            <div class="maximize float-left bg-blue">
-                                <div class="margin-all-max bg-black">margin-all-max</div>
+                            <p class="list bold">margin-left-max</p>
+                            <div class="bg-dark maximize line-block">
+                                <div class="margin-left-max height-50 bg-black"></div>
                             </div>
-                            <div class="float-clear"></div>
+                        </div>
+                    </div>
+                    <div class="row-pad">
+                        <div class="col-third">
+                            <p class="list bold">margin-right</p>
+                            <div class="bg-dark maximize line-block">
+                                <div class="margin-right height-50 bg-black"></div>
+                            </div>
                         </div>
                         <div class="col-third">
-                            <div class="maximize float-left bg-red">
-                                <div class="margin-left bg-black">margin-left</div>
+                            <p class="list bold">margin-right-min</p>
+                            <div class="bg-dark maximize line-block">
+                                <div class="margin-right-min height-50 bg-black"></div>
                             </div>
-                            <div class="float-clear"></div>
                         </div>
                         <div class="col-third">
-                            <div class="maximize float-left bg-green">
-                                <div class="margin-left-min bg-black">margin-left-min</div>
+                            <p class="list bold">margin-right-max</p>
+                            <div class="bg-dark maximize line-block">
+                                <div class="margin-right-max height-50 bg-black"></div>
                             </div>
-                            <div class="float-clear"></div>
+                        </div>
+                    </div>
+                    <div class="row-pad">
+                        <div class="col-third">
+                            <p class="list bold">margin-top</p>
+                            <div class="bg-dark maximize line-block">
+                                <div class="margin-top height-50 bg-black"></div>
+                            </div>
                         </div>
                         <div class="col-third">
-                            <div class="maximize float-left bg-blue">
-                                <div class="margin-left-max bg-black">margin-left-max</div>
+                            <p class="list bold">margin-top-min</p>
+                            <div class="bg-dark maximize line-block">
+                                <div class="margin-top-min height-50 bg-black"></div>
                             </div>
-                            <div class="float-clear"></div>
                         </div>
                         <div class="col-third">
-                            <div class="maximize float-left bg-red">
-                                <div class="margin-right bg-black">margin-right</div>
+                            <p class="list bold">margin-top-max</p>
+                            <div class="bg-dark maximize line-block">
+                                <div class="margin-top-max height-50 bg-black"></div>
                             </div>
-                            <div class="float-clear"></div>
+                        </div>
+                    </div>
+                    <div class="row-pad">
+                        <div class="col-third">
+                            <p class="list bold">margin-bottom</p>
+                            <div class="bg-dark maximize line-block">
+                                <div class="margin-bottom height-50 bg-black"></div>
+                            </div>
                         </div>
                         <div class="col-third">
-                            <div class="maximize float-left bg-green">
-                                <div class="margin-right-min bg-black">margin-right-min</div>
+                            <p class="list bold">margin-bottom-min</p>
+                            <div class="bg-dark maximize line-block">
+                                <div class="margin-bottom-min height-50 bg-black"></div>
                             </div>
-                            <div class="float-clear"></div>
                         </div>
                         <div class="col-third">
-                            <div class="maximize float-left bg-blue">
-                                <div class="margin-right-max bg-black">margin-right-max</div>
+                            <p class="list bold">margin-bottom-max</p>
+                            <div class="bg-dark maximize line-block">
+                                <div class="margin-bottom-max height-50 bg-black"></div>
                             </div>
-                            <div class="float-clear"></div>
+                        </div>
+                    </div>
+                    <div class="row-pad">
+                        <div class="col-third">
+                            <p class="list bold">margin-lt</p>
+                            <p class="list bold">margin-tl</p>
+                            <div class="bg-dark maximize line-block">
+                                <div class="margin-lt height-50 bg-black"></div>
+                            </div>
                         </div>
                         <div class="col-third">
-                            <div class="maximize float-left bg-red">
-                                <div class="margin-top bg-black">margin-top</div>
+                            <p class="list bold">margin-lt-min</p>
+                            <p class="list bold">margin-tl-min</p>
+                            <div class="bg-dark maximize line-block">
+                                <div class="margin-lt-min height-50 bg-black"></div>
                             </div>
-                            <div class="float-clear"></div>
                         </div>
                         <div class="col-third">
-                            <div class="maximize float-left bg-green">
-                                <div class="margin-top-min bg-black">margin-top-min</div>
+                            <p class="list bold">margin-lt-max</p>
+                            <p class="list bold">margin-tl-max</p>
+                            <div class="bg-dark maximize line-block">
+                                <div class="margin-lt-max height-50 bg-black"></div>
                             </div>
-                            <div class="float-clear"></div>
+                        </div>
+                    </div>
+                    <div class="row-pad">
+                        <div class="col-third">
+                            <p class="list bold">margin-lr</p>
+                            <p class="list bold">margin-rl</p>
+                            <div class="bg-dark maximize line-block">
+                                <div class="margin-lr height-50 bg-black"></div>
+                            </div>
                         </div>
                         <div class="col-third">
-                            <div class="maximize float-left bg-blue">
-                                <div class="margin-top-max bg-black">margin-top-max</div>
+                            <p class="list bold">margin-lr-min</p>
+                            <p class="list bold">margin-rl-min</p>
+                            <div class="bg-dark maximize line-block">
+                                <div class="margin-lr-min height-50 bg-black"></div>
                             </div>
-                            <div class="float-clear"></div>
                         </div>
                         <div class="col-third">
-                            <div class="maximize float-left bg-red">
-                                <div class="margin-bottom bg-black">margin-bottom</div>
+                            <p class="list bold">margin-lr-max</p>
+                            <p class="list bold">margin-rl-max</p>
+                            <div class="bg-dark maximize line-block">
+                                <div class="margin-lr-max height-50 bg-black"></div>
                             </div>
-                            <div class="float-clear"></div>
+                        </div>
+                    </div>
+                    <div class="row-pad">
+                        <div class="col-third">
+                            <p class="list bold">margin-lb</p>
+                            <p class="list bold">margin-bl</p>
+                            <div class="bg-dark maximize line-block">
+                                <div class="margin-lb height-50 bg-black"></div>
+                            </div>
                         </div>
                         <div class="col-third">
-                            <div class="maximize float-left bg-green">
-                                <div class="margin-bottom-min bg-black">margin-bottom-min</div>
+                            <p class="list bold">margin-lb-min</p>
+                            <p class="list bold">margin-bl-min</p>
+                            <div class="bg-dark maximize line-block">
+                                <div class="margin-lb-min height-50 bg-black"></div>
                             </div>
-                            <div class="float-clear"></div>
                         </div>
                         <div class="col-third">
-                            <div class="maximize float-left bg-blue">
-                                <div class="margin-bottom-max bg-black">margin-bottom-max</div>
+                            <p class="list bold">margin-lb-max</p>
+                            <p class="list bold">margin-bl-max</p>
+                            <div class="bg-dark maximize line-block">
+                                <div class="margin-lb-max height-50 bg-black"></div>
                             </div>
-                            <div class="float-clear"></div>
+                        </div>
+                    </div>
+                    <div class="row-pad">
+                        <div class="col-third">
+                            <p class="list bold">margin-rt</p>
+                            <p class="list bold">margin-tr</p>
+                            <div class="bg-dark maximize line-block">
+                                <div class="margin-rt height-50 bg-black"></div>
+                            </div>
                         </div>
                         <div class="col-third">
-                            <div class="maximize float-left bg-red">
-                                <div class="margin-lr bg-black">margin-lr</div>
+                            <p class="list bold">margin-rt-min</p>
+                            <p class="list bold">margin-tr-min</p>
+                            <div class="bg-dark maximize line-block">
+                                <div class="margin-rt-min height-50 bg-black"></div>
                             </div>
-                            <div class="float-clear"></div>
                         </div>
                         <div class="col-third">
-                            <div class="maximize float-left bg-green">
-                                <div class="margin-lr-min bg-black">margin-lr-min</div>
+                            <p class="list bold">margin-rt-max</p>
+                            <p class="list bold">margin-tr-max</p>
+                            <div class="bg-dark maximize line-block">
+                                <div class="margin-rt-max height-50 bg-black"></div>
                             </div>
-                            <div class="float-clear"></div>
+                        </div>
+                    </div>
+                    <div class="row-pad">
+                        <div class="col-third">
+                            <p class="list bold">margin-rb</p>
+                            <p class="list bold">margin-br</p>
+                            <div class="bg-dark maximize line-block">
+                                <div class="margin-rb height-50 bg-black"></div>
+                            </div>
                         </div>
                         <div class="col-third">
-                            <div class="maximize float-left bg-blue">
-                                <div class="margin-lr-max bg-black">margin-lr-max</div>
+                            <p class="list bold">margin-rb-min</p>
+                            <p class="list bold">margin-br-min</p>
+                            <div class="bg-dark maximize line-block">
+                                <div class="margin-rb-min height-50 bg-black"></div>
                             </div>
-                            <div class="float-clear"></div>
                         </div>
                         <div class="col-third">
-                            <div class="maximize float-left bg-red">
-                                <div class="margin-tb bg-black">margin-tb</div>
+                            <p class="list bold">margin-rb-max</p>
+                            <p class="list bold">margin-br-max</p>
+                            <div class="bg-dark maximize line-block">
+                                <div class="margin-rb-max height-50 bg-black"></div>
                             </div>
-                            <div class="float-clear"></div>
+                        </div>
+                    </div>
+                    <div class="row-pad">
+                        <div class="col-third">
+                            <p class="list bold">margin-tb</p>
+                            <p class="list bold">margin-bt</p>
+                            <div class="bg-dark maximize line-block">
+                                <div class="margin-tb height-50 bg-black"></div>
+                            </div>
                         </div>
                         <div class="col-third">
-                            <div class="maximize float-left bg-green">
-                                <div class="margin-tb-min bg-black">margin-tb-min</div>
+                            <p class="list bold">margin-tb-min</p>
+                            <p class="list bold">margin-bt-min</p>
+                            <div class="bg-dark maximize line-block">
+                                <div class="margin-tb-min height-50 bg-black"></div>
                             </div>
-                            <div class="float-clear"></div>
                         </div>
                         <div class="col-third">
-                            <div class="maximize float-left bg-blue">
-                                <div class="margin-tb-max bg-black">margin-tb-max</div>
+                            <p class="list bold">margin-tb-max</p>
+                            <p class="list bold">margin-bt-max</p>
+                            <div class="bg-dark maximize line-block">
+                                <div class="margin-tb-max height-50 bg-black"></div>
                             </div>
-                            <div class="float-clear"></div>
                         </div>
                     </div>
                 </div>
@@ -185,48 +318,87 @@
                         altura e largura de tela.</p>
                 </blockquote>
                 <div class="padding-tb-prop">
-                    <div class="row-pad align-center text-white">
-                        <div class="col-single">
-                            <div class="maximize float-left bg-dark">
-                                <div class="margin-all-prop bg-black">margin-all-prop</div>
+                    <div class="static">
+                        <div class="row-pad">
+                            <div class="col-auto">
+                                <p class="list bold">margin-all-prop</p>
+                                <div class="bg-dark maximize line-block">
+                                    <div class="margin-all-prop height-50 bg-black"></div>
+                                </div>
                             </div>
-                            <div class="float-clear"></div>
+                            <div class="col-auto">
+                                <p class="list bold">margin-left-prop</p>
+                                <div class="bg-dark maximize line-block">
+                                    <div class="margin-left-prop height-50 bg-black"></div>
+                                </div>
+                            </div>
+                            <div class="col-auto">
+                                <p class="list bold">margin-right-prop</p>
+                                <div class="bg-dark maximize line-block">
+                                    <div class="margin-right-prop height-50 bg-black"></div>
+                                </div>
+                            </div>
+                            <div class="col-auto">
+                                <p class="list bold">margin-top-prop</p>
+                                <div class="bg-dark maximize line-block">
+                                    <div class="margin-top-prop height-50 bg-black"></div>
+                                </div>
+                            </div>
+                            <div class="col-auto">
+                                <p class="list bold">margin-bottom-prop</p>
+                                <div class="bg-dark maximize line-block">
+                                    <div class="margin-bottom-prop height-50 bg-black"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="align-center margin-tb">
+                        <button class="btn-default radius-all-min shadow-box" data-code="">CÓDIGO HTML</button>
+                    </div>
+                </div>
+                <div class="padding-tb-prop">
+                    <div class="row-pad">
+                        <div class="col-half">
+                            <p class="list bold">margin-lt-prop</p>
+                            <p class="list bold">margin-tl-prop</p>
+                            <div class="bg-dark maximize line-block">
+                                <div class="margin-lt-prop height-50 bg-black"></div>
+                            </div>
                         </div>
                         <div class="col-half">
-                            <div class="maximize float-left bg-dark">
-                                <div class="margin-left-prop bg-black">margin-left-prop</div>
+                            <p class="list bold">margin-lr-prop</p>
+                            <p class="list bold">margin-rl-prop</p>
+                            <div class="bg-dark maximize line-block">
+                                <div class="margin-lr-prop height-50 bg-black"></div>
                             </div>
-                            <div class="float-clear"></div>
                         </div>
                         <div class="col-half">
-                            <div class="maximize float-left bg-dark">
-                                <div class="margin-right-prop bg-black">margin-right-prop</div>
+                            <p class="list bold">margin-lb-prop</p>
+                            <p class="list bold">margin-bl-prop</p>
+                            <div class="bg-dark maximize line-block">
+                                <div class="margin-lb-prop height-50 bg-black"></div>
                             </div>
-                            <div class="float-clear"></div>
                         </div>
                         <div class="col-half">
-                            <div class="maximize float-left bg-dark">
-                                <div class="margin-top-prop bg-black">margin-top-prop</div>
+                            <p class="list bold">margin-rt-prop</p>
+                            <p class="list bold">margin-tr-prop</p>
+                            <div class="bg-dark maximize line-block">
+                                <div class="margin-rt-prop height-50 bg-black"></div>
                             </div>
-                            <div class="float-clear"></div>
                         </div>
                         <div class="col-half">
-                            <div class="maximize float-left bg-dark">
-                                <div class="margin-bottom-prop bg-black">margin-bottom-prop</div>
+                            <p class="list bold">margin-rb-prop</p>
+                            <p class="list bold">margin-br-prop</p>
+                            <div class="bg-dark maximize line-block">
+                                <div class="margin-rb-prop height-50 bg-black"></div>
                             </div>
-                            <div class="float-clear"></div>
                         </div>
                         <div class="col-half">
-                            <div class="maximize float-left bg-dark">
-                                <div class="margin-lr-prop bg-black">margin-lr-prop</div>
+                            <p class="list bold">margin-bt-prop</p>
+                            <p class="list bold">margin-tb-prop</p>
+                            <div class="bg-dark maximize line-block">
+                                <div class="margin-bt-prop height-50 bg-black"></div>
                             </div>
-                            <div class="float-clear"></div>
-                        </div>
-                        <div class="col-half">
-                            <div class="maximize float-left bg-dark">
-                                <div class="margin-tb-prop bg-black">margin-tb-prop</div>
-                            </div>
-                            <div class="float-clear"></div>
                         </div>
                     </div>
                 </div>
@@ -239,52 +411,92 @@
                     <p>Remove quaisquer margens que o elemento possa conter.</p>
                 </blockquote>
                 <div class="padding-tb-prop">
-                    <div class="row-pad align-center text-white">
-                        <div class="col-single">
-                            <div class="maximize float-left bg-red">
-                                <div class="margin-all margin-all-none bg-black">margin-all-none</div>
+                    <div class="static">
+                        <div class="row-pad">
+                            <div class="col-auto">
+                                <p class="list bold">margin-all-none</p>
+                                <div class="bg-dark maximize line-block">
+                                    <div class="margin-all-none height-50 bg-black" style="margin: 10px"></div>
+                                </div>
                             </div>
-                            <div class="float-clear"></div>
+                            <div class="col-auto">
+                                <p class="list bold">margin-left-none</p>
+                                <div class="bg-dark maximize line-block">
+                                    <div class="margin-left-none height-50 bg-black" style="margin: 10px"></div>
+                                </div>
+                            </div>
+                            <div class="col-auto">
+                                <p class="list bold">margin-right-none</p>
+                                <div class="bg-dark maximize line-block">
+                                    <div class="margin-right-none height-50 bg-black" style="margin: 10px"></div>
+                                </div>
+                            </div>
+                            <div class="col-auto">
+                                <p class="list bold">margin-top-none</p>
+                                <div class="bg-dark maximize line-block">
+                                    <div class="margin-top-none height-50 bg-black" style="margin: 10px"></div>
+                                </div>
+                            </div>
+                            <div class="col-auto">
+                                <p class="list bold">margin-bottom-none</p>
+                                <div class="bg-dark maximize line-block">
+                                    <div class="margin-bottom-none height-50 bg-black" style="margin: 10px"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="align-center margin-tb">
+                        <button class="btn-default radius-all-min shadow-box" data-code="">CÓDIGO HTML</button>
+                    </div>
+                </div>
+                <div class="padding-tb-prop">
+                    <div class="row-pad">
+                        <div class="col-half">
+                            <p class="list bold">margin-lt-none</p>
+                            <p class="list bold">margin-tl-none</p>
+                            <div class="bg-dark maximize line-block">
+                                <div class="margin-lt-none height-50 bg-black" style="margin: 10px"></div>
+                            </div>
                         </div>
                         <div class="col-half">
-                            <div class="maximize float-left bg-red">
-                                <div class="margin-all margin-left-none bg-black">margin-left-none</div>
+                            <p class="list bold">margin-lr-none</p>
+                            <p class="list bold">margin-rl-none</p>
+                            <div class="bg-dark maximize line-block">
+                                <div class="margin-lr-none height-50 bg-black" style="margin: 10px"></div>
                             </div>
-                            <div class="float-clear"></div>
                         </div>
                         <div class="col-half">
-                            <div class="maximize float-left bg-red">
-                                <div class="margin-all margin-right-none bg-black">margin-right-none</div>
+                            <p class="list bold">margin-lb-none</p>
+                            <p class="list bold">margin-bl-none</p>
+                            <div class="bg-dark maximize line-block">
+                                <div class="margin-lb-none height-50 bg-black" style="margin: 10px"></div>
                             </div>
-                            <div class="float-clear"></div>
                         </div>
                         <div class="col-half">
-                            <div class="maximize float-left bg-red">
-                                <div class="margin-all margin-top-none bg-black">margin-top-none</div>
+                            <p class="list bold">margin-rt-none</p>
+                            <p class="list bold">margin-tr-none</p>
+                            <div class="bg-dark maximize line-block">
+                                <div class="margin-rt-none height-50 bg-black" style="margin: 10px"></div>
                             </div>
-                            <div class="float-clear"></div>
                         </div>
                         <div class="col-half">
-                            <div class="maximize float-left bg-red">
-                                <div class="margin-all margin-bottom-none bg-black">margin-bottom-none</div>
+                            <p class="list bold">margin-rb-none</p>
+                            <p class="list bold">margin-br-none</p>
+                            <div class="bg-dark maximize line-block">
+                                <div class="margin-rb-none height-50 bg-black" style="margin: 10px"></div>
                             </div>
-                            <div class="float-clear"></div>
                         </div>
                         <div class="col-half">
-                            <div class="maximize float-left bg-red">
-                                <div class="margin-all margin-lr-none bg-black">margin-lr-none</div>
+                            <p class="list bold">margin-bt-none</p>
+                            <p class="list bold">margin-tb-none</p>
+                            <div class="bg-dark maximize line-block">
+                                <div class="margin-bt-none height-50 bg-black" style="margin: 10px"></div>
                             </div>
-                            <div class="float-clear"></div>
-                        </div>
-                        <div class="col-half">
-                            <div class="maximize float-left bg-red">
-                                <div class="margin-all margin-tb-none bg-black">margin-tb-none</div>
-                            </div>
-                            <div class="float-clear"></div>
                         </div>
                     </div>
                 </div>
             </section>
+
         </main>
 
         <footer class="section bg-black">
@@ -299,5 +511,18 @@
                 </div>
             </div>
         </footer>
+
+        <aside aria-hidden="true">
+            <div class="modal" id="show-code">
+                <div class="modal-box">
+                    <div class="modal-header">Código Fonte</div>
+                    <div class="modal-content">
+                        <pre><code class="language-html"></code></pre>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <script>showCode.init();</script>
     </body>
 </html>

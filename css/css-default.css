@@ -1323,45 +1323,95 @@ table.table.streak tr:nth-child(even) {background-color: #ebebeb}
  * Preenchimento
  * ****************************************
  */
-.padding-all    {padding:        var(--spacing-med)}
-.padding-left   {padding-left:   var(--spacing-med)}
-.padding-right  {padding-right:  var(--spacing-med)}
-.padding-top    {padding-top:    var(--spacing-med)}
-.padding-bottom {padding-bottom: var(--spacing-med)}
-.padding-lr     {padding-left:   var(--spacing-med); padding-right:  var(--spacing-med)}
-.padding-tb     {padding-top:    var(--spacing-med); padding-bottom: var(--spacing-med)}
+.padding-all {padding: var(--spacing-med)}
+.padding-left,
+.padding-lt, .padding-tl,
+.padding-lr, .padding-rl,
+.padding-lb, .padding-bl {padding-left: var(--spacing-med)}
+.padding-right,
+.padding-lr, .padding-rl,
+.padding-rt, .padding-tr,
+.padding-rb, .padding-br {padding-right: var(--spacing-med)}
+.padding-top,
+.padding-lt, .padding-tl,
+.padding-rt, .padding-tr,
+.padding-bt, .padding-tb {padding-top: var(--spacing-med)}
+.padding-bottom,
+.padding-lb, .padding-bl,
+.padding-rb, .padding-br,
+.padding-bt, .padding-tb {padding-bottom: var(--spacing-med)}
 
-.padding-all-min    {padding:        var(--spacing-min)}
-.padding-left-min   {padding-left:   var(--spacing-min)}
-.padding-right-min  {padding-right:  var(--spacing-min)}
-.padding-top-min    {padding-top:    var(--spacing-min)}
-.padding-bottom-min {padding-bottom: var(--spacing-min)}
-.padding-lr-min     {padding-left:   var(--spacing-min); padding-right:  var(--spacing-min)}
-.padding-tb-min     {padding-top:    var(--spacing-min); padding-bottom: var(--spacing-min)}
+.padding-all-min {padding: var(--spacing-min)}
+.padding-left-min,
+.padding-lt-min, .padding-tl-min,
+.padding-lr-min, .padding-rl-min,
+.padding-lb-min, .padding-bl-min {padding-left: var(--spacing-min)}
+.padding-right-min,
+.padding-lr-min, .padding-rl-min,
+.padding-rt-min, .padding-tr-min,
+.padding-rb-min, .padding-br-min {padding-right: var(--spacing-min)}
+.padding-top-min,
+.padding-lt-min, .padding-tl-min,
+.padding-rt-min, .padding-tr-min,
+.padding-bt-min, .padding-tb-min {padding-top: var(--spacing-min)}
+.padding-bottom-min,
+.padding-lb-min, .padding-bl-min,
+.padding-rb-min, .padding-br-min,
+.padding-bt-min, .padding-tb-min {padding-bottom: var(--spacing-min)}
 
-.padding-all-max    {padding:        var(--spacing-max)}
-.padding-left-max   {padding-left:   var(--spacing-max)}
-.padding-right-max  {padding-right:  var(--spacing-max)}
-.padding-top-max    {padding-top:    var(--spacing-max)}
-.padding-bottom-max {padding-bottom: var(--spacing-max)}
-.padding-lr-max     {padding-left:   var(--spacing-max); padding-right:  var(--spacing-max)}
-.padding-tb-max     {padding-top:    var(--spacing-max); padding-bottom: var(--spacing-max)}
+.padding-all-max {padding: var(--spacing-max)}
+.padding-left-max,
+.padding-lt-max, .padding-tl-max,
+.padding-lr-max, .padding-rl-max,
+.padding-lb-max, .padding-bl-max {padding-left: var(--spacing-max)}
+.padding-right-max,
+.padding-lr-max, .padding-rl-max,
+.padding-rt-max, .padding-tr-max,
+.padding-rb-max, .padding-br-max {padding-right: var(--spacing-max)}
+.padding-top-max,
+.padding-lt-max, .padding-tl-max,
+.padding-rt-max, .padding-tr-max,
+.padding-bt-max, .padding-tb-max {padding-top: var(--spacing-max)}
+.padding-bottom-max,
+.padding-lb-max, .padding-bl-max,
+.padding-rb-max, .padding-br-max,
+.padding-bt-max, .padding-tb-max {padding-bottom: var(--spacing-max)}
 
-.padding-all-prop    {padding:        var(--spacing-prp)}
-.padding-left-prop   {padding-left:   var(--spacing-prp)}
-.padding-right-prop  {padding-right:  var(--spacing-prp)}
-.padding-top-prop    {padding-top:    var(--spacing-prp)}
-.padding-bottom-prop {padding-bottom: var(--spacing-prp)}
-.padding-lr-prop     {padding-left:   var(--spacing-prp); padding-right:  var(--spacing-prp)}
-.padding-tb-prop     {padding-top:    var(--spacing-prp); padding-bottom: var(--spacing-prp)}
+.padding-all-prop {padding: var(--spacing-prp)}
+.padding-left-prop,
+.padding-lt-prop, .padding-tl-prop,
+.padding-lr-prop, .padding-rl-prop,
+.padding-lb-prop, .padding-bl-prop {padding-left: var(--spacing-prp)}
+.padding-right-prop,
+.padding-lr-prop, .padding-rl-prop,
+.padding-rt-prop, .padding-tr-prop,
+.padding-rb-prop, .padding-br-prop {padding-right: var(--spacing-prp)}
+.padding-top-prop,
+.padding-lt-prop, .padding-tl-prop,
+.padding-rt-prop, .padding-tr-prop,
+.padding-bt-prop, .padding-tb-prop {padding-top: var(--spacing-prp)}
+.padding-bottom-prop,
+.padding-lb-prop, .padding-bl-prop,
+.padding-rb-prop, .padding-br-prop,
+.padding-bt-prop, .padding-tb-prop {padding-bottom: var(--spacing-prp)}
 
-.padding-all-none    {padding:        0 !important}
-.padding-left-none   {padding-left:   0 !important}
-.padding-right-none  {padding-right:  0 !important}
-.padding-top-none    {padding-top:    0 !important}
-.padding-bottom-none {padding-bottom: 0 !important}
-.padding-lr-none     {padding-left:   0 !important; padding-right:  0 !important}
-.padding-tb-none     {padding-top:    0 !important; padding-bottom: 0 !important}
+.padding-all-none {padding: 0 !important}
+.padding-left-none,
+.padding-lt-none, .padding-tl-none,
+.padding-lr-none, .padding-rl-none,
+.padding-lb-none, .padding-bl-none {padding-left: 0 !important}
+.padding-right-none,
+.padding-lr-none, .padding-rl-none,
+.padding-rt-none, .padding-tr-none,
+.padding-rb-none, .padding-br-none {padding-right: 0 !important}
+.padding-top-none,
+.padding-lt-none, .padding-tl-none,
+.padding-rt-none, .padding-tr-none,
+.padding-bt-none, .padding-tb-none {padding-top: 0 !important}
+.padding-bottom-none,
+.padding-lb-none, .padding-bl-none,
+.padding-rb-none, .padding-br-none,
+.padding-bt-none, .padding-tb-none {padding-bottom: 0 !important}
 
 /**
  * ****************************************

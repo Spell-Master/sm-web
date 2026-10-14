@@ -7,7 +7,18 @@
         <meta name="description" content="Aplicação de preenchimento do css-default.css" />
         <meta name="author" content="Omar Pautz (Spell-master)" />
         <link href="../css-default.css" rel="stylesheet" type="text/css" />
+        <link href="../../lib/prism/prism.css" rel="stylesheet" type="text/css" />
+        <link href="../../javascript/ModalShow/ModalShow.css" rel="stylesheet" type="text/css" />
         <link href="../../lib/stylesheet/core.css" rel="stylesheet" type="text/css" />
+        <script src="../../lib/prism/prism.js"></script>
+        <script src="../../javascript/ModalShow/ModalShow.js"></script>
+        <script src="../../javascript/jsd/js-default.js"></script>
+        <script src="../../lib/js/mostar-codigo.js"></script>
+        <style>
+            .row-pad > [class^="col-"] {
+                padding: 8px
+            }
+        </style>
     </head>
     <body>
         <header>
@@ -30,116 +41,255 @@
             <section class="section">
                 <h2 class="lighter text-gray">&mdash; Preenchimentos Direcionados &mdash;</h2>
                 <div class="padding-tb-prop">
-                    <div class="row-pad align-center text-white">
+                    <div class="static">
+                        <div class="row-pad">
+                            <div class="col-third">
+                                <p class="list bold">padding-all</p>
+                                <div class="padding-all bg-dark">
+                                    <div class="height-50 bg-black"></div>
+                                </div>
+                            </div>
+                            <div class="col-third">
+                                <p class="list bold">padding-all-min</p>
+                                <div class="padding-all-min bg-dark">
+                                    <div class="height-50 bg-black"></div>
+                                </div>
+                            </div>
+                            <div class="col-third">
+                                <p class="list bold">padding-all-max</p>
+                                <div class="padding-all-max bg-dark">
+                                    <div class="height-50 bg-black"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="align-center margin-tb">
+                        <button class="btn-default radius-all-min shadow-box" data-code="">CÓDIGO HTML</button>
+                    </div>
+                </div>
+                <div class="padding-tb-prop">
+                    <div class="row-pad">
                         <div class="col-third">
-                            <div class="padding-all bg-red">
-                                <div class="bg-black">padding-all</div>
+                            <p class="list bold">padding-left</p>
+                            <div class="bg-dark padding-left">
+                                <div class="height-50 bg-black"></div>
                             </div>
                         </div>
                         <div class="col-third">
-                            <div class="padding-all-min bg-green">
-                                <div class="bg-black">padding-all-min</div>
+                            <p class="list bold">padding-left-min</p>
+                            <div class="bg-dark padding-left-min">
+                                <div class="height-50 bg-black"></div>
                             </div>
                         </div>
                         <div class="col-third">
-                            <div class="padding-all-max bg-blue">
-                                <div class="bg-black">padding-all-max</div>
+                            <p class="list bold">padding-left-max</p>
+                            <div class="bg-dark padding-left-max">
+                                <div class="height-50 bg-black"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row-pad">
+                        <div class="col-third">
+                            <p class="list bold">padding-right</p>
+                            <div class="bg-dark padding-right">
+                                <div class="height-50 bg-black"></div>
                             </div>
                         </div>
                         <div class="col-third">
-                            <div class="padding-left bg-red">
-                                <div class="bg-black">padding-left</div>
+                            <p class="list bold">padding-right-min</p>
+                            <div class="bg-dark padding-right-min">
+                                <div class="height-50 bg-black"></div>
                             </div>
                         </div>
                         <div class="col-third">
-                            <div class="padding-left-min bg-green">
-                                <div class="bg-black">padding-left-min</div>
+                            <p class="list bold">padding-right-max</p>
+                            <div class="bg-dark padding-right-max">
+                                <div class="height-50 bg-black"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row-pad">
+                        <div class="col-third">
+                            <p class="list bold">padding-top</p>
+                            <div class="bg-dark padding-top">
+                                <div class="height-50 bg-black"></div>
                             </div>
                         </div>
                         <div class="col-third">
-                            <div class="padding-left-max bg-blue">
-                                <div class="bg-black">padding-left-max</div>
+                            <p class="list bold">padding-top-min</p>
+                            <div class="bg-dark padding-top-min">
+                                <div class="height-50 bg-black"></div>
                             </div>
                         </div>
                         <div class="col-third">
-                            <div class="padding-right bg-red">
-                                <div class="bg-black">padding-right</div>
+                            <p class="list bold">padding-top-max</p>
+                            <div class="bg-dark padding-top-max">
+                                <div class="height-50 bg-black"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row-pad">
+                        <div class="col-third">
+                            <p class="list bold">padding-bottom</p>
+                            <div class="bg-dark padding-bottom">
+                                <div class="height-50 bg-black"></div>
                             </div>
                         </div>
                         <div class="col-third">
-                            <div class="padding-right-min bg-green">
-                                <div class="bg-black">padding-right-min</div>
+                            <p class="list bold">padding-bottom-min</p>
+                            <div class="bg-dark padding-bottom-min">
+                                <div class="height-50 bg-black"></div>
                             </div>
                         </div>
                         <div class="col-third">
-                            <div class="padding-right-max bg-blue">
-                                <div class="bg-black">padding-right-max</div>
+                            <p class="list bold">padding-bottom-max</p>
+                            <div class="bg-dark padding-bottom-max">
+                                <div class="height-50 bg-black"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row-pad">
+                        <div class="col-third">
+                            <p class="list bold">padding-lt</p>
+                            <p class="list bold">padding-tl</p>
+                            <div class="bg-dark padding-lt">
+                                <div class="height-50 bg-black"></div>
                             </div>
                         </div>
                         <div class="col-third">
-                            <div class="padding-top bg-red">
-                                <div class="bg-black">padding-top</div>
+                            <p class="list bold">padding-lt-min</p>
+                            <p class="list bold">padding-tl-min</p>
+                            <div class="bg-dark padding-lt-min">
+                                <div class="height-50 bg-black"></div>
                             </div>
                         </div>
                         <div class="col-third">
-                            <div class="padding-top-min bg-green">
-                                <div class="bg-black">padding-top-min</div>
+                            <p class="list bold">padding-lt-max</p>
+                            <p class="list bold">padding-tl-max</p>
+                            <div class="bg-dark padding-lt-max">
+                                <div class="height-50 bg-black"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row-pad">
+                        <div class="col-third">
+                            <p class="list bold">padding-lr</p>
+                            <p class="list bold">padding-rl</p>
+                            <div class="bg-dark padding-lr">
+                                <div class="height-50 bg-black"></div>
                             </div>
                         </div>
                         <div class="col-third">
-                            <div class="padding-top-max bg-blue">
-                                <div class="bg-black">padding-top-max</div>
+                            <p class="list bold">padding-lr-min</p>
+                            <p class="list bold">padding-rl-min</p>
+                            <div class="bg-dark padding-lr-min">
+                                <div class="height-50 bg-black"></div>
                             </div>
                         </div>
                         <div class="col-third">
-                            <div class="padding-bottom bg-red">
-                                <div class="bg-black">padding-bottom</div>
+                            <p class="list bold">padding-lr-max</p>
+                            <p class="list bold">padding-rl-max</p>
+                            <div class="bg-dark padding-lr-max">
+                                <div class="height-50 bg-black"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row-pad">
+                        <div class="col-third">
+                            <p class="list bold">padding-lb</p>
+                            <p class="list bold">padding-bl</p>
+                            <div class="bg-dark padding-lb">
+                                <div class="height-50 bg-black"></div>
                             </div>
                         </div>
                         <div class="col-third">
-                            <div class="padding-bottom-min bg-green">
-                                <div class="bg-black">padding-bottom-min</div>
+                            <p class="list bold">padding-lb-min</p>
+                            <p class="list bold">padding-bl-min</p>
+                            <div class="bg-dark padding-lb-min">
+                                <div class="height-50 bg-black"></div>
                             </div>
                         </div>
                         <div class="col-third">
-                            <div class="padding-bottom-max bg-blue">
-                                <div class="bg-black">padding-bottom-max</div>
+                            <p class="list bold">padding-lb-max</p>
+                            <p class="list bold">padding-bl-max</p>
+                            <div class="bg-dark padding-lb-max">
+                                <div class="height-50 bg-black"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row-pad">
+                        <div class="col-third">
+                            <p class="list bold">padding-rt</p>
+                            <p class="list bold">padding-tr</p>
+                            <div class="bg-dark padding-rt">
+                                <div class="height-50 bg-black"></div>
                             </div>
                         </div>
                         <div class="col-third">
-                            <div class="padding-lr bg-red">
-                                <div class="bg-black">padding-lr</div>
+                            <p class="list bold">padding-rt-min</p>
+                            <p class="list bold">padding-tr-min</p>
+                            <div class="bg-dark padding-rt-min">
+                                <div class="height-50 bg-black"></div>
                             </div>
                         </div>
                         <div class="col-third">
-                            <div class="padding-lr-min bg-green">
-                                <div class="bg-black">padding-lr-min</div>
+                            <p class="list bold">padding-rt-max</p>
+                            <p class="list bold">padding-tr-max</p>
+                            <div class="bg-dark padding-rt-max">
+                                <div class="height-50 bg-black"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row-pad">
+                        <div class="col-third">
+                            <p class="list bold">padding-rb</p>
+                            <p class="list bold">padding-br</p>
+                            <div class="bg-dark padding-rb">
+                                <div class="height-50 bg-black"></div>
                             </div>
                         </div>
                         <div class="col-third">
-                            <div class="padding-lr-max bg-blue">
-                                <div class="bg-black">padding-lr-max</div>
-                            </div>
-                        </div>
-
-                        <div class="col-third">
-                            <div class="padding-tb bg-red">
-                                <div class="bg-black">padding-tb</div>
+                            <p class="list bold">padding-rb-min</p>
+                            <p class="list bold">padding-br-min</p>
+                            <div class="bg-dark padding-rb-min">
+                                <div class="height-50 bg-black"></div>
                             </div>
                         </div>
                         <div class="col-third">
-                            <div class="padding-tb-min bg-green">
-                                <div class="bg-black">padding-tb-min</div>
+                            <p class="list bold">padding-rb-max</p>
+                            <p class="list bold">padding-br-max</p>
+                            <div class="bg-dark padding-rb-max">
+                                <div class="height-50 bg-black"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row-pad">
+                        <div class="col-third">
+                            <p class="list bold">padding-tb</p>
+                            <p class="list bold">padding-bt</p>
+                            <div class="bg-dark padding-tb">
+                                <div class="height-50 bg-black"></div>
                             </div>
                         </div>
                         <div class="col-third">
-                            <div class="padding-tb-max bg-blue">
-                                <div class="bg-black">padding-tb-max</div>
+                            <p class="list bold">padding-tb-min</p>
+                            <p class="list bold">padding-bt-min</p>
+                            <div class="bg-dark padding-tb-min">
+                                <div class="height-50 bg-black"></div>
+                            </div>
+                        </div>
+                        <div class="col-third">
+                            <p class="list bold">padding-tb-max</p>
+                            <p class="list bold">padding-bt-max</p>
+                            <div class="bg-dark padding-tb-max">
+                                <div class="height-50 bg-black"></div>
                             </div>
                         </div>
                     </div>
                 </div>
+
             </section>
+
 
             <hr />
             <section class="section">
@@ -149,70 +299,86 @@
                         altura e largura de tela.</p>
                 </blockquote>
                 <div class="padding-tb-prop">
-                    <div class="row-pad align-center text-white">
-                        <div class="col-single">
-                            <div class="padding-all-prop bg-dark">
-                                <div class="bg-black">padding-all-prop</div>
+                    <div class="static">
+                        <div class="row-pad">
+                            <div class="col-auto">
+                                <p class="list bold">padding-all-prop</p>
+                                <div class="bg-dark padding-all-prop">
+                                    <div class="height-50 bg-black"></div>
+                                </div>
+                            </div>
+                            <div class="col-auto">
+                                <p class="list bold">padding-left-prop</p>
+                                <div class="bg-dark padding-left-prop">
+                                    <div class="height-50 bg-black"></div>
+                                </div>
+                            </div>
+                            <div class="col-auto">
+                                <p class="list bold">padding-right-prop</p>
+                                <div class="bg-dark padding-right-prop">
+                                    <div class="height-50 bg-black"></div>
+                                </div>
+                            </div>
+                            <div class="col-auto">
+                                <p class="list bold">padding-top-prop</p>
+                                <div class="bg-dark padding-top-prop">
+                                    <div class="height-50 bg-black"></div>
+                                </div>
+                            </div>
+                            <div class="col-auto">
+                                <p class="list bold">padding-bottom-prop</p>
+                                <div class="bg-dark padding-bottom-prop">
+                                    <div class="height-50 bg-black"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="align-center margin-tb">
+                        <button class="btn-default radius-all-min shadow-box" data-code="">CÓDIGO HTML</button>
+                    </div>
+                </div>
+                <div class="padding-tb-prop">
+                    <div class="row-pad">
+                        <div class="col-half">
+                            <p class="list bold">padding-lt-prop</p>
+                            <p class="list bold">padding-tl-prop</p>
+                            <div class="bg-dark padding-lt-prop">
+                                <div class="height-50 bg-black"></div>
                             </div>
                         </div>
                         <div class="col-half">
-                            <div class="padding-left-prop bg-dark">
-                                <div class="bg-black">padding-left-prop</div>
+                            <p class="list bold">padding-lr-prop</p>
+                            <p class="list bold">padding-rl-prop</p>
+                            <div class="bg-dark padding-lr-prop">
+                                <div class="height-50 bg-black"></div>
                             </div>
                         </div>
                         <div class="col-half">
-                            <div class="padding-left-prop bg-dark">
-                                <div class="bg-black">padding-left-prop</div>
+                            <p class="list bold">padding-lb-prop</p>
+                            <p class="list bold">padding-bl-prop</p>
+                            <div class="bg-dark padding-lb-prop">
+                                <div class="height-50 bg-black"></div>
                             </div>
                         </div>
                         <div class="col-half">
-                            <div class="padding-right-prop bg-dark">
-                                <div class="bg-black">padding-right-prop</div>
+                            <p class="list bold">padding-rt-prop</p>
+                            <p class="list bold">padding-tr-prop</p>
+                            <div class="bg-dark padding-rt-prop">
+                                <div class="height-50 bg-black"></div>
                             </div>
                         </div>
                         <div class="col-half">
-                            <div class="padding-right-prop bg-dark">
-                                <div class="bg-black">padding-right-prop</div>
+                            <p class="list bold">padding-rb-prop</p>
+                            <p class="list bold">padding-br-prop</p>
+                            <div class="bg-dark padding-rb-prop">
+                                <div class="height-50 bg-black"></div>
                             </div>
                         </div>
                         <div class="col-half">
-                            <div class="padding-top-prop bg-dark">
-                                <div class="bg-black">padding-top-prop</div>
-                            </div>
-                        </div>
-                        <div class="col-half">
-                            <div class="padding-top-prop bg-dark">
-                                <div class="bg-black">padding-top-prop</div>
-                            </div>
-                        </div>
-                        <div class="col-half">
-                            <div class="padding-bottom-prop bg-dark">
-                                <div class="bg-black">padding-bottom-prop</div>
-                            </div>
-                        </div>
-                        <div class="col-half">
-                            <div class="padding-bottom-prop bg-dark">
-                                <div class="bg-black">padding-bottom-prop</div>
-                            </div>
-                        </div>
-                        <div class="col-half">
-                            <div class="padding-lr-prop bg-dark">
-                                <div class="bg-black">padding-lr-prop</div>
-                            </div>
-                        </div>
-                        <div class="col-half">
-                            <div class="padding-lr-prop maximize float-left bg-dark">
-                                <div class="bg-black">padding-lr-prop</div>
-                            </div>
-                        </div>
-                        <div class="col-half">
-                            <div class="padding-tb-prop bg-dark">
-                                <div class="bg-black">padding-tb-prop</div>
-                            </div>
-                        </div>
-                        <div class="col-half">
-                            <div class="padding-tb-prop bg-dark">
-                                <div class="bg-black">padding-tb-prop</div>
+                            <p class="list bold">padding-bt-prop</p>
+                            <p class="list bold">padding-tb-prop</p>
+                            <div class="bg-dark padding-bt-prop">
+                                <div class="height-50 bg-black"></div>
                             </div>
                         </div>
                     </div>
@@ -226,40 +392,86 @@
                     <p>Remove quaisquer preenchimentos que o elemento possa conter.</p>
                 </blockquote>
                 <div class="padding-tb-prop">
-                    <div class="row-pad align-center text-white">
-                        <div class="col-single">
-                            <div class="padding-all padding-all-none bg-dark">
-                                <div class="bg-black">padding-all-none</div>
+                    <div class="static">
+                        <div class="row-pad">
+                            <div class="col-auto">
+                                <p class="list bold">padding-all-none</p>
+                                <div class="bg-dark padding-all-none" style="padding: 10px">
+                                    <div class="height-50 bg-black"></div>
+                                </div>
+                            </div>
+                            <div class="col-auto">
+                                <p class="list bold">padding-left-none</p>
+                                <div class="bg-dark padding-left-none" style="padding: 10px">
+                                    <div class="height-50 bg-black"></div>
+                                </div>
+                            </div>
+                            <div class="col-auto">
+                                <p class="list bold">padding-right-none</p>
+                                <div class="bg-dark padding-right-none" style="padding: 10px">
+                                    <div class="height-50 bg-black"></div>
+                                </div>
+                            </div>
+                            <div class="col-auto">
+                                <p class="list bold">padding-top-none</p>
+                                <div class="bg-dark padding-top-none" style="padding: 10px">
+                                    <div class="height-50 bg-black"></div>
+                                </div>
+                            </div>
+                            <div class="col-auto">
+                                <p class="list bold">padding-bottom-none</p>
+                                <div class="bg-dark padding-bottom-none" style="padding: 10px">
+                                    <div class="height-50 bg-black"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="align-center margin-tb">
+                        <button class="btn-default radius-all-min shadow-box" data-code="">CÓDIGO HTML</button>
+                    </div>
+                </div>
+                <div class="padding-tb-prop">
+                    <div class="row-pad">
+                        <div class="col-half">
+                            <p class="list bold">padding-lt-none</p>
+                            <p class="list bold">padding-tl-none</p>
+                            <div class="bg-dark padding-lt-none" style="padding: 10px">
+                                <div class="height-50 bg-black"></div>
                             </div>
                         </div>
                         <div class="col-half">
-                            <div class="padding-all padding-left-none bg-dark">
-                                <div class="bg-black">padding-left-none</div>
+                            <p class="list bold">padding-lr-none</p>
+                            <p class="list bold">padding-rl-none</p>
+                            <div class="bg-dark padding-lr-none" style="padding: 10px">
+                                <div class="height-50 bg-black"></div>
                             </div>
                         </div>
                         <div class="col-half">
-                            <div class="padding-all padding-right-none bg-dark">
-                                <div class="bg-black">padding-right-none</div>
+                            <p class="list bold">padding-lb-none</p>
+                            <p class="list bold">padding-bl-none</p>
+                            <div class="bg-dark padding-lb-none" style="padding: 10px">
+                                <div class="height-50 bg-black"></div>
                             </div>
                         </div>
                         <div class="col-half">
-                            <div class="padding-all padding-top-none bg-dark">
-                                <div class="bg-black">padding-top-none</div>
+                            <p class="list bold">padding-rt-none</p>
+                            <p class="list bold">padding-tr-none</p>
+                            <div class="bg-dark padding-rt-none" style="padding: 10px">
+                                <div class="height-50 bg-black"></div>
                             </div>
                         </div>
                         <div class="col-half">
-                            <div class="padding-all padding-bottom-none bg-dark">
-                                <div class="bg-black">padding-bottom-none</div>
+                            <p class="list bold">padding-rb-none</p>
+                            <p class="list bold">padding-br-none</p>
+                            <div class="bg-dark padding-rb-none" style="padding: 10px">
+                                <div class="height-50 bg-black"></div>
                             </div>
                         </div>
                         <div class="col-half">
-                            <div class="padding-all padding-lr-none bg-dark">
-                                <div class="bg-black">padding-lr-none</div>
-                            </div>
-                        </div>
-                        <div class="col-half">
-                            <div class="padding-all padding-tb-none bg-dark">
-                                <div class="bg-black">padding-tb-none</div>
+                            <p class="list bold">padding-bt-none</p>
+                            <p class="list bold">padding-tb-none</p>
+                            <div class="bg-dark padding-bt-none" style="padding: 10px">
+                                <div class="height-50 bg-black"></div>
                             </div>
                         </div>
                     </div>
@@ -279,5 +491,18 @@
                 </div>
             </div>
         </footer>
+
+        <aside aria-hidden="true">
+            <div class="modal" id="show-code">
+                <div class="modal-box">
+                    <div class="modal-header">Código Fonte</div>
+                    <div class="modal-content">
+                        <pre><code class="language-html"></code></pre>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <script>showCode.init();</script>
     </body>
 </html>

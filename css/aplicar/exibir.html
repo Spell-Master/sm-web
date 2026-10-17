@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <title>Exibir</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="Aplicação de exibição do css-default.css" />
+        <meta name="author" content="Omar Pautz (Spell-master)" />
+        <link href="../css-default.css" rel="stylesheet" type="text/css" />
+        <link href="../../lib/prism/prism.css" rel="stylesheet" type="text/css" />
+        <link href="../../javascript/ModalShow/ModalShow.css" rel="stylesheet" type="text/css" />
+        <link href="../../lib/stylesheet/core.css" rel="stylesheet" type="text/css" />
+        <script src="../../lib/prism/prism.js"></script>
+        <script src="../../javascript/ModalShow/ModalShow.js"></script>
+        <script src="../../javascript/jsd/js-default.js"></script>
+        <script src="../../lib/js/mostar-codigo.js"></script>
+    </head>
+    <body>
+        <header>
+            <div class="bg-black">
+                <div class="container padding-all">
+                    <h1 class="text-white shadow-text-white">Exibir</h1>
+                </div>
+            </div>
+            <div class="bg-light shadow-box">
+                <div class="container padding-all">
+                    <p>Propriedades de mostragem</p>
+                </div>
+            </div>
+        </header>
+
+        <main class="container padding-all">
+            <section class="section">
+                <h2 class="lighter text-gray">&mdash; Visual de Bloco &mdash;</h2>
+                <div class="padding-tb-prop">
+                    <div class="row-pad">
+                        <div class="col-half">
+                            <p class="list"><span class="bold">block</span> &DoubleRightArrow;
+                                Gera um elemento de bloco de caixa.</p>
+                            <div class="card">
+                                <div class="block">Elemento de bloco visível</div>
+                            </div>
+                            <div class="align-center margin-tb">
+                                <button class="btn-default radius-all-min shadow-box" data-code="">CÓDIGO HTML</button>
+                            </div>
+                        </div>
+                        <div class="col-half">
+                            <p class="list"><span class="bold">none</span> &DoubleRightArrow;
+                                Não gera um elemento de bloco de caixa.</p>
+                            <p class="font-min italic">Veja o bloco escondido no inspetor.</p>
+                            <div class="card">
+                                <div class="none">Elemento de bloco escondido, somente visível pelo código fonte</div>
+                            </div>
+                            <div class="align-center margin-tb">
+                                <button class="btn-default radius-all-min shadow-box" data-code="">CÓDIGO HTML</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <hr />
+            <section class="section">
+                <h2 class="lighter text-gray">&mdash; Inconsistência &mdash;</h2>
+                <div class="padding-tb-prop">
+                    <p>Declarações incoerentes devem ser evitadas, digamos as seguintes definições:</p>
+                    <div class="code-error">
+                        <pre class="language-html"><code>&lt;div class=&quot;none block&quot;&gt;Erro ou falta de atenção&lt;/div&gt;
+&lt;div class=&quot;block none&quot;&gt;Erro ou falta de atenção&lt;/div&gt;</code></pre>
+                    </div>
+                    <p>Perceba que no primeiro divisor declarei 
+                        <span class="bold">none</span> depois
+                        <span class="bold">block</span> e no segundo divisor declarei ao inverso.</p>
+                    <p>Sendo assim, duas propriedades de resultados inversos, para contexto que
+                        determinha como o elemento vai ser renderizado.</p>
+                    <p class="quote-yellow">Ou seja quero que seja bloco, mas oculto;
+                        <span class="italic">o que não faz nenhum sentido</span>,
+                        um elemento não pode ser bloco ou oculto ao mesmo tempo.</p>
+                    <p>Em ambos os casos os elementos serão ocultos,
+                        tornando a coisa mais sensata.</p>
+                </div>
+                <div class="padding-tb-prop">
+                    <p class="list">Declarando as duas propriedades no mesmo elemento:
+                        <span class="bold">none block</span>,
+                        o elemento sempre será ocultado.</p>
+                    <div class="card">
+                        <div class="none block">Elemento oculto</div>
+                    </div>
+                    <div class="align-center margin-tb">
+                        <button class="btn-default radius-all-min shadow-box" data-code="">CÓDIGO HTML</button>
+                    </div>
+                </div>
+            </section>
+
+            <hr />
+            <section class="section">
+                <h2 class="lighter text-gray">&mdash; Anulando Propriedades &mdash;</h2>
+                <div class="padding-tb-prop">
+                    <p>Muitas ás vezes para uma integração com o usuário,
+                        por alguma razão geralmente por script um elemento que estar
+                        oculto deve ser mostrado, ou virse-e-versa.</p>
+                    <p>Podemos usar:</p>
+                    <ul>
+                        <li><span class="bold text-green">show</span> para anular <span class="bold text-red">none</span></li>
+                        <li><span class="bold text-green">hide</span> para anular <span class="bold text-red">block</span></li>
+                    </ul>
+                </div>
+                <div class="padding-tb-prop">
+                    <div class="row-pad">
+                        <div class="col-half">
+                            <p class="list">Declarando:
+                                <span class="bold">hide</span>
+                                anula o efeito de
+                                <span class="bold">block</span>.</p>
+                            <div class="card">
+                                <div class="hide block">
+                                    Elemento oculto pela propriedadade &quot;hide&quot;
+                                </div>
+                            </div>
+                            <div class="align-center margin-tb">
+                                <button class="btn-default radius-all-min shadow-box" data-code="">CÓDIGO HTML</button>
+                            </div>
+                        </div>
+                        <div class="col-half">
+                            <p class="list">Declarando:
+                                <span class="bold">show</span>
+                                anula o efeito de
+                                <span class="bold">none</span>.</p>
+                            <div class="card">
+                                <div class="show none">
+                                    Elemento visível pela propriedadade &quot;show&quot;
+                                </div>
+                            </div>
+                            <div class="align-center margin-tb">
+                                <button class="btn-default radius-all-min shadow-box" data-code="">CÓDIGO HTML</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <hr />
+            <section class="section">
+                <h2 class="lighter text-gray">&mdash; Hierarquia na Definição &mdash;</h2>
+                <blockquote class="quote">
+                    <p>Quando as propriedades
+                        <span class="bold">show</span> e <span class="bold">hide</span>
+                        estão definidas no mesmo elemento, a ordem ao qual é declarado
+                        vai interferir como esse elemento vai ser exibido.</p>
+                </blockquote>
+                <div class="padding-tb-prop">
+                    <div class="row-pad">
+                        <div class="col-half">
+                            <p class="list">
+                                Definido primeiro <span class="bold">hide</span>
+                                depois <span class="bold">show</span>,
+                                nesse contexto segunda propriedade anula
+                                a primeira propriedade declarada.</p>
+                            <div class="card">
+                                <div class="hide show">
+                                    <div class="padding-all bg-black text-white">Elemento visível</div>
+                                </div>
+                            </div>
+                            <div class="align-center margin-tb">
+                                <button class="btn-default radius-all-min shadow-box" data-code="">CÓDIGO HTML</button>
+                            </div>
+                        </div>
+                        <div class="col-half">
+                            <p class="list">
+                                Definido primeiro <span class="bold">show</span>
+                                depois <span class="bold">hide</span>,
+                                nesse contexto segunda propriedade anula
+                                a primeira propriedade declarada.</p>
+                            <div class="card">
+                                <div class="show hide">
+                                    <div class="padding-all bg-black text-white">Elemento escondido</div>
+                                </div>
+                            </div>
+                            <div class="align-center margin-tb">
+                                <button class="btn-default radius-all-min shadow-box" data-code="">CÓDIGO HTML</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <hr />
+            <section class="section">
+                <h2 class="lighter text-gray">&mdash; Renderização de Bloco como Tabela &mdash;</h2>
+                <blockquote class="quote">
+                    <ul>
+                        <li><span class="bold">table</span> &DoubleRightArrow;
+                            Faz com que o elemento se comporte como uma tag &lt;table&gt;,
+                            mas como uma caixa de nível de bloco.</li>
+                        <li><span class="bold">table-row</span> &DoubleRightArrow;
+                            Faz com que o elemento se comporte como uma tag
+                            &lt;tr&gt; linha pertencente a tag &lt;table&gt;</li>
+                        <li><span class="bold">table-cell</span> &DoubleRightArrow;
+                            Faz com que o elemento se comporte como uma tag
+                            &lt;td&gt; coluna pertencente a tag &lt;tr&gt; em uma &lt;table&gt;</li>
+                    </ul>
+                </blockquote>
+                <div class="padding-tb-prop">
+                    <div class="row-pad">
+                        <div class="col-half">
+                            <p>Uso com a tag &lt;table&gt; (<span class="italic">tabela padrão</span>)</p>
+                            <div class="static">
+                                <table class="border-all width-full">
+                                    <tbody>
+                                        <tr>
+                                            <td class="padding-all bg-red border-right-min">&nbsp;</td>
+                                            <td class="padding-all bg-green border-right-min">&nbsp;</td>
+                                            <td class="padding-all bg-blue border-right-min">&nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="padding-all bg-red border-tr-min">&nbsp;</td>
+                                            <td class="padding-all bg-green border-tr-min">&nbsp;</td>
+                                            <td class="padding-all bg-blue border-tr-min">&nbsp;</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="margin-top align-center">
+                                <button class="btn-default radius-all-min shadow-box" data-code="">CÓDIGO HTML</button>
+                            </div>
+                        </div>
+                        <div class="col-half">
+                            <p>Não é uma tag &lt;table&gt; (<span class="italic">usando as propriedades</span>)</p>
+                            <div class="static">
+                                <div class="table border-all width-full">
+                                    <div class="table-row">
+                                        <div class="table-cell padding-all bg-red border-right-min">&nbsp;</div>
+                                        <div class="table-cell padding-all bg-green border-right-min">&nbsp;</div>
+                                        <div class="table-cell padding-all bg-blue border-right-min">&nbsp;</div>
+                                    </div>
+                                    <div class="table-row">
+                                        <div class="table-cell padding-all bg-red border-tr-min">&nbsp;</div>
+                                        <div class="table-cell padding-all bg-green border-tr-min">&nbsp;</div>
+                                        <div class="table-cell padding-all bg-blue border-tr-min">&nbsp;</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="margin-top align-center">
+                                <button class="btn-default radius-all-min shadow-box" data-code="">CÓDIGO HTML</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <hr />
+            <section class="section">
+                <h2 class="lighter text-gray">&mdash; Renderização de Bloco em Linha &mdash;</h2>
+                <div class="padding-tb-prop">
+                    <div class="row-pad">
+                        <div class="col-half">
+                            <div class="margin-all">
+                                <p class="list"><span class="bold">line-block</span> &DoubleRightArrow;
+                                    Faz com que o elemento seja uma caixa embutida no fluxo da linha.</p>
+                            </div>
+                            <div class="margin-top text-white">
+                                <div class="line-block padding-all bg-red">line-block</div>
+                                <div class="line-block padding-all bg-green">line-block</div>
+                                <div class="line-block padding-all bg-blue">line-block</div>
+                            </div>
+                            <div class="margin-top align-center">
+                                <button class="btn-default radius-all-min shadow-box" data-code="">CÓDIGO HTML</button>
+                            </div>
+                        </div>
+                        <div class="col-half">
+                            <div class="margin-all">
+                                <p class="list"><span class="bold">line-table</span> &DoubleRightArrow;
+                                    Faz com que o elemento se comporte como uma tag &lt;table&gt;,
+                                    mas como uma caixa embutida no fluxo da linha.</p>
+                            </div>
+                            <div class="margin-top text-white">
+                                <div class="line-table padding-all bg-red">line-table</div>
+                                <div class="line-table padding-all bg-green">line-table</div>
+                                <div class="line-table padding-all bg-blue">line-table</div>
+                            </div>
+                            <div class="margin-top align-center">
+                                <button class="btn-default radius-all-min shadow-box" data-code="">CÓDIGO HTML</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <hr />
+            <section class="section">
+                <h2 class="lighter text-gray">&mdash; Mostar em Largura de tela &mdash;</h2>
+                <blockquote class="quote">
+                    <ul>
+                        <li><span class="bold">show-max</span> &DoubleRightArrow;
+                            Visível se a resolução de tela for inferior a 960 pixel&apos;s.</li>
+                        <li><span class="bold">show-md</span> &DoubleRightArrow;
+                            Visível se a resolução de tela for inferior a 640 pixel&apos;s</li>
+                        <li><span class="bold">show-min</span> &DoubleRightArrow;
+                            Visível se a resolução de tela for inferior a 480 pixel&apos;s</li>
+                    </ul>
+                </blockquote>
+                <blockquote class="quote-blue">
+                    <p>Altere o tamanho da largura da tela e veja os elementos ocultos sendo revelados.</p>
+                </blockquote>
+                <div class="padding-tb-prop">
+                    <div class="card">
+                        <div class="row-pad fix text-white">
+                            <div class="col-auto bg-red show-max">
+                                <span class="bold">show-max</span> visível em resolução menor a
+                                <span class="bold">960 pixel&apos;s</span>
+                            </div>
+                            <div class="col-auto bg-green show-med">
+                                <span class="bold">show-med</span> visível em resolução menor a
+                                <span class="bold">640 pixel&apos;s</span>
+                            </div>
+                            <div class="col-auto bg-blue show-min">
+                                <span class="bold">show-min</span> visível em resolução menor a
+                                <span class="bold">480 pixel&apos;s</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="margin-top align-center">
+                        <button class="btn-default radius-all-min shadow-box" data-code="">CÓDIGO HTML</button>
+                    </div>
+                </div>
+            </section>
+
+            <hr />
+            <section class="section">
+                <h2 class="lighter text-gray">&mdash; Ocultar em Largura de tela &mdash;</h2>
+                <blockquote class="quote">
+                    <ul>
+                        <li><span class="bold">hide-max</span> &DoubleRightArrow;
+                            Invisível se a resolução de tela for inferior a 960 pixel&apos;s.</li>
+                        <li><span class="bold">hide-md</span> &DoubleRightArrow;
+                            Invisível se a resolução de tela for inferior a 640 pixel&apos;s</li>
+                        <li><span class="bold">hide-min</span> &DoubleRightArrow;
+                            Invisível se a resolução de tela for inferior a 480 pixel&apos;s</li>
+                    </ul>
+                </blockquote>
+                <blockquote class="quote-blue">
+                    <p>Altere o tamanho da largura da tela e veja os elementos sendo ocultados.</p>
+                </blockquote>
+                <div class="padding-tb-prop">
+                    <div class="card">
+                        <div class="row-pad text-white">
+                            <div class="col-auto bg-red hide-max">
+                                <span class="bold">hide-max</span> invisível em resolução menor a
+                                <span class="bold">960 pixel&apos;s</span>
+                            </div>
+                            <div class="col-auto bg-green hide-med">
+                                <span class="bold">hide-med</span> invisível em resolução menor a
+                                <span class="bold">640 pixel&apos;s</span>
+                            </div>
+                            <div class="col-auto bg-blue hide-min">
+                                <span class="bold">hide-min</span> invisível em resolução menor a
+                                <span class="bold">480 pixel&apos;s</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="margin-top align-center">
+                        <button class="btn-default radius-all-min shadow-box" data-code="">CÓDIGO HTML</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="section bg-black">
+            <div class="container base-center">
+                <div class="align-center text-light font-min">
+                    <p>Aplicação das propriedade com <span class="italic bold">css-default.css</span></p>
+                    <a href="https://github.com/Spell-Master/sm-web/"
+                       target="_blank"
+                       class="href-light"
+                       title="Abre uma nova aba do navegador indo até o repositório no git-hub">
+                        https:&sol;&sol;github.com&sol;Spell-Master&sol;sm-web&sol;</a>
+                </div>
+            </div>
+        </footer>
+
+        <aside aria-hidden="true">
+            <div class="modal" id="show-code">
+                <div class="modal-box">
+                    <div class="modal-header">Código Fonte</div>
+                    <div class="modal-content">
+                        <pre><code class="language-html"></code></pre>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <script>showCode.init();</script>
+        
+    </body>
+</html>

@@ -1443,17 +1443,25 @@ table.table.streak tr:nth-child(even) {background-color: #ebebeb}
  * Exibir
  * ****************************************
  */
-.inline     {display: inline}
-.line-block {display: inline-block}
-.line-table {display: inline-table}
+.block      {display: block}
+.none       {display: none}
 .table      {display: table}
 .table-row  {display: table-row}
 .table-cell {display: table-cell}
-.block      {display: block}
-.none       {display: none}
-.flex       {display: flex}
-.line-flex  {display: inline-flex}
+.line-block {display: inline-block}
+.line-table {display: inline-table}
 
+.show, .show-min, .show-med, .show-max {display: block !important}
+.hide, .hide-min, .hide-med, .hide-max {display: none  !important}
+
+[class="hide show"] {display: block !important}
+[class="show hide"] {display: none  !important}
+
+/**
+ * ****************************************
+ * Listagem
+ * ****************************************
+ */
 .list {
     display: list-item;
     list-style-type: disc;
@@ -1486,9 +1494,6 @@ ul.list::marker, ol.list::marker {
 }
 
 .list-none {list-style: none; padding-inline-start: 0}
-
-.show, .show-min, .show-med, .show-max, [class="hide show"] {display: block !important}
-.hide, .hide-min, .hide-med, .hide-max, [class="show hide"] {display: none  !important}
 
 /**
  * ****************************************

@@ -76,15 +76,17 @@
                     <p class="quote-yellow">Ou seja quero que seja bloco, mas oculto;
                         <span class="italic">o que não faz nenhum sentido</span>,
                         um elemento não pode ser bloco ou oculto ao mesmo tempo.</p>
-                    <p>Em ambos os casos os elementos serão ocultos,
-                        tornando a coisa mais sensata.</p>
+                    <p>Em ambos os casos os elementos serão tratados como caixa de bloco visíveis.</p>
                 </div>
                 <div class="padding-tb-prop">
                     <p class="list">Declarando as duas propriedades no mesmo elemento:
                         <span class="bold">none block</span>,
-                        o elemento sempre será ocultado.</p>
+                        o elemento sempre será uma caixa de bloco.</p>
                     <div class="card">
-                        <div class="none block">Elemento oculto</div>
+                        <div class="none block">
+                            <p><span class="italic bold quote-red">none block</span>
+                            Declaração de propriedades sem coerência.</p>
+                        </div>
                     </div>
                     <div class="align-center margin-tb">
                         <button class="btn-default radius-all-min shadow-box" data-code="">CÓDIGO HTML</button>
@@ -289,7 +291,7 @@
 
             <hr />
             <section class="section">
-                <h2 class="lighter text-gray">&mdash; Mostar em Largura de tela &mdash;</h2>
+                <h2 class="lighter text-gray">&mdash; Mostrar em Largura de Tela &mdash;</h2>
                 <blockquote class="quote">
                     <ul>
                         <li><span class="bold">show-max</span> &DoubleRightArrow;
@@ -328,7 +330,7 @@
 
             <hr />
             <section class="section">
-                <h2 class="lighter text-gray">&mdash; Ocultar em Largura de tela &mdash;</h2>
+                <h2 class="lighter text-gray">&mdash; Ocultar em Largura de Tela &mdash;</h2>
                 <blockquote class="quote">
                     <ul>
                         <li><span class="bold">hide-max</span> &DoubleRightArrow;

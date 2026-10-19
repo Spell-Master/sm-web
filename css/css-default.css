@@ -960,6 +960,41 @@ table.table.streak tr:nth-child(even) {background-color: #ebebeb}
 
 /**
  * ****************************************
+ * Listagem
+ * ****************************************
+ */
+.list {
+    margin-inline-start: 0;
+    padding-inline-start: 0
+}
+
+.list:not(ul):not(ol) {
+    display: list-item;
+    list-style-type: disc;
+    list-style-position: inside
+}
+
+.list::marker,
+ul.list > li::marker {
+    content: "\2022\00A0";
+    font-weight: bold;
+    line-height: 0
+}
+ol.list > li::marker {
+    font-size: .75em;
+    list-style-type: decimal;
+    font-variant-numeric: tabular-nums
+}
+
+.list-none, .list-none > * {
+    margin-inline-start: 0 !important;
+    padding-inline-start: 0 !important;
+    list-style: none !important;
+    list-style-type: none !important
+}
+
+/**
+ * ****************************************
  * Construção Arquitetural
  * ****************************************
  */
@@ -1456,44 +1491,6 @@ table.table.streak tr:nth-child(even) {background-color: #ebebeb}
 
 [class="hide show"] {display: block !important}
 [class="show hide"] {display: none  !important}
-
-/**
- * ****************************************
- * Listagem
- * ****************************************
- */
-.list {
-    display: list-item;
-    list-style-type: disc;
-    counter-reset: none;
-    margin-left: var(--spacing-prp)
-}
-            
-ul.list, ol.list {margin-block: 0; margin-inline: 0}
-ul.list,
-ol.list,
-ul > li.list,
-ol > li.list {
-    margin-left: 0
-}
-
-.list::marker,
-ul.list > li::marker,
-ol.list > li::marker {
-    content: "\2022 \00A0";
-    font-family: inherit;
-    font-size: inherit;
-    font-weight: bold
-}
-ul.list::marker, ol.list::marker {
-    content: "";
-    font-size: 0;
-    color: transparent;
-    display: none;
-    list-style-type: none
-}
-
-.list-none {list-style: none; padding-inline-start: 0}
 
 /**
  * ****************************************

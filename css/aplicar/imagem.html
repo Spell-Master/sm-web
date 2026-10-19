@@ -15,6 +15,13 @@
         <script src="../../javascript/jsd/js-default.js"></script>
         <script src="../../lib/js/mostar-codigo.js"></script>
         <style>
+            img {
+                height: 100%;
+                max-height: 300px;
+                width: 100%;
+                max-width: 400px;
+                display: block
+            }
             #resize-img {
                 position: relative;
                 display: inline-block;
@@ -62,76 +69,72 @@
                 <h2 class="lighter text-gray">&mdash; Proporções de Aspecto &mdash;</h2>
                 <div class="padding-tb-prop">
                     <div class="row-pad">
-                        <div class="col-quarter">
-                            <div class="card padding-all align-center">
-                                <p class="bold">aspect-1x1</p>
-                                <img src="../../lib/img/model.jpg" alt="" class="aspect-1x1 height-200 width-auto" />
-                            </div>
-                            <div class="align-center margin-tb">
-                                <button class="btn-default radius-all-min shadow-box" data-code="">CÓDIGO HTML</button>
-                            </div>
-                        </div>
-                        <div class="col-quarter">
-                            <div class="card padding-all align-center">
-                                <p class="bold">aspect-3x2</p>
-                                <img src="../../lib/img/model.jpg" alt="" class="aspect-3x2 height-200 width-auto" />
-                            </div>
-                            <div class="align-center margin-tb">
-                                <button class="btn-default radius-all-min shadow-box" data-code="">CÓDIGO HTML</button>
-                            </div>
-                        </div>
-                        <div class="col-quarter">
-                            <div class="card padding-all align-center">
-                                <p class="bold">aspect-4x3</p>
-                                <img src="../../lib/img/model.jpg" alt="" class="aspect-4x3 height-200 width-auto" />
-                            </div>
-                            <div class="align-center margin-tb">
-                                <button class="btn-default radius-all-min shadow-box" data-code="">CÓDIGO HTML</button>
-                            </div>
-                        </div>
-                        <div class="col-quarter">
-                            <div class="card padding-all align-center">
-                                <p class="bold">aspect-4x5</p>
-                                <img src="../../lib/img/model.jpg" alt="" class="aspect-4x5 height-200 width-auto" />
-                            </div>
-                            <div class="align-center margin-tb">
-                                <button class="btn-default radius-all-min shadow-box" data-code="">CÓDIGO HTML</button>
+                        <div class="col-half-max">
+                            <div class="row fix">
+                                <div class="col-third">
+                                    <p>Selecione a Proporção:</p>
+                                    <div class="margin-top-max">
+                                        <button data-aspect-btn="aspect-1x1" class="btn-default button-block">aspect-1x1</button>
+                                        <button data-aspect-btn="aspect-3x2" class="btn-default button-block">aspect-3x2</button>
+                                        <button data-aspect-btn="aspect-4x3" class="btn-default button-block">aspect-4x3</button>
+                                        <button data-aspect-btn="aspect-5x4" class="btn-default button-block">aspect-5x4</button>
+                                        <button data-aspect-btn="aspect-9x16" class="btn-default button-block">aspect-9x16</button>
+                                        <button data-aspect-btn="aspect-16x9" class="btn-default button-block">aspect-16x9</button>
+                                        <button data-aspect-btn="aspect-21x9" class="btn-default button-block">aspect-21x9</button>
+                                    </div>
+                                </div>
+                                <div class="col-twothird">
+                                    <p id="aspect-title" class="bold font-max align-center">aspect-1x1</p>
+                                    <div class="card">
+                                        <div class="width-max-300 margin-auto">
+                                            <img id="aspect-img" src="../../lib/img/model.jpg" alt="" class="aspect-1x1" />
+                                        </div>
+                                    </div>
+                                    <div class="align-center margin-tb">
+                                        <button class="btn-default radius-all-min shadow-box" data-code="">CÓDIGO HTML</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-quarter">
-                            <div class="card padding-all align-center">
-                                <p class="bold">aspect-5x4</p>
-                                <img src="../../lib/img/model.jpg" alt="" class="aspect-5x4 height-200 width-auto" />
-                            </div>
-                            <div class="align-center margin-tb">
-                                <button class="btn-default radius-all-min shadow-box" data-code="">CÓDIGO HTML</button>
-                            </div>
-                        </div>
-                        <div class="col-quarter">
-                            <div class="card padding-all align-center">
-                                <p class="bold">aspect-9x16</p>
-                                <img src="../../lib/img/model.jpg" alt="" class="aspect-9x16 height-200 width-auto" />
-                            </div>
-                            <div class="align-center margin-tb">
-                                <button class="btn-default radius-all-min shadow-box" data-code="">CÓDIGO HTML</button>
-                            </div>
-                        </div>
-                        <div class="col-quarter">
-                            <div class="card padding-all align-center">
-                                <p class="bold">aspect-16x9</p>
-                                <img src="../../lib/img/model.jpg" alt="" class="aspect-16x9 height-200 width-auto" />
-                            </div>
-                            <div class="align-center margin-tb">
-                                <button class="btn-default radius-all-min shadow-box" data-code="">CÓDIGO HTML</button>
-                            </div>
-                        </div>
-                        <div class="col-quarter">
-                            <div class="card padding-all align-center">
-                                <p class="bold">aspect-21x9</p>
-                                <img src="../../lib/img/model.jpg" alt="" class="aspect-21x9 height-200 width-auto" />
-                            </div>
-                            <div class="align-center margin-tb">
-                                <button class="btn-default radius-all-min shadow-box" data-code="">CÓDIGO HTML</button>
+                        <div class="col-half-max">
+                            <div class="margin-top-max">
+                                <div class="row fix">
+                                    <div class="col-7">
+                                        <div class="width-max-100 margin-auto">
+                                            <img src="../../lib/img/model.jpg" alt="" class="aspect-1x1" />
+                                        </div>
+                                    </div>
+                                    <div class="col-7">
+                                        <div class="width-max-100 margin-auto">
+                                            <img src="../../lib/img/model.jpg" alt="" class="aspect-3x2" />
+                                        </div>
+                                    </div>
+                                    <div class="col-7">
+                                        <div class="width-max-100 margin-auto">
+                                            <img src="../../lib/img/model.jpg" alt="" class="aspect-4x3" />
+                                        </div>
+                                    </div>
+                                    <div class="col-7">
+                                        <div class="width-max-100 margin-auto">
+                                            <img src="../../lib/img/model.jpg" alt="" class="aspect-5x4" />
+                                        </div>
+                                    </div>
+                                    <div class="col-7">
+                                        <div class="width-max-100 margin-auto">
+                                            <img src="../../lib/img/model.jpg" alt="" class="aspect-9x16" />
+                                        </div>
+                                    </div>
+                                    <div class="col-7">
+                                        <div class="width-max-100 margin-auto">
+                                            <img src="../../lib/img/model.jpg" alt="" class="aspect-16x9" />
+                                        </div>
+                                    </div>
+                                    <div class="col-7">
+                                        <div class="width-max-100 margin-auto">
+                                            <img src="../../lib/img/model.jpg" alt="" class="aspect-21x9" />
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -147,42 +150,35 @@
                 <div class="padding-tb-prop">
                     <div class="align-center">
                         <div class="row-pad">
-                            <div class="col-quarter">
+                            <div class="col-auto">
                                 <p class="bold">aspect-1x1</p>
                                 <div class="aspect-1x1 height-100 width-auto margin-auto bg-black"></div>
                             </div>
-                            <div class="col-quarter">
+                            <div class="col-auto">
                                 <p class="bold">aspect-3x2</p>
                                 <div class="aspect-3x2 height-100 width-auto margin-auto bg-dark"></div>
                             </div>
-                            <div class="col-quarter">
+                            <div class="col-auto">
                                 <p class="bold">aspect-4x3</p>
                                 <div class="aspect-4x3 height-100 width-auto margin-auto bg-black"></div>
                             </div>
-                            <div class="col-quarter">
-                                <p class="bold">aspect-4x5</p>
-                                <div class="aspect-4x5 height-100 width-auto margin-auto bg-dark"></div>
-                            </div>
-                            <div class="col-quarter">
+                            <div class="col-auto">
                                 <p class="bold">aspect-5x4</p>
                                 <div class="aspect-5x4 height-100 width-auto margin-auto bg-black"></div>
                             </div>
-                            <div class="col-quarter">
+                            <div class="col-auto">
                                 <p class="bold">aspect-9x16</p>
                                 <div class="aspect-9x16 height-100 width-auto margin-auto bg-dark"></div>
                             </div>
-                            <div class="col-quarter">
+                            <div class="col-auto">
                                 <p class="bold">aspect-16x9</p>
                                 <div class="aspect-16x9 height-100 width-auto margin-auto bg-black"></div>
                             </div>
-                            <div class="col-quarter">
+                            <div class="col-auto">
                                 <p class="bold">aspect-21x9</p>
                                 <div class="aspect-21x9 height-100 width-auto margin-auto bg-dark"></div>
                             </div>
                         </div>
-                    </div>
-                    <div class="align-center margin-tb">
-                        <button class="btn-default radius-all-min shadow-box" data-code="">CÓDIGO HTML</button>
                     </div>
                 </div>
             </section>
@@ -192,49 +188,48 @@
                 <h2 class="lighter text-gray">&mdash; Ajuste de Objeto &mdash;</h2>
                 <div class="padding-tb-prop">
                     <div class="row-pad">
-                        <div class="col-5">
-                            <div class="card padding-all align-center">
-                                <p class="bold">fit-contain</p>
-                                <img src="../../lib/img/model.jpg" alt="" class="width-200 height fit-contain" />
-                            </div>
-                            <div class="align-center margin-tb">
-                                <button class="btn-default radius-all-min shadow-box" data-code="">CÓDIGO HTML</button>
-                            </div>
-                        </div>
-                        <div class="col-5">
-                            <div class="card padding-all align-center">
-                                <p class="bold">fit-cover</p>
-                                <img src="../../lib/img/model.jpg" alt="" class="width-200 height fit-cover" />
-                            </div>
-                            <div class="align-center margin-tb">
-                                <button class="btn-default radius-all-min shadow-box" data-code="">CÓDIGO HTML</button>
-                            </div>
-                        </div>
-                        <div class="col-5">
-                            <div class="card padding-all align-center">
-                                <p class="bold">fit-fill</p>
-                                <img src="../../lib/img/model.jpg" alt="" class="width-200 height fit-fill" />
-                            </div>
-                            <div class="align-center margin-tb">
-                                <button class="btn-default radius-all-min shadow-box" data-code="">CÓDIGO HTML</button>
+                        <div class="col-half-max">
+                            <div class="row fix">
+                                <div class="col-third">
+                                    <p>Selecione o Ajuste:</p>
+                                    <div class="margin-top-max">
+                                        <button data-fit-btn="fit-contain" class="btn-default button-block">fit-contain</button>
+                                        <button data-fit-btn="fit-cover" class="btn-default button-block">fit-cover</button>
+                                        <button data-fit-btn="fit-fill" class="btn-default button-block">fit-fill</button>
+                                        <button data-fit-btn="fit-down" class="btn-default button-block">fit-down</button>
+                                        <button data-fit-btn="fit-center" class="btn-default button-block">fit-center</button>
+                                    </div>
+                                </div>
+                                <div class="col-twothird">
+                                    <p id="fit-title" class="bold font-max align-center">fit-contain</p>
+                                    <div class="card">
+                                        <img id="fit-img" src="../../lib/img/model.jpg" alt="" class="fit-contain image-auto margin-auto" />
+                                    </div>
+                                    <div class="align-center margin-tb">
+                                        <button class="btn-default radius-all-min shadow-box" data-code="">CÓDIGO HTML</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-5">
-                            <div class="card padding-all align-center">
-                                <p class="bold">fit-down</p>
-                                <img src="../../lib/img/model.jpg" alt="" class="width-200 height fit-down" />
-                            </div>
-                            <div class="align-center margin-tb">
-                                <button class="btn-default radius-all-min shadow-box" data-code="">CÓDIGO HTML</button>
-                            </div>
-                        </div>
-                        <div class="col-5">
-                            <div class="card padding-all align-center">
-                                <p class="bold">fit-none</p>
-                                <img src="../../lib/img/model.jpg" alt="" class="width-200 height fit-center" />
-                            </div>
-                            <div class="align-center margin-tb">
-                                <button class="btn-default radius-all-min shadow-box" data-code="">CÓDIGO HTML</button>
+                        <div class="col-half-max">
+                            <div class="margin-top-max">
+                                <div class="row fix">
+                                    <div class="col-5">
+                                        <img src="../../lib/img/model.jpg" alt="" class="fit-contain width-100 height margin-auto" />
+                                    </div>
+                                    <div class="col-5">
+                                        <img src="../../lib/img/model.jpg" alt="" class="fit-cover width-100 height margin-auto" />
+                                    </div>
+                                    <div class="col-5">
+                                        <img src="../../lib/img/model.jpg" alt="" class="fit-fill width-100 height margin-auto" />
+                                    </div>
+                                    <div class="col-5">
+                                        <img src="../../lib/img/model.jpg" alt="" class="fit-down width-100 height margin-auto" />
+                                    </div>
+                                    <div class="col-5">
+                                        <img src="../../lib/img/model.jpg" alt="" class="fit-center width-100 height margin-auto" />
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -266,6 +261,22 @@
             </div>
         </aside>
 
-        <script>showCode.init();</script>
+        <script>
+            var aspectTitle = jsd('#aspect-title'), aspectImg = jsd('#aspect-img'), aspectData = '';
+            jsd('[data-aspect-btn]').click(function (e) {
+                aspectData = e.target.dataset.aspectBtn;
+                aspectTitle.text(aspectData);
+                aspectImg.className(aspectData);
+            });
+
+            var fitTitle = jsd('#fit-title'), fitImg = jsd('#fit-img'), fitData = '';
+            jsd('[data-fit-btn]').click(function (e) {
+                fitData = e.target.dataset.fitBtn;
+                fitTitle.text(fitData);
+                fitImg.className(fitData + ' image-auto margin-auto');
+            });
+
+            showCode.init();
+        </script>
     </body>
 </html>

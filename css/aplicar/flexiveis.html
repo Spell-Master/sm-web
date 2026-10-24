@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <title>Tipografia</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="Aplicação de flex do css-default.css" />
+        <meta name="author" content="Omar Pautz (Spell-master)" />
+        <link href="../css-default.css" rel="stylesheet" type="text/css" />
+        <link href="../../lib/prism/prism.css" rel="stylesheet" type="text/css" />
+        <link href="../../javascript/ModalShow/ModalShow.css" rel="stylesheet" type="text/css" />
+        <link href="../../lib/stylesheet/core.css" rel="stylesheet" type="text/css" />
+        <script src="../../lib/prism/prism.js"></script>
+        <script src="../../javascript/ModalShow/ModalShow.js"></script>
+        <script src="../../javascript/jsd/js-default.js"></script>
+        <script src="../../lib/js/mostar-codigo.js"></script>
+        <style>
+            .width-50 {
+                color: #ffffff;
+                padding: 10px 20px;
+                font-size: 20px
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <div class="bg-black">
+                <div class="container padding-all">
+                    <h1 class="text-white shadow-text-white">Flexíveis</h1>
+                </div>
+            </div>
+            <div class="bg-light shadow-box">
+                <div class="container padding-all">
+                    <p>Propriedades de caixa flexível</p>
+                </div>
+            </div>
+        </header>
+
+        <main class="container padding-all">
+            <section class="section">
+                <h2 class="lighter text-gray">&mdash; Eixo Horizontal &mdash;</h2>
+                <div class="padding-tb-prop">
+                    <div class="row-pad">
+                        <div class="col-half">
+                            <p class="list"><span class="bold">flex-row</span> &DoubleRightArrow;
+                                Alinha os elementos, internos na horizontal,
+                                da esquerda para direita.</p>
+                            <p>Também pode-se usar a propriedade <span class="bold">flex</span>
+                                que possui o mesmo resultado.</p>
+                            <div class="static">
+                                <div class="flex-row width-full height-200 bg-black">
+                                    <div class="width-50 height bg-red">1</div>
+                                    <div class="width-50 height bg-green">2</div>
+                                    <div class="width-50 height bg-blue">3</div>
+                                </div>
+                            </div>
+                            <div class="align-center margin-top">
+                                <button class="btn-default radius-all-min shadow-box" data-code="">CÓDIGO HTML</button>
+                            </div>
+                        </div>
+                        <div class="col-half">
+                            <p class="list"><span class="bold">flex-row-reverse</span> &DoubleRightArrow;
+                                Alinha os elementos, internos na horizontal,
+                                da direita para esquerda.</p>
+                            <div class="static">
+                                <div class="flex-row-reverse width-full height-200 bg-black">
+                                    <div class="width-50 height bg-red">1</div>
+                                    <div class="width-50 height bg-green">2</div>
+                                    <div class="width-50 height bg-blue">3</div>
+                                </div>
+                            </div>
+                            <div class="align-center margin-top">
+                                <button class="btn-default radius-all-min shadow-box" data-code="">CÓDIGO HTML</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <hr />
+            <section class="section">
+                <h2 class="lighter text-gray">&mdash; Eixo Vertical &mdash;</h2>
+                <div class="padding-tb-prop">
+                    <div class="row-pad">
+                        <div class="col-half">
+                            <p class="list"><span class="bold">flex-column</span> &DoubleRightArrow;
+                                Alinha os elementos, internos na vertical,
+                                da cima para baixo.</p>
+                            <div class="static">
+                                <div class="flex-column width-full height-200 bg-black">
+                                    <div class="width-50 height bg-red">1</div>
+                                    <div class="width-50 height bg-green">2</div>
+                                    <div class="width-50 height bg-blue">3</div>
+                                </div>
+                            </div>
+                            <div class="align-center margin-top">
+                                <button class="btn-default radius-all-min shadow-box" data-code="">CÓDIGO HTML</button>
+                            </div>
+                        </div>
+                        <div class="col-half">
+                            <p class="list"><span class="bold">flex-column-reverse</span> &DoubleRightArrow;
+                                Alinha os elementos, internos na vertical,
+                                da baixo para cima.</p>
+                            <div class="static">
+                                <div class="flex-column-reverse width-full height-200 bg-black">
+                                    <div class="width-50 height bg-red">1</div>
+                                    <div class="width-50 height bg-green">2</div>
+                                    <div class="width-50 height bg-blue">3</div>
+                                </div>
+                            </div>
+                            <div class="align-center margin-top">
+                                <button class="btn-default radius-all-min shadow-box" data-code="">CÓDIGO HTML</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <hr />
+            <section class="section">
+                <h2 class="lighter text-gray">&mdash; Alinhamento Justificado &mdash;</h2>
+                <div class="padding-tb-prop">
+                    <div class="row-pad">
+                        <div class="col-single">
+                            <p class="list"><span class="bold">jus-center</span> &DoubleRightArrow;
+                                Alinhamento ao centro.</p>
+                            <div class="static">
+                                <div class="flex jus-center width-full height-200 bg-black">
+                                    <div class="width-50 height bg-red">1</div>
+                                    <div class="width-50 height bg-green">2</div>
+                                    <div class="width-50 height bg-blue">3</div>
+                                </div>
+                            </div>
+                            <div class="align-center margin-top">
+                                <button class="btn-default radius-all-min shadow-box" data-code="">CÓDIGO HTML</button>
+                            </div>
+                        </div>
+                        <div class="col-half">
+                            <p class="list"><span class="bold">jus-start</span> &DoubleRightArrow;
+                                Alinhamento ao início do bloco.</p>
+                            <div class="static">
+                                <div class="flex jus-start width-full height-200 bg-black">
+                                    <div class="width-50 height bg-red">1</div>
+                                    <div class="width-50 height bg-green">2</div>
+                                    <div class="width-50 height bg-blue">3</div>
+                                </div>
+                            </div>
+                            <div class="align-center margin-top">
+                                <button class="btn-default radius-all-min shadow-box" data-code="">CÓDIGO HTML</button>
+                            </div>
+                        </div>
+                        <div class="col-half">
+                            <p class="list"><span class="bold">jus-end</span> &DoubleRightArrow;
+                                Alinhamento ao fim do bloco.</p>
+                            <div class="static">
+                                <div class="flex jus-end width-full height-200 bg-black">
+                                    <div class="width-50 height bg-red">1</div>
+                                    <div class="width-50 height bg-green">2</div>
+                                    <div class="width-50 height bg-blue">3</div>
+                                </div>
+                            </div>
+                            <div class="align-center margin-top">
+                                <button class="btn-default radius-all-min shadow-box" data-code="">CÓDIGO HTML</button>
+                            </div>
+                        </div>
+                        <div class="col-half">
+                            <p class="list"><span class="bold">jus-left</span> &DoubleRightArrow;
+                                Alinhamento a esquerda do bloco.</p>
+                            <div class="static">
+                                <div class="flex jus-left width-full height-200 bg-black">
+                                    <div class="width-50 height bg-red">1</div>
+                                    <div class="width-50 height bg-green">2</div>
+                                    <div class="width-50 height bg-blue">3</div>
+                                </div>
+                            </div>
+                            <div class="align-center margin-top">
+                                <button class="btn-default radius-all-min shadow-box" data-code="">CÓDIGO HTML</button>
+                            </div>
+                        </div>
+                        <div class="col-half">
+                            <p class="list"><span class="bold">jus-right</span> &DoubleRightArrow;
+                                Alinhamento a direita do bloco.</p>
+                            <div class="static">
+                                <div class="flex jus-right width-full height-200 bg-black">
+                                    <div class="width-50 height bg-red">1</div>
+                                    <div class="width-50 height bg-green">2</div>
+                                    <div class="width-50 height bg-blue">3</div>
+                                </div>
+                            </div>
+                            <div class="align-center margin-top">
+                                <button class="btn-default radius-all-min shadow-box" data-code="">CÓDIGO HTML</button>
+                            </div>
+                        </div>
+                        <div class="col-third">
+                            <p class="list"><span class="bold">jus-around</span> &DoubleRightArrow;
+                                Alinhamento ao redor do bloco.</p>
+                            <div class="static">
+                                <div class="flex jus-around width-full height-200 bg-black">
+                                    <div class="width-50 height bg-red">1</div>
+                                    <div class="width-50 height bg-green">2</div>
+                                    <div class="width-50 height bg-blue">3</div>
+                                </div>
+                            </div>
+                            <div class="align-center margin-top">
+                                <button class="btn-default radius-all-min shadow-box" data-code="">CÓDIGO HTML</button>
+                            </div>
+                        </div>
+                        <div class="col-third">
+                            <p class="list"><span class="bold">jus-between</span> &DoubleRightArrow;
+                                Alinhamento entre do bloco.</p>
+                            <div class="static">
+                                <div class="flex jus-between width-full height-200 bg-black">
+                                    <div class="width-50 height bg-red">1</div>
+                                    <div class="width-50 height bg-green">2</div>
+                                    <div class="width-50 height bg-blue">3</div>
+                                </div>
+                            </div>
+                            <div class="align-center margin-top">
+                                <button class="btn-default radius-all-min shadow-box" data-code="">CÓDIGO HTML</button>
+                            </div>
+                        </div>
+                        <div class="col-third">
+                            <p class="list"><span class="bold">jus-evenly</span> &DoubleRightArrow;
+                                Alinhamento distibuído no bloco.</p>
+                            <div class="static">
+                                <div class="flex jus-evenly width-full height-200 bg-black">
+                                    <div class="width-50 height bg-red">1</div>
+                                    <div class="width-50 height bg-green">2</div>
+                                    <div class="width-50 height bg-blue">3</div>
+                                </div>
+                            </div>
+                            <div class="align-center margin-top">
+                                <button class="btn-default radius-all-min shadow-box" data-code="">CÓDIGO HTML</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <hr />
+            <section class="section">
+                <h2 class="lighter text-gray">&mdash; Centralizar &mdash;</h2>
+                <p class="list"><span class="bold">centralize</span> &DoubleRightArrow;
+                    Move todos elementos internos para o centro, em ambos planos
+                    vertical e horizontal.</p>
+                <div class="padding-tb-prop">
+                    <div class="static">
+                        <div class="centralize width-full height-200 bg-black">
+                            <div class="width-50 height bg-red">1</div>
+                            <div class="width-50 height bg-green">2</div>
+                            <div class="width-50 height bg-blue">3</div>
+                        </div>
+                    </div>
+                    <div class="align-center margin-top">
+                        <button class="btn-default radius-all-min shadow-box" data-code="">CÓDIGO HTML</button>
+                    </div>
+                </div>
+            </section>
+
+            <hr />
+            <section class="section">
+                <h2 class="lighter text-gray">&mdash; Divisão Base na Horizontal &mdash;</h2>
+                <p class="list"><span class="bold">base-inline</span> &DoubleRightArrow;
+                    Expande os elementos na horizontal de forma que todos tenham o mesmo tamanho.</p>
+                <div class="padding-tb-prop">
+                    <div class="font-med text-white align-center">
+                        <div class="flex padding-all bg-black">
+                            <div class="base-inline bg-red">1</div>
+                            <div class="base-inline bg-green">2</div>
+                            <div class="base-inline bg-blue">3</div>
+                        </div>
+                    </div>
+                    <div class="align-center margin-top">
+                        <button class="btn-default radius-all-min shadow-box" data-code="">CÓDIGO HTML</button>
+                    </div>
+                </div>
+            </section>
+
+            <hr />
+            <section class="section">
+                <h2 class="lighter text-gray">&mdash; Divisão Base na Vertical &mdash;</h2>
+                <p class="list"><span class="bold">base-column</span> &DoubleRightArrow;
+                    Expande os elementos na vertical de forma que todos tenham o mesmo tamanho.</p>
+                <div class="padding-tb-prop">
+                    <div class="font-med text-white align-center">
+                        <div class="flex padding-all bg-black">
+                            <div class="base-column height-100 bg-red">1</div>
+                            <div class="base-column bg-green">2</div>
+                            <div class="base-column bg-blue">3</div>
+                        </div>
+                    </div>
+                    <div class="align-center margin-top">
+                        <button class="btn-default radius-all-min shadow-box" data-code="">CÓDIGO HTML</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="section bg-black">
+            <div class="container centralize">
+                <div class="align-center text-light font-min">
+                    <p>Aplicação das propriedade com <span class="italic bold">css-default.css</span></p>
+                    <a href="https://github.com/Spell-Master/sm-web/"
+                       target="_blank"
+                       class="href-light"
+                       title="Abre uma nova aba do navegador indo até o repositório no git-hub">
+                        https:&sol;&sol;github.com&sol;Spell-Master&sol;sm-web&sol;</a>
+                </div>
+            </div>
+        </footer>
+
+        <aside aria-hidden="true">
+            <div class="modal" id="show-code">
+                <div class="modal-box">
+                    <div class="modal-header">Código Fonte</div>
+                    <div class="modal-content">
+                        <pre><code class="language-html"></code></pre>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <script>showCode.init();</script>
+    </body>
+</html>

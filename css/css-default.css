@@ -1498,47 +1498,36 @@ ol.list > li::marker {
  * Flexiveis
  * ****************************************
  */
-.flex-box,
+.flex,
 .flex-row,
 .flex-column,
-.flex-revert,
 .flex-row-reverse,
 .flex-column-reverse {display: flex}
 
 .flex-row            {flex-direction: row}
 .flex-column         {flex-direction: column}
-.flex-revert         {flex-direction: revert}
 .flex-row-reverse    {flex-direction: row-reverse}
 .flex-column-reverse {flex-direction: column-reverse}
 
-.justify-center  {justify-content: center}
-.justify-start   {justify-content: start}
-.justify-end     {justify-content: end}
-.justify-left    {justify-content: left}
-.justify-right   {justify-content: right}
-.justify-normal  {justify-content: normal}
-.justify-revert  {justify-content: revert}
-.justify-around  {justify-content: space-around}
-.justify-between {justify-content: space-between}
-.justify-evenly  {justify-content: space-evenly}
+.jus-center  {justify-content: center}
+.jus-start   {justify-content: start}
+.jus-end     {justify-content: end}
+.jus-left    {justify-content: left}
+.jus-right   {justify-content: right}
+.jus-normal  {justify-content: normal}
+.jus-around  {justify-content: space-around}
+.jus-between {justify-content: space-between}
+.jus-evenly  {justify-content: space-evenly}
 
-.items-baseline {align-items: baseline}
-.items-center   {align-items: center}
-.items-start    {align-items: flex-start}
-.items-end      {align-items: flex-end}
-.items-normal   {align-items: normal}
-.items-revert   {align-items: revert}
-.items-stretch  {align-items: stretch}
-
-.base-center {
+.centralize {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     align-items: center;
     justify-content: center
 }
-.base-inline   {flex: 0 0 auto}
-.base-vertical {flex: 1 1 auto}
+.base-inline {flex: 1 0 auto}
+.base-column {flex: 1 1 auto}
 
 /**
  * ****************************************

@@ -272,11 +272,6 @@ h6.fix, .h6.fix {font-size: 1.25rem} /* 20 */
     transition: background-color .5s linear
 }
 
-[class*="btn"].button-block {
-    width: 100%;
-    display: inline-block
-}
-
 .btn-default  {color: #505050}
 .btn-info,
 .btn-success,
@@ -344,8 +339,7 @@ h6.fix, .h6.fix {font-size: 1.25rem} /* 20 */
  * ****************************************
  */
 .input-default,
-.input-line:not(textarea),
-.input-line:not([contenteditable]) {
+.input-line:not(textarea):not([contenteditable]) {
     color: var(--input-color);
     padding: .75rem;
     display: block;
@@ -1126,8 +1120,8 @@ ol.list > li::marker {
 .width-full,  .height-full.width {width:  100%}
 .height-full, .width-full.height {height: 100%}
 
-.width-full-max,  .height-full-max.width {max-width:  100%}
-.height-full-max, .width-full-max.height {max-height: 100%}
+.width-max,  .height-max.width {max-width:  100%}
+.height-max, .width-max.height {max-height: 100%}
 
 .width-auto,  .height-auto.width {width:  auto}
 .height-auto, .width-auto.height {height: auto}

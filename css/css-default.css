@@ -1520,6 +1520,7 @@ ol.list > li::marker {
     align-items: center;
     justify-content: center
 }
+
 .base-inline {flex: 1 0 auto}
 .base-column {flex: 1 1 auto}
 
@@ -1528,16 +1529,16 @@ ol.list > li::marker {
  * Quadros
  * ****************************************
  */
-.cover-screen {
-    width: 100dvw !important;
-    height: auto !important;
-    max-width: 100% !important;
-    min-height: 100dvh !important
-}
+.section     {padding: 10dvh 0; margin: 0; width: 100%}
+.section-min {padding: 5dvh  0; margin: 0; width: 100%}
+.section-max {padding: 15dvh 0; margin: 0; width: 100%}
 
-.section-min {padding: 5dvh 0  !important; margin: 0; width: 100%}
-.section    {padding: 10dvh 0  !important; margin: 0; width: 100%}
-.section-max {padding: 15dvh 0 !important; margin: 0; width: 100%}
+.cover-screen {
+    width: 100dvw;
+    height: 100dvh;
+    max-width: 100%;
+    max-height: 100%
+}
 
 /**
  * ****************************************
@@ -1649,25 +1650,25 @@ ol.list > li::marker {
 @media (max-width: 960px) {
     .maximize-max {width: 100% !important}
 
-    .section-min {padding: 2dvh   0 !important}
-    .section     {padding: 3.2dvh 0 !important}
-    .section-max {padding: 6dvh   0 !important}
+    .section     {padding: 7.6dvh  0}
+    .section-min {padding: 3.8dvh  0}
+    .section-max {padding: 11.4dvh 0}
 }
 
 @media (max-width: 640px) {
     .maximize-med {width: 100% !important}
     
-    .section-min {padding: 1.2dvh  0 !important}
-    .section     {padding: 1.92dvh 0 !important}
-    .section-max {padding: 3.6dvh  0 !important}
+    .section     {padding: 5.6dvh 0}
+    .section-min {padding: 2.8dvh 0}
+    .section-max {padding: 8.4dvh 0}
 }
 
 @media (max-width: 480px) {
     .maximize-min {width: 100% !important}
 
-    .section-min {padding: .24dvh  0 !important}
-    .section     {padding: .384dvh 0 !important}
-    .section-max {padding: .720dvh 0 !important}
+    .section     {padding: 4.3dvh 0}
+    .section-min {padding: 2.1dvh 0}
+    .section-max {padding: 6.5dvh 0}
 }
 
 @media print {
